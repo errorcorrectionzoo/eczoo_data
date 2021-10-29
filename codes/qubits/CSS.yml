@@ -1,0 +1,32 @@
+# UTF-8 unicode encoding
+
+code_id: CSS
+
+name: 'Calderbank-Shor-Steane (CSS) code'
+
+description: 'An \((n,2^k,d)\) CSS code is usually denoted as \([[n,k,d]]\). Encoding is based on two binary linear codes, an \([n,k_1,d_1]\) code \(C_1\) and \([n,k_2,d_2]\) code \(C_2\) with \(C_1^\perp \subseteq C_2\), such that \(k=k_1+k_2-n\) and \(d=\min\{d_1,d_2\}\).'
+
+protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+
+features:
+  #fault_tolerance: ''
+  #gates: '....'
+  #threshold: '....'
+  #make one that you feel is applicable to a large and interesting class of codes
+
+notes: ''
+
+realizations: ''
+
+decoder: ''
+
+relations:
+  parents:
+    - code_id: 'qubits_into_qubits'
+      detail: ''
+
+    - code_id: stabilizer
+      detail: 'Stabilizer generators can be expressed as either only-\(X\) or only-\(Z\).'
+  cousins:
+    - code_id: binary_linear
+      detail: 'Construction uses two classical linear codes.'
