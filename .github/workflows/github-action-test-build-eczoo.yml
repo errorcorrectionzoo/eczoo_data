@@ -19,6 +19,11 @@ jobs:
 
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
+      - name: Inspect files (debug)
+        run: |
+          pwd
+          ls -lh
+
       - name: Check out ec-zoo generator
         run: |
           git clone https://github.com/errorcorrectionzoo/eczoo_generator.git --depth=1 ecczoo_generator
