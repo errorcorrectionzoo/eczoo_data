@@ -21,14 +21,20 @@ jobs:
 
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          path: ./ecczoo_data
 
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
       - name: Inspect files (debug)
         run: |
           pwd
+          echo $GITHUB_WORKSPACE
+          echo
           ls -lh
+          echo
           ls -lh ..
+          echo
           ls -lh ../..
 
       - name: Check out ec-zoo generator
