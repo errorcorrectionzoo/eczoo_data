@@ -9,6 +9,11 @@ on: [push]
 jobs:
   TestBuildZoo:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./work_dir
+
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -19,14 +24,12 @@ jobs:
 
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
-      - name: cd back upwards
-        run: |
-          cd ..
-
       - name: Inspect files (debug)
         run: |
           pwd
           ls -lh
+          ls -lh ..
+          ls -lh ../..
 
       - name: Check out ec-zoo generator
         run: |
