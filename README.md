@@ -9,7 +9,7 @@ YaML language, and be sure to use a good text editor (if you'd like
 a suggestion, check out the [Atom](https://atom.io/) text editor).
 
 YaML is a common markup language.  You can [google
-"YAML tutorial"](https://google.com?q=YaML+tutorial) or check out
+"YAML tutorial"](https://google.com/search?q=YaML+tutorial) or check out
 the language's [Wikipedia
 page](https://en.wikipedia.org/wiki/YAML).)
 
@@ -56,7 +56,7 @@ features:
 ## Building and previewing the site
 
 To build the site, follow the instructions given in the [`eczoo_generator`
-repository](https://github.com/errorcorrectingzoo/eczoo_generator).
+repository](https://github.com/errorcorrectionzoo/eczoo_generator).
 
 
 ## Contributing
