@@ -20,9 +20,8 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
       - name: Check out ec-zoo generator
-        uses: actions/checkout@v2
-        with:
-          repository: 'errorcorrectionzoo/ecczoo_generator'
+        run: |
+          git clone https://github.com/errorcorrectionzoo/eczoo_generator.git --depth=1 ecczoo_generator
 
       - run: echo "💡 The 'errorcorrectionzoo/ecczoo_generator' repository has been cloned to the runner."
 
