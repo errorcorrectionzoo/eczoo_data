@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./work_dir
+        working-directory: ./
 
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -60,6 +60,7 @@ jobs:
         run: |
           (cd ecczoo_generator && poetry run python generate_ecc_zoo.py --verbose)
 
-      - run: |
+      - name: 'Report success message'
+        run: |
           echo "✅ Zoo was successfully built! 🐘"
       
