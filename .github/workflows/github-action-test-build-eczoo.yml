@@ -64,12 +64,12 @@ jobs:
 
       - name: 'Make archive of zoo files'
         run: |
-          zip -r eczoo_website.zip eczoo_website/
+          zip -r eczoo_website_files.zip eczoo_website/
 
       - uses: actions/upload-artifact@v2
         with:
           name: eczoo_website
-          path: eczoo_website.zip
+          path: eczoo_website_files.zip
           retention-days: 5
 
       - name: 'Report success message'
