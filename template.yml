@@ -1,21 +1,26 @@
-# UTF-8 unicode encoding
+# This is a code entry in the error correction zoo.
 
+# Use UTF-8 unicode encoding
+# code id, physical, logical are all lower case
 code_id: no_spaces_lower_case
+physical: qubits
+logical: qubits
 
+# Careful with apostrophes; refs are either \cite{arXiv:####.#####} or \cite{doi:####...}
 name: 'Everyone''s favorite code'
+introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
 
 description: 'Encoding ... into ... . Encoding is ... .'
 
 protection: 'Protects against ... .'
 
 #features:
-  #gates: 'Keep it succinct for now'
-  #fault_tolerance: 'If applicable, any fault-tolerant protocols with the code.'
+  #gates: 'Easy/hard gates, any fault-tolerant gates, measurements, initializations, error correcting steps'
   #threshold: 'Numerical threshold of 2\% ... . Concatenated-scheme threshold of ...'
-  #make one that you feel is applicable to a large and interesting class of codes
   #encoder: ''
+  #make one that you feel is applicable to a large and interesting class of codes
 
-notes: 'Anything noteworthy that''s not above. Connections to physics. Links to code tables, github, GAP algebra packages, more papers.'
+notes: 'Anything noteworthy that''s not above. Connections to physics. Links to code tables, github, GAP algebra packages, more papers. Reference other codes in the zoo by \hyperref[code:code_id]{text}, but try to first put such descriptions in the parents or cousins fields below.'
 
 realizations: 'Code used in real devices like DVDs, 5G \cite{arXiv:####.#####} or \cite{doi:####...}. Realized in quantum devices ...'
 
