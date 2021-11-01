@@ -31,9 +31,15 @@ features:
     commands in equations, as supported e.g. by AMS-TeX (`\sim`,
     `\langle`, etc.)
 
-  - Cite relevant papers by their arXiv number as `\cite{arxiv:XXXX.XXXXX}`
-    or `\cite{arxiv:quant-ph/XXXXXXX}`, or using their DOI as
-    `\cite{doi:10.ZZZZZZ}`.
+  - Cite relevant papers by their arXiv number as `\cite{arxiv:XXXX.XXXXX}` or
+    `\cite{arxiv:quant-ph/XXXXXXX}`, or using their DOI as
+    `\cite{doi:10.ZZZZZZ}`.  If there is neither an arxiv number nor a DOI
+    number available, you can use a manual citation as `\cite{manual:{(enter
+    citation line incl. author and year here)}}` (you can use the latex-like
+    mini-language inside the manual citation, too).
+    
+  - Reference other codes using `\ref{code:<other-code-id>}`.  To set a custom
+    label to show, you can use `\hyperref[code:<other-code-id>]{link text}`.
     
   - Insert hyperlinks to other web pages as
     `\href{https://example.com/example/page}{shown link text}` or with
