@@ -1,36 +1,54 @@
-# This is a code entry in the error correction zoo.
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
 
 # Use UTF-8 unicode encoding
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph.#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are 
+#    \hyperref[code:code_id]{link text}
+
 # code id, physical, logical are all lower case
 code_id: no_spaces_lower_case
 physical: bits
 logical: qubits
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
-# References are either \cite{arXiv:####.#####} or \cite{doi:####...}
-# Internal references to codes are \hyperref[code:code_id]{text}
 name: 'Everyone''s favorite code'
+
+# This field lists the first reference with the code. This and the fields below should be omitted if they do not apply.
 introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
 
-description: 'Encoding ... into ... . Encoding is ... .'
+# AMS-TeX commands will be rendered inside \( ... \) using MathJaX.
+description: '\([[n,k,d]]\) encoding based on \(H^4(\mathcal{BG},\mathbb{Z})\) ...'
 
 protection: 'Protects against ... .'
 
-#features:
-  #gates: 'Easy/hard gates, any fault-tolerant gates, measurements, initializations, error correcting steps'
-  #threshold: 'Numerical threshold of 2\% ... . Concatenated-scheme threshold of ...'
-  #encoder: ''
+# This field starts a list of specific labeled subfields; do not leave it empty. If empty, comment out.
+features:
+  gates: 'Easy/hard gates, any fault-tolerant gates, measurements, initializations, error correcting steps'
+  threshold: 'Numerical threshold of 2\% ... . Concatenated-scheme threshold of ...'
+  encoder: ''
   #make one that you feel is applicable to a large and interesting class of codes
 
-notes: 'Anything noteworthy that''s not above. Connections to physics. Links to code tables, github, GAP algebra packages, more papers. Reference other codes in the zoo by \hyperref[code:code_id]{text}, but try to first put such descriptions in the parents or cousins fields below.'
-
-realizations: 'Code used in real devices like DVDs, 5G \cite{arXiv:####.#####} or \cite{doi:####...}. Realized in trapped-ion quantum devices in \ref{}, NV centers in \ref{}, ...'
+realizations: 'Code used in real devices like DVDs \cite{doi:####...}, 5G, etc. Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
 
 decoder: ''
 
-# Don't leave fields with subfields, like the one below, empty. Comment them out.
-relations:
+# This field that starts a list of strings, indexed by a dash; do not leave it empty. If empty, comment out.
+notes: 
+  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+  - 'Connections to physics.'
+  - 'Can reference other codes, but try to put such connections in the relations fields.'
+  - 'Anything noteworthy that''s not above or below.'
 
+relations:
   parents:
     - code_id: 'smallest code family that includes this code that maintains the same physical space structure'
       detail: ''
@@ -42,4 +60,3 @@ relations:
       detail: ''
     - code_id: 'codes used in the construction of this code'
       detail: ''
-      
