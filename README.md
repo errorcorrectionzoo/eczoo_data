@@ -33,10 +33,11 @@ features:
 
   - Cite relevant papers by their arXiv number as `\cite{arxiv:XXXX.XXXXX}` or
     `\cite{arxiv:quant-ph/XXXXXXX}`, or using their DOI as
-    `\cite{doi:10.ZZZZZZ}`.  If there is neither an arxiv number nor a DOI
-    number available, you can use a manual citation as `\cite{manual:{(enter
-    citation line incl. author and year here)}}` (you can use the latex-like
-    mini-language inside the manual citation, too).
+    `\cite{doi:10.ZZZZZZ}`.  Citations can be combined as in LaTeX:
+    `\cite{arxiv:XXX,arxiv:YYY,doi:ZZZ}`.  If there is neither an arxiv number nor a DOI
+    number available, you can enter a citation manually as `\cite{manual:{(enter
+    citation line incl. author and year here)}}` (you can use latex-like
+    commands like `\emph{..}` and `\textbf{..}` within the manual citation text).
     
   - Reference other codes using `\ref{code:<other-code-id>}`.  To set a custom
     label to show, you can use `\hyperref[code:<other-code-id>]{link text}`.
