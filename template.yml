@@ -23,41 +23,69 @@ logical: qubits
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
 name: 'Everyone''s favorite code'
 
-# This field lists the first reference with the code. This and the fields below should be omitted if they do not apply.
+# First reference with the code (optional).
 introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
 
 # AMS-TeX commands will be rendered inside \( ... \) using MathJaX.
 description: '\([[n,k,d]]\) encoding based on \(H^4(\mathcal{BG},\mathbb{Z})\) ...'
 
-protection: 'Protects against ... .'
+protection: 'Protects against ... . Given noise model ... , approximate code with parameters ... .'
 
-# This field starts a list of specific labeled subfields; do not leave it empty. If empty, comment out.
-features:
-  gates: 'Easy/hard gates, any fault-tolerant gates, measurements, initializations, error correcting steps'
-  threshold: 'Numerical threshold of 2\% ... . Concatenated-scheme threshold of ...'
-  encoder: ''
-  #make one that you feel is applicable to a large and interesting class of codes
-
-realizations: 'Code used in real devices like DVDs \cite{doi:####...}, 5G, etc. Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
-
-decoder: ''
+#Any fields below should be omitted if they do not apply.
+rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
 
 # This field that starts a list of strings, indexed by a dash; do not leave it empty. If empty, comment out.
-notes: 
+encoder: 
+  - 'Unitary circuit of depth ... with.'
+  - 'Measurement-based preparation ... with ancilla overhead of ... .'
+  - 'Leave discussion of fault tolerance to fault-tolerant_gadget field.'
+
+transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn't apply.'
+general_gates:
+  - 'Universal gate set achieved by either additional ... gate.'
+  - 'Magic-state distillation protocols'
+  - 'kth Clifford hierarchy gates obtained by ... circuits'
+
+decoder: 
+  - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+  - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+fault-tolerant_gadgets:
+  - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+  - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+  - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+  - 'Pieceable fault tolerance.'
+
+threshold: 
+  - 'Error-correction threshold of 2\% ... with perfect ... decoder.'
+  - 'Error-correction threshold of 0.3\% ... with noisy MWPM decoder \cite{doi:good-paper}.'
+  - 'Concatenated-scheme computational threshold of ... with overhead of ... \cite{arxiv:another-paper}'
+  - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+  - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+
+realizations: 
+  - 'Code used in real devices like DVDs \cite{doi:####...}, 5G, etc.'
+  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+#propose a field that you feel is applicable to a large and interesting class of codes
+
+notes:
+  - 'Bounds on n,k, or d for this class.'
   - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
   - 'Connections to physics.'
   - 'Can reference other codes, but try to put such connections in the relations fields.'
   - 'Anything noteworthy that''s not above or below.'
 
+# This field starts a list of specific labeled subfields; do not leave it empty. If empty, comment out.
 relations:
   parents:
-    - code_id: 'smallest code family that includes this code that maintains the same physical space structure'
-      detail: ''
-    - code_id: 'code family described by a property shared by this code other than physical space (e.g., topological)'
-      detail: ''
+    - code_id: code_id1
+      detail: 'code_id1 is smallest code family that includes this code that maintains the same physical space structure'
+    - code_id: code_id2
+      detail: 'code_id2 is code family described by a property shared by this code other than physical space (e.g., topological)'
 
   cousins:
-    - code_id: 'other codes of similar encoding but with different physical space structures (classical or quantum)'
-      detail: ''
-    - code_id: 'codes used in the construction of this code'
-      detail: ''
+    - code_id: code_id3
+      detail: 'code_id3 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+    - code_id: code_id4
+      detail: 'code_id4 are used in the construction of this code'
