@@ -3,14 +3,14 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: toric
+code_id: surface
 physical: qubits
 logical: qubits
 
-name: 'Kitaev''s toric code'
+name: 'Kitaev''s surface code'
 introduced: '\cite{doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}'
 
-description: 'A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qubit located at each edge of the tesselation). \textit{Toric} often refers to the specific code construction on the two-dimensional torus, the construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}, and \textit{surface code} is often an alternative name for the general construction.'
+description: 'A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qubit located at each edge of the tesselation). \textit{Toric code} is often either an alternative name for the general construction or refers to the construction on the two-dimensional torus. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.'
 
 protection: 'When defined on an \(L\times L\) square tiling of the torus, protects against \(L\) errors. More generally, the code distance is related to the homology of the tessellation \cite{doi:10.1063/1.1499754}.'
 
@@ -24,7 +24,7 @@ features:
 notes:
   - 'When treated as ground states of the code Hamiltonian, the code states realize \(\mathbb{Z}_2\) topological order, a topological phase of matter that also exists in \(\mathbb{Z}_2\) lattice gauge theory \cite{doi:10.1063/1.1665530}.'
 
-realizations: 'Distance-two toric codes have been implemented by Andersen et al. \cite{doi:10.1038/s41567-020-0920-y}, Erhard et al. \cite{doi:10.1038/s41586-020-03079-6} and Google Quantum AI \cite{doi:10.1038/s41586-021-03588-y}.'
+realizations: 'Distance-two surface codes have been implemented by Andersen et al. \cite{doi:10.1038/s41567-020-0920-y}, Erhard et al. \cite{doi:10.1038/s41586-020-03079-6} and Google Quantum AI \cite{doi:10.1038/s41586-021-03588-y}.'
 
 decoder: 'Minimum weight perfect-matching \cite{doi:10.1063/1.1499754,doi:10.26421/QIC15.1-2-9}, union-find \cite{arXiv:1709.06218}, renormalization group \cite{doi:10.26421/QIC14.9-10-1,doi:10.1103/PhysRevA.92.032309}, tensor network \cite{doi:10.1103/PhysRevA.90.032326}, Markov chain Monte Carlo \cite{doi:10.1103/PhysRevA.89.022326}, cellular automaton \cite{doi:10.1088/1367-2630/aa7099}, machine learning \cite{doi:10.1103/PhysRevLett.119.030501,doi:10.1088/2058-9565/aad1f7,doi:10.1088/2632-2153/abc609}.'
 
@@ -38,12 +38,12 @@ relations:
       detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation.'
     # - code_id: 'topological'
     #   detail: ''
-    # - code_id: 'qudit_toric'
+    # - code_id: 'qudit_surface'
     #   detail: ''
 
   # cousins:
 
-    # - code_id: 'xzzx'
+    # - code_id: 'xzzx_surface'
     #   detail: 'Related by single-qubit Hadamard gates.'
     # - code_id: 'color'
     #   detail: 'Related by geometrically-local Clifford unitaries.'
