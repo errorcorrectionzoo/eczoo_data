@@ -32,41 +32,41 @@ description: 'Describe code subspace as best as you can here.'
 
 protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
 
-#Any fields below should be omitted if they do not apply.
-rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+# This field starts a list of ecific labeled subfields; do not leave it empty. If empty, comment out.
+features:
+  #Any fields below should be omitted if they do not apply.
+  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
 
-# This field that starts a list of strings, indexed by a dash; do not leave it empty. If empty, comment out.
-encoder: 
-  - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-  - 'Measurement-based preparation ... with ancilla overhead of ... .'
-  - 'Leave discussion of fault tolerance to fault-tolerance field.'
+  # This field that starts a list of strings, indexed by a dash; do not leave it empty. If empty, comment out.
+  encoder: 
+    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+    - 'Measurement-based preparation ... with ancilla overhead of ... .'
+    - 'Leave discussion of fault tolerance to fault-tolerance field.'
 
-transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn't apply.'
-general_gates:
-  - 'Universal gate set achieved by either additional ... gate.'
-  - 'Magic-state distillation protocols'
-  - 'kth Clifford hierarchy gates obtained by ... circuits'
+  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn't apply.'
+  general_gates:
+    - 'Universal gate set achieved by either additional ... gate.'
+    - 'Magic-state distillation protocols'
+    - 'kth Clifford hierarchy gates obtained by ... circuits'
 
-decoder: 
-  - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-  - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+  decoder: 
+    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
 
-fault_tolerance:
-  - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-  - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-  - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-  - 'Pieceable fault tolerance.'
+  fault_tolerance:
+    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+    - 'Pieceable fault tolerance.'
 
-threshold: 
-  - '2\% error-correction threshold  ... with perfect ... decoder.'
-  - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
-  - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... \cite{arxiv:another-paper}'
-  - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
-  - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+  threshold: 
+    - '2\% error-correction threshold  ... with perfect ... decoder.'
+    - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... \cite{arxiv:another-paper}'
+    - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+    - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
 
-realizations: 
-  - 'Code used in real devices like DVDs \cite{doi:####...}, 5G, etc.'
-  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+realizations: 'Code used in real devices like DVDs \cite{doi:####...}, 5G, etc. Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
 
 #propose a field that you feel is applicable to a large and interesting class of codes
 
@@ -77,7 +77,6 @@ notes:
   - 'Can reference other codes, but try to put such connections in the relations fields.'
   - 'Anything noteworthy that''s not above or below.'
 
-# This field starts a list of specific labeled subfields; do not leave it empty. If empty, comment out.
 relations:
   parents:
     - code_id: code_id1
