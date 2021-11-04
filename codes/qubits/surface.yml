@@ -10,7 +10,7 @@ logical: qubits
 name: 'Kitaev''s surface code'
 introduced: '\cite{doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}'
 
-description: 'A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qubit located at each edge of the tesselation). \textit{Toric code} is often either an alternative name for the general construction or refers to the construction on the two-dimensional torus. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.'
+description: 'A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qubit located at each edge of the tesselation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.'
 
 protection: 'When defined on an \(L\times L\) square tiling of the torus, protects against \(L\) errors. More generally, the code distance is related to the homology of the tessellation \cite{doi:10.1063/1.1499754}.'
 
@@ -40,8 +40,6 @@ relations:
       detail: 'Plaquette and star operators are stabilizer generators.'
     - code_id: homological
       detail: ''
-    - code_id: hypergraph_product
-      detail: 'The surface code is obtained from the hypergraph product of two repetition codes.'
     - code_id: quantum_ldpc
       detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation.'
     # - code_id: 'topological'
@@ -50,7 +48,8 @@ relations:
     #   detail: ''
 
   # cousins:
-
+    - code_id: hypergraph_product
+      detail: 'Surface (toric) code obtained from hypergraph product of two (closed-loop) repetition codes.'
     # - code_id: 'xzzx_surface'
     #   detail: 'Related by single-qubit Hadamard gates.'
     # - code_id: 'color'

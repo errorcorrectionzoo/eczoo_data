@@ -14,13 +14,13 @@ description: 'An \([[n,k,d]]\) stabilizer code whose encoding is based on two \h
 
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
-#notes:
-#  - ''
+notes:
+  - 'Original requirement of \(C_1^\perp \subset C_2\) \cite{arXiv:quant-ph/9512032} has been relaxed to absorb \hyperref[code:hypergraph_product]{hypergraph product} codes.'
 
 relations:
   parents:
     - code_id: stabilizer
-      detail: 'Stabilizer generators can be expressed as either only-\(X\) or only-\(Z\).'
+      detail: 'Stabilizer generators can be expressed as either only \(X\)-type or only \(Z\)-type.'
   cousins:
     - code_id: binary_linear
-      detail: 'Construction uses two binary linear codes.'
+      detail: 'Construction uses two related binary linear codes.'
