@@ -10,35 +10,32 @@ logical: qubits
 name: 'Hypergraph product'
 introduced: '\cite{doi:10.1109/TIT.2013.2292061}'
 
-description: 'A family of \([[N,K,D]]\) CSS stabiliser codes whose construction is based on two binary linear \textit{seed} codes \(C_1\) and \(C_2\). In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\). Hypegraph product codes are a special case of the homological product obtained from the product of two length-two chain complexes.'
+description: 'A family of \([[n,k,d]]\) CSS codes whose construction is based on two binary linear \textit{seed} codes \(C_1\) and \(C_2\).'
+# Could be expanded to include Tanner graphs 
+# Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
 
-protection: 'The hypergraph product has distance \(D=O(\sqrt{N})\). The number of encoded logical qubits is \(K=O(k_1k_2)\) where \(k_1\) and \(k_2\) are the dimensions of the classical seed codes \(C_1\) and \(C_2\).'
+protection: 'The hypergraph product has distance \(d=O(\sqrt{n})\). The number of encoded logical qubits is \(k=O(k_1k_2)\) where \(k_1\) and \(k_2\) are the dimensions of the classical seed codes \(C_1\) and \(C_2\).'
 
-# protection: 'The hypergraph product has distance \(D=O(\sqrt{N})\). The number of encoded logical qubits is \(K=O(k_1k_2)\) where \(k_1\) and \(k_2\) are the dimensions of the classical seed codes \(C_1\) and \(C_2\)'.
-
-notes:
-  - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
+#notes:
+# VVA: Added already as cousin entry. - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
 
 # realizations:
   # - 
 
 relations:
   parents:
-    - code_id: stabilizer
-      detail: ''
     - code_id: css
-      detail: '\(X\)- and \(Z\)-type checks are based on the classical seed matrices \(C_1\) and \(C_2\)'
+      detail: '\(X\)- and \(Z\)-type checks are based on the classical seed matrices \(C_1\) and \(C_2\).'
     - code_id: homological
-      detail: 'The hypergraph product is obtained from the homological product of two length-two chain complexes (classical binary codes).'
+      detail: 'Hypergraph product obtained from the homological product of two length-two chain complexes, i.e., classical binary codes.'
     - code_id: quantum_ldpc
-      detail: 'The sparsity of the seed codes \(C_1\) and \(C_2\) is preserved by the hypergraph product (up to a constant factor). The hypergraph product of two classical LDPC codes therefore yields a quantum LDPC code.'
+      detail: 'Sparsity of seed codes \(C_1\) and \(C_2\) preserved by the hypergraph product (up to a constant factor), yielding a QLDPC code.'
     # - code_id: 'topological'
     #   detail: ''
     # - code_id: 'qudit_surface'
     #   detail: ''
 
-  # cousins:
-
+#  cousins:
     # - code_id: 'xzzx_surface'
     #   detail: 'Related by single-qubit Hadamard gates.'
     # - code_id: 'color'
