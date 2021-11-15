@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qecc
+#physical: bits
+#logical: qubits
+
+name: 'Quantum error-correcting code (QECC)'
+
+# Following Gottesman's book, but removed finite dims
+description: 'Encodes quantum information in a (\textit{logical}) subspace of a (\textit{physical}) Hilbert space such that it is possible to recover said information from errors that act as linear maps on the physical space. Denoting Hilbert spaces by the letter \(\mathsf{H}\), a QECC \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with the set of correctable errors \(\cal{E}\) with the following property: there exists a quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\), \({\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\) for some constant \(c\).'
+
+protection: 'Correction capability is determined by the Knill-Laflamme error correction criteria.'
+# Include other often used defs
+
+#notes:
+#  - 'Bounds on n,k, or d for this class.'
+#  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+
+relations:
+  parents:
+#    - code_id: op_alg_code
+#      detail: ''
+
+  cousins:
+#    - code_id: ecc
+#      detail: ''
