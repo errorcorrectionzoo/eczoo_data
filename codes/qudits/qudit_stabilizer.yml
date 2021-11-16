@@ -10,8 +10,9 @@ logical: qudits
 name: 'Qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,2^k,d))_q\) stabilizer code is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\), where \(d\) is the code''s distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(q^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group. The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
-# Fix for q prime vs q prime-power
+description: 'An \(((n,q^k,d))_q\) stabilizer code for prime \(q\) is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\), where \(d\) is the code''s distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(q^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group. The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
+# Defined only for prime-power qudits for now
+# Galois qudit codes have lifted stabiilizers, generally k=n-r/m
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
 
