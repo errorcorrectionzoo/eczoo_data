@@ -1,0 +1,69 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: bosonic_binomial
+physical: oscillators
+logical: qudits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Binomial'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevX.6.031006}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Binomial codes are bosonic rotation codes designed to exactly protect against errors consisting of powers of raising and lowering operators up to some maximum power \cite{doi:10.1103/PhysRevX.6.031006}. Binomial codes are spin-coherent states embedded into an oscillator \cite{doi:10.1103/PhysRevA.97.032346}.'
+
+protection: 'An \((N, S)\) binomial code protects against \(L\) boson losses, \(G\) boson gains, and dephasing up to \(\hat{n}^{\D}\), where \(S=L+G\) and \(N = \mathrm{max}(L,G,2D)\). Binomial codes approximately protects against continuous-time amplitude damping, boson loss and gain, and dephasing.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out.
+# features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  # encoders: 
+  #   - ''
+
+  # transversal_gates: ''
+
+  # general_gates:
+  #   - ''
+
+  # decoders: 
+  #   - ''
+
+  # fault_tolerance:
+  #   - ''
+
+  # threshold: 
+  #   - ''
+
+realizations:
+  - 'Realized in superconducting circuit and bosonic cavity \cite{doi:10.1038/s41567-018-0414-3}.'
+
+notes:
+  - 'The mean occupation number, or average number of bosons in the mode, is \((N+1)(S+1)(d-1)/2 \), where \(d\) is the qudit dimension.'
+
+relations:
+  parents:
+    - code_id: bosonic_rotation
+      detail: 'code_id1 is smallest code family that includes this code that maintains the same physical space structure'
+
+  cousins:
+    - code_id: cat_code
+      detail: 'For a fixed \(S\), binomial codes with \(N \to \infty\) coincide with cat codes as \(\alpha \to \infty\).'
+

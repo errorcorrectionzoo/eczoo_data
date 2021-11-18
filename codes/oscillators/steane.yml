@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: steane
+physical: qubits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+name: 'Steane'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1098/rspa.1996.0136}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'The Steane code is a [[7,1,3]] CSS code that uses the classical binary [7,4,3] Hamming code for X errors and its dual [7,3,4] for Z errors.'
+
+protection: 'Detects errors on 2 qubits, corrects errors on 1 qubit.'
+
+features:
+
+  # encoders: 
+  #   - ''
+
+  # general_gates:
+  #   - ''
+
+  # decoders: 
+    - ''
+
+  transversal_gates: 'Clifford gates are transversal'
+
+  # fault_tolerance:
+  #   - ''
+
+  # threshold: 
+    - ''
+
+realizations:
+  #- 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+  - 'Realized in a ten qubit QCCD trapped-ion quantum computer \cite{arXiv:2107.07505}.'
+
+notes:
+  - 'The stabilizer group for the Steane code has six generators.'
+  - 'Syndrome measurement can be done with flag qubits \cite{arXiv:1612.04795} or with no extra qubits \cite{doi:10.1088/2058-9565/abc6f4}.'
+
+
+relations:
+  parents:
+    - code_id: quantum_hamming_code
+      detail: 'The Steane code is the \(r=3\) code for the family \([[2^r-1,2^r-1-2r,3]]\) of quantum Hamming codes.'
+    - code_id: quantum_color_code
+      # detail: ''
+ 
+#  cousins:
+#    - code_id: hamming
+#      detail: ''

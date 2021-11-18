@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: bosonic_rotation
+physical: oscillators
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Bosonic rotation'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevX.10.011058}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'A bosonic rotation code encodes one qubit into a subspace of the oscillator such that the discrete rotation operator \(\exp\left(\mathrm{i} \pi \hat{n}/N \right)\) acts as the logical Pauli-Z operation. Here \(\hat{n}\) is the number operator diagonal in the Fock basis. The rotation symmetry ensures that encoded states have support only on every \(N^{\textrm{th}}\) Fock state, i.e. \(\sum_{j=0}^\infty \alpha_j \vert{j N}\) for some coefficients \(\alpha_j\).'
+
+protection: 'Photon losses or gains less than \(N\) are detectable. Dephasing rotations \(\exp(\matrhm{i}\theta \hat{n})\) can be detected whenever \(\theta\) is roughly less than \(\pi/N\). To get precise bounds on \(\theta\), one needs to analyze the particular bosonic rotation code specifically.'
+
+features:
+
+  transversal_gates: 'The phase gate \(S = \mathrm{diag}(1,\mathrm{i})\), controlled phase gate \(C_Z = \mathrm{diag}(1,1,1,-1)\).'
+
+  general_gates:
+    - 'The \(T = \mathrm{diag}(1,\exp(\mathrm{i}\pi/4))\) gate is via gate teleportation and a resource state \(\vert 0_N\rangle + \exp(\mathrm{i}\pi/4) \vert 1_N \rangle\).'

@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: number_phase
+physical: oscillators
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Number phase'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevX.10.011058}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Number phase codes are unnormalized bosonic rotation codes that can be approximately implemented physically via a normalization procedure. The logical states of an order \(N\) number phase code are \(\vert 0_L \rangle = \sum_{m=0}^{2N-1} \vert m\pi/N \rangle\) and \(\vert 0_L \rangle = \sum_{m=0}^{2N-1} (-1)^m \vert m\pi/N \rangle\), where \(\vert m\pi/N \rangle = \sum_{n=0}^\infty \mathrm{e}^{\mathrm{i} n \phi} \vert n \rangle\). '
+
+protection: 'Number phase codes of order \(N\) detect up to \(N\) photon loss or gain errors, and dephasing up to \(\theta = \pi/N\).'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out.
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  # encoders: 
+  #   - ''
+
+  # transversal_gates: ''
+
+  general_gates:
+    - 'Measurement is done in the logical \(X\) basis.'
+
+  # decoders: 
+  #   - ''
+
+  fault_tolerance:
+    - 'Fault-tolerant universal quantum computation with number phase codes are based on a concatenation of number phase codes with Bacon-Shor subsystem codes.'
+
+  # threshold: 
+  #   - ''
+
+relations:
+  parents:
+    - code_id: bosonic_rotation
+      # detail: ''
+
+  cousins:
+    - code_id: bosonic_binomial
+      # detail: ''
+    - code_id: gkp
+      detail: 'Number phase codes are very similar to GKP codes in which number and phase in the former case correspond to position and momentum in the latter.'
