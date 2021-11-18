@@ -23,7 +23,14 @@ protection: 'Photon losses or gains less than \(N\) are detectable. Dephasing ro
 
 features:
 
-  transversal_gates: 'The phase gate \(S = \mathrm{diag}(1,\mathrm{i})\), controlled phase gate \(C_Z = \mathrm{diag}(1,1,1,-1)\).'
+  transversal_gates:
+    - 'The phase gate \(S = \mathrm{diag}(1,\mathrm{i})\), controlled phase gate \(C_Z = \mathrm{diag}(1,1,1,-1)\).'
 
   general_gates:
     - 'The \(T = \mathrm{diag}(1,\exp(\mathrm{i}\pi/4))\) gate is via gate teleportation and a resource state \(\vert 0_N\rangle + \exp(\mathrm{i}\pi/4) \vert 1_N \rangle\).'
+
+
+relations:
+  parents:
+    - code_id: oscillators
+      detail: ''
