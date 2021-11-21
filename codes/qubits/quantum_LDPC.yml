@@ -10,15 +10,19 @@ logical: qubits
 name: 'Quantum low-density parity-check (QLDPC) code'
 #introduced: ''
 
-description: ''
+description: 'A LDPC code is a family of stabilizer codes such that the number of qubits participating in each check operator and the number of stabilizer checks that each qubit participates in are both bounded by a constant. A good LDPC code is one where \(g_k \in \theta(n) \) and d \(\in \theta(n)\)\cite{doi:10.1103/PRXQuantum.2.040101}'
 # Make sure to differentiate between low-weight and local
 
-#protection: ''
+#protection: 'Reduce overhead of fault-tolerant quantum computation.'
 
 #notes:
-#  - ''
+  - 'quantum LDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant.\cite{arXiv:1310.2984}'
+  - 'Links to code tables. \cite{doi:10.1103/PRXQuantum.2.040101}'
 
 relations:
   parents:
     - code_id: stabilizer
       detail: ''
+  cousins:
+    - code_id: ldpc code 
+      detail: 'Classical LDPC codes are defined the same way and are highly successful in classical computation.\cite{doi:10.1103/PRXQuantum.2.040101}'
