@@ -1,0 +1,117 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are 
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: quantum_cyclic
+physical: qubits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Quantum-Cyclic code'
+
+# First reference with the code (optional).
+introduced: '\cite{arXiv:1007.1697}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Every linear stabilizer code \(C\) has an associated totally isotropic subspace \(S\subset F_2^{2n}\). Quantum cyclic codes are those codes where \(S\) and its centralizer are ideals in the polynomial ring \(F_4[X]/X^n-1\).'
+
+# protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'Unknown.'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  # encoders: 
+  #   - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+  #   - 'Measurement-based preparation ... with ancilla overhead of ... .'
+  #   - 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  # general_gates:
+  #   - 'Universal gate set achieved by either additional ... gate.'
+  #   - 'Magic-state distillation protocols'
+  #   - 'kth Clifford hierarchy gates obtained by ... circuits'
+
+  decoders: 
+    - 'Adapted from the Berlekamp decoding algorithm for classical BCH codes \cite{arXiv:1007.1697}.'
+    # - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+  # fault_tolerance:
+  #   - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+  #   - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+  #   - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+  #   - 'Pieceable fault tolerance.'
+
+  threshold: 
+    - 'Unknown'
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+# realizations:
+#   # List and explain the different "domains" of realizations in list items.
+#   # Group closely related realizations into a single item. It's OK to have a
+#   # single list item. Each item should more or less correspond to what would be
+#   # said in a paragraph.
+#   - 'Not directly implemented, but BCH codes form a subclass, and are used in DVD, solid state drive storage, etc.'
+
+notes:
+  - '\cite{arXiv:1011.5814} gives a similar construction for quantum cyclic codes.'
+  - 'Kitaev [[5,1,3]] code is an example.'
+  - 'All examples have been found by computer algebra programs. \cite{arXiv:1007.1697} give examples of [[17,1,7]] and [[17,9,3]] quantum cyclic codes.'
+  # - 'Bounds on n,k, or d for this class.'
+  # - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+  # - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
+  # - 'Can reference other codes, but try to put such connections in the relations fields.'
+  # - 'Anything noteworthy that''s not above or below.'
+
+relations:
+  parents:
+    - code_id: stabilizer
+    #   detail: 'Proven \cite{doi:10.1504/IJICOT.2011.044674}'
+    # - code_id: code_id2
+    #   detail: 'code_id2 is a code family that is constructed in a seemingly different way than this code, yet still includes this code.'
+    # - code_id: code_id3
+    #   detail: 'code_id3 is code family described by a property shared by this code other than physical space (e.g., topological)'
+
+  cousins:
+    - code_id: cyclic
+      detail: 'Classical analog.'
+    #   detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+    # - code_id: code_id5
+    #   detail: 'code_id5 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+    # - code_id: code_id6
+    #   detail: 'code_id6 are used in the construction of this code'
+
+
