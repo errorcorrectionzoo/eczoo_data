@@ -10,15 +10,15 @@ logical: bits
 name: 'Polar code'
 introduced: '\cite{doi:10.1109/TIT.2009.2021379}'
 
-description: 'In its basic version, a binary linear polar code encodes \(K\) message bits into \(N=2^n\) bits. The linear transformation that defines the code is given by the matrix \(G^{(n)}=B_N G^{\otimes n}\), where \(B_N\) is a certain \(N\times N\) permutation matrix, and \(G^{\otimes n}\) is the \(n\)th Kronecker power of the \(2\times 2\) \textit{kernel} matrix \(G=\left[\begin{smallmatrix}1 & 0\\ 1 & 1 \end{smallmatrix}\right]\). To encode \(K\) message bits, one forms an \(N\)-vector \(u\) in which \(K\) coordinates represent the message bits and the remaining \(N-K\) coordinates are set to some fixed values (i.e., are frozen). The codeword \(x \in \{0,1\}^N\) is obtained as \(x=u G^{\otimes n}\).
+description: 'In its basic version, a binary linear polar code encodes \(K\) message bits into \(N=2^n\) bits. The linear transformation that defines the code is given by the matrix \(G^{(n)}=B_N G^{\otimes n}\), where \(B_N\) is a certain \(N\times N\) permutation matrix, and \(G^{\otimes n}\) is the \(n\)th Kronecker power of the \(2\times 2\) \textit{kernel} matrix \(G=\left[\begin{smallmatrix}1 & 0\\ 1 & 1 \end{smallmatrix}\right]\). To encode \(K\) message bits, one forms an \(N\)-vector \(u\) in which \(K\) coordinates represent the message bits. The remaining \(N-K\) coordinates are set to some fixed values and are said to be \textit{frozen}. The codeword \(x \in \{0,1\}^N\) is obtained as \(x=u G^{\otimes n}\).
 The choice of the frozen coordinates depends on the communication channel, and they correspond to the least reliable bits on the output of the channel under a particular decoding procedure called successive cancellation decoding. If the communication channel is input-symmetric, the values of the frozen bits can be set to zero.'
 
 protection: 'Protects against various types of noise in the communication channel, for instance, errors, erasures, or other types of noise. Distance plays no role in the analysis of its properties, and is much lower than the largest possible value given \(K,N\).'
 
 features:
-  rate: 'Supports transmission at rates \(K/N\) approaching the Shannon capacity of the channel.'
+  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel.'
   
-  decoders: 
+  decoders:
     - 'Successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
     - 'Successive cancellation list decoder \cite{doi:10.1109/TIT.2015.2410251}.'
 
@@ -26,10 +26,11 @@ features:
     - 'Achieves Shannon capacity of the binary-input memoryless channel under successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
 
 realizations:
-  - 'Code control channels for the 5G NR (New Radio) interfaces'
+  - 'Code control channels for the 5G NR (New Radio) interfaces.'
 
 notes:
   - 'There are multiple variants of the basic construction, in particular relying on other kernel matrices. The codes can be defined for nonbinary alphabets, and they can be adjusted to support tasks such as lossless and lossy compression, successive refinement, communication over the mulitple access channel, communication over the wiretap channel, and many others.'
+  - 'Described in Ch. 32 of Ref. \cite{doi:10.1201/9781315147901}.'
 
 relations:
   parents:
@@ -37,7 +38,7 @@ relations:
       detail: ''
     
   cousins:
-    - code_id: binary_reed_muller
+    - code_id: reed_muller
       detail: 'Reed-Muller code relies on the same generator matrix, but places message bits in different coordinates.'
     - code_id: generalized_concatenated
       detail: 'Polar codes can be represented as generalized concatenations of their kernels.'
