@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ramanujan_tensor_product
+physical: qubits
+logical: qubits
+
+name: 'Ramanujan tensor-product'
+
+# First reference with the code (optional).
+introduced: '\cite{arXiv:2004.07935}'
+
+description: 'A family of quantum codes constructed from Ramanujan quntum codes and an asymptotically good classical LDPC code using distance balancing.'
+
+protection: 'For 2D Ramanujan complexes, codes protect against errors with minimum distance \(D = \Omega(\sqrt(N log(N))\). For 3D Ramanujan complexes, codes protect against errors with minimum distance \(D= \Omega(N^{1/2}\log(N))\).'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out.
+features:
+
+  rate: 'For 2D, the rate is \(\Omega(\sqrt(\frac{1}{N\log(N)}))\), with minimum distance \(D = \Omega(\sqrt(N log(N))\). For 3D, the rate is \(\Omega(\frac{1}{\sqrt(N)\log(N))\) with minimum distance \(d \geq \sqrt(n) \log(n)\).'
+
+  #encoders: 
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  #general_gates:
+  
+  decoders: 
+    - 'For 2d simplicial complexes, cycle code decoder which is a polynomial time algorithm can be used.\cite{rXiv:2004.07935}.'
+
+  #fault_tolerance:
+
+  #threshold: 
+
+#realizations:
+
+notes:
+  - 'Breaks the Freedman et al. lower bound on scaling of minimum distance.'
+  - 'Uses distance balancing \cite{arXiv:1611.03790} to increase distance of code.'
+
+relations:
+  parents:
+    - code_id: homological
+    - code_id: css
+
+  cousins:
+    - code_id: distance_balancing_codes
+      detail: 'Uses distance-balancing to increase distance d.'
+    - code_id: fiber_bundle 
