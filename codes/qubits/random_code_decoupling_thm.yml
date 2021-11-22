@@ -1,0 +1,104 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: random_code_decoupling_thm
+physical: qubits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Achieving Quantum Channel Capacity through Random Codes'
+
+# First reference with the code (optional).
+introduced: '\cite{arXiv:0702005}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Hayden et al. \cite{arXiv:0702005} showed that the quantum channel capacity can be achieved by encoding in a random codespace that is chosen via Haar random unitaries. In particular, they show that such codes achieve perfect transmission by proving that the encoded information is decoupled from the environment. This is a necessary and sufficient condition for successful decoding since measurements of the environment should never reveal the encoded information \cite{doi:10.1103/PhysRevA.54.2629}. Intuitively, coupling with the environment can be decreased by projecting the system onto a random codespace. The more qubits that are randomly discarded, the more the codespace is decoupled from the environment. One may ask what is the least amount of qubits that can be discarded, i.e. the largest remaining codespace, that still achieves decoupling. It can be shown through the decoupling inequality \cite{arXiv:quant-ph/0512247} that the largest possible dimension of the random codespace that achieves decoupling is exactly the coherent information of the channel. Therefore, there exists codes that can transmit information with rate equal to the coherent information. Furthermore, these codes can be constructed with high probability by randomly projecting from an n-dimensional space where n is the number of physical qubits to a k-dimensional codespace where k/n is equal to the coherent information.'
+
+protection: 'Protects against any noisy quantum channel'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'The rate of the code is equal to the coherent information of the channel (i.e. the channel capacity).'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  # encoders:
+  #   - '.'
+  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+  #
+  # general_gates:
+  #   - 'Universal gate set achieved by either additional ... gate.'
+  #   - 'Magic-state distillation protocols'
+  #   - 'kth Clifford hierarchy gates obtained by ... circuits'
+  #
+  # decoders:
+  #   - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+  #   - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+  #
+  # # fault_tolerance:
+  # #   - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+  # #   - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+  # #   - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+  # #   - 'Pieceable fault tolerance.'
+  #
+  # threshold:
+  #   - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
+  #   - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+  #   - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+  #   - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+  #   - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+# realizations:
+#   # List and explain the different "domains" of realizations in list items.
+#   # Group closely related realizations into a single item. It's OK to have a
+#   # single list item. Each item should more or less correspond to what would be
+#   # said in a paragraph.
+#   - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
+#   - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+notes:
+  - 'This construction uses Haar random unitaries to choose the codespace, but it is possible to approximate this using Clifford gates. Since Clifford gates form unitary 2-designs, this protocol shows that random stabilizer codes also achieve the coherent information.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+
+  cousins:
+    - code_id: t_design
+      detail: 'Approximating the random projections through t-designs is necessary in order to make the protocol practical'
+    # - code_id: random_stabilizer
+    # - code_id: non_local_low_depth
+    # - code_id: local_low_depth
+    # - code_id: homological
