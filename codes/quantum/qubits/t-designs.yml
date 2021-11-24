@@ -1,0 +1,91 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are 
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: t-designs
+physical: qubits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'T-design code'
+
+# First reference with the code (optional).
+introduced: 'See Application III in \cite{doi:10.1007/s00220-016-2706-8}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'A state has topological quantum order if there exists an orthogonal state which cannot be distinguished from it by local measurements. In this code, the code states are a pair of approximately topologically ordered states produced by starting with any two orthogonal states on \(n\) qubits and acting with random local circuits of depth \(\leq 10^9 n\).'
+
+protection: 'Protects approximately against a set of errors localized to a region of size \(n/4\) with \(n\) physical qubits. Deviations from ideal quantum error correction conditions are exponentially suppressed in \(n\).'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+#  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders: 
+    - 'random local circuit of depth \(\leq 10^9 n\)'
+
+#  decoders: 
+#    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+#    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+  
+
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+#realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  #- 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
+  #- 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+#notes:
+#  - 'Bounds on n,k, or d for this class.'
+
+#relations:
+#  parents:
+#    - code_id: code_id1
+#      detail: 'code_id1 is smallest code family that includes this code that is defined over the same physical space structure or alphabet'
+#    - code_id: code_id2
+#      detail: 'code_id2 is a code family that is constructed in a seemingly different way than this code, yet still includes this code.'
+#    - code_id: code_id3
+#      detail: 'code_id3 is code family described by a property shared by this code other than physical space (e.g., topological)'
+#  cousins:
+#    - code_id: code_id4
+#      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+#    - code_id: code_id5
+#      detail: 'code_id5 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+#    - code_id: code_id6
+#      detail: 'code_id6 are used in the construction of this code'
