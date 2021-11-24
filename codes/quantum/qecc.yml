@@ -10,7 +10,7 @@ code_id: qecc
 name: 'Quantum error-correcting code (QECC)'
 
 # Following Gottesman's book, but removed finite dims
-description: 'Encodes quantum information in a (\textit{logical}) subspace of a (\textit{physical}) Hilbert space such that it is possible to recover said information from errors that act as linear maps on the physical space. Denoting Hilbert spaces by the letter \(\mathsf{H}\), a QECC \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with the set of correctable errors \(\cal{E}\) with the following property: there exists a quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\), \({\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\) for some constant \(c\). Ideal code states \(|\psi\rangle\) may not be normalizable if the physical Hilbert space in infinite, so approximate versions have to be constructed.'
+description: 'Encodes quantum information in a (\textit{logical}) subspace of a (\textit{physical}) Hilbert space such that it is possible to recover said information from errors that act as linear maps on the physical space. Denoting Hilbert spaces by the letter \(\mathsf{H}\), a QECC \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with a set of correctable errors \(\cal{E}\) with the following property: there exists a quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\), \({\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\) for some constant \(c\). Ideal code states \(|\psi\rangle\) may not be normalizable if the physical Hilbert space in infinite, so approximate versions have to be constructed.'
 
 protection: 'Correction capability is determined by the Knill-Laflamme error correction criteria \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}.'
 # Include other often used defs
@@ -19,10 +19,10 @@ protection: 'Correction capability is determined by the Knill-Laflamme error cor
 #  - 'Bounds on n,k, or d for this class.'
 #  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
 
-#relations:
-#  parents:
-#    - code_id: op_alg_code
-#      detail: ''
+relations:
+  parents:
+    - code_id: oecc
+      detail: ''
 # Add all children
 
 #  cousins:
