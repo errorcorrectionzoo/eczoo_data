@@ -1,0 +1,98 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qecc_finite
+#physical: bits
+#logical: qubits
+
+name: 'Quantum error-correcting code (QECC) in finite dimensions'
+
+# Following Gottesman's book
+description: 'Encodes quantum information in a \(K\)-dimensional (\textit{logical}) subspace \(\mathsf{H_K}\) of an \(N\)-dimensional (\textit{physical}) Hilbert space \(\mathsf{H_N}\) such that it is possible to recover said information from errors. A finite-dimensional QECC \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{K}\to\mathsf{H}_{N}\) with the set of correctable errors \(\cal{E}:\mathsf{H}_N\to\mathsf{H}_M\) with the following property: there exists a quantum operation \(\cal{D}:\mathsf{H}_M\to \mathsf{H}_K\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{K}\), \({\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\) for some constant \(c\).'
+
+protection: 'Correction capability is determined by the Knill-Laflamme error correction criteria \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}.'
+# Include other often used defs
+
+features:
+
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  #encoders: 
+  #  - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+  #  - 'Measurement-based preparation ... with ancilla overhead of ... .'
+  #  - 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  general_gates:
+    - 'Universal gate set cannot be transversal due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
+
+  #decoders: 
+  #  - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+  #  - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+  #fault_tolerance:
+  #  - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+  #  - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+  #  - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+  #  - 'Pieceable fault tolerance.'
+
+  #threshold: 
+  #  - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
+  #  - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+  #  - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+  #  - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+  #  - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
+  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+notes:
+  - 'Bounds on n,k, or d for this class.'
+  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
+  - 'Can reference other codes, but try to put such connections in the relations fields.'
+  - 'Anything noteworthy that''s not above or below.'
+
+relations:
+  parents:
+    - code_id: code_id1
+      detail: 'code_id1 is smallest code family that includes this code that is defined over the same physical space structure or alphabet'
+    - code_id: code_id2
+      detail: 'code_id2 is a code family that is constructed in a seemingly different way than this code, yet still includes this code.'
+    - code_id: code_id3
+      detail: 'code_id3 is code family described by a property shared by this code other than physical space (e.g., topological)'
+
+  cousins:
+    - code_id: code_id4
+      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+    - code_id: code_id5
+      detail: 'code_id5 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+    - code_id: code_id6
+      detail: 'code_id6 are used in the construction of this code'
+
+
+#notes:
+#  - 'Bounds on n,k, or d for this class.'
+#  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+
+#relations:
+#  parents:
+#    - code_id: op_alg_code
+#      detail: ''
+# Add all children
+
+#  cousins:
+#    - code_id: ecc
+#      detail: ''
