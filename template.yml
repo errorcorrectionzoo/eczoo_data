@@ -35,7 +35,7 @@ description: 'Describe code subspace as best as you can here.'
 protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
 
 # This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out.
+# empty. If empty, comment out. Also, indentations are important!
 features:
 
   # The fields below relate to specific properties of the code that are worth
@@ -101,14 +101,16 @@ notes:
 relations:
   parents:
     - code_id: code_id1
-      detail: 'code_id1 is smallest code family that includes this code that maintains the same physical space structure'
+      detail: 'code_id1 is smallest code family that includes this code that is defined over the same physical space structure or alphabet'
     - code_id: code_id2
-      detail: 'code_id2 is code family described by a property shared by this code other than physical space (e.g., topological)'
+      detail: 'code_id2 is a code family that is constructed in a seemingly different way than this code, yet still includes this code.'
+    - code_id: code_id3
+      detail: 'code_id3 is code family described by a property shared by this code other than physical space (e.g., topological)'
 
   cousins:
-    - code_id: code_id3
-      detail: 'code_id3 are other codes of similar encoding but with different physical space structures (classical or quantum)'
     - code_id: code_id4
-      detail: 'code_id4 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
     - code_id: code_id5
-      detail: 'code_id5 are used in the construction of this code'
+      detail: 'code_id5 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+    - code_id: code_id6
+      detail: 'code_id6 are used in the construction of this code'
