@@ -1,0 +1,106 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: two_dimensional_hyperbolic_surface
+physical: bits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Two-dimensional hyperbolic surface code'
+
+# First reference with the code (optional).
+introduced: '\cite{arXiv:1506.04029}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Hyperbolic surface codes are closely related to the toric code (aka surface code) except the tessellations on the manifold are derived on a hyperbolic geometry (ie, non-Euclidean geometry, think saddle surfaces when defined on a 2D plane) instead of Eulicdean surfaces. For a tessellation involving regular polygons with \( r \) sides and \( s \) polygons meeting at each edge, the number of logical qubits (which sit at the center of each tile) is given by \( k = (1-2/r - 2/s) n + 2 \). Some possible tilings are {r,s}: {7,3}, {5,4}. For closed surfaces, two-dimensional hyperbolic surface codes have an asymptotically constant encoding rate $k/n$ with a distance scaling logarithmically $\log(n)$. Additionally, surfaces with more tiling (larger values of r, s) have higher encoding rates (more logical qubits per physical qubits) but stabilizers with larger weights. Given the stabilizers are measured on noisy circuits, lower weight stabilizers are preferable. Therefore, the family of hyperbolic codes generated from the {5,4} tiling may be more favorable since they have lower weight stabilizers. '
+
+protection: 'Protects against Pauli errors with distance \( d \propto \log(n) \). Approximate code parameters are \( [[n, (1-2/r - 2/s)  n + 2, \log(n) ]] \)'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: '\( k/n = (1-2/r - 2/s) + 2/n \) which approaches a constant value as the number of physical qubits grows. The distance of the code scales logarithmically with \( n \) and the weight of the stabilizers is \( r \) for \(r\)-checks and \(s\) for \(X\)-checks, ( Recall \( {r,s} \) are the tiling parameters for the hjyperbolic surface)'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders:
+    - 'As with other surface codes, after the surface is tessellated, the physical qubits sit on the edges of the tiles and the logical qubits sit at the center of the unit.'
+    - 'For each family of codes defined by a given tessellation (ie, {r,s}) the encoding rate decreases with $n$, thus a [[n,k,d]] code derived from a {r,s} tiling will have the rate $k/n = 1 - 2/r - 2/s + 2/n$'
+
+  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  # general_gates:
+
+
+  decoders:
+    - 'Many decoders developed fro the toric code (surface code) can also be used for hyperbolic surface codes. For example, minimum weight-perfect matching \cite{arXiv:1506.04029} and union find decoder \cite{1709.06218} are both valid decoders for two-dimensional hyperbolic surface codes.'
+    - 'Due to the symmetries of hyperbolic surface codes, optimal measurement schedules of the stabilizers can be found \cite{arXiv:2010.09626}.'
+
+  # fault_tolerance:
+  #   - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+  #   - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+  #   - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+  #   - 'Pieceable fault tolerance.'
+
+  threshold:
+    - 'Since the distance is logarithmic, the threshold exists for a given tiling under minimum weight decoding \cite{doi:10.1103/PhysRevA.87.020304}.'
+    - 'For a {5,4} tiling, the threshold is between 1% - 5% (compared to the toric code 10.3%)'
+    - 'For larger tilings, the lower bound on the distance decreases suggesting the threshold will also decrease.'
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'This family of codes is described on a closed 2D surface, however, in a physical implementaion the surface would have open boundary conditions. Creating explicit boundaries reduces the efficiency of the code, reducing the code to a constant distance. '
+
+notes:
+  - 'Useful review article, Sec III A for a description of this code \cite{arXiv:2103.06309}'
+  - 'Connection to percolation theory as shown in \cite{arXiv:1205.7036}'
+
+relations:
+  parents:
+    - code_id: surface
+      detail: 'The two-dimensional hyperbolic surface code belongs to the family of codes which place physical qubits on the edges of a tesselated unit on the surface'
+    - code_id: hyperbolic_surface
+      detail: 'The two-dimensional hyperbolic surface code is an instance of a surface code defined on hyperbolic geometriy in 2D'
+    - code_id: homological
+      detail: 'Homological codes are related via the tiling of closed surfaces'
+    - code_id: quantum_ldpc
+
+  cousins:
+    - code_id: four_dimensional_hyperbolic_surface
+      detail: '4D cousin of this 2D code'
+    - code_id: hyperbolic
+      detail: 'Similar to hyperbolic codes, holographic codes tesselate hyperbolic surfaces but place the physical qubits on the edge of the entire surface rather than on the edge of the tiles. '
