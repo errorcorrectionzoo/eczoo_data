@@ -1,0 +1,94 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: monitored_random_circuits
+physical: bits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Monitored Random Circuits'
+
+# First reference with the code (optional).
+introduced: '\cite{10.1103/PhysRevX.9.031009}, \cite{10.1103/PhysRevB.98.205136}, \cite{arXiv:1808.06134}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'A monitored random circuit is described by a series of intermittant local projective Pauli measurements with unitary time evolution operators. When the rate of projective measurements is independently controlled by a probability parameter p, there exist two sable phases, one described by the volume-law entanglement entropy and the other described by area-law entanglement entropy. The phase transition can be understood from the perspective of quantum error correction and information scrambling, as discussed in \cite{arXiv:1903.05124}. In the volume-law phase, the random unitaries scramble the information (rotate the code words), protecting the information from the projective measurements (aka errors). When the rate of measurements surpasses a threshold \( p_c \) the information is no longer protected. The key insight offered by the quantum error correction implemented by the scrambling dynamics is that the entanglement and correlation between subsystems A, B is scrambled into non-local degrees of freedom and cannot be disentangled by local measurements below \( p < p_c \).'
+
+- '\textbf{Clifford monitored random circuits}: When considering unitary evolutions, it can be useful to only condier unitaries that belong to the Clifford group such that the series of time evolved Pauli operators are always Pauli operators, by definition of the Clifford group. In this case, the time-evolved projective measurement at time step $j$ is given by \( P_j = U_{\tau} \cdots U_j P_j^’ (U_{\tau} \cdots U_j)^{\dagger} \). Thus the monitored random circuit just implements a series of projective measurements at various time steps.'
+
+protection: 'When in the volume-law phase, protects against random projective measurements at a rate \( p < p_c \). As described in \cite{1903.05124} and \cite{2105.13352} the subleading contribution to the entropy can be interpreted as the code distance and is given by \(d_{\rm code} = L^{\gamma_{code}} \) where \( \gamma_{code} \approx 0.38 \) and \( L \) is the size of the system. For a monitored circuit in the volume law-phase with an exponentially long memory time, \( d \leq Poly(n) \).'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'Finite rate \cite{arXiv:2007.03822}. Can think of as a stabilizer code whose parameters depend on time, \( [[n,k(t),d(t)]] \)'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders:
+    - 'The dynamics of the monitored random circuit can be recast in the language of stabilizer codes \cite{arXiv:1903.05124}. The stabilizers of the monitored Clifford circuit can be recursively defined as \( Stab$^{(t)} = \langle P_{\tau}, Stab^{(\tau - 1)} \rangle \). The number of stabilizers increases if and only if the next Pauli \( P_{\tau+1} \) commutes with the operators in \( Stab$^{\tau} \) . If not, then the Pauli operators which do not commute with  \( P_{\tau} \) are removed and \( P_{\tau} \) is added. The likelihood of randomly generating a \( P_{\tau} \) which commutes with all the Pauli’s in the stabilizer is low when the stabilizer group is already large (at entanglement equilibrium).'
+
+  # transversal_gates:
+
+  # general_gates:
+
+  # decoders:
+
+  # fault_tolerance:
+
+
+  threshold:
+    - 'Above the critical measurement rate \( p_c\), the natural error correction properties of the circuit can no longer protect the information. This can be interpreted as the code threshold.'
+
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Measurement induced quantum phases have been realized in trapped-ion processor \cite{arXiv:2106.05881}'
+
+notes:
+  - 'Monitored random circuits exhibit measurement induced phase transitions between systems with volume law entanglement and area-law entanglement.'
+  - 'Connectinos to information scrambling in black hole physics as introduced in Section 11 of \cite{arXiv:1903.05124}. In particular, monitored random circuits can be viewed as the Hayden-Preskill recovery problem \cite{doi:10.1103/PhysRevD.100.086001} running backwards in time. In this setting, the volume-law entanglement phase of the monitored circuit is describes the phase when information can be recovered from an old black hole (ie, a black hole that is maximally entangled with the early universe). '
+  - 'Mapping monitored random circuits to statistical mechanics models can help estiamte thresholds and code distances for these systems \cite{arXiv:2007.03822}'
+  - 'Toplogical order in (2+1)D monitored random circuits \cite{arXiv:2011.06595}'
+
+relations:
+  parents:
+    - code_id: random_codes
+
+  cousins:
+    # - code_id:
+    #   detail:
