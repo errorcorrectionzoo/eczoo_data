@@ -1,0 +1,91 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: three_qutrit_code
+physical: qutrits
+logical: qutrits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Three Qutrit Code'
+
+# First reference with the code (optional).
+introduced: '\cite{arXiv:quant-ph/9901025v1}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'The three qubtrit code is a quantum error correction code protecting a single qutrit encoded in three qutrits (qudit with \( d = 3 \) ) against a single erasure. It is an example of a \( ((n = 3, k = 2)) \) threshold scheme where a secret (quantum information) is split into \( n \) shares and can be reconstructed by \( k \) pieces. They key property of this code is that the reduced density matrix of any single qutrit is maximally mixed, meaning no information can be extracted from a single qutrit. Therefore, any arbitrary single qutrit tells you nothing about the encoded message, but access to any two pairs of qutrits will reveal the secret.'
+
+
+protection: 'Protects against single qutrit erasure.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'k/n = 1/3'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders:
+    - 'The code space of the three qutrit code is given by Eq. (1) in \cite{arXiv:quant-ph/9901025v1}.'
+    - 'Arbitrary operators are encoded by transforming (\ O_{12} = U_{12}^{\daggger} O U_{12} \) which has the same action on the code space as $O_{13}$ or $O_{23}$. The logical operator \( \tilde{O} \) has valid representations with support on different sets of two qutrits. This is directly analogous to to the construction of operators (in the bulk) at the center of the AdS(\_3\)-Rindler reconstruction. It actually describes how local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}. '
+
+  # transversal_gates:
+
+  # general_gates:
+
+
+  decoders:
+    - 'The secret (quantum information) can be recovered from any two qubits by applying a unitary permutation matrix. For example, \( U_{12} \otimes I_3 \ket{\tilde{Psi}} = \ket{\Psi} \otimes (\ket{00} + \ket{11} + \ket{22} ) \).'
+
+  # fault_tolerance:
+
+  # threshold:
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+# realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+
+
+notes:
+  - 'Connections to Ads/CFT from the perspetive of how arbitrary operators are encoded into the logical space. This encoding is analagous and helps explain why operators acting on the bulk are protected against localized boundary errors \cite{arXiv:1411.7041}.'
+
+relations:
+  parents:
+    - code_id: holographic_code
+      detail: ''
+
+  # cousins:
+  #   - code_id:
+  #     detail:
