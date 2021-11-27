@@ -10,16 +10,16 @@ logical: q-ary_digits
 name: '\(q\)-ary linear code'
 #introduced: ''
 
-description: 'An \((n,2^k,d)_q\) linear code is denoted as \([n,k,d]_q\). Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(\alpha x+ \beta y\) is also a codeword for any \(q\)-ary digits \(\alpha,\beta\). Often defined in terms of a generator matrix \(G\), whose rows form a basis for the subspace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\).'
+description: 'An \((n,K,d)_q\) linear code is denoted as \([n,k,d]_q\), where \(k=\log_{q}K\) need not be an integer. Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(\alpha x+ \beta y\) is also a codeword for any \(q\)-ary digits \(\alpha,\beta\). Often defined in terms of a generator matrix \(G\), whose rows form a basis for the subspace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\).'
+# Split defn over F_q and Z_q?
 
 protection: 'Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.'
 
 notes:
   - 'Admits a parity check matrix \(H\), whose columns make up a maximal linearly independent set of vectors that are in the kernel of \(G\).'
 
-
 relations:
   parents:
-    - code_id: 'q-ary_digits_into_q-ary_digits'
+    - code_id: q-ary_digits_into_q-ary_digits
       detail: ''
 
