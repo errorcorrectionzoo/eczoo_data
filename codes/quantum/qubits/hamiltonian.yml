@@ -8,7 +8,7 @@ code_id: hamiltonian
 name: 'Hamiltonian-based code'
 #introduced: ''
 
-description: 'Encoding consists of a set of energy eigenstates of a quantum-mechanical Hamiltonian. The codespace is typically a set of low-energy eigenstates or ground states, but can include subspaces of arbitrarily high energy. When the physical space is a tensor product of subsystems, the Hamiltonian is typically \textit{local}, consisting of operators acting on a number of subsystems that is independent of the total number of subsystems (e.g., quantum_ldpc). When the physical space is endowed with a geometry, the Hamiltonian is typically \textit{geometrically local}, consisting of operators acting on subsystems that occupy a region whose size is independent of the number of subsystems (e.g., topological codes).'
+description: 'Encoding consists of a set of energy eigenstates of a quantum-mechanical Hamiltonian. The codespace is typically a set of low-energy eigenstates or ground states, but can include subspaces of arbitrarily high energy. When the physical space is a tensor product of subsystems, the Hamiltonian is typically \textit{local}, consisting of operators acting on a number of subsystems that is independent of the total number of subsystems (e.g., \hyperref[code:quantum_ldpc]{quantum LDPC codes}). When the physical space is endowed with a geometry, the Hamiltonian is typically \textit{geometrically local}, consisting of operators acting on subsystems that occupy a region whose size is independent of the number of subsystems (e.g., \hyperref[code:topological]{topological codes}).'
 
 protection: 'Often determined from the underlying physical properties of the Hamiltonian.'
 
@@ -20,18 +20,9 @@ relations:
   parents:
     - code_id: oecc
       detail: ''
-  cousins:
+  #cousins:
     #- code_id: thermodynamic
     #  detail: 'Thermodynamic codes are formed by eigenstates of Hamiltonians satisfying ETH.'
-    - code_id: stabilizer
-      detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
-    - code_id: quantum_ldpc
-      detail: 'Codespace is the ground-state space of a local \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
-    - code_id: quantum_repetition
-      detail: 'Codespace is the ground-state space of a one-dimensional classical Ising model with nearest-neighbor interactions.'
-    - code_id: topological
-      detail: 'Codespace is either the ground-state or low-energy subspace of a geometrically local Hamiltonian admitting a topological phase.'
-
       # Other thermodynamic codes?
       # Ouyang and Ramis
       # Oscillator toric?
