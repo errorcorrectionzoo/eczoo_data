@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: very-small-logical-qubit
+physical: bits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Kapit qubit'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevLett.116.150501}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'A single logical qubit given by the two lowest energy states of a circuit composed of two transmon qubits coupled to two lossy resonators.'
+
+protection: 'Passively protects against single photon loss.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # Any fields below should be omitted if they do not apply.
+
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders: 
+    - 'Engineering a circuit made of two transmons and two oscillators coupled through three driven superconducting quantum interference devices (SQUIDs) results in passive stabilization of the logical states.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  general_gates:
+    - 'Single logical qubit operations implemented by resonant physical qubit driving and phase shifting the SQUID drives.'
+    - 'A CZ gate between two logical qubits implemented by coupling devices through another driven SQUID and applying a pulse to the coupling squid simultaneously with a single qubit operation on one of the logical qubits.'
+
+  #decoders:
+    - 'Logical qubit can be measured with physical qubit measurements along \(X\). Can be implemented according to \cite{doi:10.1103/PhysRevLett.115.203601}'
+
+  #fault_tolerance:
+
+  #threshold: 
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+#realizations:
+ 
+notes:
+  - 'The lossy resonators can also be lossy qubits.'
+
+relations:
+  parents:
+    - code_id: hybrid_qudit_oscillator
+      detail: 'hybrid_qudit oscillator code giving a qubit out of two qubits and two oscillators, i.e. \(K=2,\,n_1=2,\,q=2,\,n_2=2\).'
+
+  #cousins:
