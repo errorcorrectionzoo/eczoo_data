@@ -7,16 +7,15 @@ code_id: quantum_repetition
 physical: qubits
 logical: qubits
 
-name: 'Quantum repetition code'
+name: 'Qubit repetition code'
 #introduced: ''
 
-description: 'Encodes \(1\) qubit into \(n\) qubits according to \(|0\rangle\to|0\rangle^{\otimes n}\) and \(|1\rangle\to|1\rangle^{\otimes n}\).'
+description: 'Encodes \(1\) qubit into \(n\) qubits according to \(|0\rangle\to|\phi_0\rangle^{\otimes n}\) and \(|1\rangle\to|\phi_1\rangle^{\otimes n}\). Also known as a \textit{bit-flip} code when \(|\phi_i\rangle = |i\rangle\), and a \textit{phase-flip} code when \(|\phi_0\rangle = |+\rangle\) and \(|\phi_1\rangle = |-\rangle\).'
 
-protection: 'Detects bit-flip errors \(X\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits. Cannot detect any phase-flip errors \(Z\).'
+protection: 'Bit-flip code detects bit-flip errors \(X\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any phase-flip errors \(Z\). Phase-flip code detects phase-flip errors \(Z\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any bit-flip errors \(X\).'
 
 notes:
-  - 'Logical qubit spanned by GHz (a.k.a. cat) states \(|0\rangle^{\otimes n}\pm|1\rangle^{\otimes n}\), which are used in Shor error correction.'
-
+  - 'Logical basis for the bit-flip code is spanned by GHz (a.k.a. cat) states \(|0\rangle^{\otimes n}\pm|1\rangle^{\otimes n}\), which are used in Shor error correction.'
 
 relations:
   parents:
@@ -24,4 +23,4 @@ relations:
       detail: ''
   cousins:
     - code_id: hamiltonian
-      detail: 'Codespace is the ground-state space of a one-dimensional classical Ising model with nearest-neighbor interactions.'
+      detail: 'Bit-flip codespace is the ground-state space of a one-dimensional classical Ising model with nearest-neighbor interactions.'
