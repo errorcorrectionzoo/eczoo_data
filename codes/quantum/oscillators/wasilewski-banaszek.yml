@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: wasilewski-banaszek
+physical: oscillators
+logical: qubits
+
+name: 'Wasilewski-Banaszek'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevA.75.042316}'
+
+description: 'Three-photon code for a single qubit. \(|0_L\rangle = (|003\rangle+|030\rangle+|300\rangle)/\sqrt{3},\qquad|1_L\rangle = |111\rangle \).'
+
+protection: 'Protects against photon loss'
+
+features:
+
+  # Any fields below should be omitted if they do not apply.
+
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders: 
+    - 'Qubit encoded in dual rail representation can be transferred to this code by input qubit modes into a linear optical network with four other modes all with one photon input. Successful encoding is conditioned on measurement of the state \(|110\rangle\) on the last three modes.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  general_gates:
+    - 'Single qubit gates implemented using linear optical networks, sometimes with the addition of auxiliary modes with vacuum input and (conditional) output.'
+
+  decoders:
+    - 'Destructive measurement with photon number measurements on each mode.'
+    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+
+  #fault_tolerance:
+
+  #threshold: 
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+#realizations:
+ 
+#notes:
+
+relations:
+  #parents:
+
+  cousins:
+    - code_id: chuang-leung-yamamoto
+      detail: 'chuang-leung-yamamoto code also encodes qubits using states of fixed total excitation number.'
