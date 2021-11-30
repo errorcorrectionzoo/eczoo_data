@@ -7,7 +7,7 @@ code_id: fock_state
 physical: oscillators
 logical: qudits
 
-name: 'Fock-state code'
+name: 'Fock-state bosonic code'
 introduced: '\cite{arXiv:quant-ph/9505011,arXiv:quant-ph/9610043}'
 
 description: 'Qudit-into-osillator code whose error correcting properties against oscillator amplitude damping (i.e., photon loss) stem from the use of disjoint sets of Fock states in the code state construction. For example, single-mode Fock-state codes include any qubit codes whose basis states are, respectively, supported on Fock states \(|0\rangle,|4\rangle,|8\rangle,\cdots\) and \(|2\rangle,|6\rangle,|10\rangle,\cdots\). As a result, the code states typically are most naturally expressed in terms of Fock states.'
@@ -21,3 +21,7 @@ relations:
   parents:
     - code_id: qudits_into_oscillators
       detail: ''
+
+  cousins:
+    - code_id: binary_linear
+      detail: 'Fock-state code distance is a natural extension of Hamming distance between qubit basis states.'
