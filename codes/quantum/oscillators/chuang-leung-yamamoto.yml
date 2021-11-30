@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+# code id, physical, logical are all lower case
+code_id: chuang-leung-yamamoto
+physical: oscillators
+logical: qubits
+
+name: 'Chuang-Leung-Yamamoto'
+
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevA.56.1114}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Codes parametrized by \([[N,M,2^k,d]]\). Encodes \(k\) qubits with distance \(d\) in \(m\) bosonic modes using states with total excitation number \(N\). A given Fock state will appear in at most one codeword.'
+
+protection: 'Protects against amplitude damping for loss of up to \(t = d-1\) excitations.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # Any fields below should be omitted if they do not apply.
+
+  rate: '\(r=\frac{k}{m \log_2(N+1)}\), with \(m\) the number of modes, and \(N\) the maximum allowed excitation number. To correct the loss of up to \(t\) excitations with \(l_0+1\) codewords, a code exists with scaling \(N \sim t^3l_0/2\).'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders: 
+    - 'Photon Fock state input into a network of beamsplitters, phase shifters, and Kerr media. State preparation may require ancillary modes and be conditioned on photon number measurement result.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  #general_gates:
+
+  decoders:
+    - 'Destructive decoding with a photon number measurement on each mode.'
+    - 'State can be decoded with a network of beamsplitters, phase shifters, and Kerr media.'
+
+  #fault_tolerance:
+
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+#realizations:
+ 
+notes:
+    - 'Codewords can be balanced (constituent Fock states have equal weight) or unbalanced.'
+
+relations:
+  #parents:
+
+  #cousins:
