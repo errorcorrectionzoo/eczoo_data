@@ -1,0 +1,87 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are 
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: single_parity_check
+physical: bits
+logical: bits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Single parity check code'
+
+# First reference with the code (optional).
+#introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Single parity check code is an error-detecting code, which encode a \(n\)-bit codeword into a \((n+1)\)-bit string. It is a \([n,n-1,2]\) classical code. The basic idea is to store the parity information of a codeword into an extra parity bit. If the Hamming weight of a codeword is odd, then its parity is 1. If the Hamming weight of a codeword is even, then its parity is 0. This code inexpensive since it only requires an extra parity bit and single parity check. '
+
+protection: 'This code cannot protect information, it can only detect 1-bit error.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'The code rate is \(\frac{n}{n+1}\)'. The code distance is 2. Code rate will converge to 1 if we take \(n\rightarrow \infty\).'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders: 
+    - 'Concatenate the codeword with a parity bit which encodes the parity information of codeword.'
+
+  decoders:
+    - 'If the receiver find the parity information of codeword disagree with the parity bit, then the receiver will discard the information and request a resend.'
+
+
+  threshold: 
+    - 'If errors occur on more than 1 bit, this code cannot detect the error.'
+
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Can be realize on almost every communication device.'
+
+notes:
+  - 'Its code rate is high. Receiver only needs to do parity check once.'
+  - 'Can only detect 1-bit error, but cannot perform active error correction.'
+  - 'Its parity check matrix is the generator matrix of repetition code.'
+
+relations:
+  parents:
+    - code_id: Parity_check_code
+      detail: 'Single parity check code is the simplest parity check code. In general, a parity check code can have multiple parity check.'
+
+  cousins:
+    - code_id: LDPC_code
+      detail: 'Instead of performing a parity check for all the bits in codeword, a \([n,k,d]\) classical LDPC codes have good values for both \(\frac{k}{n}\) and \(\frac{d}{n}\) which enables efficient information transfer. '

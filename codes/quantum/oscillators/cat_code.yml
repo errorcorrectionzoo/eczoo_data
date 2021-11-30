@@ -17,22 +17,22 @@
 # Delete instructional comments when submitting
 
 # code id, physical, logical are all lower case
-code_id: GKP
+code_id: cat_code
 physical: harmonic oscillator
 logical: qubit
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
 # Code title is singular
-name: 'GKP code'
+name: 'Cat code'
 
 # First reference with the code (optional).
-introduced: '\cite{doi:10.1103/PhysRevA.64.012310}'
+introduced: '\(|\alpha\rangle \pm |-\alpha\rangle\) cat code \cite{doi:10.1103/PhysRevA.59.2631}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'It is a continuous-variable code that encode a logical qubit into a harmonic oscillator. Its stabilizer is displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{q}}\)'. To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group which is Abelian, there is another constraint that \(\alpha\beta=2k\pi\) where \(k\) is an integer. Its codewords are equal weight superpositions of coherent states. When \(\alpha=\beta=\sqrt{\pi}\), \(|0_L\rangle=\sum_{j=-\infty}^\infty |2j\sqrt{\pi}\rangle_q\), \(|1_L\rangle=\sum_{j=-\infty}^\infty(2j+1)\sqrt{\pi}\rangle_q\). The codewords form a square lattice in phase space with spatial period \(2\sqrt{\pi}\).'
+description: 'It is a continuous-variable code that encode a logical qubit into a harmonic oscillator. In phase space, cat code has rotation symmtry which can protect against dephasing noise. '
 
-protection: 'Protect against displacement errors and photon loss errors, but very sensitive to dephasing errors. Ref. \cite{doi:10.1103/PRXQuantum.2.020101}.'
+protection: 'Protect against multi-photon loss, gain error and phase space rotation error up to \(\frac{\pi}{S+1}\).'
 
 # This field starts a list of specific labeled subfields; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
@@ -46,28 +46,25 @@ features:
   #
   # Any fields below should be omitted if they do not apply.
 
-  rate: 'Encode a 2-dimensional logical Hilbert space into an infinite dimensional Hilbert space. For stabilizer \(\hat{S}_q(2\alpha),\hat{S}_p(2\beta)\)', it can correct displacement error up to \(\frac{\alpha}{2}\) at \(q\)-direction and \(\frac{\beta}{2}\) at \(p\)-direction.
+  rate: 'Encode a 2-dimensional logical Hilbert space into an infinite dimensional Hilbert space. A cat code with \(Z_{2(S+1)}\) rotation symmetry can protect against \(S\)-photon loss/gain errors and phase space rotation error up to \(\frac{\pi}{2(S+1)}\).
 
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
   encoders: 
-    - 'The exact GKP state cannot be prepared.'
-    - 'Approximate GKP states can be prepared experimentally, by putting the GKP lattice inside a Guassian envelope \cite{doi:10.1038/s41586-020-2603-3}.'
+    - 'Project a coherent state onto a subspace of occupation number modulo \(2(S+1)\). It is a superposition of coherent states around a circle.'
+    
 
   #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
-  general_gates:
-    - 'Pauli gates'
-    - 'Clifford gates'
+  #general_gates:
+    #- ''
 
   decoders:
-    - 'Syndrome measruement of displacement error can be done by applying a controlled-displacement controlled by an ancilla qubit. The syndrome information can be obtained by measuring the ancilla qubit after controlled-displacement opearation.'
-    - 'Pauli \(X\),\(Y\) and \(Z\) measurements can be perform by measureing \(-\hat{p},\hat{q}-\hat{p}\) and \(\hat{q}\) repectively.' 
+    - 'Measurement in the Fock basis. For a \(2(S+1)\) cat code, a number measurement returns outcome \(2(S+1)k\), if \(k\) is even, then it corresponds to logical 0 state; if \(k\) is odd, then it corresponds to logical 1 state.' 
+    #- '' 
 
-  fault_tolerance:
-    - 'Fault-tolerant state preparation on superconducting circuit was theoretically studied in Ref. \cite{doi:10.1103/PhysRevX.9.041009}. Also in Ref. \cite{doi:10.1088/1367-2630/ab3a62}.'
-    - 'Fault-tolerant error correction for surface-GKP code was studied in Ref. \cite{doi:10.1103/PhysRevA.101.012316}.'
-    #- 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction.'
+  #fault_tolerance:
+    #- 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
     #- 'Pieceable fault tolerance.'
 
   #threshold: 
@@ -84,19 +81,17 @@ realizations:
   # Group closely related realizations into a single item. It's OK to have a
   # single list item. Each item should more or less correspond to what would be
   # said in a paragraph.
-  - 'Approximate GKP code is realized on a superconducting microwave cavity \cite{doi:10.1038/s41586-020-2603-3}.'
+  - '\(S=1\) cat state has been realized in superconducting circuit \cite{doi:10.1038/nature18949}.'
 
 #notes:
-  - 'Can be used to prepare biased error correcting code by choosing \(\alpha\neq \beta\).'
-  - 'Can be used to encode the physical qubits for surface code.'
-  - 'GKP states are non-Gaussian states.'
+  #- 'Can be used to prepare biased error correcting code by choosing \(\alpha\neq \beta\).'
+  #- 'Can be used to encode the physical qubits for surface code.'
+  #- 'GKP states are non-Gaussian states.'
   #- 'Can reference other codes, but try to put such connections in the relations fields.'
   #- 'Anything noteworthy that''s not above or below.'
 
 relations:
 
   cousins:
-    - code_id: toric_GKP
-      detail: 'It is a concatenation that replace the physical qubits in toric code by GKP codes. Each physical qubit is replaced by a harmonic oscillator in GKP state \cite{doi:10.1103/PhysRevA.99.032344}. By using the GKP error information, the toric code threshold is improved from \(10%\) to \(14%\).'
-    - code_id: cat_code
+    - code_id: GKP_code
       detail: 'GKP code utilizes the translational symmetry in phase space. Cat code utilizes the rotational symmetry in phase space.'
