@@ -1,0 +1,76 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: real_projective_plane
+physical: qubits
+logical: qubits
+
+
+name: '\(\mathbb{R}P^2\) surface codes'
+introduced: '\cite{arXiv:quant-ph/9810055}'
+
+description: 'A family of surface codes on the non-orientable 2-dimensional compact manifold \(\mathbb{R}P^2\) (in contrast to a genus-\(g\) surface). Whereas genus-\(g\) surface codes require \(2g\) logical qubits, qubit codes on \(\mathbb{R}P^2\) are made from a single logical qubit.'
+protection: 'If \(\mathcal{C}\) is a cellulation of \(\mathbb{R}P^2\) then the bit flip distance is the shortest cycle in \(\mathcal{C}\) and the phase flip distance is the shortest cycle in the dual cellulation \(\mathcal{C}^*\).'
+
+features:
+
+  rate: 'The rate is always \(1/n\) where \(n\) is the number of edges of the particular cellulation (since physical qubits are placed on the lattice edge). Note the 1 in the numerator is because \(\mathbb{R}P^2\) codes always use 1 logical qubit.'
+
+  # #encoders: 
+   # # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+   # #- 'Measurement-based preparation ... with ancilla overhead of ... .'
+   # #- 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  # #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  # #general_gates:
+    # - 'Universal gate set achieved by either additional ... gate.'
+    # - 'Magic-state distillation protocols'
+    # - 'kth Clifford hierarchy gates obtained by ... circuits'
+
+  # decoders:
+    # - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
+    # - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+    # - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+  # fault_tolerance:
+    # - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+    # - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+    # - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+    # - 'Pieceable fault tolerance.'
+
+  # threshold: 
+    # - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
+    # - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+    # - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+    # - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+    # - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+  
+
+# realizations:
+  # # List and explain the different "domains" of realizations in list items.
+  # # Group closely related realizations into a single item. It's OK to have a
+  # # single list item. Each item should more or less correspond to what would be
+  # # said in a paragraph.
+  # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
+  # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+relations:
+  parents:
+    - code_id: css
+      detail: 'Plaquette and star operators are stabilizer generators.'
+    - code_id: homological
+      detail: ''
+    - code_id: topological
+      detail: ''
+    - code_id: quantum_ldpc
+      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation
+    - code_id: surface
+      detail: 'This is basically Kitaev''s surface code instead on a non-orientable surface.'
+      
+  cousins:
+    - code_id: quantum_repetition
+      detail: 'A celluation as in Figure 4 of \cite{arXiv:quant-ph/9810055} is equivalent to the 9-qubit Shor repetition code.'
