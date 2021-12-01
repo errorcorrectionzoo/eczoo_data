@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: balanced_product
+physical: qubits
+logical: qubits
+
+name: Balanced product code
+
+introduced: \cite{arxiv:2012.09271}
+
+description: >
+  A nonrandom quantum LDPC code that with relatively good distance.
+  The construction of a balanced product code is similar to that of a hypergraph product code and related codes; a sort of "product" is taken between two input classical codes to produce a CSS code.
+  What differentiates a balanced product code from a hypergraph product code is that (like with lifted product codes) a reduction of symmetry is exploited to decrease the number of physical qubits required.
+  Balanced product codes are notable because a family of them can be explicitly and nonrandomly constructed to have distance $d \in \Omega(n^{3/5})$.
+
+features:
+
+  rate: >
+    A notable family of balanced product codes encode $k \in \Theta(n^{4/5})$ logical qubits with distance $d \in \Omega(n^{3/5})$ for any number of physical qubits $n$.
+    Additionally, it is known that the code constructed from the balanced product of two good classical LDPC codes over groups of order $\Theta(n)$ has a constant encoding rate \cite{2012.09271}.
+
+relations:
+  parents:
+    - code_id: css
+    - code_id: quantum_ldpc
+      detail: The construction is essentially a Kronecker product of sparse matrices, producing sparse parity check matrices and ensuring that the result is a quantum LDPC code.
+
+  cousins:
+    - code_id: hypergraph_product
+      detail: Construction of a balanced product code is very similar to a hypergraph product, but with a reduction of symmetry.
+    - code_id: lifted_product
+      detail: Both are based on a reduction of symmetry in the hypergraph product.
