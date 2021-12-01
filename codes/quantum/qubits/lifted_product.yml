@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lifted_product
+physical: qubits
+logical: qubits
+
+name: Lifted Product Code
+
+introduced: \cite{arxiv:1904.02703}
+
+description: >
+  A quantum LDPC code that is the "lifted version" of a hypergraph product code, formerly known as "generalized hypergraph product codes" \cite{arxiv:1904.02703}, and later renamed to "lifted product codes" \cite{arxiv:2012.04068,doi:10.1103/PRXQuantum.2.040101}.
+  The construction of a lifted product code is similar to that of a hypergraph product code and related codes; a sort of "product" is taken between two input classical codes to produce a CSS code.
+  What differentiates a lifted product code from a hypergraph product code is that a reduction of symmetry is exploited to decrease the number of physical qubits required.
+  Lifted product codes are notable because they were the first quantum LDPC codes to achieve almost linear distance.
+
+features:
+
+  rate: >
+    There is no known simple way to compute the logical dimension $k$ in the general case \cite{arxiv:2012.04068}.
+    However, there is a notable family of lifted product codes with logical dimension $k \in \Theta(n^\alpha \log n)$ and distance $d \in \Omega(n^{1 - \alpha} / \log n)$ for any number of physical qubits $n$ and any real parameter $0 \leq \alpha < 1$ \cite{arxiv:2012.04068}.
+    The rate is then $\frac k n \in \Theta(n^{\alpha - 1} \log n)$.
+
+  decoders:
+    - BP-OSD decoder \cite{arxiv:1904.02703} adds OSD-like post-processing to the belief propogation decoder for improved performance.
+
+relations:
+  parents:
+    - code_id: css
+      detail: A pairwise commutativity assumption in the input classical codes ensures that the result is a CSS code.
+    - code_id: quantum_ldpc
+      detail: Assuming the input classical codes are LDPC codes, the lifted product is a quantum LDPC code.
+
+  cousins:
+    - code_id: hypergraph_product
+      detail: Construction of a lifted product code is very similar to a hypergraph product, but with a reduction of symmetry.
+    - code_id: balanced_product
+      detail: Both are based on a reduction of symmetry in the hypergraph product.
+    - code_id: homological_product
