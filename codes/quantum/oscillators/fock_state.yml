@@ -1,0 +1,27 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fock_state
+physical: oscillators
+logical: qudits
+
+name: 'Fock-state bosonic code'
+#introduced: '\cite{arXiv:quant-ph/9505011,arXiv:quant-ph/9610043}'
+
+description: 'Qudit-into-oscillator code whose protection against amplitude damping (i.e., photon loss) stems from the use of disjoint sets of Fock states for the construction of each code basis state. For example, single-mode Fock-state codes include any qubit codes whose basis states are, respectively, supported on Fock state sets \(\{|0\rangle,|4\rangle,|8\rangle,\cdots\}\) and \(\{|2\rangle,|6\rangle,|10\rangle,\cdots\}\).'
+
+protection: 'Code distance \(d\) is the minimum distance (assuming some metric) between any two Fock states corresponding to different code basis states. For a single mode, \(d\) is the minimum absolute value of the difference between any two Fock states; such codes can detect up to \(d-1\) loss events.'
+
+#notes:
+# - ''
+
+relations:
+  parents:
+    - code_id: qudits_into_oscillators
+      detail: ''
+
+  cousins:
+    - code_id: binary_linear
+      detail: 'Fock-state code distance is a natural extension of Hamming distance between binary strings.'
