@@ -5,14 +5,14 @@
 
 
 code_id: happy
-physical: AdS bulk operators
-logical: CFT boundary operators
+physical: qudits
+logical: qudits
 
 
 name: 'HaPPY code'
 introduced: '\cite{arxiv:1503.06237}'
 
-description: 'Encodes operators in the bulk of the Anti de Sitter space into operators on the boundary of the corresponding Conformal Field Theory. This is accomplished using a tensor network of [[5,1,3]] and [[6,0,4]] encodings with several layers that eventually leads to the CFT on the boundary.'
+description: 'Encodes operators in the bulk of the Anti de Sitter space (analogous to logical qudits) into operators on the boundary of the corresponding Conformal Field Theory (analagous to physical qudits). This is accomplished using a tensor network of [[5,1,3]] encodings with several layers that eventually leads to the CFT on the boundary. Specifically, we construct a uniform tiling of the hyperbolic AdS/CFT disc with pentagons, with four pentagons adjacent at each vertex. Then, we represent each [[5,1,3]] encoding of a bulk operator by a 6-legged tensor (one input leg, five output legs) and place one at each pentagon with the input leg left uncontracted. This construction is a tensor network isometry from the uncontracted legs in the bulk to the uncontracted legs at the boundary. The bulk legs correspond to indices for logical input while the boundary legs can be interpreted as the physical encoding.'
 
 
 protection: 'Protects against erasure errors on the boundary.'
@@ -28,7 +28,7 @@ features:
     - 'Greedy algorithm for decoding specified in \(\cite{arxiv:1503.06237}\).'
     - 'Given only a fraction of the boundary operators, one can only decode (reconstruct) a portion of the bulk operators within the causal wedge.'
     - 'This is a precise analog to the AdS Rindler reconstruction.'
-    - 'If there is one logical index in the bulk (a single logical qubit), physical erasure errors on the boundary can be corrected by the greedy decoder if p < 1/12.'
+    - 'When there is one logical index in the bulk (a single logical qubit), physical erasure errors on the boundary can be corrected by the greedy decoder if p < 1/12.'
 
 
 #notes:
