@@ -18,8 +18,8 @@
 
 # code id, physical, logical are all lower case
 code_id: three_qutrit_code
-physical: qutrits
-logical: qutrits
+physical: qudits
+logical: qudits
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
 # Code title is singular
@@ -30,10 +30,10 @@ introduced: '\cite{arXiv:quant-ph/9901025v1}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'The three qubtrit code is a quantum error correction code protecting a single qutrit encoded in three qutrits (qudit with \( d = 3 \) ) against a single erasure. It is an example of a \( ((n = 3, k = 2)) \) threshold scheme where a secret (quantum information) is split into \( n \) shares and can be reconstructed by \( k \) pieces. They key property of this code is that the reduced density matrix of any single qutrit is maximally mixed, meaning no information can be extracted from a single qutrit. Therefore, any arbitrary single qutrit tells you nothing about the encoded message, but access to any two pairs of qutrits will reveal the secret.'
+description: 'The three qubtrit code is a quantum error correction code protecting a single qutrit encoded in three qutrits ( qudit with \( d = 3 \) ) against a single erasure. It is an example of a \( ((n = 3, k = 2)) \) threshold scheme where a secret (quantum information) is split into \( n \) shares and can be reconstructed by \( k \) pieces. The code words are: \( | \bar{0} \rangle = | 000 \rangle + | 111 \rangle + | 222 \rangle, | \bar{1} \rangle = | 012 \rangle + | 120 \rangle + | 201 \rangle, | \bar{2} \rangle = | 021 \rangle + | 102 \rangle + | 210 \rangle \). Notice each logical contains cyclic permutations of a set of qutrits. They key property of this code is that the reduced density matrix of any single qutrit is maximally mixed, meaning no information can be extracted from a single qutrit. Therefore, any arbitrary single qutrit tells you nothing about the encoded message, but access to any two pairs of qutrits will reveal the secret.'
 
 
-protection: 'Protects against single qutrit erasure.'
+protection: 'Decects single qutrit errors.'
 
 # This field starts a list of specific labeled subfields; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
@@ -52,8 +52,8 @@ features:
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
   encoders:
-    - 'The code space of the three qutrit code is given by Eq. (1) in \cite{arXiv:quant-ph/9901025v1}.'
-    - 'Arbitrary operators are encoded by transforming (\ O_{12} = U_{12}^{\daggger} O U_{12} \) which has the same action on the code space as $O_{13}$ or $O_{23}$. The logical operator \( \tilde{O} \) has valid representations with support on different sets of two qutrits. This is directly analogous to to the construction of operators (in the bulk) at the center of the AdS(\_3\)-Rindler reconstruction. It actually describes how local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}. '
+    - 'In addition to thinking about the encoding of states, it is also interesting to look at the trasformation of operators from the physical space into the logical space. Due to the unique structure and recovery protocol of the three qutrit code, the representation of the logical operator \( \bar{O} \) is not unique. Instead, the logical operator \( \bar{O} \) can be constructed from unitary matricies with support on only two out of the three qutrits. Therefore, the logical operator has valid representations constructed from support on different sets of two qutrits. This operator construction is directly analogous to the construction of operators in the bulk (at the center) of the AdS(\_3\)-Rindler reconstruction. The three qutrit code can then be used to describe how these local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}. '
+    - 'This construction is related to the cleaning lemma \cite{arXiv:0810.1983}, which was introduced in the context of constructing self-correcting quantum memories from stabilizer codes with geometrically-local generators. In this lemma, subspaces can be cleaned out by removing operators with support on a subset of qutrits.'
 
   # transversal_gates:
 
@@ -61,7 +61,7 @@ features:
 
 
   decoders:
-    - 'The secret (quantum information) can be recovered from any two qubits by applying a unitary permutation matrix. For example, \( U_{12} \otimes I_3 \ket{\tilde{Psi}} = \ket{\Psi} \otimes (\ket{00} + \ket{11} + \ket{22} ) \).'
+    - 'The quantum information (the secret) can be recovered from a unitary transformation acting on only two qutrits, \( U_{ij} \ocross I_k \). By the cyclic structure of the codewords (see above), this unitary transformation performs a permutation that recovers the information and stores it in one of these two qutrits involved in recovery. For example, there exists a permutation matrix \( U_{12} \) that recovers the information and stores it in the first qutrit via \( U_{12} \otimes I_3 ( \alpha | \bar{0} \rangle + \beta | \bar{1} \rangle + \gamma | \bar{2} \rangle ) = ( \alpha | 0 \rangle + \beta | 1 \rangle + \gamma | 2 \rangle ) \otimes ( \ket{00} + \ket{11} + \ket{22} ) / \sqrt{3} \).'
 
   # fault_tolerance:
 
@@ -83,7 +83,7 @@ notes:
 
 relations:
   parents:
-    - code_id: holographic_code
+    - code_id: holographic
       detail: ''
 
   # cousins:
