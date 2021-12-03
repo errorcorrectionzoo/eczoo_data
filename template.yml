@@ -22,7 +22,7 @@ physical: bits
 logical: qubits
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
+# Code title is SINGULAR
 name: 'Everyone''s favorite code'
 
 # First reference with the code (optional).
@@ -55,6 +55,7 @@ features:
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
   encoders:
+    - 'Specific description of a process that makes the states, usually for quantum codes.'
     - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
     - 'Measurement-based preparation ... with ancilla overhead of ... .'
     - 'Leave discussion of fault tolerance to fault-tolerance field.'
@@ -97,7 +98,7 @@ realizations:
   - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
 
 notes:
-  - 'Bounds on n,k, or d for this class.'
+  - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
   - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
   - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
   - 'Can reference other codes, but try to put such connections in the relations fields.'
@@ -114,8 +115,8 @@ relations:
 
   cousins:
     - code_id: code_id4
-      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+      detail: 'code_id4 are used in the construction of this code.  Entries have no direction, so one cousin entry is enough per related pair of codes.'
     - code_id: code_id5
-      detail: 'code_id5 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+      detail: 'code_id5 are other codes of similar encoding but with different physical space structures (classical or quantum)'
     - code_id: code_id6
-      detail: 'code_id6 are used in the construction of this code'
+      detail: 'code_id6 are codes from other families that could also be constructed this way.'
