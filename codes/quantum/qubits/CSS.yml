@@ -18,6 +18,10 @@ description: |
   \end{pmatrix}~.
   \label{eq:parity}
   \end{align}
+  
+  Encoding is based on two \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\) with \(C_X^\perp \subseteq C_Z\), such that \(k=k_X+k_Z-n\) and \(d\geq\min\{d_X,d_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is associated with the code \(C_X\) (\(C_Z\)), and the requirement \(C_X^\perp \subseteq C_Z\) guarantees that the \(X\)-stabilizers of \(C_X\) commute with the \(Z\)-stabilizers of \(C_Z\).
+
+  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row and column of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for CSS codes is \([[n,k,(d_X,d_Z),w]]\).
 
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
@@ -32,6 +36,7 @@ relations:
       detail: 'Movassagh-Ouyang codes stem from a prescription that converts at \textit{arbitrary} classical code into a quantum code.'
   cousins:
     - code_id: binary_linear
-      detail: 'Construction uses two related binary linear codes (\C_X\) and \(C_Z\).'
+      detail: ''
+        #'Construction uses two related binary linear codes (\C_X\) and \(C_Z\).'
     - code_id: weakly_self_dual
       detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{weakly self-dual} since \(C^{\perp} \subseteq C\). The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'
