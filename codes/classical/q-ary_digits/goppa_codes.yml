@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are 
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: goppa_codes
+physical: q_ary_digits
+logical: q_ary digits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: 'Goppa Code'
+
+# First reference with the code (optional).
+introduced: '\url{https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1055088} \(not original\)'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Let G(z) be a Goppa polynomial with coefficients from GF\(q^m\) for some fixed integer m. Let L be a finite subset of the extension field GF(q^m) where q is prime, meaning L  = \{\alpha_1, \cdots, \alpha_n\} is a subset of GF\(q^m\) such that \alpha_i \neq 0 for all \alpha_i \in L. A Goppa code \Gamma\(L,G\) is an [n,k,d] linear code consisting of all vectors a = \(a_1, \cdots, a_n\) 
+	such that\( R_a(z) =0 mod G(z) \) where \( R_a(z) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).'
+
+
+protection: 'If the deg G(z) = 2t, then there exists a t-correcting algebraic decoding algorithm for \( \Gamma(L,G) \).'
+
+decoder: 
+  - 'Algebraic decoding algorithms defined in \cite{manual:{Patterson 1975 "The Algebraic Decoding of Goppa Codes}}' 
+notes:
+  - 'The length n = |L|, the dimension k \geq n-mr where r = deg G(z), and the minimum distance \( d \geq r +1 \). ' 
+  - '\url{https://www.gap-system.org/Manuals/pkg/guava/doc/chap5.html#X7EE808BB7D1E487A}'
+  - 'There exist Goppa codes defined over larger alphabets that meet the GV bound'
+
+
+relations:
+  parents: 
+    - code_id: alternant
+      detail: 'alternant codes are the smallest code family that includes Goppa codes that are defined over GF(q^m).'
+    - code_id: q_ary_linear
+      detail: ''
+    - code_id: algebraic_geometric
+      detail: 'A Goppa code is a specific type of algebraic geometric code in which a curve X is defined over GF(q^m). '
+
+  cousins:
+    - code_id: binary_goppa
+      detail: 'Goppa codes in which q = 2. Commonly used in postquantum cryptography, such as the McElise cryptosystem. '
+    - code_id: bch
+      detail: 'Another special case of alternant codes. However, unlike certain forms of Goppa codes, they do not meet the GV bound.'
