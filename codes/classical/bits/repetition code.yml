@@ -3,80 +3,48 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are 
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
 
-# code id, physical, logical are all lower case
 code_id: repetition
 physical: bits
 logical: bits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
-name: 'Repetition code'
+name: 'Binary repetition code'
 
-# First reference with the code (optional).
-introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
+introduced: '\cite{doi:10.1201/9781315147901}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
 description: 'This code encodes 1-bit information into a \(n\)-bit string. \(n\) needs to be an odd number, since receiver will pick the majority at decoding stage. Its basic idea is to increase the code distance by repeating the logical information several times. It is a \((n,1)\)-Hamming code.'
 
 protection: 'Protects against bit-flip and erasure up to \(\frac{n-1}{2}\)-bit error. Bit-flip error and erasure error are the common in classical communication processes.'
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
+
 features:
 
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
 
   rate: 'The code rate is \(\frac{1}{n}\). The code distance is \(n\). Its generator matrix is \(G=\left[\begin{smallmatrix}1 & 1&\cdots& 1 & 1 \end{smallmatrix}\right]\). '
 
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
-  encoders: 
-    - 'The encoding process is \(1\rightarrow 111...1\), \(0\rightarrow 000...0\). Repeating the information \(n\)-times.'
+  #encoders: 
+    #- ''
 
   decoders:
     - 'Calculate the Hamming weight \(d_H\) of the code. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
 
 
   threshold: 
-    - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\).'
+    - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then people can always increase the probability of success by increasing the number of physical bit \(n\).'
 
   
-  # Propose a field that you feel is applicable to a large and interesting class of codes
   #some_other_field:
   # - 'detail'
 
 realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  - 'Although classical repetition code does not have many real-world applications, it still inspire the studies of quantum error correction. Quantum repetition code is widely studied in quantum computing community. For example, the 3-qubit repetition code is the simplest quantum error correcting code. Moreover, the 9-qubit Shor code is concatenation of 3-qubit bit-flip code and 3-qubit phase-flip code which corrects arbitrary single qubit errors.'
+  - 'Repetition codes were used in magnetic disks.'
+  - 'Although classical repetition code does not have many real-world applications, it still inspire the studies of quantum error correction. Quantum repetition code is widely studied in quantum computing community.'
 
-notes:
-  - '\(n\) must be an odd number.'
-  - 'Can be used to concatenate other codes.'
-  - 'The code rate is low.'
-  - 'Widely used in quantum error correction.'
+#notes:
+  #- ''
+  #- ''
+  #- ''
+  #- ''
 
 #relations:
   #parents:
@@ -84,7 +52,7 @@ notes:
       #detail: 'A \([n,1,n]\) repetition code is a (n,1)-Hamming code.'
 
   #cousins:
-    #- code_id: Shor_code
-      #detail: 'Shor 9-qubit code is a concatenation code of 3-qubit bit-flip code and 3-qubit phase-flip code.'
-    #- code_id: Concatented_repetition_binomial
-      #detail: 'Repetition code can be used to concatenate NOON code to creat logical qubit which is robust to multi-photon loss.'
+    #- code_id: quantum_repetition
+      #detail: 'Quantum repetiton code is the quantum analog of classical binary repetition code.'
+    #- code_id: 
+      #detail: ''
