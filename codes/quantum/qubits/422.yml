@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: 422_code
+physical: qubits
+logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title is singular
+name: '[[4,2,2]] code'
+
+
+# First reference with the code (optional).
+introduced: '\cite{arXiv:quant-ph/9603031}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'The stabilizers of the [[4,2,2]] code are \(\{XXXX, ZZZZ\} \) with logical states . '
+
+
+#description: 'The [[4,2,2]] code is not able to correct arbitrary single-qubit error because \( \lfloor \frac{d-1}{2} \rfloor =0 \). It is more generally used for error detection \cite{arXiv:quant-ph/9603031}, or erasure error correction \cite{arXiv:quant-ph/9610042}. This is also a special case of polar code [source requested].'
+
+#protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
+protection: 'Approxiately correct amplitude damping error. \cite{arXiv:quant-ph/9704002}'
+
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Realized in trapped-ion quantum devices \cite{arXiv:1611.06946}.'
+
+notes:
+  - 'Concatenating [[4,2,2]] code with toric code can generate 2D toplogical code. \cite{arXiv:1604.04062}'
+
+relations:
+  parents:
+    - code_id: stabilizer
+#      detail: 'code_id1 is smallest code family that includes this code that is defined over the same physical space structure or alphabet'
+      detail: '[[4,2,2]] is the smallest error detection and erasure error correction code.'
+
+#  cousins:
+#    - code_id: code_id4
+#      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
