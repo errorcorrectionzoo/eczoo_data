@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: wasilewski-banaszek
+physical: oscillators
+logical: qubits
+
+name: 'Wasilewski-Banaszek code'
+
+introduced: '\cite{doi:10.1103/PhysRevA.75.042316}'
+
+description: 'Three-photon code for a single qubit. \(|0_L\rangle = (|003\rangle+|030\rangle+|300\rangle)/\sqrt{3},\qquad|1_L\rangle = |111\rangle \).'
+
+protection: 'Protects against single photon loss'
+
+features:
+
+
+  #rate: 
+
+  encoders: 
+    - 'Qubit encoded in dual rail representation can be transferred to this code by input qubit modes into a linear optical network with four other modes all with one photon input. Successful encoding is conditioned on measurement of the state \(|110\rangle\) on the last three modes.'
+
+  #transversal_gates: 
+
+  general_gates:
+    - 'Single qubit gates implemented using linear optical networks, sometimes with the addition of auxiliary modes with vacuum input and (conditional) output.'
+
+  decoders:
+    - 'Destructive measurement with photon number measurements on each mode.'
+
+  #fault_tolerance:
+
+  #threshold: 
+  
+
+#realizations:
+ 
+#notes:
+
+relations:
+  parents:
+    - code_id: fock_state
+      detail: 'This is a Fock state bosonic code, since the codewords are superpositions of disjoint sets of Fock states.'
+
+  cousins:
+    - code_id: chuang-leung-yamamoto
+      detail: 'chuang-leung-yamamoto code also encodes qubits using states of fixed total excitation number.'
