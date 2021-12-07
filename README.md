@@ -65,7 +65,7 @@ features:
     (em dash), ``–`` (en dash, for ranges); spaces `` `` (non-breaking
     space), `` `` (em space), `` `` (thin space), etc.
     
-  - Equations can be written as `\( ... \)`, they will be rendered
+  - Math expressions can be written as `\( ... \)`, they will be rendered
     into pretty formulas using MathJaX. You can use standard LaTeX
     math commands in equations, as supported e.g. by AMS-TeX (`\sim`,
     `\langle`, etc.).  You can also use `\bra{\phi}` and `\ket{\psi}`.
@@ -76,10 +76,6 @@ features:
     (percent character), `\&` (ampersand), `\$` (dollar sign), `\#`
     (number sign).
     
-  - Use the `\begin{align} ... \end{align}` and `\begin{gather}
-    ... \end{gather}` environments for display equations, and you can
-    use `\begin{split} ... \end{split}` within a display equation.
-
   - Cite relevant papers by their arXiv number as
     `\cite{arxiv:XXXX.XXXXX}` or `\cite{arxiv:quant-ph/XXXXXXX}`, or
     using their DOI as `\cite{doi:10.ZZZZZZ}`.  *DOIs are
@@ -96,10 +92,14 @@ features:
     a custom label to show, you can use
     `\hyperref[code:<other-code-id>]{link text}`.
     
-  - You can use `\label{eq:...}` inside the equation environments and
-    you can refer to labeled equations with `\eqref{eq:...}`.  Don't
+  - Use the `\begin{align} ... \end{align}` and `\begin{gather}
+    ... \end{gather}` environments for display equations, and you can
+    use `\begin{split} ... \end{split}` within a display equation.
+    You can use `\label{eq:...}` inside the equation environments and
+    you can refer to labeled equations with `\eqref{eq:...}`.  Do not
     use ~~`(\ref{eq:...})`~~. The label must start with the prefix
-    `eq:`.
+    `eq:`.  You can also use `\[ ... \]` for an unnumbered display
+    equations.
 
   - Insert hyperlinks to other web pages as
     `\href{https://example.com/example/page}{shown link text}` or with
