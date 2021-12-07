@@ -3,85 +3,37 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: 15_qubit_code
 physical: qubits
 logical: qubits
-
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
 name: '[[15,1,3]] code'
 
-# First reference with the code (optional).
-#introduced: 'A 15-qubit Reed-Muller code\cite{arXiv:quant-ph/9610011}'
+description: '
+[[15,1,3]] is a tetrahedral 3D color code.
+The code contains 15 qubits, represented by four vertices, four face centers, six edge centers, and one body center.
+The tetrahedron is cellulated into four identical polyhedron cells by connecting the body center to all four face centers, where each face center is then connected by three adjacent edge centers.
+Each colored cell corresponds to a weight-8 \(X\)-check, and each face corresponds to a weight-4 \(Z\)-check.
+A logical \(Z\) is any weight-3 \(Z\)-string along an edge of the entire tetrahedron.
+The logical \(X\) is any weight-7 \(X\)-face of the entire tetrahedron.
+A logical \(T^\dagger\) is implemented by applying a \(T\) gate on every qubit \cite{arXiv:1612.07330}\cite{arXiv:quant-ph/9610011}\cite{arXiv:1403.2734}.'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'A 15-qubit Reed-Muller code that supports transversal \( T \) gate.\cite{arXiv:quant-ph/9610011}\cite{arXiv:1403.2734}.'
-
-#protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
-
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
-
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
-
- # rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
-
-  transversal_gates: 'Transversal \(T\) gates \cite{arXiv:1403.2734}.'
-
-
+  transversal_gates: 'The code permits transversal \(T\) gates \cite{arXiv:1403.2734}.
+                      As a result, it is often used in magic state distillation \cite{arXiv:quant-ph/0403025}.'
 
   fault_tolerance:
-#    - 'Fault-tolerant conversion between the Steane and Reed-Muller quantum codes. \cite{arXiv:1403.2734}'
-    - 'Combining Steane''s code and 15-qubit Reed-Muller code through a fault-tolerant conversion can result in a universal transversal gate set. \cite{arXiv:1403.2734}'
+    - 'Combining Steane''s code and 15-qubit Reed-Muller code through a fault-tolerant conversion can result in a universal transversal gate set that does not need magic state distillation\cite{arXiv:1403.2734}.'
 
-#  threshold:
-#    - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
-#    - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
-#    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-#    - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
-#    - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+  rate: 'Magic-state distillation scaling exponent \( \gamma= \log_d (n/k)\approx 2.46\) \cite{arXiv:1703.07847}.'
 
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
-
-#realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
- # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
- # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
-#note: 'Conversion from Stean code to  1403.2734'
-
+notes:
+  - 'The [[15,1,3]] code is often noted as the 15-qubit quantum Reed-Muller code in the literatue.'
+  - 'The [[15,1,3]] code can be converted into the smallest known stabilizer code with a fault-tolerant logical \(T\) gate (i.e., the [[10,1,2]] code) through a process called "morphing procedure" \cite{arXiv:2112.01446}.'
 
 relations:
   parents:
-#    - code_id: stabilizer
-#      detail: '[[15,1,3]] code is the smallest distance 3 code that supports transversal \( T \) gate.\cite{arXiv:1403.2734}'
     - code_id: quantum_reed_muller
+
+#  cousins:
+#    -code_id: color_code
+#    detail: 'The smallest 3D color code.'

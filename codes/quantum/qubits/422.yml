@@ -3,59 +3,54 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: 422_code
 physical: qubits
 logical: qubits
-
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
 name: '[[4,2,2]] code'
 
-
-# First reference with the code (optional).
 introduced: '\cite{arXiv:quant-ph/9603031}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'The stabilizers of the [[4,2,2]] code are \(\{XXXX, ZZZZ\} \) with logical states . '
+description: '
+The generators of the [[4,2,2]] code are \(\{XXXX, ZZZZ\} \) with the logical states
+\begin{align}
+  \begin{split}
+    |00\rangle_L = (|0000\rangle + |1111\rangle)/\sqrt{2}\\
+    |01\rangle_L = (|0011\rangle + |1100\rangle)/\sqrt{2}\\
+    |10\rangle_L = (|0101\rangle + |1010\rangle)/\sqrt{2}\\
+    |11\rangle_L = (|0110\rangle + |1001\rangle)/\sqrt{2}
+  \end{split}
+\end{align}
+. '
 
-
-#description: 'The [[4,2,2]] code is not able to correct arbitrary single-qubit error because \( \lfloor \frac{d-1}{2} \rfloor =0 \). It is more generally used for error detection \cite{arXiv:quant-ph/9603031}, or erasure error correction \cite{arXiv:quant-ph/9610042}. This is also a special case of polar code [source requested].'
-
-#protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
-protection: 'Approxiately correct amplitude damping error. \cite{arXiv:quant-ph/9704002}'
-
+protection: '
+The [[4,2,2]] code is not able to correct arbitrary single-qubit error because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
+It is more generally used for error detection \cite{arXiv:quant-ph/9603031}, or erasure error correction \cite{arXiv:quant-ph/9610042}.
+It also approxiately corrects amplitude damping error\cite{arXiv:quant-ph/9704002}.
+The code is a special case of polar code
+\cite{manual:{
+    (Kyungjoo Noh, private communication, 2017 )
+    \href{https://github.com/errorcorrectionzoo/eczoo_data/files/7652763/Leung_code_as_quantum_polar_code.pdf}{Leung_code_as_quantum_polar_code.pdf}}}.'
 
 realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  - 'Realized in trapped-ion quantum devices \cite{arXiv:1611.06946}.'
+  - 'Realized in trapped-ion quantum devices\cite{arXiv:1611.06946}.'
 
 notes:
-  - 'Concatenating [[4,2,2]] code with toric code can generate 2D toplogical code. \cite{arXiv:1604.04062}'
+  - 'Concatenating [[4,2,2]] code with toric code can generate 2D toplogical code\cite{doi:10.26421/QIC16.15-16-1}.'
 
 relations:
   parents:
     - code_id: stabilizer
-#      detail: 'code_id1 is smallest code family that includes this code that is defined over the same physical space structure or alphabet'
       detail: '[[4,2,2]] is the smallest error detection and erasure error correction code.'
 
-#  cousins:
-#    - code_id: code_id4
-#      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+  cousins:
+    - code_id: quantum_polar
+
+#    - code_id: toric_code
+#      detial: [[4,2,2]] is toric code on the smallest torus = a 2-by-2 square lattice with periodic boundary conditions
+
+    - code_id: 513_code
+      detail: '[[4,2,2]] can be derived from [[5,1,3]] code using a protocal that converts \([[n,k,d]]\) code into an \([[n-1, k+1, d-1]]\) code.
+      See Sec. 3.5 in \cite{arXiv:quant-ph/9705052}.'
+
+    - code_id: quantum_parity
+      detail: 'The simplest parity code.'

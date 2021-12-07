@@ -3,113 +3,50 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: 513_code
 physical: qubits
 logical: qubits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
 name: '[[5,1,3]] code'
 
-# First reference with the code (optional).
 introduced: '\cite{arXiv:quant-ph/9602019}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: '\begin{align}
-                  S_1 &= I\,X\,Z\,Z\,X\ ;  \nonumber\\
-                  S_2, \ldots, S_4 &= \text{cyclical permutations of \(S_1\)}\ .
-                  \label{eq:stabilizers}
+description: 'The generators are cyclical symmetric:
+              \begin{align}
+                \begin{split}
+                  S_1 &= IXZZX \\
+                  S_2 &= XZZXI \\
+                  S_3 &= ZZXIX \\
+                  S_4 &= ZXIXZ
+                \end{split}
               \end{align}
-An example of \hyperref[code:stabilizer]{stabillizer code}. Since the [[5,1,3]] code satisfies the quantum Hamming bound, it is also called the perfect code \cite{arXiv:quant-ph/9602019}. It is also an example of quantum cyclic code. \cite{arXiv:1007.1697}. The [[5, 1, 3]] code states are ground states of Hamiltonians quadratic in Majorana operators and can thus be represented as Majorana dimers. \cite{arXiv:1905.03268}'
-#protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
-
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
-#features:
-
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
-
-#  rate: 'k/n=1/5'
-#  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
-#  encoders:
-#    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-#    - 'Measurement-based preparation ... with ancilla overhead of ... .'
-#    - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-#  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-#  general_gates:
-#    - 'Universal gate set achieved by either additional ... gate.'
-#    - 'Magic-state distillation protocols'
-#    - 'kth Clifford hierarchy gates obtained by ... circuits'
-
-#  decoders:
-#    - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
-#    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-#    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
-
- # fault_tolerance:
- #   - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
- #   - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
- #   - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
- #   - 'Pieceable fault tolerance.'
-
- # threshold:
- #   - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
- #   - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
- #   - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
- #   - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
- #   - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
-
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
+'
 
 realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  - 'First realized in NMR \cite{doi:10.1103/PhysRevLett.86.5811}'
-  - 'Demonstration with superconducting qubits \cite{arXiv:1907.04507}'
 
-
-#notes:
-#  - 'Bounds on n,k, or d for this class.'
-#  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-#  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-#  - 'Can reference other codes, but try to put such connections in the relations fields.'
-#  - 'Anything noteworthy that''s not above or below.'
+  - 'First realized in NMR \cite{doi:10.1103/PhysRevLett.86.5811}.'
+  - 'Demonstration with superconducting qubits \cite{arXiv:1907.04507}.'
 
 relations:
   parents:
-    - code_id: stabilizer
-      detail: '[[5,1,3]] is the smallest code that can corrects arbitrary single-qubit error in the stabilizer family.'
+    - code_id: quantum_perfect
+      detail: 'The smallest perfect code.'
 
-#  cousins:
-#    - code_id: code_id4
-#      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+#    - code_id: stabilizer_over_gf4
+#      detail: 'The ([[5,1,3]]) code is derived from the ([5,3,3]_4) Hamming code.'
+
+  cousins:
+#    - code_id: quantum_cyclic
+#      detial: 'The ([[5,1,3]]) code is the smallest known example of quantum cyclic code .'
+
+    - code_id: hamiltonian
+      detail: '([[5,1,3]]) code Hamiltonian is local when expressed in terms of Majorana operators.'
+
+    - code_id: majorana_stab
+      detail: '([[5,1,3]]) code Hamiltonian is local when expressed in terms of Majorana operators.'
+
+#    - code_id: holographic
+#      detail: 'The ([[5,1,3]]) encoding circuit often tiles various holographic codes because its corresponding tensor is perfect \cite{arXiv:1503.06237}.'
+
+#    - code_id: secret_sharing
+#      detail: 'The ([[5,1,3]]) code can be used in a (5,3) threshold secret sharing scheme.'
