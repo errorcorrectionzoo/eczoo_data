@@ -1,0 +1,25 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: homological_classical
+physical: bits
+logical: bits
+
+name: 'Graph Homology code'
+introduced: '\cite{arXiv:quant-ph/0605094}'
+
+description: 'Given a connected simplicial (no sel loops or muli-edges) graph \(G = (V, E)\), which is not a tree, with incidence matrix \(\Gamma\) we can construct a code by chooseing a parity check matrix which consists of all the linearly independent rows of \(\Gamma\). This is a \([n,k,d]\) code with \(n = |E|\), \(k = 1-|V|+|E|\) and distance equal to the shortest size of a cycle, guaranteed to exist since \(G\) is not a tree.   
+
+#protection: ''
+
+notes:
+  - 'This class of codes is referred to as "homological" since it follows a simialr recepie for construction as quantum homological codes but using a chain complex of size two instead of three.'
+
+relations:
+  cousins:
+    - code_id: css
+      detail: 'CSS codes can also be constructed using homology techniques but for manifolds of dimenion two or greater.'
+
+  #cousins:
