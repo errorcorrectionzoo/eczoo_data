@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: t-designs
+physical: qubits
+logical: qubits
+
+name: 'Local Haar-random circuit code'
+introduced: '\cite{doi:10.1007/s00220-016-2706-8}'
+
+description: 'Code states are a pair of approximately locally indistinguishable states produced by starting with any two orthogonal \(n\)-qubit states and acting with a random unitary circuit of depth linear in \(n\). Two states are \textit{locally indistinguishable} if they cannot be distinguished by local measurements. A single layer of the encoding circuit is composed of about \(n/2\) two-qubit nearest-neighbor gates run in parallel, with each gate drawn randomly from the Haar distribution on two-qubit unitaries.'
+
+protection: 'Approximately protects against any error with support on a region of length\(\leq n/4\), where \(n\) is the number of physical qubits, with deviations from quantum error-correction conditions exponentially suppressed in \(n\).'
+
+features:
+#  rate:
+  encoders:
+    - 'Random local circuit of depth \(\leq 10^9 n\).'
+#  decoders:
+#realizations:
+
+notes:
+  - 'Described in Application III of \cite{doi:10.1007/s00220-016-2706-8}'
+
+relations:
+  parents:
+    - code_id: random_circuit
+      detail: ''
+
+  cousins:
+    - code_id: topological
+      detail: 'Local Haar-random codewords, like topological codewords, are locally indistinguishable \cite{doi:10.1007/s00220-016-2706-8}.'
+    - code_id: approximate_qecc
+      detail: ''
