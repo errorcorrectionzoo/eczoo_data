@@ -9,41 +9,38 @@ physical: oscillators
 logical: qubits
 
 name: 'Chuang-Leung-Yamamoto code'
-
 introduced: '\cite{doi:10.1103/PhysRevA.56.1114}'
 
-description: 'Bosonic qubit-into-oscillator codes that encode \(k\) qubits into \(M\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Code states are expressed as superpositions of oscillator Fock states. A code distance \(d\) can be defined as in its parent code, the \hyperref[code:fock_state]{Fock state bosonic code}. Codes can be denoted as \([[N,M,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.'
+description: 'Bosonic qubit-into-oscillator code that encodes \(k\) qubits into \(n\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Codewords are superpositions of oscillator Fock states, either balanced (i.e., uniform) or unbalanced. Codes can be denoted as \([[N,n,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.'
 
-protection: 'Protects against amplitude damping for loss of up to \(t = d-1\) excitations.'
+protection: |
+  Protects against amplitude damping for loss of up to \(t = d-1\) excitations. Defining the \textit{separation} between two Fock states \(|u_1\cdots u_n\rangle\) and \(|v_1\cdots v_n\rangle\),
+  \begin{align}
+  \text{Sep}(u,v) = \frac{1}{2}\sum_{i=1}^n |u_i - v_i|,
+  \end{align}
+  the code distance \(d\) can be defined as the minimial separation between Fock states making up the codewords.
 
 features:
+  rate: 'Code rate is \(\frac{k}{n \log_2(N+1)}\). To correct the loss of up to \(t\) excitations with \(K+1\) codewords, a code exists with scaling \(N \sim t^3 K/2\).'
 
+  encoders:
+    - 'Photon Fock state input into a network of beamsplitters, phase shifters, and Kerr media. These operations all preserve total photon number. Beamsplitters and phase shifters take annihilation operators to linear combinations of annihilation operators, and the transformation matrix is unitary. The operations corresponding to Kerr nonlinear media are diagonal in the Fock basis, but they implement phases that in general depend nonlinearly on the number of photons in each mode. State preparation may require ancillary modes and be conditioned on photon-number measurement results.'
 
-  rate: '\(r=\frac{k}{m \log_2(N+1)}\), with \(m\) the number of modes, and \(N\) the maximum allowed excitation number. To correct the loss of up to \(t\) excitations with \(l_0+1\) codewords, a code exists with scaling \(N \sim t^3l_0/2\).'
-
-  encoders: 
-    - 'Photon Fock state input into a network of beamsplitters, phase shifters, and Kerr media. These operations all preserve total photon number. Beamsplitters and phase shifters take annihilation operators to linear combinations of annihilation operators, the transformation matrix is unitary. The operations corresponding to Kerr nonlinear media are diagonal in the Fock basis, but they implement phases that in general depend nonlinearly on the number of photons in each mode. State preparation may require ancillary modes and be conditioned on photon number measurement result.'
-
-  #transversal_gates: 
-
+  #transversal_gates:
   #general_gates:
-
   decoders:
     - 'Destructive decoding with a photon number measurement on each mode.'
     - 'State can be decoded with a network of beamsplitters, phase shifters, and Kerr media.'
 
   #fault_tolerance:
-
-  
-
 #realizations:
- 
-notes:
-    - 'Codewords can be balanced (constituent Fock states have equal weight) or unbalanced.'
+
+#notes:
+#    - ''
 
 relations:
   parents:
     - code_id: fock_state
-      detail: 'This is a Fock state bosonic code, since the codewords are superpositions of disjoint sets of Fock states.'
+      detail: ''
 
   #cousins:
