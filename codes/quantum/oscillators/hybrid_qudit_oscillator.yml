@@ -10,7 +10,7 @@ logical: groups
 name: 'Hybrid qudit-oscillator code'
 #introduced: ''
 
-description: 'Encodes a \(K\)-dimensional logical Hilbert space into \(n_1\) qudits of dimension \(q\) and \(n_2\) oscillators, i.e., the Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{Z}_q^{n_1} \times \mathbb{R}^{n_2}\).'
+description: 'Encodes a \(K\)-dimensional logical Hilbert space into \(n_1\) qudits of dimension \(q\) and \(n_2 \neq 0\) oscillators, i.e., the Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{Z}_q^{n_1} \times \mathbb{R}^{n_2}\).'
 
 protection: ''
 
@@ -19,11 +19,9 @@ protection: ''
 
 relations:
   parents:
-    - code_id: group_quantum
-      detail: ''
-  
+    - code_id: oscillators
+      detail: 'The physical Hilbert space of a hybrid qubit-oscillator code contains at least one oscillator.'
+
   cousins:
-     - code_id: 'qudits_into_qudits'
-       detail: 'Hybrid code with \(n_2=0\).'
      - code_id: 'qudits_into_oscillators'
        detail: 'Hybrid code with \(n_1=0\).'
