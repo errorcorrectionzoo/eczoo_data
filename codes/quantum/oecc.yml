@@ -8,11 +8,13 @@ code_id: oecc
 #logical: qubits
 
 name: 'Operator quantum error-correcting code'
-introduced: '\cite{arXiv:quant-ph/0412076,arXiv:quant-ph/0504189}'
+introduced: '\cite{ doi: 10.1103/PhysRevLett.94.180501, arXiv:quant-ph/0504189}'
 
-description: 'Stub.'
+description: 'Operator QEC, also known as subsystem code, encodes information in a subsystem \(A\) of the code space \(C\), \(H=C \bigoplus C^{\perp} = A \bigotimes B \bigoplus C^{\perp}\). Following an error, it is sufficient to revert back to the original state modulo a transformation on \(B\). The subsystem \(B\) therefore gives additional freedom to the code, and is said to encode gauge qubits. Subsystem encoding, while not resulting in any new family of codes, leads to more efficient correction procedures and a wider variety of encoding procedures to choose from.'
 
-protection: ''
+error correction conditions: 'Necessary and sufficient conditions are \(PE^{\dagger}_aE_bP=\mathbb{I}^A \bigotimes g_{ab}^B \forall a,b\), where \(PH=C\) is a projector onto the codespace \(C\), and \(g_{ab}^B\) is an arbitrary operator in \(\mathcal{B}(B)\). \cite{doi:10.1103/PhysRevLett.95.230504}'
+
+protection: 'Subsystem codes are denoted by \([[n,k,r,d]]\), similar to stabilizer codes, but with an extra parameter \(r\) denoting the number of gauge qubits. Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 # Operator Knill-Laflamme criteria
 
 #notes:
@@ -23,6 +25,10 @@ relations:
   parents:
     - code_id: oaecc
       detail: ''
+  parent of:
+    - code_id: bacon_shor
+    - code_id: bravyibaconshor
+
 # Add all children
 
 #  cousins:
