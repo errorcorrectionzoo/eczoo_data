@@ -8,8 +8,17 @@ physical: qubits
 logical: qubits
 
 name: 'Bacon-Shor code'
-#introduced: '\cite{arxiv:quant-ph/0501184}'
+introduced: '\cite{doi:10.1103/PhysRevA.73.012340}'
 
-description: 'Stub.'
+description: 'A subsytem code defined on a\(2D\) lattice with the parameters \([n^2,1,n]\) and on a \(3D\) lattice with the parameters \([n^3,1,n]\) motivated by Hamiltonians defined on square and cubic lattices with anisotropic spin-spin interactions. The shortest [9,1,3] Bacon-Shor code has 6 gauge operators, symmetric in both X and Z, as compared to the 8 stabilizers of Shor's [9,1,3] code.'
 
-protection: ''
+protection: 'Detects errors on \(n-1\) qubits, corrects errors on \(\left\lfloor (n-1)/2 \right\rfloor\) qubits where \(n^2\) and \(n^3\) are the number of physicsal qubits in the 2 dimensional and 3 dimensional cases respectively. The three dimensional version offers the possibility of being a self-correcting quantum memory \cite{10.1103/PhysRevA.73.012340}.'
+
+
+
+relations:
+  parents:
+    - code_id: subsystem
+  cousins:
+    - code_id: shor
+    - code_id: bravyibaconshor
