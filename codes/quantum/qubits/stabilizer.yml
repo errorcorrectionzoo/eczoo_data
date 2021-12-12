@@ -8,20 +8,32 @@ physical: qubits
 logical: qubits
 
 name: 'Stabilizer code'
-introduced: '\cite{arXiv:quant-ph/9705052}'
+introduced: '\cite{arXiv:quant-ph/9605005}\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,2^k,d))\) stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code''s distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators forming the code''s stabilizer group. The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation on the code.'
+description: 'An \(((n,2^k,d))\) stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code''s distance.
+Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\).
+The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation on the code.'
 
-protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits.'
+protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. The normalizer \(N(S)\) of the stabilizer \(S\) is the set that contains all operators that commutes with \(S\).
+A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(\hat{E}^\dagger \hat{F} \notin \hat{N}(S)\setminus \hat{S}\) for all \(E,F \in {\mathcal{E}}\).'
 # Can expound on normalizer etc
+
+features:
+  encoders:
+    - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
+  # Add general prep schemes
 
 #notes:
 #  - '(nonlocal?) mapping to CSS codes?'
+# code tables
 
 # https://arxiv.org/pdf/0903.0566.pdf parent is code over GF(4): an additive self-orthogonal code over GF(4) with respect to the trace Hermitian inner product
 relations:
   parents:
-    - code_id: qubits_into_qubits
+    - code_id: cws
       detail: ''
-
-
+  cousins:
+    - code_id: prime_qudit_stabilizer
+      detail: ''
+    - code_id: hamiltonian
+      detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
