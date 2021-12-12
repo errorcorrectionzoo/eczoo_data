@@ -12,7 +12,7 @@ name: 'Fock-state bosonic code'
 
 description: 'Qudit-into-oscillator code whose protection against amplitude damping (i.e., photon loss) stems from the use of disjoint sets of Fock states for the construction of each code basis state. For example, single-mode Fock-state codes include any qubit codes whose basis states are, respectively, supported on Fock state sets \(\{|0\rangle,|4\rangle,|8\rangle,\cdots\}\) and \(\{|2\rangle,|6\rangle,|10\rangle,\cdots\}\).'
 
-protection: 'Code distance \(d\) is the minimum distance (assuming some metric) between any two Fock states corresponding to different code basis states. For a single mode, \(d\) is the minimum absolute value of the difference between any two Fock states; such codes can detect up to \(d-1\) loss events.'
+protection: 'Code distance \(d\) is the minimum distance (assuming some metric) between any two Fock states corresponding to different code basis states. For a single mode, \(d\) is the minimum absolute value of the difference between any two Fock states; such codes can detect up to \(d-1\) loss events. Multimode distanced are defined analogously; see, e.g., \hyperref[code:chuang-leung-yamamoto]{Chuang-Leung-Yamamoto codes}.'
 
 #notes:
 # - ''
@@ -26,4 +26,4 @@ relations:
     - code_id: binary_linear
       detail: 'Fock-state code distance is a natural extension of Hamming distance between binary strings.'
     - code_id: qubits_into_qubits
-      detail: 'Fock-state code whose codewords are finite superpositions of Fock states with maximum occupation $N$ can be mapped into a qubit code with $n\geq\log_2 N$ by performing a binary expansion of the Fock-state labels $n$ and treating each binary digit as an index for a qubit state. However, noise models for the two code families induce different notions of locality and thus qualitatively different physical interpretations \cite{arxiv:2111.08894}.'
+      detail: 'Fock-state code whose codewords are finite superpositions of Fock states with maximum occupation \(N\) can be mapped into a qubit code with \(n\geq\log_2 N\) by performing a binary expansion of the Fock-state labels \(n\) and treating each binary digit as an index for a qubit state. However, noise models for the two code families induce different notions of locality and thus qualitatively different physical interpretations \cite{arxiv:2111.08894}.'
