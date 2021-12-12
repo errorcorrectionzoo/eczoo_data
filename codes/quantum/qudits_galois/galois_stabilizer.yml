@@ -1,0 +1,27 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_stabilizer
+physical: galois
+logical: galois
+
+name: 'Galois-qudit stabilizer code'
+introduced: '\cite{arXiv:quant-ph/0005008}'
+
+description: 'An \(((n,p^k,d))_{GF(q)}\) stabilizer code is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\), where \(d\) is the code''s distance. Stub.'
+# Is it q^k?
+#'An \(((n,q^k,d))_{GF(q)}\) stabilizer code is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\), where \(d\) is the code''s distance.'
+#Logical subspace is the joint \(+1\) eigenspace of a set of \(p^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\). The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
+# Galois qudit codes have lifted stabiilizers, generally k=n-r/m; see Gottesmna's talk
+
+#protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
+
+# notes:
+#   - ''
+
+relations:
+  parents:
+    - code_id: galois_into_galois
+      detail: ''
