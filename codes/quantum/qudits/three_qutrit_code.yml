@@ -3,54 +3,26 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#},
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: three_qutrit_code
 physical: qudits
 logical: qudits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
+
 name: 'Three Qutrit Code'
 
-# First reference with the code (optional).
+
 introduced: '\cite{arXiv:quant-ph/9901025v1}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
+
 description: 'The three qubtrit code is a quantum error correction code protecting a single qutrit encoded in three qutrits ( qudit with \( d = 3 \) ) against a single erasure. It is an example of a \( ((n = 3, k = 2)) \) threshold scheme where a secret (quantum information) is split into \( n \) shares and can be reconstructed by \( k \) pieces. The code words are: \( | \bar{0} \rangle = | 000 \rangle + | 111 \rangle + | 222 \rangle, | \bar{1} \rangle = | 012 \rangle + | 120 \rangle + | 201 \rangle, | \bar{2} \rangle = | 021 \rangle + | 102 \rangle + | 210 \rangle \). Notice each logical contains cyclic permutations of a set of qutrits. They key property of this code is that the reduced density matrix of any single qutrit is maximally mixed, meaning no information can be extracted from a single qutrit. Therefore, any arbitrary single qutrit tells you nothing about the encoded message, but access to any two pairs of qutrits will reveal the secret.'
 
 
 protection: 'Decects single qutrit errors.'
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
-
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
 
   rate: 'k/n = 1/3'
 
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
   encoders:
     - 'In addition to thinking about the encoding of states, it is also interesting to look at the trasformation of operators from the physical space into the logical space. Due to the unique structure and recovery protocol of the three qutrit code, the representation of the logical operator \( \bar{O} \) is not unique. Instead, the logical operator \( \bar{O} \) can be constructed from unitary matricies with support on only two out of the three qutrits. Therefore, the logical operator has valid representations constructed from support on different sets of two qutrits. This operator construction is directly analogous to the construction of operators in the bulk (at the center) of the AdS(\_3\)-Rindler reconstruction. The three qutrit code can then be used to describe how these local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}. '
     - 'This construction is related to the cleaning lemma \cite{arXiv:0810.1983}, which was introduced in the context of constructing self-correcting quantum memories from stabilizer codes with geometrically-local generators. In this lemma, subspaces can be cleaned out by removing operators with support on a subset of qutrits.'
@@ -59,7 +31,6 @@ features:
 
   # general_gates:
 
-
   decoders:
     - 'The quantum information (the secret) can be recovered from a unitary transformation acting on only two qutrits, \( U_{ij} \ocross I_k \). By the cyclic structure of the codewords (see above), this unitary transformation performs a permutation that recovers the information and stores it in one of these two qutrits involved in recovery. For example, there exists a permutation matrix \( U_{12} \) that recovers the information and stores it in the first qutrit via \( U_{12} \otimes I_3 ( \alpha | \bar{0} \rangle + \beta | \bar{1} \rangle + \gamma | \bar{2} \rangle ) = ( \alpha | 0 \rangle + \beta | 1 \rangle + \gamma | 2 \rangle ) \otimes ( \ket{00} + \ket{11} + \ket{22} ) / \sqrt{3} \).'
 
@@ -67,15 +38,8 @@ features:
 
   # threshold:
 
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
-
 # realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
+
 
 
 notes:
@@ -83,8 +47,8 @@ notes:
 
 relations:
   parents:
-    - code_id: holographic
-      detail: ''
+#     - code_id: holographic
+#       detail: 'Simple example of a holographic code'
 
   # cousins:
   #   - code_id:
