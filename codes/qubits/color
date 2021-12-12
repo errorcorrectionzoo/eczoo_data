@@ -11,7 +11,7 @@ name: 'Color code'
 introduced: '\cite{doi:10.1103/PhysRevLett.97.180501}'
 
 description:
-'Color code is a topological stabilizer code defined on a \(\d\)-dimensional lattice which satisfies two properties: The lattice is a homogeneous simplicial \(\d\)-complex obtained as a triangulation of the interior of a \(\d\)-simplex and is \(\d+1\)-colorable. Qubits are placed on the \(\d\)-simplices and generators are supported on suitable simplices. For 2-dim, qubits are placed on triangular faces, stabilizer generators are associated with vertices \cite{doi:10.7907/059V-MG69}.'
+'Color code is a topological stabilizer code defined on a \(\d\)-dimensional lattice which satisfies two properties: The lattice is a homogeneous simplicial \(\d\)-complex obtained as a triangulation of the interior of a \(\d\)-simplex and is \(\d+1\)-colorable. Qubits are placed on the \(\d\)-simplices and generators are supported on suitable simplices \cite{doi:10.7907/059V-MG69}. For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice. The qubits are placed on the vertices and 2 stabilizer generators are placed on each face \cite{arXiv:1311.0277}.'
 
 protection:
 'Color code is defined on specific kind of lattices to protect against errors. The code distance is related to the homology of string operators in the code \cite{arXiv:1311.0277}.'
@@ -23,9 +23,9 @@ features:
     - 'Universal transversal gate can be achieved in 3d color code using gauge fixing \cite{arXiv:1304.3709}\cite{arXiv:1403.2734}.'
     - 'Color-code lattice surgery\cite{arXiv:1407.5103}.'
     - 'Code deformation \cite{doi:10.1088/1367-2630/13/4/043005}\cite{arXiv:0806.4827}.'
-  general_gates:
-    - 'Magic-state distillation protocols \cite{doi:10.7907/059V-MG69}.'
     - 'CNOT can be implemented via braiding \cite{arXiv:0806.4827}.'
+  general_gates:
+    - 'Magic-state distillation protocols \cite{doi:10.7907/059V-MG69}.
     - 'Non-clifford gates can be implemented via code switching \cite{doi:10.7907/059V-MG69}.'
   decoders:
     - 'Projection decoder \cite{doi:10.7907/059V-MG69}.'
@@ -58,6 +58,6 @@ generators.'
     - code_id: css
       detail: 'Stabilizers are products of either X or Z paulis.'
   #cousins:
-    - code_id: toric_code
-      detail: 'Color code is equivalent to toric code in many ways. For example, the color code on a \(\d\)-dimensional closed manifold is equivalent to multiple decoupled copies of the d-dimensional toric code \cite{10.1088/
+    #- code_id: toric_code (stub)
+      #detail: 'Color code is equivalent to toric code in many ways. For example, the color code on a \(\d\)-dimensional closed manifold is equivalent to multiple decoupled copies of the d-dimensional toric code \cite{10.1088/
     1367-2630/17/8/083026}.'
