@@ -13,7 +13,7 @@ introduced: '\cite{doi:10.22331/q-2021-10-19-564}'
 
 description: 'The Honeycomb code is defined on a hexagonal (honeycomb) lattice with a physical qubit located at each vertex. Edges are labeled \(x\), \(y\), and \(z\), such one edge of each label meet at every vertex. ‘’Check’’ operators are defined as \(XX\) acting on any two qubits joined by an \(x\) edge, and similarly for \(y\) and \(z\). The hexagonal lattice is 3-colorable, so the hexagons may be labeled 0, 1, 2 such that no two neighboring hexagons have the same label. This code has dynamically generated logical qubits: although it has no logical qubits when viewed as a subsystem code, it is able to generate logical qubits through a measurement pattern. The measurement pattern consists of measuring the check operators located on all of the \(r\)-labeled edges in round \(r\) mod 3. The code space is the \(+1\) eigenspace of the instantaneous stabilizer group (ISG). The ISG specifies the state of the system as a Pauli stabilizer state at a particular round of measurement, and it evolves into a (potentially) different ISG depending on the check operators measured.'
 
-protection: 'Protects against single-qubit Pauli noise and check operator measurement errors.’ 
+protection: 'Protects against single-qubit Pauli noise and check operator measurement errors.' 
 # Not 100% sure on this ^^
 
 features:
@@ -21,15 +21,15 @@ features:
   # rate:
 
   encoders: 
-    - 'Initialization can be performed by preparing each pair of qubits  on an edge in some particular state independently specified by the effective-one-qubit operators (two-qubit Pauli strings centered on an edge) and then beginning the check measurement sequence. This is analogous to projecting a state into the code space by measuring stabilizers.’
+    - 'Initialization can be performed by preparing each pair of qubits  on an edge in some particular state independently specified by the effective-one-qubit operators (two-qubit Pauli strings centered on an edge) and then beginning the check measurement sequence. This is analogous to projecting a state into the code space by measuring stabilizers.'
 
   # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
   general_gates:
-   - 'There are two types of logical operators, ‘’inner’’ and ‘’outer.’’ An inner logical operator is the product of check operators on a homologically nontrivial cycle. They belong to the stabilizer group as a subsystem code. Outer logical operators have an interpretation in terms of magnetic and electric operators of an embedded toric code, and they do not belong to the stabilizer group as a subsystem code.’
+   - 'There are two types of logical operators, ‘’inner’’ and ‘’outer.’’ An inner logical operator is the product of check operators on a homologically nontrivial cycle. They belong to the stabilizer group as a subsystem code. Outer logical operators have an interpretation in terms of magnetic and electric operators of an embedded toric code, and they do not belong to the stabilizer group as a subsystem code.'
 
   decoders: 
-    - 'The ISG has a static subgroup for all time steps \(r\geq 3\) – that is, a subgroup which remains a subgroup of the ISG for all future times – given by so-called ‘’plaquette stabilizers.’’ These are stabilizers consisting of products of check operators around homologically trivial paths. The syndrome bits correspond to the eigenvalues of the plaquette stabilizers. Because of the structure of the check operators, only one-third of all plaquettes are measured each round. The syndrome bits must therefore be represented by a lattice in spacetime, to reflect when and where the outcome was obtained.’
+    - 'The ISG has a static subgroup for all time steps \(r\geq 3\) – that is, a subgroup which remains a subgroup of the ISG for all future times – given by so-called ‘’plaquette stabilizers.’’ These are stabilizers consisting of products of check operators around homologically trivial paths. The syndrome bits correspond to the eigenvalues of the plaquette stabilizers. Because of the structure of the check operators, only one-third of all plaquettes are measured each round. The syndrome bits must therefore be represented by a lattice in spacetime, to reflect when and where the outcome was obtained.'
 
   fault_tolerance:
     - 'One can run a fault-tolerant decoding algorithm by bipartitioning the syndrome lattice into two graphs which are congruent to the Cayley graph of the free abelian group with three generators (up to boundary conditions) are performing a matching algorithm to deduce errors.'
@@ -38,7 +38,7 @@ features:
     -  'A correlated minimum-weight perfect-matching decoder was used in \cite{arXiv:2108.10457} to calculate a threshold of 0.2%-0.3% in a controlled-not circuit model and a threshold of 1.5%<\(p\)<2.0% in a circuit model with native two-body measurements, where \(p\) is the collective error rate of the two-body measurement gate - including both measurement and correlated data depolarization error processes.'
 
 realizations:
-  - 'The Honeycomb code admits a representation in terms of Majorana fermions, as was used to describe the Kitaev honeycomb model \cite{doi:10.1016/j.aop.2005.10.005}. Such a representation leads to a possible physical realization of the code in terms of tetrons \cite{doi:10.1103/PhysRevB.95.235305}, where each physical qubit is composed of four Majorana modes.’
+  - 'The Honeycomb code admits a representation in terms of Majorana fermions, as was used to describe the Kitaev honeycomb model \cite{doi:10.1016/j.aop.2005.10.005}. Such a representation leads to a possible physical realization of the code in terms of tetrons \cite{doi:10.1103/PhysRevB.95.235305}, where each physical qubit is composed of four Majorana modes.'
 
 notes:
   - 'Formulating the code with open boundaries is discussed in \cite{arXiv:2110.09545,arXiv:2110.05348}.'
@@ -47,13 +47,13 @@ notes:
 relations:
   parents:
     - code_id: dynamic_gen
-      detail: 'This code belongs to a larger class of codes whose logical qubits are dynamically generated.’
+      detail: 'This code belongs to a larger class of codes whose logical qubits are dynamically generated.'
 
   cousins:
     - code_id: surface
-      detail: 'Measurement of each check operator involves two qubits and projects the state of the two qubits to a two-dimensional subspace, which we regard as an effective qubit. These effective qubits form a toric code on a hexagonal superlattice. Electric and magnetic operators on the embedded toric code correspond to outer logical operators of the honeycomb code. In fact, outer logical operators transition back and forth from magnetic to electric toric code operators under the measurement dynamics.’
+      detail: 'Measurement of each check operator involves two qubits and projects the state of the two qubits to a two-dimensional subspace, which we regard as an effective qubit. These effective qubits form a toric code on a hexagonal superlattice. Electric and magnetic operators on the embedded toric code correspond to outer logical operators of the honeycomb code. In fact, outer logical operators transition back and forth from magnetic to electric toric code operators under the measurement dynamics.'
      - code_id: subsystem
-       detail: 'This code can be viewed as a subsystem code, albeit one without logical qubits.’
+       detail: 'This code can be viewed as a subsystem code, albeit one without logical qubits.'
      - code_id: quantum_ldpc
        detail: 'The honeycomb code is a quantum LDPC code because its check operators are always two-qubit and each qubit participates in one check each round, regardless of other code parameters.'
      - code_id: monitored_random_circuits
