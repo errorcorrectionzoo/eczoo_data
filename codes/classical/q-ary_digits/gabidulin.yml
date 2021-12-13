@@ -7,12 +7,12 @@ code_id: gabidulin
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Gabidulin or rank code'
-introduced: '\cite{manual_citation_minilatex:{E. M. Gabidulin, "Theory of Codes with Maximum Rank Distance", Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)}}'
+name: 'Rank code'
+introduced: '\cite{manual_citation_minilatex:{E. M. Gabidulin, "Theory of Codes with Maximum Rank Distance", Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)},doi:10.1109/18.75248}'
 
-description: 'Error-correcting codes over rank metric.'
+description: 'Also called Gabidulin or (matrix) rank-metric code. The code corrects errors over rank metric instead of traditional Hamming distance. The rank of \(n\)-dimensional vector over \(GF(q^N)\) is the maximum number of its linearly independent coordinates.'
 
-protection: '\(d\)-distance codes protect agains all errors of rank not greater \(\lfloor (d-1)/2\rfloor\)'
+protection: 'Set of vectors \(\{x_1, x_2, \ldots, x_M\}\) is called a \emph{code} with distance \(d=\min d(x_i, x_j)\). The code with distance \(d\) corrects all errors with rank of the error not greater than \(\lfloor (d-1)/2\rfloor\).'
 
 notes:
  - |
@@ -21,7 +21,11 @@ notes:
    \(r(x, q):= \mathrm{rank}(A(x))\) where 
    \(A(x) = \begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1n} \\ a_{21} & a_{22} & \ldots & a_{2n} \\  a_{N1} & a_{N2} & \ldots & a_{Nn} \end{pmatrix} \)
    and \(x_i = a_{1i} u_1 + a_{2i} u_2 + \ldots + a_{Ni}u_N \) for some fixed basis \(\{u_i\}_{i=1}^N\).
- - 'Set of vectors \(\{x_1, x_2, \ldots, x_M\}\) is called a \emph{code} with distance \(d=\min d(x_i, x_j)\). If the set defines a \(k\)-dimensional subspace, then the code is [n,k]-linear.'
+ - 'If the vector set \(\{x_1, x_2, \ldots, x_M\}\) defines a \(k\)-dimensional subspace, then the code is [n,k]-linear.'
+
+realizations:
+ - 'Useful for error and erasure correction in network coding'
+
 
 relations:
   parents:

@@ -10,20 +10,24 @@ logical: qubits
 name: 'XZZX surface code'
 introduced: '\cite{arXiv:2009.07851}'
 
-description: 'A family of stabilizer codes whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation)'
+description: 'A family of stabilizer codes whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).'
 
 protection: 'As stabilizer \([[n=O(d^2), k=O(1), d]]\).'
 
+notes:
+  - 'A single \(X\) or \(Z\) error gives rise to two nearby defect, which can be viewed as a string where defects lie at the endpoints. This way multiple-\(Z\) errors can be decomposed into a combination of diagonal strings.'
+  - 'A single \(Z\) error gives rise to a defect at each adjacent face.'
+
 features:
   threshold:
-  - '\(50\%\) with pure \(X, Y\) or \(Z\) errors.'
-  - '\(18.7\%\) at standard depolarising noise.'
+  - '\(50\%\) with pure \(X\) or \(Z\) errors and both a maximum-likelihood decoder and a minimum-weight perfect-matching decoder.'
+  - '\(18.7\%\) at standard depolarising noise with a maximum-likelihood decoder.'
+  - |
+    For large but finite \(X\)- or \(Z\)-biased noise the code's thresholds exceed the zero-rate hashing bound.
+    The gap exceeds \(2.9\%\) when \(X\) (\(Z\)) error is \(300\) times more frequent than other Paulis.
 
 relations:
   parents:
-    - code_id: stabilizer
-      detail: ''
-  cousins:
     - code_id: surface
       detail: ''
 
