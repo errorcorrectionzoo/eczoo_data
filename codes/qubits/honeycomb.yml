@@ -35,22 +35,27 @@ features:
     - 'One can run a fault-tolerant decoding algorithm by bipartitioning the syndrome lattice into two graphs which are congruent to the Cayley graph of the free abelian group with three generators (up to boundary conditions) are performing a matching algorithm to deduce errors.'
 
   threshold: 
-    - ‘A Peierls argument shows that there is a positive threshold so that up to this threshold a minimum weight matching algorithm will match errors leaving all loops of residual errors small.’
+    -  A correlated minimum-weight perfect-matching decoder was used in \cite{arXiv:2108.10457} to calculate a threshold of 0.2%-0.3% in a controlled-not circuit model and a threshold of 1.5%<\(p\)<2.0% in a circuit model with native two-body measurements, where \(p\) is the collective error rate of the
+two-body measurement gate - including both measurement and correlated data depolarization error processes.'
 
 realizations:
   - ’The Honeycomb code admits a representation in terms of Majorana fermions, as was used to describe the Kitaev honeycomb model \cite{doi:10.1016/j.aop.2005.10.005}. Such a representation leads to a possible physical realization of the code in terms of tetrons \cite{doi:10.1103/PhysRevB.95.235305}, where each physical qubit is composed of four Majorana modes.’
 
 notes:
+  - 'Formulating the code with open boundaries is discussed in \cite{arXiv:2110.09545,arXiv:2110.05348}.'
  
 
 relations:
   parents:
-    - code_id: dynamical
+    - code_id: dynamic_gen
       detail: ‘This code belongs to a larger class of codes whose logical qubits are dynamically generated.’
-    - code_id: subsystem
-      detail: ‘This code can be viewed as a subsystem code, albeit one without logical qubits.’
 
   cousins:
     - code_id: surface
       detail: ‘Measurement of each check operator involves two qubits and projects the state of the two qubits to a two-dimensional subspace, which we regard as an effective qubit. These effective qubits form a toric code on a hexagonal superlattice. Electric and magnetic operators on the embedded toric code correspond to outer logical operators of the honeycomb code. In fact, outer logical operators transition back and forth from magnetic to electric toric code operators under the measurement dynamics.’
-
+     - code_id: subsystem
+       detail: ‘This code can be viewed as a subsystem code, albeit one without logical qubits.’
+     - code_id: quantum_ldpc
+       detail: 'The honeycomb code is a quantum LDPC code because its check operators are always two-qubit and each qubit participates in one check each round, regardless of other code parameters.'
+     - code_id: monitored_random_circuits
+       detail: 'The monitored random circuit code also has an instantaneous stabilizer group which evolves through measurements (and unitaries). However, the code in that case is at any time a standard stabilizer code, i.e. without dynamically generated logical quubits.'
