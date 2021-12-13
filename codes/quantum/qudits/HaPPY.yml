@@ -12,23 +12,30 @@ logical: qudits
 name: 'HaPPY code'
 introduced: '\cite{arxiv:1503.06237}'
 
-description: 'Encodes operators in the bulk of the Anti de Sitter space (analogous to logical qudits) into operators on the boundary of the corresponding Conformal Field Theory (analagous to physical qudits). This is accomplished using a tensor network of [[5,1,3]] encodings with several layers that eventually leads to the CFT on the boundary. Specifically, we construct a uniform tiling of the hyperbolic AdS/CFT disc with pentagons, with four pentagons adjacent at each vertex. Then, we represent each [[5,1,3]] encoding of a bulk operator by a 6-legged tensor (one input leg, five output legs) and place one at each pentagon with the input leg left uncontracted. This construction is a tensor network isometry from the uncontracted legs in the bulk to the uncontracted legs at the boundary. The bulk legs correspond to indices for logical input while the boundary legs can be interpreted as the physical encoding.'
+description: 'Encodes operators in the bulk of the Anti de Sitter space (analogous to logical qudits) into operators on the boundary of the corresponding Conformal Field Theory (analagous to physical qudits). This is accomplished using a tensor network of \([[5,1,3]]\) encoding isometries with several layers that eventually leads to the CFT on the boundary. Specifically, we construct a uniform tiling of the hyperbolic AdS/CFT disc with pentagons/hexagons, with four pentagons/hexagons adjacent at each vertex (variants of the code can be created by choosing either a hexagon or pentagon at each location). Then, we place a 6-legged \([[5,1,3]]\) encoding tensor at each hexagon and at each pentagon (with one leg left uncontracted for a pentagon). This construction forms a tensor network isometry from the uncontracted legs in the bulk to the uncontracted legs at the boundary. The bulk legs correspond to indices for logical input while the boundary legs can be interpreted as the physical encoding.'
 
 
-protection: 'Protects against erasure errors on the boundary.'
+protection: 'Protects against erasure errors and Pauli errors on the boundary.'
 
 
 features:
-  rate: 'Converges to \(\frac{1}{\sqrt{5}} \approx 0.447\)'
+  rate: 'The pentagon HaPPY code converges to \(\frac{1}{\sqrt{5}} \approx 0.447\). The pentagon/hexagon HaPPY code, with alternating layers of pentagons and hexagons in the tiling, has a rate of 0.299 if the last layer is a pentagon layer and a rate of 0.088 if the last layer is a hexagon layer'
 
   encoders:
     - 'Encoding is done through tensor pushing. Each bulk operator (logical) is pushed to an operator supported on a portion of the boundary region (physical). Pushing all the bulk operators through results in reconstruction of the boundary.'
 
   decoders:
     - 'Greedy algorithm for decoding specified in \(\cite{arxiv:1503.06237}\).'
-    - 'Given only a fraction of the boundary operators, one can only decode (reconstruct) a portion of the bulk operators within the causal wedge.'
-    - 'This is a precise analog to the AdS Rindler reconstruction.'
-    - 'When there is one logical index in the bulk (a single logical qubit), physical erasure errors on the boundary can be corrected by the greedy decoder if p < 1/12.'
+    - 'Given only a fraction of the boundary operators, one can only decode (reconstruct) a portion of the bulk operators within the entanglement wedge.'
+   
+  fault_tolerance:
+    - 'The set of transversally implementable logical operations is contained in the Clifford group for sufficiently localized logical subsystems \cite{arxiv:2103.13404}' 
+    
+  threshold:
+    - 'There is no threshold for the pentagon HaPPY code as a constant number of errors (two) can make bulk recovery impossible'
+    - '\(26%\) for boundary erasure errors on the the pentagon/hexagon HaPPY code, which has alternating layers of pentagons and hexagons in the tiling.'
+    - 'Close to \(50%\) for boundary erasure errors on the single-qubit HaPPY code, which has a central pentagon encoding one bulk operator and hexagons tiling all other layers'
+    - '\(16.3%\) for boundary Pauli errors on the single-qubit HaPPY code with 3 layers \cite{arxiv:2008.10206}.'
 
 
 #notes:
@@ -37,9 +44,8 @@ features:
 relations:
   parents:
     - code_id: holographic
-      detail: 'holographic is smallest code family that includes this code that is defined over the same physical space structure'
     - code_id: stabilizer
-      detail: 'stabilizer is a code family that is constructed in a seemingly different way than this code, yet still includes this code.'
+    - code_id: oaecc
 
   cousins:
     - code_id: five-qubit perfect
