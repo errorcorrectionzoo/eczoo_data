@@ -26,23 +26,31 @@ logical: q-ary_digits
 name: 'Goppa Code'
 
 # First reference with the code (optional).
-introduced: '\url{https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1055088} \(not original\)'
+introduced: '\cite{manual:{V. D. Goppa, "A new class of linear error-correcting codes", Probl. Peredach. Inform., vol. 6, no. 3, pp. 24-30, Sept. 1970.}, manual:{V. D. Goppa, "Rational representation of codes and (Lg) codes", Probl. Peredach. Inform., vol. 7, no. 3, pp. 41-49, Sept. 1971.}, doi:10.1109/TIT.1973.1055088}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'Let G(z) be a Goppa polynomial with coefficients from GF\(q^m\) for some fixed integer m. Let L be a finite subset of the extension field GF(q^m) where q is prime, meaning L  = \{\alpha_1, \cdots, \alpha_n\} is a subset of GF\(q^m\) such that \alpha_i \neq 0 for all \alpha_i \in L. A Goppa code \Gamma\(L,G\) is an [n,k,d] linear code consisting of all vectors a = \(a_1, \cdots, a_n\) 
+description: 'Let \( G(z) \)  be a polynomial describing a projective plane curve with coefficients from \( GF(q^m) \)  for some fixed integer m. Let \( L \) be a finite subset of the extension field \( GF(q^m) \)  where q is prime, meaning \( L  = \{\alpha_1, \cdots, \alpha_n\} \) is a subset of nonzero elements of GF\(q^m\). A Goppa code \( \Gamma(L,G) \) is an [n,k,d] linear code consisting of all vectors a = \(a_1, \cdots, a_n\) 
 	such that\( R_a(z) =0 mod G(z) \) where \( R_a(z) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).'
 
 
-protection: 'If the deg G(z) = 2t, then there exists a t-correcting algebraic decoding algorithm for \( \Gamma(L,G) \).'
+protection:  'The length \( n = |L| \) , the dimension \( k \geq n-mr \) where \( r = deg G(z) \), and the minimum distance \( d \geq r +1 \). ' 
+
 features: 
+  rate: 
+    - 'There exist Goppa codes defined over larger alphabets that meet the Gilbert-Varshamov (GV) bound'
+  
   decoders: 
-    - 'Algebraic decoding algorithms defined in \cite{manual:{Patterson 1975 "The Algebraic Decoding of Goppa Codes}}' 
+    - 'Algebraic decoding algorithms defined in \cite{doi:10.1109/TIT.1975.1055350}'
+	- 'If the \( deg G(z) = 2t \) , then there exists a t-correcting algebraic decoding algorithm for \( \Gamma(L,G) \).'
+
+realizations: 
+  - 'The binary version \( (q=2) \) is commonly used in post-quantum cryptosystems such as the McElise cryptosystem.'
+   
+
 notes:
-  - 'The length n = |L|, the dimension k \geq n-mr where r = deg G(z), and the minimum distance \( d \geq r +1 \). ' 
-  - '\url{https://www.gap-system.org/Manuals/pkg/guava/doc/chap5.html#X7EE808BB7D1E487A}'
-  - 'There exist Goppa codes defined over larger alphabets that meet the GV bound'
-  - 'The binary version (q=2) is commonly used in post-quantum cryptosystems such as the McElise cryptosystem.'
+  - 'GAP function GoppaCode(G,L) takes in a polynomial G that satisfies the necessary conditions for a Goppa code and a list L that contains elements in GF(q) that are not roots of the polynomial G. It  returns a Goppa code C. More details can be found at 
+	\url{https://www.gap-system.org/Manuals/pkg/guava/doc/chap5.html#X7EE808BB7D1E487A}.'
 
 
 relations:
