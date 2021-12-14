@@ -4,13 +4,13 @@
 #######################################################
 
 code_id: weakly_self_dual
-physical: bits
-logical: bits
+physical: q-ary_digits
+logical: q-ary_digits
 
 name: 'Weakly self-dual linear code'
 #introduced: ''
 
-description: 'A binary linear code \(C\) whose dual code \(C^\perp = \{ y\in\mathbb{Z}_2^{\times n} ~|~ x\cdot y=0 \forall x\in C\}\) is contained in \(C\).'
+description: 'Also called a \textit{self-orthogonal} code. A \(q\)-ary linear code \(C\) whose dual code \(C^\perp = \{ y\in\mathbb{Z}_q^{\times n} ~|~ x\cdot y=0 \forall x\in C\}\) is contained in \(C\).'
 
 protection: 'The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.'
 
@@ -19,5 +19,5 @@ notes:
 
 relations:
   parents:
-    - code_id: binary_linear
+    - code_id: q-ary_digits_into_q-ary_digits
       detail: ''
