@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: four_dimensional_hyperbolic
+physical: qubits
+logical: qubits
+
+name: 'Four-dimensional hyperbolic code'
+introduced: '\cite{arXiv:1310.5555}'
+
+description: |
+  There exists \(\epsilon\), a four-dimensional hyperbolic manifold \(M\) and a sequence of manifolds \(M_i\) such that
+  each \(M_i\) is a finite sheeted \href{https://en.wikipedia.org/wiki/Covering_space}{covering} of \(M\) and the four-dimensional volumes of the manifolds \(Vol_4(M_i)\) of the sequence tend to infinity. 
+  Also, the dimension of the second homology and size of systoles are bounded by \(H_2(M_i, Z_2) \geq \frac{Vol_4(M_i)}{100}\) and \(Sys_2(M_i) \geq Vol_4(M_i)^\epsilon\), respectively.
+  
+  Given a cellulation of \(M\), it can naturally be extended to cellulations for each of the manifolds \(M_i\). 
+  Now, these cellulations can be used to define CSS codes via the homological construction by choosing the size three chain complex consisting of the \(3,2\) and \(1\)-cells of the cellulated \(M_i\).
+  
+  The number of physical qubits for these codes \(n\) will scale with the volume of the manifolds. 
+  Consequently, the number of physical \(k\) qubits and distance \(d\) of the code will scale as \(\Omega(n)\) and \(\Omega(n^\epsilon)\). 
+  See the entry on CSS codes for the relationship between properties of manifolds and CSS codes derived from their cellulation.
+
+# Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
+
+
+#notes:
+# VVA: Added already as cousin entry. - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
+
+# realizations:
+  # -
+
+relations:
+  parents:
+    - code_id: css
+      detail: 'This code is constructed homologically from a cellulation of the hyperbolic space'
+#  cousins:
+#    - code_id: two_dimensional_hyperbolic_surface
+#      detail: 'CSS code constructed via tesselation of a two-dimensional hyperbolic surface'
