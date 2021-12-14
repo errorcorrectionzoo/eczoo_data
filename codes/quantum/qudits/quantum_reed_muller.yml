@@ -4,12 +4,12 @@
 #######################################################
 
 code_id: quantum_reed_muller
-physical: qudits
-logical: qudits
+physical: qubits
+logical: qubits # also qudits
 
 name: 'Quantum Reed-Muller'
 
-introduced: '\cite{arXiv:9608026}'
+introduced: '\cite{arxiv:9608026}'
 
 description: 'Quantum Reed-Muller codes are formed from their classical Reed-Muller counterparts in which polynomials over finite fields encode data. This is done by transforming these polynomials into the stabilizer generator matrices'
 
@@ -20,26 +20,26 @@ features:
   rate: '\(\frac{k}{n}\), where \(k = 2^r - {r \choose t} + 2 \sum_{i=0}^{t-1} {r \choose i}\).'
 
   encoders: 
-    - 'Standard efficient CSS encoders \cite{arXiv:9608026}'
+    - 'Standard efficient CSS encoders \cite{arxiv:9608026}'
 
   general_gates:
     - 'Magic state distillation in all prime dimensions \cite{doi:10.1103/PhysRevX.2.041021}'
     
   decoders:
-    - 'Standard efficient CSS encoders \cite{arXiv:9608026}'
+    - 'Standard efficient CSS encoders \cite{arxiv:9608026}'
 
   threshold: 
     - 'Between \(10^{-3}\) and \(10^{-6}\), see \cite{doi:10.1088/2058-9565/abb027}'
   
 notes:
-  - 'used to derive quantum convolutional codes \cite{arXiv:0701037}'
-  - 'triorthogonal codes can be classified using reed-muller polynomials \cite{arXiv:2107.09684}'
-  - 'CSS codes formed from binary Reed-Muller codes achieve channel capacity on erasure channels \cite{arXiv:1601.04689}'
+  - 'used to derive quantum convolutional codes \cite{arxiv:0701037}'
+  - 'triorthogonal codes can be classified using reed-muller polynomials \cite{arxiv:2107.09684}'
+  - 'CSS codes formed from binary Reed-Muller codes achieve channel capacity on erasure channels \cite{arxiv:1601.04689}'
 
 relations:
   parents:
     - code_id: css_codes
-      detail: ''
+      detail: 'css_codes is smallest code family that includes this code that is defined over the same physical space structure or alphabet'
 
   cousins:
     - code_id: reed_muller
