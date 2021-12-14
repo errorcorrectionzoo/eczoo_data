@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: repetition
+physical: bits
+logical: bits
+
+name: 'Binary repetition code'
+
+introduced: '\cite{doi:10.1201/9781315147901}'
+
+description: 'This code encodes 1-bit information into a \(n\)-bit string. \(n\) needs to be an odd number, since receiver will pick the majority at decoding stage. Its basic idea is to increase the code distance by repeating the logical information several times. It is a \((n,1)\)-Hamming code.'
+
+protection: 'Protects against bit-flip and erasure up to \(\frac{n-1}{2}\)-bit error. Bit-flip error and erasure error are the common in classical communication processes.'
+
+
+features:
+
+
+  rate: 'The code rate is \(\frac{1}{n}\). The code distance is \(n\). Its generator matrix is \(G=\left[\begin{smallmatrix}1 & 1&\cdots& 1 & 1 \end{smallmatrix}\right]\). '
+
+  decoders:
+    - 'Calculate the Hamming weight \(d_H\) of the code. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
+
+
+  threshold: 
+    - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then people can always increase the probability of success by increasing the number of physical bit \(n\).'
+
+realizations:
+  - 'Repetition codes were used in magnetic disks.'
+  - 'Although classical repetition code does not have many real-world applications, it still inspire the studies of quantum error correction. Quantum repetition code is widely studied in quantum computing community.'
+
+
+#relations:
+  #parents:
+    #- code_id: Hamming
+      #detail: 'A \([n,1,n]\) repetition code is a (n,1)-Hamming code.'
+
+  #cousins:
+    #- code_id: quantum_repetition
+      #detail: 'Quantum repetiton code is the quantum analog of classical binary repetition code.'
+    #- code_id: 
+      #detail: ''
