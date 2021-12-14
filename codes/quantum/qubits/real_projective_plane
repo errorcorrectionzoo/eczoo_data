@@ -9,7 +9,7 @@ physical: qubits
 logical: qubits
 
 
-name: '\(\mathbb{R}P^2\) surface codes'
+name: 'Projective-plane surface code'
 introduced: '\cite{arXiv:quant-ph/9810055}'
 
 description: 'A family of surface codes on the non-orientable 2-dimensional compact manifold \(\mathbb{R}P^2\) (in contrast to a genus-\(g\) surface). Whereas genus-\(g\) surface codes require \(2g\) logical qubits, qubit codes on \(\mathbb{R}P^2\) are made from a single logical qubit.'
@@ -17,7 +17,7 @@ protection: 'If \(\mathcal{C}\) is a cellulation of \(\mathbb{R}P^2\) then the b
 
 features:
 
-  rate: 'The rate is always \(1/n\) where \(n\) is the number of edges of the particular cellulation (since physical qubits are placed on the lattice edge). Note the 1 in the numerator is because \(\mathbb{R}P^2\) codes always use 1 logical qubit.'
+  rate: 'The rate is always \(1/n\) where \(n\) is the number of edges of the particular cellulation (since physical qubits are placed on the lattice edge).'
 
   # #encoders: 
    # # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
@@ -60,17 +60,18 @@ features:
 
 relations:
   parents:
-    - code_id: css
-      detail: 'Plaquette and star operators are stabilizer generators.'
-    - code_id: homological
-      detail: ''
-    - code_id: topological
-      detail: ''
-    - code_id: quantum_ldpc
-      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation
     - code_id: surface
       detail: 'This is basically Kitaev''s surface code instead on a non-orientable surface.'
+    # - code_id: css
+      # detail: 'Plaquette and star operators are stabilizer generators.'
+    # - code_id: homological
+      # detail: ''
+    # - code_id: topological
+      # detail: ''
+    # - code_id: quantum_ldpc
+      # detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation
+    
       
   cousins:
-    - code_id: quantum_repetition
+    - code_id: shor_nine
       detail: 'A celluation as in Figure 4 of \cite{arXiv:quant-ph/9810055} is equivalent to the 9-qubit Shor repetition code.'
