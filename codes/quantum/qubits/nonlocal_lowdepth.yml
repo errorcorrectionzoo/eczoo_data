@@ -7,11 +7,12 @@ code_id: nonlocal_lowdepth
 physical: qubits
 logical: qubits
 
+#Title should be "Low-Depth Random Clifford Circuit"
 name: 'Non-local low depth encoding circuits'
 introduced: '\cite{doi:10.1109/isit.2013.6620245}'
 
 
-
+#More precisely n^2 log n and log^3 n are upper bounds. Gates are random two-site Clifford gates.
 description: 'An encoder for an \([n,k]\) quantum error correcting code, is an \(n\)-qubit unitary transformation that takes a \(k\)-qubit state as input (with \(k\leq n\), and the remaining \(n-k\) qubits initialized to \(|0\rangle^{\otimes n-k}\) ) to give a corresponding state in the codespace as the output.An n-qubit quantum circuit with random 2-qubit unitary gates can act as an encoder into a code with distance \(d\) with high probability, given the size (i.e. number of gates in the circuit) is \(O(n^2 logn)\)). Noting that two gates acting on disjoint qubits could in fact be executed simultaneously, this is equivalent to the depth (number of time steps in the circuit) being \(O(log^3n)\).'
 
 
@@ -21,4 +22,4 @@ protection: 'Creates a \([[n,k,d]]\) stabilizer code that detects errors on \(d-
 relations:
   parents:
     - code_id: stabilizer
-      detail: 'Used to encode stabilizer codes'
+      detail: 'Used to encode stabilizer codes'  #parent: random circuit codes
