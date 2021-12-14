@@ -4,15 +4,28 @@
 #######################################################
 
 code_id: balanced_product
-#physical: bits
-#logical: qubits
+physical: qubits
+logical: qubits
 
-name: 'Balanced-product code'
-introduced: '\cite{arxiv:2004.07935}'
+name: 'Balanced product code'
+introduced: '\cite{arXiv:2012.09271}'
 
-description: 'Stub.'
+description: 'A large family of CSS quantum codes. They are products of two classical codes which share common symmetries. The balanced product can be understood as taking the usual tensor/hypergraph product and then factoring out the symmetries factored. This reduces the overall number of physical qubits n, while, under certain circumstances, leaving the number of encoded qubits k and the code distance d invariant. This leads to a more favourable encoding rate k/n and relative distance d/n compared to the tensor/hypergraph product.'
+
+protection: 'Taking balanced products of two classical LDPC codes which have a symmetry group which grows linearly in their block lengths were known to give quantum LDPC codes with a linear rate and which were conjectured to have linear distance \cite{arXiv:2012.09271}. This conjecture was proved in \cite{arXiv:2111.03654}.'
+
+features:
+  rate: ''
+
+  decoders:
+    - 'BP-OSD decoder \cite{arXiv:1904.02703}.'
+
+#%notes:
+#  - ''
 
 relations:
-  cousins:
-    - code_id: fiber_bundle
-      detail: 'Some special cases of balanced product codes are fiber bundle codes \cite{arXiv:2012.09271}.'
+  parents:
+    - code_id: css
+      detail: 'Since balanced product codes are defined by a length-three chain complex they are CSS codes.'
+
+  #cousins:
