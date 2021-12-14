@@ -10,7 +10,7 @@ logical: qubits
 name: 'Kitaev''s surface code'
 introduced: '\cite{doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}'
 
-description: 'A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qubit located at each edge of the tesselation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.'
+description: 'A family of \hyperref[code:css]{CSS stabilizer} codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qubit located at each edge of the tesselation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.'
 # Planar code, toric code, hyperbolic code could make for child entries
 
 protection: 'When defined on an \(L\times L\) square tiling of the torus, protects against \(L\) errors. More generally, the code distance is related to the homology of the tessellation \cite{arXiv:quant-ph/0110143}.'
@@ -42,22 +42,22 @@ notes:
   - 'Toric code introductions from error-correction perspective by \href{https://boulderschool.yale.edu/2018/boulder-school-2018-lecture-notes}{J. Haah} and condensed-matter perspective by \href{https://boulderschool.yale.edu/2016/boulder-school-2016-lecture-notes}{M. Levin and C. Nayak}.'
 
 realizations:
-  - 'Distance-two surface codes have been implemented by Andersen et al. \cite{arXiv:1912.09410}, Erhard et al. \cite{arXiv:2006.03071} and Google Quantum AI \cite{doi:10.1038/s41586-021-03588-y}.'
+  - 'Distance-two surface codes have been implemented by Andersen et al. \cite{arXiv:1912.09410}, Erhard et al. \cite{arXiv:2006.03071}, and Google Quantum AI \cite{doi:10.1038/s41586-021-03588-y}.'
+  - 'Signatures of corresponding topological phase of matter detected in superconducting circuits \cite{arxiv:2104.01180} and two-dimensional arrays of Rydberg atoms \cite{arXiv:2104.04119}.'
+  - 'Distance-three surface code implemented at ETH Zurich \cite{arxiv:2112.03708}.'
 
 relations:
   parents:
     - code_id: css
       detail: 'Plaquette and star operators are stabilizer generators.'
-    - code_id: homological
-      detail: ''
-    - code_id: quantum_ldpc
-      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation, and most conventional tesselations satisfy the QLDPC requirements.'
     - code_id: topological
       detail: 'When treated as ground states of the code Hamiltonian, the code states realize \(\mathbb{Z}_2\) topological order, a topological phase of matter that also exists in \(\mathbb{Z}_2\) lattice gauge theory \cite{doi:10.1063/1.1665530}.'
 
   cousins:
+    - code_id: quantum_ldpc
+      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation, and most tesselations yield QLDPC codes.'
     - code_id: hypergraph_product
-      detail: 'Planar (toric) code obtained from hypergraph product of two (cyclic) repetition codes.'
+      detail: 'Planar (toric) code obtained from hypergraph product of two repetition (cyclic) codes.'
     # - code_id: 'qudit_surface'
     #   detail: ''
     # - code_id: 'xzzx_surface'

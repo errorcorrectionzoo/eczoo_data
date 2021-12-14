@@ -2,27 +2,28 @@
 ## This is a code entry in the error correction zoo. ##
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
-
 code_id: quantum_ldpc
 physical: qubits
 logical: qubits
 
 name: 'Quantum low-density parity-check (QLDPC) code'
-#introduced: ''
 
-description: ''
-# Make sure to differentiate between low-weight and local
+description: 'A quantum LDPC code is a family of stabilizer codes such that the number of qubits participating in each check operator and the number of stabilizer checks that each qubit participates in are both bounded by a constant. A good LDPC code is one where \(g_k \in \theta(n) \) and d \(\in \theta(n)\) \cite{doi:10.1103/PRXQuantum.2.040101}. It is possible to construct geometrically nonlocal codes. A local code is one where the qubits involved in any syndrome bit is contained in a fixed volume that does not scale with n, but such codes are constrained in the distance scaling \cite{arXiv:2106.00765}.'
 
-#protection: ''
-
-#notes:
-#  - ''
+protection: 'Reduce overhead of fault-tolerant quantum computation.'
+features:
+  threshold:
+    - 'Quantum LDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant \cite{arXiv:1310.2984}.'
+notes:
+  - 'Links to code tables \cite{doi:10.1103/PRXQuantum.2.040101}.'
 
 relations:
   parents:
     - code_id: stabilizer
-      detail: ''
+      detail: 'Quantum LDPC codes are stabilizer codes'
   cousins:
+    - code_id: ldpc 
+      detail: 'Quantum analogue to a classical LDPC code.'
     - code_id: hamiltonian
       detail: 'Codespace is the ground-state space of a local \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
     - code_id: dynamic_gen

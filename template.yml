@@ -18,11 +18,11 @@
 
 # code id, physical, logical are all lower case
 code_id: no_spaces_lower_case
-physical: bits
+physical: qubits
 logical: qubits
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
+# Code title is SINGULAR
 name: 'Everyone''s favorite code'
 
 # First reference with the code (optional).
@@ -55,6 +55,7 @@ features:
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
   encoders:
+    - 'Specific description of a process that makes the states, usually for quantum codes.'
     - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
     - 'Measurement-based preparation ... with ancilla overhead of ... .'
     - 'Leave discussion of fault tolerance to fault-tolerance field.'
@@ -77,12 +78,15 @@ features:
     - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
     - 'Pieceable fault tolerance.'
 
+  code_capacity_threshold:
+    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
+    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
+
   threshold:
-    - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
-    - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
     - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
-    - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
+    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
 
   # Propose a field that you feel is applicable to a large and interesting class of codes
   #some_other_field:
@@ -97,7 +101,7 @@ realizations:
   - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
 
 notes:
-  - 'Bounds on n,k, or d for this class.'
+  - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
   - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
   - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
   - 'Can reference other codes, but try to put such connections in the relations fields.'
@@ -114,8 +118,8 @@ relations:
 
   cousins:
     - code_id: code_id4
-      detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+      detail: 'code_id4 are used in the construction of this code.  Entries have no direction, so one cousin entry is enough per related pair of codes.'
     - code_id: code_id5
-      detail: 'code_id5 are codes from other families that could also be constructed this way. This entry goes into the code family that is ''smaller''.'
+      detail: 'code_id5 are other codes of similar encoding but with different physical space structures (classical or quantum)'
     - code_id: code_id6
-      detail: 'code_id6 are used in the construction of this code'
+      detail: 'code_id6 are codes from other families that could also be constructed this way.'

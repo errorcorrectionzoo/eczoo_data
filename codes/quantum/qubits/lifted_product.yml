@@ -12,10 +12,10 @@ name: Lifted product code
 introduced: \cite{arxiv:1904.02703}
 
 description: >
-  A quantum LDPC code that is the "lifted version" of a hypergraph product code, formerly known as "generalized hypergraph product codes" \cite{arxiv:1904.02703}, and later renamed to "lifted product codes" \cite{arxiv:2012.04068,doi:10.1103/PRXQuantum.2.040101}.
+  A QLDPC code that is the "lifted version" of a hypergraph product code.
   The construction of a lifted product code is similar to that of a hypergraph product code and related codes; a sort of "product" is taken between two input classical codes to produce a CSS code.
   What differentiates a lifted product code from a hypergraph product code is that a reduction of symmetry is exploited to decrease the number of physical qubits required.
-  Lifted product codes are notable because they were the first quantum LDPC codes to achieve almost linear distance.
+  Lifted product codes are notable because they were the first QLDPC codes to achieve almost linear distance.
 
 features:
 
@@ -26,13 +26,13 @@ features:
   decoders:
     - BP-OSD decoder \cite{arxiv:1904.02703} adds OSD-like post-processing to the belief propogation decoder for improved performance.
 
+notes:
+  - Formerly known as "generalized hypergraph product codes" \cite{arXiv:1904.02703}, and later renamed to "lifted product codes" \cite{arXiv:2012.04068,doi:10.1103/PRXQuantum.2.040101}.
+
 relations:
   parents:
-    - code_id: css
-      detail: A pairwise commutativity assumption in the input classical codes ensures that the result is a CSS code.
-    - code_id: quantum_ldpc
-      detail: Assuming the input classical codes are LDPC codes, the lifted product is a quantum LDPC code.
-
+    - code_id: homological_product
+      detail: 'Lifted product obtained from the homological product over a group algebra \(\mathbb{F}_2 G\) of two length-two chain complexes over \(\mathbb{F}_2 G\), i.e., classical binary codes with a free action of the group \(G\).'
   cousins:
     - code_id: hypergraph_product
       detail: Construction of a lifted product code is very similar to a hypergraph product, but with a reduction of symmetry.

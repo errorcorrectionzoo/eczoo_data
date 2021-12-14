@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_15_1_3
+physical: qubits
+logical: qubits
+name: '\([[15,1,3]]\) Reed-Muller code'
+
+description: '
+\([[15,1,3]]\) CSS code that is most easily thought of as a tetrahedral 3D color code.
+This code contains 15 qubits, represented by four vertices, four face centers, six edge centers, and one body center.
+The tetrahedron is cellulated into four identical polyhedron cells by connecting the body center to all four face centers, where each face center is then connected by three adjacent edge centers.
+Each colored cell corresponds to a weight-8 \(X\)-check, and each face corresponds to a weight-4 \(Z\)-check.
+A logical \(Z\) is any weight-3 \(Z\)-string along an edge of the entire tetrahedron.
+The logical \(X\) is any weight-7 \(X\)-face of the entire tetrahedron.
+'
+
+features:
+  rate: 'Magic-state distillation scaling exponent \( \gamma= \log_d (n/k)\approx 2.46\) \cite{arXiv:1703.07847}.'
+
+  transversal_gates: 'A transversal logical \(T^\dagger\) is implemented by applying a \(T\) gate on every qubit \cite{arXiv:quant-ph/9610011,arXiv:1403.2734,arXiv:1612.07330}.'
+
+  general_gates:
+    - 'Code is often used in magic-state distillation protocols because of its transversal \(T\) gate \cite{arXiv:quant-ph/0403025}.'
+
+  fault_tolerance:
+    - 'Combining the Steane code and the 15-qubit Reed-Muller code through a fault-tolerant conversion can result in a universal transversal gate set that does not need magic state distillation \cite{arXiv:1403.2734,arXiv:1703.03860}.'
+
+notes:
+  - 'The \([[15,1,3]]\) code can be converted into the smallest known stabilizer code with a fault-tolerant logical \(T\) gate (i.e., the \([[10,1,2]]\) code) through a "morphing procedure" \cite{arXiv:2112.01446}.'
+
+relations:
+  parents:
+    - code_id: quantum_reed_muller
+      detail: 'The \([[15,1,3]]\) code is often noted as the 15-qubit quantum Reed-Muller code in the literature.'
+
+#  cousins:
+#    -code_id: color_code
+#    detail: 'The smallest 3D color code.'
