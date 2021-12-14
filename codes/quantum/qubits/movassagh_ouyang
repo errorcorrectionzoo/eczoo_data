@@ -5,15 +5,15 @@
 
 
 code_id: movassagh_ouyang
-physical: qubits
-logical: qubits
+physical: qudits
+logical: qudits
 
 
-name: 'Movassagh-Ouyang Codes'
+name: 'Movassagh-Ouyang Hamiltonian Codes'
 
 introduced: '\cite{arXiv:2012.01453}'
 
-description: 'This is a family of codes derived via an algorithm that takes as input \textit{any} classical code and outputs a quantum code. The algorithm is probabalistic but suceeds with high probability (almost surely if the classical code is random). This family of codes strictly generalizes CSS codes (because CSS codes come only from linear or self orthogonal classical codes). This family of codes is not a subset of stabilizer codes nor are stabilizer codes a subset of this family. This family of codes can be shown to be realized as a subspace of the ground space of a local Hamiltonian (and so they can be considered quantum LDPC codes).
+description: 'This is a family of codes derived via an algorithm that takes as input \textit{any} classical code and outputs a quantum code. The algorithm is probabalistic but succeeds with high probability (almost surely if the classical code is random). This family of codes strictly generalizes CSS codes (because CSS codes come only from linear or self orthogonal classical codes). This family of codes is not a subset of stabilizer codes nor are stabilizer codes a subset of this family. This family of codes can be shown to be realized as a subspace of the ground space of a (geometrically) local Hamiltonian (and so they can be considered quantum LDPC codes).'
 
 protection: 'Let \(C \subset \{0,1,\dots,q-1\}^n\) be a classical code with distance \(d_x\). Let \(d_z\) satisfy \(q^n > 2 V_q(d_z-1) -1\) where \(V_q(r)\) is the volume of the \(q\)-ary Hamming ball of radius \(r\). Then the algorithm produces a quantum code with distance \(d = \text{min}(d_x,d_z)\). Asymptotically, the distance scales linearly with \(n\).'
 
@@ -76,11 +76,13 @@ relations:
       detail: ''
 
   cousins:
-    - code_id: css
-      detail: ''
     - code_id: cws
       detail: 'The Movassagh-Ouyang codes overlap the CWS (code-word stabilized) codes but neither family is contained in the other.'
     - code_id: quantum_ldpc
       detail: 'These codes reside in the ground space of a local Hamiltonian (which could be taken as the definition of a quantum LDPC code).'
     - code_id: stabilizer
       detail: 'Many of the codes in this family are stabilizer codes (but not all).'
+    - code_id: hamiltonian
+      detail: 'Codespace is the ground-state space of a geometrically local Hamiltonian.'
+    - code_id: q-ary_digits_into_q-ary_digits
+      detail: 'Apply above procedure for a \(q\)-ary classical code to get a \(q\)-ary quantum code.'
