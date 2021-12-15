@@ -3,14 +3,20 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: weakly_self_dual
+code_id: dual
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Weakly self-dual linear code'
-#introduced: ''
+name: 'Dual linear code'
+introduced: '\cite{doi:10.1201/9781315147901}'
 
-description: 'Also called a \textit{self-orthogonal} code. A \(q\)-ary linear code \(C\) whose dual code \(C^\perp = \{ y\in\mathbb{Z}_q^{\times n} ~|~ x\cdot y=0 \forall x\in C\}\) is contained in \(C\).'
+description: |
+  For any \(q\)-ary linear code \(C\), the dual code
+  \begin{align}
+  C^\perp = \{ y\in\mathbb{Z}_q^{\times n} ~|~ x\cdot y=0 \forall x\in C\}~.
+  \end{align}
+
+  A code that contains its dual code, \(C^\perp \subseteq C\), is called \textit{weakly self-dual} or \textit{self-orthogonal}. A code that is equal to its dual, \(C^\perp = C\), is called \textit{self-dual}.
 
 protection: 'The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.'
 
