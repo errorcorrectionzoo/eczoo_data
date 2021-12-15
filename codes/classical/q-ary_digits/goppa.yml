@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: goppa
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Goppa Code'
+introduced: '\cite{manual:{V. D. Goppa, ''A new class of linear error-correcting codes'', Probl. Peredach. Inform., vol. 6, no. 3, pp. 24-30, Sept. 1970.},manual:{V. D. Goppa, ''Rational representation of codes and (Lg) codes'', Probl. Peredach. Inform., vol. 7, no. 3, pp. 41-49, Sept. 1971.}, doi:10.1109/TIT.1973.1055088}'
+
+description: 'Let \( G(z) \)  be a polynomial describing a projective plane curve with coefficients from \( GF(q^m) \) for some fixed integer \(m\). Let \( L \) be a finite subset of the extension field \( GF(q^m) \)  where \(q\) is prime, meaning \( L  = \{\alpha_1, \cdots, \alpha_n\} \) is a subset of nonzero elements of \( GF(q^m) \). A Goppa code \( \Gamma(L,G) \) is an \([n,k,d]\) linear code consisting of all vectors \(a = a_1, \cdots, a_n\) such that \( R_a(z) =0 \) modulo \(G(z)\), where \( R_a(z) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).'
+
+protection: 'The length \( n = |L| \) , dimension \( k \geq n-mr \) where \( r = deg G(z) \), and the minimum distance \( d \geq r +1 \).'
+
+features:
+  rate: 'There exist Goppa codes defined over larger alphabets that meet the Gilbert-Varshamov, or GV,  bound.'
+
+  decoders:
+    - 'Algebraic decoding algorithms \cite{doi:10.1109/TIT.1975.1055350}'
+    - 'If \( \text{deg} G(z) = 2t \) , then there exists a \(t\)-correcting algebraic decoding algorithm for \( \Gamma(L,G) \).'
+
+realizations:
+  - 'The binary version \( (q=2) \) is commonly used in post-quantum cryptosystems such as the McElise cryptosystem.'
+
+notes:
+  - 'GAP function \href{https://www.gap-system.org/Manuals/pkg/guava/doc/chap5.html#X7EE808BB7D1E487A}{GoppaCode(G,L)} takes in a polynomial \(G\) that satisfies the necessary conditions for a Goppa code and a list \(L\) that contains elements in \(GF(q)\) that are not roots of \(G\). It returns a Goppa code \(C\).'
+
+relations:
+  parents:
+    - code_id: alternant
+      detail: ''
+
+#  cousins:
+#    - code_id: bch
+#      detail: 'Another special case of alternant codes. However, unlike certain forms of Goppa codes, they do not meet the GV bound.'
