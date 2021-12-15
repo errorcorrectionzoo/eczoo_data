@@ -3,20 +3,15 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# code id, physical, logical are all lower case
+
 code_id: two_dimensional_hyperbolic_surface
 physical: qubits
 logical: qubits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title is singular
 name: 'Two-dimensional hyperbolic surface code'
 
-# First reference with the code (optional).
 introduced: '\cite{arXiv:1506.04029}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
 description: 'Hyperbolic surface codes are closely related to the toric code (aka surface code) except the tessellations on the manifold are derived on a hyperbolic geometry (ie, non-Euclidean geometry, think saddle surfaces when defined on a 2D plane) instead of Eulicdean surfaces. For a tessellation involving regular polygons with \( r \) sides and \( s \) polygons meeting at each edge, the number of logical qubits is given by \( k = (1-2/r - 2/s) n + 2 \). As with other surface codes, the physical qubits sit on the edges of the tiles and the logical qubits sit at the center of the tile. Some possible tilings are \( {r,s}: {7,3}, {5,4} \). The weight of the stabilizer generators are dependent on the tiling, with {5,4} having lower weight than {7,3}. This family of codes describes systems on a closed 2D surface, however, in a physical implementaion the surface would have open boundary conditions. Creating explicit boundaries inhibits the efficiency of the code, reducing the code to a constant distance. '
   
 protection: 'Protects against Pauli errors with distance \( d \propto \log(n) \). Code parameters are \( [[n, (1-2/r - 2/s)  n + 2, \log(n) ]] \)'
