@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: homological_cv
+physical: oscillator
+logical: oscillator
+
+name: 'Homological CV Code'
+
+introduced: '\cite{arXiv:1601.02544}'
+
+description: 'The Homological CV Code construction defines a stabilizer code over \(n\) oscillators to encode a single oscillator state based on some specific chain complex and associated homology. The stabilizer generators are defined by two orthogonal subspaces of the \(C_1\) in the chain complex. \(C_X = \partial_2 C_2\) and \(C_P = \partial_1^T Q\) for some \(Q \subset C_0\). By choosing \(Q \neq C_0\), (unlike the usual approach), we have an extra degree of freedom and get a code.'
+
+protection: 'Protects against certain types of erasure errors (depending on the specific dimension). Certain constructions also protect arbitrary sized errors on multiple photon states.'
+
+features:
+
+  encoders:
+    - 'Encoding depends on the specific dimension, but can generally be done using QND gates (generalized CX gates) and fourier transform gates.'
+
+  decoders:
+    - 'Decoding is highly dependent on the specific photons that were erased, and a there are different circuits for every different set of photon states remaining. All the circuits rely on QND (generalized CX gates) between pairs of states.'
+
+
+realizations:
+  - 'No experimental realization, however \cite{arXiv:1601.02544} describes a potential experimental optical procedure for the simplest non-trival code with 5 modes.'
+
+notes:
+  - 'Very closely related to the discrete homological code case, however we use trivial homology by removing one generator. This is equivalent to taking the usual homological discrete construction, extending it to the CV case, and removing a specific stabilizer generator.'
+
+relations:
+  parents:
+    - code_id: oscillators_into_oscillators
+      detail: ''
+
