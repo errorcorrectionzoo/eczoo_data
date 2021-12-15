@@ -3,26 +3,52 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
+
+# code id, physical, logical are all lower case
 code_id: cat
 physical: oscillators
-logical: qudits
+logical: qubits
+
 
 name: 'Cat code'
-introduced: '\cite{arXiv:quant-ph/9809037,arXiv:1207.0679,arXiv:1312.2017}'
 
-description: 'Stub.'
+# First reference with the code (optional).
+introduced: '\cite{doi:10.1103/PhysRevA.59.2631}'
 
-protection: ''
+
+description: 'It is a continuous-variable code that encode a logical qubit into a harmonic oscillator. In phase space, cat code has rotation symmtry which can protect against dephasing noise. The state preparation process is to project a coherent state \(|\alpha\rangle\) with large \(\alpha\) onto a subspace of occupation number modulo \(2(S+1)\). Hence, the logical state \(|0\rangle_L\) is in the \(\{|0\rangle , |2(S+1)\rangle , |4(S+1)\rangle \cdots \}\) subspace; the \(|1\rangle_L\) is in the \(\{|(S+1)\rangle, |3(S+1)\rangle , |5(S+1)\rangle , |7(S+1)\rangle \cdots \}\). Due to the separation between two logical subspace, the distance between two distinct logical states is \(d=S+1\). Hence, this code is able to detect \(S\)-photon loss error. In addition, the codewords have \(Z_{S+1}\) rotational symmetry in phase space.'
+
+protection: 'Protect against multi-photon loss, gain error and phase space rotation error up to angle \(\frac{\pi}{S+1}\).'
+
+features:
+
+
+
+
+
+  decoders:
+    - 'Measurement in the Fock basis. For a \(2(S+1)\) cat code, a number measurement returns outcome \(2(S+1)k\), if \(k\) is even, then it corresponds to logical 0 state; if \(k\) is odd, then it corresponds to logical 1 state.'
+    #- ''
+
+
+
+
+
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  - '\(d=1\) cat state has been realized by two superconducting cavities coupled through a Josephson junction \cite{doi:10.1126/science.aaa2085}.'
+  - '\(d=2\) cat state has been realized in superconducting circuit \cite{doi:10.1038/nature18949}. This paper is the first break-even point of quantum error-correction, where the lifetime of a logical qubit exceeds the lifetime of the constituents of the systems. The logical qubit lifetime is 320 microseconds, which is 20 times longer than the lifetime of the transmon.'
 
 #notes:
-# - ''
+  #- ''
+  #- ''
 
-relations:
-  parents:
-    - code_id: qudits_into_oscillators
-      detail: ''
+#relations:
 
-#  cousins:
-# Rotationally invariant
-#    - code_id: stabilizer
-#      detail: 'Displacement operators can be thought of as analgues of Pauli operators for the oscillator.'
+  #cousins:
+    #- code_id: bosonic_rotation codes
+      #detail: 'Bosonic error correcting codes with rotational symmetries in phase space.'

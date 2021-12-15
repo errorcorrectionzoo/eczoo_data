@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: single_parity_check
+physical: bits
+logical: bits
+
+
+name: 'Single parity check code'
+
+
+description: 'Single parity check code is an error-detecting code, which encode a \(n\)-bit codeword into a \((n+1)\)-bit string. It is a \([n,n-1,2]\) classical code. The basic idea is to store the parity information of a codeword into an extra parity bit. If the Hamming weight of a codeword is odd, then its parity is 1. If the Hamming weight of a codeword is even, then its parity is 0. This code inexpensive since it only requires an extra parity bit and single parity check. '
+
+protection: 'This code cannot protect information, it can only detect 1-bit error.'
+
+
+features:
+
+
+  rate: 'The code rate is \(\frac{n}{n+1}\). The code distance is 2. Code rate will converge to 1 if we take \(n\rightarrow \infty\).'
+
+  
+  encoders: 
+    - 'Concatenate the codeword with a parity bit which encodes the parity information of codeword.'
+
+  decoders:
+    - 'If the receiver find the parity information of codeword disagree with the parity bit, then the receiver will discard the information and request a resend.'
+
+
+realizations:
+  - 'Can be realize on almost every communication device.'
+
+notes:
+  - 'Its parity check matrix is the generator matrix of repetition code. \([n,n-1,2]\) single-parity check code is dual to \([n,1,n]\) repetition code.'
+
+relations:
+  #parents:
+    #- code_id: Parity_check_code
+      #detail: 'Single parity check code is the simplest parity check code. In general, a parity check code can have multiple parity check.'
+
+  cousins:
+    - code_id: repetition
+      detail: 'Repetition code is dual to single-parity check code.'

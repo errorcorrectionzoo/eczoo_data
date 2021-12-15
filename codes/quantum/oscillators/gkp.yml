@@ -3,25 +3,50 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
+
 code_id: gkp
 physical: oscillators
 logical: qudits
 
 name: 'Gottesman-Kitaev-Preskill (GKP) code'
-introduced: '\cite{arXiv:quant-ph/0008040}'
 
-description: 'Stub.'
 
-protection: ''
+introduced: '\cite{doi:10.1103/PhysRevA.64.012310}'
 
-#notes:
-# - ''
+
+description: 'It is a continuous-variable code that encode a logical qubit into a harmonic oscillator. Its stabilizer is displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{q}}\). To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group which is Abelian, there is another constraint that \(\alpha\beta=2k\pi\) where \(k\) is an integer. Its codewords are equal weight superpositions of coherent states. The codewords form a square lattice in phase space with spatial period \(2\sqrt{\pi}\). The exact GKP state cannot be prepared.'
+
+protection: 'For stabilizer \(\hat{S}_q(2\alpha),\hat{S}_p(2\beta)\), it can correct displacement error up to \(\frac{\alpha}{2}\) at \(q\)-direction and \(\frac{\beta}{2}\) at \(p\)-direction. It can also protect against photon loss errors \cite{arxiv:1708.05010}, but very sensitive to dephasing errors \cite{doi:10.1103/PRXQuantum.2.020101}.  The biased GKP error correcting code can be prepared by choosing \(\alpha\neq \beta\).'
+
+features:
+
+  encoders:
+    - 'Preparation of approximate GKP states is studied both theoretically and experimentally on circuit-QED platforms, by putting the GKP lattice inside a Guassian envelope \cite{doi:10.1103/PhysRevA.93.012315}, \cite{doi:10.1103/PhysRevA.97.022341}, \cite{doi:10.1038/s41586-020-2603-3}.'
+
+  general_gates:
+    - 'Pauli gates'
+    - 'Clifford gates can be realized by performing linear optics operations, sympletic transformations and displacements \cite{doi:10.1103/PhysRevA.64.012310}. All of them are Gaussian operations. '
+    - 'By applying GKP error correction to Gaussian input states, the universality is achieved without extra non-Gaussian elements \cite{doi:10.1103/PhysRevLett.123.200502}.'
+
+  decoders:
+    - 'Syndrome measruement of displacement error can be done by applying a controlled-displacement controlled by an ancilla qubit. The syndrome information can be obtained by measuring the ancilla qubit after controlled-displacement opearation. See Section. 2D in \cite{doi:10.1103/PRXQuantum.2.020101}.'
+    - 'Pauli \(X\),\(Y\) and \(Z\) measurements can be performed by measuring \(-\hat{p},\hat{q}-\hat{p}\) and \(\hat{q}\) repectively. If the measurement outcome is closed to an even multiple of \(\sqrt{\pi}\), then the outcome is +1. If the measurement outcome is closed to an odd multiple of \(\sqrt{\pi}\), then the outcome is -1. See Section. 2D in \cite{doi:10.1103/PRXQuantum.2.020101}.'
+
+
+realizations:
+  - 'Approximate GKP code is realized on a superconducting microwave cavity \cite{doi:10.1038/s41586-020-2603-3} and a trapped-ion oscillator \cite{doi:10.1038/s41586-019-0960-6}.'
+
+
+notes:
+  - 'GKP states are non-Gaussian states.'
+
 
 relations:
   parents:
     - code_id: qudits_into_oscillators
-      detail: ''
-
+      detail: 'GKP code is a qudits to oscillators code for \(d=2\).'
   cousins:
+    #- code_id: toric_GKP
+      #detail: 'It is a concatenation that replace the physical qubits in toric code by GKP codes. Each physical qubit is replaced by a harmonic oscillator in GKP state \cite{doi:10.1103/PhysRevA.99.032344}. By using the GKP error information, the toric code threshold is improved from \(10%\) to \(14%\).'
     - code_id: stabilizer
-      detail: 'Displacement operators can be thought of as analogues of Pauli operators for the oscillator.'
+      detail: 'GKP codes are stabilizer codes, which is stabilized by discrete displacement operators along two directions in phase space.'
