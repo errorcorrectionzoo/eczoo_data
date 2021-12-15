@@ -1,0 +1,70 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mds
+physical: q-ary_digits 
+logical: q-ary_digits 
+
+name: 'Maximum distance separable (MDS) code'
+# introduced: '\cite{}'
+description: 'The Singleton bound states that for linear classical codes, \(d \leq n-k+1\). MDS (maximum distance seperable) codes comprise of any classical linear code that saturates this bound.'
+protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
+
+#features:
+
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  # encoders: 
+    # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+    # - 'Measurement-based preparation ... with ancilla overhead of ... .'
+    # - 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  # general_gates:
+    # - 'Universal gate set achieved by either additional ... gate.'
+    # - 'Magic-state distillation protocols'
+    # - 'kth Clifford hierarchy gates obtained by ... circuits'
+
+  # decoders:
+    # - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
+    # - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+    # - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+  # fault_tolerance:
+    # - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+    # - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+    # - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+    # - 'Pieceable fault tolerance.'
+
+  # threshold: 
+    # - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
+    # - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+    # - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+    # - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+    # - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+# realizations:
+  # - 'MDS codes are used in applications where error correction is more important than efficiency.'
+
+notes:
+  - 'The dual of an MDS codes is always MDS.'
+  - 'The codes \( [[n,1,n]]_q, [[n,n-1,2]]_q, [[n,n,1]]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes.'
+  - 'The only binary MDS codes are the trivial ones.'
+  - 'If \(k \leq p\) then all MDS codes \( [[n,k,n-k+1]]_{p^r} \) are Reed-Solomon codes ( \cite{doi:10.4171/JEMS/316} ).'
+  
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: ''
+
+  cousins:
+    - code_id: reed_solomon
+      detail: 'Every Reed Solomon code is MDS.'
