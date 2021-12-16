@@ -3,90 +3,33 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-
 code_id: movassagh_ouyang
-physical: qudits
-logical: qudits
+physical: qubits
+logical: qubits
 
-
-name: 'Movassagh-Ouyang Hamiltonian Codes'
-
-
+name: 'Movassagh-Ouyang Hamiltonian code'
 introduced: '\cite{arXiv:2012.01453}'
 
-description: 'This is a family of codes derived via an algorithm that takes as input \textit{any} classical code and outputs a quantum code. The algorithm is probabalistic but succeeds with high probability (almost surely if the classical code is random). This family of codes strictly generalizes CSS codes (because CSS codes come only from linear or self orthogonal classical codes). This family of codes is not a subset of stabilizer codes nor are stabilizer codes a subset of this family. This family of codes can be shown to be realized as a subspace of the ground space of a (geometrically) local Hamiltonian (and so they can be considered quantum LDPC codes).'
+description: |
+  This is a family of codes derived via an algorithm that takes as input \textit{any} binary classical code and outputs a quantum code (note that this framework can be extended to \(q\)-ary codes). The algorithm is probabalistic but succeeds almost surely if the classical code is random. An explicit code construction does exist for linear distance codes encoding one logical qubit. For finite rate codes, there is no rigorous proof that the construction algorithm succeeds, and approximate constructions are described instead.
 
-protection: 'Let \(C \subset \{0,1,\dots,q-1\}^n\) be a classical code with distance \(d_x\). Let \(d_z\) satisfy \(q^n > 2 V_q(d_z-1) -1\) where \(V_q(r)\) is the volume of the \(q\)-ary Hamming ball of radius \(r\). Then the algorithm produces a quantum code with distance \(d = \text{min}(d_x,d_z)\). Asymptotically, the distance scales linearly with \(n\).'
+  This family strictly generalizes CSS codes (because CSS codes come only from linear or self orthogonal classical codes). These codes can be shown to be realized as a subspace of the ground space of a (geometrically) local Hamiltonian.
 
+protection: 'Let \(C \subset \{0,1,\dots,q-1\}^n\) be a classical code with distance \(d_x\). Let \(d_z\) satisfy \(q^n > 2 V_q(d_z-1) -1\), where \(V_q(r)\) is the volume of the \(q\)-ary Hamming ball of radius \(r\). Then the algorithm produces a quantum code with distance \(d = \text{min}(d_x,d_z)\). Asymptotically, the distance scales linearly with \(n\).'
 
 features:
 
-  rate: 'The rate depends on several aspects of the classical code.'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
-  # encoders: 
-    # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    # - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    # - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  # general_gates:
-    # - 'Universal gate set achieved by either additional ... gate.'
-    # - 'Magic-state distillation protocols'
-    # - 'kth Clifford hierarchy gates obtained by ... circuits'
-
-  # decoders:
-    # - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
-    # - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-    # - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
-
-  # fault_tolerance:
-    # - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-    # - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-    # - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-    # - 'Pieceable fault tolerance.'
-
-  # threshold: 
-    # - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
-    # - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
-    # - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    # - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
-    # - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
-  
-  # # Propose a field that you feel is applicable to a large and interesting class of codes
-  # #some_other_field:
-  # # - 'detail'
-
-# realizations:
-  # # List and explain the different "domains" of realizations in list items.
-  # # Group closely related realizations into a single item. It's OK to have a
-  # # single list item. Each item should more or less correspond to what would be
-  # # said in a paragraph.
-  # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
-
-notes:
-  - 'If the probabilistic algorithm fails, it is still possible to create an approximate quantum error correcting code.'
-  - 'This framework works for qudits as well, but is more easily stated for qubits.'
-
-description: 'The code construction is only explicit for linear distance codes encoding one logical qubit. For finite rate codes, there is no rigorous proof that the algorithm succeeds, and approximate constructions are described instead.'
-
+  rate: 'The rate depends on the classical code, but distance can scale linearly with \(n\).'
 
 relations:
   parents:
-    - code_id: qecc
-      detail: ''
+    - code_id: hamiltonian
+      detail: 'Movassagh-Ouyang codes reside in the ground space of a local Hamiltonian.'
 
   cousins:
     - code_id: cws
-      detail: 'The Movassagh-Ouyang codes overlap the CWS (code-word stabilized) codes but neither family is contained in the other.'
-    - code_id: quantum_ldpc
-      detail: 'These codes reside in the ground space of a local Hamiltonian (which could be taken as the definition of a quantum LDPC code).'
+      detail: 'Movassagh-Ouyang codes overlap the CWS (code-word stabilized) codes but neither family is contained in the other.'
     - code_id: stabilizer
-      detail: 'Many of the codes in this family are stabilizer codes (but not all).'
-    - code_id: hamiltonian
-      detail: 'Codespace is the ground-state space of a geometrically local Hamiltonian.'
-    - code_id: q-ary_digits_into_q-ary_digits
-      detail: 'Apply above procedure for a \(q\)-ary classical code to get a \(q\)-ary quantum code.'
+      detail: 'Many, but not all, Movassagh-Ouyang codes are stabilizer codes.'
+    - code_id: bits_into_bits
+      detail: 'Movassagh-Ouyang codes are constructed from classical binary codes.'
