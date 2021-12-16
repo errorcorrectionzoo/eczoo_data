@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: four_dimensional_hyperbolic
+physical: qubits
+logical: qubits
+
+name: 'Four-dimensional hyperbolic code'
+introduced: '\cite{arXiv:1310.5555}'
+
+description: |
+  Guth and Lubotzky give an existential proof for a family of LDPC codes with linear rate based on cellulations of four-dimensional manifolds. 
+  These manifolds are shown to have good homology and systolic properties for the purposes of code construction.
+
+  In particular, they show that there exists \(\epsilon\), a four-dimensional hyperbolic manifold \(M\) and a sequence of manifolds \(M_i\) such that
+  each \(M_i\) is a finite sheeted \href{https://en.wikipedia.org/wiki/Covering_space}{covering} of \(M\) and the four-dimensional volumes of the manifolds \(Vol_4(M_i)\) of the sequence tend to infinity. 
+  Also, the dimension of the second homology and size of systoles are bounded by \(H_2(M_i, Z_2) \geq \frac{Vol_4(M_i)}{100}\) and \(Sys_2(M_i) \geq Vol_4(M_i)^\epsilon\), respectively.
+  
+  Then given any cellulation of \(M\), it can naturally be extended to cellulations for each of the manifolds \(M_i\) and used to define CSS codes via the homological construction by choosing the size three chain complex consisting of the \(3,2\) and \(1\)-cells of the cellulations.
+  
+  For dense cellulations (i.e. large \(n\)) the number of physical qubits for these codes will scale with the volume of the manifolds.
+  Therefore, bounds on the dimension of the second homology and size of systoles are achieved in terms of \(n\) for large \(n\).
+
+# Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
+
+protection: 'The number of physical \(k\) qubits and distance \(d\) of the code will scale as \(\Omega(n)\) and \(\Omega(n^\epsilon)\). See the entry on CSS codes for the relationship between properties of manifolds and CSS codes derived from their cellulation.'
+
+#notes:
+# VVA: Added already as cousin entry. - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
+
+# realizations:
+  # -
+
+relations:
+  parents:
+    - code_id: css
+      detail: ''
+#  cousins:
+#    - code_id: two_dimensional_hyperbolic_surface
+#      detail: 'CSS code constructed via tesselation of a two-dimensional hyperbolic surface'

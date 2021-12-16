@@ -23,7 +23,23 @@ description: |
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row and column of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for CSS codes is \([[n,k,(d_X,d_Z),w]]\).
 
+  There exists a many to one mapping from size three chain complexes to CSS codes first introduced by Bombin and Martin-Delgado \cite{arXiv:quant-ph/0605094}. 
+  A chain complex of size three is given by binary vector spaces \(C_2\), \(C_1\), \(C_0\) and boundry operators (matrixcies) \(\partial_2\), \(\partial_1\) that satisfy \(\partial_1 \circ \partial_2 = 0\). 
+  We can construct a CSS code by associating a physical qubit to every basis element of \(C_1\) and letting the stabilizers \(C_x\) and \(C_z\) be \(Im(\partial_1^T)\) and \(Im(\partial_2)\), respectivley.
+  Then the normalizer of the stabilizers \(N(C_x)\) and \(N(C_z)\) are \(Ker(\partial_2^T)\) and \(Ker(\partial_1)\), repectivley.
+  The number of encoded logical qubits is equal to the dimension of the first \(Z_2\)-Homology of the chain complex, \(H_1(\partial, Z_2) = \frac{Ker(\partial_1)}{Im(\partial_2)}\). 
+  Usually, the chain complex used in this construction comes from the chain complex associated with a cellulation of a manifold.
+  When the manifold is a two-dimensional surface we use its entire chain. For larger dimensions, we use the three largest non-trivial vector spaces in its chain.
+  The distance of the CSS code is equal to the minimum of the combinatorial (\(d-1\))-systole of the cellulated \(d\)-dimensional manifold and its dual.
+  For surfaces there is an upper bound of \(d \leq O(\sqrt(n))\) on the distance, therefore codes coming from higher-dimensional spaces are studied for larger distance.
+  Codes constructed in this manner are called Homological codes and capture all CSS codes. For more on Homological codes. \cite{arXiv:1802.01520} '
+
+  Every CSS code can be derived via many different chain complexes \cite{arXiv:1311.0885}. 
+  Given a CSS code with parity check matrices \(H_x\) and \(H_y\), let both the boundary operators be \(\partial = H_z^TUH_x\) for an arbitrary invertible matrix \(U\). 
+  Then the code derived from a chain with this boundry operator will have stabilizers \(C_x\) and \(C_z\) be \(Im(\partial^T)\) and \(Im(\partial)\), respectivley.
+
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+
 
 features:
   encoders:
