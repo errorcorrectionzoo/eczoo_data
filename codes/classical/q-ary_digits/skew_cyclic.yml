@@ -1,34 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
 code_id: skew_cyclic
-physical: bits
-logical: bits
+physical: q-ary_digits
+logical: q-ary_digits
 
-name: 'Skew-Cyclic code'
-
+name: 'Skew-cyclic code'
 introduced: '\cite{arXiv:math/0604603}'
 
-description: 'A classical code \(C\) of length \(n\) over \(\mathbb{F}_q\) is skew-cyclic if there exists an automorphism, \(\theta\), of \(\mathbb{F}_q\), such that for each string \(c_1 c_2 \cdots c_n\in C\), the skew-cyclically shifted string \(\theta(c_n) \theta(c_1) \cdots \theta(c_{n-1})\in C\). We say that \(C\) is a \(\theta\)-cyclic code over \(\mathbb{F}_q\).'
+description: 'A classical code \(C\) of length \(n\) over \(GF(q)\) is skew-cyclic if there exists an automorphism, \(\theta\), of \(GF(q)\), such that for each string \(c_1 c_2 \cdots c_n\in C\), the skew-cyclically shifted string \(\theta(c_n) \theta(c_1) \cdots \theta(c_{n-1})\in C\). We say that \(C\) is a \(\theta\)-cyclic code over \(GF(q)\).'
 
 features:
-  decoders: 
-    - 'Only given for Skew-BCH codes, adapted froom standard BCH codes.'
-  
+  decoders:
+    - 'Only given for skew-BCH codes, adapted froom standard BCH codes.'
 
 realizations:
   - 'Not directly implemented, but BCH codes form a subclass, and are used in DVD, solid state drive storage, etc.'
 
 notes:
-  - 'Computer algebra software is used to find most codes of this type. \cite{arXiv:math/0604603} give several examples of codes, which have slightly improved minimum distance for some \((n,k)\) codes.'
+  - 'Computer algebra software is used to find most codes of this type. Ref. \cite{arXiv:math/0604603} gives several examples of codes, which have slightly improved minimum distance for some \((n,k)\) codes.'
 
 relations:
   parents:
-    - code_id: q-ary_linear
     - code_id: quasi_cyclic
       detail: 'For every skew-cyclic code there is an equivalent quasi-cyclic code \cite{doi:10.1504/IJICOT.2011.044674}.'
 
   cousins:
     - code_id: bch
     - code_id: skew-cyclic_css
-      detail: '\cite{doi:10.1016/j.disc.2020.112189} constructs quantum CSS codes from classical skew-cylic codes.'
-    - code_id: quantum_cyclic
-
-
+      detail: 'Ref. \cite{doi:10.1016/j.disc.2020.112189} constructs quantum CSS codes from classical skew-cylic codes.'
