@@ -8,11 +8,27 @@ physical: qubits
 logical: qubits
 
 name: 'Codeword stabilized (CWS) code'
+introduced: '\cite{arXiv:0708.1021}'
 
-description: 'Stub.'
+description: |
+  This family of codes strictly generalizes stabilizer codes. They are usually denoted by \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \) where \(\mathcal{G}\) is a graph and \(\mathcal{C}\) is a \( (n,K,d) \) binary classical code. From the graph we form the unique graph state (stabilizer state) \( |G \rangle \). From the classical code we form Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th bit of the \(i\)-th classical codeword. The CWS codewords are then \( | i \rangle =  W_i | G \rangle \).
 
+  There is an alternative description to the one above that is locally Clifford-equivalent. In particular, we can describe CWS codes as \( \mathcal{Q} = (S,\mathcal{W})\) where \(S\) is a stabilizer group and \( \mathcal{W} = \{ w_\ell \}_{\ell = 1}^K \) is a family of \(K\) \(n\)-qubit Pauli strings. We then form CWS codeswords as \( | i \rangle = w_i | S \rangle \), where \( | S \rangle \) is the (unique) stabilizer state of \(S\).
+
+protection: 'Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).'
+
+features:
+  encoders:
+    - 'If \( \mathcal{C} \) has an efficient classical encoder, then so does the CWS code \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \).'
+
+  decoders:
+    - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
 
 relations:
   parents:
     - code_id: qubits_into_qubits
       detail: ''
+
+  cousins:
+    - code_id: movassagh_ouyang
+      detail: 'The Movassagh-Ouyang codes overlap the CWS codes but neither family is contained in the other.'
