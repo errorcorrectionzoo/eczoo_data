@@ -3,30 +3,30 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: gauge_stabilizer
+
+code_id: real_projective_plane
 physical: qubits
 logical: qubits
 
-name: 'Gauge Stabilizer Codes'
 
-introduced: '\cite{arXiv:quant-ph/0508131}'
-description: ''
-protection: 'Just as for stabilizer codes, we measure the stabilizer generators to get a syndrome. A set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathcal{S}) - \mathcal{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathcal{S}) - \mathcal{G}\). A gauge stabilizer code thus has 4 parameters and is denoted by \( [[n,k,r,d]] \).'
+name: 'Projective-plane surface code'
+introduced: '\cite{arXiv:quant-ph/9810055}'
+
+description: 'A family of surface codes on the non-orientable 2-dimensional compact manifold \(\mathbb{R}P^2\) (in contrast to a genus-\(g\) surface). Whereas genus-\(g\) surface codes require \(2g\) logical qubits, qubit codes on \(\mathbb{R}P^2\) are made from a single logical qubit.'
+protection: 'If \(\mathcal{C}\) is a cellulation of \(\mathbb{R}P^2\) then the bit flip distance is the shortest cycle in \(\mathcal{C}\) and the phase flip distance is the shortest cycle in the dual cellulation \(\mathcal{C}^*\).'
 
 features:
 
-  rate: ''
+  rate: 'The rate is always \(1/n\) where \(n\) is the number of edges of the particular cellulation (since physical qubits are placed on the lattice edge).'
 
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
-  # encoders: 
-    # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    # - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    # - 'Leave discussion of fault tolerance to fault-tolerance field.'
+  # #encoders: 
+   # # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+   # #- 'Measurement-based preparation ... with ancilla overhead of ... .'
+   # #- 'Leave discussion of fault tolerance to fault-tolerance field.'
 
-  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+  # #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
-  # general_gates:
+  # #general_gates:
     # - 'Universal gate set achieved by either additional ... gate.'
     # - 'Magic-state distillation protocols'
     # - 'kth Clifford hierarchy gates obtained by ... circuits'
@@ -49,9 +49,6 @@ features:
     # - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
     # - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
   
-  # # Propose a field that you feel is applicable to a large and interesting class of codes
-  # #some_other_field:
-  # # - 'detail'
 
 # realizations:
   # # List and explain the different "domains" of realizations in list items.
@@ -61,14 +58,20 @@ features:
   # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
   # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
 
-notes:
-    - 'When the gauge group \( \mathcal{G} \) is abelian, the above is reduced to the standard stabilizer formalism.'
-
 relations:
   parents:
-    - code_id: oecc
-      detail: ''
-
+    - code_id: surface
+      detail: 'This is basically Kitaev''s surface code instead on a non-orientable surface.'
+    # - code_id: css
+      # detail: 'Plaquette and star operators are stabilizer generators.'
+    # - code_id: homological
+      # detail: ''
+    # - code_id: topological
+      # detail: ''
+    # - code_id: quantum_ldpc
+      # detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation
+    
+      
   cousins:
-    - code_id: stabilizer
-      detail: 'Gauge stabilizer codes reduce to stabilizer codes when there are no gauge qubits.'
+    - code_id: shor_nine
+      detail: 'A celluation as in Figure 4 of \cite{arXiv:quant-ph/9810055} is equivalent to the 9-qubit Shor repetition code.'

@@ -8,11 +8,61 @@ physical: qubits
 logical: qubits
 
 name: 'Codeword stabilized (CWS) code'
+introduced: '\cite{arXiv:quant-ph/0508131}'
 
-description: 'Stub.'
+description: 'This family of codes strictly generalizes stabilizer codes. They are usually denoted by \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \) where \(\mathcal{G}\) is a graph and \(\mathcal{C}\) is a \( (n,K,d) \) binary classical code. From the graph we can form the unique graph state (stabilizer state) \( |G \rangle \). From the classical code we can form the word operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \) where \(c_{i,j} \) is the \(j\)-th bit of the \(i\)-th classical codeword. We then form the quantum codewords of our CWS code as \( | i \rangle =  W_i | G \rangle \).'
 
+protection: 'The distance of a CWS code \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).'
+
+
+features:
+
+  # rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  encoders: 
+    - 'If \( \mathcal{C} \) has an efficient classical encoder then so does the CWS code \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \).'
+
+  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  # general_gates:
+    # - 'Universal gate set achieved by either additional ... gate.'
+    # - 'Magic-state distillation protocols'
+    # - 'kth Clifford hierarchy gates obtained by ... circuits'
+
+  decoders:
+    - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
+
+  # fault_tolerance:
+    # - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+    # - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+    # - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+    # - 'Pieceable fault tolerance.'
+
+  # threshold: 
+    # - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
+    # - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+    # - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+    # - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+    # - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+  
+
+# realizations:
+  # # List and explain the different "domains" of realizations in list items.
+  # # Group closely related realizations into a single item. It's OK to have a
+  # # single list item. Each item should more or less correspond to what would be
+  # # said in a paragraph.
+  # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
+  # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+notes:
+  - 'There is an alternative description to the one above that is locally Clifford-equivalent. In particular we can describe CWS codes as \( \mathcal{Q} = (S,\mathcal{W})\) where \(S\) is a stabilizer (that is, an abelian subgroup of the Pauli group not containing \(-I\) ) and \( \mathcal{W} = \{ w_\ell \}_{\ell = 1}^K \) is a family of \(K\), \(n\)-qubit Pauli elements. We then form CWS codeswords as \( | i \rangle = w_i | S \rangle \) where \( | S \rangle \) is the (unique) stabilizer state of \(S\).'
+  - 'If the family \( \mathcal{W} \) form an abelian group not containing \(-I\) then the code \(\mathcal{Q}\) is a stabilizer code.'
 
 relations:
   parents:
     - code_id: qubits_into_qubits
       detail: ''
+
+  cousins:
+    - code_id: movassagh_ouyang
+      detail: 'The Movassagh-Ouyang codes overlap the CWS codes but neither family is contained in the other.'

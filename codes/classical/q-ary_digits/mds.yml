@@ -3,28 +3,25 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: gauge_stabilizer
-physical: qubits
-logical: qubits
+code_id: mds
+physical: q-ary_digits 
+logical: q-ary_digits 
 
-name: 'Gauge Stabilizer Codes'
+name: 'Maximum distance separable (MDS) code'
+# introduced: '\cite{}'
+description: 'The Singleton bound states that for linear classical codes, \(d \leq n-k+1\). MDS (maximum distance seperable) codes comprise of any classical linear code that saturates this bound.'
+protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
 
-introduced: '\cite{arXiv:quant-ph/0508131}'
-description: ''
-protection: 'Just as for stabilizer codes, we measure the stabilizer generators to get a syndrome. A set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathcal{S}) - \mathcal{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathcal{S}) - \mathcal{G}\). A gauge stabilizer code thus has 4 parameters and is denoted by \( [[n,k,r,d]] \).'
+#features:
 
-features:
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
 
-  rate: ''
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
   # encoders: 
     # - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
     # - 'Measurement-based preparation ... with ancilla overhead of ... .'
     # - 'Leave discussion of fault tolerance to fault-tolerance field.'
 
-  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
   # general_gates:
     # - 'Universal gate set achieved by either additional ... gate.'
@@ -49,26 +46,25 @@ features:
     # - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
     # - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
   
-  # # Propose a field that you feel is applicable to a large and interesting class of codes
-  # #some_other_field:
-  # # - 'detail'
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
 
 # realizations:
-  # # List and explain the different "domains" of realizations in list items.
-  # # Group closely related realizations into a single item. It's OK to have a
-  # # single list item. Each item should more or less correspond to what would be
-  # # said in a paragraph.
-  # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+  # - 'MDS codes are used in applications where error correction is more important than efficiency.'
 
 notes:
-    - 'When the gauge group \( \mathcal{G} \) is abelian, the above is reduced to the standard stabilizer formalism.'
+  - 'The dual of an MDS codes is always MDS.'
+  - 'The codes \( [[n,1,n]]_q, [[n,n-1,2]]_q, [[n,n,1]]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes.'
+  - 'The only binary MDS codes are the trivial ones.'
+  - 'If \(k \leq p\) then all MDS codes \( [[n,k,n-k+1]]_{p^r} \) are Reed-Solomon codes ( \cite{doi:10.4171/JEMS/316} ).'
+  
 
 relations:
   parents:
-    - code_id: oecc
+    - code_id: q-ary_linear
       detail: ''
 
   cousins:
-    - code_id: stabilizer
-      detail: 'Gauge stabilizer codes reduce to stabilizer codes when there are no gauge qubits.'
+    - code_id: reed_solomon
+      detail: 'Every Reed Solomon code is MDS.'
