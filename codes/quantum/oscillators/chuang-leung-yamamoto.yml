@@ -14,11 +14,11 @@ introduced: '\cite{doi:10.1103/PhysRevA.56.1114}'
 description: 'Bosonic Fock-state code that encodes \(k\) qubits into \(n\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Codewords are superpositions of oscillator Fock states, either balanced (i.e., uniform) or unbalanced. Codes can be denoted as \([[N,n,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.'
 
 protection: |
-  Protects against amplitude damping for up to \(t = d-1\) excitation losses. Defining the \textit{separation} between two Fock states \(|u_1\cdots u_n\rangle\) and \(|v_1\cdots v_n\rangle\),
+  Protects against amplitude damping for up to \(t = d-1\) excitation losses. Defining the \textit{spacing} between two Fock states \(|u_1\cdots u_n\rangle\) and \(|v_1\cdots v_n\rangle\),
   \begin{align}
-  \text{Sep}(u,v) = \frac{1}{2}\sum_{i=1}^n |u_i - v_i|,
+  \text{Spacing}(u,v) = \frac{1}{2}\sum_{i=1}^n |u_i - v_i|,
   \end{align}
-  the code distance \(d\) can be defined as the minimial separation between Fock states making up the codewords.
+  the code distance \(d\) can be defined as the minimial spacing between Fock states making up the codewords.
 
 features:
   rate: 'Code rate is \(\frac{k}{n \log_2(N+1)}\). To correct the loss of up to \(t\) excitations with \(K+1\) codewords, a code exists with scaling \(N \sim t^3 K/2\).'
