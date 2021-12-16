@@ -1,0 +1,30 @@
+code_id: quantum_expander
+physical: qubits
+logical: qubits
+
+name: 'Quantum Expander code'
+
+introduced: '\cite{doi:10.1109/FOCS.2015.55}'
+
+description: 'CSS codes constructed from bipartite expander graphs with bounded left and right vertex degrees. For every bipartite graph there is an associated matrix (the parity check matrix) with columns indexed by the left vertices, rows indexed by the right vertices, and 1 entries whenever a left and right vertex are connected. This matrix can serve as the parity check matrix of a classical code. Two bipartite expander graphs can be used to construct a quantum CSS code (the quantum expander code) by using the parity check matrix of one as \(X\) checks, and the parity check matrix of the other as \(Z\) checks.'
+
+protection: 'Pauli errors of weight \(\leq t\), distance scales like \(\Omega(n^{1/2})\). Local stochastic error model.'
+
+features:
+  rate: 'Asymptotically constant.'
+
+  decoders: 
+    - '\cite{doi:10.1109/FOCS.2015.55} detail a linear time decoder, which corrects \(\Omega(n^{1/2})\) adversarial errors.'
+
+  threshold: 
+    - 'Current estimate of \(2.7 \cdot 10^{-16}\) in locally stochastic noise model \cite{arXiv:1711.08351}.'
+
+notes:
+  - '\([[n,k=\Theta(n),d=O(\sqrt{n})\)'
+
+relations:
+  parents:
+    - code_id: css
+    - code_id: quantum_ldpc
+
+

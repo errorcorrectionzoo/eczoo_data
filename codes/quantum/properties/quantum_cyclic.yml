@@ -1,21 +1,21 @@
-#######################################################
-## This is a code entry in the error correction zoo. ##
-##       https://github.com/errorcorrectionzoo       ##
-#######################################################
-
 code_id: quantum_cyclic
-#physical: bits
-#logical: bits
+physical: qubits
+logical: qubits
 
-name: 'Cyclic quantum code'
-introduced: '\cite{arxiv:1007.1697}'
+name: 'Quantum Cyclic code'
 
-description: 'An code \(C\) constructed in a physical space consisting of a tensor product of \(n\) subsystems (e.g., qubits) is cyclic if a cyclic permutation of the subsystems leaves the code subspace invariant.'
+introduced: '\cite{arXiv:1007.1697}'
 
-protection: ''
+description: 'Define a shift operator, \(\mathcal{N}\), such that \(\mathcal{N}\ket{x_1 x_2 \dots x_n}=\ket{x_n x_1 \dots x_{n-1}}\). A quantum code \(C\) on \(n\) qubits is a quantum cyclic code if for every codeword \(\ket{\psi}\in C\), the cyclically shifted vector \(\mathcal{N}\ket{\psi}\in C\).'
+
+protection: 'Protects against Pauli noise.'
+
+features:
+  decoders: 
+    - 'Adapted from the Berlekamp decoding algorithm for classical BCH codes \cite{arXiv:1007.1697}.'
 
 notes:
-  - ''
+  - 'All examples have been found by computer algebra programs. \cite{arXiv:1007.1697} give examples of [[17,1,7]] and [[17,9,3]] quantum cyclic codes.'
 
 relations:
   parents:
@@ -23,3 +23,5 @@ relations:
 
   cousins:
     - code_id: cyclic
+
+
