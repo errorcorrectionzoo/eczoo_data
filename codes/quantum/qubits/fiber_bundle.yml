@@ -4,9 +4,39 @@
 #######################################################
 
 code_id: fiber_bundle
-#physical: bits
-#logical: qubits
+physical: bits
+logical: qubits
 
 name: 'Fiber-bundle code'
+introduced: '\cite{arXiv:2009.03921}'
 
-description: 'Stub.'
+description: |
+             'The fiber bundle code is a qLDPC code.'
+             'To construct a fiber-bundle code, one select a classical base code (1-complex) and a fiber code (1-complex). The one applies a special permutation, or group action'
+             'on the cells(i.e. basis) of the fiber. The boundary operator should now commute with the group action, namely:'
+             '\(g\partial f=\partial gf\) for all \(g\in G\).'
+             'In particular, in \cite{arXiv:2009.03921} the fiber is a ring devided into cells and the group action is the rotation of rings. The base code is a random base code.'
+             
+ features:
+     rate: 
+         -'\(k=\Omega(N^{3/5}/polylog(N))\) and \(d=\Omega(N^{3/5}/polylog(N))\).'
+     
+     decoders:
+         -'Poly(N) time decoder for the X-error provided in \cite{arXiv:2009.03921}.'
+         -'Decoding cohomology against erasure errors in almost linear time.'
+         -'Proposed an algorithm. Conjecture: it decodes errors of weight up to a polylogarithmic fraction of \(d_Z\).'
+         
+relations:
+  parents:
+    - code_id: CSS
+      detail: ''
+    - code_id: quantum_LDPC
+      detail: ''
+      
+  cousin: 
+   - code_id: lifted_product
+      detail: ''
+      
+ 
+         
+         
