@@ -1,0 +1,46 @@
+code_id: dual_rail
+
+physical: qubits
+logical: qubits
+
+name: 'Dual Rail'
+
+introduced: \cite{doi:10.1103/PhysRevA.52.3489}
+
+description: 'In a dual rail qubit encoding, single qubits are represented by Fock states
+in 2 modes. The logical \(\ket{0}\) state is represented by \(\ket{01}\),
+while the logical \(\ket{1}\) state is represented by \(\ket{10}\).'
+
+protection: 'This is an error detecting code against loss.
+It protects against amplitude damping due to a Caldeira-Leggett type coupling (dissipation with a quantum particle coupled to a bath)
+between the mode and the environment, with coupling constant \( \gamma \). When
+photon loss occurs, the output state does not agree with any of the possible correct
+outcomes, as it has a different photon number. Further, for Deutsch''s  problem specifically,
+this code protects against errors resulting in states that have the correct photon number, but
+in the wrong modes. \cite{doi:10.1103/PhysRevA.52.3489}. In general, this code can be used for universal QC
+in systems where amplitude damping
+is the primary noise source.'
+
+features:
+  general_gates:
+    - 'General gates are performed using beamsplitters and Kerr non-linearities.
+    Universal quantum computing can be achieved with photons in dual rail encodings using the
+    KLM protocol with only linear optical elements and photon detectors.'
+
+notes:
+  - 'For Deutsch''s problem \cite{doi:10.1098/rspa.1992.0167} with optical qubits, error correction using photon number detection
+  reduces the error probability from \(\frac{1}{4} (1+e^{-\gamma}-2e^{-3\gamma/2}) \)
+  to \(\frac{1}{2} (1- sech \gamma/2)\)'
+  - '. However, this encoding only allows for error correction by means
+  of repeating executions when photon loss is detected, and does not allow for recovery.'
+
+relations:
+  parents:
+    - code_id: fock_state
+      detail: 'This is a fock state code which protects against amplitude damping'
+  cousins:
+    - code_id: chuang-leung-yamamoto
+      detail: 'This code is a precursor to Chuang-Leung-Yamomoto codes for amplitude damping,
+      and can be considered as a special case. However, when photon loss occurs in a dual rail
+      encoding, information is irrecoverably lost, while the more general Chuang-Leung-Yamomoto
+      codes allow for recovery.'
