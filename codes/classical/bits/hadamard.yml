@@ -4,13 +4,18 @@ logical: bits
 
 name: 'Hadamard code'
 
-
-description: 'Stub'
+description: 'The Hadamard code is dual to the extended Hamming Code.'
 
 relations:
   parents:
     - code_id: 'binary_linear'
       detail: ''
   cousins:
+    - code_id: dual
+      detail: 'The Hadamard code is the dual of the extended Hamming Code.'
     - code_id: hamming
-      detail: 'The Hadamard code is the dual of the extended Hamming Code'
+      detail: 'The Hadamard code is the dual of the extended Hamming Code. Conversely, the shortened Hadamard code is the dual of the Hamming Code.'
+    - code_id: reed_muller
+      detail: 'For any Hamming code \([2^m,2^m-m-1,3]\), the dual Hadamard code, when augmented with a bit
+      that is always 0, gives the \(R(1,m)\) 1st order Reed-Muller code. In general, \(R(1,m)\) is related to
+      the duals of the Hamming code, and when \(R(1,m)\) is self dual, it is directly related to the Hamming code.'
