@@ -15,24 +15,20 @@ Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commutin
 The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation on the code.'
 
 protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{\hat{N}(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
-# Can expound on normalizer etc
+# add symplectic representation
 
 features:
   encoders:
     - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
   # Add general prep schemes
 
-#notes:
-#  - '(nonlocal?) mapping to CSS codes?'
-# code tables
-
 # https://arxiv.org/pdf/0903.0566.pdf parent is code over GF(4): an additive self-orthogonal code over GF(4) with respect to the trace Hermitian inner product
 relations:
   parents:
     - code_id: cws
-      detail: ''
+      detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
   cousins:
-    - code_id: prime_qudit_stabilizer
-      detail: ''
+    - code_id: binary_linear
+      detail: 'Qubit stabilizer codes are quantum analogues of binary linear codes.'
     - code_id: hamiltonian
       detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
