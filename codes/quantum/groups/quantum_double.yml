@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_double
+physical: qudits
+logical: groups
+
+name: 'Quantum-double code'
+introduced: '\cite{arXiv:quant-ph/9707021}'
+
+description: 'A family of topological codes, defined by a finite group \( G \),  whose generators are few-body operators associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qudit of dimension \( |G| \) located at each edge of the tesselation). The physical Hilbert space has dimension \( |G|^E  \) where \( E \) is the number of  edges in the tessellation. The dimension of the code space is the number of orbits of the conjugation action of \( G \) on \( Hom(\pi_1(\Sigma),G) \),  the set of group homomorphisms from the fundamental group of the surface \( \Sigma \) into the finite group \( G \) \cite{arXiv:quant-ph/1908.02829}. If we specialize to the case of \( G \) an abelian group then the formula for the dimension simplifies significantly to \( |G|^{2g} \) where \( g \) is the genus of the surface \( \Sigma \).'
+
+protection: 'The code distance is the number of edges in the shortest non contractible cycle in the tesselation or dual tesselation  \cite{arXiv:quant-ph/0110143}.'
+
+
+
+notes:
+  - 'The \( \Phi, \Lambda \)  \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the quantum double model for the group $ S_3 $ of permutations on three letters.'
+  # Now sure where to place this; any ideas?
+  - 'Alternative constructions encode information in the fusion space of the anyonic excitations of the quantum double model \cite{doi:10.1007/3-540-49208-9_31,arXiv:quant-ph/0306063,10.1017/CBO9780511792908}. The fusion space of non-Abelian anyons has dimension greater than one, allowing for topological quantum computation of logical information stored in the fusion outcomes.'
+
+relations:
+  parents:
+  - code_id: group_quantum
+    detail: 'Encodes logical qudit into physical space of \(E\) group-valued qudits.'
+  - code_id: topological
+    detail: 'Quantum-double code Hamiltonians admit topological phases associated with \(G\).'
+
+  cousins:
+  - code_id: qudit_surface
+    detail: 'The quantum-double model with \(G=\mathbb{Z}_q\) is the qudit surface code.'
+# also qudit surface + string net
+
