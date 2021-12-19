@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: number_phase
+physical: oscillators
+logical: qubits
+
+name: 'Number phase code'
+
+introduced: '\cite{doi:10.1103/PhysRevX.10.011058}'
+
+description: |
+  Number phase codes are bosonic rotation that utilize Pegg-Barnett phase states \cite{doi:10.1088/0305-4470/19/18/030} \(\ket{\phi} \equiv \frac{1}{\sqrt{2\pi}}\sum_{n=0}^{\infty} \mathrm{e}^{\mathrm{i} n \phi} \ket{n}\). The logical states of an order \(N\) number phase code are \(\ket{0_L}= \sum_{m=0}^{2N-1} \ket{\phi = m\pi/N}\) and \(\ket{1_L} = \sum_{m=0}^{2N-1} (-1)^m \ket{\phi=m\pi/N}\). Since these ideal codewords are not normalizable, approximate versions need to be constructed. By performing the summation over \(m\), one finds that \(\ket{0_L} = \frac{2N}{\sqrt{2\pi}} \sum_{k=0}^\infty \ket{2kN}\) and \(\ket{1_L} = \frac{2N}{\sqrt{2\pi}} \sum_{k=0}^\infty \ket{(2k+1)N}\).
+
+  The key feature of number phase codes is that, in the ideal case, phase measurement has zero uncertainty, making phase measurement a good canditate for logical measurement in the dual basis.
+
+protection: 'Number phase codes of order \(N\) detect up to \(N\) photon loss or gain errors, and dephasing up to \(\theta = \pi/N\).'
+
+features:
+
+  decoders: 
+    - 'Measurement done in the logical \(X\), or dual, basis has zero uncertainty in the case of ideal number phase codes. Approximate number phase codes are characterized by vanishing phase uncertainty.'
+    - 'Number measurement can be done by using the CROT gate \(\mathrm{e}^{(2\pi \mathrm{i} / NM) \hat n \otimes \hat n}\). See Section 4.B.1 of \cite{doi:10.1103/PhysRevX.10.011058}.'
+
+  fault_tolerance:
+    - 'Fault-tolerant computation schemes with number phase codes have been proposed based on a concatenation of number phase codes with Bacon-Shor subsystem codes \cite{doi:10.1103/PhysRevX.10.011058}.'
+
+relations:
+  parents:
+    - code_id: bosonic_rotation
+      detail: 'One can see through straightforward calculation that \(\ket{0_L}\) and \(\ket{1_L}\) are \(+1\) and \(-1\) eigenstates respectively of \(\mathrm{e}^{\mathrm{i} \pi \hat n /N}\). Hence, the discrete rotation operator acts as the logical Pauli-Z operation, making the number phase code a bosonic rotation code. In particular, number phase codes are bosonic rotation codes with the primitive state \(\ket{\Theta} \propto \ket{\phi = 0}\).'
+
+  cousins:
+    - code_id: gkp
+      detail: 'Number phase codes are very similar to GKP codes in which number and phase in the former case correspond to position and momentum in the latter.'
