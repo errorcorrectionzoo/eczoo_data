@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: frobenius
+physical: qudits
+logical: qudits
+
+name: 'Frobenius code'
+introduced: '\cite{arXiv:1011.5814}'
+
+description: 'Let \(C\) be a quantum cyclic code on \(n\) \(\mathbb{Z}_p\)-qudits. \(C\) is a Frobenius code if there exists a positive integer \(t\) such that \(n\) divides \(p^t +1\).'
+
+protection: 'Protects against Pauli noise.'
+
+features:
+  decoders:
+    - 'Adapted from the Berlekamp decoding algorithm for classical BCH codes. There exists a polynomial time quantum algorithm to correct errors of weight at most \(\tau\), where \(\delta=2\tau+1\) is the BCH distance of the code \cite{arXiv:1011.5814}. '
+
+notes:
+  - 'Frobenius codes that are also stabilizer codes have been completely classified. No such codes exist when \(t\) is odd. All such codes with even \(t\) can be directly constructed.'
+
+relations:
+  parents:
+    - code_id: qudits_into_qudits
+
+  cousins:
+    - code_id: quantum_cyclic
