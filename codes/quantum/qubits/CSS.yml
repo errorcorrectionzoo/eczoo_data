@@ -23,11 +23,15 @@ description: |
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row and column of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for CSS codes is \([[n,k,(d_X,d_Z),w]]\).
 
-  There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes. Codes constructed in this manner are sometimes called \textit{homological codes}, but they are equivalent to CSS codes.
+  There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes. Codes constructed in this manner are sometimes called \textit{homological CSS codes}, but they are equivalent to CSS codes.
 
-  A \textit{chain complex} of size three is given by binary vector spaces \(C_2\), \(C_1\), \(C_0\) and boundary operators (read: matrices) \(\partial_2\), \(\partial_1\) that satisfy \(\partial_1 \circ \partial_2 = 0\).
+  A \textit{chain complex} of size three is given by binary vector spaces \(C_2\), \(C_1\), \(C_0\) and boundary operators (read: matrices) \(\partial_2\), \(\partial_1\) that satisfy \(\partial_1 \circ \partial_2 = 0\). Such a complex is typically denoted as
+  \begin{align}
+  C_2 \xrightarrow{\partial_2} C_1 \xrightarrow{\partial_1} C_0~.
+  \label{eq:chain}
+  \end{align}
   One constructs a CSS code by associating a physical qubit to every basis element of \(C_1\) and associating vectors of \(\text{Im}(\partial_1^T)\) and \(\text{Im}(\partial_2)\) with the symplectic representation of stabilizers \(C_X\) and \(C_Z\), respectively.
-  Then, the normalizer of the stabilizers \({\mathsf{N}}(C_X)\) and \({\mathsf{N}}(C_Z)\) is \(\text{Ker}(\partial_2^T)\) and \(\text{Ker}(\partial_1)\), respectively. Usually, the chain complex used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. For larger dimensions, one can use the three largest non-trivial vector spaces in its chain.
+  Then, the normalizer of the stabilizers \({\mathsf{N}}(C_X)\) and \({\mathsf{N}}(C_Z)\) is \(\text{Ker}(\partial_2^T)\) and \(\text{Ker}(\partial_1)\), respectively. Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. For larger dimensions, one can use the three largest non-trivial vector spaces in its chain.
 
   The reverse mapping is as follows \cite{arXiv:1311.0885,arXiv:1807.09783}. Given a CSS code with parity check matrices \(H_X\) and \(H_Z\), let both boundary operators be \(\partial = H_Z^TUH_X\) for an arbitrary invertible matrix \(U\). Then, the code derived from a chain with this boundary operator yields \(C_X\) and \(C_Z\) corresponding to \(\text{Im}(\partial^T)\) and \(\text{Im}(\partial)\), respectively.
 
