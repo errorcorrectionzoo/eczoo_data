@@ -9,14 +9,25 @@ logical: galois
 
 name: 'Galois-qudit polynomial code'
 introduced: '\cite{arxiv:quant-ph/9906129}'
-# Gottesman's book
 
-description: 'Stub.'
 
-protection: 'Also called \textit{quantum Reed-Solomon code}.'
+description: 'Let \(C_1\) be a Reed-Solomon code with \([n,k_1,d_1]_q\) and \(C_2^\perp\) with \([n,k_2,d_2]_q\) to be a modified Reed-Solomon code such that \(C_2^\perp \subseteq C_1\)
+and  \(0\le k_2 \le k_1 \le n\), then the polynomial code is a non-degenerate true \([[n,k_2,d]]_q\) stabilizer code with \(d=\min(n-k_1+1,k_1-k_2+1)\).
+The polynomial code is the span of the basis codewords over GF(\(q\))
+\begin{align}
+|\overline{\beta_0,\cdots,\beta_{k_2-1}}\rangle
+=
+\sum_{(\beta_{k_2},\cdots,\beta_{k_1-1})\in\mathrm{GF}(q) }
+\otimes_{i=1}^{n}
+\left|\sum_{j=0}^{k_1-1} \beta_j \alpha_i^j  \right\rangle.
+\end{align}
+where \((\alpha_1, \cdots, \alpha_n)\) are \(n\) distinct points chosen for code \(C_1\) from GF\((q)\setminus \{0\} (n<q)\).
+'
+#
+#protection: '.'
 
-# notes:
-#   - ''
+notes:
+   - 'A qudit polynomial code is a quantum MDS code when \(n-k_1=k_1-k_2\).'
 
 relations:
   parents:

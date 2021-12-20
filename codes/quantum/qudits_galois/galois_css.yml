@@ -8,11 +8,28 @@ physical: galois
 logical: galois
 
 name: 'Galois-qudit CSS code'
-#introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029}'
+introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029}'
 
-description: 'Stub.'
+description: '
+Let \(C_1\) and \(C_2\) be two classical linear codes over GF\((q\)) with parameters \([n,k_1,d_1]_q\) and \([n,k_2,d_2]_q\) and satisfy \(C_1^\perp \subseteq C_2\).
+Then there exists a true GF(\(q\)) stabilizer code with stabilizer given as
+\begin{align}
+\left(
+\begin{array}{c|c}
+0 & H_2\\
+H_1 & 0
+\end{array}
+\right)
+\end{align}
+with parameters \([[n,k_1+k_2-n,d]]_q, d\ge \min(d_1,d_2)\).
+The codewords are
+\begin{align}
+|\gamma + C_2^\perp \rangle = \sum_{\eta \in C_2^\perp} |\gamma + \eta\rangle,
+\end{align}
+for \(\gamma \in C_1\).
+'
 
-#protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
 relations:
   parents:
