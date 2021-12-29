@@ -25,12 +25,12 @@ description: |
 
   There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes. Codes constructed in this manner are sometimes called \textit{homological CSS codes}, but they are equivalent to CSS codes. This mapping has allowed the application of results from topology to error correction, yielding QLDPC codes with favorable properties.
 
-  A \textit{chain complex} of size three is given by binary vector spaces \(A_2\), \(A_1\), \(A_0\) and \textit{boundary operators} (read: binary matrices) \(\partial_{i=1,2}\) from \(A_i\) to \(A_{i-1}\) that satisfy \(\partial_1 \circ \partial_2 = 0\). Such a complex is typically denoted as
+  A \textit{chain complex} of size three is given by binary vector spaces \(A_2\), \(A_1\), \(A_0\) and binary matrices \(\partial_{i=1,2}\) (called \textit{boundary operators}) \(A_i\) to \(A_{i-1}\) that satisfy \(\partial_1 \partial_2 = 0\). Such a complex is typically denoted as
   \begin{align}
   A_2 \xrightarrow{\partial_2} A_1 \xrightarrow{\partial_1} A_0~.
   \label{eq:chain}
   \end{align}
-  One constructs a CSS code by associating a physical qubit to every basis element of \(A_1\), and defining parity-check matrices \(H_X=\partial_1^T\) and \(H_Z=\partial_2\)). That way, the spaces \(A_0\) and \(A_2\) can be associated with \(X\)-type and \(Z\)-type Pauli operators, respectively, with boundary operators denoting the Paulis making up the stabilizer generators. The requirement \(\partial_1 \circ \partial_2 = 0\) guarantees that the \(X\)-stabilizers associated with \(H_X\) commute with the \(Z\)-stabilizers associated with \(H_Z\).
+  One constructs a CSS code by associating a physical qubit to every basis element of \(A_1\), and defining parity-check matrices \(H_X=\partial_1^T\) and \(H_Z=\partial_2\)). That way, the spaces \(A_0\) and \(A_2\) can be associated with \(X\)-type and \(Z\)-type Pauli operators, respectively, and boundary operators determine the Paulis making up the stabilizer generators. The requirement \(\partial_1 \partial_2 = 0\) guarantees that the \(X\)-stabilizers associated with \(H_X\) commute with the \(Z\)-stabilizers associated with \(H_Z\).
 
   Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. Higher-dimensional manifolds allow for longer chain complexes, and one can use the three largest non-trivial vector spaces in its chain.
 
