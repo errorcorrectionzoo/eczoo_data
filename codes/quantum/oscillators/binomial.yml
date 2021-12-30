@@ -8,42 +8,39 @@ physical: oscillators
 logical: qudits
 
 name: 'Binomial code'
-
-introduced: '\cite{doi:10.1103/PhysRevX.6.031006}'
+introduced: '\cite{arXiv:1602.00008}'
 
 description: |
-  Binomial codes are bosonic rotation codes designed to approximately protect against errors consisting of powers of raising and lowering operators up to some maximum power \cite{doi:10.1103/PhysRevX.6.031006}. Binomial codes are spin-coherent states embedded into an oscillator \cite{doi:10.1103/PhysRevA.97.032346}. The \(d\)-dimensional qudit \((N, S)\) binomial codeword states are \(\{\ket{W_i}\mid i\in \mathbb Z_d \}\), where
+  Bosonic rotation codes designed to approximately protect against errors consisting of powers of raising and lowering operators up to some maximum power. Binomial codes can be thought of as spin-coherent states embedded into an oscillator \cite{arXiv:1708.05010}. The \(q\)-dimensional qudit \((N, S)\) binomial codeword states are \(\{|\overline{i}\rangle\mid i\in \mathbb Z_q \}\), where
     \begin{align}
-      \ket{W_i} = \frac{1}{\sqrt{d^N}} \sum_{\substack{p=0\\p\equiv i \pmod{d}}}^{(d-1)(N+1)} \sqrt{\binom{N+1}{p}_d} \ket{p(S+1)}.
+      |\overline{i}\rangle = \frac{1}{\sqrt{q^N}} \sum_{\substack{p=0\\p\equiv i \pmod{q}}}^{(q-1)(N+1)} \sqrt{\binom{N+1}{p}_q} \ket{p(S+1)}.
     \end{align}
-    Here, \(\binom{N+1}{p}_d\) are extended binomial coefficients, or polynomial coeffiients, defined recursively as
+    Here, \(\binom{N+1}{p}_q\) are extended binomial coefficients, or polynomial coeffiients, defined recursively as
     \begin{align}
-      \binom{n}{m}_1 \equiv 1,\quad \binom{n}{m}_d \equiv \sum_{k=0}^n \binom{n}{k}\binom{k}{m-k}_{d-1}.
+      \binom{n}{m}_1 \equiv 1,\quad \binom{n}{m}_q \equiv \sum_{k=0}^n \binom{n}{k}\binom{k}{m-k}_{q-1}.
     \end{align}
 
 protection: 'An \((N, S)\) binomial code protects against \(L\) boson losses, \(G\) boson gains, and dephasing up to \(\hat{n}^{\D}\), where \(S=L+G\) and \(N = \mathrm{max}(L,G,2D)\). Binomial codes approximately protect against continuous-time amplitude damping, boson loss and gain, and dephasing.'
 
 features:
 
-  decoders: 
-    - 'Photon loss and dephasing errors can be detected by measuring the photon parity check operator \(\exp\left(2\pi\mathrm{i} hat n / (S+1)\right)\) and the check operator \(J_x/J\) in the spin-coherent state language, where \(J\) is the total angular momentum and \(J_x\) is the angular momentum in the \(x\) direction.'
-    - 'This type of error correction fails for errors that are products of photon loss/gain and dephasing errors. However, for certain \((N,S)\) instances of the binomial code, detection of these types of errors can be done.'
-    - 'Recovery can be done via projective measurements and unitary operations \cite{doi:10.1103/PhysRevX.6.031006}.'
+  decoders:
+    - 'Photon loss and dephasing errors can be detected by measuring the phase-space rotation \(\exp\left(2\pi\mathrm{i} hat n / (S+1)\right)\) and the check operator \(J_x/J\) in the spin-coherent state language, where \(J\) is the total angular momentum and \(J_x\) is the angular momentum in the \(x\) direction \cite{arXiv:1708.05010}. This type of error correction fails for errors that are products of photon loss/gain and dephasing errors. However, for certain \((N,S)\) instances of the binomial code, detection of these types of errors can be done.'
+    - 'Recovery can be done via projective measurements and unitary operations \cite{arXiv:1602.00008,arXiv:1708.05010}.'
 
 realizations:
   - 'Realized in microwave cavities coupled to superconducting circuits \cite{doi:10.1038/s41567-018-0414-3}.'
 
 notes:
-  - 'The mean occupation number, or average number of bosons in the mode, is \((N+1)(S+1)(d-1)/2 \), where \(d\) is the qudit dimension.'
+  - 'The mean occupation number, or average Fock-state number in maximally-mixed state of the code, is \((N+1)(S+1)(q-1)/2 \), where \(q\) is the qudit dimension.'
 
 relations:
   parents:
     - code_id: bosonic_rotation
-      detail: 'One can verify by direct calculation that the logical states \(\ket{W_i}\) are eigenstates of the discrete rotation operator \(\exp\left(2\pi \mathrm{i}\hat n / d(S+1) \right)\) with eigenvalues \(\exp\left(2\pi \mathrm{i} i / d \right)\). Hence, the discrete rotation operator acts as the logical Pauli-Z operator, making the binomial code a bosonic rotation code. One has freedom in the exact form of the primitive state \(\ket{\Theta}\) to choose; an example is given in Appendix B.2 of \cite{doi:10.1103/PhysRevX.10.011058}.'
-    - code_id: number_phase
-      detail: 'In the limit as \(N \to \infty\), phase measurement in the binomial code has vanishing variance, making it a number phase code.'
-      # I'm a bit confused on this point. Is this correct? \cite{doi:10.1103/PhysRevX.10.011058} expicitly says that binomial codes are a number phase code. But I think this is only true for N -> inf?
+      detail: 'One can verify by direct calculation that the logical states are eigenstates of the discrete rotation operator. One has freedom in the exact form of the primitive state to choose; see Appendix B.2 of Ref. \cite{arxiv:1901.08071}.'
 
   cousins:
     - code_id: cat
-      detail: 'For a fixed \(S\), binomial codes with \(N \to \infty\) coincide with cat codes as \(\alpha \to \infty\).'
+      detail: 'For a fixed \(S\), binomial codes with \(N \to \infty\) coincide with cat codes as \(\alpha \to \infty\) \cite{arXiv:1602.00008}.'
+    - code_id: number_phase
+      detail: 'In the limit as \(N,S \to \infty\), phase measurement in the binomial code has vanishing variance, just like in a number-phase code \cite{arxiv:1901.08071}.'
