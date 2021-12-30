@@ -30,7 +30,7 @@ protection: |
 
 features:
 
-  rate: 'k/n = 1/3'
+  rate: '\(k/n = 1/3\).'
 
   encoders:
     - 'In addition to thinking about the encoding of states, it is also interesting to look at the trasformation of operators from the physical space into the logical space. Due to the unique structure and recovery protocol of the three qutrit code, the representation of a logical operator \( \overline{O} \) is not unique. Instead, \( \overline{O} \) can be constructed from unitary matricies with support on only two out of the three qutrits. Therefore, the logical operator has valid representations constructed from support on different sets of two qutrits. This operator construction is directly analogous to the construction of operators in the bulk (at the center) of the AdS\(_3\)-Rindler reconstruction. The three-qutrit code can then be used to describe how these local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}.'
@@ -41,7 +41,7 @@ features:
   # general_gates:
 
   decoders:
-    - 'The quantum information (the secret) can be recovered from a unitary transformation acting on only two qutrits, \( U_{ij} \ocross I \), where \(U_{ij}\) acts on qutrits \(i,j\) and \(I\) is the identity on the remaining qutrit. By the cyclic structure of the codewords, this unitary transformation performs a permutation that recovers the information and stores it in one of the two qutrits involved in recovery.'
+    - 'The quantum information (the secret) can be recovered from a unitary transformation acting on only two qutrits, \( U_{ij} \otimes I \), where \(U_{ij}\) acts on qutrits \(i,j\) and \(I\) is the identity on the remaining qutrit. By the cyclic structure of the codewords, this unitary transformation performs a permutation that recovers the information and stores it in one of the two qutrits involved in recovery.'
 
 #For example, there exists a permutation matrix \( U_{12} \) that recovers the information and stores it in the first qutrit via \( U_{12} \otimes I_3 ( \alpha | \overline{0} \rangle + \beta | \overline{1} \rangle + \gamma | \overline{2} \rangle ) = ( \alpha | 0 \rangle + \beta | 1 \rangle + \gamma | 2 \rangle ) \otimes ( \ket{00} + \ket{11} + \ket{22} ) / \sqrt{3} \).'
 
