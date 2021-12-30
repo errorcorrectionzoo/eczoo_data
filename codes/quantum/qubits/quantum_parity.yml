@@ -8,11 +8,29 @@ physical: qubits
 logical: qubits
 
 name: 'Quantum parity code (QPC)'
-introduced: '\cite{arxiv:quant-ph/0501184}'
+introduced: '\cite{arxiv:quant-ph/0501184}' '\cite{arxiv:quant-ph/0006088}'
+#and I think we should probably cite Knill's nature paper: A scheme for efficient quantum computation with linear optics
 
-description: 'Stub.'
+description:|
+          'The idea of this code arises when considering loss-tolerant optical quantum memory and quantum computin.
+          'It is a concatenated code obtained from two repetition code that corrects phase errors and bit-flip errors 
+          'respectively.'
 
-protection: ''
+protection: 'Against photon loss error in a quantum memory.'
+
+features:
+        rate: 'The code comes from concatenation, so \(n=n_1 n_2\), \(k=k_1 k_2\) and \(d=d_1 d_2\).'
+        
+        encoders:
+                   - 'Tier 1(physical encoding): \(\ket{0}=\ket{H}\) and \(\ket{1}=\ket{V}\) '
+                   - 'Tier 2(parity encoding): \(\ket{0}^{(n)} = (\ket{+}^{\otimes n}+\ket{-}^{\otimes n})/\sqrt{2} \)  and \(\ket{1}^{(n)} = (\ket{+}^{\otimes n} - \ket{-}^{\otimes n})/\sqrt{2} \)'
+                   - 'Tier 3(redundant encoding): Finally, any code word is: \ket{\psi}=\alpha\ket{0}^{(n)\ket{0}^{(n)\cdots\ket{0}^{(n)+\beta\ket{1}^{(n)\ket{1}^{(n)\cdots\ket{1}^{(n)}'
+        
+         threshold: 
+                  - 'The probability of a successful encoding, \(P_{E}\), is determined by the efficiency \( \eta \)of the encoding circuit\cite{arxiv:quant-ph/0501184}.'
+                  - 'The threshold is \(\eta > 0.82 \) for the efficiency. Above this threshold, \(P_{E}\) approaches 1 as \(n\) increases.'
+                  - 'For efficiencies above about 0.96 a polynomial overhead in the code size results in an exponential decrease in the failure probability \(1-P_{E}\).'
+    
 
 relations:
   parents:
