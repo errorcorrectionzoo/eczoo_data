@@ -7,18 +7,18 @@ code_id: steane
 physical: qubits
 logical: qubits
 
-name: 'Steane'
+name: 'Steane \([[7,1,3]]\) code'
 introduced: '\cite{doi:10.1098/rspa.1996.0136}'
 
 description: |
-  The Steane code is a \([[7,1,3]]\) CSS code that uses the classical binary \([7,4,3]\) Hamming code for protecting against \(X\) errors and its dual \([7,3,4]\) for \(Z\) errors. The parity-check matrix for the \([7,4,3]\) Hamming code is
+  A \([[7,1,3]]\) CSS code that uses the classical binary \([7,4,3]\) Hamming code for protecting against \(X\) errors and its dual \([7,3,4]\) for \(Z\) errors. The parity-check matrix for the \([7,4,3]\) Hamming code is
   \begin{align}
     H = \left(\begin{matrix}
       1&0&0&1&0&1&1\\
       0&1&0&1&1&0&1\\
       0&0&1&0&1&1&1
     \end{matrix}\right),
-  \end{align},
+  \end{align}
   and the check matrix for the Steane code is therefore
   \begin{align}
     \left(\begin{matrix}
@@ -45,4 +45,4 @@ relations:
 
   cousins:
    - code_id: hamming
-     # detail: ''
+     detail: 'The Steane code is constructed from a classical Hamming code.'
