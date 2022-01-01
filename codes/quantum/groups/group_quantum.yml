@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: group_quantum
+physical: groups
+logical: groups
+
+name: 'Group quantum code'
+#introduced: ''
+
+description: 'Encodes a \textit{logical} Hilbert space, finite- or infinite-dimensional, into a \textit{physical} Hilbert space of \(\ell^2\)-normalizable functions on a second-countable unimodular group. For \(K\)-dimensional logical subspace and for groups \(G^{\times n}\), can be denoted as \(((n,K))_G\). When the logical subspace is the Hilbert space of \(\ell^2\)-normalizable functions on \(G^{\times k}\), can be denoted as \([[n,k]]_G\). Ideal codewords may not be normalizable, depending on whether \(G\) is continuous and/or noncompact, so approximate versions have to be constructed.'
+
+protection: ''
+
+#notes:
+#  - ''
+
+relations:
+  parents:
+    - code_id: qecc
+      detail: ''
+
+  cousins:
+    - code_id: qecc_finite
+      detail: 'Group quantum codes whose physical spaces are constructed using finite groups are finite-dimensional.'
+    - code_id: qudits_into_qudits
+      detail: 'Group quantum codes whose physical spaces are constructed using modular-integer groups are cyclic-qudit codes.'
+    - code_id: oscillators
+      detail: 'Group quantum codes whose physical spaces are constructed using the group of the reals \(\mathbb{R}\) under addition are bosonic codes.'
+    # lloyd-slotine, braunstein

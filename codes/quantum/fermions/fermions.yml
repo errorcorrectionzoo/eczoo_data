@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fermions
+physical: fermions
+logical: fermions
+
+name: 'Fermionic code'
+#introduced: ''
+
+description: 'Finite-dimensional quantum error-correcting code encoding a logical Hilbert space into a physical Fock space of fermionic modes. Codes are typically described using Majorana operators, which are linear combinations of fermionic creation and annihilation operators \cite{arXiv:quant-ph/0003137}.'
+
+protection: ''
+
+#notes:
+#  - ''
+
+relations:
+  parents:
+    - code_id: qecc_finite
+      detail: ''
+
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'While the Majorana operator algebra is isomorphic to the qubit Pauli-operator algebra via the Jordan-Wigner transformation \cite{arXiv:cond-mat/0010440}, codes based on the two algebras have different notions of locality and thus qualitatively different physical interpretations.'
+    - code_id: oscillators
+      detail: 'Bosonic (fermionic) codes are associated with bosonic (fermionic) degrees of freedom.'
