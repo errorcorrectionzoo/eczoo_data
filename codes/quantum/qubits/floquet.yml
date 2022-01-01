@@ -1,0 +1,28 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: floquet
+physical: qubits
+logical: qubits
+
+name: 'Floquet code'
+introduced: '\cite{arXiv:2107.02194}'
+
+description: |
+  Dynamically-generated stabilizer-like code whose logical qubits are generated through a particular sequence of measurements such that the number of logical qubits is larger than when the code is viewed as a static subsystem code. The code space is the \(+1\) eigenspace of the instantaneous stabilizer group (ISG). The ISG specifies the state of the system as a Pauli stabilizer state at a particular round of measurement, and it evolves into a (potentially) different ISG depending on the check operators measured.'
+
+protection: 'Protects against single-qubit Pauli noise and check operator measurement errors.'
+
+relations:
+  parents:
+    - code_id: dynamic_gen
+      detail: ''
+    - code_id: stabilizer
+      detail: 'Partcular sequences of measurements on this code yield an instantaneous stabilizer group.'
+  cousins:
+    - code_id: oecc
+      detail: 'This code can be viewed as a subsystem code, albeit one with less logical qubits.'
+    - code_id: monitored_random_circuits
+      detail: 'Both Floquet and monitored random circuit codes can have an instantaneous stabilizer group which evolves through unitary evolution and measurements. However, Floquet codewords are generated via a specific sequence of measurements, while random-circuit codes maintain a stabilizer group after any measurement. Floquet codes have the additional capability of detecting errors induced during the measurement process; see Appx. A of Ref. \cite{arxiv:2107.02194}.'
