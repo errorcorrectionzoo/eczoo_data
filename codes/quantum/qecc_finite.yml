@@ -1,0 +1,72 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qecc_finite
+#physical: bits
+#logical: qubits
+
+name: 'Finite-dimensional quantum code'
+
+# Following Gottesman's book
+description: 'A quantum error-correcting code that encodes quantum information in a \(K\)-dimensional (\textit{logical}) subspace \(\mathsf{H}_K\) of an \(N\)-dimensional (\textit{physical}) Hilbert space \(\mathsf{H}_N\) such that it is possible to recover said information from errors. Formally, a finite-dimensional quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{K}\to\mathsf{H}_{N}\) with a set of correctable errors \({\cal{E}}:\mathsf{H}_N\to\mathsf{H}_M\) with the following property: there exists a quantum operation \({\cal{D}}:\mathsf{H}_M\to \mathsf{H}_K\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{K}\), \({\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\) for some constant \(c\).'
+
+protection: 'Correction capability is determined by the Knill-Laflamme error correction criteria \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}. A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate code}.'
+# Include other often used defs
+# Include complementary channel + approximate defs; approx should be a separate property or not?
+
+features:
+
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+  #encoders:
+  #  - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+  #  - 'Measurement-based preparation ... with ancilla overhead of ... .'
+  #  - 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  general_gates:
+    - 'Universal gate set cannot be transversal due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
+
+  #decoders:
+  #  - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+  #  - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+  #fault_tolerance:
+  #  - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+  #  - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+  #  - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+  #  - 'Pieceable fault tolerance.'
+
+  #threshold:
+  #  - '2\% error-correction threshold  ... with perfect ... decoder \cite{arxiv:another-paper}.'
+  #  - '0.3\% error-correction threshold ... with noisy MWPM decoder \cite{doi:good-paper}.'
+  #  - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+  #  - 'Asymptotic lower bound of ... on threshold with ... noise with ... overhead.'
+  #  - 'Thresholds using magic-state distillation protocols assuming perfect Clifford gates.'
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+#realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+
+#notes:
+#  - 'Bounds on n,k, or d for this class.'
+#  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+#  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
+#  - 'Can reference other codes, but try to put such connections in the relations fields.'
+#  - 'Anything noteworthy that''s not above or below.'
+
+relations:
+  parents:
+    - code_id: qecc
+      detail: ''
+
+#  cousins:

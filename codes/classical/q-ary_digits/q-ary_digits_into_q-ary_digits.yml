@@ -1,0 +1,24 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_digits_into_q-ary_digits
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary code'
+#introduced: ''
+
+description: 'Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.'
+#the minimum Hamming distance between a pair of distinct codewords.
+
+protection: 'Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.'
+
+#notes:
+#  - ''
+
+relations:
+  parents:
+    - code_id: ecc
+      detail: ''
