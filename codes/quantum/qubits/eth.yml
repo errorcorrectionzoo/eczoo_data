@@ -17,9 +17,9 @@ description: |
   \begin{align}
   |\langle E_l|O|E_l\rangle-\langle E_{l+1}|O|E_{l+1}\rangle|\leq\exp(-cn)
   \end{align}
-  for a constant \(c\). This implies that energy eigenstates around \(\bar E\) are approximately locally indistinguishable from one another, as their reduced density matrices on any subsystem are both approximately thermal at energy \(\bar E\). In this way, global information is protected from local measurements by the environment as \(n\to\infty\).
+  for a constant \(c\). This implies that energy eigenstates around some energy \(\bar E\) are approximately locally indistinguishable from one another, as their reduced density matrices on any subsystem are both approximately thermal at energy \(\bar E\). In this way, global information is protected from local measurements by the environment as \(n\to\infty\).
 
-protection: 'Approximately protects against erasure errors at known locations. Translation invariance alone is sufficient for good apporoximate error-correcting properties in a many-body spectrum, including in integrable models \cite{arxiv:1710.04631}. The ETH code generated from the spectrum of the translation-invariant 1D Heisenberg spin chain \cite{arxiv:1710.04631} has approximation parameter (against the erasure of a constant number of sites) which scales as \(\epsilon_\text{worst}(\mathcal{N}\circ\mathcal{E}=O(1/n)\), where \(\mathcal{E}\) is the encoder and \(\mathcal{N}\) is the erasure channel \cite{arxiv:1902.07714}.'
+protection: 'Approximately protects against erasure errors at known locations. Translation invariance alone is sufficient for good approximate error-correcting properties in a many-body spectrum, including in integrable models \cite{arxiv:1710.04631}. The ETH code generated from the spectrum of the translation-invariant 1D Heisenberg spin chain \cite{arxiv:1710.04631} has recovery infidelity (against the erasure of a constant number of sites) scale as \(\epsilon_\text{worst}=O(1/n)\) \cite{arxiv:1902.07714}.'
 
 features:
   decoders:
@@ -34,9 +34,9 @@ features:
 relations:
   parents:
     - code_id: hamiltonian
-      detail: 'ETH codewords are eigenstates of a local Hamiltonian.'
+      detail: 'ETH codewords are eigenstates of a local Hamiltonian whose eigenstates satisfy ETH.'
     - code_id: approximate_qecc
-      detail: 'ETH codes approximately protect against erasure in the thermodynamic limit.'
+      detail: 'ETH codes approximately protect against erasures in the thermodynamic limit.'
   cousins:
     - code_id: topological
       detail: 'ETH codewords, like topological codewords, are locally indistinguishable.'
