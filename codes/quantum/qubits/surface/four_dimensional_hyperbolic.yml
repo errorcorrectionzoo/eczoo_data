@@ -7,16 +7,15 @@ code_id: four_dimensional_hyperbolic
 physical: qubits
 logical: qubits
 
-name: 'Four-dimensional hyperbolic code'
+name: 'Guth-Lubotzky hyperbolic surface code'
 introduced: '\cite{arXiv:1310.5555}'
 
 description: |
-  A family of LDPC CSS codes with linear rate based on cellulations of four-dimensional manifolds.
-  These manifolds are shown to have good homology and systolic properties for the purposes of code construction.
+  A family of LDPC CSS codes with linear rate based on cellulations of four-dimensional manifolds that is based on a natural extension of Kitaev's surface-code construction. The manifolds are shown to have good homology and systolic properties for the purposes of code construction.
 
   In particular, Guth and Lubotzky \cite{arXiv:1310.5555} show that there exists \(\epsilon\), a four-dimensional hyperbolic manifold \(M\), and a sequence of manifolds \(M_i\) such that
-  each \(M_i\) is a finite sheeted \href{https://en.wikipedia.org/wiki/Covering_space}{covering} of \(M\), and the four-dimensional volumes of the manifolds \(Vol_4(M_i)\) of the sequence tend to infinity.
-  Also, the dimension of the second homology and size of systoles are bounded by \(H_2(M_i, Z_2) \geq \frac{Vol_4(M_i)}{100}\) and \(Sys_2(M_i) \geq Vol_4(M_i)^\epsilon\), respectively.
+  each \(M_i\) is a finite sheeted \href{https://en.wikipedia.org/wiki/Covering_space}{covering} of \(M\), and the four-dimensional volumes of the manifolds \(\text{Vol}_4(M_i)\) of the sequence tend to infinity.
+  Also, the dimension of the second homology and size of systoles are bounded by \(H_2(M_i, Z_2) \geq \frac{\text{Vol}_4(M_i)}{100}\) and \(\text{Sys}_2(M_i) \geq \text{Vol}_4(M_i)^\epsilon\), respectively.
 
   Then given any cellulation of \(M\), it can naturally be extended to cellulations for each of the manifolds \(M_i\) and used to define CSS codes via the homological construction by choosing the size three chain complex consisting of the \(3,2\) and \(1\)-cells of the cellulations.
 
@@ -27,8 +26,8 @@ protection: 'Protection stems from the relationship between properties of manifo
 
 relations:
   parents:
-    - code_id: quantum_ldpc
-      detail: ''
-  cousins:
-    - code_id: real_projective_plane
-      detail: 'The surface code can also be constructed via tesselation of a hyperbolic surface.'
+    - code_id: surface
+      detail: 'The Guth-Lubotzky code is an extension of the surface code to the 4D hyperbolic setting \cite{arxiv:1712.08578}.'
+#   cousins:
+#     - code_id: holographic
+#       detail: 'Like holographic codes, hyperbolic code utilize tesselations of hyperbolic surfaces.'

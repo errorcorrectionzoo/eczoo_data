@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bosonic_rotation
+physical: oscillators
+logical: qudits
+
+name: 'Bosonic rotation code'
+introduced: '\cite{arXiv:1901.08071}'
+
+description: |
+  A single-mode Fock-state bosonic code whose codespace is preserved by a phase-space rotation by a multiple of \(2\pi/N\) for some \(N\). The rotation symmetry ensures that encoded states have support only on every \(N^{\textrm{th}}\) Fock state. For example, single-mode Fock-state codes for \(N=2\) encoding a qubit admit basis states that are, respectively, supported on Fock state sets \(\{|0\rangle,|4\rangle,|8\rangle,\cdots\}\) and \(\{|2\rangle,|6\rangle,|10\rangle,\cdots\}\).
+
+  Encoding of a \(q\)-dimensional logical qudit admit a basis whose elements are eigenstates of the rotation operator \(\exp\left(\mathrm{i} 2\pi \hat{n}/qN \right)\), where \(\hat{n}\) is the number operator diagonal in the Fock basis. Basis elements are of the form \(\sum_{j=0}^\infty c_j |(kq+j)N \rangle\) for some coefficients \(c_j\) and \(k\). This is because the rotation acting on a general Fock-state superposition \(\sum_n a_n |n\rangle\) yields \(\sum_n a_n \exp\left(\mathrm{i} 2\pi n / qN \right) |n\rangle\). In order for a codeword to be an eigenvector of this operation, \(a_n\) must be zero whenever \(n \neq (kq+j)N\) for some \(k\).
+
+  Codewords can be uniquely specified by choosing a \emph{primitive} state \(|\Theta\rangle\). To ensure valid (orthogonal and nonzero) codewords, \(|\Theta\rangle\) must satisfy the following requirement: for each \(j \in \mathbb{Z}_q\), \(|\Theta\rangle\) must have support on the Fock state \(|(k_j q+j)N\rangle\) for at least one \(k_j \in \mathbb{N}_0\). From such a primitive, the codewords \(\{|\overline{j}\rangle \mid j \in \mathbb{Z}_q\}\) are constructed as
+  \begin{align}
+  |\overline{j}\rangle \propto \sum_{m=0}^{2N-1} \mathrm{e}^{2\pi \mathrm{i} m (\hat n  / N + j) / q} |\Theta\rangle~.
+  \end{align}
+
+protection: 'Losses or gains less than \(N\) are detectable. Dephasing rotations \(\exp(\mathrm{i}\theta \hat{n})\) can be detected whenever \(\theta\) is roughly less than \(\pi/N\). To get precise bounds on \(\theta\), one needs to analyze the particular bosonic rotation code.'
+
+features:
+
+  general_gates:
+    - 'The logical Pauli-\(Z\) gate can be the discrete rotation operator \(\mathrm{e}^{\mathrm{i} \pi \hat n /N}\), and the logical Pauli-\(X\) gate can be the (note: non-unitary) number-translation operator \(\sum_{n=0}^\infty |n\rangle\bra{n+N}\).'
+    - 'For qubit codes, a logical phase gate is \(S = \mathrm{e}^{\pi \mathrm{i} \hat n^2 / 2N^2}\).'
+    - 'The \(T = \mathrm{diag}(1,\exp(\mathrm{i}\pi/4))\) gate can be done via gate teleportation and a resource state \(\vert 0_N\rangle + \exp(\mathrm{i}\pi/4) \vert 1_N \rangle\).'
+    - 'A controlled-rotation gate between an order \(N\) rotation code and an order \(M\) rotation code is \(\mathrm{CROT}_{NM} = \mathrm{e}^{(2\pi\mathrm{i} / qNM) \hat n \otimes \hat n}\).'
+
+  decoders:
+    - 'One can distinguish (destructively) the codewords by performing a Fock-state number measurement. If a Fock state state \(|n\rangle\) is measured, then one rounds to the nearest integer of the form \((kq+j)/N\), and deduces that the true state was \(|\overline{j}\rangle\).'
+    - 'One can distinguish states in the dual basis by performing phase estimation on \(\mathrm{e}^{\mathrm{i} \theta \hat n}\). One then rounds the resulting \(\theta\) to the nearest number \(2\pi j / qN\) in order to determine which dual basis state \(j \in \mathbb Z_q\) it came from.'
+
+  encoders:
+    - 'The optimal way to prepare codewords depends on the exact rotation code in question \cite{arXiv:1901.08071}.'
+
+relations:
+  parents:
+    - code_id: fock_state
+      detail: 'Single-mode Fock-state codes are typically rotationally invariant.'
+  cousins:
+    - code_id: gkp
+      detail: 'GKP codes utilize the translational symmetry in phase space, while rotation codes utilize rotational symmetry.'
