@@ -1,0 +1,27 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: freedman_meyer_luo
+physical: qubits
+logical: qubits
+
+name: 'Freedman-Meyer-Luo code'
+introduced: '\cite{doi:10.1201/9781420035377-13}'
+
+description: |
+  CSS code constructed using triangulation of a Riemann Manifold \(M\). Through the phenomenon of systolic freedom, codes derived from higher-dimensional manifolds offer some improvement larger than constant to the \(t=\Theta(\sqrt{n})\) bound. Namely, we have the better distance as shown below. This is obtained by studying a weak family of Riemann metrics on closed 4-dimensional manifolds \(S^2\otimes S^2\) with the \(Z_2-homology\).
+
+protection: 'Four-dimensional manifolds with weak systolic freedom yield \([[n,2,\Omega(\sqrt{n \sqrt{\log n}})]]\) surface codes.'
+
+features:
+    rate: 'Codes held a 20-year record the best lower bound on asymptotic scaling of the minimum code distance, \(d=\Omega(\sqrt{n \sqrt{\log n}})\), broken by Ramanujan tensor-product codes.'
+
+notes:
+  - 'See thesis by Fetaya for pedagogical exposition \cite{arxiv:1108.2886}.'
+
+relations:
+  parents:
+    - code_id: surface
+      detail: 'Freedman-Meyer-Luo codes are extensions of the surface code to 4D hyperbolic manifolds exhibiting systolic freedom.'
