@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lifted_product
+physical: qubits
+logical: qubits
+
+name: Lifted-product code
+
+introduced: \cite{arxiv:1904.02703}
+
+description: >
+  A QLDPC code that is the "lifted version" of a hypergraph product code.
+  The construction of a lifted product code is similar to that of a hypergraph product code; a sort of ''product'' is taken between two input classical codes to produce a CSS code.
+  What differentiates a lifted product code from a hypergraph product code is that a reduction of symmetry is exploited to decrease the number of physical qubits required.
+  Lifted product codes are notable because they were the first QLDPC codes to achieve almost linear distance.
+
+protection: 'Code performance strongly depends on \(G\) \cite{arxiv:2012.04068}, but lifted product codes contain \cite{arXiv:2111.03654} families of QLDPC codes with the parameters \([[n, k = \Theta(n), d = \Theta(n)]]\).'
+
+features:
+  rate: 'Lifted-product codes include the first examples \cite{arXiv:2111.03654} of (asymptotically) \textit{good QLDPC codes}, i.e., codes with asymptotically constant rate and linear distance. The existence of such codes proves the QLDPC conjecture \cite{arXiv:2103.06309}. Another notable family encodes \(k \in \Theta(n^\alpha \log n)\) logical qubits with distance \(d \in \Omega(n^{1 - \alpha} / \log n)\) for any number of physical qubits \(n\) and any real parameter $0 \leq \alpha < 1$ \cite{arxiv:2012.04068}. There is no known simple way to compute the logical dimension \(k\) in the general case \cite{arxiv:2012.04068}.'
+
+  decoders:
+    - BP-OSD decoder \cite{arxiv:1904.02703} adds OSD-like post-processing to the belief propogation decoder for improved performance.
+
+notes:
+  - Formerly known as \textit{generalized hypergraph product codes} \cite{arXiv:1904.02703}, and later renamed to lifted-product codes \cite{arXiv:2012.04068,doi:10.1103/PRXQuantum.2.040101}.
+
+relations:
+  parents:
+    - code_id: homological_product
+      detail: 'Lifted product obtained from the homological product over a group algebra \(\mathbb{F}_2 G\) of two length-two chain complexes over \(\mathbb{F}_2 G\), i.e., classical binary codes with a free action of the group \(G\).'
+    - code_id: balanced_product
+      detail: ''

@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'Subsystem stabilizer code'
+introduced: '\cite{arXiv:quant-ph/0508131}'
+
+description: |
+  Also called a \textit{gauge stabilizer code}. A stabilizer code with some of its logical qubits denoted as \textit{gauge} qubits and not used for storage of logical information. Note that this doesnt lead to new codes but does lead to new error correction and fault tolerance procedures. Subsystem codes are denoted by \([[n,k,r,d]]\), similar to stabilizer codes, but with an extra parameter \(r\) denoting the number of gauge qubits.
+
+  To create these codes proceed as follows. Choose \(2n\) operators \(\{ \tilde{X}_j,\tilde{Z}_j\}_{j=1}^n\) from \(\mathsf{P}_n\), the Pauli group on \(n\) qubits, such that they obey the same commutation relations as the regular \(n\)-qubit Pauli generators \( \{X_j,Z_j\}_{j=1}^n \) (the subscript on these latter operators indicates the single qubit the Pauli matrix acts on). The tilde operators might act on more than one physical (or \textit{bare}) qubit but they behave as if they acted only on a single qubit. WLOG we can choose a stabilizer group as \( \mathsf{S} = \langle Z_1,\dots,Z_s \rangle \). It follows that the normalizer of \(\mathsf{S} \) is \( N(\mathsf{S}) = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_n, \tilde{X}_{s+1},\dots, \tilde{X}_n \rangle \). We now choose a gauge group as \( \mathsf{G} = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_s, \tilde{X}_{s+1}, \tilde{Z}_{s+1}, \dots, \tilde{X}_{s+r}, \tilde{Z}_{s+r} \rangle \) with \( s + r \leq n \). The logical group is choosen as \( \mathsf{L} = N(\mathsf{S})/\mathsf{G} \simeq \langle \tilde{X}_{s+r+1},\tilde{Z}_{s+r+1}, \dots, \tilde{X}_n,\tilde{Z}_n \rangle \). Now the codespace \( C \) is as usual the \(+1\) eigenspace of the stabilizer \( \mathsf{S} \). But the gauge and logical groups have further decomposed this space into \( C = A \otimes B \simeq (\mathbb{C}^2)^{\otimes k} \otimes (\mathbb{C}^2)^{\otimes r} \). Thus the Hilbert space is partitioned into 3 sets; \(k\) logical qubits, \(r\) gauge qubits, and \(s\) stabilizer qubits, with \(s+r+k=n\).
+
+protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits. More generally, a set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathsf{S}) \setminus \mathsf{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathsf{S}) \setminus \mathsf{G}\).'
+
+notes:
+    - 'When the gauge group \( \mathsf{G} \) is abelian, the above is reduced to the standard stabilizer formalism.'
+
+relations:
+  parents:
+    - code_id: oecc
+      detail: ''
+
+  cousins:
+    - code_id: stabilizer
+      detail: 'Gauge stabilizer codes reduce to stabilizer codes when there are no gauge qubits.'
