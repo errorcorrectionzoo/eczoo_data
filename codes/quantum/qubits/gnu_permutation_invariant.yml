@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gnu_permutation_invariant
+physical: qubits
+logical: qubits
+
+name: 'GNU permutation-invariant code'
+introduced: '\cite{arXiv:1302.3247}'
+
+description: |
+  Can be expressed in terms of Dicke states where the logical states are
+  \begin{align}
+  |\overline{\pm}\rangle = \sum_{\ell=0}^{n} \frac{(\pm 1)^\ell}{\sqrt{2^n}} \sqrt{n \choose \ell} |D^m_{g \ell}\rangle~.
+  \end{align}
+  Here, \(m\) is the number of particles used for encoding \(1\) qubit, and \(g, n \leq m\) are arbitrary positive integers. The state \(|D^m_w\rangle\) is a Dicke state -- a normalized permutation-invariant state on \(m\) qubits with \(w\) excitations, i.e., a normalized sum over all basis elements with \(w\) ones and \(m - w\) zeroes.
+
+  A qudit extension of such codes, based on a correspondence with binomial codes, exists \cite{arXiv:1708.05010}.
+
+protection: 'Depends on the family. One family which is completely symmetrized versions of Bacon-Shor codes (parameterized by \(t\)) protects against arbitrary weight-\(t\) qubit errors. Additionally, codes with large enough length \((t+1)(3t+1)+t\) can approximately correct \(t\) spontaneous decay errors.'
+
+relations:
+  parents:
+    - code_id: permutation_invariant
+      detail: ''
+  cousins:
+    - code_id: bacon_shor
+      detail: 'Symmetrized versions of the Bacon-Shor codes are GNU codes'
+    - code_id: hamiltonian
+      detail: 'GNU codes lie within the ground state of ferromagnetic Heisenberg models without an external magnetic field \cite{doi:10.1103/PhysRevB.103.144417}.'
+    - code_id: approximate_qecc
+      detail: 'Some GNU codes can protect approximately against amplitude damping errors.'
+    - code_id: binomial
+      detail: 'Binomial codes and GNU codes are both described by spin-coherent states \cite{arXiv:1708.05010}.'
+#    - code_id: gkp
+#      detail: 'GNU permutation invariant codes are approximately equivalent (in the limit for \(n\)) to an appropriate subspace of GKP codes, in that the binonmial weightings over the Dicke states converge to the Gaussian weightings of the oscillator codes.'
