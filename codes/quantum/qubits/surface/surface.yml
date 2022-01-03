@@ -8,14 +8,18 @@ physical: qubits
 logical: qubits
 
 name: 'Kitaev surface code'
-introduced: '\cite{doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}'
+introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}'
 
-description: 'A family of \hyperref[code:css]{CSS stabilizer} codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a cellulation of a two-dimensional surface (with a qubit located at each edge of the cellulation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.'
-# Planar code, toric code, hyperbolic code could make for child entries
+description: |
+  A family of \hyperref[code:css]{CSS stabilizer} codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a cellulation of a two-dimensional surface (with a qubit located at each edge of the cellulation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.
 
-protection: 'When defined on an \(L\times L\) square tiling of the torus, protects against \(L\) errors. More generally, the code distance is related to the homology of the cellulation \cite{arXiv:quant-ph/0110143}.'
+  The original construction can be naturally extended to arbitrary dimensional manifolds \cite{doi:10.1007/978-3-642-01877-0_21}. Given a cellulation, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \(i+1\)-faces.
+
+protection: 'Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code, and there exists a planar code with \([[L^2,1,L]]\) \cite{arxiv:1111.4022}. More generally, the code distance is related to the homology of the cellulation \cite{arXiv:quant-ph/0110143}.'
 
 features:
+  rate: 'Rate depends on the underlying cellulation and manifold. For general 2D manifolds, \(kd^2\leq c(\log k)^2 n\) for some constant \(c\) \cite{arXiv:1301.6588}, meaning that surface codes with finite rate can only achieve an asymptotic minimum distance that is logarithmic in \(n\).'
+
   #fault_tolerance:
   transversal_gates: 'Pauli gates on torus geometry.'
   general_gates:
@@ -44,7 +48,7 @@ notes:
 realizations:
   - 'Distance-two surface codes have been implemented by Andersen et al. \cite{arXiv:1912.09410}, Erhard et al. \cite{arXiv:2006.03071}, and Google Quantum AI \cite{doi:10.1038/s41586-021-03588-y}.'
   - 'Signatures of corresponding topological phase of matter detected in superconducting circuits \cite{arxiv:2104.01180} and two-dimensional arrays of Rydberg atoms \cite{arXiv:2104.04119}.'
-  - 'Distance-three surface code implemented at ETH Zurich \cite{arxiv:2112.03708}.'
+  - 'Distance-three surface code implemented at ETH Zurich \cite{arxiv:2112.03708} and on the Zuchongzhi 2.1 superconducting quantum processor \cite{arxiv:2112.13505}.'
 
 relations:
   parents:
@@ -60,7 +64,3 @@ relations:
       detail: 'Planar (toric) code obtained from hypergraph product of two repetition (cyclic) codes.'
     # - code_id: 'qudit_surface'
     #   detail: ''
-    # - code_id: 'xzzx_surface'
-    #   detail: 'Related by single-qubit Hadamard gates.'
-    # - code_id: 'color'
-    #   detail: 'Related by geometrically-local Clifford unitaries.'
