@@ -7,30 +7,35 @@ code_id: lifted_product
 physical: qubits
 logical: qubits
 
-name: 'Lifted product code'
-introduced: '\cite{arXiv:1904.02703}'
+name: Lifted product code
 
-description: 'A family of \([[n,k,d]]\) CSS codes whose construction is based on two linear \textit{seed} codes \(C_1\) and \(C_2\) with a free action of a group \(G\). Lifted product codes can also be defined over arbitrary matrix rings.'
+introduced: \cite{arxiv:1904.02703}
 
-protection: 'Code performance strongly depends on \(G\), but lifted product codes contain \cite{arXiv:2111.03654} families of QLDPC codes with the parameters \([[n, k = \Theta(n), d = \Theta(n)]]\).'
+description: >
+  A QLDPC code that is the "lifted version" of a hypergraph product code.
+  The construction of a lifted product code is similar to that of a hypergraph product code and related codes; a sort of "product" is taken between two input classical codes to produce a CSS code.
+  What differentiates a lifted product code from a hypergraph product code is that a reduction of symmetry is exploited to decrease the number of physical qubits required.
+  Lifted product codes are notable because they were the first QLDPC codes to achieve almost linear distance.
 
 features:
-  rate: 'Lifted product codes include the first examples \cite{arXiv:2111.03654} of \textit{good QLDPC codes}, i.e., codes with asymptotically constant rate and linear distance. The existence of such codes proves the QLDPC conjecture \cite{arXiv:2103.06309}.'
+
+  rate: >
+    There is no known simple way to compute the logical dimension $k$ in the general case \cite{arxiv:2012.04068}.
+    However, there is a notable family of lifted product codes encoding $k \in \Theta(n^\alpha \log n)$ logical qubits with distance $d \in \Omega(n^{1 - \alpha} / \log n)$ for any number of physical qubits $n$ and any real parameter $0 \leq \alpha < 1$ \cite{arxiv:2012.04068}.
 
   decoders:
-    - 'BP-OSD decoder \cite{arXiv:1904.02703}.'
+    - BP-OSD decoder \cite{arxiv:1904.02703} adds OSD-like post-processing to the belief propogation decoder for improved performance.
 
-#%notes:
-#  - ''
+notes:
+  - Formerly known as "generalized hypergraph product codes" \cite{arXiv:1904.02703}, and later renamed to "lifted product codes" \cite{arXiv:2012.04068,doi:10.1103/PRXQuantum.2.040101}.
 
 relations:
   parents:
-    # Pick fewer parents; what is the imporatnt inherited feature? Hom product or chain-complex?
     - code_id: homological_product
       detail: 'Lifted product obtained from the homological product over a group algebra \(\mathbb{F}_2 G\) of two length-two chain complexes over \(\mathbb{F}_2 G\), i.e., classical binary codes with a free action of the group \(G\).'
-#    - code_id: css
-#      detail: 'Since lifted product codes are defined by a length-three chain complex they are CSS codes.'
-#    - code_id: quantum_ldpc
-#      detail: 'Sparsity of seed codes \(C_1\) and \(C_2\) preserved by the lifted product (up to a constant factor), yielding a QLDPC code.'
-
-  #cousins:
+  cousins:
+    - code_id: hypergraph_product
+      detail: Construction of a lifted product code is very similar to a hypergraph product, but with a reduction of symmetry.
+    - code_id: balanced_product
+      detail: Both are based on a reduction of symmetry in the hypergraph product.
+    - code_id: homological_product
