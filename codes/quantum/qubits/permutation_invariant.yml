@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: permutation_invariant
+physical: qubits
+logical: qubits # also qudits
+
+name: 'Permutation-invariant code'
+introduced: '\cite{arXiv:quant-ph/0304153}'
+
+description: 'Codes which are stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (non-abelian) group actions (in particular, \(S_n\) is non-abelian).'
+
+protection: 'Depends on the family. The GNU permutation-invariant family (parameterized by \(t\)) protects against arbitrary weight \(t\) qubit errors and approximately corrects spontaneous decay errors \cite{arXiv:1302.3247,doi:10.1103/PhysRevA.93.042340}. Other related codes protect against amplitude damping \cite{doi:10.1109/TIT.2019.2956142} while admitting a constant number of excitations, and against deletion errors \cite{arxiv:2102.02494,arXiv:2102.03015}.'
+
+features:
+
+  encoders:
+   - 'With quantum harmonic oscillators (superconducting charge qubits in a ultrastrong coupling regime) in \(O(N)\) as in \cite{doi:10.1103/PhysRevA.99.012335}. Can be done in \(O(N^2)\) steps using quantum circuits \cite{arXiv:1904.07358}, or using geometric phase gates in \(O(N)\) \cite{arxiv:1908.01120}.'
+
+  decoders:
+   - 'For a family of codes, using projection, probability amplitude rebalancing, and gate teleportation can be done in \(O(N^2)\) \cite{arXiv:2102.02494}.'
+
+notes:
+  - 'Can be constructed using real polynomials for high-dimensional qudit spaces \cite{doi:10.1016/j.laa.2017.06.031}.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+      detail: ''
+  cousins:
+    - code_id: quantum_cyclic
+      detail: 'The cyclic group of these codes is a subgroup of the \(S_n\) symmetric group used in permutation invariant codes.'

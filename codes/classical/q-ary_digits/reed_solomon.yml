@@ -10,7 +10,7 @@ logical: q-ary_digits
 name: 'Reed-Solomon code'
 introduced: '\cite{doi:10.1137/0108018}'
 
-description: '\([n,k,n-k+1]_q\) linear code. Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(GF(q)\) for prime \(q>n\). Encodes \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(\alpha_1),\cdots,f_\mu(\alpha_n)\}\) with polynomial \(f_\mu(x)=\mu_0+\mu_1 x + \cdots + \mu_{k-1}x^{k-1}\).'
+description: '\([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(GF(q)\) for prime \(q>n\). Encodes \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(\alpha_1),\cdots,f_\mu(\alpha_n)\}\) with polynomial \(f_\mu(x)=\mu_0+\mu_1 x + \cdots + \mu_{k-1}x^{k-1}\).'
 
 protection: 'Corrects erasures on \(n-k\) coordinates.'
 
@@ -24,6 +24,9 @@ relations:
   parents:
     - code_id: 'q-ary_linear'
       detail: ''
+#  parents:
+#    - code_id: 'generalized_reed_solomon'
+#      detail: ''
 
   #cousins:
     # - code_id: hamming
