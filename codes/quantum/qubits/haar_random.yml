@@ -2,19 +2,28 @@
 ## This is a code entry in the error correction zoo. ##
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
+
 code_id: haar_random
 physical: qubits
 logical: qubits
-name: 'Haar Random Codes'
-introduced: '\cite{arXiv:0702005}'
-description: 'Hayden et al. \cite{arXiv:0702005} showed that the capacity of a noisy quantum channel can be achieved by encoding in a random codespace that is chosen via Haar random unitaries. In particular, they show that such codes achieve perfect transmission in the thermodynamic limit by proving that the encoded information becomes decoupled from the environment. This is a necessary and sufficient condition for successful decoding since measurements of the environment should never reveal the encoded information \cite{doi:10.1103/PhysRevA.54.2629}. Intuitively, coupling with the environment can be decreased by projecting the system onto a random codespace. The more qubits that are randomly discarded, the more the codespace is decoupled from the environment. One may ask what is the least amount of qubits that can be discarded, i.e. the largest remaining codespace, that still achieves decoupling. It can be shown through the decoupling inequality \cite{arXiv:quant-ph/0512247} that the largest possible dimension of the random codespace that achieves arbitrarily large decoupling is exactly the coherent information of the channel. Therefore, there exists codes that can transmit information with rate equal to the coherent information. Furthermore, these codes can be constructed with high probability by performing a Haar random isometry from an n-dimensional space where n is the number of physical qubits to a k-dimensional codespace where k/n is equal to the coherent information. Such an isometry can be produced by QR decomposition of a Gaussian random matrix \cite{doi.org/10.1137/0717034}.'
+
+name: 'Haar-random code'
+introduced: '\cite{arXiv:quant-ph/0702005}'
+
+description: |
+  Random code whose codewords are produced by performing a unitarily covariant projective measurement on a typical subspace of a tensor-power state. Reference \cite{arXiv:quant-ph/0702005} showed that the capacity of a noisy quantum channel can be achieved by encoding in such Haar-random codes. In particular, random codes achieve perfect transmission in the thermodynamic (\(n\to\infty\)) limit by proving that the encoded information becomes decoupled from the environment. This is a necessary and sufficient condition for successful decoding since measurements of the environment should never reveal the encoded information \cite{arxiv:quant-ph/9604022}.
+
+  Intuitively, coupling with the environment can be decreased by projecting the system onto a random codespace. The more qubits that are randomly discarded, the more the codespace is decoupled from the environment. One may ask what is the least amount of qubits that can be discarded, i.e. the largest remaining codespace, that still achieves decoupling. It can be shown through the decoupling inequality \cite{arXiv:quant-ph/0512247} that the largest possible dimension of the random codespace that achieves arbitrarily large decoupling is exactly the coherent information of the channel. Therefore, there exist codes that can transmit information with rate equal to the coherent information. Furthermore, these codes can be constructed with high probability by performing a Haar-random isometry from an \(n\)-dimensional physical space to a \(k\)-dimensional codespace, where \(k/n\) is equal to the coherent information. Such an isometry can be produced by QR decomposition of a Gaussian random matrix \cite{doi:10.1137/0717034}.'
+
 protection: 'Achieves the capacity of any noisy quantum channel'
+
 features:
   rate: 'The rate of the code is equal to the coherent information of the channel (i.e. the quantum channel capacity).'
+
 relations:
   parents:
     - code_id: random_circuit
       detail: ''
   cousins:
     - code_id: t-designs
-      detail: 'Approximating the random projections through t-designs is necessary in order to make the protocol practical. Replacing with random Clifford gates is especially convenient since the Clifford group forms a unitary 2-design and produces stabilizer codes.'
+      detail: 'Approximating the random projections through \(t\)-designs is necessary in order to make the protocol practical. Replacing with random Clifford gates is especially convenient since the Clifford group forms a unitary 2-design and produces stabilizer codes.'
