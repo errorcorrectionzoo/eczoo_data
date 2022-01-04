@@ -3,7 +3,6 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-
 code_id: gkp
 physical: oscillators
 logical: qudits
@@ -35,11 +34,10 @@ realizations:
 relations:
   parents:
     - code_id: qudits_into_oscillators
-      detail: ''
+    - code_id: oscillator_stabilizer
+      detail: 'GKP codes defined on rectangular lattice are bosonic CSS codes, which more general lattices yield bosonic stabilizer codes.'
   cousins:
     - code_id: approximate_qecc
       detail: 'GKP codes approximately protect against photon loss \cite{arxiv:1708.05010}.'
     #- code_id: toric_GKP
       #detail: 'It is a concatenation that replace the physical qubits in toric code by GKP codes. Each physical qubit is replaced by a harmonic oscillator in GKP state \cite{doi:10.1103/PhysRevA.99.032344}. By using the GKP error information, the toric code threshold is improved from \(10%\) to \(14%\).'
-    - code_id: stabilizer
-      detail: 'GKP codes are a continuous-variable analogue of stabilizer codes.'
