@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fiber_bundle
+physical: qubits
+logical: qubits
+
+name: 'Hastings-Haah-O''Donnell fiber-bundle code'
+introduced: '\cite{arxiv:2009.03921}'
+
+description: 'Code constructed by combining a random LDPC code as the base and a cyclic repetition code as the fiber of a fiber bundle. After applying distance balancing, a QLDPC code with distance \(\Omega(n^{3/5}\text{polylog}(n))\) and rate \(\Omega(n^{-2/5}\text{polylog}(n))\) is obtained. In addition, weight reduction can be used to make this an \([[n,\Omega(n^{3/5}/\text{polylog}n,\Omega(n^{3/5}/\text{polylog}n)]]\) QLDPC code family.'
+
+#protection: 'Pauli errors up to weight \(\Omega(n^{3/5}\text{polylog}(n))\).'
+
+features:
+
+  rate: 'k/n: \(\Omega(n^{-2/5}/\text{polylog}n)\), distance: \(\Omega(n^{3/5}/\text{polylog}n)\). This is the first QLDPC code to achieve a distance scaling better than \(\sqrt{n}\text{polylog}n\).'
+
+  decoders:
+    - 'Greedy algorithm can be used to efficiently decode \(X\) errors, but no known efficient decoding of \(Z\) errors yet \cite{arxiv:2009.03921}.'
+
+relations:
+  parents:
+    - code_id: homological_product
+      detail: 'Fiber-bundle code can be viewed as a homological product code with twisted product.'
+  cousins:
+    - code_id: distance_balanced
+      detail: 'Fiber-bundle code constructions use distance balancing to increase distance.'
