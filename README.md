@@ -47,14 +47,23 @@ display equations, we use an alternative YaML syntax for strings:
         
         Use two line breaks to start a new paragraph, as
         we did here.
-        
+
+(Side note: YAML supports another style of block text, introduced
+by `description: >` instead of `description: |`, which automatically
+folds whitespace using certain rules that are often convenient when
+typing paragraphs of text.  The use of this syntax is discouraged
+because it might interfere with possible whitespace's meaning in our
+LaTeX-inspired mini-language; for instance, leaving an empty line
+will fail to start a new paragraph.)
         
 ## LaTeX-inspired mini-language in text
 
 In text fields, you can make use of the following LaTeX-inspired
 features:
 
-  - Leave a blank line to start a new paragraph.
+  - Leave a blank line to start a new paragraph.  Whitespace is
+    simplified as usual in LaTeX, i.e., consecutive spaces will not
+    insert more space.
     
   - The macros `\emph{...}`, `\textit{...}`, and `\textbf{...}` can be
     used for italic or for bold text.
@@ -78,9 +87,17 @@ features:
     
   - Cite relevant papers by their arXiv number as
     `\cite{arxiv:XXXX.XXXXX}` or `\cite{arxiv:quant-ph/XXXXXXX}`, or
-    using their DOI as `\cite{doi:10.ZZZZZZ}`.  *DOIs are
+    using their DOI as `\cite{doi:10.ZZZZZZ}`.
+    
+    *DOIs are
     automatically retrieved for `arXiv` citations, so please use
-    `arXiv` identifiers whenever possible.*
+    `arXiv` identifiers whenever possible.  If the DOI is not
+    retreived correctly (e.g., it is not listed correctly on the
+    arXiv page), then please add a line in the file
+    `citation_extras/citation_hints.yml` (in this repo),
+    specifically in the `arxiv_to_doi_override:`
+    section.  You can also file an issue in this repo so that we
+    take care of this addition.*
     
     Citations can be combined as in LaTeX:
     `\cite{arxiv:XXX,arxiv:YYY,doi:ZZZ}`.  If there is neither an
@@ -98,7 +115,7 @@ features:
     You can use `\label{eq:...}` inside the equation environments and
     you can refer to labeled equations with `\eqref{eq:...}`.  Do not
     use ~~`(\ref{eq:...})`~~. The label must start with the prefix
-    `eq:`.  You can also use `\[ ... \]` for an unnumbered display
+    `eq:`.  You can also use `\[ ... \]` for unnumbered display
     equations.
 
   - Insert hyperlinks to other web pages as
