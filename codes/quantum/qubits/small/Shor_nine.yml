@@ -17,23 +17,22 @@ description: |
   |\overline{0}\rangle&=\frac{1}{2\sqrt{2}}\left(|000\rangle+|111\rangle\right)^{\otimes3}\\
   |\overline{1}\rangle&=\frac{1}{2\sqrt{2}}\left(|000\rangle-|111\rangle\right)^{\otimes3}~.
   \end{split}
-  \end{align}'
+  \end{align}
+  The code works by \hyperref[code:quantum_concatenated]{concatenating} each qubit of a phase-flip with a bit-flip \hyperref[code:quantum_repetition]{repetition code}. Therefore, the code can correct both type of errors simultaneously.
 
-  Shor''s code works by concatenating each qubit of a phase-flip with a bit-flip repetition code. Therefore, the code can correct both type of errors simultaneously. To be specific, a state is phase-flip error-corrected by a three-qubit phase-flip correction code, with parity checks of \(X_0 X_1I_2\) and \(X_0I_1X_2\) in \(X\) basis, where the subscript represents the qubit index.
-
-  Each logical qubit is encoded using
+  Specifically, a state is phase-flip error-corrected by a three-qubit phase-flip \hyperref[code:quantum_repetition]{repetition code}, with parity checks of \(X_0 X_1I_2\) and \(X_0I_1X_2\) in \(X\) basis, where the subscript represents the qubit index. Each logical qubit is encoded using
   \begin{align}
   \label{eq:phase-flip}
   \begin{split}
-    |0\rangle_{L_P} &= |+_0+_1+_2\rangle \\
-    |1\rangle_{L_P} &= |-_0-_1-_2\rangle .
+    |\overline{0}\rangle &= |+_0+_1+_2\rangle \\
+    |\overline{1}\rangle &= |-_0-_1-_2\rangle .
   \end{split}
   \end{align}
-  Then, each physical qubit used in \eqref{eq:phase-flip} is further encoded in the three-qubit bit-flip correction code:
+  Then, each physical qubit used in \eqref{eq:phase-flip} is further encoded in the three-qubit bit-flip \hyperref[code:quantum_repetition]{repetition code},
   \begin{align}
     |\pm _j \rangle  = \frac{1}{\sqrt{2}}( |0_{j0}0_{j1}0_{j2}\rangle \pm |1_{j0}1_{j1}1_{j2}\rangle),
   \end{align}
-  each with bit-flip error parity check \(Z_{j0}Z_{j1}I_{j2}\) and  \(Z_{j0}I_{j1}Z_{j2} \), where \(j=0,1,2\).
+  each with bit-flip error parity check \(Z_{j0}Z_{j1}I_{j2}\) and  \(Z_{j0}I_{j1}Z_{j2} \) with \(j=0,1,2\).
   Notice now the phase-flip error parity check is extended as \(X_j = X_{j0}X_{j1}X_{j2}\).
   As a result, the overall parity checks with the flattened qubit index are
   \begin{align}
