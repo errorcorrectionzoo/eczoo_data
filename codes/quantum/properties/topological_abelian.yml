@@ -1,0 +1,27 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: topological_abelian
+
+name: 'Abelian topological code'
+#introduced: ''
+
+description: 'Code whose codewords realize topological order associated with an abelian group.'
+
+#protection: ''
+
+#notes:
+#  - ''
+
+relations:
+  parents:
+    - code_id: topological
+    - code_id: qudit_stabilizer
+      detail: 'All abelian topological orders can be realized as modular-qudit stabilizer codes \cite{arxiv:2112.11394}. For example, the double-semion model is realized with qudits of dimension \(q=4\).'
+  cousins:
+    - code_id: surface
+      detail: 'Translation-invariant 2D qubit topological stabilizer codes are equivalent to several copies of the Kitaev surface code \cite{arxiv:1103.4606}.'
+    - code_id: qudit_surface
+      detail: 'Translation-invariant 2D prime-qudit topological stabilizer codes are equivalent to a finite number of copies of the qudit surface code stabilizer group via a local constant-depth Clifford circuit \cite{arxiv:1812.11193}.'
