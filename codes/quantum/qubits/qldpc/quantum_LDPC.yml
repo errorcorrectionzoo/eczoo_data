@@ -8,19 +8,22 @@ logical: qubits
 
 name: 'Quantum low-density parity-check (QLDPC) code'
 
-description: 'Family of \([[n,k,d]]\) stabilizer codes for which the number of qubits participating in each stabilizer generator and the number of stabilizer generators that each qubit participates in are both bounded by a constant as \(n\to\infty\).'
+description: |
+  Family of \([[n,k,d]]\) stabilizer codes for which the number of sites (either qubit or qudit) participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\).
 
-protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits. Asymptotic scaling of \(k\) and \(d\) with \(n\) is often of interest, and this depends heavily on the code construction.
+  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit codes satisfying the above criteria are often called QLDPC codes.
 
-A \textit{good quantum LDPC code} family satisfies \(k \in \theta(n) \) and \(d \in \theta(n)\) \cite{arXiv:2103.06309}, and the first examples of good codes are a family of \hyperref[code:lifted_product]{lifted-product codes}.
+protection: 'Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites. Asymptotic scaling of \(k\) and \(d\) with \(n\) is often of interest, and this depends heavily on the code construction.
 
-A \textit{geometrically local LDPC code} is an LDPC code where the qubits involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\); such codes are limited to having \(d=O(n^{1-1/D})\) for \(D\)-dimensional lattice geometries \cite{arxiv:0810.1983}.'
+A \textit{good quantum LDPC code} family satisfies \(k \in \theta(n) \) and \(d \in \theta(n)\) \cite{arXiv:2103.06309}, and the first examples of good qubit codes are a family of \hyperref[code:lifted_product]{lifted-product codes}.
+
+For qubits, a \textit{geometrically local LDPC code} is an LDPC code where the qubits involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\); such codes are limited to having \(d=O(n^{1-1/D})\) for \(D\)-dimensional lattice geometries \cite{arxiv:0810.1983}.'
 
 features:
   threshold:
     - 'Quantum LDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant \cite{arXiv:1310.2984}.'
 notes:
-  - 'Links to code tables \cite{arXiv:2103.06309}.'
+  - 'Links to code tables of notable QLDPC codes \cite{arXiv:2103.06309}.'
 
 relations:
   parents:
@@ -30,6 +33,6 @@ relations:
     - code_id: ldpc
       detail: ''
     - code_id: hamiltonian
-      detail: 'Codespace is the ground-state space of a local \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
+      detail: 'Codes forming the ground-state subspace of a local \textit{code Hamiltonian} are QLDPC codes.'
     - code_id: dynamic_gen
       detail: 'QLDPC codes can arise form a dynamical process \cite{arxiv:2004.09560}.'
