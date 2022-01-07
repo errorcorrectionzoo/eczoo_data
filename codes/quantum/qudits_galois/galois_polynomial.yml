@@ -7,12 +7,12 @@ code_id: galois_polynomial
 physical: galois
 logical: galois
 
-name: 'Galois-qudit polynomial code'
+name: 'Galois-qudit polynomial code (QPyC)'
 introduced: '\cite{arxiv:quant-ph/9906129}'
 
 
-description: 'Let \(C_1\) be a Reed-Solomon code with \([n,k_1,d_1]_q\) and \(C_2^\perp\) with \([n,k_2,d_2]_q\) to be a modified Reed-Solomon code such that \(C_2^\perp \subseteq C_1\)
-and  \(0\le k_2 \le k_1 \le n\), then the polynomial code is a non-degenerate true \([[n,k_2,d]]_q\) stabilizer code with \(d=\min(n-k_1+1,k_1-k_2+1)\).
+description: 'Let \(C_1\) be a Reed-Solomon code with \([n,k_1,d_1]_{\mathrm{GF}(q)}\) and \(C_2^\perp\) with \([n,k_2,d_2]_{\mathrm{GF}(q)}\) to be a modified Reed-Solomon code such that \(C_2^\perp \subseteq C_1\)
+and  \(0\le k_2 \le k_1 \le n\), then the polynomial code is a non-degenerate true \([[n,k_2,d]]_{\mathrm{GF}(q)}\) stabilizer code with \(d=\min(n-k_1+1,k_1-k_2+1)\).
 The polynomial code is the span of the basis codewords over GF(\(q\))
 \begin{align}
 |\overline{\beta_0,\cdots,\beta_{k_2-1}}\rangle
@@ -26,8 +26,6 @@ where \((\alpha_1, \cdots, \alpha_n)\) are \(n\) distinct points chosen for code
 #
 #protection: '.'
 
-notes:
-   - 'A qudit polynomial code is a quantum MDS code when \(n-k_1=k_1-k_2\).'
 
 relations:
   parents:
@@ -41,3 +39,6 @@ relations:
       detail: ''
     - code_id: cyclic
       detail: ''
+
+    - code_id: quantum_mds
+      detail: 'A qudit polynomial code is a quantum MDS code when \(n-k_1=k_1-k_2\).'

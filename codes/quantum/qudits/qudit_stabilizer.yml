@@ -7,19 +7,20 @@ code_id: qudit_stabilizer
 physical: qudits
 logical: qudits
 
-name: '\(\mathbb{Z}_q\)-qudit stabilizer code'
+
+name: 'Modular-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,q^k,d))_q\) (with \(q\gt 1\)) stabilizer code is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\), where \(d\) is the code''s distance.
-The number of stabilizer generators  equals to \( q^{n-k}\), which is proven in \cite{arXiv:1101.1519}.
-Normalizer \(N(S)\) of the stabilizer \(S\) is the set that contains all operators that commute with \(S\).
+description: 'An \(((n,K,d))_q\) is a stabilizer code with \(q\gt 1, K=\frac{q^n}{|S|}\) and code distance \(d\).
+Since \(|S|\) needs not be \(q^r\) because different Paulis have different orders, \(K\) needs not be \(q^{n-r}\) for composite \(q\).
 The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.
-Logical subspace is the joint \(+1\) eigenspace of a set of \(q^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\).
-The stabilizer code can correct errors \(\varepsilon \in P_n(q)\) if and only if \(\hat{E}^\dagger \hat{F} \notin \hat{N}(S)\setminus \hat{S}\) for all \(E,F \in \varepsilon\).
 A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.
 '
 
-protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
+protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.
+More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\).
+ A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{\hat{N}(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
+'
 notes:
    - '\(k\le n\) for prime \(q\) and \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
 

@@ -10,14 +10,23 @@ logical: galois
 name: 'Galois-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/0005008}'
 
-description: 'An \(((n,q^k,d))_{GF(q)}\) stabilizer code is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\), where \(d\) is the code''s distance and \(q=p^m\).
-The {GF(\(q\))} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
-\(S\) is GF(\(q\)) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
-The code space of GF(\(q\)) stabilizer \(S\) is the subspace \(\mathcal{T}(S) = \{|\psi \rangle \, \mathrm{s.t.}\, M|\psi\rangle = |\psi \rangle,\, \forall M\in S \}.  \)
-The normalizer \(N(S)\) of the stabilizer \(S\) is \(N(S) = \{ N \in P|NM=MN, \, \forall M\in S\}\).
-'
+description: 'An \(((n,q^k,d))_{\mathrm{GF}(q)}\) stabilizer code is denoted as \([[n,k]]_{\mathrm{GF}(q)}\) or \([[n,k,d]]_{\mathrm{GF}(q)}\), where \(d\) is the code''s distance.
+             Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators \(S\) forming the code''s stabilizer group \(\mathsf{S}\),
+             which cannot contain \(e^{i\phi}I\) for any phase \(\phi \ne 0\).
+             The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation on the code.'
 
-#Logical subspace is the joint \(+1\) eigenspace of a set of \(p^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\). The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
+
+
+
+
+#         'An \(((n,q^k,d))_{GF(q)}\) stabilizer code is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\), where \(d\) is the code''s distance and \(q=p^m\).
+#The {GF(\(q\))} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
+#\(S\) is GF(\(q\)) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
+#The code space of GF(\(q\)) stabilizer \(S\) is the subspace \(\mathcal{T}(S) = \{|\psi \rangle \, \mathrm{s.t.}\, M|\psi\rangle = |\psi \rangle,\, \forall M\in S \}.  \)
+#The normalizer \(N(S)\) of the stabilizer \(S\) is \(N(S) = \{ N \in P|NM=MN, \, \forall M\in S\}\).
+
+
+# Logical subspace is the joint \(+1\) eigenspace of a set of \(p^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\). The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
 # Galois qudit codes have lifted stabiilizers, generally k=n-r/m; see Gottesmna's talk
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. Corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qudits.'

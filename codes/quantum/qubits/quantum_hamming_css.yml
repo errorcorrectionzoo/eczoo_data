@@ -8,18 +8,21 @@ physical: qubits
 logical: qubits
 
 name: '\([[2^r, 2^r-1-2r, 3]]\) Hamming-based CSS code'
-introduced: '\cite{arXiv:0904.2557}'
 
-description: 'Hamming-based CSS code is a special case of CCS code when \(C_1=C_2=[2^r-1,2^r-1-r,3]\) \href{{https://www2.perimeterinstitute.ca/personal/dgottesman/CO639-2004/Lecture5.pdf}{Gottesman Lecture note}, 2004} .'
+description: 'Hamming-based CSS code is a special case of CCS code when \(C_1=C_2=[2^r-1,2^r-1-r,3]\) is a classical Hamming code.'
 
 protection: 'Protects against any single qubit error.'
+
+features:
+  fault_tolerance:
+    - 'Syndrome measurement using two ancilla qubits \cite{arxiv:1705.02329}.'
+
 
 relations:
   parents:
     - code_id: css
       detail: ''
 
-
-#  cousins:
-#    -code_id: steane
-#      detial: 'Steane code is the first Hamming-based CSS code.'
+  cousins:
+    - code_id: hamming
+      detail: 'Quantum Hamming codes result from applying the CSS construction to Hamming codes.'
