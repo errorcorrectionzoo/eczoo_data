@@ -8,9 +8,9 @@ physical: qubits
 logical: qubits
 
 name: 'Color code'
-introduced: '\cite{doi:10.1103/PhysRevLett.97.180501}'
+introduced: '\cite{arxiv:quant-ph/0605138}'
 
-description: 'Color code is a topological stabilizer code defined on a \(D\)-dimensional lattice which satisfies two properties: The lattice is (1) a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex and (2) is \(D+1\)-colorable. Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{doi:10.7907/059V-MG69}. For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice. The qubits are placed on the vertices and two stabilizer generators are placed on each face \cite{arXiv:1311.0277}.'
+description: 'A family of abelian topological \hyperref[code:css]{CSS stabilizer} codes defined on a \(D\)-dimensional lattice which satisfies two properties: The lattice is (1) a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex and (2) is \(D+1\)-colorable. Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{doi:10.7907/059V-MG69}. For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice. The qubits are placed on the vertices and two stabilizer generators are placed on each face \cite{arXiv:1311.0277}.'
 
 protection: 'As with the surface code, the code distance depends on the specific kind of lattice used to define the code. More precisely, the distance depends on the homology of logical string operators \cite{arXiv:1311.0277}.'
 
@@ -30,6 +30,7 @@ features:
     - 'Restriction decoder \cite{doi:10.1088/1367-2630/ab68fd}.'
 
   fault_tolerance:
+    - 'Clifford gates can be performed fault-tolerantly on a suitable 2D lattice \cite{arxiv:quant-ph/0605138}.'
     - 'Syndrome measurement \cite{arXiv:1407.5103}.'
     - 'Steane''s ancilla-coupled measurement method \cite{arXiv:1407.5103}'
 
@@ -49,12 +50,10 @@ features:
 relations:
   parents:
     - code_id: css
-      detail: ''
-    - code_id: topological
-      detail: 'Defined on a lattice with geometrically local stabilizer generators \cite{doi:10.7907/059V-MG69}.'
-
+    - code_id: topological_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, 2D color code states realize \(\mathbb{Z}_2\times\mathbb{Z}_2\) topological order \cite{arxiv:0906.4127}.'
+#    - code_id: quantum_ldpc
+#      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation, and many tesselations yield QLDPC codes.'
   cousins:
-    - code_id: quantum_ldpc
-      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation, and most tesselations yield QLDPC codes.'
     - code_id: surface
-      detail: 'Color code is equivalent to surface code in several ways \cite{arxiv:1503.02065}. For example, the color code on a \(D\)-dimensional closed manifold is equivalent to multiple decoupled copies of the \(D\)-dimensional surface code.'
+      detail: 'Color code is equivalent to surface code in several ways \cite{arxiv:1503.02065}. For example, the color code on a \(D\)-dimensional closed manifold is equivalent to multiple decoupled copies of the \(D-1\)-dimensional surface code.'

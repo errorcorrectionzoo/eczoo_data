@@ -11,7 +11,7 @@ name: 'Kitaev surface code'
 introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}'
 
 description: |
-  A family of \hyperref[code:css]{CSS stabilizer} codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a cellulation of a two-dimensional surface (with a qubit located at each edge of the cellulation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.
+  A family of abelian topological \hyperref[code:css]{CSS stabilizer} codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a cellulation of a two-dimensional surface (with a qubit located at each edge of the cellulation). \textit{Toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction. The construction on surfaces with boundaries is often called the \textit{planar code} \cite{arXiv:quant-ph/9811052}.
 
   The original construction can be naturally extended to arbitrary dimensional manifolds \cite{doi:10.1201/9781420035377-13,doi:10.1007/978-3-642-01877-0_21}. Given a cellulation, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \(i+1\)-faces. Several constructions based on hyperbolic manifolds (see code children below) have yielded distances scaling favorably with the number of qubits.
 
@@ -53,14 +53,12 @@ realizations:
 relations:
   parents:
     - code_id: css
-      detail: 'Plaquette and star operators are stabilizer generators.'
-    - code_id: topological
-      detail: 'When treated as ground states of the code Hamiltonian, the code states realize \(\mathbb{Z}_2\) topological order, a topological phase of matter that also exists in \(\mathbb{Z}_2\) lattice gauge theory \cite{doi:10.1063/1.1665530}.'
-
+    - code_id: topological_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, the code states realize \(\mathbb{Z}_2\) topological order, a topological phase of matter that also exists in \(\mathbb{Z}_2\) lattice gauge theory \cite{doi:10.1063/1.1665530}. On the other hand, translation-invariant 2D qubit topological stabilizer codes are equivalent to several copies of the Kitaev surface code \cite{arxiv:1103.4606}.'
+#    - code_id: quantum_ldpc
+#      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the cellulation, and many cellulations yield QLDPC codes.'
   cousins:
-    - code_id: quantum_ldpc
-      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the cellulation, and most cellulations yield QLDPC codes.'
     - code_id: hypergraph_product
       detail: 'Planar (toric) code obtained from hypergraph product of two repetition (cyclic) codes.'
-    # - code_id: 'qudit_surface'
-    #   detail: ''
+    - code_id: 'stabilizer'
+      detail: 'Translation-invariant 2D qubit topological stabilizer codes are equivalent to several copies of the Kitaev surface code \cite{arxiv:1103.4606}.'
