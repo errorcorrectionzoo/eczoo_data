@@ -10,11 +10,7 @@ logical: qudits
 name: 'Prime-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,p^k,d))_p\) (with \(p\) prime) stabilizer code is denoted as \([[n,k]]_p\) or \([[n,k,d]]_p\), where \(d\) is the code''s distance.
-Logical subspace is the joint \(+1\) eigenspace of a set of \(p^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\).
-The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
-# Defined only for prime-power qudits for now
-# Galois qudit codes have lifted stabiilizers, generally k=n-r/m
+description: 'An \(((n,p^k,d))_p\) (with \(p\) prime) stabilizer code is denoted as \([[n,k]]_p\) or \([[n,k,d]]_p\), where \(d\) is the code''s distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(p^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, cannot contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.  More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a generalized Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{\hat{N}(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
 
@@ -25,5 +21,5 @@ relations:
   parents:
     - code_id: qudit_stabilizer
       detail: 'Prime-qudit stabilizer codes are modular-qudit stabilizer codes with \(q\) being prime.'
-    - code_id: galois_stabilizer
-      detail: 'Prime-qudit stabilizer codes are Galois-qudit stabilizer codes with \(m=1\).'
+    - code_id: galois_true_stabilizer
+      detail: 'Prime-qudit stabilizer codes are Galois-qudit true stabilizer codes with \(m=1\).'

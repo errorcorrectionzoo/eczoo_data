@@ -7,16 +7,15 @@ code_id: quantum_hamming_css
 physical: qubits
 logical: qubits
 
-name: '\([[2^r, 2^r-1-2r, 3]]\) Hamming-based CSS code'
+name: '\([[2^r, 2^r-2r-1, 3]]\) Hamming-based CSS code'
 
-description: 'Hamming-based CSS code is a special case of CCS code when \(C_1=C_2=[2^r-1,2^r-1-r,3]\) is a classical Hamming code.'
+description: 'A Hamming-based CSS code is a CCS code constructed with a classical Hamming code \([2^r-1,2^r-1-r,3]=C_X=C_Z\).'
 
 protection: 'Protects against any single qubit error.'
 
 features:
   fault_tolerance:
     - 'Syndrome measurement using two ancilla qubits \cite{arxiv:1705.02329}.'
-
 
 relations:
   parents:

@@ -19,7 +19,11 @@ description: |
   \label{eq:parity}
   \end{align}
 
-  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees that the \(X\)-stabilizers, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizers of associated with \(H_Z\).
+  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees that the \(X\)-stabilizers, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizers of associated with \(H_Z\). The codewords are
+  \begin{align}
+  |\gamma + C_Z^\perp \rangle = \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle,
+  \end{align}
+  for \(\gamma \in C_X\).
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row and column of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for CSS codes is \([[n,k,(d_X,d_Z),w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance}.
 

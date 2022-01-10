@@ -13,8 +13,7 @@ name: 'Galois-qudit true stabilizer code'
 description: |
   Also called a linear stabilizer code. A \([[n,k,d]]_{GF(q)}\) stabilizer code whose stabilizer's symplectic representation forms a linear subspace. In other words, the set of \(q\)-ary vectors representing the stabilizer group is closed under both addition and multiplication by elements of \(GF(q)\). In contrast, Galois-qudit stabilizer codes admit sets of vectors that are closed under addition only.
 
-  The number of generators \(r\) is a multiple of \(m\) (recall that \(q=p^m\) for Galois qudits). As a result, the number \(k=n-r/m\) of logical qudits is an integer.
-# Galois qudit codes have lifted stabiilizers, generally k=n-r/m; see Gottesmna's talk
+  The number of generators \(r\) for a true stabilizer code is a multiple of \(m\) (recall that \(q=p^m\) for Galois qudits). As a result, the number \(k=n-r/m\) of logical qudits is an integer.
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
 
@@ -24,4 +23,4 @@ relations:
       detail: ''
   cousins:
     - code_id: q-ary_linear
-      detail: 'A true Galois-qudit stabilizer code is the closest quantum analogue of a \(q\)-ary linear code because the \(q\)-ary vectors defining each code form a linear subspace.'
+      detail: 'A true Galois-qudit stabilizer code is the closest quantum analogue of a linear code over \(GF(q)\) because the \(q\)-ary vectors defining each code form a linear subspace.'

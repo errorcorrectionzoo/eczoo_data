@@ -11,8 +11,8 @@ name: 'Galois-qudit CSS code'
 introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029}'
 
 description: |
-  An \([[n,k,d]]_{\mathrm{GF}(q)} \) Galois-qudit true stabilizer code admitting a set of stabilizer generators that
-  are either \(Z\)-type or \(X\)-type Pauli strings.
+  An \([[n,k,d]]_{GF(q)} \) Galois-qudit true stabilizer code admitting a set of stabilizer generators that
+  are either \(Z\)-type or \(X\)-type Galois-qudit Pauli strings.
   The parity check matrix is of the form
   \begin{align}
   H=\begin{pmatrix}0 & H_{Z}\\
@@ -22,7 +22,7 @@ description: |
   \end{align}
 
   Encoding is based on two related \hyperref[code:q-ary_linear]{\(q\)-ary linear codes},
-  an \([n,k_X,d_X]_{\mathrm{GF}(q)} \) code \(C_X\) and \([n,k_Z,d_Z]_{\mathrm{GF}(q)} \) code \(C_Z\),
+  an \([n,k_X,d_X]_{GF(q)} \) code \(C_X\) and \([n,k_Z,d_Z]_{GF(q)} \) code \(C_Z\),
   satisfying \(C_X^\perp \subseteq C_Z\).
   The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
   The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)).
@@ -35,19 +35,12 @@ description: |
   \end{align}
   for \(\gamma \in C_X\).
 
-
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
 relations:
   parents:
-    - code_id: galois_stabilizer
-      detail: ''
-
     - code_id: galois_true_stabilizer
       detail: ''
-
   cousins:
     - code_id: css
       detail: 'Extension of qubit CSS codes to Galois qudits.'
-    - code_id: qudit_css
-      detail: ''

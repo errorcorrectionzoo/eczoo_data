@@ -7,22 +7,20 @@ code_id: qudit_stabilizer
 physical: qudits
 logical: qudits
 
-
 name: 'Modular-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,K,d))_q\) is a stabilizer code with \(q\gt 1, K=\frac{q^n}{|S|}\) and code distance \(d\).
-Since \(|S|\) needs not be \(q^r\) because different Paulis have different orders, \(K\) needs not be \(q^{n-r}\) for composite \(q\).
-The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.
-A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.
-'
+description: |
+  An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint \(+1\) eigenspace of a set of \(|{\mathsf{S}}|\) commuting qudit Pauli operators \(S\) forming the code''s stabilizer group \({\mathsf{S}}\), which cannot contain \(e^{i \phi} I\) for any \(\phi \neq 0\).
+
+  For composite \(q\), such codes need not encode an integer number of qudts, with \(K=q^n/|S|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{q}\) or \([[n,k,d]]_{q}\). The distance \(d\) is the minimum weight of a qudit Pauli string that implements a nontrivial logical operation on the code.
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.
-More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\).
- A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{\hat{N}(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
-'
+More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{\hat{N}(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
+
 notes:
-   - '\(k\le n\) for prime \(q\) and \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
+  - 'A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.'
+#   - 'For codes that do encode an integer number of \(q\)-dimensioanl qudits, i.e., \(K=q^k\), \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
 
 relations:
   parents:
