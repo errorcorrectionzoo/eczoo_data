@@ -2,7 +2,7 @@
 ## This is a code entry in the error correction zoo. ##
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
-code_id: quantum_ldpc
+code_id: qldpc
 physical: qubits
 logical: qubits
 
@@ -28,11 +28,9 @@ notes:
 
 relations:
   parents:
-    - code_id: qudit_stabilizer
-    - code_id: galois_stabilizer
+    - code_id: qecc
   cousins:
     - code_id: ldpc
-      detail: ''
     - code_id: topological
       detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace forms a ground-state subspace of a geometrically local Hamiltonain. In this sense, topological codes are QLDPC codes. On the other hand, chain complexes describing some QLDPC codes can be ''lifted'' into higher-dimensional manifolds admitting some notion of geometric locality \cite{arXiv:2012.02249}. This opens up the possibility that some QLDPC codes, despite not being \textit{geometrically} local, can in fact be associated with a geometrically local theory described by a category.'
     - code_id: dynamic_gen
