@@ -11,7 +11,7 @@ name: 'Binary quantum Goppa Code'
 introduced: '\cite{arxiv:quant-ph/0501074,doi:10.1007/s11128-006-0047-9}'
 
 description: |
-  Also known as a \textit{quantum AG code}. Binary quantum Goppa codes are a family of \( [[n,k,d]]_{GF(q)} \) Galois-qudit stabilizer codes for \( q=2^m \), generated using classical Goppa codes.
+  Also known as a \textit{quantum AG code}. Binary quantum Goppa codes are a family of \( [[n,k,d]]_{GF(q)} \) CSS codes for \( q=2^m \), generated using classical Goppa codes.
 
   Let \( F/GF(q) \) be an algebraic function field of one variable, \(\sigma \) be an automorphism of order 2
   of \(F\) which leaves \(GF(q)\) invariant, and \(P_1, \cdots, P_n \) be pairwise distinct places of degree one such that \( \sigma P_i = P_j\) for all
@@ -35,11 +35,8 @@ features:
 
 relations:
   parents:
-    - code_id: galois_stabilizer
-      detail: ''
-
+    - code_id: galois_css
+      detail: 'Goppa codes can be realized in the CSS code construction \cite{doi:10.1007/s11128-006-0047-9}.'
   cousins:
-    - code_id: css
-      detail: 'Goppa codes can be constructed using CSS codes over hyperelliptic curves \cite{doi:10.1007/s11128-006-0047-9}. The construction provided here is Matsumoto''s construction.'
     - code_id: goppa
       detail: 'Classical Goppa codes are used to construct their quantum versions.'
