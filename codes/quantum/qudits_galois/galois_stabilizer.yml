@@ -11,14 +11,14 @@ name: 'Galois-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/0005008}'
 
 description: |
-  An \(((n,K,d))_{GF(q)}\) Galois-qudit code whose logical subspace is the joint \(+1\) eigenspace of a set of \(|{\mathsf{S}}|\) commuting Galois-qudit Pauli operators \(S\) forming the code''s stabilizer group \(\mathsf{S}\), which cannot contain \(e^{i\phi}I\) for any \(\phi \neq 0\).
+  An \(((n,K,d))_{GF(q)}\) Galois-qudit code whose logical subspace is the joint \(+1\) eigenspace of a set of \(|{\mathsf{S}}|\) commuting Galois-qudit Pauli operators \(S\) forming the code''s stabilizer group \(\mathsf{S}\), which cannot contain \(e^{i\phi}I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation on the code.
 
-  Such codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits. A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\). This notation differentiates between Galois-qudit and modular-qudit stabilizer codes, although the same notation, \([[n,k,d]]_q\), is usually used for both. The distance is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation on the code.
+  Such codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits. A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\). This notation differentiates between Galois-qudit and modular-qudit stabilizer codes, although the same notation, \([[n,k,d]]_q\), is usually used for both.
 
 #         'An \(((n,q^k,d))_{GF(q)}\) stabilizer code is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\), where \(d\) is the code''s distance and \(q=p^m\).
-#The {GF(\(q\))} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
-#\(S\) is GF(\(q\)) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
-#The code space of GF(\(q\)) stabilizer \(S\) is the subspace \(\mathcal{T}(S) = \{|\psi \rangle \, \mathrm{s.t.}\, M|\psi\rangle = |\psi \rangle,\, \forall M\in S \}.  \)
+#The {\(GF(q)\)} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
+#\(S\) is \(GF(q)\) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
+#The code space of \(GF(q)\) stabilizer \(S\) is the subspace \(\mathcal{T}(S) = \{|\psi \rangle \, \mathrm{s.t.}\, M|\psi\rangle = |\psi \rangle,\, \forall M\in S \}.  \)
 #The normalizer \(N(S)\) of the stabilizer \(S\) is \(N(S) = \{ N \in P|NM=MN, \, \forall M\in S\}\).
 
 
@@ -32,7 +32,6 @@ features:
     - 'As opposed to modular qudits for composite \(q\), Galois qudits inherit most of the properties of the prime-qudit Clifford group due to the correspondence between a \(q=p^m\) Galois qudit and \(m\) prime qudits of dimension \(p\) \cite{arXiv:quant-ph/0005008}.'
 
 notes:
-   - 'The code can be considered either as GF(\(q\)) stabilizer on \(n\) qudits giving  \(k=n-r/m\), or GF(\(p\)) stabilizer on \(mn\) qubdits, giving  \(k=nm-r\).'
 
 relations:
   parents:
@@ -41,4 +40,4 @@ relations:
 
   cousins:
     - code_id: qudit_stabilizer
-      detail: ''
+      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-dimensional modular-qudit stabilizer codes on \(mn\) qubdits, giving  \(k=nm-r\) \cite{arXiv:quant-ph/0005008}.'
