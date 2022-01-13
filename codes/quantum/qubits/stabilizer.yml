@@ -20,7 +20,11 @@ protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors
 features:
   encoders:
     - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
-  # Add general prep schemes
+  decoders:
+    - 'Errors are corrected based on the results of stabilizer measurements. For few-qubit codes, all stabilizer measurements can be placed in a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so algorithms determing the most likely error given a syndrome have to be used.'
+  fault_tolerance:
+    - 'Shor error correction \cite{arXiv:quant-ph/9605011}.'
+    - 'Knill error correction \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}.'
 
 notes:
   - 'Tables of bounds and examples of stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Ref. \cite{doi:10.1007/978-3-540-37634-7_13}, are maintained by Markus Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'
