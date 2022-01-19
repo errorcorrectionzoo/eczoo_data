@@ -1,0 +1,23 @@
+---
+code_id: xysurface
+name: XY code
+description: 'Non-CSS derivative of the surface code whose generators are \(XXXX\)  and
+  \(YYYY\) obtained by permuting $Z$''s with $Y$''s in the CSS surface code   '
+physical: qubits
+logical: qubits
+protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
+features:
+  threshold:
+  - "Fault-tolerant threshold of 6.32(3)% for infinite $Z$ bias, and thresholds of
+    ∼ 5% for $Z$ biases around $\\eta = 100$ using a variant of the minimum-weight
+    perfect matching decoder \nhttps://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.130501"
+  code_capacity_threshold:
+  - "\\(50\\%\\) at infinite \\(Z\\) bias using the maximum-likelihood decoder. \n\n\\(18.7\\%\\)
+    at standard depolarising noise with a maximum-likelihood decoder."
+relations:
+  cousins:
+  - code_id: xzzx
+    detail: "\\(XY\\) code is a particular CDSC obtained from the surface code by
+      applying $H\\sqrt{Z}H$ gates that permute Pauli operators $Y$ and $Z$ while
+      XZZX is a particular CDSC obtained from the surface code by applying $H$ gates
+      that permute Pauli operators $X$ and $Z$. "
