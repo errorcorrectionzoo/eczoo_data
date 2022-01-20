@@ -10,10 +10,7 @@ logical: qubits
 name: Clifford-deformed surface code (CDSC)
 #introduced: \cite{}
 
-description: 'Non-CSS derivative of the surface code. CDSCs include codes whose thresholds
-  and subthreshold performance are enhanced under noise biased towards dephasing,
-  unlike typical CSS codes. Examples of CDSCs include the \(XY\) code, \(XZZX\) code, and random
-  CDSCs.'
+description: 'Non-CSS derivative of the surface code defined by applying a Clifford circuit to the original surface code. Such a circuit preserves most of the coarse-grained properties of the original code. However, unlike the surface code, CDSCs include codes whose thresholds and subthreshold performance are enhanced under noise biased towards dephasing. Examples of CDSCs include the \(XY\) code, \(XZZX\) code, and random CDSCs.'
 
 protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
@@ -32,9 +29,8 @@ features:
 relations:
   parents:
   - code_id: stabilizer
-  cousins:
-  - code_id: surface
   - code_id: topological_abelian
     detail: 'Local deformations of the surface code preserve its topological phase.'
+  cousins:
   - code_id: dynamic_gen
     detail: 'To create CDSCs, a dynamical process is applied on top of the surface code.'
