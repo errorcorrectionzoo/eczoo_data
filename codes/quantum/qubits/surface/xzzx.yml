@@ -21,7 +21,7 @@ features:
     - \(\sim 4.5\%\) using minimum-weight perfect matching decoder for depolarizing noise (bias \(eta=0.5\)); \(\sim 10\%\) for infinite \(Z\) bias.
   code_capacity_threshold:
     - \(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.
-    - For large but finite \(X\)- or \(Z\)-biased noise, the code's thresholds exceed the zero-rate hashing bound. The gap exceeds \(2.9\%\) when \(X\) (\(Z\)) error is \(300\) times more frequent than other Paulis.
+    - For large but finite \(X\)- or \(Z\)-biased noise, the code's thresholds exceed the zero-rate hashing bound. The difference between the threshold and hashing bound exceeds \(2.9\%\) when the \(X\) (or \(Z\)) error is \(300\) times more frequent than other Paulis.
     - \(18.7\%\) at standard depolarising noise with a maximum-likelihood decoder.
   decoders:
     - Minimum weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the \(XY\) code in Ref. \cite{arXiv:1907.02554}.
@@ -34,10 +34,8 @@ relations:
     - code_id: stabilizer
   cousins:
     - code_id: surface
-      detail: '\(XZZX\\) code, a non-CSS derivative of the surface code, is obtained
-      from the surface code by Hadamard gates.'
+      detail: \(XZZX\\) code, a non-CSS derivative of the surface code, is obtained from the surface code by Hadamard gates.
     - code_id: fracton
-      detail: Subsystem symmetries play a role in finite-bias decoders for both codes
-      \cite{arXiv:1901.08061}.
+      detail: Subsystem symmetries play a role in finite-bias decoders for both codes \cite{arXiv:1901.08061}.
     - code_id: topological_abelian
       detail: Example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
