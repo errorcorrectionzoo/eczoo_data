@@ -1,33 +1,35 @@
----
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
 code_id: xzzx
-name: XZZX surface code
+physical: qubits
+logical: qubits
+
+name: \(XZZX\) surface code
+introduced: \cite{arXiv:2009.07851}
+
 description: Non-CSS derivative of the surface code whose generators are \(XZXZ\)
   Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional
   lattice (with a qubit located at each vertex of the tessellation).
-introduced: "\\cite{arXiv:2009.07851}"
-physical: qubits
-logical: qubits
+
 protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
+
 features:
   threshold:
-  - Fault-tolerant minimum weight perfect matching threshold of $\sim$4.5\% for depolarizing
-    noise (bias $\eta=0.5$) and $\sim$10% for infinite $Z$ bias.
-  - ''
-  - ''
+    - \(\sim 4.5\%\) using minimum-weight perfect matching decoder for depolarizing
+    noise (bias \(eta=0.5\)); \(\sim 10\%\) for infinite \(Z\) bias.
   code_capacity_threshold:
-  - |
-    \(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder
+    - \(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.
+    - For large but finite \(X\)- or \(Z\)-biased noise, the code's thresholds exceed the zero-rate hashing bound. The gap exceeds \(2.9\%\) when \(X\) (\(Z\)) error is \(300\) times more frequent than other Paulis.
+    - \(18.7\%\) at standard depolarising noise with a maximum-likelihood decoder.
+  decoders:
+    - Minimum weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the \(XY\) code in Ref. \cite{arXiv:1907.02554}.
 
-    \(18.7\%\) at standard depolarising noise with a maximum-likelihood decoder.
-
-    Minimum weight perfect matching decoder can also be used for $X$ and $Z$ noise. For $Y$ noise, a variant of the matching decoder could be used like it is used here for the XY code. https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.124.130501
-
-
-    For large but finite \(X\)- or \(Z\)-biased noise, the code's thresholds exceed the zero-rate hashing bound.
-    The gap exceeds \(2.9\%\) when \(X\) (\(Z\)) error is \(300\) times more frequent than other Paulis.
 notes:
-- Originally formulated as an example of \(\mathbb{Z}_2\) topological order in the
-  Wen plaquette model \cite{arxiv:quant-ph/0205004}.
+  - 'A single \(X\) or \(Z\) error gives rise to two nearby defects, which can be viewed as endpoints of a string. That way, multiple \(Z\) errors can be decomposed into a combination of diagonal strings.'
+  - Originally formulated as an example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
 relations:
   parents:
   - code_id: stabilizer
@@ -38,3 +40,5 @@ relations:
   - code_id: fracton
     detail: Subsystem symmetries play a role in finite-bias decoders for both codes
       \cite{arXiv:1901.08061}.
+  - code_id: topological_abelian
+    detail: Example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
