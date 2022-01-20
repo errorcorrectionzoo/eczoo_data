@@ -10,7 +10,7 @@ logical: qubits
 name: Clifford-deformed surface code (CDSC)
 #introduced: \cite{}
 
-description: 'Non-CSS derivative of the surface code defined by applying a Clifford circuit to the original surface code. Such a circuit preserves most of the coarse-grained properties of the original code. However, unlike the surface code, CDSCs include codes whose thresholds and subthreshold performance are enhanced under noise biased towards dephasing. Examples of CDSCs include the \(XY\) code, \(XZZX\) code, and random CDSCs.'
+description: 'Non-CSS derivative of the surface code defined by applying a constant-depth Clifford circuit to the original (CSS) surface code. Such a circuit preserves most of the coarse-grained properties of the original code. However, unlike the surface code, CDSCs include codes whose thresholds and subthreshold performance are enhanced under noise biased towards dephasing. Examples of CDSCs include the \(XY\) code, \(XZZX\) code, and random CDSCs.'
 
 protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
@@ -20,12 +20,12 @@ features:
     we have to implement syndrome measurement circuits and fault-tolerant logical
     gates in a bias-preserving way.
   code_capacity_threshold:
-  - 'A class of random CDSCs, parametrized by the probabilities \(P_{XZ},~ P_{YZ}\)
+  - 'A class of random CDSCs, parametrized by the probabilities \(\Pi_{XZ},~ \Pi_{YZ}\)
     of \(X\leftrightarrow Z\) and \(Y\leftrightarrow Z\) Pauli permutations, respectively,
     has \(50\%\) code capacity threshold at infinite \(Z\) bias.'
   - 'Certain translation-invariant CDSCs such as the \(XY\) code and the \(XZZX\) code also have \(50\%\)
     code capacity threshold at infinite \(Z\) bias.'
-  - '\(XZZX\) code and the \((0.5,P_{YZ})\) random CDSCs have a \(50\%\) code capacity threshold for noise infinitely biased towards either Pauli-\(X\), \(Y\), or \(Z\) errors.'
+  - '\(XZZX\) code and the \((0.5,\Pi_{YZ})\) random CDSCs have a \(50\%\) code capacity threshold for noise infinitely biased towards either Pauli-\(X\), \(Y\), or \(Z\) errors.'
 relations:
   parents:
   - code_id: stabilizer
