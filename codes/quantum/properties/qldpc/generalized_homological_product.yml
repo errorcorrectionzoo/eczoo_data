@@ -1,0 +1,16 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_homological_product
+
+name: 'Generalized homological product code'
+
+description:  |
+  Stabilizer code formulated using the \hyperref[code:css]{CSS chain-complex} construction, with chain complexes consisting of products of other chain complexes. The chain-complex construction of codes yields an interpretation of codes in terms of manifolds, thus allowing for the use of various products from topology in constructing codes. The codes participating in the product can be quantum, classical, or mixed. Products can be of more than two codes, in which case the output code need not be of CSS type. The simplest product is a tensor product, with more general products imposing equivalence or symmetry relations on the outputs of the tensor product. A product of two codes can be interpreted as a fiber bundle, with one element of the product being the base and the other being the fiber.
+
+relations:
+  parents:
+    - code_id: qldpc
+      detail: 'Homological products are a primary tool for generating QLDPC codes with favorable parameters. Typically, whenever the input codes are LDPC or QLDPC, the resulting code will be QLDPC with non geometrically local stabilzier generators.'

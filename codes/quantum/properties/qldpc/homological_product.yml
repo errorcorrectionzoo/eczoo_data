@@ -8,10 +8,10 @@ physical: qubits
 logical: qubits
 
 name: 'Homological product code'
-introduced: '\cite{arXiv:1311.0885}'
+introduced: '\cite{arXiv:1301.1363,arXiv:1311.0885}'
 
 description:  |
-  CSS code formulated using the \hyperref[code:css]{CSS chain-complex} construction using chain complexes consisting of products of two other chain complexes.
+  CSS code formulated using the \hyperref[code:css]{CSS chain-complex} construction in the homological product construction. Stub.
 
 #  In the single-sector homological product code, each base code is associated with the chain complex \( C_a \longrightarrow C_a\longrightarrow C_a\) such that the boundary operator satisfies \(\partial_{a}^{2}=0\). The image \(im\partial\) form the parity check space and any set of basis for this space can be viewed as Z-type stabilizer group generators. The same rule holds for \(im\partial^{T}\), which gives X-type stabilizer generators. Conversely, \(ker\partial\setminus im\partial\) (or \(\partial^{T}\)) correspond to all undetectable errors of Z-type(X-type). Finally, the Z-type logical operators are just elements in the homological group \(ker\partial/im\partial\) and X-type logical operators are just elements in the cohomological group \(ker\partial^{T}/im\partial^{T}\).
 
@@ -30,7 +30,5 @@ features:
 
 relations:
   parents:
-    - code_id: css
-      #detail: 'Product codes are CSS codes, defined using the chain-complex construction.'
-    - code_id: qldpc
-      detail: 'Homological product construction is a primary tool for generating QLDPC codes with favorable parameters. Such codes are typically not geometrically local.'
+    - code_id: fiber_bundle
+      detail: 'Fiber-bundle code can be viewed as a homological product code with a twisted product.'
