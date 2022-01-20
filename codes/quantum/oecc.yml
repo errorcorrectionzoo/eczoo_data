@@ -4,29 +4,24 @@
 #######################################################
 
 code_id: oecc
-physical: qubits
-logical: qubits
 
 name: 'Operator quantum error-correcting code'
 introduced: '\cite{arXiv:quant-ph/0412076,arXiv:quant-ph/0504189}'
 
 description: |
-  Operator QEC, also known as subsystem code, encodes information in a subsystem \(A\) of the code space \(C\), which is part of the system Hilbert space \(H\). 
+  An operator QECC, also known as \textit{subsystem code}, encodes information in a subsystem \(\mathsf{A}\) of the code space \(\mathsf{C}\), which is part of the system Hilbert space \(\mathsf{H}\).
   \begin{align}
-  H=C \bigoplus C^{\perp} = A \bigotimes B \bigoplus C^{\perp}
+  H=\mathsf{C} \bigoplus \mathsf{C}^{\perp} = \mathsf{A} \bigotimes \mathsf{B} \bigoplus \mathsf{C}^{\perp}
   \end{align}
-  Following an error, it is sufficient to revert back to the original state modulo a transformation  on \(B\). The subsystem \(B\) therefore gives additional freedom to the error correction process, and is said to encode gauge qubits. Subsystem encoding leads to more efficient correction procedures and a wider variety of encoding procedures to choose from.
-# Operator Knill-Laflamme criteria from the two above papers, sufficiency shown in \cite{arxiv:quant-ph/0506069}. cf. https://arxiv.org/pdf/quant-ph/0506023.pdf
+  Following an error, it is sufficient to revert back to the original state modulo a transformation on the auxiliary or \textit{gauge} subsystem \(\mathsf{B}\). The subsystem \(\mathsf{B}\) therefore gives additional freedom to the error correction process, and is said to encode \text{gauge qubits} when its dimension is a power of two. While strictly speaking all operator QECCs are also ordinary QECCs, the attachment of a subsystem to a code can yield more efficient correction procedures and a wider variety of encoding procedures.
 
 protection: |
-  The Necessary and sufficient error correction conditions are
+  Necessary and sufficient \cite{arxiv:quant-ph/0506069} error-correction conditions are, for all errors \(E_a,E_b\) in an error set \(\cal{E}\),
   \begin{align}
-  PE^{\dagger}_aE_bP=\mathbb{I}^A \bigotimes g_{ab}^B \forall a,b
+  P E^{\dagger}_a E_b P = I_{\mathsf{A}} \bigotimes g_{ab}^{\mathsf{B}}
   \end{align}
-  where \(P\) is a projector onto the codespace \(C\), and \(g_{ab}^B\) is an arbitrary operator on \(B\) \cite{doi:10.1103/PhysRevLett.95.230504}.
-
+  where \(P\) is a projector onto the codespace \(\mathsf{C}\), and \(g_{ab}^{\mathsf{B}}\) is an arbitrary operator on the gauge subsystem.
 
 relations:
   parents:
     - code_id: oaecc
- 
