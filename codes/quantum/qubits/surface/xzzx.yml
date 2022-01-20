@@ -7,33 +7,33 @@ code_id: xzzx
 physical: qubits
 logical: qubits
 
-name: 'XZZX surface code'
-introduced: '\cite{arXiv:2009.07851}'
+name: \(XZZX\) surface code
+introduced: \cite{arXiv:2009.07851}
 
-description: 'Non-CSS derivative of the surface code whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).'
+description: Non-CSS derivative of the surface code whose generators are \(XZXZ\)
+  Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional
+  lattice (with a qubit located at each vertex of the tessellation). Obtained from the surface code by Hadamard gates.
 
-protection: 'As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).'
-
-notes:
-  - 'A single \(X\) or \(Z\) error gives rise to two nearby defects, which can be viewed as endpoints of a string. That way, multiple \(Z\) errors can be decomposed into a combination of diagonal strings.'
-  #- 'A single \(Z\) error gives rise to a defect at each adjacent face.'
+protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
 features:
   threshold:
-  - '\(50\%\) with pure \(X\) or \(Z\) errors and both a maximum-likelihood decoder and a minimum-weight perfect-matching decoder.'
-  - '\(18.7\%\) at standard depolarising noise with a maximum-likelihood decoder.'
-  - |
-    For large but finite \(X\)- or \(Z\)-biased noise, the code's thresholds exceed the zero-rate hashing bound.
-    The gap exceeds \(2.9\%\) when \(X\) (\(Z\)) error is \(300\) times more frequent than other Paulis.
+    - \(\sim 4.5\%\) using minimum-weight perfect matching decoder for depolarizing noise (bias \(eta=0.5\)); \(\sim 10\%\) for infinite \(Z\) bias.
+  code_capacity_threshold:
+    - \(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.
+    - For large but finite \(X\)- or \(Z\)-biased noise, the code's thresholds exceed the zero-rate hashing bound.  The difference of the threshold from the hashing bound exceeds \(2.9\%\) at a \(Z\) or \(X\) bias of 300.
+    - \(18.7\%\) at standard depolarising noise with a maximum-likelihood decoder.
+  decoders:
+    - Minimum weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the \(XY\) code in Ref. CITE arXiv:1907.02554.
 
 notes:
-  - 'Originally formulated as an example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.'
-
+  - 'A single \(X\) or \(Z\) error gives rise to two nearby defects, which can be viewed as endpoints of a string. That way, multiple \(Z\) errors can be decomposed into a combination of diagonal strings.'
+  - Originally formulated as an example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
 relations:
   parents:
-    - code_id: stabilizer
+    - code_id: clifford-deformed_surface
   cousins:
-    - code_id: surface
-      detail: '\(XZZX\) code, a non-CSS derivative of the surface code, is obtained from the surface code by Hadamard gates.'
     - code_id: fracton
-      detail: 'Subsystem symmetries play a role in finite-bias decoders for both codes \cite{arXiv:1901.08061}.'
+      detail: Subsystem symmetries play a role in finite-bias decoders for both codes \cite{arXiv:1901.08061}.
+    - code_id: topological_abelian
+      detail: Example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
