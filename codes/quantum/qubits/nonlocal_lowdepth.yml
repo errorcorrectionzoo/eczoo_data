@@ -1,0 +1,24 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nonlocal_lowdepth
+physical: qubits
+logical: qubits
+
+name: 'Low-Depth Random Clifford Circuit'
+introduced: '\cite{doi:10.1109/isit.2013.6620245}'
+
+
+
+description: 'An encoder for an \([n,k]\) quantum error correcting code, is an \(n\)-qubit unitary transformation that takes a \(k\)-qubit state as input (with \(k\leq n\), and the remaining \(n-k\) qubits initialized to \(|0\rangle^{\otimes n-k}\) ) to give a corresponding state in the codespace as the output. An n-qubit quantum circuit with random 2-qubit Clifford gates can act as an encoder into a code with distance \(d\) with high probability, with a size (i.e. number of gates in the circuit) utmost \(O(n^2 logn)\)). Noting that two gates acting on disjoint qubits could in fact be executed simultaneously, this is equivalent to the depth (number of time steps in the circuit) being utmost \(O(log^3n)\).'
+
+
+protection: 'Creates a \([[n,k,d]]\) stabilizer code that detects errors on \(d-1\) qubits, and corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+
+
+relations:
+  parents:
+    - code_id: random_circuit
+      
