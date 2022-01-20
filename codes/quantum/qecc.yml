@@ -10,9 +10,16 @@ code_id: qecc
 name: 'Quantum error-correcting code (QECC)'
 
 # Following Gottesman's book, but removed finite dims
-description: 'Encodes quantum information in a (\textit{logical}) subspace of a (\textit{physical}) Hilbert space such that it is possible to recover said information from errors that act as linear maps on the physical space. The logical subspace is spanned by a basis comprised of \textit{code basis states} or \textit{codewords}. More formally, denoting Hilbert spaces by the letter \(\mathsf{H}\), a QECC \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with a set of correctable errors \(\cal{E}\) with the following property: there exists a quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\), \({\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\) for some constant \(c\). Ideal code states \(|\psi\rangle\) may not be normalizable if the physical Hilbert space in infinite, so approximate versions have to be constructed.'
+description: 'Encodes quantum information in a (\textit{logical}) subspace of a (\textit{physical}) Hilbert space such that it is possible to recover said information from errors that act as linear maps on the physical space. The logical subspace is spanned by a basis comprised of \textit{code basis states} or \textit{codewords}. Codewords may not be normalizable if the physical Hilbert space in infinite, so approximate versions have to be constructed.'
 
-protection: 'Correction capability is determined by of the Knill-Laflamme error-correction criteria \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}, which may admit infinite terms due to non-normalizability of ideal code states. A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate code}.'
+protection: |
+  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with a set of correctable errors \(\cal{E}\) with the following property: there exists a quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\),
+  \begin{align}
+  {\cal D} (EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|
+  \end{align}
+  for some constant \(c\).
+
+  Equivalently, correction capability is determined by of the Knill-Laflamme error-correction criteria \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}, which may admit infinite terms due to non-normalizability of ideal code states. A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate code}.
 # Include other often used defs
 
 #notes:

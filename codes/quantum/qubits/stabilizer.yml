@@ -10,30 +10,35 @@ logical: qubits
 name: 'Stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9605005}\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,2^k,d))\) stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code''s distance.
-Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\).
-The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation on the code.'
+description: |
+  An \(((n,2^k,d))\) stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\), which cannot contain \(-I\). The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation on the code. The code can be represented by a \((n-k) \times 2n\) stabilizer generator matrix \(H=(H_X|H_Z)\), where each row \((h_X|h_Z)\) is the binary symplectic representation of a stabilizer generator.
 
-protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. The normalizer \(N(S)\) of the stabilizer \(S\) is the set that contains all operators that commutes with \(S\).
-A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(\hat{E}^\dagger \hat{F} \notin \hat{N}(S)\setminus \hat{S}\) for all \(E,F \in {\mathcal{E}}\).'
-# Can expound on normalizer etc
+protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
+# add symplectic representation
 
 features:
   encoders:
     - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
-  # Add general prep schemes
+  decoders:
+    - 'Errors are corrected based on the results of stabilizer measurements. For few-qubit codes, all stabilizer measurements can be placed in a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so algorithms determing the most likely error given a syndrome have to be used.'
+  fault_tolerance:
+    - 'Shor error correction \cite{arXiv:quant-ph/9605011}.'
+    - 'Knill error correction \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}.'
+  threshold:
+    - 'For correlated Pauli noise, bounds can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arXiv:1809.10704}.'
 
-#notes:
-#  - '(nonlocal?) mapping to CSS codes?'
-# code tables
+notes:
+  - 'Tables of bounds and examples of stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Ref. \cite{doi:10.1007/978-3-540-37634-7_13}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'
 
 # https://arxiv.org/pdf/0903.0566.pdf parent is code over GF(4): an additive self-orthogonal code over GF(4) with respect to the trace Hermitian inner product
 relations:
   parents:
     - code_id: cws
-      detail: ''
+      detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
   cousins:
-    - code_id: prime_qudit_stabilizer
-      detail: ''
+    - code_id: binary_linear
+      detail: 'Qubit stabilizer codes are quantum analogues of binary linear codes.'
     - code_id: hamiltonian
       detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, consisting of an equal linear combination of stabilizer generators.'
+    - code_id: qudit_stabilizer
+      detail: 'Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a Pauli group with a unique number of generators.'

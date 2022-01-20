@@ -7,18 +7,29 @@ code_id: polynomial
 physical: qudits
 logical: qudits
 
-name: '\(\mathbb{Z}_p\)-qudit polynomial code'
-introduced: '\cite{arxiv:quant-ph/9906129,arxiv:quant-ph/9910059}'
+name: 'Prime-qudit polynomial code (QPyC)'
+introduced: '\cite{arxiv:quant-ph/9910059}'
 # doi:10.1103/PhysRevA.77.012308?
 
-description: 'Also called \textit{quantum Reed-Solomon code}. Stub.'
+description: |
+  Also called \textit{quantum Reed-Solomon code}. An \([[n,k,n-k+1]]_p\) (with prime \(p>n\)) prime-qudit CSS code constructed using two Reed-Solomon codes over \(GF(p)=\mathbb{Z}_p\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(\mathbb{Z}_p\), and let \(g\) be a number satisfying \(0\leq k \leq g < n\). Then, define degree-\(g\) polynomials
+  \begin{align}
+    f_{\mu\cup c}\left(x\right)=\mu_{0}+\mu_{1}x+\cdots+\mu_{k-1}x^{k-1}+c_{k}x^{k}+\cdots+c_{g}x^{g}\,,
+  \end{align}
+  where the first \(k\) coefficients are indexed by the coefficient vector \(\mu\in\mathbb{Z}_p^{\times k}\), and the remaining coefficients are indexed by the vector \(c\in\mathbb{Z}_p^{\times (g+1-k)}\). Logical states, labeled by \(\mu\), are superpositions of canonical basis states whose \(i\)th bit is \(f_{\mu\cup c}\), evaluated at \(\alpha_i\) and summed over all possible vectors \(c\),
+  \begin{align}
+    |\overline{\mu}\rangle=\sum_{c\in\mathbb{Z}_{p}^{\times(g+1-k)}}|f_{\mu\cup c}(\alpha_{1}),|f_{\mu\cup c}(\alpha_{2}),\cdots,|f_{\mu\cup c}(\alpha_{n})\rangle.
+  \end{align}
 
 protection: ''
-
-# notes:
-#   - ''
 
 relations:
   parents:
     - code_id: qudit_css
+  cousins:
+    - code_id: reed_solomon
+      detail: 'Polynomial codes are CSS codes constructed from Reed-Solomon codes.'
+    - code_id: cyclic
       detail: ''
+    - code_id: quantum_mds
+      detail: 'A polynomial code is a quantum MDS code when \(n-k_1=k_1-k_2\).'
