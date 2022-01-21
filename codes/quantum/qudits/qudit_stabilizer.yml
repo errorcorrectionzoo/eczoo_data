@@ -18,6 +18,10 @@ description: |
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.
 More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
 
+features:
+  decoders:
+    - 'Trellis decoder for prime-dimensional qudits \cite{arXiv:2106.08251}.'
+
 notes:
   - 'A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.'
 #   - 'For codes that do encode an integer number of \(q\)-dimensional qudits, i.e., \(K=q^k\), \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
