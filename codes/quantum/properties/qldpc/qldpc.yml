@@ -13,11 +13,10 @@ description: |
 
 protection: 'Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites. Asymptotic scaling of \(k\) and \(d\) with \(n\) is often of interest, and this depends heavily on the code construction.
 
-A \textit{good QLDPC code} family satisfies \(k \in \theta(n) \) and \(d \in \theta(n)\) \cite{arXiv:2103.06309}, and the first examples of good qubit codes are a family of \hyperref[code:lifted_product]{lifted-product codes}.
-
 For qubits, a \textit{geometrically local LDPC code} is an LDPC code where the qubits involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\); such codes are limited to having \(d=O(n^{1-1/D})\) for \(D\)-dimensional lattice geometries \cite{arxiv:0810.1983}.'
 
 features:
+  rate: 'A family of QLDPC codes \([[n_i,k_i,d_i]]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive. The first examples of good qubit codes are a family of \hyperref[code:lifted_product]{lifted-product codes}.'
   decoders:
     - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
   threshold:
@@ -25,6 +24,8 @@ features:
 notes:
   - 'Links to code tables of notable QLDPC codes \cite{arXiv:2103.06309}.'
   - 'Reviews of QLDPC codes provided in Refs. \cite{doi:10.1109/ACCESS.2015.2503267,arxiv:2103.06309}.'
+
+#A \textit{good QLDPC code} family satisfies \(k \in \theta(n) \) and \(d \in \theta(n)\) \cite{arXiv:2103.06309}, and
 
 relations:
   parents:
