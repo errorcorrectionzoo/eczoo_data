@@ -12,7 +12,12 @@ name: 'Binary code'
 
 description: 'Encodes \(K\) states (codewords) in \(n\) binary coordinates and has distance \(d\). Usually denoted as \((n,K,d)\). The distance is the minimum Hamming distance between a pair of distinct codewords.'
 
-protection: 'Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.'
+protection: |
+  A binary code \(C\) \textit{corrects} \(t\) errors if
+  \begin{align}
+    \forall x \in C~,~d(x,x+y) < d(x' , x+y) \forall C \ni x' \neq x~\text{and}~y~|~|y|=t~,
+  \end{align}
+  where \(d\) is the Hamming distance and \(|y| = d(y,0) \). A code corrects \(t\) if and only if \(d \geq 2t+1\). In other words, a code corrects errors on \(t \leq \left\lfloor (d-1)/2 \right\rfloor\) coordinates. In addition, a code detects errors on up to \(d-1\) coordinates, and corrects erasure errors on up to \(d-1\) coordinates.
 
 #notes:
 #  - ''
