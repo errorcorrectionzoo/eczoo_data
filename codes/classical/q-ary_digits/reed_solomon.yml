@@ -18,11 +18,18 @@ description: |
 
 protection: 'Corrects erasures on \(n-k\) coordinates.'
 
+features:
+  decoders:
+    - 'Berlekamp-Welch decoder \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S.
+Patent, Number 4,633,470 1986.}}, assuming that \(t \geq (n+k)/2\).'
 #notes:
 #  - ''
 
 realizations:
   - 'Numerous applications: computer hard-disks, DVDs, 3G telephone networks (IS-2000, Release D), NASA deep-space exploration, etc.'
+
+notes:
+  - 'Decoding Reed-Solomon codes is equivalent to the problem of Polynomial Reconstruction and has applications to cryptography \cite{doi:10.1007/3-540-45465-9_21}.'
 
 relations:
   parents:
