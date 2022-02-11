@@ -172,15 +172,23 @@ features:
     Our parser is very picky about this syntax and will issue errors
     if you deviate from it.
     
-  - The preferred file format is a vector SVG file.  The stated
-    physical dimensions that are present in the SVG file are used to
-    place the image at the correct size and resolution to match the
-    surrounding article.  General text should be typeset preferably
-    using the ‘Source Sans Pro’ at 10 point size, to match the
-    typography of the surrounding article.  (You can place smaller or
-    bigger text for axis markers, or use a different font if it's
-    necessary, or etc.; use your good judgment and common sense.
-    We'll come back at you in case we'd prefer some changes.)
+  - The preferred file format is a vector SVG file.
+  
+    The size at which you place elements in your SVG file is
+    important.  The stated physical dimensions that are present in the
+    SVG file are used to place the image at the correct size and
+    resolution to match the surrounding article.  General text should
+    be typeset preferably using the ‘Source Sans Pro’ at 10 point
+    size, to match the typography of the surrounding article.  (You
+    can place smaller or bigger text for axis markers, or use a
+    different font if it's necessary, or etc.; use your good judgment
+    and common sense.  We'll come back at you in case we'd prefer some
+    changes.)
+    
+    Be sure also to set the page dimensions of your SVG document
+    correctly to match the size of your graphic.  If you use Inkscape,
+    you can select “File” → “Document Properties” → “Resize page to
+    drawing or selection.”
     
     You can also use PNG or JPG/JPEG files.  In this case, the
     stated physical dots-per-inch or pixels-per-inch setting of the
