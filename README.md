@@ -130,6 +130,11 @@ features:
   - Insert hyperlinks to other web pages as
     `\href{https://example.com/example/page}{shown link text}` or with
     `\url{https://example.com/example/page}`.
+    
+  - Insert references to figures and tables with `\ref{figure:my-figure-label}`
+    and `\ref{table:my-table-label}`.  In contrast to LaTeX' usual
+    behavior, the output of these commands includes the words “Figure”
+    or “Table”, i.e., you get *Figure X* or *Table X*.
   
   - You can insert footnotes with `\footnote{...}`.  Footnotes should
     be avoided in general.
@@ -167,7 +172,10 @@ features:
     You may omit both ``\caption`` and ``\label`` commands to generate
     a figure without any caption.  If you specify a ``\label`` and
     omit the ``\caption`` command, a figure with the simple legend
-    text “*Figure X*” will be generated.
+    text “*Figure X*” will be generated.  You can also use the label
+    to reference the figure from the main text with
+    ``\ref{figure:my-figure-label}``.  The label prefix `figure:`
+    or `table:` must match the float environment name.
 
     Our parser is very picky about this syntax and will issue errors
     if you deviate from it.
@@ -211,7 +219,7 @@ features:
 
     You can generate your table using LaTeX as follows.  Download the
     file
-     [`template_table.tex`](https://github.com/errorcorrectionzoo/eczoo_data/blob/main/template_table.tex)
+     [`table_template.tex`](https://github.com/errorcorrectionzoo/eczoo_data/blob/main/table_template.tex)
     and edit it to your liking to display the desired table (search
     for "TABLE STARTS HERE").  This template needs to be compiled
     **using LuaLaTeX** instead of standard LaTeX in order to use the
