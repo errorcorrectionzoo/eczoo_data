@@ -29,8 +29,10 @@ features:
     - 'Circuits consisting of CNOT, Hadamard, and phase gates using algorithm based on the Gottesman-Knill theorem \cite{arXiv:quant-ph/0406196}.'
     - 'Circuits obtained by first constructing the CWS form of the code \cite{arXiv:0803.3232,arXiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
     - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
+features:
   decoders:
-    - 'In \textit{syndrome-based decoding}, errors are corrected based on the results of stabilizer measurements. For few-qubit codes, all stabilizer measurements can be placed in a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so algorithms determining the most likely error given a syndrome have to be used.'
+    - 'The structure of stabilizer codes allows for \textit{syndrome-based decoding}, where errors are corrected based on the results of stabilizer measurements (\textit{syndromes}).'
+    - 'Trellis decoder, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arXiv:quant-ph/0512041}.'
   fault_tolerance:
     - 'Fault-tolerant error correction can be done using Shor error correction \cite{arXiv:quant-ph/9605011}, which is based on repeated measurements, or Knill error correction, which is based on teleportation \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}.'
   code_capacity_threshold:
