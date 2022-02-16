@@ -19,8 +19,10 @@ description: |
 
   Stabilizer codes can be defined for modular and Galois qudits using their respective Pauli groups, and, more generally, any Abelian group of operators. Qubit codes can be extended to modular-qudit codes by decorating appropriate stabilizer generators with powers. For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\). A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into \textit{local-dimension-invariant (LDI)} form  \cite{arxiv:1910.08122}. Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.
 
-protection: 'Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
-# add symplectic representation
+protection: |
+  Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
+
+  A stabilizer code is geometrically local if the support of the stabilizer generators is bounded by a ball of size independent of \(n\). There is an upper bound of \(d \leq O(L^{D-1})\) on the distance \cite{arXiv:0810.1983} of geometrically local stabilizer codes arranged in a \(D\)-dimensional lattice of length \(L\) with \(n=L^D\).
 
 features:
   encoders:
@@ -29,7 +31,6 @@ features:
     - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
   decoders:
     - 'In \textit{syndrome-based decoding}, errors are corrected based on the results of stabilizer measurements. For few-qubit codes, all stabilizer measurements can be placed in a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so algorithms determining the most likely error given a syndrome have to be used.'
-    - 'The term \textit{decoder} can sometimes be used for the inverse of an encoding circuit, which does not correct errors.'
   fault_tolerance:
     - 'Fault-tolerant error correction can be done using Shor error correction \cite{arXiv:quant-ph/9605011}, which is based on repeated measurements, or Knill error correction, which is based on teleportation \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}.'
   code_capacity_threshold:
