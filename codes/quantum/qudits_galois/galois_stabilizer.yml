@@ -15,7 +15,8 @@ description: |
 
   A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\). This notation differentiates between Galois-qudit and modular-qudit stabilizer codes, although the same notation, \([[n,k,d]]_q\), is usually used for both. Galois-qudit stabilizer codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
 
-  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(GF(q)\)-valued symplectic representation of a stabilizer generator.
+#  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(GF(q)\)-valued symplectic representation of a stabilizer generator. # Leonid comment: "Usually, if the group is additive, we have to list all generators explicitly.  But if it is linear over some field F (subfield of F_q or F_q itself) we may list the generators as would be expected for that group -fewer of them, as the number of generators is the rank of the matrix over that field (or additive rank).  All may have different values.  I think the explicit specification is needed to reduce any confusion."
+
 #         'An \(((n,q^k,d))_{GF(q)}\) stabilizer code is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\), where \(d\) is the code''s distance and \(q=p^m\).
 #The {\(GF(q)\)} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
 #\(S\) is \(GF(q)\) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
