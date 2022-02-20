@@ -28,13 +28,13 @@ introduced: '\cite{doi:10.1109/18.915661}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'Traceability codes are codes with combinatorial properties that trace sources of leaks of sensitive information \cite{doi:10.1.1.22.8278}. Codes with strong traceability traces at least one member of a group that has constructed a pirate decoder \cite{doi:10.1109/18.915661}. A code with weak traceability has the ability to ensure that no group is able to frame another user \cite{doi:10.1109/18.915661}.' 
+description: 'Traceability codes are codes with combinatorial properties that trace sources of leaks of sensitive information \cite{doi:10.1.1.22.8278}. Codes with strong traceability traces at least one member of a group that has constructed a pirate decoder \cite{doi:10.1109/18.915661}. A pirate decoder is a generic pirate decryption process \cite{doi:10.1.1.22.8278}. A code with weak traceability has the ability to ensure that no group is able to frame another user \cite{doi:10.1109/18.915661}.' 
 
 # Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
 # protection: |
 #   text...
 #   more text...
-protection: 'Protects against .'
+protection: 'Protects materials that have be copyrighted by providing the ability to trace potential leaks as well as aids in helping to ensure an innocent party can not be framed for the pirated information \cite{doi:10.1109/18.915661}. Additionally, having this ability will help to deter pirates, help to identify pirates to then take legal action, and also codes with this ability can be used to disable pirates \cite{doi:10.1.1.22.8278}.'
 
 # This field starts a list of specific labeled subfields; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
@@ -48,72 +48,73 @@ features:
   #
   # Any fields below should be omitted if they do not apply.
 
-  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
 
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
-  encoders:
-    - 'Specific description of a process that makes the states, usually for quantum codes.'
-    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    - 'Leave discussion of fault tolerance to fault-tolerance field.'
+  #encoders:
+    #- 'Specific description of a process that makes the states, usually for quantum codes.'
+    #- 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+    #- 'Measurement-based preparation ... with ancilla overhead of ... .'
+    #- 'Leave discussion of fault tolerance to fault-tolerance field.'
 
   # Not all fields are indexed by a dash
-  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
-  general_gates:
-    - 'Universal gate set achieved by either additional ... gate.'
-    - 'Magic-state distillation protocols'
-    - 'kth Clifford hierarchy gates obtained by ... circuits'
+  #general_gates:
+    #- 'Universal gate set achieved by either additional ... gate.'
+    #- 'Magic-state distillation protocols'
+    #- 'kth Clifford hierarchy gates obtained by ... circuits'
 
-  decoders:
-    - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
-    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+  #decoders:
+    #- 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
+    #- 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+    #- 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
 
-  fault_tolerance:
-    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-    - 'Pieceable fault tolerance.'
+  #fault_tolerance:
+    #- 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+    #- 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+    #- 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+    #- 'Pieceable fault tolerance.'
 
-  code_capacity_threshold:
-    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
-    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
+  #code_capacity_threshold:
+    #- '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
+    #- '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
 
-  threshold:
-    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
+  #threshold:
+    #- '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
+    #- '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+    #- '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
+    #- '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
 
   # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
+  threshold_vs_resilient_codes:
+   - 'Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1.1.22.8278}.'
+   - 'Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)).'
+   - 'Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1.1.22.8278}.'
 
 realizations:
   # List and explain the different "domains" of realizations in list items.
   # Group closely related realizations into a single item. It's OK to have a
   # single list item. Each item should more or less correspond to what would be
   # said in a paragraph.
-  - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+  - 'Code used in broadcast messages, pay-per-view movies, protecting copyrighted online material \cite{doi:10.1109/18.915661}.'
 
 notes:
-  - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
-  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  - 'Can reference other codes, but try to put such connections in the relations fields.'
-  - 'Anything noteworthy that''s not above or below.'
+  - 'Fully resilient schemes guarantee to trace the source of any piracy \cite{doi:10.1.1.22.8278}.'
+  - 'Threshold schemes have a parameter of the scheme, say q, for which the scheme only traces sources of pirate decoders that decrypt with greater probability than q \cite{doi:10.1.1.22.8278}.'
+  - 'Secret schemes are those that have their decryption scheme and keys as secret. The open schemes are those that the decryption schemes and decryption keys are public information \cite{doi:10.1.1.22.8278}.'
+  - 'Note that in the feature section above, the hash function maps the users into a set of 2k^{2} decryption keys \cite{doi:10.1.1.22.8278}.'
+  - 'Links to code tables \cite{doi:10.1.1.22.8278} and \cite{doi:10.1109/18.915661}.'
 
 relations:
   parents:
-    - code_id: code_id1
+    - code_id: ipp
       detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
   cousins:
-    - code_id: code_id2
-      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-    - code_id: code_id3
-      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-    - code_id: code_id4
-      detail: 'Codes (classical or quantum) related on other ways to this code.'
+    - code_id: frameproof
+      detail: 'Frameproof codes fingerprint digital data and also they help prevent copyrighted information from unauthorized use \cite{arXiv:1411.5782}.'
+    #- code_id: code_id3
+     # detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
+    #- code_id: code_id4
+     # detail: 'Codes (classical or quantum) related on other ways to this code.'
