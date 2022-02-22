@@ -1,0 +1,24 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: spins_into_spins
+physical: spins
+logical: spins
+
+name: 'Spin code'
+
+description: |
+  Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states are associated with states of a spin-\(\ell\) system. In other words, canonical single-qudit states \(|^\ell_m\rangle\) are labeled by total angular momentum \(\ell\) and its \(z\)-axis projection \(m\), with \(\ell\) being integer or half-integer, and with the qudit dimension being \(q=2\ell+1\).
+
+  In cotrast to other qudit codes, spin codes are closely associated with the angular momentum Lie algebra and/or the Lie groups \(SU(2)\) or \(SO(3)\).
+
+relations:
+  parents:
+    - code_id: qecc_finite
+      detail: ''
+
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'Spin codes with spin \(\ell=1/2\) correspond to qubit codes.'
