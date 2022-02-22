@@ -17,24 +17,34 @@
 # Delete instructional comments when submitting
 
 # code id, physical, logical are all lower case
-code_id: no_spaces_lower_case
-physical: qubits
-logical: qubits
+code_id: ternary_golay
+physical: bits
+logical: bits
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
 # Code title (SINGULAR) + first reference(s) (optional).
-name: 'Important-last-name favorite code'
-introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
+name: 'Ternary Golay Code \cite{doi:10.1007/bf03025254}'
+introduced: '\cite{manual:{Golay, Marcel JE. "Notes on digital coding." Proc. IEEE 37 (1949): 657.}}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'Describe code subspace as best as you can here.'
+description: 'The ternary Golay code \(\mathcal{G}_{11}\) is a ternary \([11,6,5]_3\) linear code with the following generator matrix: 
+\[ \left[
+\begin{array}{ccccccccccc}
+  1 & 0 & 0 & 0 & 0 & | & 1 & 1 & 1 & 2 & 2 & 0 \\ 
+  0 & 1 & 0 & 0 & 0 & | & 1 & 1 & 2 & 1 & 0 & 2 \\ 
+  0 & 0 & 1 & 0 & 0 & | & 1 & 2 & 1 & 0 & 1 & 2 \\ 
+  0 & 0 & 0 & 1 & 0 & | & 1 & 2 & 0 & 1 & 2 & 1 \\ 
+  0 & 0 & 0 & 0 & 1 & | & 1 & 0 & 2 & 2 & 1 & 1 \\ 
+\end{array}
+\right] \]
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
-# protection: |
-#   text...
-#   more text...
-protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
+The ternary golay code is a perfect code because with $\(d = 5\)$, \(\mathcal{G}_11\) can correct at most up to 2 errors so the Hamming bound 
+is \( 3^11/\sum_{k=0}^{2}{n\choose k}2^k = 729\) which is exactly the number of codewords in \(\mathcal{G}_{11}\). In fact it can be shown that any perfect 
+code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with 
+generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) over \(\mathbf{F}_3\). 
+
+protection: 'Corrects up to 2 errors and detects up to 4 errors'
 
 # This field starts a list of specific labeled subfields; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
@@ -48,18 +58,14 @@ features:
   #
   # Any fields below should be omitted if they do not apply.
 
-  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+  rate: '6/11'
 
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
   encoders:
-    - 'Specific description of a process that makes the states, usually for quantum codes.'
-    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-  # Not all fields are indexed by a dash
-  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+    - 'Codewords are generated from the generator matrix with 5 information trits and 6 parity check trits'
+    
+    transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
   general_gates:
     - 'Universal gate set achieved by either additional ... gate.'
@@ -67,10 +73,9 @@ features:
     - 'kth Clifford hierarchy gates obtained by ... circuits'
 
   decoders:
-    - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
-    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
-
+    - 'An algebraic decoding algorithm using codeword syndromes: \cite{manual: {Higgs, Russell John, and John F. Humphreys. 
+       "Decoding the ternary Golay code." IEEE transactions on information theory 39.3 (1993): 1043-1046.}}'
+    
   fault_tolerance:
     - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
     - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
@@ -92,12 +97,8 @@ features:
   # - 'detail'
 
 realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+  - 'Code used in football pools with at least one good bet: \cite{doi:10.1007/BF03025254}'
+  - 'Using a Golay code to create an 11-qutrit code: \cite{doi:10.13039/501100001843}'
 
 notes:
   - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
@@ -108,12 +109,12 @@ notes:
 
 relations:
   parents:
-    - code_id: code_id1
-      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+    - code_id: perfect_code
+      detail: 'Codes that achieve a Hamming bound'
+    - code_id: qr_code
+      detail: 'Cyclic codes--whose generator polynomial is a product of linear factors of the form \(x-\zeta^j\) where \(j \) is a quadratic reside of a prime
+      \(p\), \(\zeta\) is a \(p\)th root of unity adjoined to \(\mathbb{F}_l\) where \(l\) is a prime and a residue mod \(p\)'
   cousins:
-    - code_id: code_id2
-      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-    - code_id: code_id3
-      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-    - code_id: code_id4
-      detail: 'Codes (classical or quantum) related on other ways to this code.'
+    - code_id: binary_golay
+      detail: 'Golay code over the binary alphabet'
+ 
