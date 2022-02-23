@@ -28,15 +28,18 @@ introduced: '\cite{doi:10.1109/ITW2.2006.323741}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'Given two linear codes \(C_1\) and \(C_2\) with parity check matrices \(H_1\) and \(H_2\) the tensor code \(C_1 \otimes C_2\) is a 
+description: | 
+Given two linear codes \(C_1\) and \(C_2\) with parity check matrices \(H_1\) and \(H_2\) the tensor code \(C_1 \otimes C_2\) is a 
 linear code whose parity check matrix is given by \(H_1 \otimes H_2 \) which acts on an \( n_1n_2 \)-dimensional vector space. Typically, \(C_1\) is chosen as a
-code over \(\mathbf{F}_p\) and \(C_2\) over \(\mathbf{F}_{p^m}\) where \(p\) is a prime to make the tensor product act consistently on \(\mathbf{F}^{n_1 n_2}_{p^m}\)'
+code over \(\mathbf{F}_p\) and \(C_2\) over \(\mathbf{F}_{p^m}\) where \(p\) is a prime to make the tensor product act consistently on \(\mathbf{F}^{n_1 n_2}_{p^m}\)
 
 # Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
 # protection: |
 #   text...
 #   more text...
-protection: 'Given the syndrome encoding strategy (see below), there are three guaranteed regimes of protection with tensor product codes in the binary alphabet: 
+protection: | 
+
+Given the syndrome encoding strategy (see below), there are three guaranteed regimes of protection with tensor product codes in the binary alphabet: 
 1. If \(C_1\) can detect errors in class \(D_1\) and \(C_2\) can detect errors in class \(D_2\) then \(C_1 \otimes C_2 \) can detect errors of class \(D_1\)
 in each faulty n_1-sized sub-block of a transmitted message and the pattern of faulty sub-blocks in class \(D_1\). For example, if \(C_1\) can detect an odd
 number of errors and \(C_2\) can detect at most 2 errors, then \(C_1 \otimes C_2\) can detect errors in those messages where at most two sub-blocks are faulty 
@@ -45,8 +48,9 @@ and where each faulty sub-block has an odd number of errors'
 2. If \(C_1\) can detect a class of errors \(D_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2 \) can find the \(n_1\)-bit sub-block
 with errors assuming that the pattern of errors of sub-blocks is in class \(E_2\) and each faulty sub-block has errors in class \(D_1\). 
 
-3. If \(C_1\) can correct a class of errors \(E_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2\) can correct errors in a m
-'
+3. If \(C_1\) can correct a class of errors \(E_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2\) can correct errors in a transmitted 
+message such that the pattern of faulty sub-blocks occurs in class \(E_2\) and each faulty sub-block has errors in class \(E_1\).
+
 
 # This field starts a list of specific labeled subfields; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
@@ -60,16 +64,17 @@ features:
   #
   # Any fields below should be omitted if they do not apply.
 
-  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+  rate: 'Rate(\(C_1 \otimes C_2\) = Rate(\(C_1\))Rate(\(C_2\))'
 
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
-  encoders:
-    - 'Specific description of a process that makes the states, usually for quantum codes.'
-    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
+  encoders: |
+  Let \(c \in F^{n_1 \times n_2}_2 \) be a codeword. Then we must pick the information bits and the parity bits (note that this is equivalent to 
+  multiplying with the generator matrix); note that \(H_1 \otimes H_2 \in F^{r_1r_2 \times n_1n_2}\) so there will be exactly r_1r_2 parity check bits. 
+  We pick the parity check bits as follows
+  1. Treat each column of \(c\) as a codeword in \(C_1\) and apply \(H_1\) to each column to get phantom syndromes \(S(c_i)\). 
+  2. 
+    
   # Not all fields are indexed by a dash
   transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
@@ -78,10 +83,8 @@ features:
     - 'Magic-state distillation protocols'
     - 'kth Clifford hierarchy gates obtained by ... circuits'
 
-  decoders:
-    - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
-    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+  decoders: | 
+  Tensor codes use the following syndrome decoding strategy: 
 
   fault_tolerance:
     - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
