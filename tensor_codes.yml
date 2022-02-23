@@ -46,7 +46,8 @@ number of errors and \(C_2\) can detect at most 2 errors, then \(C_1 \otimes C_2
 and where each faulty sub-block has an odd number of errors' 
 
 2. If \(C_1\) can detect a class of errors \(D_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2 \) can find the \(n_1\)-bit sub-block
-with errors assuming that the pattern of errors of sub-blocks is in class \(E_2\) and each faulty sub-block has errors in class \(D_1\). 
+with errors assuming that the pattern of errors of sub-blocks is in class \(E_2\) and each faulty sub-block has errors in class \(D_1\). In this case 
+\(C_1 \otimes C_2 \) would be an error-locating code. 
 
 3. If \(C_1\) can correct a class of errors \(E_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2\) can correct errors in a transmitted 
 message such that the pattern of faulty sub-blocks occurs in class \(E_2\) and each faulty sub-block has errors in class \(E_1\).
@@ -69,11 +70,10 @@ features:
   # This field that starts a list of strings, indexed by a dash; do not leave it
   # empty. If empty, comment out.
   encoders: |
-  Let \(c \in F^{n_1 \times n_2}_2 \) be a codeword. Then we must pick the information bits and the parity bits (note that this is equivalent to 
-  multiplying with the generator matrix); note that \(H_1 \otimes H_2 \in F^{r_1r_2 \times n_1n_2}\) so there will be exactly r_1r_2 parity check bits. 
-  We pick the parity check bits as follows
-  1. Treat each column of \(c\) as a codeword in \(C_1\) and apply \(H_1\) to each column to get phantom syndromes \(S(c_i)\). 
-  2. 
+  Let \(C \in F^{n_1 \times n_2}_2 \) be a codeword. Then we must pick the information bits and the parity bits (note that this is equivalent to 
+  multiplying with the generator matrix); note that \(H_1 \otimes H_2 \in F^{r_1r_2 \times n_1n_2}\) so there will be exactly r_1r_2 parity check positions.
+  These positions are obtained by setting terminal corner \(r_1 \times r_2 \) entries of \(C\) in terms of the rest of the entries, and by solving 
+  \(H_1 C H^{\top}_2 = 0\). 
     
   # Not all fields are indexed by a dash
   transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
@@ -83,9 +83,9 @@ features:
     - 'Magic-state distillation protocols'
     - 'kth Clifford hierarchy gates obtained by ... circuits'
 
-  decoders: | 
-  Tensor codes use the following syndrome decoding strategy: 
-
+  decoders: 
+  - 'Syndrome decoding'
+  - 'Error location coupled with viterbi decoding for every faulty sub-block: \cite{doi: 10.1109/TMAG.2005.861043}' 
   fault_tolerance:
     - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
     - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
@@ -107,12 +107,7 @@ features:
   # - 'detail'
 
 realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+  - 'Code used in magnetic recording by taking the tensor product of a Reed-Solomon code and a parity-check code: \cite{doi: 10.1109/TMAG.2005.861043}'
 
 notes:
   - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
@@ -124,7 +119,7 @@ notes:
 relations:
   parents:
     - code_id: code_id1
-      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+      detail: 'Linear Code'
   cousins:
     - code_id: code_id2
       detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
