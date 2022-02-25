@@ -18,13 +18,13 @@
 
 # code id, physical, logical are all lower case
 code_id: traceability
-physical: bits
-logical: bits
+physical: q-ary_digits
+logical: q-ary_digits
 
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
 # Code title (SINGULAR) + first reference(s) (optional).
 name: 'Traceability'
-introduced: '\cite{doi:10.1109/18.915661}'
+introduced: '\cite{doi:10.1.1.22.8278}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
@@ -81,17 +81,16 @@ features:
     #- '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
     #- '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
 
-  #threshold:
-    #- '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-    #- '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    #- '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-    #- '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
+  threshold:
+    - 'Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1.1.22.8278}.'
+    - 'Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)).'
+    - 'Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1.1.22.8278}.'
 
   # Propose a field that you feel is applicable to a large and interesting class of codes
-  threshold_vs_resilient_codes:
-   - 'Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1.1.22.8278}.'
-   - 'Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)).'
-   - 'Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1.1.22.8278}.'
+  #threshold_vs_resilient_codes:
+   #- 'Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1.1.22.8278}.'
+   #- 'Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)).'
+   #- 'Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1.1.22.8278}.'
 
 realizations:
   # List and explain the different "domains" of realizations in list items.
