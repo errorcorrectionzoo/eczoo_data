@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+code_id: reflexive_stabilizer
+physical: qudits
+logical: qudits
+
+name: 'Vandermolen-Wright reflexive stabilizer code'
+introduced: '\cite{https://arxiv.org/pdf/2110.08414.pdf}'
+
+description: 'Let \(d\) be a power of a prime (i.e., \(d = p^m \) for some prime \(p\) and an integer \(m\)). Then, any \(a \in [d]\)
+could be expressed as a string of length \(m\) constructed from elements in \(\{1,2,\cdots,p\}\). Denote such a representation as \( (\alpha_1,\cdots,\alpha_m)\), with each \( \apha_i \in [p-1]\).
+Let us now define the discrete Weyl operators \( X(a)\) and \(Z(a)\) for each \( a\in [d]\)
+\begin{align}
+\forall x \in [d]: X(a)|x\rangle &= |x+a\rangle\\
+\forall x \in [d]: Z(a)|x\rangle &= \omega^{a*x} |x\rangle
+\end{align}
+where \( a*b := \sum_{i=1}^m \alpha_i \, \beta_i \).\\
+Next, for any $a,b\in\mathbb{F}_d^n$ we define
+\begin{align}
+D_{a,b} := X(a_1)Z(b_1)\otimes X(a_2) Z(b_2)\otimes \cdots \otimes X(a_n)Z(b_n)
+\end{align}
+Then, we can define the \textit{reflective stabilizer} associated
+to a linear subspace $C_1\in\mathbb{F}_d^n$ as follows
+\begin{align}
+S_{C_1} := \langle \omega^k \mathbb{I}, D_{a,a}: a\in C_1, \; k\in[p-1]_0\rangle
+\end{align}
+Denote the corresponding code space by $\mathcal{C}$. This is
+an encoding of $k = \text{dim} C_1$ (logical) qudits into $n$ (physical) qudits.\\
+It is noteworthy that no reflective stabilizer code can correct every
+single-qudit errors, and therefore, the authors extend these codes:
+take another linear code $C_2\subset C_1$ and consider the following
+code spaces
+\begin{align}
+\mathcal{C}_Z &:= \big(\sum_{c_2 \in C_2} \frac{1}{\sqrt{|C_2|}} D_{0,c_2} \big) \mathcal{C}\\
+\mathcal{C}_X &:= \big(\sum_{c_2 \in C_2} \frac{1}{\sqrt{|C_2|}} D_{c_2,0} \big) \mathcal{C}
+\end{align}
+These are the two extensions: $\mathcal{C}_Z$ being the \testit{phase-error extension},
+and $\mathcal{C}_X$ being the \textit{flip-error} extension by $C_2$.'
+
+protection: 'The nice thing about the code is that you can design it to correct a set a desired errors.
+The approach is to make a Cayley graph with the edges being the errors.'
+
+features:
+
+  rate: ' Depends on the choice of the linear code(s) (It is also
+  worth mentioning that the extended versions are in 1-1 correspondence
+  with CSS codes. And moreover, their rate is the same as the rate of an CSS code with the same classical codes $C_1$ and $C_2$.)'
+
+relations:
+  parents:
+    - code_id: code_id1
+      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+  cousins:
+    - code_id: code_id2
+      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
+    - code_id: code_id3
+      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
+    - code_id: code_id4
+      detail: 'Codes (classical or quantum) related on other ways to this code.'
