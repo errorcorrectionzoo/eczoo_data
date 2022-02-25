@@ -1,0 +1,116 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: luby-transform
+physical: bits
+logical: bits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title (SINGULAR) + first reference(s) (optional).
+name: 'Luby Transform (LT)'
+introduced: '\cite{doi:10.1109/SFCS.2002.1181950}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: 'Luby Transform codes are erasure codes based on fountain codes. They improve on random linear fountain codes by having a much more efficient encoding and decoding algorithm.'
+
+# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
+# protection: |
+#   text...
+#   more text...
+protection: 'Designed to protect agains erasure errors. '
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'Being fountain codes, LT codes do not have a fixed rate.'
+  
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  encoders:
+    - 'Randomly choose a degree \(d_n\) from a degree distribution depending on total size \(K\). Randomly choose \(d_n\) distinct source packets and let the packet to be transmitted \(\hat{p}_n\) be the bitwise sum of the chosen input packets.'
+    - 'Forms a graph connecting encoded packets to source packets.'
+#    - 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  # Not all fields are indexed by a dash
+#  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+#  general_gates:
+#    - 'Universal gate set achieved by either additional ... gate.'
+#    - 'Magic-state distillation protocols'
+#    - 'kth Clifford hierarchy gates obtained by ... circuits'
+
+  decoders:
+    - 'Decoded using the sum-product algorithm \cite{doi:10.5555/971143}, similar to belief propagation \cite{doi:10.5555/2876686.2876719}.'
+#    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+#  fault_tolerance:
+#    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+#    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+#    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+#    - 'Pieceable fault tolerance.'
+
+#  code_capacity_threshold:
+#    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
+#    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
+
+#  threshold:
+#    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
+#    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+#    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
+#    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Useful in broadcasting and file distribution.'
+
+#notes:
+#  - 'Random linear fountain codes approach the Shannon limit '  
+#  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+#  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
+#  - 'Can reference other codes, but try to put such connections in the relations fields.'
+#  - 'Anything noteworthy that''s not above or below.'
+
+relations:
+  parents:
+    - code_id: fountain
+#      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+  cousins:
+    - code_id: ldpc
+      detail: 'When using a (ir)regular bipartite graph, the encoding process can be thought of as an LDPC code.'
+#    - code_id: code_id3    
+#      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
+#    - code_id: code_id4
+#      detail: 'Codes (classical or quantum) related on other ways to this code.'
