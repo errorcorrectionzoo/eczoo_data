@@ -24,17 +24,17 @@ logical: q-ary_digits
 # Apostrophes are denoted by two apostrophe characters, i.e., ''
 # Code title (SINGULAR) + first reference(s) (optional).
 name: 'Traceability'
-introduced: '\cite{doi:10.1.1.22.8278}'
+introduced: '\cite{doi:10.1109/18.841169}'
 
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
-description: 'Traceability codes are codes with combinatorial properties that trace sources of leaks of sensitive information \cite{doi:10.1.1.22.8278}. Codes with strong traceability traces at least one member of a group that has constructed a pirate decoder \cite{doi:10.1109/18.915661}. A pirate decoder is a generic pirate decryption process \cite{doi:10.1.1.22.8278}. A code with weak traceability has the ability to ensure that no group is able to frame another user \cite{doi:10.1109/18.915661}.' 
+description: 'Traceability codes are codes with combinatorial properties that trace sources of leaks of sensitive information \cite{doi:10.1109/18.841169}. Codes with strong traceability traces at least one member of a group that has constructed a pirate decoder \cite{doi:10.1109/18.915661}. A pirate decoder is a generic pirate decryption process \cite{doi:10.1109/18.841169}. A code with weak traceability has the ability to ensure that no group is able to frame another user \cite{doi:10.1109/18.915661}.' 
 
 # Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
 # protection: |
 #   text...
 #   more text...
-protection: 'Protects materials that have be copyrighted by providing the ability to trace potential leaks as well as aids in helping to ensure an innocent party can not be framed for the pirated information \cite{doi:10.1109/18.915661}. Additionally, having this ability will help to deter pirates, help to identify pirates to then take legal action, and also codes with this ability can be used to disable pirates \cite{doi:10.1.1.22.8278}.'
+protection: 'Protects materials that have be copyrighted by providing the ability to trace potential leaks as well as aids in helping to ensure an innocent party can not be framed for the pirated information \cite{doi:10.1109/18.915661}. Additionally, having this ability will help to deter pirates, help to identify pirates to then take legal action, and also codes with this ability can be used to disable pirates \cite{doi:10.1109/18.841169}.'
 
 # This field starts a list of specific labeled subfields; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
@@ -82,9 +82,9 @@ features:
     #- '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
 
   threshold:
-    - 'Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1.1.22.8278}.'
-    - 'Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)).'
-    - 'Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1.1.22.8278}.'
+    - 'Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1109/18.841169}.'
+    - 'Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)) \cite{doi:10.1109/18.841169}.'
+    - 'Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1109/18.841169}.'
 
   # Propose a field that you feel is applicable to a large and interesting class of codes
   #threshold_vs_resilient_codes:
@@ -100,16 +100,16 @@ realizations:
   - 'Code used in broadcast messages, pay-per-view movies, protecting copyrighted online material \cite{doi:10.1109/18.915661}.'
 
 notes:
-  - 'Fully resilient schemes guarantee to trace the source of any piracy \cite{doi:10.1.1.22.8278}.'
-  - 'Threshold schemes have a parameter of the scheme, say q, for which the scheme only traces sources of pirate decoders that decrypt with greater probability than q \cite{doi:10.1.1.22.8278}.'
-  - 'Secret schemes are those that have their decryption scheme and keys as secret. The open schemes are those that the decryption schemes and decryption keys are public information \cite{doi:10.1.1.22.8278}.'
-  - 'Note that in the feature section above, the hash function maps the users into a set of 2k^{2} decryption keys \cite{doi:10.1.1.22.8278}.'
-  - 'Links to code tables \cite{doi:10.1.1.22.8278} and \cite{doi:10.1109/18.915661}.'
+  - 'Fully resilient schemes guarantee to trace the source of any piracy \cite{doi:10.1109/18.841169}.'
+  - 'Threshold schemes have a parameter of the scheme, say q, for which the scheme only traces sources of pirate decoders that decrypt with greater probability than q \cite{doi:10.1109/18.841169}.'
+  - 'Secret schemes are those that have their decryption scheme and keys as secret. The open schemes are those that the decryption schemes and decryption keys are public information \cite{doi:10.1109/18.841169}.'
+  - 'Note that in the feature section above, the hash function maps the users into a set of 2k^{2} decryption keys \cite{doi:10.1109/18.841169}.'
+  - 'Links to code tables \cite{doi:10.1109/18.841169} and \cite{doi:10.1109/18.915661}.'
 
 #relations: will put these in when they have been created
   #parents:
     #- code_id: ipp
-      #detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+      #detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet \cite{doi:10.1109/18.915661}.'
   #cousins:
     #- code_id: frameproof
      # detail: 'Frameproof codes fingerprint digital data and also they help prevent copyrighted information from unauthorized use \cite{arXiv:1411.5782}.'
