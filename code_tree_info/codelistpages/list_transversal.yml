@@ -1,12 +1,13 @@
 
-list_id: 'quantum_fault_tolerance'
+list_id: 'quantum_transversal'
 
 title: |
-  Quantum codes with fault-tolerant gadgets
+  Quantum codes with transversal gates
 
 
 intro: |
-  Here is a list of all quantum codes with fault-tolerant gadgets.
+  Here is a list of all quantum codes that admit transversal gates. Applicable to codes living in a tensor-product space,
+  such gates can be written as a tensor product of unitary operations, with each operation acting on its corresponding subsystem.
 
 display:
   style: table
@@ -26,14 +27,14 @@ display:
       # - property: 'introduced'
       #   title: 'Ref.'
 
-      - property: 'gadgets.fault_tolerance'
-        title: 'Fault-tolerant gadget'
+      - property: 'features.transversal_gates'
+        title: 'Transversal gates'
         cssclass: 'small top'
 
 codes:
   select:
     # all quantum codes that have a 'rate' field:
-    - property_set: features.fault_tolerance
+    - property_set: features.transversal_gates
       #domain: quantum_domain
       descendant_of: oaecc
 
