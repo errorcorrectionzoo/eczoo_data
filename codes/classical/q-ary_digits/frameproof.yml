@@ -1,0 +1,121 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: frameproof
+physical: q-ary_digits
+logical: q-ary_digits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title (SINGULAR) + first reference(s) (optional).
+name: 'Frameproof'
+introduced: '\cite{doi:10.1007/3-540-44750-4_36}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: |
+  Frameproof codes are those that prevent a group of users from being able to collude to frame another user outside of the group of creating an unauthorized copy of data. Even further, the group of users cannot frame a separate user even if they know that user's unique codeword \cite{doi:10.1007/3-540-44750-4_36}.
+  
+  Let's start with some definitions to then define what a c-frameproof code is. A set \Gamma = \{w^{\(1\)}, ..., w^{\(n\)}\} \subseteq \{0,1\}^{l\} is an \(l,n\)-code. Each codeword w^{\(i\)} correlates to a user u_i. 
+  Let C be a group of users. A bit in position i is undetectable for the group C when the words assigned to the users in the group match at the i'th bit. 
+  The feasible set of the group C, denoted F\(C;\Gamma\) or F\(C\), for some user u in C contains all of the codewords that match the group's set of undetectable bits.
+  Finally, if every subset S \subset \Gamma of size at most c satisfies F\(S\)\cap\Gamma = S, then \Gamma is a c-frameproof code \cite{doi:10.1007/3-540-44750-4_36}.
+
+# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
+# protection: |
+#   text...
+#   more text...
+protection: 'Frameproof codes help to provide software protection from the illegal distribution and copying of computer software and copyrighted materials. These codes help protect products of distributors as well as other naive users from being framed of illegal activity \cite{doi:10.1007/3-540-44750-4_36}.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'The specific type of frameproof error correcting codes spoken in \cite{doi:10.1007/3-540-44750-4_36} have a large minimal distance and a low rate. Specifically, for any positive integers n and c, if l = 16c^{2}logn then there exists a c-frameproof \(l,n\)-code which has rate n/l \cite{doi:10.1007/3-540-44750-4_36}.'
+
+  # This field that starts a list of strings, indexed by a dash; do not leave it
+  # empty. If empty, comment out.
+  #encoders:
+    #- 'Specific description of a process that makes the states, usually for quantum codes.'
+    #- 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+    #- 'Measurement-based preparation ... with ancilla overhead of ... .'
+    #- 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  # Not all fields are indexed by a dash
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  #general_gates:
+    #- 'Universal gate set achieved by either additional ... gate.'
+    #- 'Magic-state distillation protocols'
+    #- 'kth Clifford hierarchy gates obtained by ... circuits'
+
+  #decoders:
+    #- 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
+    #- 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
+    #- 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+
+  #fault_tolerance:
+    #- 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
+    #- 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
+    #- 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
+    #- 'Pieceable fault tolerance.'
+
+  #code_capacity_threshold:
+    #- '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
+    #- '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
+
+  #threshold:
+    #- '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
+    #- '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
+    #- '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
+    #- '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
+
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Frameproof codes are utilized in digital fingerprinting and watermarking \cite{doi:10.1137/S0895480101384633}.'
+
+notes:
+  - 'Any c-frameproof code must have at least length c \cite{doi:10.1007/3-540-44750-4_36}.'
+  - 'A length l q-ary c-frameproof code has at most tq^{\lceil l/c \rceil} + O\(q^{\lceil l/c \rceil - 1}\) codewords where t is an integer between 1 and c and t is 1 mod c \cite{doi:10.1137/S0895480101384633}.'
+
+#relations:
+  #parents: #will add relations when IPP and traceability codes have been created and accepted into the zoo
+    #- code_id: ipp
+     # detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet \cite{doi:10.1109/18.915661}.'
+  #cousins:
+    #- code_id: traceability
+    #  detail: 'Codes with traceability also deter users from unauthorized copying or sharing of digital materials by being able to trace source of leaks which also helps to ensure that an innocent user is not framed for the unauthorized activity \cite{doi:10.1109/18.841169}.'
+    #- code_id: code_id3
+     # detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
+    #- code_id: code_id4
+     # detail: 'Codes (classical or quantum) related on other ways to this code.'
