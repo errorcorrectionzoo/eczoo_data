@@ -12,67 +12,26 @@ name: 'kerdock'
 introduced: '\cite{https://doi.org/10.1016/S0019-9958(72)90376-2}'
 
 description: 'Kerdock code is a \([[2^m, 2^{2m}, 2^{m-1} - 2^{frac{m}{2}-1}]]\) binary code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\) where \(R(1,m)\)
-is the corresponding first order Reed Muller code.'
+is the corresponding first order Reed Muller code. The code is non linear and can exist for perimeters for which there is no linear code (See Nordstrom-Robinson). The relative
+minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large.'
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
-# protection: |
-#   text...
-#   more text...
-protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
+protection: ''
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
 
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
+  rate: 'The transmission rate is \(\frac{2m}{2^m}\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
 
-  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
   encoders:
     - 'Specific description of a process that makes the states, usually for quantum codes.'
     - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
     - 'Measurement-based preparation ... with ancilla overhead of ... .'
     - 'Leave discussion of fault tolerance to fault-tolerance field.'
 
-  # Not all fields are indexed by a dash
-  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  general_gates:
-    - 'Universal gate set achieved by either additional ... gate.'
-    - 'Magic-state distillation protocols'
-    - 'kth Clifford hierarchy gates obtained by ... circuits'
-
   decoders:
     - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
     - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
     - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
 
-  fault_tolerance:
-    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-    - 'Pieceable fault tolerance.'
-
-  code_capacity_threshold:
-    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
-    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
-
-  threshold:
-    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
-
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
   # - 'detail'
 
 realizations:
