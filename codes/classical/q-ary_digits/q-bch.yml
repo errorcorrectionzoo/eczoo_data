@@ -7,12 +7,14 @@ introduced: '\cite{doi:10.1016/S0019-9958(60)90287-4}'
 
 description: 'Bose–Chaudhuri–Hocquenghem (BCH) codes can be defined as a subfield codes of the Reed-Solomon codes. If \( \mathcal{C} \) is a Reed-Solomon code containing elements in the finite field \( \text{GF}(p^m) \) for some prime \(p)$ and $(m \geq 0), then the corresponding BCH code is defined as the code \( \mathcal{C'} = \mathcal{C} \cap \text{GF}(p)^n \). That is, the BCH codes contains only those Reed-Solomon codewords whose components are elements of \( \text{GF}(p) \).'
 
-decoders:
-  - 'The decoding process is similar to Reed-Solomon codes. In particular, the Berlekamp-Massey algorithm can be used to decode BCH codes.'
+  decoders:
+    - 'The decoding process is similar to Reed-Solomon codes. In particular, the Berlekamp-Massey algorithm can be used to decode BCH codes.'
 
 
 notes:
-  - 'BCH codes are examples of cyclic codes. This is clear since the conventional Reed-Solomon Codes are cyclic codes.'
+  - 'BCH codes are examples of cyclic codes. This is clear since the conventional Reed-Solomon Codes
+    are cyclic codes.'
+  - 'Every BCH codeword satisfy the conjugacy constraint on its Fourier spectrum: if \(\hat{C}_j} is a component of the Fourier spectrum of the codeword \( C \), then the conjugacy constraint implies we must have \( \hat{C}^p_j = \hat{C}_{(pj)} \). The paranethesis denotes that the subscript index is considered modulo \( n \). Conversely, if a conventional Reed-Solomon codeword is such that its Fourier spectrum satisfies the conjugacy constraint, then codeword is guaranteed to be a codeword of the corresponding BCH code.'
 
 relations:
   parents:
@@ -20,7 +22,7 @@ relations:
       detail: ''
   children:
     - code_id: reed_solomon
-      detail:
+      detail: ''
   cousins:
     - code_id: bch
       detail: ''
