@@ -1,0 +1,56 @@
+code_id: generalized_reed_solomon
+physical: bits
+logical: bits
+
+name: 'Generalized Reed Solomon (GRS) code'
+introduced: '\cite{doi:10.1137/0108018}'
+
+description: 'Generalized Reed-Solomon codes are an infinite family of algebraic codes defined over the finite (Galois)
+              field \(F = GF(2^m)\) for \(m \geq \). The parameters of the code are \([n,k,n-k+1]\) where \(n \leq 2^m-1\), the number of non-zero
+              elements in the finite field. The algebraic code exploits the bijective correspondence between \(F^k\), the
+              \(k\)-dimensional vector space over \(F\) and \(F_k[x]\), the polynomial ring over \(F\) consisting of univariate
+              polynomials of degree at most \(k  - 1\). Let \((\alpha_1, \cdots, \alpha_n)\) be \(n\) distinct non-zero elements
+              of \(F\), and let \((v_1, \cdots, \v_n)\) be define similarly. The message \((c_0, \cdots, c_{k-1})\), which can
+              be represented as the polynomial \(p(x) = c_0 + c_1 x + \cdots + c_{k-1} x^{k-1}\), is encoded as the codeword
+              \( ( v_1 f(\alpha_1), \cdots, v_n f(\alpha_n)) \).'
+
+
+protection: 'The code can detect \(n-k\) bit errors, and can correct  errors \( \floor*{\frac{n-k}{2}} \) bit errors.'
+
+features:
+
+  #rate: 'Asymptotic rate \(k/n = 1-\frac{\log n}{n} \to 1\) and relative distance \(d/n \to 0\).'
+  MDS codes: 'Since the distance of the code is n-k+1, the family of codes saturate the singelton
+              bound. Hence these are MDS codes.'
+
+  decoders:
+    - 'The decoding process reduces to the solution of a polynomial congruence equation,
+       usually referred to as the key equation.'
+    - 'Decoding schemes are based on applications of Euclid algorithm to solve the key equation.'
+    - 'The Berlekamp-Massey algorithm \cite{doi:10.1109/TIT.1968.1054109} \cite{doi:10.1109/TIT.1969.1054260}
+      can also be used to implement the decoding procedure.'
+
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+  - 'Commonly used in mass storage systems such as CD's, DVD's, QR codes etc.'
+
+notes:
+  - 'Generalized Reed Solomon codes contain the special case of conventiontal Reed Solomon codes.
+     These are cyclic codes, and can also be defined by using the discrete Fourier transform. '
+
+relations:
+  parents:
+    - code_id: alternant
+      detail: ''
+  children:
+    - code_id: reed_solomon
+      detail:
+  cousins:
+    - code_id: bch
+      detail: ''
+    - code_id: mds
+      detail:  ''
