@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: generalized_reed_solomon
-physical: bits
-logical: bits
+physical: q-ary_digits
+logical: q-ary_digits
 
 name: 'Generalized Reed Solomon (GRS) code'
 introduced: '\cite{doi:10.1137/0108018}'
@@ -13,7 +13,7 @@ introduced: '\cite{doi:10.1137/0108018}'
 description: 'Generalized Reed-Solomon codes are an infinite family of algebraic codes defined over the finite (Galois) field \(F = GF(p^m)\) for \(m \geq \) and prime \( p \). The parameters of the code are \([n,k,n-k+1]\) where \(n \leq 2^m-1\), the number of non-zero elements in the finite field. The algebraic code exploits the bijective correspondence between \(F^k\), the \(k\)-dimensional vector space over \(F\) and \(F_k[x]\), the polynomial ring over \(F\) consisting of univariate polynomials of degree at most \(k  - 1\). Let \((\alpha_1, \cdots, \alpha_n)\) be \(n\) distinct non-zero elements of \(F\), and let \((v_1, \cdots, \v_n)\) be define similarly. The message \((c_0, \cdots, c_{k-1})\), which can be represented as the polynomial \(p(x) = c_0 + c_1 x + \cdots + c_{k-1} x^{k-1}\), is encoded as the codeword \( ( v_1 f(\alpha_1), \cdots, v_n f(\alpha_n)) \).'
 
 
-protection: 'The code can detect \(n-k\) bit errors, and can correct  errors \( \floor*{\frac{n-k}{2}} \) bit errors.'
+protection: 'The code can detect \(n-k\) bit errors, and can correct  errors \( \floor {\frac{n-k}{2}} \) bit errors.'
 
 features:
 
