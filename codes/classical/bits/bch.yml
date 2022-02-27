@@ -1,28 +1,51 @@
-#######################################################
-## This is a code entry in the error correction zoo. ##
-##       https://github.com/errorcorrectionzoo       ##
-#######################################################
-
 code_id: bch
 physical: bits
 logical: bits
 
 name: 'Bose–Chaudhuri–Hocquenghem (BCH) code'
-short_name: 'BCH'
-introduced: '\cite{doi:10.1016/s0019-9958(60)90287-4}'
+introduced: '\cite{doi:10.1016/S0019-9958(60)90287-4}'
 
-description: 'Stub.'
+description: 'Bose–Chaudhuri–Hocquenghem (BCH) codes can be defined as a subfield codes of
+              the Reed-Solomon codes. If \( \mathcal{C} \) is a Reed-Solomon code containing elements
+              in the finite field \( \text{GF}(2^m) \) for some $(m \geq 0), then the
+              corresponding BCH code is defined as the code \( \mathcal{C'} = \mathcal{C} \cap \text{GF}(2)^n \).
+              That is, the BCH codes contains only those Reed-Solomon codewords whose components are elements of
+              \( \text{GF}(2) \).'
+
+#protection: 'The code can detect \(n-k\) bit errors, and can correct  errors \( \floor*{\frac{n-k}{2}} \) bit errors.'
+
+features:
+
+  #rate:
+
+  decoders:
+    - 'The decoding process is similar to Reed-Solomon codes. In particular, the Berlekamp-Massey algorithm
+       can be used to decode BCH codes.'
+
+
+
+realizations:
+  # List and explain the different "domains" of realizations in list items.
+
+notes:
+  - 'BCH codes are examples of cyclic codes. This is clear since the conventional Reed-Solomon Codes
+    are cyclic codes.'
+  - 'Every BCH codeword satisfy the conjugacy constraint on its Fourier spectrum: if \(\hat{C}_j} is a
+    component of the Fourier spectrum of the codeword \( C \), then the conjugacy constraint implies
+    we must have \( \hat{C}^p_j = \hat{C}_{(pj)} \). The paranethesis denotes that the subscript index
+    is considered modulo \( n \). Conversely, if a conventional Reed-Solomon codeword is such
+    that its Fourier spectrum satisfies the conjugacy constraint, then codeword is guaranteed to be a codeword
+    of the corresponding BCH code.'
 
 relations:
   parents:
     - code_id: alternant
       detail: ''
-
-  cousins:
+  children:
     - code_id: reed_solomon
+      detail:
+  cousins:
+    - code_id: bch
       detail: ''
-    - code_id: cyclic
-      detail: ''
-    - code_id: goppa
-      detail: ''
-# MacWilliams Sloane Ch. 12
+    - code_id: mds
+      detail:  ''
