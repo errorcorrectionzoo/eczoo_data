@@ -22,10 +22,10 @@ features:
   rate: 'The transmission rate is \(\frac{2m}{2^m}\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
 
   encoders:
-    - 'Codewords can be considered as evaluations of boolean functions.'
     - 'Boolean functions are of the form \(Q(X) + l(X) + b\)' where \(Q(X) is \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), \(l(X)\) is linear in \(m\) variables and \(b\) is 
        in \(\mathbb{F}_{2}\). 
-    -    
+    - 'Codewords can be considered as evaluations of these functions over \(\mathbb{F}_{2}^{m}\).'
+    - 'The matrix \(A = [a_{ij}]\) constitute the Kerdock set \(K\) (See notes).' 
 
   decoders:
     - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the binary first-order Reed-Muller code to Kerdock code.'
