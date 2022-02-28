@@ -1,0 +1,71 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: knill_laflamme_milburn_loqc
+physical: photons
+logical: qubits
+
+name: 'Knill-Laflamme-Milburn Linear Optical QC encoding'
+introduced: '\cite{doi:10.1038/35051009}' 
+
+
+description: 'Qubits are encoded with dual-rail logic i.e. using the physical location of a photon in two spatial modes. Logical \(|\bar{0}\rangle\) is encoded as \(|01\rangle_{ab}\) and logical \(|\bar{1}\rangle\) is encoded as \(|10\rangle_{ab}\), where a and b are spatial modes. By performing non-linear gates adaptively, the Knill-Laflamme-Milburn protocol approximates linear gates for universal quantum computation. For scalability, the protocol is enhanced by using teleportation to increase success probability of the adaptive circuit.
+
+The KLM protocol is further enhanced by applying explicit error-correction after teleportation, by concatenating an outer stabilizer code with the dual-rail logic code. Logical \(|\bar{0}\rangle\) is encoded as \(\left|\Phi^{+}\right\rangle\), and logical \(|\bar{1}\rangle\) is encoded as \(\left|\Psi^{+}\right\rangle\).'
+
+
+protection: 'Protects against an effective projective measurement in the Z-basis that occurs when teleportation fails i.e. when the Bell measurement yields 0 or 2 photons. During the teleportation of a 2-qubit gate, the intermediate Bell-measurement step takes place through photo-detection, which requires detecting exactly 1 photon. When we measure 0 or 2 photons, we obtain \(|\bar{0}\rangle\) and \(|\bar{1}\rangle\) respectively and hence effectively measure the logical qubit in the Z-basis. \cite{arXiv:quant-ph/0512104}'
+
+
+features:
+
+  encoders:
+    - 'Qubits are first encoded with dual-rail logic i.e. using the physical location of a photon in two spatial modes. Logical \(|\bar{0}\rangle\) is encoded as \(|01\rangle_{ab}\) and logical \(|\bar{1}\rangle\) is encoded as \(|10\rangle_{ab}\), where a and b are spatial modes.'
+    - 'The dual-rail logic encoding is isomorphic to encoding in the horizontal and vertically polarized basis, up to a transformation using a polarising beam-splitter and polarising rotator.'
+    - 'The dual-rail code is concatenated with an outer stabilizer code, with the following two codewords: Logical \(|\bar{0}\rangle\) is encoded as \(\left|\Phi^{+}\right\rangle = \frac{1}{2}(|00\rangle_q + |11\rangle_q)\), and logical \(|\bar{1}\rangle\) is encoded as \(\left|\Psi^{+}\right\rangle  = \frac{1}{2}(|01\rangle_q + |10\rangle_q)\).'
+
+  transversal_gates: 'The KLM protocol relies on single-qubit unitaries or controlled-Z gates, which are transversal. Hence the encoded operations can be performed transversally.'
+
+  general_gates:
+    - 'Single-qubit unitaries can be performed using purely linear optical elements. This is because any single qubit unitary U can be decomposed into rotations about the Z and Y axis in the Bloch sphere i.e. \( U=e^{i \alpha} R_{z}(\beta) R_{y}(\gamma) R_{z}(\delta)\). Arbitary Z and Y rotations which can be achieved using phase-shifters and beam splitters.'
+    - 'Universal gate set achieved by adding the controlled-Z phase (CZ) gate to the set of single-qubit unitaries.'
+    - 'A probabilistic controlled-Z gate is implemented by making use of the non-linear sign shift \((NS_{-1})\) gate, and then measuring the circuit adaptively to approximate linearity. The non-linear sign shift gate is defined by the following action: \( \alpha|0\rangle+\beta|1\rangle+\gamma|2\rangle \rightarrow \alpha|0\rangle+\beta|1\rangle-\gamma|2\rangle \)'
+    - 'The non-linear sign-shift gate \((NS_{-1})\) can be performed with a success probability of 1/4 \cite{arXiv:quant-ph/0512104}'
+    - 'Two non-linear sign-shift gates can perform the C-Sign gate with success probability 1/16. However it is not known whether these '
+    - 'Knill has shown that the CSign gate has an upper bound of 3/4 when using two ancilla modes, each with a maximum of 1 photon per mode.\cite{https://doi.org/10.1103/PhysRevA.68.064303}'
+    - 'The probability of success of the CZ gate (referred to in \cite{doi:10.1038/35051009} as the C-Sign gate) is improved using teleportation, by reducing the problem of construction of 2-qubit gates to a state preparation problem. We know when the state preparation fails, and can perform a correction.'
+    - 'The success probability of the CZ gate is further improved by using Z-measurement error-correction during teleportation.'
+
+  decoders:
+    - 'In case of Z-measurement errors i.e. \(Z \otimes \mathbb{1}\) and \(\mathbb{1} \otimes Z \), we perform syndrome measurement by measuring \(X \otimes X\), and apply Z-operation on the first and/or second qubit conditioned on the outcomes.'
+    - 'Similarly, a syndrome measurement circuit can be constructed for unintentional Y-measurement errors \cite{arXiv:quant-ph/0512104}'
+
+  fault_tolerance:
+    - 'Encoded X,Y,Z rotations can be performed transversally.'
+    - 'Teleportation-based 2-qubit gates can also be performed fault-tolerantly, by concatenating the code to protect against Z-measurement errors. If the error per qubit at one level of encoding is be less than the error per qubit at the next level of encoding we can keep this concatenated code and reduce the effective error rate, thereby implementing the circuit fault-tolerantly.'
+    - 'To ensure that fault tolerant error-correction procedure for teleportation reduces the error probability, we require the error probability of CSign gate,f, to be < 0.5 \cite{arXiv:quant-ph/0512104}'
+
+  code_capacity_threshold:
+    - '\(1.78%\) error-correction threshold against photon loss \cite{https://doi.org/10.1103/PhysRevA.72.032307}.'
+    - '\(11.5%\) results from Z measurement errors in teleportation.'
+
+  threshold:
+    - 'The gate error threshold was found by Silva et. al.\cite{https://doi.org/10.1103/PhysRevA.72.032307} to be bounded below by a value between \(1.78%\) and \(11.5%\) .'
+    - '\(1.78%\) results from errors due to loss and \(11.5%\) results from Z-measurement errors in teleportation'
+
+notes:
+  - 'Review papers \cite{https://doi.org/10.1103/RevModPhys.79.797}, \cite{arXiv:quant-ph/0512104}.'
+  - 'This page mainly discusses Z-measurement errors during teleportation. Another source of error is photon loss, discussed in-depth in Silva et. al.\cite{https://doi.org/10.1103/PhysRevA.72.032307}.'
+  - 'Due to the high resource requirements of the KLM protocol, several modifications have been proposed which are based on cluster-state techniques (Yoran and Reznik 2003 \cite{https://doi.org/10.1103/PhysRevLett.91.037903}; Nielsen 2004 \cite{https://doi.org/10.1103/PhysRevLett.93.040503}; Browne and Rudolph 2005 \cite{https://doi.org/10.1103/PhysRevLett.95.010501})'
+
+relations:
+  parents:
+    - code_id: dual_rail
+
+  cousins:
+    - code_id: fock_state
+    - code_id: quantum_concatenated
+    - code_id: stabilizer
