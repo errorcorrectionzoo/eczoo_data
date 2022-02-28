@@ -3,46 +3,19 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: tanner
 physical: bits
 logical: bits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'Tanner code'
 introduced: '\cite{doi:10.1109/TIT.1981.1056404}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'Let G be a \(n \times m\) bipartite graph which is d-right regular and let \(C_0 \subseteq \mathbb{F}_2^q\) be a binary linear code. The Tanner code \(X(G,C_0)\) is defined as the set \(\{c\in \mathbb{F}_2^{n}| \all u \in R_G, c_{|N(u)}\in C_0\}\). The Tanner codes are a generalization of expander codes, with \(C_0\) chosen to be \([d,d-1,2]_2\) parity check code. Since \(C_0\) imposes t constraints on its codewords, there are at most Mt constraints, where M is the size of the right set R. Hence dim of codewords is \(\geq N-Mt\).'
+
+description: 'Let G be a \(n \times m \) bipartite graph which is d-right regular and let \(C_0 \subseteq \mathbb{F}_2^q\) be a binary linear code. The Tanner code \(X(G,C_0)\) is defined as the set \(\{c\in \mathbb{F}_2^{n}| \forall u \in R_G, c_{|N(u)}\in C_0\}\). The Tanner codes are a generalization of expander codes, with \(C_0\) chosen to be \([d,d-1,2]_2\) parity check code. Since \(C_0\) imposes t constraints on its codewords, there are at most Mt constraints, where M is the size of the right set R. Hence dim of codewords is \(\geq N-Mt\).'
 
 protection: 'Tanner Codes protect against noise on classical bit strings.'
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
-
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
 
   rate: 'For \(C_0\) with rate R, the Tanner code has rate at least 2R-1. For \(C_0\) satisfying Gilbert-Varshamov bound, the rate vs relative distance for the Tanner code is given by \(R \geq 2(1- h(\delta_0))\), where \(\delta_0\) is the relative distance of \(C_0\).'
 
@@ -50,52 +23,17 @@ features:
     - 'Quadratic algorithm: This technique works for all linear block codes and encodes using matrix multiplication \cite{doi:10.1145/258533.258575}.'
     - 'Using non-abelian Fast Fourier Transform and exploiting the symmetry of underlying group G, an encoding algorithm that requires \(O(n^{4/3})\) has been devised in \cite{doi:10.1145/258533.258575}.'
     - 'Spielman modifies the code construction to obtain codes that may be encoded in linear time but give similar performance \cite{10.1109/18.556668}.'
-    #- 'Specific description of a process that makes the states, usually for quantum codes.\cite{doi:10.1145/258533.258575}'
-    #- 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    #- 'Measurement-based preparation ... with ancilla overhead of ... .'
-    #- 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-  # Not all fields are indexed by a dash
-  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  #general_gates:
-   # - 'Universal gate set achieved by either additional ... gate.'
-    #- 'Magic-state distillation protocols'
-    #- 'kth Clifford hierarchy gates obtained by ... circuits'
 
   decoders:
     - 'Parallel decoding algorithm \cite{doi:10.1109/18.556667} corrects a fraction \(\delta_0^2/48\) of errors.'
     - 'Decoding algorithm \cite{doi:10.1109/18.910593} gives improved result of correcting a fraction of \(\delta_0/4\) of errors for Tanner codes.'
   
 
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
-
-  # List and explain the different "domains" of realizations in list items.
-#realizations:
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  #- 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  #- 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
-
 notes:
   - 'Expansion properties of the underlying graphs give efficient decoding algorithms.'
   - 'If \(C_0\) is an \([d, d-t,d'> d(\gamma_0 +\frac{\lambda}{d})]_2\) code and G is an \((N, M, 2, d, \rho,\alpha)- expander where \(\rho = \gamma_0 (\gamma_0 +\frac{\lambda}{d})\), then the Tanner Code \(T(G, C_0)\) has rate \(1-\frac{M}{N}t\) and relative distance \(\geq \gamma_0(\gamma_0+\frac{\lambda}{d})\)'
-  #- 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-  #- 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  #- 'Can reference other codes, but try to put such connections in the relations fields.'
-  #- 'Anything noteworthy that''s not above or below.'
 
 relations:
   parents:
     - code_id: expander
       detail: 'This code is a parity check code constructed using expander graph and a code \(C_0\).'
-#  cousins:
-#    - code_id: code_id2
-      #detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-#    - code_id: code_id3
-      #detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-#    - code_id: code_id4
-      #detail: 'Codes (classical or quantum) related on other ways to this code.'
