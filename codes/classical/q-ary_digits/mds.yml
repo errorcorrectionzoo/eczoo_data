@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mds
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Maximum distance separable (MDS) code'
+short_name: 'MDS'
+introduced: '\cite{doi:10.1109/TIT.1964.1053661}'
+
+description: |
+  A \([n,k,d]_q\) \(q\)-ary linear code is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the Singleton bound
+  \begin{align}
+  d \leq n-k+1
+  \end{align}
+  becomes an equality. A bound for general \(q\)-ary codes can also be formulated; see Thm. 1.9.10 in Ref. \cite{doi:10.1201/9781315147901}.
+
+protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
+
+notes:
+  - 'The dual of an MDS codes is always MDS.'
+  - 'The codes \( [[n,1,n]]_q, [[n,n-1,2]]_q, [[n,n,1]]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes.'
+  - 'The only binary MDS codes are the trivial ones.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: ''

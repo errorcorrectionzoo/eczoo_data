@@ -21,48 +21,72 @@ See the `template.yml` file to get started.
 (@VVA: feel free to fill in more info about folder structure etc. here)
 
 
+## Text content in the YaML file
+
+By convention, we store short pieces of text as single-quoted strings, e.g.:
+
+    code_id: 'surface'
+    name: 'Kitaev''s surface code'
+
+Single quotes within the string must be typed twice to avoid closing
+the string.  Make sure your text editor doesn't automatically convert
+the quotes into pretty curly quotes, which are distinct unicode
+characters and will not be recognized as text string delimiters.  In
+fact, you can use the pretty quote characters ``‘`` ``’`` ``“`` ``”``
+within the string without having to double them.  There is no need to
+escape special characters (not even ``\``).
+
+For longer blocks of text, perhaps with multiple paragraphs and/or
+display equations, we use an alternative YaML syntax for strings:
+
+    description: |
+        The description goes here.  It can span multiple
+        lines, each with indentation.  Like
+        LaTeX code, white space and line breaks are
+        simplified to form pretty paragraphs.
+        
+        Use two line breaks to start a new paragraph, as
+        we did here.
+
+(Side note: YAML supports another style of block text, introduced
+by `description: >` instead of `description: |`, which automatically
+folds whitespace using certain rules that are often convenient when
+typing paragraphs of text.  The use of this syntax is discouraged
+because it might interfere with possible whitespace's meaning in our
+LaTeX-inspired mini-language; for instance, leaving an empty line
+will fail to start a new paragraph.)
+        
 ## LaTeX-inspired mini-language in text
 
-In text fields, you can make use of the following LaTeX-inspired
-features:
+In most text fields, you can make use of LaTeX-inspired
+command syntax.  You can insert math expressions, add citations,
+format text, add figures and tables, etc., using a precise
+syntax with commands that is described here:
+https://github.com/errorcorrectionzoo/eczoo_generator/blob/main/latexlike_minilang_howto.md
 
-  - Equations can be written as `\( ... \)`, they will be rendered into
-    pretty formulas using MathJaX. You can use standard LaTeX math
-    commands in equations, as supported e.g. by AMS-TeX (`\sim`,
-    `\langle`, etc.)
+Example:
 
-  - Cite relevant papers by their arXiv number as `\cite{arxiv:XXXX.XXXXX}` or
-    `\cite{arxiv:quant-ph/XXXXXXX}`, or using their DOI as
-    `\cite{doi:10.ZZZZZZ}`.  Citations can be combined as in LaTeX:
-    `\cite{arxiv:XXX,arxiv:YYY,doi:ZZZ}`.  If there is neither an arxiv number nor a DOI
-    number available, you can enter a citation manually as `\cite{manual:{(enter
-    citation line incl. author and year here)}}` (you can use latex-like
-    commands like `\emph{..}` and `\textbf{..}` within the manual citation text).
-    
-  - Reference other codes using `\ref{code:<other-code-id>}`.  To set a custom
-    label to show, you can use `\hyperref[code:<other-code-id>]{link text}`.
-    
-  - Insert hyperlinks to other web pages as
-    `\href{https://example.com/example/page}{shown link text}` or with
-    `\url{https://example.com/example/page}`.
-    
-  - Input accents, special characters, etc., directly as Unicode (files
-    are encoded in UTF-8): `éàààé😅Á`
-    
-  - Protect characters that have a special meaning using the following
-    macros: `\textbackslash` (backslash character), `\ ` (force space),
-    `\{` (open brace), `\}` (closing brace), `\%` (percent character).
-    
-  - The macros `\emph{...}`, `\textit{...}`, and `\textbf{...}` can be
-    used for italic or for bold text.
-  
-  - You can insert footnotes with `\footnote{...}`.  Footnotes should
-    be avoided in general.
+    description: |
+        Text can contain some simple LaTeX macros, for instance
+        for \textbf{bold text} and \emph{italic text}.
+        
+        Use two line breaks to start a new paragraph. You
+        can use inline math like \(\alpha=\sum_j\beta_j\) and
+        display equations like
+        \begin{align}
+            S_1 &= I\,X\,Z\,Z\,X\ ;  \nonumber\\
+            S_2, \ldots, S_4 &= \text{cyclical permutations of \(S_1\)}\ .
+            \label{eq:stabilizers}
+        \end{align}
+        
+        Refer to equations with \eqref{eq:stabilizers}, etc. ...
+
 
 
 ## Building and previewing the site
 
-To build the site, follow the instructions given in the [`eczoo_generator`
+To build and preview the site locally, follow the instructions given
+in the [`eczoo_generator`
 repository](https://github.com/errorcorrectionzoo/eczoo_generator).
 
 

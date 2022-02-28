@@ -1,0 +1,82 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: css
+physical: qubits
+logical: qubits
+
+name: 'Calderbank-Shor-Steane (CSS) stabilizer code'
+short_name: 'CSS'
+introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029}'
+
+description: |
+  An \([[n,k,d]]\) stabilizer code admitting a set of stabilizer generators that are either \(Z\)-type or \(X\)-type Pauli strings. The stabilizer generator matrix is of the form
+  \begin{align}
+  H=\begin{pmatrix}0 & H_{Z}\\
+  H_{X} & 0
+  \end{pmatrix}
+  \label{eq:parity}
+  \end{align}
+  such that the rows of the two blocks must be orthogonal
+  \begin{align}
+  H_X H_Z^T=0~.
+  \label{eq:comm}
+  \end{align}
+  The above condition guarantees that the \(X\)-stabilizer generators, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
+
+  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d^\prime_X]\) code \(C_X\) and \([n,k_Z,d^\prime_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d^\prime_X,d^\prime_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm}.
+  Basis states for the code are, for \(\gamma \in C_X\),
+  \begin{align}
+  |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
+  \end{align}
+
+  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for CSS codes is \([[n,k,(d_X,d_Z),w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance}.
+
+  There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes. Codes constructed in this manner are sometimes called \textit{homological CSS codes}, but they are equivalent to CSS codes. This mapping of codes to manifolds allows the application of structures from topology to error correction, yielding \hyperref[code:generalized_homological_product]{various QLDPC codes} with favorable properties.
+
+  A \textit{chain complex} of size three is given by binary vector spaces \(A_2\), \(A_1\), \(A_0\) and binary matrices \(\partial_{i=1,2}\) (called \textit{boundary operators}) \(A_i\) to \(A_{i-1}\) that satisfy \(\partial_1 \partial_2 = 0\). Such a complex is typically denoted as
+  \begin{align}
+  A_2 \xrightarrow{\partial_2} A_1 \xrightarrow{\partial_1} A_0~.
+  \label{eq:chain}
+  \end{align}
+  One constructs a CSS code by associating a physical qubit to every basis element of \(A_1\), and defining parity-check matrices \(H_X=\partial_1^T\) and \(H_Z=\partial_2\)). That way, the spaces \(A_0\) and \(A_2\) can be associated with \(X\)-type and \(Z\)-type Pauli operators, respectively, and boundary operators determine the Paulis making up the stabilizer generators. The requirement \(\partial_1 \partial_2 = 0\) guarantees that the \(X\)-stabilizer generators associated with \(H_X\) commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
+
+  Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. Higher-dimensional manifolds allow for longer chain complexes, and one can use the three largest non-trivial vector spaces in its chain.
+
+#  The reverse mapping is as follows \cite{arXiv:1311.0885,arXiv:1807.09783}. Given a CSS code with parity check matrices \(H_X\) and \(H_Z\), let both boundary operators be \(\partial = H_Z^TUH_X\) for an arbitrary invertible matrix \(U\). The fact that the stabilizer generators commute ensures that the boundary operator satisfies \(\partial^2=0\), yielding a chain complex.
+#  Then, the normalizer of the stabilizers \({\mathsf{N}}(C_X)\) and \({\mathsf{N}}(C_Z)\) is \(\text{Ker}(\partial_2^T)\) and \(\text{Ker}(\partial_1)\), respectively.
+# Insert table linking manifold properties to QEC
+# condition Then, the code derived from a chain with this boundary operator yields classical codes \(C_X\) and \(C_Z\) with codewords in \(\text{Im}(\partial^T)\) and \(\text{Im}(\partial)\), respectively.
+
+protection: |
+  Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.
+
+  Using the relation to chain complexes, the number of encoded logical qubits is equal to the dimension of the first \(\mathbb{Z}_2\)-homology of the chain complex, \(H_1(\partial, \mathbb{Z}_2) = \frac{\text{Ker}(\partial_1)}{\text{Im}(\partial_2)}\). The distance of the CSS code is equal to the minimum of the combinatorial (\(d-1\))-systole of the cellulated \(d\)-dimensional manifold and its dual.
+
+features:
+  encoders:
+    - 'Stabilizer measurement \cite{arxiv:1404.2495}.'
+  general_gates:
+    - 'LDPC CSS code symmetries called \(XZ\)-dualities allow for fold-transversal gates, i.e., transversal gates followed by qubit permutations \cite{arxiv:2202.06647}.'
+  fault_tolerance:
+    - 'Steane error correction \cite{arXiv:quant-ph/9611027}.'
+  code_capacity_threshold:
+    - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1208.2317,arxiv:1412.6172}.'
+
+notes:
+  - 'Introduction to CSS-to-homology dictionary by \href{https://www.youtube.com/watch?v=SeLpWg_8qlc}{M. Hastings}.'
+  - 'Original requirement of \(C_X^\perp \subset C_Z\) \cite{arXiv:quant-ph/9512032} has been relaxed to absorb \hyperref[code:hypergraph_product]{hypergraph product} codes.'
+
+relations:
+  parents:
+    - code_id: stabilizer
+      detail: 'Stabilizer generators can be expressed as either only \(X\)-type or only \(Z\)-type. However, any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[4n,2k,2d]]\) weakly self-dual CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arXiv:1004.3791}.'
+    - code_id: movassagh_ouyang
+      detail: 'Movassagh-Ouyang codes stem from a prescription that converts an \textit{arbitrary} classical code into a quantum code.'
+  cousins:
+    - code_id: binary_linear
+      detail: 'Construction uses two related binary linear codes \(C_X\) and \(C_Z\).'
+    - code_id: dual
+      detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{weakly self-dual} since \(C^{\perp} \subseteq C\). The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'

@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_5_1_3
+physical: qubits
+logical: qubits
+
+name: '\([[5,1,3]]\) code'
+introduced: '\cite{arXiv:quant-ph/9602019}'
+
+description: 'Five-qubit stabilizer code with generators that are symmetric under cyclic permutation of qubits,
+              \begin{align}
+                \begin{split}
+                  S_1 &= IXZZX \\
+                  S_2 &= XZZXI \\
+                  S_3 &= ZZXIX \\
+                  S_4 &= ZXIXZ.
+                \end{split}
+              \end{align}'
+
+protection: 'Smallest stabilizer code that protects against a single error on any one qubit. Detects two-qubit errors.'
+
+features:
+  encoders:
+    - 'Four CNOT and five CPHASE gates \cite{arxiv:1509.01239}.'
+  transversal_gates: 'Pauli gates are transversal.'
+  decoders:
+    - 'Combined dynamical decoupling and error correction protocol on individually-controlled qubits with always-on Ising couplings \cite{arxiv:1509.01239}.'
+
+realizations:
+  - 'First realized in NMR \cite{doi:10.1103/PhysRevLett.86.5811}.'
+  - 'Demonstration with superconducting qubits \cite{arXiv:1907.04507}.'
+
+relations:
+  parents:
+#    - code_id: stabilizer
+#      detail: '\([[5,1,3]]\) code is the smallest stabilizer code to correct a single qubit error.'
+    - code_id: stabilizer_over_gf4
+      detail: 'The \([[5,1,3]]\) code is derived from the \([5,3,3]_4\) Hamming code.'
+
+  cousins:
+    - code_id: quantum_perfect
+      detail: 'The smallest perfect code.'
+    - code_id: quantum_mds
+      detail: 'The smallest quantum MDS code.'
+    - code_id: quantum_cyclic
+      detail: '\([[5,1,3]]\) code is the smallest known example of quantum cyclic code .'
+    - code_id: hamiltonian
+      detail: '\([[5,1,3]]\) code Hamiltonian is local when expressed in terms of mutually commuting Majorana operators \cite{manual:{Aleksander Kubica, private communication, 2019}}.'
+    - code_id: majorana_stab
+      detail: '\([[5,1,3]]\) code Hamiltonian is local when expressed in terms of mutually commuting Majorana operators \cite{manual:{Aleksander Kubica, private communication, 2019}}.'
