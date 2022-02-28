@@ -1,120 +1,47 @@
-#######################################################
-## This is a code entry in the error correction zoo. ##
-##       https://github.com/errorcorrectionzoo       ##
-#######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
 
 # code id, physical, logical are all lower case
 code_id: tensor_code
 physical: bits
 logical: bits
-
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'Tensor Code'
 introduced: '\cite{doi:10.1109/ITW2.2006.323741}'
-
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
 description: | 
-Given two linear codes \(C_1\) and \(C_2\) with parity check matrices \(H_1\) and \(H_2\) the tensor code \(C_1 \otimes C_2\) is a 
-linear code whose parity check matrix is given by \(H_1 \otimes H_2 \) which acts on an \( n_1n_2 \)-dimensional vector space. Typically, \(C_1\) is chosen as a
-code over \(\mathbf{F}_p\) and \(C_2\) over \(\mathbf{F}_{p^m}\) where \(p\) is a prime to make the tensor product act consistently on \(\mathbf{F}^{n_1 n_2}_{p^m}\)
+  Given two linear codes \(C_1\) and \(C_2\) with parity check matrices \(H_1\) and \(H_2\) the tensor code \(C_1 \otimes C_2\) is a 
+  linear code whose parity check matrix is given by \(H_1 \otimes H_2 \) which acts on an \( n_1n_2 \)-dimensional vector space. Typically, \(C_1\) is chosen as a
+  code over \(\mathbf{F}_p\) and \(C_2\) over \(\mathbf{F}_{p^m}\) where \(p\) is a prime to make the tensor product act consistently on \(\mathbf{F}^{n_1 n_2}_{p^m}\)
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
-# protection: |
-#   text...
-#   more text...
 protection: | 
 
-Given the syndrome encoding strategy (see below), there are three guaranteed regimes of protection with tensor product codes in the binary alphabet: 
-1. If \(C_1\) can detect errors in class \(D_1\) and \(C_2\) can detect errors in class \(D_2\) then \(C_1 \otimes C_2 \) can detect errors of class \(D_1\)
-in each faulty n_1-sized sub-block of a transmitted message and the pattern of faulty sub-blocks in class \(D_1\). For example, if \(C_1\) can detect an odd
-number of errors and \(C_2\) can detect at most 2 errors, then \(C_1 \otimes C_2\) can detect errors in those messages where at most two sub-blocks are faulty 
-and where each faulty sub-block has an odd number of errors' 
+  Given the syndrome encoding strategy (see below), there are three guaranteed regimes of protection with tensor product codes in the binary alphabet: 
+  1. If \(C_1\) can detect errors in class \(D_1\) and \(C_2\) can detect errors in class \(D_2\) then \(C_1 \otimes C_2 \) can detect errors of class \(D_1\)
+  in each faulty n_1-sized sub-block of a transmitted message and the pattern of faulty sub-blocks in class \(D_1\). For example, if \(C_1\) can detect an odd
+  number of errors and \(C_2\) can detect at most 2 errors, then \(C_1 \otimes C_2\) can detect errors in those messages where at most two sub-blocks are faulty 
+  and where each faulty sub-block has an odd number of errors' 
 
-2. If \(C_1\) can detect a class of errors \(D_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2 \) can find the \(n_1\)-bit sub-block
-with errors assuming that the pattern of errors of sub-blocks is in class \(E_2\) and each faulty sub-block has errors in class \(D_1\). In this case 
-\(C_1 \otimes C_2 \) would be an error-locating code. 
+  2. If \(C_1\) can detect a class of errors \(D_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2 \) can find the \(n_1\)-bit sub-block
+  with errors assuming that the pattern of errors of sub-blocks is in class \(E_2\) and each faulty sub-block has errors in class \(D_1\). In this case 
+  \(C_1 \otimes C_2 \) would be an error-locating code. 
 
-3. If \(C_1\) can correct a class of errors \(E_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2\) can correct errors in a transmitted 
-message such that the pattern of faulty sub-blocks occurs in class \(E_2\) and each faulty sub-block has errors in class \(E_1\).
+  3. If \(C_1\) can correct a class of errors \(E_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2\) can correct errors in a transmitted 
+  message such that the pattern of faulty sub-blocks occurs in class \(E_2\) and each faulty sub-block has errors in class \(E_1\).
 
-
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
-
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
 
   rate: 'Rate(\(C_1 \otimes C_2\) = Rate(\(C_1\))Rate(\(C_2\))'
 
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
   encoders: |
-  Let \(C \in F^{n_1 \times n_2}_2 \) be a codeword. Then we must pick the information bits and the parity bits (note that this is equivalent to 
-  multiplying with the generator matrix); note that \(H_1 \otimes H_2 \in F^{r_1r_2 \times n_1n_2}\) so there will be exactly r_1r_2 parity check positions.
-  These positions are obtained by setting terminal corner \(r_1 \times r_2 \) entries of \(C\) in terms of the rest of the entries, and by solving 
-  \(H_1 C H^{\top}_2 = 0\). 
+    Let \(C \in F^{n_1 \times n_2}_2 \) be a codeword. Then we must pick the information bits and the parity bits (note that this is equivalent to 
+    multiplying with the generator matrix); note that \(H_1 \otimes H_2 \in F^{r_1r_2 \times n_1n_2}\) so there will be exactly r_1r_2 parity check positions.
+    These positions are obtained by setting terminal corner \(r_1 \times r_2 \) entries of \(C\) in terms of the rest of the entries, and by solving 
+    \(H_1 C H^{\top}_2 = 0\). 
     
-  # Not all fields are indexed by a dash
-  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  general_gates:
-    - 'Universal gate set achieved by either additional ... gate.'
-    - 'Magic-state distillation protocols'
-    - 'kth Clifford hierarchy gates obtained by ... circuits'
-
   decoders: 
   - 'Syndrome decoding'
   - 'Error location coupled with viterbi decoding for every faulty sub-block: \cite{doi: 10.1109/TMAG.2005.861043}' 
-  fault_tolerance:
-    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-    - 'Pieceable fault tolerance.'
-
-  code_capacity_threshold:
-    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
-    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
-
-  threshold:
-    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
-
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
-
+  
 realizations:
   - 'Code used in magnetic recording by taking the tensor product of a Reed-Solomon code and a parity-check code: \cite{doi: 10.1109/TMAG.2005.861043}'
-
-notes:
-  - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
-  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  - 'Can reference other codes, but try to put such connections in the relations fields.'
-  - 'Anything noteworthy that''s not above or below.'
 
 relations:
   parents:
