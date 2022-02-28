@@ -1,111 +1,38 @@
-#######################################################
-## This is a code entry in the error correction zoo. ##
-##       https://github.com/errorcorrectionzoo       ##
-#######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: ternary_golay
 physical: bits
 logical: bits
-
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'Ternary Golay Code \cite{doi:10.1007/bf03025254}'
 introduced: '\cite{manual:{Golay, Marcel JE. "Notes on digital coding." Proc. IEEE 37 (1949): 657.}}'
+description: |
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'The ternary Golay code \(\mathcal{G}_{11}\) is a ternary \([11,6,5]_3\) linear code with the following generator matrix: 
-\[ \left[
-\begin{array}{ccccccccccc}
-  1 & 0 & 0 & 0 & 0 & | & 1 & 1 & 1 & 2 & 2 & 0 \\ 
-  0 & 1 & 0 & 0 & 0 & | & 1 & 1 & 2 & 1 & 0 & 2 \\ 
-  0 & 0 & 1 & 0 & 0 & | & 1 & 2 & 1 & 0 & 1 & 2 \\ 
-  0 & 0 & 0 & 1 & 0 & | & 1 & 2 & 0 & 1 & 2 & 1 \\ 
-  0 & 0 & 0 & 0 & 1 & | & 1 & 0 & 2 & 2 & 1 & 1 \\ 
-\end{array}
-\right] \]
+  The ternary Golay code \(\mathcal{G}_{11}\) is a ternary \([11,6,5]_3\) linear code with the following generator matrix: 
+  \begin{align}
+  \left[\begin{array}{ccccccccccc}
+    1 & 0 & 0 & 0 & 0 & | & 1 & 1 & 1 & 2 & 2 & 0 \\ 
+    0 & 1 & 0 & 0 & 0 & | & 1 & 1 & 2 & 1 & 0 & 2 \\ 
+    0 & 0 & 1 & 0 & 0 & | & 1 & 2 & 1 & 0 & 1 & 2 \\ 
+    0 & 0 & 0 & 1 & 0 & | & 1 & 2 & 0 & 1 & 2 & 1 \\ 
+    0 & 0 & 0 & 0 & 1 & | & 1 & 0 & 2 & 2 & 1 & 1 \\ 
+  \end{array}\right]
+  \end{align}
 
-The ternary golay code is a perfect code because with $\(d = 5\)$, \(\mathcal{G}_11\) can correct at most up to 2 errors so the Hamming bound 
-is \( 3^11/\sum_{k=0}^{2}{n\choose k}2^k = 729\) which is exactly the number of codewords in \(\mathcal{G}_{11}\). In fact it can be shown that any perfect 
-code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with 
-generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) over \(\mathbf{F}_3\). 
+  The ternary golay code is a perfect code because with $\(d = 5\)$, \(\mathcal{G}_11\) can correct at most up to 2 errors so the Hamming bound 
+  is \( 3^11/\sum_{k=0}^{2}{n\choose k}2^k = 729\) which is exactly the number of codewords in \(\mathcal{G}_{11}\). In fact it can be shown that any perfect 
+  code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with 
+  generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) over \(\mathbf{F}_3\). 
 
 protection: 'Corrects up to 2 errors and detects up to 4 errors'
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
 
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
-
   rate: '6/11'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
   encoders:
     - 'Codewords are generated from the generator matrix with 5 information trits and 6 parity check trits'
-    
-    transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  general_gates:
-    - 'Universal gate set achieved by either additional ... gate.'
-    - 'Magic-state distillation protocols'
-    - 'kth Clifford hierarchy gates obtained by ... circuits'
-
-  decoders:
-    - 'An algebraic decoding algorithm using codeword syndromes: \cite{manual: {Higgs, Russell John, and John F. Humphreys. 
-       "Decoding the ternary Golay code." IEEE transactions on information theory 39.3 (1993): 1043-1046.}}'
-    
-  fault_tolerance:
-    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-    - 'Pieceable fault tolerance.'
-
-  code_capacity_threshold:
-    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
-    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
-
-  threshold:
-    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
-
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
 
 realizations:
   - 'Code used in football pools with at least one good bet: \cite{doi:10.1007/BF03025254}'
   - 'Using a Golay code to create an 11-qutrit code: \cite{doi:10.13039/501100001843}'
-
-notes:
-  - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
-  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  - 'Can reference other codes, but try to put such connections in the relations fields.'
-  - 'Anything noteworthy that''s not above or below.'
 
 relations:
   parents:
