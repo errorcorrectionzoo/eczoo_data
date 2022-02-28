@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+
+code_id: 'elliptic'
+
+physical: 'bits'
+
+logical: 'bits'
+
+name: 'Elliptic'
+
+description: 'Algebraic geometry codes were invented by Goppa in 1977  as a natural generalization of the RS codes. We take an algebraic curve \( \chi \)of genus \(g\) over a finite field \(F_{q}).\ Then we pick some points on the Curve (points are our messages). We then evaluate collection of functions on these points as our messages. The function set that we choose has degree \( \alpha \). The detail will be described below'
+
+protection: 'Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\lfloor \frac{d-1}{2} \rfloor \) coordinates.'
+
+features:
+  
+  rate: 'the code is an \( [n,k=\alpha-g+1, d] \) and \( d \geq n-\alpha \)'
+
+  decoders:
+    - 'We have the standard List decoding \cite{doi=10.1.1.474.114}'
+
+    - 'Guruswami and Sudan \cite{doi=10.1109/18.782097} proposed another list decoding algorithm for both RS codes and AG codes, and improved the error-bounding to \( n-\sqrt{n(n-d)} \)'
+
+  encoders:
+    - 'Exactly as the Standard AG codes.'
+
+    - |-
+      Let \( \mathbb{F}_{q} \) be a finite field with \( q \) elements and \( X \) be an irreducible curve over a finite field of genus \(g\). The function field of \(X\) is denoted by \(\mathbb{F}_{q}(X)\)
+          A divisor \(D\) on a curve \(X\) is a formal sum of points \(P\) on the curve \(X\), i.e. \(D =\sum_{P}n_P P\) where \(n_P \in \mathbb{Z}\setminus  \{ 0 \}\) for a finite number of points on \(X\) . Here \(n_P\) denotes the multiplicity of the point \(P\) on the curve. The degree of a divisor \(deg(D)=\sum_{P}n_P.\) A divisor is called effective if all coefficients are non-negative.
+          For each point \(P \in X\) and any function \(f \in \mathbb{F}_{q}(X) \setminus \{ 0 \}\), we can abstract the notion of evaluation of \(f\) at \(P\). We denote \(\nu_{P}(f)\) by local parameter and discrete valuation function \(\nu_{P}:\mathbb{F}_{q}(X) \to \mathbb{Z} \cup \{ \infty \}.\) A point \(P\) is said to be a zero of multiplicity \)$m\) if \(\nu_{P}(f)=m>0\), a pole of multiplicity \(-m\) if \(\nu_{P}(f)=m<0\).
+          Any function \(f\in \mathbb{F}_{q}(X) \setminus \{ 0 \}\) can be associated with a so-called principal divisor. The principle divisor of \(f\) is defined as \(div(f)=\sum_{P}\nu_{P}(f)P\).
+          Let \(G\) be any divisor of degree \(\alpha\) on \(X\) . Denote by \(L(G)\)  all rational functions \(f \in \mathbb{F}_q(X)\) such that the divisor \(div (f)+G\) is effective, together with the zero function.
+          By the Riemann-Roch theorem, \(L(G)\) is a vector space over \(\mathbb{F}_q\) of finite dimension and its dimension is given by \(dim (L (G )) = \alpha-g +1\) , where \(g\) is the genus of \(X\).
+          Given an irreducible curve \(X\) and the function field \(\mathbb{F}_q(X)\) defined over \(X\) , let \(P_1, P_2 , . . . , P_n\)  be distinct rational points on \(X\) . The \(n\) points determine a divisor \(D = P_1 + P_2+..+ P_n\) . Let \(G\) be an arbitrary divisor on \(X\) such that \({P_1, P_2, . . . ,P_n} \cap supp(G) = \phi\). An AG code \(C(D, G )\) is defined by the following injective mapping \(ev : L(G) \to \mathbb{F}_q^n\) with
+          \begin{equation}
+          ev(f)=(f(P_1),f(P_2),...f(P_n)).
+          \end{equation}
+
+realizations:
+  - 'The Elliptic Curve Cryptography covers all relevant asymmetric cryptographic primitives like digital signatures and key agreement algorithms \cite{doi:10.1109/WOSSPA.2011.5931464}.'
+
+  - 'Application in Network security in cloud computing \cite{doi:10.1109/ICICV50876.2021.9388629}.'
+
+  - 'RSA in electronic commerce (E-commerce) \cite{doi:10.1109/COMCAS.2017.8244805}.'
+
+notes:
+  - 'natural generalization of the RS codes.'
+
+  - 'Restricted version of Algebraic Geometry codes.(Elliptic curves can be viewed as genus \( 1 \) curves.'
+
+relations:
+  
+  parents:
+    - code_id: 'Reed-Solomon code'
