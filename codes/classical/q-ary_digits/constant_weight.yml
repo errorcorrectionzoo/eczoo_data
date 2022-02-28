@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+# code id, physical, logical are all lower case
+code_id: constant_weight
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Constant Weight Codes'
+
+description: 'Constant weight codes, also known as m-of-n codes, are codes, usually binary, of length \(n\) with minimum distance \(d\) in which all codewords have a constant Hamming weight of \(m\). The maximum number of codewords in a constant weight code is denoted \(A(n,d,m)\) and the bounds on this number are currently a topic of research. \cite{doi:10.37236/1162}'
+
+
+protection: 'Binary constant weight codes with weight \(m\) are guaranteed to detect one error, as a flip in any bit will result in a vector with Hamming weight \(m-1\) or \(m+1\).'
+
+
+realizations:
+  - 'Code used in radio networks, namely for frequency hopping \cite{doi:10.37236/1162} '
+  - 'Realized in barcodes and implemented in the United States Postal Service barcode programs POSTNET and PLANET'
+
+#notes:
+
+#relations:
+#Technically this is the parent of
+    #- code_id: one_hot
+     # detail: 'Special case of constant weight binary code with constant Hamming weight 1. Commonly used in machine learning applications.'
+   # - code_id: balanced_code
+     # detail: 'Special case of constant weight binary code in which there are the same number of 0's as 1's in the codewords.'

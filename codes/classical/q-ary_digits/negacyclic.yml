@@ -1,0 +1,27 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: negacyclic
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Negacyclic Code'
+introduced: '\cite{manual{Berlekamp, Elwyn R. Negacyclic codes for the Lee metric. North Carolina State University. Dept. of Statistics, 1966, pp. 298-316}}'
+
+description: 'Negacyclic codes are special case of constacyclic codes. Given an algebraic ring \(R\), a code \(C \subseteq R^n\) for some \(n\) is negacyclic if for all tuples \((c_1, c_2, \dots, c_n)\in C\), (\((-c_n, c_1, c_2, \dots, c_{n-1})\in C\). An equivalent formulation is a code \(C\) is negacyclic if and only if it is an algebraic ideal of \(\frac{R[x]}{\langle x^n +1\rangle}\) \cite{doi:10.1016/j.ffa.2014.09.003}' 
+
+
+
+relations:
+  parents:
+    - code_id: constacyclic_codes
+      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+  cousins:
+    - code_id: cyclic_codes
+      detail: 'Also a special case of constacyclic codes'
+    - code_id: skew_codes
+      detail: 'Codes invariant under Galois automorphisms on the tuples.'
+    - code_id: quasi_cyclic_codes
+      detail: 'Codes invariant under Galois automorphisms on the tuples.'

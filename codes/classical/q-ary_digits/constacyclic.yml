@@ -1,0 +1,24 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+# code id, physical, logical are all lower case
+code_id: constacyclic
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Constacyclic codes'
+introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
+
+description: 'Given an algebraic ring (\R\) which is commutative and finite, a code \(C \subset R^n\) for some \(n\) is a constacyclic code, or a \(\delta\)-constacyclic code, if there is some constant \(\delta\) such that for all tuples \((c_1, c_2, \dots, c_n) \in C\),  \((\delta c_n, c_1, \dots, c_{n-1}) \in C\). An equivalent formulation is \(C\) is constacyclic if and only if \(C\) is an ideal of \(\frac{R[x]}{x^n - \delta}\) for some \(\delta\). \cite{doi:10.1016/j.ffa.2014.09.003}'
+
+protection: 'It is known that 1-constacyclic codes, also known as cyclic codes, can correct single, double errors, and certain burst errors. \cite{manual{Peterson, William Wesley, and Daniel T. Brown. "Cyclic codes for error detection." Proceedings of the IRE 49.1 (1961): 228-235.}}'
+
+relations:
+  cousins:
+    - code_id: skew_cyclic
+      detail: 'Skew cyclic codes are codes invariant under a Galois automorphism.'
+    - code_id: quasi_cyclic
+      detail: 'Quasi-cyclic codes are codes which are invariant under \(n\) shifts'
