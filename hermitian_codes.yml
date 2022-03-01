@@ -29,8 +29,20 @@ introduced: '\cite{manual: {Goppa, Valerii Denisovich. "Codes on algebraic curve
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
 description: | 
-  A Hermitian code is a type of algebraic geometric code where the codewords are evaluations of two-variable polynomials of degree at most \(D\) on a subset of 
-  the rational points of a Hermitian curve \(f(X,Y) = X^{q+1}  + Y^{q+1} - 1\). In that 
+  A Hermitian code is a type of algebraic geometric code where the codewords are evaluations of two-variable polynomials of total degree at most \(D\) on a subset of 
+  the rational points of a Hermitian curve \(H(X,Y) = X^{q+1}  + Y^{q+1} - 1\). These evaluations may be made in the ordinary coordinaes \( (X,Y) \) or 
+  over projective coordinates \( [X:Y:Z] \) which contain as a subset the ordinary coordinates (this is the case when \(Z = 1 \)). In this entry we focus on 
+  evaluations over projective coordinates, since doing so increases the length of the code. More precisely, fix \(r, D\) and let 
+  \begin{align}
+  M_D = \{f \in \mathbb{F}_{q}(X,Y) = \sum_{i+j \leq D}a_{i,j}X^{i}Y^{j}\}
+  \end{align}
+  be the message space of degree \(D\) polynomials and \(S = \{[X:Y:Z] \in \mathbb{P}^2 \mathbb{F_q} \mid H(X:Y:Z) = 0 \}\) where \(H(X:Y:Z) = X^{q+1} + Y^{q+1} - 
+  Z^{q+1}\) is the homogenized Hermitian curve over the projective plane on \( \mathbb{F}_q \). Then the codewords \( C \) of the Hermitian code over \(\mathbb{F}_q\)
+  are 
+  \begin{align}
+  C = \{(f(\alpha_i))_{\alpha_i \in S}, \: f \in M_D \}
+  \end{align}
+  The Hermitian code is a 
 # Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
 # protection: |
 #   text...
