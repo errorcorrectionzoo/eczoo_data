@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: pless_symmetry
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Pless symmetry code'
+introduced: '\cite{manual:{V. Pless, “On a new family of symmetry codes and related new five- designs”, Bull. Amer. Math. Soc. 75, No. 6 (1969), 1339-1342.}}'
+
+description: |
+  Let \(q\) be a prime power such that \(q\equiv -1\) (mod 3).
+  The Pless symmetry code \(C(q)\) is a \([2(q+1),q+1,d]\) ternary code with the generator matrix
+  \begin{align}
+    G = [I | S_q]
+  \end{align}
+  where \(I\) is the \((q+1)\times(q+1)\) identity matrix and \(S_q\) is the matrix defined by
+  
+  \begin{table}
+    \includegraphics{pless_symmetry_table.svg}
+  \end{table}
+
+  where \(\chi(0)=0\), \(\chi(x)=1\) if \(x\) is a square in \(GF(q)\) and, \(\chi(x)=-1\) if \(x\) is a not square in \(GF(q)\).
+
+  Pless symmetry codes have the interesting property that they are \emph{self-dual}.
+  This is due to the fact that \(S_qS_q^T=qI\), and therefore \(S_qS_q^T=-I\) (mod 3).
+
+
+notes:
+  - 'Pless symmetry codes are ternary codes.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: ''

@@ -1,0 +1,26 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: quasi_twisted
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Quasi-twisted code'
+
+description: |
+  Let \(q=p^m\) be a prime power and let \(\mathbb{F}_q\) be a finite field.
+  Also let \(\lambda \in F_q^*\) and let \(l\) be a positive integer.
+  Then the code \(C\) is \((\lambda,l)\)-quasi-twisted\cite{doi:10.1016/j.ffa.2011.08.001} if for any codeword \((c_1, \dots, c_n)\in C\),
+  \begin{align*}
+    (\lambda c_{n-l+1}, \lambda c_{n-l+2}, \dots, \lambda c_{n}, c_1, \dots, c_{n-l})\in C.
+  \end{align*}
+  Quasi-cyclic codes are a special case of quasi-twisted codes where \(\lambda=1\),
+  and constacyclic codes are a special case where \(l=1\).
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: ''
