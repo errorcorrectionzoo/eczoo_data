@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: no_spaces_lower_case
+physical: waves
+logical: matrices
+
+name: 'Orthogonal Space-time Block'
+introduced: '\cite{doi:10.1109/49.730453}'
+
+description: 'The codewords are orthogonal \(T\times n\) matrices, where \(n\) is the number of channels and \(T\) is the number of time slots.'
+
+# protection: ''
+
+features:
+
+  rate: 'The greatest rate which can be achieved is \(\frac{n_0+1}{2n_0}\) where \(n=2n_0\) or \(n=2n_0-1\). \cite{doi: 10.1109/TIT.2003.817426}'
+
+  # encoders: ''
+
+  # transversal_gates: ''
+
+  # general_gates: ''
+
+  decoders: 'Maximum likelihood decoding can be achieved with only linear processing. \cite{doi:10.1109/49.753730}'
+
+  # fault_tolerance: ''
+
+  # code_capacity_threshold: ''
+
+  # threshold: ''
+
+realizations: 'Used in high data rate wireless communication.'
+
+notes: 'If the matrix \(e-c\) where \(e\) and \(c\) are distinct codewords has minimum rank \(b\), the code has diversity order \(bn_R\), where \(n_R\) is the number of receivers. The maximum possible diversity order is \(nn_R\).
+
+relations:
+  parents:
+    - code_id: space-time_block
+      detail: 'The same construction without the constraint that the codeword matrices are orthogonal.'
+  cousins:
+    - code_id: quasi-orthogonal_space-time
+      detail: 'By using nearly orthogonal matrices diversity can be traded for increased rate.'
