@@ -29,9 +29,9 @@ introduced: '\cite{manual: {Goppa, Valerii Denisovich. "Codes on algebraic curve
 # Anything applicable to a larger parent set of codes (see below) should go in
 # that entry instead of here.
 description: | 
-  A Hermitian code is a type of algebraic geometric code where the codewords are evaluations of two-variable polynomials of total degree at most \(D\) on a subset of 
-  the rational points of a Hermitian curve \(H(X,Y) = X^{q+1}  + Y^{q+1} - 1\). These evaluations may be made in the ordinary coordinaes \( (X,Y) \) or 
-  over projective coordinates \( [X:Y:Z] \) which contain as a subset the ordinary coordinates (this is the case when \(Z = 1 \)). In this entry we focus on 
+  A Hermitian code is a type of algebraic geometry code where the codewords are evaluations of two-variable polynomials of total degree at most \(D\) on 
+  the rational points of a Hermitian curve \(H(X,Y) = X^{q+1}  + Y^{q+1} - 1\). These evaluations may be made in the affine coordinates \( (X,Y) \) or 
+  over projective coordinates \( [X:Y:Z] \) which contain as a subset the affine coordinates (this is the case when \(Z = 1 \)). In this entry we focus on 
   evaluations over projective coordinates, since doing so increases the length of the code. More precisely, fix \(r, D\) and let 
   \begin{align}
   M_D = \{f \in \mathbb{F}_{q}(X,Y) = \sum_{i+j \leq D}a_{i,j}X^{i}Y^{j}\}
@@ -41,8 +41,7 @@ description: |
   are 
   \begin{align}
   C = \{(f(\alpha_i))_{\alpha_i \in S}, \: f \in M_D \}
-  \end{align}
-  The Hermitian code is a 
+  \end{align}. 
 # Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
 # protection: |
 #   text...
@@ -53,31 +52,12 @@ protection: 'Protects against ... Pauli noise. Approximate code with parameters 
 # empty. If empty, comment out. Also, indentations are important!
 features:
 
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
-
-  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
+  rate: |
+  - 'When \(D < q + 1 \), \(k = \frac{(D+1)(D+2)}{2}\)' 
+  - 'When \(D \geq q + 1 \), \(k = (q+1)D - \frac{q(q-1)}{2} + 1 \)' 
+  
   encoders:
-    - 'Specific description of a process that makes the states, usually for quantum codes.'
-    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-  # Not all fields are indexed by a dash
-  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  general_gates:
-    - 'Universal gate set achieved by either additional ... gate.'
-    - 'Magic-state distillation protocols'
-    - 'kth Clifford hierarchy gates obtained by ... circuits'
+    - Multivariate Polynomial Evaluation 
 
   decoders:
     - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
