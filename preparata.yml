@@ -12,8 +12,9 @@ name: 'preparata'
 introduced: '\url{https://doi.org/10.1007/0-387-34799-2_39}'
 
 description: 'Preparata code is a \([[2^{m+1}-1, 2^{m+1}-2m-2, 5]]\) binary code where \(m\) is odd. The code is non linear and can exist for perimeters 
-for which there is no linear code. These codes can be thought of as characteristic function of the tuple (X,Y) where X, Y belongs to \(\mathbb{F}_{2^m}\) along with the
-following properties '
+for which there is no linear code. Extended preparata codes can be thought of as characteristic function of the tuple (X,Y) where X, Y belongs to \(\mathbb{F}_{2^m}\) along with the
+following properties:- (i) \(|X| = |Y| = 2^{m}\) (ii) \(\sum_{x \in X} x = \sum_{y \in Y} y \) (iii) \(\sum_{x \in X} x^{3} + (\sum_{x \in X} x)^{3}  = \sum_{y \in Y} y^{3} \). Preparata
+codes are then obtained by leaving out the coordinate in the zeroeth positions in the first half.'
 
 protection: 'Preparata codes are a class of non linear double error correcting codes.'
 
@@ -25,7 +26,7 @@ features:
     - ''
 
   decoders:
-    - ''
+    - 'Trellis diagrams employed for soft decision decoding. '
 
 notes:
   - 'Preparate codes are uniformly packed and nearly perfect which implies that for any word \(textbf{u}\)' and (preparata) codebook C with \(d(\textbf{u}, C) > 2\), we have
@@ -41,6 +42,6 @@ relations:
 
   cousins:
     - code_id: goethals
-    - detail: ''
+    - detail: 'Goethals codes satisfy all the properties of the preparata codes and additionally (i) '
 
       
