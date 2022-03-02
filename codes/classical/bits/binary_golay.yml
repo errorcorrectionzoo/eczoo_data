@@ -5,21 +5,22 @@ logical: bits
 name: 'Binary Golay code'
 introduced: '\cite{manual:{Golay, M. J. E. "Notes on Digital Coding." Proc. IRE 37, 657, 1949.}}'
 
-description: 'The binary Golay code is a [23, 12, 7] binary linear code. Adding a parity bit results in the [24, 12, 8] extended binary Golay code. The binary Golay code is a perfect code, i.e. it saturates the Hamming bound, and as such is also known as the perfect binary Golay code. The codespace is a 12-dimensional linear subspace of \(\mathbb{F}_2^23\) (or \(\mathbb{F}_2^24\)).'
+description: 'The binary Golay code is a \([23, 12, 7]\) binary linear code. Adding a parity bit results in the \([24, 12, 8]\) extended binary Golay code. The binary Golay code is a perfect code, i.e. it saturates the Hamming bound, and as such is also known as the perfect binary Golay code. The codespace is a 12-dimensional linear subspace of \(\mathbb{F}_2^23\) (or \(\mathbb{F}_2^24\)).'
 
 protection: 'The binary Golay code has distance 7 and can correct up to \(\frac{7-1}{2}=3\) errors.'
 
 
 features:
-  rate: 'The perfect binary Golay code has a rate of 12/23 = 0.522. The extended binary Golay code has a rate of 12/24 = 0.5.'
+  rate: 'The perfect binary Golay code has a rate of \(12/23 = 0.522\). The extended binary Golay code has a rate of \(12/24 = 0.5\).'
   
   encoders:
-    - 'Can be constructed with the polynomial \(x^{11} + x^{10} + x^6 + x^5 + x^4 + x^2 + 1\) over GF(2)'
+    - 'The \([23, 12, 7]\) code can be constructed with the polynomial \(x^{11} + x^{10} + x^6 + x^5 + x^4 + x^2 + 1\) over GF(2). This representation of the Golay code is cyclic.'
     - 'One can use the Great Dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the icosahedron'
 
   decoders:
     - 'Since \(n\) is a constant, table-lookup decoding is a possibility.'
     - 'Algebraic algorithms such as Berlekamp-Welch can also be used.'
+    - 'Both Golay codes have a trellis representation and can thus be decoded using trellis decoding \cite{doi:10.1142/9789814287517_0004, doi:10.1049/el_19931456}'
 
 realizations:
   - 'Code was used in the Voyager 1 and 2 spacecraft \cite{doi:10.1029/JA092iA13p14873}.'
