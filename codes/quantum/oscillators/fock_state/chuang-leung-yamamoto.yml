@@ -11,7 +11,7 @@ logical: qubits
 name: 'Chuang-Leung-Yamamoto code'
 introduced: '\cite{doi:10.1103/PhysRevA.56.1114}'
 
-description: 'Bosonic Fock-state code that encodes \(k\) qubits into \(n\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Codewords are superpositions of oscillator Fock states, either balanced (i.e., uniform) or unbalanced. Codes can be denoted as \([[N,n,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.'
+description: 'Bosonic Fock-state code that encodes \(k\) qubits into \(n\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Codewords are superpositions of oscillator Fock states which have exactly \(N\) total excitations, and are either uniform (i.e., balanced) superpositions or unbalanced superpositions. Codes can be denoted as \([[N,n,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.'
 
 protection: |
   Protects against amplitude damping for up to \(t = d-1\) excitation losses. Defining the \textit{spacing} between two Fock states \(|u_1\cdots u_n\rangle\) and \(|v_1\cdots v_n\rangle\),
@@ -41,7 +41,7 @@ features:
 relations:
   parents:
     - code_id: fock_state
-      detail: ''
+      detail: 'Chuang-Leung-Yamamoto codewords are multi-mode Fock-state codes.'
     - code_id: constant_excitation
       detail: 'Chuang-Leung-Yamamoto codewords are constructed out of Fock states with the same total excitation number.'
 #    - code_id: dual_rail
