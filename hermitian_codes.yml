@@ -4,7 +4,7 @@
 #######################################################
 
 # code id, physical, logical are all lower case
-code_id: hermitian_codes
+code_id: hermitian_code
 physical: q-ary
 logical: q-ary
 name: 'Hermitian Codes'
@@ -24,12 +24,18 @@ description: |
   \begin{align}
   C = \{(f(\alpha_i))_{\alpha_i \in S}, \: f \in M_D \}
   \end{align}.
+  The form of the hermitian curve \(H(u,v,w) = u^{q+1} + v^{q+1} - w^{q+1}\) given above is the \textit{Fermat} version of the Hermitian curve. If we use the 
+  substitutions \(u = x+z, v = x+y, w = x+y+z \) then we have that \(H(x,y,z) = x^{q+1} - y^{q}z - yz^{q} \) and this is the \textit{Stichtenoth} version of the 
+  curve. In fact, in affine coordinates the Stichtenoth form of the curve is \(f(x,y) = x^{q+1} - y^{q} - y = N(x) - Tr(y)\) where \(N\) is the 
+  \href{https://en.wikipedia.org/wiki/Field_norm}{field norm} and \(Tr\) is the \href{https://en.wikipedia.org/wiki/Field_trace}{Field Trace}. If viewed in the Fermat
+  version again the curve can be written as \(H(u,v,w) = u\overline{u} + v\overline{v} - w\overline{w}\) where the conjugation map 
+  \(\overline{u} = u^{q}\) is an isomorphism of \(\mathbb{F}_q \). In fact, when the field of evaluations \(\mathbf{F}_{q^2}\) is viewed as a quadratic extension of 
+  \(\mathbf{F}_q\) then the conjugation map is an \(\mathbf{F}_q\)-isomorphism that permutes the roots of the quadratic irreducible polynomial
+  used to generate \(\mathbf{F}_{q^2}\) from \( \mathbf{F}_q[x]\).   
+protection: 
+  - 'When \(D < q + 1 \) the Hermitian code protects against at least \(n - (q+1)J\) errors'
+  - 'When \(D \geq q+1 \) the Hermitian code protects against at least \(n-k - \frac{q(q-1)}{2} + 1\) errors'
   
-protection: |
-  
-
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
 
   rate: |
@@ -40,30 +46,17 @@ features:
     - 'Multivariate Polynomial Evaluation' 
 
   decoders:
-    - |
-   Unique decoding using syndromes and error locator ideals: Note that Hermitian codes are linear codes so we can compute the syndrome of a received 
-   vector. Moreover, akin to the error-locator ideals found in decoding Reed-Solomon codes, for the multivariate case we must define an error locator 
-   ideal \(\Lambda \) such that the variety of this ideal over \(F^{2}_{q}\) is exactly the set of errors. The Sakata algorithm uses these two ingredients to 
-   get a unique decoding procedure \cite{manual: {Sakata, Shojiro. "Finding a minimal set of linear recurring relations capable of generating a given finite 
-   two-dimensional array." Journal of Symbolic Computation 5.3 (1988): 321-337}}
-     
-    - 'List decoding using Sudhan's algorithm: \cite{manual: {Venkatesan Guruswami, Madhu Sudan. "Improved decoding of Reed-Solomon and algebraic-geometry codes." (1999).}}'
+    - 'Unique decoding using syndromes and error locator ideals: Note that Hermitian codes are linear codes so we can compute the syndrome of a received vector. Moreover, akin to the error-locator ideals found in decoding Reed-Solomon codes, for the multivariate case we must define an error locator ideal \(\Lambda \) such that the variety of this ideal over \(F^{2}_{q}\) is exactly the set of errors. The Sakata algorithm uses these two ingredients to get a unique decoding procedure \cite{manual: {Sakata, Shojiro. "Finding a minimal set of linear recurring relations capable of generating a given finite two-dimensional array." Journal of Symbolic Computation 5.3 (1988): 321-337}}'
+    - 'List decoding using Sudan's algorithm: \cite{manual: {Venkatesan Guruswami, Madhu Sudan. "Improved decoding of Reed-Solomon and algebraic-geometry codes." (1999).}}'
 
-notes: |
-  - 'The form of the hermitian curve \(H\) given above is the \textit{Fermat version} of the Hermitian curve. If we use the substitution  
-  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  - 'Can reference other codes, but try to put such connections in the relations fields.'
-  - 'Anything noteworthy that''s not above or below.'
+notes: 
+  - 'Hermitian codes, directly improve Reed-Solomon codes in the sense that RS codes have length at most \(q\) while Hermitian codes have length \(q^3 + 1\)
+  - 'Hermitian codes are special examples of Algebraic geometry codes because Hermitian curves have the largest number of points that a curve of a fixed genus can have over a given finite field. So for a curve of fixed genus, Hermitian codes are the algebraic geometry codes which have the maximum possible length'
+  - 'Hermitian codes can also come in affine and epicyclic flavours, depending on whether the evaluations are over the affine plane or the bicyclic plane. The affine codes have length \(q^3 - q\) while epicyclic codes have length \((q-2)(q+1)^2\) 
 
 relations:
   parents:
-    - code_id: code_id1
-      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
-  cousins:
-    - code_id: code_id2
-      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-    - code_id: code_id3
-      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-    - code_id: code_id4
-      detail: 'Codes (classical or quantum) related on other ways to this code.'
+    - code_id: binary_linear
+    - code_id: algebraic_geometry
+  children: 
+    - code_id: reed_solomon
