@@ -10,14 +10,13 @@ logical: q-ary_digits
 name: 'Regenerating Code'
 introduced: '\cite{doi:10.1109/TIT.2010.2054295}'
 
-description: |
-  An $[n,k,d,\alpha,\beta,M]$ Regenerating Code $\mathcal{C}$ over $GF(q) = \mathbb{F}_q$ is an erasure correcting code that encodes $M$ symbols from $\mathbb{F}_q$ to a $\alpha \times n$ matrix over $\mathbb{F}_q$ with each column of the matrix treated as a coordinate of the codeword. 
-  The code has the following properties:
-\begin{itemize}
-\item Any $k$ coordinates of the codeword can be used to recover the original $M$ symbols.
-\item Any erased coordinate, i.e., the $\alpha$ symbols of that coordinate, can be recovered by contacting any $d$ other coordinates and collecting $\beta$ symbols from each one of them, where $k \le d \le n-1$ and $\beta \le \alpha$.
-\end{itemize}
-protection: 'Corrects upto \(n-k\) erasures on coordinates.'
+description: 'An $[n,k,d,\alpha,\beta,M]$ Regenerating Code $\mathcal{C}$ over $GF(q) = \mathbb{F}_q$ is an erasure correcting code that encodes $M$ symbols from $\mathbb{F}_q$ to a $\alpha \times n$ matrix over $\mathbb{F}_q$ with each column of the matrix treated as a coordinate of the codeword. 
+  The code has the following properties.
+  \begin{itemize}
+  \item Any $k$ coordinates of the codeword can be used to recover the original $M$ symbols.
+  \item Any erased coordinate, i.e., the $\alpha$ symbols of that coordinate, can be recovered by contacting any $d$ other coordinates and collecting $\beta$ symbols from each one of them, where $k \le d \le n-1$ and $\beta \le \alpha$.
+  \end{itemize}'
+protection: 'Corrects upto $(n-k)$ erasures on coordinates.'
 
 notes:
    - 'The connection of such codes to distributed storage is as follows. A file of size $M$ symbols is encoded using the code and each coordinate, namely the $\alpha$ symbols of that coordinate, are stored in different geographically separated
