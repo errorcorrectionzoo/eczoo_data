@@ -4,25 +4,28 @@
 #######################################################
 
 code_id: product_matrix
-physical: q-ary_vector
-logical: q-ary_vector
+physical: q-ary_digits
+logical: q-ary_digits
 
 name: 'Product-Matrix (PM) Code'
 introduced: '\cite{doi:10.1109/TIT.2011.2159049}'
 
 description: |
-    Two different constructions for the two extreme points of the storage-bandwidth trade-off curve given in \cite{doi:10.1109/TIT.2010.2054295}. For the Minimum Bandwidth Regenerating (MBR) point, the parameters of the code are $[n,k, n-1 \ge d\ge k, \alpha, \beta = \frac{\alpha}{d}, M= kd-\binom{k}{2}]$. 
-    For the Minimum Storage Regenerating (MSR) point, the parameters of the code are $[n,k,d \ge 2k-2, \alpha, \beta = \frac{\alpha}{d-k+1}, M=k\alpha]$.
+    Two different constructions for the two extreme points of the storage-bandwidth trade-off curve given in \cite{doi:10.1109/TIT.2010.2054295}. For the Minimum Bandwidth Regenerating (MBR) point, the parameters of the code are \([n,k, n-1 \ge d\ge k, \alpha, \beta = \frac{\alpha}{d}, M= kd-\binom{k}{2}]\). 
+    For the Minimum Storage Regenerating (MSR) point, the parameters of the code are \([n,k,d \ge 2k-2, \alpha, \beta = \frac{\alpha}{d-k+1}, M=k\alpha]\).
 protection: 'Corrects upto \(n-k\) erasures on coordinates.'
 
 notes:
-  - 'These are the first explicit constructions for all values of the system parameters $[n,k,d]$ at the MBR point, and for all parameters satisfying $[n,k,d \ge 2k-2]$ at the MSR point. Both
+  - 'These are the first explicit constructions for all values of the system parameters \([n,k,d]\) at the MBR point, and for all parameters satisfying \([n,k,d \ge 2k-2]\) at the MSR point. Both
 constructions are based on a common product-matrix frame work which make them easy to implement.'
 
 relations:
   parents:
     - code_id: regenerating_code
+      detail: ''
   cousins:
     - code_id: diagonal_code
+      detail: ''
     - code_id: determinant_code
+      detail: ''
     
