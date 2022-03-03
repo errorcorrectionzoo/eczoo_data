@@ -3,15 +3,15 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: stabilizer
+code_id: qubit_stabilizer
 physical: qubits
 logical: qubits
 
-name: 'Stabilizer code'
+name: 'Qubit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}'
 
 description: |
-  An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\). 
+  An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\).
 
   The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
@@ -50,6 +50,7 @@ notes:
 # https://arxiv.org/pdf/0903.0566.pdf parent is code over GF(4): an additive self-orthogonal code over GF(4) with respect to the trace Hermitian inner product
 relations:
   parents:
+    - code_id: stabilizer
     - code_id: cws
       detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
   cousins:
