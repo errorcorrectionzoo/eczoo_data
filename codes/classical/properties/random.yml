@@ -20,17 +20,18 @@ description: 'Code whose construction is non-deterministic in some way, i.e., co
 protection: 'The code can protect against random errors, e.g. from Binary Symmetry Channel (BSC), discrete memoryless channel.'
 
 features: 'Given N and the rate R, the minimum distance of a typical random code (TRC) is given by the Gilbert–Varshamov (GV) bound d=N\delta_{GV}(2R).
+           where \delta_{GV}:= h^{-1}(1-R), 0\le R \le 1, and \delta_{GV}(x)=0 if for all other R.
            Whereas for a typical random linear code (TLC), the minimum distane is given by d=N\delta_{GV}(R).'
            
-decoders: 'Ball-Collision Decoding \cite{doi:10.1007/978-3-642-22792-9_42}'
-             Finiasz and Sendrier (FS-ISD Decoding)\cite{doi:10.1007/978-3-642-10366-7_6'
+decoders: 'Ball-Collision Decoding \cite{doi:10.1007/978-3-642-22792-9_42}
+           Finiasz and Sendrier (FS-ISD Decoding)\cite{doi:10.1007/978-3-642-10366-7_6'
              
 realizations:
   - 'Distributed Storage Systems \cite{doi: 10.1109/TPDS.2008.251}'
   
 notes:
-    - 'Code features refer to the asymptotic limit, i.e. The code approach the minimum distance with probability 1 as N goes to infiity.'
-             
+    - 'Code features refer to the asymptotic limit, i.e. we consider ensembles of codes of increasing length $n$ and cardinality $M=nR$, and argue about the 
+       limiting parameters (e.g. distance distribution and error exponent) of the typical or average codes in the ensemble as $n\to\infty$.'             
 # This is more of a unifying property, not meant to be a parent to anything
 
 relations:
