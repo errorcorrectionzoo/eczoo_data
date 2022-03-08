@@ -12,21 +12,22 @@ introduced: '\cite{arXiv:2003.02717}'
 
 description: |
 
-  The qutrit Golay code is an \([[11,1,5]]_3\) CSS quantum error-correcting code. The \(X\) and \(Z\) stabilizer generators can both be given by the following generator matrix
+  The qutrit Golay code is an \([[11,1,5]]_3\) CSS quantum error-correcting code. The \(H_X\) and \(H_Z\) stabilizer generator matrices can both be given by the following matrix \cite{arXiv:2003.02717}
   \begin{align}
-    \left(\begin{matrix}
+    \begin{pmatrix}
       2&1&1&2&2&0&1&0&0&0&0\\
       2&1&2&1&0&2&0&1&0&0&0\\
       2&2&1&0&1&2&0&0&1&0&0\\
       2&2&0&1&2&1&0&0&0&1&0\\
       2&0&2&2&1&1&0&0&0&0&1
-    \end{matrix}\right).
+    \end{pmatrix}.
   \end{align}
-  In the above matrix, each row encodes an \(X\) and a \(Z\) stabilizer generator where the qutrit Pauli \(X\) and \(Z\) operators are defined by \(X|k\rangle=|k+1\rangle\) and \(Z|k\rangle=\omega^k|k\rangle\) for every \(k\in \mathbb{Z}_3\) and \(\omega=e^{2\pi/3 i}\)\cite{arXiv:2003.02717}.
 
 features:
 
   transversal_gates: 'The qutrit Golay code admits transversal implementations of all single-qutrit encoded Clifford gates \cite{arXiv:2003.02717}.'
+
+  magic_scaling_exponent: 'Magic-state distillation scailing exponent \(\gamma=\log_3(1728\times 11)=\log_3 19008\approx 8.97\) where the \(1728\) factor comes from the fact that one round of distillation succeeds with probability \(\approx\frac{1}{1728}\)\cite{arXiv:2003.02717}.'
 
   general_gates:
     - 'The qutrit Golay code can be used to perform magic-state distillation for the magic state \(|S\rangle=\frac{1}{\sqrt{2}}(|1\rangle-|2\rangle)\), which is called the strange state, as well as for the magic state \(|N\rangle=\frac{1}{\sqrt{2}}(|1\rangle+|2\rangle)\), which is called the Norell state\cite{arXiv:2003.02717}. The qutrit Golay code achieves a cubic error suppression when used to distill the strange state\cite{arXiv:2003.02717}.'
@@ -37,4 +38,4 @@ relations:
       detail: 'The qutrit Golay code is a qudit CSS code.'
 
   cousins:
-    - code_id: qubit_golay
+    # - code_id: ternary_golay
