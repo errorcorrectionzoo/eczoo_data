@@ -8,32 +8,35 @@ physical: qubits
 logical: qubits
 
 name: 'Qubit Golay code'
+introduced: '\cite{arXiv:quant-ph/0207119}'
 
 description: |
 
-  The Golay code is a \([[23, 1, 7]]\) CSS quantum error-correcting code with eleven \(X\) and eleven \(Z\) stabilizer generators. The \(X\) and \(Z\) stabilizer generators can both be given by the following eleven 23-character strings:
+  The Golay code is a \([[23, 1, 7]]\) CSS quantum error-correcting code with eleven \(X\) and eleven \(Z\) stabilizer generators. The \(H_X\) and \(H_Z\) stabilizer generator matrices can both be given by the 11-by-23 matrix
 
-  \begin{align*}
-    &. 1 . . 1 . . 1 1 1 1 1 . . . . . . . . . . 1\\
-    &1 . . 1 . . 1 1 1 1 1 . . . . . . . . . . 1 .\\
-    &. 1 1 . 1 1 1 . . . 1 1 . . . . . . . . 1 . .\\
-    &1 1 . 1 1 1 . . . 1 1 . . . . . . . . 1 . . .\\
-    &1 1 1 1 . . . 1 . . 1 1 . . . . . . 1 . . . .\\
-    &1 . 1 . 1 . 1 1 1 . . 1 . . . . . 1 . . . . .\\
-    &. . . 1 1 1 1 . 1 1 . 1 . . . . 1 . . . . . .\\
-    &. . 1 1 1 1 . 1 1 . 1 . . . . 1 . . . . . . .\\
-    &. 1 1 1 1 . 1 1 . 1 . . . . 1 . . . . . . . .\\
-    &1 1 1 1 . 1 1 . 1 . . . . 1 . . . . . . . . .\\
-    &1 . 1 . . 1 . . 1 1 1 1 1 . . . . . . . . . .
-  \end{align*}
+    \left[\begin{array}{*{23}c}
+    0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+    1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+    0 & 1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+    1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+    1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+    1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right].
 
-  Here, the 1's in a row either all indicate \(Z\) operators or all indicate \(X\) operators, and dots indicate identity operators. For example, the first row indicates that \(I\otimes Z\otimes I\otimes I\otimes Z\otimes \cdots\otimes Z\) and \(I\otimes X\otimes I\otimes I\otimes X\otimes\cdots\otimes X\) are stabilizers. Note that each stabilizer generator has weight eight \cite{arXiv:1106.2190}.
+    Note that each stabilizer generator has weight eight \cite{arXiv:1106.2190}.
 
 protection: 'The Golay code is a distance 7 code. It can detect up to 6-qubit errors and correct up to 3-qubit errors.'
 
 features:
   encoders:
     - 'There exists a depth-7 circuit consisting of 57 CNOT gates which prepares a logical zero state in the Golay code \cite{arXiv:1106.2190}.'
+
+  magic_scaling_exponent: 'Magic-state distillation scailing exponent \(\gamma=\log_2 23\approx 4.52\)\cite{arXiv:2003.02717}.'
 
   transversal_gates: 'The Golay code admits transversal implementations of all encoded Clifford gates by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\)\cite{arXiv:1106.2190}.'
   
@@ -47,7 +50,8 @@ features:
 relations:
   parents:
     - code_id: css
-      detail: 'The Golay code is a CSS code.'
 
   cousins:
+    # - code_id: binary_golay
+
     - code_id: qutrit_golay
