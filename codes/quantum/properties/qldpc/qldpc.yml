@@ -9,16 +9,14 @@ short_name: 'QLDPC'
 introduced: '\cite{arXiv:quant-ph/0304161}'
 
 description: |
-  Family of \([[n,k,d]]\) stabilizer codes for which the number of sites (either qubit or qudit) participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\).
+  Family of \([[n,k,d]]\) stabilizer codes for which the number of sites (either qubit or qudit) participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\). A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\).
 
   Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit stabilizer codes satisfying the above criteria are also called QLDPC codes.
 
 protection: |
-  Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites. Asymptotic scaling of \(k\) and \(d\) with \(n\) is often of interest, and this depends heavily on the code construction.
+  Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites. Asymptotic scaling of \(k\) and \(d\) with \(n\) is often of interest, and this depends heavily on the code construction.   Geometrically local qubit codes are limited by the BPT bound \cite{arxiv:0810.1983}, which states that \(d=O(n^{1-1/D})\) for \(D\)-dimensional lattice geometries. For general graphs, distance is limited by graphs' connectivity, and a constant relative minimum distance can be achieved only for graphs that contain expanders \cite{arXiv:2106.00765}. Conversely, a code with parameters \(k\) and \(d\) requires a graph with \(\Omega(d)\) edges of length \(\Omega(d/n^{1/D})\) \cite{arXiv:2109.10982}.
 
   Code distance may not be a reliable marker of code performance. QLDPC codes with generator weights bounded by some constant can correct many stochastic errors far beyond the distance, which may not scale as favorably. Together with more accurate, faster, and easier-to-parallelize measurements than those of general stabilizer codes, this property makes QLDPC codes interesting in practice.
-
-  A \textit{geometrically local QLDPC code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\). For qubits, such codes are limited to having \(d=O(n^{1-1/D})\) for \(D\)-dimensional lattice geometries \cite{arxiv:0810.1983}.
 
 features:
   rate: 'A family of QLDPC codes \([[n_i,k_i,d_i]]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive. The first examples of good qubit codes are a family of \hyperref[code:lifted_product]{lifted-product codes}.'
@@ -37,7 +35,7 @@ notes:
 
 relations:
   parents:
-    - code_id: qecc
+    - code_id: stabilizer
   cousins:
     - code_id: ldpc
     - code_id: topological
