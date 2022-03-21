@@ -11,7 +11,9 @@ name: 'Galois-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/0005008,arXiv:quant-ph/0508070}'
 
 description: |
-  An \(((n,K,d))_{GF(q)}\) Galois-qudit code whose logical subspace is the joint \(+1\) eigenspace of a set of \(|{\mathsf{S}}|\) commuting Galois-qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\), which cannot contain \(e^{i\phi}I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation in the code.
+  An \(((n,K,d))_{GF(q)}\) Galois-qudit code whose logical subspace is the joint eigenspace of commuting Galois-qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation in the code.
+
+  (Pauli matrices go here.)
 
   A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\). This notation differentiates between Galois-qudit and modular-qudit stabilizer codes, although the same notation, \([[n,k,d]]_q\), is usually used for both. Galois-qudit stabilizer codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
 
@@ -35,6 +37,7 @@ features:
 
 relations:
   parents:
+    - code_id: stabilizer
     - code_id: galois_into_galois
       detail: ''
 
