@@ -11,7 +11,10 @@ name: 'Low-density parity-check (LDPC) code'
 short_name: 'LDPC'
 #introduced: ''
 
-description: 'Stub.'
+description: |
+  Stub.
+
+  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, \(q\)-ary linear codes satisfying the above criteria are also called LDPC codes.
 
 #protection: ''
 
@@ -20,5 +23,8 @@ description: 'Stub.'
 
 relations:
   parents:
-    - code_id: 'parity_check'
+    - code_id: ecc
       detail: ''
+  cousins:
+    - code_id: LDPC
+      detail: 'Binary LDPC codes are parity check codes.'
