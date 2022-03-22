@@ -24,6 +24,8 @@ protection: |
     \langle \psi | E^{\dagger}_a E_b |\phi \rangle = C_{ab} \langle \psi | \phi \rangle~,
   \end{align}
   where the coefficients \(C_{ab}\) do not depend on \(|\psi\rangle\) or \(|\phi\rangle\). A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate error-correcting code}.
+
+  A code is \textit{degenerate} with respect to a noise model if different errors map code states to the same error subspace. For a linearly independent error set \(\cal{E}\), degeneracy is equivalent to \(\text{rank}(C_{ab}) < |\cal{E}|\).
 # Include other often used defs
 # Include complementary channel + approximate defs; approx should be a separate property or not?
 
@@ -41,7 +43,7 @@ features:
   #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
   general_gates:
-    - 'Universal gate set cannot be transversal due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
+    - 'Universal gate set cannot be transversal for any code that detects single-qubit errors due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
 
   decoders:
     - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of an encoder, which does not correct errors.'
