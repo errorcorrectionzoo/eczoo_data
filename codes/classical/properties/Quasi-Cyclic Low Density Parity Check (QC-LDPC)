@@ -1,0 +1,23 @@
+
+code_id: QC-LDPC
+
+name: 'Quasi-Cyclic LDPC Codes based on Pre-Lifted Protographs'
+introduced: '\cite{doi:1407.5364}'
+
+
+Description:
+- 'Quaci-Cyclic LDPC Code: To build a QC LDPC code we must first choose a base bipartite graph (a protograph also referred to as Tanner graph) and for the code to be LDPC, each side of the protograph must be regular (meaning all the nodes in each side must have the same degree). We now lift (fold) the graph in two steps: first a pre lift and then circulant-block lift. To apply a pre lift, we replace the ones in the base matrix of our protograph wiht a permutation matrix (one 1 in each row and column). For the second lift lets first define circulant-block matrix: a block matrix which has one non-zero block in each row and column and the non-zero blocks are circular permutations of an Identity matrix (an identity matrix which each of its rows got shifted same number of time). We now lift the pre-lifted protograph based on a circulant-block matrix and the base graph of the outcome matrix is the parity check matrix of our code.' 
+
+
+
+  fault_tolerance:
+    - 'Minimum distance bounded by (1 + m)! where m is the number of the check nodes or the number of rows of the parity check matrix'
+
+
+notes:
+  - 'The base matrix of a protograph is defined as follows: The nodes of one side of the bipartite graph will be the columns of B and nodes of the other side, rows of B. If there is an edge from a node i in one side to a node j in the other side, B(i,j) = 1 and 0 otherwise'
+
+
+
+  parents:
+    - code_id: LDPC
