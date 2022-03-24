@@ -1,0 +1,33 @@
+
+code_id: LDPC
+
+name: 'Asymptotically Good LDPC Convolutional Codes Based on Protographs'
+introduced: '\cite{doi:10.1070/RM1997v052n06ABEH002155}'
+
+
+Description:
+- 'LDPC or Low Density Parity Check codes: A (N, J, K) binary code which its parity check matrix, H, has N columns, J ones in each column, K ones in each row and zeros elsewhere. This code can be built from a sparse bipartite graph (reffered to asTanner graph). (details in notes)'
+- 'Convolutional (Cyclic) LDPC codes: Given a parity check matrix H, we can construct a (M, J, K) code with rate b/c code which its parity check matrix is semi infinite, has J ones in each column, K ones in each row starting from the M(c-b)th column and zero elsewhere. This code can be built by copying (reffered to as folding or lifting) a sparse bipartite graph infinite times and look at it as a huge bipartite graph. (details in notes)'
+- 'Tail Biting Convolutional LDPC codes: Given a parity check matrix H,,n,m,, , we can construct a (M, J, K, l) code with rate b/c code which its parity check matrix has dimensions (ln, lm), has J ones in each column, K ones in each row starting from the M(c-b)th column and zero elsewhere. This code can be built by copying (reffered to as folding or lifting) a sparse bipartite graph l times. (details in notes)'
+
+
+features:
+  - 'very close to the theoretical maximum (Shanon limit)'
+
+
+  rate: 'b/c'
+
+
+  encoders:
+    - 'Encoding complexity is of O(n) per symbol'
+
+ 
+
+realizations:
+  - 'Satelite transmision of digital television, Wifi, 10GB Ethernet, 5G'
+
+notes:
+  - 'A code is said to be good if its decoding is not complex and has a relatively good minimum distance with respect to its length (i.e. growth rate).'
+  - 'To build a code based on a bipartite graph, we can build the parity check matrix H. The nodes of one side of the bipartite graph will be the columns of H and nodes of the other side rows of H. if there is an edge from a node i in one side to a node j in the other side, H(i,j) = 1 and 0 otherwise'
+
+
