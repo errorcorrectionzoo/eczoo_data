@@ -9,17 +9,25 @@ logical: bits
 
 name: 'Low-density parity-check (LDPC) code'
 short_name: 'LDPC'
-#introduced: ''
+introduced: '\cite{http://www.inference.phy.cam.ac.uk/mackay/gallager/papers/ldpc.pdf}' #I could not find an arxiv or doi format since the original paper is from 1963 and what i put previously was the paper provided in the google docs
 
 description: |
-  Stub.
+  An (N, J, K) binary code which its parity check matrix, H, has N columns, J ones in each column, K ones in each row and zeros elsewhere. This code can be built from a sparse bipartite graph (reffered to as Tanner graph). If we put code words of a code on its respective node (all of the nodes are on one side of the bipartite graph), the value of the nodes on the other side should be zero and if atleast one node is non-zero, it means the code does not belong to our code-set.
+  To build a code based on a bipartite graph, we can build the parity check matrix H. The nodes of one side of the bipartite graph will be the columns of H and nodes of the other side rows of H. if there is an edge from a node i in one side to a node j in the other side, H(i,j) = 1 and 0 otherwise.
+  The name Low Density comes from the fact that the code's parity check matrix is sparse, meaning the mentioned bipartite graph has small number of edges with respect to the number of nodes.
 
   Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, \(q\)-ary linear codes satisfying the above criteria are also called LDPC codes.
 
 #protection: ''
+features:
 
-#notes:
-  #- ''
+  rate: 'The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
+
+
+  encoders: 'Encoding complexity is of O(n) per symbol'
+
+ 
+notes: 'A code is said to be asymptotically good if its decoding is not complex and has a relatively good minimum distance with respect to its length (i.e. growth rate).'
 
 relations:
   parents:
@@ -28,3 +36,5 @@ relations:
   cousins:
     - code_id: parity_check
       detail: 'Binary LDPC codes are parity check codes.'
+     - code_id: qldpc
+      detail: 'low density parity check codes for qbits'
