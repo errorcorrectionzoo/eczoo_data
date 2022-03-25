@@ -4,117 +4,36 @@
 #######################################################
 
 # Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
 
-# code id, physical, logical are all lower case
 code_id: justesen
 physical: q-ary_digits
 logical: q-ary_digits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'Justesen_code'
 introduced: '\cite{doi: 10.1109/TIT.1972.1054893}
-             \cite{manual:{MacWilliams/Sloane, The Theory of Error-Correcting Codes, Sec.10.11}}'
-
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'Given m, Justesen_code is a binary code, with length n=2mN, dimension k=mK, where the (N=2^m-1,K) are 
-              the parameters of the Reed-Solomon outer code over F_{2^m}. The code can be considered as concatenation
-              of a Reed-Solomon outer code with N distinct binary inner codes of dimension m and length 2m.'
+# \cite{manual:{MacWilliams/Sloane, The Theory of Error-Correcting Codes, Sec.10.11}}'
 
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
-# protection: |
-#   text...
-#   more text...
+description: 'Given m, Justesen_code is a binary code, with length \(n=2mN\), dimension \(k=mK\), where the \((N=2^m-1,K)\) are the parameters of the Reed-Solomon outer code over \(F_{2^m}\). The code can be considered as concatenation of a Reed-Solomon outer code with \(N\) distinct binary inner codes of dimension \(m\) and length \(2m\).'
+
 
 # protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
 
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
+  rate: |
+     \(R=k/n=K/2N\), and the relative minumum distance satisfy \(\delta_m=d_m/n\geq 0.11(1-2R)\)
 
-  rate: 'R=k/n=K/2N, and the relative minumum distance satisfy \delta_m=d_m/n\geq 0.11(1-2R)'
-
-  # This field that starts a list of strings, indexed by a dash; do not leave it
-  # empty. If empty, comment out.
-  # encoders:
-  #   - 'Specific description of a process that makes the states, usually for quantum codes.'
-  #   - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-  #   - 'Measurement-based preparation ... with ancilla overhead of ... .'
-  #   - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-  # # Not all fields are indexed by a dash
-  # transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
-
-  # general_gates:
-  #   - 'Universal gate set achieved by either additional ... gate.'
-  #   - 'Magic-state distillation protocols'
-  #   - 'kth Clifford hierarchy gates obtained by ... circuits'
-
+     The code can be improved and extend the range of \(R\) from 0 to 1 by puncturiing the code (by erasing \(s\) digits from each inner codeword), resulting in a code of length \(n=(2m-s)N\), rate \(R=mk/(2m-s)N\). The lower bound of the distance of the punctured code approaches \(d_m/n=(1-R/r)H^{-1}(1-r)\) as m goes to infinity, where \(r\) is the maximum of 1/2 and the solution to \(R=r^2/(1+log(1-H^{-1}(1-r)))\), and \(H\) being the binary entropy function.
+  
   decoders:
       - 'generalized minimum distance decoding \cite{doi: 10.1109/TIT.1972.1054893}'
-  #   - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-  #   - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
 
-  # fault_tolerance:
-  #   - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-  #   - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-  #   - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-  #   - 'Pieceable fault tolerance.'
 
-  # code_capacity_threshold:
-  #   - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
-  #   - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
-
-  # threshold:
-  #   - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-  #   - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-  #   - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-  #   - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
-
-  # # Propose a field that you feel is applicable to a large and interesting class of codes
-  # #some_other_field:
-  # # - 'detail'
-
-#realizations: ''
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  # - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  # - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
-
-notes:
-  - 'The code can be improved and extend the range of R from 0 to 1 by puncturiing the code (by erasing s digits from each inner codeword), resulting in a code of length n=(2m-s)N, rate R=mk/(2m-s)N. The lower bound of the distance of the punctured code approaches d_m/n=(1-R/r)H^{-1}(1-r) as m goes to infinity, where r is the maximum of 1/2 and the solution to R=r^2/(1+log(1-H^{-1}(1-r))), and H being the binary entropy function.'
 relations:
   parents:
-    - code_id: reed_solomon
-      detail: 'The outer code for Justesen codes'
     - code_id: generalized_concatenated
-  #cousins:
-    # - code_id: code_id2
-    #   detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-    # - code_id: code_id3
-    #   detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-    # - code_id: code_id4
-    #   detail: 'Codes (classical or quantum) related on other ways to this code.'
+  cousins:
+      - code_id: reed_solomon
+        detail: 'The outer code for Justesen codes'
+
