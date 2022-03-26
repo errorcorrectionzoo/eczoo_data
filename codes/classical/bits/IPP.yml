@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+
+code_id: ipp
+physical: bits
+logical: bits
+
+
+name: 'Code with Identifiable Parent Property'
+introduced: '\cite{//doi.org/10.1137/S0895480100376848}'
+
+
+description: 'If \(C\) is a \(q\)-ary code of length \(n\) and \(a\) and \(b\) are two codewords, then \(c\) is called a descendant of \(a\) and \(b\) if \(c_i \in \{a_i,b_i\}\), for \(i \in \{1,2,...,n\}\).Code \(C\) with the property that given any descendant \(c\) one can always identify at least one of the parent codewords in \(C\)'
+
+
+notes:
+  - 'For a \(q\)-ary code of length \(n\) with IPP its size is upper bounded by \(3q^{\frac{n}{3}} \) and lower bounded by \(c (\frac{q}{4})^{n/3}\) where \(c\) is a constant.'
+  - 'More papers \cite{//doi.org/10.1137/S0895480100376848}.'
+
+
+relations:
+
+  cousins:
+    - code_id: frameproof code
+      detail: 'Frameproof codes are used to fingerprint digital data. It can prevent copyrighted materials from unauthorized use.'
+
