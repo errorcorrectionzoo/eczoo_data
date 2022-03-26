@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+
+code_id: storage 
+physical: bits
+logical: bits
+
+name: 'recoverable distributed storage system code'
+introduced: '\cite{https://arxiv.org/abs/1408.4862}'
+
+
+description: 'It is a code for a distributed storage system such that every node can be recovered from its neighbors.The the nodes in the distributed storage system may not be connected to every other node in the system. '
+
+
+protection: 'Protects a distributed storage system against a node failure or multiple node failures.'
+
+
+notes:
+  - 'The size of the code depends on the underlying structure of the distributed storage system.'
+
+
+relations:
+
+  cousins:
+    - code_id: locally_recoverable 
+      detail: 'Every coordinate of the codeword in the code can be recovered by some deterministic function of some other coordinates of the codeword'
+
