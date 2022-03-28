@@ -5,17 +5,16 @@ logical: q-ary_digits
 name: 'Simplex code'
 
 description: |
-  An \([n,k,q^{k-1}]\) linear code over \(\mathbb{F}_q\), where \(n=\frac{q^k-1}{q-1}\). The columns of the generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(k-1,q)\), with each column being a chosen representative of the corresponding element.
-
+  An \([n,k,q^{k-1}]\) linear code over \(GF(q)\), where \(n=\frac{q^k-1}{q-1}\). The columns of the generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(k-1,q)\), with each column being a chosen representative of the corresponding element. All of the non-zero codewords have a constant weight \(q^{k-1}\). Its dual code is the \((n,n-k,3)\) Hamming code. The name of the code comes from the property that, for \(q=2\), the codewords form a \((2^k-1)\)-simplex of constant edge length if the codewords are interpreted as points in \(\mathbb{R}^n\).
 features:
 
   decoders:
-    - 'A quantum decoding algorithm \cite{manual:{A. Barg and S. Zhou, A quantum decoding algorithm of the simplex code, 2004.}}.'
+    - 'Due to the small size, it can be decoded according to maximum likelihood.'
+    - 'Some faster decoders for the \(q=2\) case: \cite{manual:{R. R. Green, "A serial orthogonal decoder," JPL Space Programs Summary, vol. 37–39-IV, pp. 247–253, 1966.},doi:10.1109/ITW.2003.1216684}'
+    - 'A quantum decoder for the \(q=2\) case: \cite{manual:{A. Barg and S. Zhou, “A quantum decoding algorithm for the simplex code”, in Proceedings of the 36th Annual Allerton Conference on Communication, Control and Computing, Monticello, IL, 23–25 September 1998 (UIUC 1998) 359–365}}.'
 
 
 notes:
-  - 'The non-zero codewords have a constant weight \(q^k-1\).'
-  - 'For \(q=2\), the codewords form a \((2^k-1)\)-simplex of constant edge length if the codewords are interpreted as points in \(\mathbb{R}^n\).'
   - 'Saturates the Griesmer bound.'
 
 relations:
@@ -24,4 +23,6 @@ relations:
       detail: ''
   cousins:
     - code_id: hamming
-      detail: 'For \(q=2\), the dual code is the \((n,n-k,3)\) Hamming code.'
+      detail: 'The dual code is the \((n,n-k,3)\) Hamming code.'
+    - code_id: reed_muller
+      detail: 'The \(q=2\) case can be constructed from the generator matrix of \(\text{RM}(1,k)\) by removing first the all-ones row, and then the all-zero column.'
