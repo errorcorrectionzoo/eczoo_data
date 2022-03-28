@@ -7,8 +7,8 @@ code_id: reed_solomon
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Reed-Solomon code'
-introduced: '\cite{doi:10.1137/0108018}'
+name: 'Reed-Solomon (RS) code'
+introduced: '\cite{doi:10.1214/aoms/1177729387,doi:10.1137/0108018}'
 
 description: |
   An \([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(GF(q)\) with \(q>n\). Encodes \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(\alpha_1),\cdots,f_\mu(\alpha_n)\}\), with polynomial
@@ -20,13 +20,12 @@ protection: 'Corrects erasures on \(n-k\) coordinates.'
 
 features:
   decoders:
-    - 'Berlekamp-Welch decoder \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S.
-Patent, Number 4,633,470 1986.}}, assuming that \(t \geq (n+k)/2\).'
+    - 'Berlekamp-Welch decoder \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S. Patent, Number 4,633,470 1986.}}, assuming that \(t \geq (n+k)/2\).'
 #notes:
 #  - ''
 
 realizations:
-  - 'Numerous applications: computer hard-disks, DVDs, 3G telephone networks (IS-2000, Release D), NASA deep-space exploration, etc.'
+  - 'Numerous applications: computer hard-disks, DVDs, digital audio tapes, 3G telephone networks (IS-2000, Release D), NASA deep-space exploration, etc.'
   - 'Correcting pooled testing results for SARS-CoV-2 \cite{doi:10.1126/sciadv.abc5961}.'
 
 notes:
@@ -37,6 +36,7 @@ relations:
     - code_id: generalized_reed_solomon
     - code_id: mds
       detail: 'Every Reed-Solomon code is MDS. If \(k \leq p\) then all MDS codes \( [n,k,n-k+1]_{p^m} \) are Reed-Solomon codes \cite{doi:10.4171/JEMS/316}.'
+    - code_id: distributed_storage
   cousins:
     - code_id: hamming
       detail: ''
