@@ -3,21 +3,23 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: stabilizer
+code_id: qubit_stabilizer
 physical: qubits
 logical: qubits
 
-name: 'Stabilizer code'
+name: 'Qubit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}'
 
 description: |
-  An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\), which cannot contain \(-I\). The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
+  An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\).
+
+  The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
   (Pauli matrices go here.)
 
   Each stabilizer code can be represented by a \((n-k) \times 2n\) stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the binary symplectic representation of a stabilizer generator. (Standard form goes here.)
 
-  Stabilizer codes can be defined for modular and Galois qudits using their respective Pauli groups, and, more generally, any Abelian group of operators. Qubit codes can be extended to modular-qudit codes by decorating appropriate stabilizer generators with powers. For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\). A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into \textit{local-dimension-invariant (LDI)} form  \cite{arxiv:1910.08122}. Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.
+  Qubit stabilizer codes can be extended to modular-qudit stabilizer codes by decorating appropriate generators with powers. For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\). A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into \textit{local-dimension-invariant (LDI)} form  \cite{arxiv:1910.08122}. Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.
 
 protection: |
   Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
@@ -30,10 +32,14 @@ features:
     - 'Circuits obtained by first constructing the CWS form of the code \cite{arXiv:0803.3232,arXiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
     - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
 features:
+  general_gates:
+    - 'Logical gates implemented via constant-depth quantum circuits of \(D\)-dimensional geometrically local stabilizer codes lie in the \(D\)th level of the Clifford hierarchy \cite{arxiv:1206.1609}.'
+    - 'With pieceable fault-tolerance, any nondegenerate stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arXiv:1603.03948}.'
   decoders:
-    - 'The structure of stabilizer codes allows for \textit{syndrome-based decoding}, where errors are corrected based on the results of stabilizer measurements (\textit{syndromes}).'
+    - 'The structure of stabilizer codes allows for \textit{syndrome-based decoding}, where errors are corrected based on the results of stabilizer measurements (\textit{syndromes}). Finding an optimal decoder is \(\#P\)-hard \cite{arxiv:1310.3235}.'
     - 'Trellis decoder, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arXiv:quant-ph/0512041}.'
   fault_tolerance:
+    - 'With pieceable fault-tolerance, any nondegenerate stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arXiv:1603.03948}.'
     - 'Fault-tolerant error correction can be done using Shor error correction \cite{arXiv:quant-ph/9605011}, which is based on repeated measurements, or Knill error correction, which is based on teleportation \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}.'
   code_capacity_threshold:
     - 'For correlated Pauli noise, bounds on code capacity thresholds for any stabilizer codes can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688,arXiv:1809.10704}.'
@@ -48,6 +54,7 @@ notes:
 # https://arxiv.org/pdf/0903.0566.pdf parent is code over GF(4): an additive self-orthogonal code over GF(4) with respect to the trace Hermitian inner product
 relations:
   parents:
+    - code_id: stabilizer
     - code_id: cws
       detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
   cousins:
