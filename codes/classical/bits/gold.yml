@@ -3,47 +3,22 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
 
-# code id, physical, logical are all lower case
 code_id: gold
 physical: bits
 logical: bits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'Gold'
 introduced: '\cite{doi:10.1109/TIT.1967.1054048}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'A \([2^r -1, 2r ]\) is a cyclic linear code characterized by the generator polynomial of degree r of a preferred-pair of m-sequences.'
+
+description: 'A \([2^r -1, 2r ]\) is a cyclic linear code characterized by the generator polynomial of degree \(r\) of two maximum-period sequences of period \(2^r-1\) with absolute cross-correlation \( \leq 2^((r+2)/2)\).Codewords of Gold codes are generated using \(m\)-sequences \(x\) and \(y\), which are codewords of simplex codes with check polynomials of degree \(r\) \cite{doi:10.1109/TIT.1967.1054048}. 
+The information bits are initialized in the shift registers of the the two \(m\)-sequences \(x\) and \(y\). General decoding is done by building a sparse parity check matrix, followed by applying an iterative message passing alogirithm. \cite{doi:10.1007/s11265-006-7278-y}.'
 
 features:
-  
-  encoders:
-    - 'Codewords of Gold codes are generated using m-sequences x and y, which are codewords of simplex codes with check polynomials of degree r. The information bits are initialized in the shift registers of the the two m-sequences x and y.'
-
   decoders:
-    - 'General decoding is done by building a sparse parity check matrix, followed by applying an iterative message passing alogirithm. \cite{doi:10.1007/s11265-006-7278-y}, \cite{doi:10.1109/18.910572}.'
-
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
-
 realizations:
-  - 'Used in for synchronization purposes in telecommunication and satelite navigation.'
+  - 'Used in for synchronization purposes in telecommunication \cite{manual: {Mujtaba Hamid and Andy Miller, \emph{Gold Code Generators in Virtex Devices}, (2000)}} and satelite navigation \( (\url{https://www.kowoma-gps.de/signals/})\).'
 
 relations:
   parents:
