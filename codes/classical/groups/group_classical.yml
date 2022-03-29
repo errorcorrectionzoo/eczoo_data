@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: group_classical
+physical: groups
+logical: points
+
+name: 'Group-based code'
+
+description: 'Encodes \(K\) states (codewords) in \(n\) coordinates labeled by elements of a group \(G\).'
+
+protection: ''
+
+#notes:
+#  - ''
+
+relations:
+  parents:
+    - code_id: ecc
+      detail: ''
+
+  cousins:
+    - code_id: bits_into_bits
+      detail: 'Group-based codes whose alphabet is based on the group \(\mathbb{Z}_2\) are binary codes.'
+    - code_id: points_into_lattices
+      detail: 'Group-based codes whose alphabet is based on the group \(\mathbb{R}\) are lattice-based codes.'
+    - code_id: group_quantum
+    # lloyd-slotine, braunstein
