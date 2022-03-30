@@ -16,8 +16,9 @@ Let us now define the discrete Weyl operators \( X(a)\) and \(Z(a)\) for each \(
 \forall x \in [d]: X(a)|x\rangle &= |x+a\rangle\\
 \forall x \in [d]: Z(a)|x\rangle &= \omega^{a*x} |x\rangle
 \end{align}
-where \( a*b := \sum_{i=1}^m \alpha_i \, \beta_i \).\\
-Next, for any $a,b\in\mathbb{F}_d^n$ we define
+where \( a*b := \sum_{i=1}^m \alpha_i \, \beta_i \). Note that these operators are defined using this \(*\) inner product, instead of the usual trace
+inner product, and therefore, are different from Galois-qudit operators.\\
+Next, for any $a,b\in(GF(d))^n$ we define
 \begin{align}
 D_{a,b} := X(a_1)Z(b_1)\otimes X(a_2) Z(b_2)\otimes \cdots \otimes X(a_n)Z(b_n)
 \end{align}
@@ -27,7 +28,7 @@ to a linear subspace $C_1\in\mathbb{F}_d^n$ as follows
 S_{C_1} := \langle \omega^k \mathbb{I}, D_{a,a}: a\in C_1, \; k\in[p-1]_0\rangle
 \end{align}
 Denote the corresponding code space by $\mathcal{C}$. This is
-an encoding of $k = \text{dim} C_1$ (logical) qudits into $n$ (physical) qudits.\\
+an encoding of $k = \text{dim} (C_1)$ (logical) qudits into $n$ (physical) qudits.\\
 It is noteworthy that no reflective stabilizer code can correct every
 single-qudit errors, and therefore, the authors extend these codes:
 take another linear code $C_2\subset C_1$ and consider the following
@@ -39,11 +40,16 @@ code spaces
 These are the two extensions: $\mathcal{C}_Z$ being the \testit{phase-error extension},
 and $\mathcal{C}_X$ being the \textit{flip-error} extension by $C_2$.'
 
-protection: 'The nice thing about the code is that you can design it to correct a set a desired errors.
-The approach is to make a Cayley graph with the edges being the errors.'
+protection: 'The nice thing about the code is that you can design it to correct a set a desired errors. However, we note that this error set cannot be any arbitrary set, since one cannot correct agains any arbitrary error set.
+For instance, they show that for any \(n>2\), one can find a reflexive stabilizer code that encodes \(n-1\) logical qubits into \(n\) physical qubits and corrects against the fully correlated error set. They also show that any extended reflexive stabilizer code made of \(C_1\)
+and \(C_2\), such that \( wt(C_1) \geq 3\) and \(wt(C_2^\perp) \geq 2\), corrects all single qudit errors.'
 
 features:
 
   rate: ' Depends on the choice of the linear code(s) (It is also
   worth mentioning that the extended versions are in 1-1 correspondence
-  with CSS codes. And moreover, their rate is the same as the rate of an CSS code with the same classical codes $C_1$ and $C_2$.)'
+  with CSS codes. And moreover, their rate is the same as the rate of a CSS code with the same classical codes $C_1$ and $C_2$.)'
+
+relations:
+  #cousins:
+    #- code_id: css codes
