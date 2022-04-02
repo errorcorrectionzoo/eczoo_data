@@ -4,45 +4,25 @@
 #######################################################
 
 
-# code id, physical, logical are all lower case
-code_id: modular-qudit-513
+code_id: qudit_stab_5_1_3
 physical: qudits
 logical: qudits
 
-name: 'Modular qudit [[5,1,3]] code'
-introduced: '\cite{arXiv:quant-ph/9702033v3}'
+name: 'Modular-qudit \([[5,1,3]]\) code'
+introduced: '\cite{arXiv:quant-ph/9702033}'
 
-description: 'Qubits are defined in the system with spin equal to \(1/2\). This QECC is constructed for particles with spin higher than \(1/2\) using group-theoretical methods. Each $N$ state quantum particle (a particle with local dimension \(N\)) is encoded as five \(N\) state quantum registers. This code is optimal because it is not possible to correct a general quantum error involving exactly one quantum register by encoding each quantum particle by four (or less) quantum registers.'
+description: 'Precisely speaking, we call it modular-qudit \([[5,1,3]]_p\) code (if the qudit dimension is prime) or modular-qudit \([[5,1,3]]_q\) code if it's defined for all composite dimensions. A qubit is a two-level system, and a qudit is a quantum system over \(N\) levels. Using group-theoretical methods, this QECC is constructed for qudits, and it generalizes the \(5\)-qubit code. This code is optimal because it is not possible to correct a general quantum error involving exactly one quantum register by encoding each quantum particle by four (or less) quantum registers.'
 
-protection: 'Protects against any quantum error arising from any one of the five quantum registers. The code distance is \(3\), and the codeword length must be at least \(5\).'
+protection: 'Protects against any quantum error arising from any one of the five quantum registers.'
 
 features:
 
-  rate: '\(1/5\)'
+  encoders: 'With \(O(1)\) generalized $CNOT$ gates, Toffoi gates \cite{doi:10.1103/PhysRevLett.75.748, doi:10.1103/PhysRevA.52.3457}, and the quantum discrete Fourier transformation \cite{doi:10.1109/SFCS.1994.365700, doi:10.1103/RevModPhys.68.733, arXiv:quant-ph/9702028v1}, a state \(|k\rangle\) is encoded as \(\frac{1}{N^{3/2}}\sum_{p,q,r = 0}^{N-1}\omega_N^{k(p+q+r)+pr}|p+q+k,p+r,q+r,p,q\rangle\), where \(k = 0, 1, \ldots, N-1\), and the addition is defined in \(\mathbb{Z}_N\).'
 
-  encoders:
-    - 'Copy the state \(|k,0,0,0,0\rangle\) to \(|k,0,k,k,k\rangle\) using a series of $CNOT$ gates.'
-    - 'On the third, fourth, and fifth quantum registers, apply quantum discrete Fourier transforms separately \cite{doi:10.1109/SFCS.1994.365700, doi:10.1103/RevModPhys.68.733, arXiv:quant-ph/9702028v1}.'
-    - 'Add an additional phase of \(\omega_N^{pr}\) to the system using a Toffoli-like gate \cite{doi:10.1103/PhysRevLett.75.748, doi:10.1103/PhysRevA.52.3457}.'
-    - 'Use a series of \(CNOT\) gates to copy the fourth register to the second one.'
-    - 'Obtain the desired QECC by suitably adding the quantum registers together using reversible quantum logic gates.'
-    - 'The encoding procedure is summarized below:'
-    \begin{align}
-    |k,0,0,0,0\rangle &\longmapsto |k,0,k,k,k\rangle\\
-                    &\longmapsto \frac{1}{N^{3/2}}\sum_{p,q,r = 0}^{N-1}\omega_N^{k(p+q+r)}|k,0,r,p,q\rangle\\
-                    &\longmapsto \frac{1}{N^{3/2}}\sum_{p,q,r = 0}^{N-1}\omega_N^{k(p+q+r)+pr}|k,0,p,q,r\rangle\\
-                    &\longmapsto \frac{1}{N^{3/2}}\sum_{p,q,r = 0}^{N-1}\omega_N^{k(p+q+r)+pr}|k,p,r,p,q\rangle\\
-                    &\longmapsto \frac{1}{N^{3/2}}\sum_{p,q,r = 0}^{N-1}\omega_N^{k(p+q+r)+pr}|p+q+k,p+r,q+r,p,q\rangle.
-    \end{align}
 
 
 
 relations:
   parents:
-    - code_id: qudits_into_qudits
-      detail: ''
-  cousins:
-    - code_id: frobenius
-      detail: ''
     - code_id: qudit_stabilizer
       detail: ''
