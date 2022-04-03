@@ -9,10 +9,10 @@ physical: bits
 logical: bits
 
 name: 'kerdock'
-introduced: '\url{https://doi.org/10.1016/S0019-9958(72)90376-2}'
+introduced: '\cite{doi:10.1016/S0019-9958(72)90376-2}'
 
 description: 'Kerdock code is a \([[2^m, 2^{2m}, 2^{m-1} - 2^{frac{m}{2}-1}]]\) binary code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\) where \(R(1,m)\)
-is the corresponding first order Reed Muller code. The code is non linear and can exist for perimeters for which there is no linear code (See Nordstrom-Robinson). The relative
+is the corresponding first order Reed Muller code. The code is nonlinear, and its size is twice the size of the largest possible linear code with the same length and distance. The relative
 minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large.'
 
 #protection: ''
@@ -24,8 +24,8 @@ features:
   encoders:
     - 'Boolean functions are of the form \(Q(X) + l(X) + b\)' where \(Q(X) is \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), \(l(X)\) is linear in \(m\) variables and \(b\) is 
        in \(\mathbb{F}_{2}\). 
-    - 'Codewords can be considered as evaluations of these functions over \(\mathbb{F}_{2}^{m}\).'
-    - 'The matrix \(A = [a_{ij}]\) constitute the Kerdock set \(K\) (See notes).' 
+    - 'Codewords are formed as evaluations of these functions over \(\mathbb{F}_{2}^{m}\).'
+    - 'The matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\) (See notes).' 
 
   decoders:
     - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the binary first-order Reed-Muller code to Kerdock code.'
@@ -37,15 +37,16 @@ realizations:
   - 't - collision secure schemes can be designed to detect a pirated copy once t users have colluded \cite{doi:10.1109/TIT.2004.838106}.'
 
 notes:
-  - 'A kerdock set is a set of symmetric binary matrices with zero diagonal entries with the property that difference of distinct matrices in the set have full rank.'
+  - 'Kerdock set is a set of symmetric binary matrices with zero diagonal entries with the property that difference of distinct matrices in the set have full rank.'
   - 'Kerdock codes can be seen as an extended cyclic code over Z4 (quaternary code), where the appended bit is a zero sum check \cite{arXiv:math/0207208}.'
 
 relations:
   parents:
     - code_id: reed_muller
-      detail: 'Kerdock code is a subcode of second order Reed Muller Code. It consists of a number of cosets of RM(2,m) created by quotienting with RM(1,m).'
+      detail: 'Kerdock code is a subcode of second order Reed Muller Code. It consists of a number of cosets of \(RM(2,m)\) created by quotienting with \(RM(1,m)\).'
   cousins:
-    - code_id: nordstrom_robinson
-      detail: 'Specializes Kerdock code for \(m = 4\). Consequently, the Kerdock set is a set of 8 matrices in \(\mathbb(F)_{2}^{4X4}\). The resulting code is binary with 
-      parameters [16, 256, 6].'
+    - 
+    #- code_id: nordstrom_robinson
+    #  detail: 'Specializes Kerdock code for \(m = 4\). Consequently, the Kerdock set is a set of 8 matrices in \(\mathbb(F)_{2}^{4X4}\). The resulting code is binary with 
+    #  parameters [16, 256, 6].'
       
