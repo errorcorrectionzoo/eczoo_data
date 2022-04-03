@@ -1,50 +1,36 @@
 
 
 # code id, physical, logical are all lower case
-code_id: tensor_code
+code_id: tensor
 physical: bits
 logical: bits
-name: 'Tensor Code'
+name: 'Tensor-Product Code'
 introduced: '\cite{doi:10.1109/ITW2.2006.323741}'
 description: | 
-  Given two linear codes \(C_1\) and \(C_2\) with parity check matrices \(H_1\) and \(H_2\) the tensor code \(C_1 \otimes C_2\) is a 
-  linear code whose parity check matrix is given by \(H_1 \otimes H_2 \) which acts on an \( n_1n_2 \)-dimensional vector space. Typically, \(C_1\) is chosen as a
-  code over \(\mathbf{F}_p\) and \(C_2\) over \(\mathbf{F}_{p^m}\) where \(p\) is a prime to make the tensor product act consistently on \(\mathbf{F}^{n_1 n_2}_{p^m}\)
+  Given two linear codes \(C_1\) and \(C_2\) over the same alphabet with parity check matrices \(H_1\) and \(H_2\) the tensor code \(C_1 \otimes C_2\) is a 
+  linear code whose parity check matrix is given by \(H_1 \otimes H_2 \) which acts on an \( n_1n_2 \)-dimensional vector space, the code space for \(C_1 \otimes C_2\).
+  The tensor code is then defined as the linear code in \(\subset F^{n_1 \times n_2}\) satisfying the parity check equation \(H_1 C H^{\top}_2 = 0\). This ensures 
+  that $C$ has exactly $r_1r_2$ parity check positions. 
 
 protection: | 
 
-  Given the syndrome encoding strategy (see below), there are three guaranteed regimes of protection with tensor product codes in the binary alphabet: 
-  1. If \(C_1\) can detect errors in class \(D_1\) and \(C_2\) can detect errors in class \(D_2\) then \(C_1 \otimes C_2 \) can detect errors of class \(D_1\)
-  in each faulty n_1-sized sub-block of a transmitted message and the pattern of faulty sub-blocks in class \(D_1\). For example, if \(C_1\) can detect an odd
-  number of errors and \(C_2\) can detect at most 2 errors, then \(C_1 \otimes C_2\) can detect errors in those messages where at most two sub-blocks are faulty 
-  and where each faulty sub-block has an odd number of errors' 
-
-  2. If \(C_1\) can detect a class of errors \(D_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2 \) can find the \(n_1\)-bit sub-block
-  with errors assuming that the pattern of errors of sub-blocks is in class \(E_2\) and each faulty sub-block has errors in class \(D_1\). In this case 
-  \(C_1 \otimes C_2 \) would be an error-locating code. 
-
-  3. If \(C_1\) can correct a class of errors \(E_1\) and \(C_2\) can correct a class of errors \(E_2\) then \(C_1 \otimes C_2\) can correct errors in a transmitted 
-  message such that the pattern of faulty sub-blocks occurs in class \(E_2\) and each faulty sub-block has errors in class \(E_1\).
+The distance of the product code is \(d_1 x d_2\), where \(d_1= \text{dist}(C1)\) and \(d_2=\text{dist}(D2)\). They correct any combination of errors of weight 
+up to \(d_1 d_2/2 \) and some combinations of structured errors.
 
 features:
 
   rate: 'Rate(\(C_1 \otimes C_2\) = Rate(\(C_1\))Rate(\(C_2\))'
-
-  encoders: |
-    Let \(C \in F^{n_1 \times n_2}_2 \) be a codeword. Then we must pick the information bits and the parity bits (note that this is equivalent to 
-    multiplying with the generator matrix); note that \(H_1 \otimes H_2 \in F^{r_1r_2 \times n_1n_2}\) so there will be exactly r_1r_2 parity check positions.
-    These positions are obtained by setting terminal corner \(r_1 \times r_2 \) entries of \(C\) in terms of the rest of the entries, and by solving 
-    \(H_1 C H^{\top}_2 = 0\). 
     
-  decoders: 
-  - 'Syndrome decoding'
-  - 'Error location coupled with viterbi decoding for every faulty sub-block: \cite{doi: 10.1109/TMAG.2005.861043}' 
+  decoders: |
+  
+  The simple decoding algorithm (first decode all columns with \(C_1\), then all rows with \(C_2\) corrects up to \((d_1d_2-1)/4 \) errors. More involved algorithms  
+  such as Generalized Minimum Distance Decoding \cite{doi: 10.1109/TIT.1966.1053873} or Min-sum algorithm can decode all errors of weight up to (d_1d_2-1)/2. Finally, 
+  error location may be coupled with viterbi decoding for every faulty sub-block: \cite{doi: 10.1109/TMAG.2005.861043}. 
   
 realizations:
   - 'Code used in magnetic recording by taking the tensor product of a Reed-Solomon code and a parity-check code: \cite{doi: 10.1109/TMAG.2005.861043}'
 
 relations:
-  parents:
-    - code_id: binary_linear
-      detail: 'Linear Code'
+  cousins:
+    - code_id: concatenated
   
