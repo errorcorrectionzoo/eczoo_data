@@ -1,8 +1,8 @@
 
 code_id: ternary_golay
-physical: bits
-logical: bits
-name: 'Ternary Golay Code \cite{doi:10.1007/bf03025254}'
+physical: q-ary_digits
+logical: q-ary_digits
+name: 'Ternary Golay Code'
 introduced: '\cite{manual:{Golay, Marcel JE. "Notes on digital coding." Proc. IEEE 37 (1949): 657.}}'
 description: |
 
@@ -18,8 +18,8 @@ description: |
   \end{align}
 
   The ternary golay code is a perfect code because with $\(d = 5\)$, \(\mathcal{G}_11\) can correct at most up to 2 errors so the Hamming bound 
-  is \( 3^11/\sum_{k=0}^{2}{n\choose k}2^k = 729\) which is exactly the number of codewords in \(\mathcal{G}_{11}\). In fact it can be shown that any perfect 
-  code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with 
+  is \( 3^11/\sum_{k=0}^{2}{n\choose k}2^k = 729\) which is exactly the number of codewords in \(\mathcal{G}_{11}\). In fact it can be shown that any non-trivial linear
+  perfect code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with 
   generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) over \(\mathbf{F}_3\). 
 
 protection: 'Corrects up to 2 errors and detects up to 4 errors'
@@ -36,11 +36,9 @@ realizations:
 
 relations:
   parents:
-    - code_id: perfect_code
-      detail: 'Codes that achieve a Hamming bound'
-    - code_id: qr_code
-      detail: 'Cyclic codes--whose generator polynomial is a product of linear factors of the form \(x-\zeta^j\) where \(j \) is a quadratic reside of a prime
-      \(p\), \(\zeta\) is a \(p\)th root of unity adjoined to \(\mathbb{F}_l\) where \(l\) is a prime and a residue mod \(p\)'
+    - code_id: binary_linear
+    - code_id: perfect
+    - code_id: quad_residue
   cousins:
     - code_id: binary_golay
       detail: 'Golay code over the binary alphabet'
