@@ -39,8 +39,9 @@ relations:
   parents:
     - code_id: bits_into_bits
     - code_id: quatenary_over_z4
-      detail: - 'Kerdock codes can be seen as an extended cyclic code over Z4 (quaternary code), where the appended bit is a zero sum check \cite{arXiv:math/0207208}.
-      '  
+      detail: - 'Kerdock codes can be seen as an extended linear cyclic code over Z4 (quatenary code), where the appended bit is a zero sum check \cite{arXiv:math/0207208}.
+      We map the Kerdock codewords to Z4 via the Gray map which is 00->0, 01->1, 11->2, 10->3. It is easy to see that the Gray map is inherently non linear. The map is 
+      an isometry provided the metric in the binary space is the standard Hamming metric and the metric in Z4 space is the Lee metric.'  
 
   cousins:
     - code_id: reed_muller
