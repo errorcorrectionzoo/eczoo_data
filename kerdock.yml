@@ -12,25 +12,21 @@ name: 'kerdock'
 introduced: '\cite{doi:10.1016/S0019-9958(72)90376-2}'
 
 description: 'Kerdock code is a \((2^m, 2^{2m}, 2^{m-1} - 2^{frac{m}{2}-1})\) binary code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\) where \(R(1,m)\)
-is the corresponding first order Reed Muller code. The code is nonlinear, and its size is twice the size of the largest possible linear code with the same length and distance. The relative
-minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large.'
+is the corresponding first order Reed Muller code. The code is nonlinear, and its size is twice the size of the largest possible linear code with the same length and distance.
+The relative minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large. Let the matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\) (See notes). 
+Boolean functions are of the form \(Q(X) + l(X) + b\) where \(Q(X) is \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), \(l(X)\) is linear in \(m\) variables and \(b\) is in 
+\(\mathbb{F}_{2}\). Codewords are  formed as evaluations of these functions over \(\mathbb{F}_{2}^{m}\).
 
 #protection: ''
 
 features:
 
-  rate: 'The transmission rate is \(\frac{2m}{2^m}\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
+rate: 'The transmission rate is \(\frac{2m}{2^m}\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
 
-  encoders:
-    - 'Boolean functions are of the form \(Q(X) + l(X) + b\)' where \(Q(X) is \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), \(l(X)\) is linear in \(m\) variables and \(b\) is 
-       in \(\mathbb{F}_{2}\). 
-    - 'Codewords are formed as evaluations of these functions over \(\mathbb{F}_{2}^{m}\).'
-    - 'The matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\) (See notes).' 
-
-  decoders:
-    - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the binary first-order Reed-Muller code to Kerdock code. 
+decoders:
+  - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the binary first-order Reed-Muller code to Kerdock code. 
        \cite{doi:10.1109/18.312154}.'
-    - 'Complexity of soft decision decoding algorithm: \(4^m\) multiplications and \(m4^m\) additions \cite{arXiv:math/0207208}.'
+  - 'Complexity of soft decision decoding algorithm: \(4^m\) multiplications and \(m4^m\) additions \cite{arXiv:math/0207208}.'
     
 
 realizations:
