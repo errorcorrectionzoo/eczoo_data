@@ -1,0 +1,28 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_surface
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit surface code'
+introduced: '\cite{arXiv:quant-ph/9707021}'
+
+description: 'A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qudit located at each edge of the tesselation). The code has \( n=E \) many physical qudits, where \( E \) is the number of edges of the tesselation, and \( k=2g \) many logical qudits, where \( g \) is the genus of the surface.'
+
+protection: 'When defined on an \(L\times L\) square tiling of the torus, protects against \(L\) errors. More generally, the code distance is the number of edges in the shortest non contractible cycle in the tesselation or dual tesselation  \cite{arXiv:quant-ph/0110143}.'
+
+notes:
+  - 'The simplest \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the qudit surface code with \( q=10\).'
+
+relations:
+  parents:
+    - code_id: qudit_css
+      detail: 'Plaquette and star operators are stabilizer generators.'
+    - code_id: topological_abelian
+      detail: 'Qudit surface code Hamiltonians admit topological phases associated with \(\mathbb{Z}_q\) \cite{arXiv:quant-ph/0609070}.'
+  cousins:
+    - code_id: surface
+      detail: 'The qudit surface code with \(q=2\) is the surface code.'

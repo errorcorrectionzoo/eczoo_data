@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: honeycomb
+physical: qubits
+logical: qubits
+
+name: 'Honeycomb code'
+introduced: '\cite{arXiv:2107.02194}'
+
+description: |
+  Floquet code inspired by the Kitaev honeycomb model \cite{arXiv:cond-mat/0506438} whose logical qubits are generated through a particular sequence of measurements.
+
+  The code is defined on a hexagonal (honeycomb) lattice with a physical qubit located at each vertex. Edges are labeled \(x\), \(y\), and \(z\), such that one edge of each label meet at every vertex. Check operators are defined as \(XX\) acting on any two qubits joined by an \(x\) edge, and similarly for \(y\) and \(z\). The hexagonal lattice is 3-colorable, so the hexagons may be labeled 0, 1, 2 such that no two neighboring hexagons have the same label.
+
+  The code-generating measurement pattern consists of measuring the check operators located on all of the \(r\)-labeled edges in round \(r\) mod 3. The code space is the \(+1\) eigenspace of the instantaneous stabilizer group (ISG). The ISG specifies the state of the system as a Pauli stabilizer state at a particular round of measurement, and it evolves into a (potentially) different ISG depending on the check operators measured.
+
+#This code has dynamically generated logical qubits: although it has no logical qubits when viewed as a subsystem code, it is able to generate logical qubits through a measurement pattern.
+protection: 'Protective features similar to the surface code: on a torus geometry, the code protects two logical qubits with a code distance proportional to the linear size of the torus. Properties of the code with open boundaries are discussed in Refs. \cite{arXiv:2110.09545,arXiv:2110.05348}.'
+
+features:
+
+  encoders:
+    - 'Initialization can be performed by preparing each pair of qubits  on an edge in some particular state independently specified by the effective-one-qubit operators (two-qubit Pauli strings centered on an edge) and then beginning the check measurement sequence. This is analogous to projecting a state into the code space by measuring stabilizers.'
+
+  general_gates:
+   - 'There are two types of logical operators, \textit{inner} and \textit{outer}. An inner logical operator is the product of check operators on a homologically nontrivial cycle. They belong to the stabilizer group as a subsystem code. Outer logical operators have an interpretation in terms of magnetic and electric operators of an embedded surface code, and they do not belong to the stabilizer group of the associated subsystem code.'
+
+  decoders:
+    - 'The ISG has a static subgroup for all time steps \(r\geq 3\) – that is, a subgroup which remains a subgroup of the ISG for all future times – given by so-called \textit{plaquette stabilizers}. These are stabilizers consisting of products of check operators around homologically trivial paths. The syndrome bits correspond to the eigenvalues of the plaquette stabilizers. Because of the structure of the check operators, only one-third of all plaquettes are measured each round. The syndrome bits must therefore be represented by a lattice in spacetime, to reflect when and where the outcome was obtained.'
+
+  fault_tolerance:
+    - 'One can run a fault-tolerant decoding algorithm by (1) bipartitioning the syndrome lattice into two graphs which are congruent to the Cayley graph of the free abelian group with three generators (up to boundary conditions) and (2) performing a matching algorithm to deduce errors.'
+
+  threshold:
+    - '\(0.2\%-0.3\%\) in a controlled-not circuit model with a correlated minimum-weight perfect-matching decoder \cite{arXiv:2108.10457}.'
+    - '\(1.5\%<p<2.0\%\) in a circuit model with native two-body measurements and a correlated minimum-weight perfect-matching decoder \cite{arXiv:2108.10457}. Here, \(p\) is the collective error rate of the two-body measurement gate, including both measurement and correlated data depolarization error processes.'
+    - 'Against circuit-level noise: within \(0.2\% − 0.3\%\) for SD6 (standard depolarizing 6-step cycle), \(0.1\% − 0.15\%\) for SI1000 (superconducting-inspired 1000 ns cycle), and \(1.5\% − 2.0\%\) for EM3 (entangling-measurement
+3-step cycle) \cite{arxiv:2202.11845}.'
+
+relations:
+  parents:
+    - code_id: floquet
+      detail: 'The honeycomb code is the first 2D Floquet code.'
+  cousins:
+    - code_id: surface
+      detail: 'Measurement of each check operator involves two qubits and projects the state of the two qubits to a two-dimensional subspace, which we regard as an effective qubit. These effective qubits form a surface code on a hexagonal superlattice. Electric and magnetic operators on the embedded surface code correspond to outer logical operators of the Floquet code. In fact, outer logical operators transition back and forth from magnetic to electric surface code operators under the measurement dynamics.'
+    - code_id: subsystem_color
+      detail: 'Both honeycomb and subsystem color codes are generated via periodic sequences of measurements. However, any measurement sequence can be performed on the color code without destroying the logical qubits, while honeycomb codes can be maintained only with specific sequences. Honeycomb codes require a shorter measurement cycle and use fewer qubits at the given code distance \cite{arXiv:2107.02194}.'
+    - code_id: majorana_stab
+      detail: 'The Honeycomb code admits a representation in terms of Majorana fermions. This leads to a possible physical realization of the code in terms of tetrons \cite{arXiv:1610.05289}, where each physical qubit is composed of four Majorana modes.'
+    - code_id: matching
+      detail: 'Matching and honeycomb codes are both inspired by the Kitaev honeycomb model \cite{arXiv:cond-mat/0506438}.'
+    - code_id: qldpc
+      detail: 'The Floquet check operators are weight-two, and each qubit participates in one check each round.'

@@ -1,0 +1,26 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudits_into_oscillators
+physical: oscillators
+logical: qudits
+
+name: 'Qudit-into-oscillator code'
+
+description: 'Encodes \(K\)-dimensional Hilbert space into Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{R}^n\).'
+
+protection: ''
+
+features:
+  decoders:
+    - 'Given an encoding of a finite-dimensional code, a decoder that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}). This technique can be adapted to bosonic codes as long as they are restricted to a finite-dimensional subspace of the oscillator Hilbert space \cite{arXiv:1708.05010}.'
+
+#notes:
+# - ''
+
+relations:
+  parents:
+    - code_id: oscillators
+      detail: 'Bosonic code with finite-dimensional logical subspace.'

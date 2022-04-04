@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: homological_cv
+physical: oscillators
+logical: oscillators
+
+name: 'Homological bosonic code'
+introduced: '\cite{arXiv:1601.02544}'
+
+description: |
+  An \([[n,1]]_{\mathbb{R}}\) \hyperref[code:oscillator_stabilizer]{oscillator-into-oscillator CSS stabilizer code} defined using homological structres associated with an \(n-1\) simplex.
+
+  Stabilizer generators are defined by two orthogonal subspaces of the \(C_1\) in the chain complex. \(C_X = \partial_2 C_2\) and \(C_P = \partial_1^T Q\) for some \(Q \subset C_0\). The standard approach would use \(Q = C_0\), which would mean the logical dimension would be the dimension of the 1st homology group \(H^1\). However, \(H^1\) is trivial for the \(n-1\) simplex, so one chooses \(Q \neq C_0\) such that exactly one stabilizer is removed, yielding a stabilizer code instead of a single stabilized state.'
+
+protection: 'Protects against certain types of erasure errors (depending on the specific dimension). Certain constructions also protect arbitrary sized errors on multiple photon states.'
+
+features:
+
+  encoders:
+    - 'Encoding depends on the specific dimension, but can generally be done using generalized conditional-rotation and Fourier-transform gates.'
+
+  decoders:
+    - 'Decoding requires a different circuit for each possible erasure error, with no general circuit decoding any possible erasure error. Every circuit relies on a generalized conditional rotation, which Ref. \cite{arXiv:1601.02544} calls the \textit{QND Gate} and which is defined as \(QND_c | x , y \rangle = |x + c y, y \rangle\).'
+
+realizations:
+  - 'No experimental realization. However, Ref. \cite{arXiv:1601.02544} describes a potential experimental optical procedure for the simplest non-trival code with 5 modes.'
+
+relations:
+  parents:
+    - code_id: oscillators_into_oscillators
+    - code_id: oscillator_stabilizer
+      detail: 'Homological CV codes are bosonic CSS codes.'
+
+  cousins:
+    - code_id: css
+      detail: 'CSS and homological CV codes utilize chain complexes in code construction, with the latter complexes having trivial homology.'
+    - code_id: niset_andersen_cerf
+      detail: 'The Niest-Andersen-Cerf code can be viewed as a scheme to replicate quantum information in multiple regions \cite{arXiv:1601.02544}.'

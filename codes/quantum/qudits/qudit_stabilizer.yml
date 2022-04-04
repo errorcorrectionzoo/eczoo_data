@@ -7,19 +7,32 @@ code_id: qudit_stabilizer
 physical: qudits
 logical: qudits
 
-name: 'Qudit stabilizer code'
+name: 'Modular-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9705052}'
 
-description: 'An \(((n,q^k,d))_q\) stabilizer code for prime \(q\) is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\), where \(d\) is the code''s distance. Logical subspace is the joint \(+1\) eigenspace of a set of \(q^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group. The distance is the minimum weight of an error that implements a nontrivial logical operation on the code.'
-# Defined only for prime-power qudits for now
-# Galois qudit codes have lifted stabiilizers, generally k=n-r/m
+description: |
+  An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint eigenspace of commuting qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a qudit Pauli string that implements a nontrivial logical operation in the code.
 
-protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
+  (Pauli matrices go here.)
 
-# notes:
-#   - ''
+  A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{q}\) or \([[n,k,d]]_{q}\). For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\). \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
+
+  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. (Standard form goes here.)
+
+protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.
+More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
+
+features:
+  decoders:
+    - 'The structure of stabilizer codes allows for \textit{syndrome-based decoding}, where errors are corrected based on the results of stabilizer measurements (\textit{syndromes}).'
+    - 'Trellis decoder for prime-dimensional qudits, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arXiv:2106.08251}.'
+
+notes:
+  - 'A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.'
+#   - 'For codes that do encode an integer number of \(q\)-dimensional qudits, i.e., \(K=q^k\), \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
 
 relations:
   parents:
+    - code_id: stabilizer
     - code_id: qudits_into_qudits
       detail: ''

@@ -4,52 +4,33 @@
 #######################################################
 
 
-# code id, physical, logical are all lower case
 code_id: single_parity_check
 physical: bits
 logical: bits
 
+name: 'Single parity-check code'
 
-name: 'Single parity check code'
-
-
-description: 'Single parity check code is an error-detecting code, which encode a \(n\)-bit codeword into a \((n+1)\)-bit string. It is a \([n,n-1,2]\) classical code. The basic idea is to store the parity information of a codeword into an extra parity bit. If the Hamming weight of a codeword is odd, then its parity is 1. If the Hamming weight of a codeword is even, then its parity is 0. This code inexpensive since it only requires an extra parity bit and single parity check. '
+description: 'An \([n,n-1,2]\) binary linear error-detecting code encoding an \(n\)-bit codeword into an \((n+1)\)-bit string. In this code, parity information of a codeword is sotred in an extra parity bit. If the Hamming weight of a codeword is odd, then its parity is 1. If the Hamming weight of a codeword is even, then its parity is 0. This code is inexpensive since it only requires an extra parity bit and a single parity check. '
 
 protection: 'This code cannot protect information, it can only detect 1-bit error.'
 
-
 features:
+  rate: 'The code rate is \(\frac{n}{n+1}\to 1\) as \(n\to\infty\). The code distance is 2.'
 
-
-  rate: 'The code rate is \(\frac{n}{n+1}\). The code distance is 2. Code rate will converge to 1 if we take \(n\rightarrow \infty\).'
-
-  
-  encoders: 
+  encoders:
     - 'Concatenate the codeword with a parity bit which encodes the parity information of codeword.'
 
   decoders:
-    - 'If the receiver find the parity information of codeword disagree with the parity bit, then the receiver will discard the information and request a resend.'
-
-
-  #threshold: 
-    #- ''
-
-  
-
-  #some_other_field:
-  # - 'detail'
+    - 'If the receiver finds that the parity information of a codeword disagrees with the parity bit, then the receiver will discard the information and request a resend.'
 
 realizations:
-  - 'Can be realize on almost every communication device.'
-
-notes:
-  - 'Its parity check matrix is the generator matrix of repetition code. \([n,n-1,2]\) single-parity check code is dual to \([n,1,n]\) repetition code.'
+  - 'Can be realized on almost every communication device.'
 
 relations:
-  #parents:
-    #- code_id: Parity_check_code
-      #detail: 'Single parity check code is the simplest parity check code. In general, a parity check code can have multiple parity check.'
+  parents:
+    - code_id: parity_check
+      detail: ''
 
   cousins:
     - code_id: repetition
-      detail: 'Repetition code is dual to single-parity check code.'
+      detail: 'Repetition code is dual to the single-parity check code.'

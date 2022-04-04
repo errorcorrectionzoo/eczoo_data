@@ -9,15 +9,13 @@ logical: bits
 name: 'Duadic code \cite{doi:10.1109/TIT.1984.1056944}'
 
 description: 'Duadic codes form a class of cyclic codes which are defined in terms of their idempotents. Duadic codes come in two pairs: even-like pair and odd-like pair. For a even-like pair \(C_1\) and \(C_2\) whose idempotents are $e_1$ and $e_2$ respectively, if 1. \(e_1(x)+e_2(x)=1-\frac{1}{n}(1+x+x^2+\cdots+x^{n-1})\); 2. exist a multiplier \(
-mu_a\) such that \(C_1 \mu_a=C_2\) and \(C_2 \mu_a=C_1\) are satisfied, then \(C_1\), \(C_2\) is an even-pair. There is an odd-pair associated with \(C_1, C_2\) which is \(D_1\) and \(D_2\), which is \(D_1=\langle 1-e_2(x)\rangle, D_2=\langle 1-e_1(x)\). The even-pair codes are \((n,\frac{n-1}{2})\) code; the odd-pair codes are \((n,\frac{n+1}{2})\) codes. Duadic codes exist for length \(n=\pm 1 \mod 8\).'
+mu_a\) such that \(C_1 \mu_a=C_2\) and \(C_2 \mu_a=C_1\) are satisfied, then \(C_1\), \(C_2\) is an even-pair. There is an odd-pair associated with \(C_1, C_2\) which is \(D_1\) and \(D_2\), which is \(D_1=\langle 1-e_2(x)\rangle, D_2=\langle 1-e_1(x)\). The even-pair codes are \((n,\frac{n-1}{2})\) codes with dimension \(\frac{n-1}{2}\); the odd-pair codes are \((n,\frac{n+1}{2})\) codes with dimension \(\frac{n+1}{2}\). Since duadic codes are cyclic codes, BCH bound can be used to determine the minimum distance of duadic codes. Duadic codes exist for length \(n=\pm 1 \mod 8\).'
 
-decoder: 'Meggitt decoder.'
+decoder: 'Meggitt decoder \cite{doi:10.1109/TIT.1961.1057659}.'
 
-decoder: 'Here''s an example'
 
-features:
 
-  fault_tolerance: ....
+
 
   
 
@@ -29,7 +27,8 @@ relations:
     #
     # - code_id: 'stabilizer'
     #   detail: 'fsfdjknasjfkldsn'
-
+    - code_id: 'binary_linear'
+      detail: 'Duadic codes are binary linear codes.'
     - code_id: 'cyclic code'
       detail: 'If a pair of cyclic code satisfy above conditions, they are duadic.'
 
@@ -37,5 +36,5 @@ relations:
 
   cousins:
     
-    - code_id: 'quadratic residue'
+    - code_id: 'quadratic_residue'
       detail: 'Duadic codes are generalization of quadratic residue codes that have composite lengths. The lengths of a quadratic residue codes are prime.'

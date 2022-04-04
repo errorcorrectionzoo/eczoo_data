@@ -7,11 +7,13 @@ code_id: q-ary_linear
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: '\(q\)-ary linear code'
+name: 'Linear \(q\)-ary code'
 #introduced: ''
 
-description: 'An \((n,K,d)_q\) linear code is denoted as \([n,k,d]_q\), where \(k=\log_{q}K\) need not be an integer. Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(\alpha x+ \beta y\) is also a codeword for any \(q\)-ary digits \(\alpha,\beta\). Often defined in terms of a generator matrix \(G\), whose rows form a basis for the subspace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\).'
-# Split defn over F_q and Z_q?
+description: |
+  An \((n,K,d)_q\) linear code is denoted as \([n,k,d]_q\), where \(k=\log_{q}K\) need not be an integer. Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(\alpha x+ \beta y\) is also a codeword for any \(q\)-ary digits \(\alpha,\beta\).
+
+  Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) \(q\)-ary matrix.
 
 protection: 'Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.'
 
@@ -22,4 +24,3 @@ relations:
   parents:
     - code_id: q-ary_digits_into_q-ary_digits
       detail: ''
-

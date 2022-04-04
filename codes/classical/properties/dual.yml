@@ -1,0 +1,28 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Dual linear code'
+introduced: '\cite{doi:10.1201/9781315147901}'
+
+description: |
+  For any  \([n,k]\) binary or \(q\)-ary linear code \(C\), the dual code,
+  \begin{align}
+  C^\perp = \{ y\in GF(q)^{\times n} ~|~ x\cdot y=0 \forall x\in C\},
+  \end{align}
+  is the row space of the parity check matrix of \(C\). The dual code is the kernel of the encoding map for \(C\), and \(\dim C^\perp = n-k\).
+
+  A code that contains its dual, \(C^\perp \subseteq C\), is called \textit{weakly self-dual} or \textit{self-orthogonal}. A code that is equal to its dual, \(C^\perp = C\), is called \textit{self-dual}. The dual of a dual code is the original code.
+
+protection: 'The dual of an \([n,k,d] \) code
+  is an \([n,n-k,d'']\) code, where \(d''\) is not always related to \(d\). The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.'
+
+relations:
+  parents:
+    - code_id: ecc
+      detail: ''
