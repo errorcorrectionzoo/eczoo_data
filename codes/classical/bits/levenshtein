@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: levenshtein
+physical: bits
+logical: bits
+
+name: 'Levenshtein code'
+introduced: '\cite{manual{V. I. Levenshtein, ``The application of hadamard matrices to a problem in coding", Probl. Kibern., vol. 5, pp. 123-136, 1961.}}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: |
+  'Levenshtein codes are constructed from Hadamard matrices.'
+  'Let \(A_n\) be a normalized Hadamard matrix. \(\mathcal{A}_n\) is then an \((n-1,n,n/2)\) code obtained by taking \(A_n\), replacing the +1's by 0's and the -1's by 1's, and deleting the first column. \(\mathcal{A}_n'\) is an \((n-2,n/2,n/2)\) code obtained by taking the codewords of \(\mathcal{A}_n\) which begin with 0 and deleting that initial 0.'
+  'Suppose we have an \((n_1,M_1,d_1)\) code \(\mathcal{C}_1\) and an \((n_2,M_2,d_2)\) code \(\mathcal{C}_2\). A new \((an_1+bn_2,\min(M_1,M_2),ad_1+bd_2)\) code \(a\mathcal{C}_1\bigoplus b\mathcal{C}_2\) may be constructed by pasting \(a\) copies of \(\mathcal{C}_1\) and \(b\) copies of \(\mathcal{C}_2\) together and omitting the last \(|M_1-M_2|\) rows.'
+  'To construct a Levenshtein code with length \(n\) and distance \(d\), define \(k=\lfloor d/(2d-n)\rfloor\), \(a=d(2k+1)-n(k+1)\), and \(b=kn-d(2k-1)\). If \(n\) is even, construct \(\frac{a}{2}\mathcal{A}_{4k}'\bigoplus\frac{b}{2}\mathcal{A}_{4k+4}'\). If \(n\) is odd and \(k\) is even, construct \(a\mathcal{A}_{2k}\bigoplus\frac{b}{2}\mathcal{A}_{4k+4}'\). If \(n\) is odd and \(k\) is odd, construct \(\frac{a}{2}\mathcal{A}_{4k}'\bigoplus b\mathcal{A}_{2k+2}\).'
+#protection: ''
+
+features: 'These codes meet the Plotkin bound \(M\leq 2\left\lfloor\frac{d}{2d-n}\right\rfloor\), where \(M\) is the number of codewords, \(d\) is the distance, and \(n\) is the length. This is assuming that the needed Hadamard matrices exist for the construction. The general proof depends on the correctness of Hadamard's conjecture.'
+
+  #rate: ''
+
+  #encoders:
+
+  #transversal_gates: ''
+
+  #general_gates:
+
+  #decoders:
+
+  #fault_tolerance:
+
+  #code_capacity_threshold:
+
+  #threshold:
+
+#realizations:
+
+notes: '\cite{manual{F.J. MacWilliams, N.J.A Sloane ``The theory of error-correcting codes", Vol. 16, North-Holland Publishing Company, (1977).}}'
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+      detail: ''
