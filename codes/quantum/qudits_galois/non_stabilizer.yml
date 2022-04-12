@@ -4,23 +4,23 @@
 #######################################################
 
 code_id: non_stabilizer
-physical: qudits
-logical: qudits
+physical: galois
+logical: galois
 
 name: 'Non-stabilizer code'
 introduced: '\cite{arxiv:quant-ph/0210097}'
 
-
 description: |
-    Non-stabilizer codes are natural consequence of the QECC formulation based on Weyl relations and Fourier descriptions \cite{arxiv:quant-ph/0210097}.
+    The projection onto a stabilizer code is proportional to an equal sum over all elements of the stabilizer group \(\mathsf{S}\).
+    Non-stabilizer codes generalize stabilizer codes by modifying the code projection with elements of a subset \(\mathsf{B}\subset\mathsf{S}\) called the \textit{Fourier description} (see proof of Thm. 2.7 in Ref. \cite{arxiv:quant-ph/0210097}).
+
     Asymptotically good non-stabilizer codes admitting efficient encoding and decoding procedures have been constructed.
 
-protection: |
-    For any \(\alpha\)-good \(n\times n\) matrix over \(\mathbb{Z}\) and 
-    any \(\lfloor\alpha n\rfloor\)-pure maximal Gottesman subgroup of the error group \(\mathcal{E}, 0<\alpha<1\), 
-    there exists an \(((n,\frac{2^n}{N(n,2,\lfloor\alpha n\rfloor)},2\alpha n))\) QECC, 
-    where \(N(n,q,d)=\sum_{i=1}^d\begin{pmatrix} n \\ i\end{pmatrix}(q^2-1)^i\). 
-    A subgroup \(\mathcal{S}\) of \(\mathcal{E}\) is a \(d\)-pure Gottesman subgroup if \(\mathcal{S}\) does not contain \(e^{2\pi ik/N}I,\forall 1\leq k\leq N-1\), 
+    More technically, for any \(\alpha\)-good \(n\times n\) matrix over \(\mathbb{Z}\) and
+    any \(\lfloor\alpha n\rfloor\)-pure maximal Gottesman subgroup of the error group \(\mathcal{E}, 0<\alpha<1\),
+    there exists an \(((n,\frac{2^n}{N(n,2,\lfloor\alpha n\rfloor)},2\alpha n))\) QECC,
+    where \(N(n,q,d)=\sum_{i=1}^d\begin{pmatrix} n \\ i\end{pmatrix}(q^2-1)^i\).
+    A subgroup \(\mathcal{S}\) of \(\mathcal{E}\) is a \(d\)-pure Gottesman subgroup if \(\mathcal{S}\) does not contain \(e^{2\pi ik/N}I,\forall 1\leq k\leq N-1\),
     and all non-trivial centralizers of \(\mathcal{S}\) have weights at least \(d\).
 
 features:
@@ -40,4 +40,4 @@ notes:
 
 relations:
   parents:
-    - code_id: qudits_into_qudits
+    - code_id: galois_into_galois
