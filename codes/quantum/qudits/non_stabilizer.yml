@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: non_stabilizer
+physical: qudits
+logical: qudits
+
+name: 'Non-stabilizer code'
+introduced: '\cite{arxiv:quant-ph/0210097}'
+
+
+description: |
+    Non-stabilizer codes are natural consequence of the QECC formulation based on Weyl relations and Fourier descriptions \cite{arxiv:quant-ph/0210097}.
+    Asymptotically good non-stabilizer codes admitting efficient encoding and decoding procedures have been constructed.
+
+protection: |
+    For any \(\alpha\)-good \(n\times n\) matrix over \(\mathbb{Z}\) and 
+    any \(\lfloor\alpha n\rfloor\)-pure maximal Gottesman subgroup of the error group \(\mathcal{E}, 0<\alpha<1\), 
+    there exists an \(((n,\frac{2^n}{N(n,2,\lfloor\alpha n\rfloor)},2\alpha n))\) QECC, 
+    where \(N(n,q,d)=\sum_{i=1}^d\begin{pmatrix} n \\ i\end{pmatrix}(q^2-1)^i\). 
+    A subgroup \(\mathcal{S}\) of \(\mathcal{E}\) is a \(d\)-pure Gottesman subgroup if \(\mathcal{S}\) does not contain \(e^{2\pi ik/N}I,\forall 1\leq k\leq N-1\), 
+    and all non-trivial centralizers of \(\mathcal{S}\) have weights at least \(d\).
+
+features:
+
+  encoders:
+    - 'The encoding circuit involves the application of quantum Fourier transformation. (If the underlying registers are qubits, this reduces to a single Hadamard gate.)'
+
+  decoders:
+    - 'The decoding circuit involves the application of phase estimation.'
+
+
+
+notes:
+  - 'The following code (families) have been explicitly constructed in \cite{arxiv:quant-ph/0210097}: ((33, 155, 3)), ((15, 8, 3)), \(((n, \lceil\frac{q^n}{n(q^2-1)}\rceil,2))_q\) and \(((n, 1+n(q-1),2))_q\), where \(n\) is odd. In particular, the last code family is a general case for \cite{doi:10.1103/PhysRevLett.79.953}.'
+  - 'A QECC \(\mathcal{C}\) is a stabilizer code if its Fourier description \(B\) is a subgroup of some Gottesman subgroup \(S\). Otherwise \(B\) is just a subset, and \(\mathcal{C}\) is a non-stabilizer code.'
+
+
+relations:
+  parents:
+    - code_id: qudits_into_qudits
