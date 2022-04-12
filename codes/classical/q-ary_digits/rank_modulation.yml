@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+# code id, physical, logical are all lower case
+code_id: rank_modulation
+physical: groups
+logical: points
+
+
+name: 'Rank-modulation code'
+introduced: '\cite{doi:10.1109/TIT.1969.1054291} and independently in \cite{doi:10.1109/ISIT.2008.4595285}'
+
+
+description: |
+    Also known as a \textit{code in permutations}.
+    Rank modulation codes are a family of codes which encode a finite set of size \(M\) into a set \(S_n\) of permutations of \([n]=(1,2,...,n)\).
+    They can be derived from Lee-metric codes, Reed-Solomon codes, quadratic residue codes and most binary codes.
+
+protection: |
+    Protects against errors in the Kendall tau distance on the space of permutations.
+    The Kendall distance between permutations (\sigma) and (\pi) is defined as the minimum number of adjacent transpositions required to change (\sigma) into (\pi).
+
+
+features:
+
+  rate: some rank modulation codes with code distances \(d=\Theta(n^{1+\epsilon}), \epsilon\in[0,1]\) can achieve a rate of \(1-\epsilon\) (\cite{doi:10.1109/ISIT.2010.5513604})
+
+
+realizations:
+  - 'Electronic devices where charges can either increase in an individual cell or decrease in a block of adjacent cells. Example: Flash memories (\cite{doi:10.1109/TIT.2009.2018336}).'
+
+notes:
+  - 'Some families of rank modulation codes have been constructed in \cite{doi:10.1109/ISIT.2011.6034261} and \cite{doi:10.1109/ISIT.2008.4595285}'
+
+relations:
+  parents:
+    - code_id: group_classical
+      detail: 'Group-based codes whose alphabet is based on the permutation group (S_n) are rank-modulation codes.'
+
+  cousins:
+    - code_id: reed_solomon
+      detail: 'Can be used to design rank modulation codes (\cite{doi:10.1109/ISIT.2011.6034261}).'
+    
+    - code_id: binary_permutation
+      detail: 'Binary permutation-based codes also encode messages into permutations but protect against errors with the Humming distance.'
+
+    - code_id: group_quantum
+      detail: 'Group-based quantum codes for the symmetric group are quantum analogues of rank-modulation codes.'
