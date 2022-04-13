@@ -15,28 +15,22 @@ description: |
     Non-stabilizer codes generalize stabilizer codes by modifying the code projection with elements of a subset \(\mathsf{B}\subset\mathsf{S}\) called the \textit{Fourier description} (see proof of Thm. 2.7 in Ref. \cite{arxiv:quant-ph/0210097}).
 
     Asymptotically good non-stabilizer codes admitting efficient encoding and decoding procedures have been constructed.
-
-    More technically, for any \(\alpha\)-good \(n\times n\) matrix over \(\mathbb{Z}\) and
-    any \(\lfloor\alpha n\rfloor\)-pure maximal Gottesman subgroup of the error group \(\mathcal{E}, 0<\alpha<1\),
-    there exists an \(((n,\frac{2^n}{N(n,2,\lfloor\alpha n\rfloor)},2\alpha n))\) QECC,
-    where \(N(n,q,d)=\sum_{i=1}^d\begin{pmatrix} n \\ i\end{pmatrix}(q^2-1)^i\).
-    A subgroup \(\mathcal{S}\) of \(\mathcal{E}\) is a \(d\)-pure Gottesman subgroup if \(\mathcal{S}\) does not contain \(e^{2\pi ik/N}I,\forall 1\leq k\leq N-1\),
-    and all non-trivial centralizers of \(\mathcal{S}\) have weights at least \(d\).
+#    A technical definition for non-Galois qudits is as follows. For any \(\alpha\)-good \(n\times n\) matrix over \(\mathbb{F}_q\) and
+#    any \(\lfloor\alpha n\rfloor\)-pure maximal Gottesman subgroup of the error group \(\mathsf{E}, 0<\alpha<1\),
+#    there exists an \(((n,\frac{2^n}{N(n,2,\lfloor\alpha n\rfloor)},2\alpha n))\) QECC,
+#    where \(N(n,q,d)=\sum_{i=1}^d\begin{pmatrix} n \\ i\end{pmatrix}(q^2-1)^i\).
+#    A subgroup \(\mathsf{S}\) of \(\mathsf{E}\) is a \(d\)-pure Gottesman subgroup if \(\mathsf{S}\) does not contain \(e^{2\pi ik/N}I,\forall 1\leq k\leq N-1\),
+#    and all non-trivial centralizers of \(\mathsf{S}\) have weights at least \(d\).
 
 features:
-
   encoders:
-    - 'The encoding circuit involves the application of quantum Fourier transformation. (If the underlying registers are qubits, this reduces to a single Hadamard gate.)'
+    - 'The encoding circuit involves the application of quantum Fourier transform.'
 
   decoders:
     - 'The decoding circuit involves the application of phase estimation.'
 
-
-
 notes:
-  - 'The following code (families) have been explicitly constructed in \cite{arxiv:quant-ph/0210097}: ((33, 155, 3)), ((15, 8, 3)), \(((n, \lceil\frac{q^n}{n(q^2-1)}\rceil,2))_q\) and \(((n, 1+n(q-1),2))_q\), where \(n\) is odd. In particular, the last code family is a general case for \cite{doi:10.1103/PhysRevLett.79.953}.'
-  - 'A QECC \(\mathcal{C}\) is a stabilizer code if its Fourier description \(B\) is a subgroup of some Gottesman subgroup \(S\). Otherwise \(B\) is just a subset, and \(\mathcal{C}\) is a non-stabilizer code.'
-
+  - 'The following code (families) have been explicitly constructed in \cite{arxiv:quant-ph/0210097}: \(((33, 155, 3))\), \(((15, 8, 3))\), \(((n, \lceil\frac{q^n}{n(q^2-1)}\rceil,2))_{GF(q)}\) and \(((n, 1+n(q-1),2))_{GF(q)}\), where \(n\) is odd. In particular, the last code family is a general case of the non-additive \(((5,6,2))\) code from Ref. \cite{arxiv:quant-ph/9703002}.'
 
 relations:
   parents:
