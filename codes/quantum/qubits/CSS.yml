@@ -64,6 +64,8 @@ features:
     - 'Steane error correction \cite{arXiv:quant-ph/9611027}.'
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1208.2317,arxiv:1412.6172}.'
+  decoders:
+    - 'Coherent decoders allow for measurement-free error correction \cite{arxiv:2109.00086}. One method is table/multi-control decoding \cite{arXiv:1002.1536}, which scales exponentially with the number of ancillas used in syndrome measurement. Another method, the Ising-based decoder, utilizes the mapping of the effect of the noise to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:2002.11733} such that the decoding problem maps to preparation of the ground state of an Ising model.'
 
 notes:
   - 'Introduction to CSS-to-homology dictionary by \href{https://www.youtube.com/watch?v=SeLpWg_8qlc}{M. Hastings}.'
@@ -71,7 +73,7 @@ notes:
 
 relations:
   parents:
-    - code_id: stabilizer
+    - code_id: qubit_stabilizer
       detail: 'Stabilizer generators can be expressed as either only \(X\)-type or only \(Z\)-type. However, any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[4n,2k,2d]]\) weakly self-dual CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arXiv:1004.3791}.'
     - code_id: movassagh_ouyang
       detail: 'Movassagh-Ouyang codes stem from a prescription that converts an \textit{arbitrary} classical code into a quantum code.'
