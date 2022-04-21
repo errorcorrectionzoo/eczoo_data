@@ -16,10 +16,7 @@ protection: |
 
 features:
   rate: 'Rate(\(C_1 \otimes C_2\) = Rate(\(C_1\))Rate(\(C_2\))'
-  decoders: |
-    The simple decoding algorithm (first decode all columns with \(C_1\), then all rows with \(C_2\) corrects up to \((d_1d_2-1)/4 \) errors. More involved algorithms  
-    such as Generalized Minimum Distance Decoding \cite{doi: 10.1109/TIT.1966.1053873} or Min-sum algorithm can decode all errors of weight up to \((d_1d_2-1)/2\). Finally, 
-    error location may be coupled with viterbi decoding for every faulty sub-block: \cite{doi: 10.1109/TMAG.2005.861043}.
+  decoders: 'The simple decoding algorithm (first decode all columns with \(C_1\), then all rows with \(C_2\) corrects up to \((d_1d_2-1)/4 \) errors. More involved algorithms such as Generalized Minimum Distance Decoding \cite{doi: 10.1109/TIT.1966.1053873} or Min-sum algorithm can decode all errors of weight up to \((d_1d_2-1)/2\). Finally, error location may be coupled with viterbi decoding for every faulty sub-block: \cite{doi: 10.1109/TMAG.2005.861043}.'
   
 realizations:
   - 'Code used in magnetic recording by taking the tensor product of a Reed-Solomon code and a parity-check code: \cite{doi: 10.1109/TMAG.2005.861043}'
