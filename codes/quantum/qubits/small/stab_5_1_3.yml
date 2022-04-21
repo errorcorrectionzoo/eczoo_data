@@ -26,17 +26,22 @@ features:
   encoders:
     - 'Four CNOT and five CPHASE gates \cite{arxiv:1509.01239}.'
   transversal_gates: 'Pauli gates are transversal.'
+  general_gates:
+    - 'Pieceable fault-tolerant CZ and CCZ gates \cite{arxiv:1603.03948}.'
   decoders:
     - 'Combined dynamical decoupling and error correction protocol on individually-controlled qubits with always-on Ising couplings \cite{arxiv:1509.01239}.'
+    - 'Symmetric decoder correcting all weight-one Pauli errors. The resulting logical error channel after coherent noise has been explicitly derived \cite{arxiv:2203.01706}.'
+  fault_tolerance:
+    - 'Pieceable fault-tolerant CZ and CCZ gates \cite{arxiv:1603.03948}.'
+    - 'Syndrome measurement can be done with two ancillary flag qubits \cite{arXiv:1705.02329}.'
 
 realizations:
   - 'First realized in NMR \cite{doi:10.1103/PhysRevLett.86.5811}.'
   - 'Demonstration with superconducting qubits \cite{arXiv:1907.04507}.'
+#  - 'Proposed for protecting and imaging starlight received at distant telescope sites \cite{arxiv:2204.06044}.'
 
 relations:
   parents:
-#    - code_id: stabilizer
-#      detail: '\([[5,1,3]]\) code is the smallest stabilizer code to correct a single qubit error.'
     - code_id: stabilizer_over_gf4
       detail: 'The \([[5,1,3]]\) code is derived from the \([5,3,3]_4\) Hamming code.'
 

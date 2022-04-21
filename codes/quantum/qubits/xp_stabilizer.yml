@@ -1,0 +1,24 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xp_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'XP stabilizer code'
+introduced: '\cite{arXiv:2203.00103}'
+
+description: |
+  The XP Stabilizer formalism is a generalization of the XS and Pauli stabilizer formalisms, with stabilizer generators taken from the group \( \{\omega I, X, P\}^{\otimes n} \). Here, \( \omega \) is a \( 2N \) root of unity, and \( P = \text{diag} ( 1, \omega^2) \). The codespace is a \(+1\) eigenspace of a set of XP stabilizer generators, which need not commute to define a valid codespace.
+
+  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former can be mapped to a CSS code with similar logical operator structure.
+
+relations:
+  parents:
+    - code_id: cws
+      detail: 'If the CWS set \( \mathcal{W} \) is a subgroup of \( \{\omega I, X, P\}^{\otimes n} \), then the CWS code is an XP stabilizer code.'
+  cousins:
+    - code_id: css
+      detail: 'Each XP-regular code can be mapped to a CSS code with a similar logical operator structure \cite{arXiv:2203.00103}.'
