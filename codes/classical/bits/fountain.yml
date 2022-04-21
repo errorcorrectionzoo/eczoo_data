@@ -13,7 +13,7 @@ features:
   rate: 'This class of codes does not have a fixed rate, and as such are also called rateless erasure codes. Since the number of encoded packets is technically unlimited, the rate will tend to zero. In practice, transmission times and total packets sent are chosen so that the rate is finite.'
   
   encoders:
-    - 'Take some message of size \(Kl\) and split into \(K\) packets, \(p_0, p_1, ..., p_K\). For each packet \(\hat{p}_n\) to be transmitted do the following: Generate \(K\) random bits \({G_{nk}\) and let \(\hat{p}_n\) be the bitwise sum of the source packets when \(G_{nk}\) is 1, \( \hat{p}_n = \sum_{k=1}^K p_k G_{kn} \) '
+    - 'Take some message of size \(Kl\) and split into \(K\) packets, \(p_0, p_1, ..., p_K\). For each packet \(\hat{p}_n\) to be transmitted do the following: Generate \(K\) random bits \(G_{nk}\) and let \(\hat{p}_n\) be the bitwise sum of the source packets when \(G_{nk}\) is 1, \( \hat{p}_n = \sum_{k=1}^K p_k G_{kn} \) '
     - 'Error correction can be applied to each packet.'
 
   decoders:
