@@ -8,19 +8,16 @@ physical: bits
 logical: bits
 
 name: 'Levenshtein code'
-introduced: '\cite{manual:{V. I. Levenshtein, ``The application of hadamard matrices to a problem in coding", Probl. Kibern., vol. 5, pp. 123-136, 1961.}}'
+introduced: '\cite{manual:{V. I. Levenshtein, "The application of Hadamard matrices to a problem in coding", Probl. Kibern., vol. 5, pp. 123-136, 1961.}}'
 
 description: |
-  Levenshtein codes are constructed from Hadamard matrices.
-  
-  Let \(A_n\) be a normalized Hadamard matrix. \(\mathcal{A}_n\) is then an \((n-1,n,n/2)\) code obtained by taking \(A_n\), replacing the +1's by 0's and the -1's by 1's, and deleting the first column. \(\mathcal{A}_n'\) is an \((n-2,n/2,n/2)\) code obtained by taking the codewords of \(\mathcal{A}_n\) which begin with 0 and deleting that initial 0.
-  
-  Suppose we have an \((n_1,M_1,d_1)\) code \(\mathcal{C}_1\) and an \((n_2,M_2,d_2)\) code \(\mathcal{C}_2\). A new \((an_1+bn_2,\min(M_1,M_2),ad_1+bd_2)\) code \(a\mathcal{C}_1\bigoplus b\mathcal{C}_2\) may be constructed by pasting \(a\) copies of \(\mathcal{C}_1\) and \(b\) copies of \(\mathcal{C}_2\) together and omitting the last \(|M_1-M_2|\) rows.
-  
-  To construct a Levenshtein code with length \(n\) and distance \(d\), define \(k=\lfloor d/(2d-n)\rfloor\), \(a=d(2k+1)-n(k+1)\), and \(b=kn-d(2k-1)\). If \(n\) is even, construct \(\frac{a}{2}\mathcal{A}_{4k}'\bigoplus\frac{b}{2}\mathcal{A}_{4k+4}'\). If \(n\) is odd and \(k\) is even, construct \(a\mathcal{A}_{2k}\bigoplus\frac{b}{2}\mathcal{A}_{4k+4}'\). If \(n\) is odd and \(k\) is odd, construct \(\frac{a}{2}\mathcal{A}_{4k}'\bigoplus b\mathcal{A}_{2k+2}\).
+  Binary codes constructed from combining two codes \(A'\) constructed out of Hadamard matrices.
 
-notes: 
-  - 'These codes meet the Plotkin bound \(M\leq 2\left\lfloor\frac{d}{2d-n}\right\rfloor\), where \(M\) is the number of codewords, \(d\) is the distance, and \(n\) is the length. This is assuming that the needed Hadamard matrices exist for the construction. The general proof depends on the correctness of Hadamard''s conjecture. \cite{manual:{F.J. MacWilliams, N.J.A Sloane ``The theory of error-correcting codes", Vol. 16, North-Holland Publishing Company, (1977).}}'
+  Let \(H_n\) be a normalized Hadamard matrix. The generator matrix for an \((n-1,n,n/2)\) code \(A_n\) is obtained by taking \(H_n\), replacing the +1's by 0's and the -1's by 1's, and deleting the first column. Taking only the codewords of \(A_n\) which begin with 0 and deleting the leading 0 yields the generator matrix of an \((n-2,n/2,n/2)\) code \(A_n'\).
+
+  Next, apply the following way of combining codes. Suppose we have an \((n_1,M_1,d_1)\) code \(C_1\) and an \((n_2,M_2,d_2)\) code \(C_2\). The combined \((an_1+bn_2,\min(M_1,M_2),ad_1+bd_2)\) code \(a C_1\bigoplus b C_2\) may be constructed by pasting \(a\) copies of \(C_1\) and \(b\) copies of \(C_2\) together and omitting the last \(|M_1-M_2|\) rows. Applying this to construct a Levenshtein code with length \(n\) and distance \(d\), define \(k=\lfloor d/(2d-n)\rfloor\), \(a=d(2k+1)-n(k+1)\), and \(b=kn-d(2k-1)\). If \(n\) is even, construct \(\frac{a}{2}A_{4k}'\bigoplus\frac{b}{2}A_{4k+4}'\). If \(n\) is odd and \(k\) is even, construct \(aA_{2k}\bigoplus\frac{b}{2}A_{4k+4}'\). If \(n\) is odd and \(k\) is odd, construct \(\frac{a}{2}A_{4k}'\bigoplus b A_{2k+2}\).
+
+protection: Levenshtein codes meet the Plotkin bound \(K\leq 2\left\lfloor\frac{d}{2d-n}\right\rfloor\), where \(K\) is the number of codewords, \(d\) is the distance, and \(n\) is the length, and with the assumption that the Hadamard matrices for such parameters exist. The general proof depends on the correctness of Hadamard''s conjecture \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}.
 
 relations:
   parents:
