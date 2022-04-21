@@ -1,6 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
 code_id: ldpc
 physical: bits
 logical: bits
 
 name: 'Low Density Parity Check Codes'
 introduced: '\cite{doi:10.1109/TIT.1962.1057683}'
+
+
+description: |
+    An (N, J, K) binary code which its parity check matrix, H, has N columns, J ones in each column, K ones in each row and zeros elsewhere. This code can be built from a sparse bipartite graph (reffered to asTanner graph). 
+    To build a code based on a bipartite graph, we can build the parity check matrix H. The nodes of one side of the bipartite graph will be the columns of H and nodes of the other side rows of H. if there is an edge from a node i in one side to a node j in the other side, H(i,j) = 1 and 0 otherwise.
+
+features:
+
+  rate: 'b/c. The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
+
+
+  encoders:
+    - 'Encoding complexity is of O(n) per symbol (which is good).'
+
+
+realizations:
+  - 'Satelite transmission of digital television, Wifi, 10GB Ethernet, 5G.'
+
+notes: 
+  - 'A code is said to be asymptotically good if its decoding is not complex and has a relatively good minimum distance with respect to its length (i.e. growth rate).'
+
+
+relations:
+  parents:
+    - code_id: ecc
+      detail: ''
+  cousins:
+    - code_id: parity_check
+      detail: 'Binary LDPC codes are parity check codes.'
