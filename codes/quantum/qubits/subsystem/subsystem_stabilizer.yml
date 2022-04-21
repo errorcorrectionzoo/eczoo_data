@@ -7,7 +7,7 @@ code_id: subsystem_stabilizer
 physical: qubits
 logical: qubits
 
-name: 'Subsystem stabilizer code'
+name: 'Subsystem qubit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/0508131}'
 
 description: |
@@ -18,7 +18,9 @@ description: |
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits. More generally, a set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathsf{S}) \setminus \mathsf{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathsf{S}) \setminus \mathsf{G}\).'
 
 features:
-  threshold: 
+  decoders:
+    - 'Syndrome measurements are obtained by first measuring gauge operators of the code and taking their products, which give the stabilizer measurement outcomes.'    
+  code_capacity_threshold:
     - 'For correlated Pauli noise, bounds can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arXiv:1809.10704}.'
 
 notes:
@@ -30,5 +32,5 @@ relations:
       detail: ''
 
   cousins:
-    - code_id: stabilizer
+    - code_id: qubit_stabilizer
       detail: 'Gauge stabilizer codes reduce to stabilizer codes when there are no gauge qubits.'

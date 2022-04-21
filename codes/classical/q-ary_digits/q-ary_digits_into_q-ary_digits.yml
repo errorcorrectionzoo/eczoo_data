@@ -7,13 +7,18 @@ code_id: q-ary_digits_into_q-ary_digits
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: '\(q\)-ary code'
+name: 'Galois-field \(q\)-ary code'
 #introduced: ''
 
 description: 'Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)=\mathbb{F}_q\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.'
 #the minimum Hamming distance between a pair of distinct codewords.
 
 protection: 'Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.'
+
+features:
+  decoders:
+    - 'For small \(n\), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
+    - 'Given a received string \(x\) and an error bound \(e\), a \textit{list decoder} returns a list of all codewords that are at most \(e\) from \(x\). The number of codewords in a neighborhood of \(x\) has to be polynomial in \(n\) in order for this decoder to run in time polynomial in \(n\).'
 
 notes:
   - 'Tables of bounds and examples of linear codes for various \(n\) and \(k\), extending code tables by Brouwer \cite{manual:{Andries E. Brouwer, Bounds on linear codes, in: Vera S. Pless and W. Cary Huffman (Eds.), Handbook of Coding Theory, pp. 295-461, Elsevier, 1998.}}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'

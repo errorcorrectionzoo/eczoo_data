@@ -12,7 +12,11 @@ name: 'Qubit code'
 
 description: 'Encodes \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space. Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code''s distance.'
 
-#protection: ''
+protection: 'The minimum size of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}. Codes whose distance is greater than the diagonal distance are degenerate.'
+
+features:
+  decoders:
+    - 'For few-qubit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
 
 #notes:
 #  - ''
@@ -25,4 +29,3 @@ relations:
   #cousins:
   #  - code_id: code_id4
   #    detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
- 

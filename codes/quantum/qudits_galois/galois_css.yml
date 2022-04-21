@@ -17,23 +17,25 @@ description: |
   \begin{align}
   H=\begin{pmatrix}0 & H_{Z}\\
   H_{X} & 0
-  \end{pmatrix}~.
+  \end{pmatrix}
   \label{eq:parityg}
   \end{align}
+  such that the rows of the two blocks must be orthogonal
+  \begin{align}
+  H_X H_Z^T=0~.
+  \label{eq:commG}
+  \end{align}
+  The above condition guarantees that the \(X\)-stabilizer generators, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
 
   Encoding is based on two related \hyperref[code:q-ary_linear]{\(q\)-ary linear codes},
   an \([n,k_X,d_X]_q \) code \(C_X\) and \([n,k_Z,d_Z]_q \) code \(C_Z\),
   satisfying \(C_X^\perp \subseteq C_Z\).
   The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
-  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parityg} is the parity-check matrix of the code \(C_X\) (\(C_Z\)).
-  The requirement \(C_X^\perp \subseteq C_Z\) guarantees that the \(X\)-stabilizers,
-  defined in the symplectic representation as rows of \(H_X\),
-  commute with the \(Z\)-stabilizers of associated with \(H_Z\).
-  The codewords are
+  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parityg} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:commG}.
+  Basis states for the code are, for \(\gamma \in C_X\),
   \begin{align}
-  |\gamma + C_Z^\perp \rangle = \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle,
+  |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
-  for \(\gamma \in C_X\).
 
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 

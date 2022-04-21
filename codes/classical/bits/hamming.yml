@@ -15,7 +15,7 @@ description: 'Hamming codes are an infinite family of linear codes with paramete
 protection: 'Can detect 1-bit and 2-bit errors, and can correct 1-bit errors.'
 
 features:
-  rate: 'Asymptotic rate \(k/n = 1-\frac{\log n}{n} \to 1\) and relative distance \(d/n \to 0\).'
+  rate: 'Asymptotic rate \(k/n = 1-\frac{\log n}{n} \to 1\) and normalized distance \(d/n \to 0\).'
 
 realizations:
   - 'Commonly used when error rates are very low, for example, computer RAM.'
@@ -32,5 +32,7 @@ relations:
   cousins:
     - code_id: perfect
       detail: ''
+    - code_id: quad_residue
+      detail: '\([7,4,3]\) Hamming code is a quadratic-residue code \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}.'
     - code_id: quantum_hamming
       detail: ''

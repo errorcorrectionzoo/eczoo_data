@@ -58,75 +58,13 @@ will fail to start a new paragraph.)
         
 ## LaTeX-inspired mini-language in text
 
-In text fields, you can make use of the following LaTeX-inspired
-features:
+In most text fields, you can make use of LaTeX-inspired
+command syntax.  You can insert math expressions, add citations,
+format text, add figures and tables, etc., using a precise
+syntax with commands that is described here:
+https://github.com/errorcorrectionzoo/eczoo_generator/blob/main/latexlike_minilang_howto.md
 
-  - Leave a blank line to start a new paragraph.  Whitespace is
-    simplified as usual in LaTeX, i.e., consecutive spaces will not
-    insert more space.
-    
-  - The macros `\emph{...}`, `\textit{...}`, and `\textbf{...}` can be
-    used for italic or for bold text.
-    
-  - Input accents, special characters, etc., directly as Unicode:
-    `éàààé😅Á`.  (Files are always encoded in UTF-8.)  For instance,
-    you can use pretty quotes ``‘`` ``’`` ``“`` ``”``; dashes ``—``
-    (em dash), ``–`` (en dash, for ranges); spaces `` `` (non-breaking
-    space), `` `` (em space), `` `` (thin space), etc.
-    
-  - Math expressions can be written as `\( ... \)`, they will be rendered
-    into pretty formulas using MathJaX. You can use standard LaTeX
-    math commands in equations, as supported e.g. by AMS-TeX (`\sim`,
-    `\langle`, etc.).  You can also use `\bra{\phi}` and `\ket{\psi}`.
-    
-  - Protect characters that might have a special meaning using the
-    following macros: `\textbackslash` (backslash character), `\ `
-    (force a space), `\{` (open brace), `\}` (closing brace), `\%`
-    (percent character), `\&` (ampersand), `\$` (dollar sign), `\#`
-    (number sign).
-    
-  - Cite relevant papers by their arXiv number as
-    `\cite{arxiv:XXXX.XXXXX}` or `\cite{arxiv:quant-ph/XXXXXXX}`, or
-    using their DOI as `\cite{doi:10.ZZZZZZ}`.
-    
-    *DOIs are
-    automatically retrieved for `arXiv` citations, so please use
-    `arXiv` identifiers whenever possible.  If the DOI is not
-    retreived correctly (e.g., it is not listed correctly on the
-    arXiv page), then please add a line in the file
-    `citation_extras/citation_hints.yml` (in this repo),
-    specifically in the `arxiv_to_doi_override:`
-    section.  You can also file an issue in this repo so that we
-    take care of this addition.*
-    
-    Citations can be combined as in LaTeX:
-    `\cite{arxiv:XXX,arxiv:YYY,doi:ZZZ}`.  If there is neither an
-    arxiv number nor a DOI number available, you can enter a citation
-    manually as `\cite{manual:{A. Smith et al., \emph{Journal of Weird
-    Stuff} 12:\textbf{A}, 1003--1592 (1943)}}`.
-    
-  - Reference other codes using `\ref{code:<other-code-id>}`.  To set
-    a custom label to show, you can use
-    `\hyperref[code:<other-code-id>]{link text}`.
-    
-  - Use the `\begin{align} ... \end{align}` and `\begin{gather}
-    ... \end{gather}` environments for display equations, and you can
-    use `\begin{split} ... \end{split}` within a display equation.
-    You can use `\label{eq:...}` inside the equation environments and
-    you can refer to labeled equations with `\eqref{eq:...}`.  Do not
-    use ~~`(\ref{eq:...})`~~. The label must start with the prefix
-    `eq:`.  You can also use `\[ ... \]` for unnumbered display
-    equations.
-
-  - Insert hyperlinks to other web pages as
-    `\href{https://example.com/example/page}{shown link text}` or with
-    `\url{https://example.com/example/page}`.
-  
-  - You can insert footnotes with `\footnote{...}`.  Footnotes should
-    be avoided in general.
-
-
-For example:
+Example:
 
     description: |
         Text can contain some simple LaTeX macros, for instance

@@ -7,7 +7,8 @@ code_id: qecc_finite
 #physical: bits
 #logical: qubits
 
-name: 'Finite-dimensional quantum code'
+name: 'Finite-dimensional quantum error-correcting code'
+short_name: 'Finite QECC'
 
 # Following Gottesman's book
 description: 'Encodes quantum information in a \(K\)-dimensional (\textit{logical}) subspace of an \(N\)-dimensional (\textit{physical}) Hilbert space such that it is possible to recover said information from errors. The logical subspace is spanned by a basis comprised of \textit{code basis states} or \textit{codewords}.'
@@ -23,6 +24,8 @@ protection: |
     \langle \psi | E^{\dagger}_a E_b |\phi \rangle = C_{ab} \langle \psi | \phi \rangle~,
   \end{align}
   where the coefficients \(C_{ab}\) do not depend on \(|\psi\rangle\) or \(|\phi\rangle\). A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate error-correcting code}.
+
+  A code is \textit{degenerate} with respect to a noise model if different errors map code states to the same error subspace. For a linearly independent error set \(\cal{E}\), degeneracy is equivalent to \(\text{rank}(C_{ab}) < |\cal{E}|\).
 # Include other often used defs
 # Include complementary channel + approximate defs; approx should be a separate property or not?
 
@@ -40,9 +43,10 @@ features:
   #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
 
   general_gates:
-    - 'Universal gate set cannot be transversal due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
+    - 'Universal gate set cannot be transversal for any code that detects single-qubit errors due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
 
   decoders:
+    - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of an encoder, which does not correct errors.'
     - 'Given an encoding, a decoder that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
     - 'Quantum machine-learning based decoders such as quantum convolutional neural networks \cite{arXiv:1810.03787} and quantum autoencoders \cite{arxiv:2202.00555}.'
   #  - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
