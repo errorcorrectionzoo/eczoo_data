@@ -4,22 +4,30 @@
 #######################################################
 
 code_id: ldpc
-physical: bits
-logical: bits
 
-name: 'Low-density parity-check (LDPC) code'
-short_name: 'LDPC'
-#introduced: ''
+name: 'Low Density Parity Check Codes'
+introduced: '\cite{arXiv:0805.0241}'
 
-description: |
-  Stub.
 
-  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, \(q\)-ary linear codes satisfying the above criteria are also called LDPC codes.
+Description: |
+    An (N, J, K) binary code which its parity check matrix, H, has N columns, J ones in each column, K ones in each row and zeros elsewhere. This code can be built from a sparse bipartite graph (reffered to asTanner graph). 
+    To build a code based on a bipartite graph, we can build the parity check matrix H. The nodes of one side of the bipartite graph will be the columns of H and nodes of the other side rows of H. if there is an edge from a node i in one side to a node j in the other side, H(i,j) = 1 and 0 otherwise.
 
-#protection: ''
+features:
+  -  The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon's limit) as code size increases.
 
-#notes:
-  #- ''
+
+  rate: 'b/c'
+
+
+  encoders: 'Encoding complexity is of O(n) per symbol'
+
+ 
+
+realizations: 'Satelite transmision of digital television, Wifi, 10GB Ethernet, 5G'
+
+notes: 'A code is said to be asymptotically good if its decoding is not complex and has a relatively good minimum distance with respect to its length (i.e. growth rate).'
+
 
 relations:
   parents:
