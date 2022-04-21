@@ -10,7 +10,7 @@ short_name: 'Subsystem QECC'
 introduced: '\cite{arXiv:quant-ph/0412076,arXiv:quant-ph/0504189}'
 
 description: |
-  A subsystem code, also known as an \textit{operator QECC}, encodes information in a subsystem \(\mathsf{A}\) of the code space \(\mathsf{C}\), which is part of the system Hilbert space \(\mathsf{H}\).
+  A subsystem code, also known as an \textit{operator} or \textit{gauge QECC}, encodes information in a subsystem \(\mathsf{A}\) of the code space \(\mathsf{C}\), which is part of the system Hilbert space \(\mathsf{H}\).
   \begin{align}
   \mathsf{H}=\mathsf{C} \oplus \mathsf{C}^{\perp} = \mathsf{A} \otimes \mathsf{B} \oplus \mathsf{C}^{\perp}
   \end{align}
@@ -28,5 +28,5 @@ relations:
     - code_id: oaecc
 
   cousins:
-    - code_id: ecc
-      detail: 'A subsystem code reduces to an ordinary error-correcting code when the gauge subsystem is trivial, \(\mathsf{B} = \mathbb{C}\).'
+    - code_id: qecc
+      detail: 'A subsystem code reduces to an ordinary error-correcting code when the gauge subsystem is trivial, \(\mathsf{B} = \mathbb{C}\). Conversely, any QECC with a tensor-product logical subspace can be turned into a subsystem code by treating a logical tensor factor as a gauge subsystem.'
