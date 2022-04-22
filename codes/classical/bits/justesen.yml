@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+
+code_id: justesen
+physical: bits
+logical: bits
+
+name: 'Justesen_code'
+introduced: '\cite{doi:10.1109/TIT.1972.1054893}'
+
+description: 'Binary code resulting from generalized concatenation of a Reed-Solomon (RS) outer code with multiple inner codes taken from the Wozencraft ensemble, i.e., \(N\) distinct binary inner codes of dimension \(m\) and length \(2m\). Justesen codes are parameterized by \(m\), with length \(n=2mN\) and dimension \(k=mK\), where \((N=2^m-1,K)\) is the RS outer code over \(GF(2^m})\).'
+
+features:
+  rate: |
+     The first asymptotically good codes. Rate is \(R_m=k/n=K/2N\geq R\) and the relative minumum distance satisfy \(\delta_m=d_m/n\geq 0.11(1-2R)\), where \(K=\left\lceil 2NR\right\rceil\) for asymptotic rate \(0<R<1/2\); see pg. 311 of Ref. \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}.
+
+     The code can be improved and extend the range of \(R\) from 0 to 1 by \textit{puncturing}, i.e., by erasing \(s\) digits from each inner codeword. This yields a code of length \(n=(2m-s)N\) and rate \(R=mk/(2m-s)N\). The lower bound of the distance of the punctured code approaches \(d_m/n=(1-R/r)H^{-1}(1-r)\) as \(m\) goes to infinity, where \(r\) is the maximum of 1/2 and the solution to \(R=r^2/(1+log(1-h^{-1}(1-r)))\), and \(h\) is the binary entropy function.
+  decoders:
+      - 'Generalized minimum distance decoding \cite{doi:10.1109/TIT.1972.1054893}.'
+
+realizations:
+    - 'Generating small-bias sample spaces, i.e., probability distributions that parity functions cannot typically distinguish from the uniform distribution \cite{doi:10.1145/100216.100244}.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: generalized_concatenated
+      detail: 'Justesen codes can be considered as a generalized concatenation of a Reed-Solomon outer code with \(N\) distinct binary inner codes.'
+  cousins:
+      - code_id: reed_solomon
+        detail: 'An RS code is the outer code of Justesen codes'
+      - code_id: wozencraft
+        detail: 'Wozencraft ensemble forms the inner codes of Justesen codes'
