@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+
+code_id: justesen
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Justesen_code'
+introduced: '\cite{doi:10.1109/TIT.1972.1054893}
+# \cite{manual:{MacWilliams/Sloane, The Theory of Error-Correcting Codes, Sec.10.11}}'
+
+
+description: 'Given \(m\), Justesen_code is a binary code, with length \(n=2mN\), dimension \(k=mK\), where the \((N=2^m-1,K)\) are the parameters of the Reed-Solomon outer code over \(F_{2^m}\). The code can be considered as concatenation of a Reed-Solomon outer code with \(N\) distinct binary inner codes of dimension \(m\) and length \(2m\).'
+
+
+# protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
+
+features:
+
+  rate: |
+     \(R=k/n=K/2N\), and the relative minumum distance satisfy \(\delta_m=d_m/n\geq 0.11(1-2R)\)
+
+     The code can be improved and extend the range of \(R\) from 0 to 1 by puncturiing the code (by erasing \(s\) digits from each inner codeword), resulting in a code of length \(n=(2m-s)N\), rate \(R=mk/(2m-s)N\). The lower bound of the distance of the punctured code approaches \(d_m/n=(1-R/r)H^{-1}(1-r)\) as m goes to infinity, where \(r\) is the maximum of 1/2 and the solution to \(R=r^2/(1+log(1-H^{-1}(1-r)))\), and \(H\) being the binary entropy function.
+  
+  decoders:
+      - 'generalized minimum distance decoding \cite{doi:10.1109/TIT.1972.1054893}'
+
+
+relations:
+  parents:
+    - code_id: generalized_concatenated
+  cousins:
+      - code_id: reed_solomon
+        detail: 'The outer code of Justesen codes'
+      - code_id: binary_linear
+        detail: 'The inner code of Justesen codes'
+
