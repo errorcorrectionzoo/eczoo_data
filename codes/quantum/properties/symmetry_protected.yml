@@ -1,0 +1,31 @@
+code_id: symmetry_protected
+
+name: 'Symmetry-protected self-correcting quantum code'
+introduced: '\cite{arXiv:1805.01474}'
+
+description: |
+  The physical degrees of freedom of the code correspond to a physical lattice with finite-dimensional local Hilbert space. The codespace is the degenerate ground space of a Hamiltonian that consists of terms localized in space. The system is required to have a symmetry not spontaneously broken, with the symmetry-protected self-correcting property described as follows.
+
+  Suppose the physical state is \(\rho(0)\) at time \(t=0\), and is evolved to \(\rho(t)\) by the Hamiltonian plus a small coupling to a thermal bath with a low enough temperature, in the way that is local on the lattice and respects the symmetry. Then the memory time \(\tau_\text{mem}\) is defined to be the maximal \(t\) such that \(\left\|\Phi_\text{ec}(\rho(t))-\rho(0)\right\|_1\leq\epsilon\), where \(\Phi_\text{ec}\) is the error correcting map and \(\epsilon\) a fixed error rate.
+  \(\tau_\text{mem}\) is required to grow without bound (typically exponentially) in the system size.
+  In addition, the logical operators are required to have a decomposition into a product such that each factor is localized in space and has the symmetry.
+
+  Such a code can be constructed using a 3D symmetry-protected topological (SPT) phase in the bulk with a 1-form symmetry, and an anomalous 2D symmetry-enriched topological (SET) phase on the boundary with ground-state degeneracy, such that the anyons on the boundary are confined by the string-like excitations in the bulk enforced by the symmetry.
+
+protection: |
+  Since the code is intended to be used as a self-correcting quantum memory when the symmetry is enforced, the protection is characterized by the scaling of \(\tau_\text{mem}\) in the system size.
+
+  Another characterization of the protection property is the symmetric energy barrier \(\Delta\) defined as follows.
+  For a given logical operator and a given decomposition into a product of local operators, we consider the maximal energy attained when implementing this logical operator stepwise with this decomposition. Then \(\Delta\) is defined by minimizing this quantity over all logical operators and all such decompositions that each local operator respects the symmetry.
+
+  At least for some models, the linear growth of \(\Delta\) (with system size) implies the exponential growth of \(\tau_\text{mem}\) below a critical temperature.
+
+relations:
+  parents:
+    - code_id: hamiltonian
+      detail: ''
+  cousins:
+    - code_id: topological
+      detail: 'If the coupling to the thermal bath does not respect the symmetry, it may no longer be self-correcting, but is nevertheless a topological code with the underlying topological phase.'
+#    - code_id: self_correcting
+#      detail: 'If the symmetry of the code is trivial, it becomes the self-correcting memory without the need of symmetry protection'
