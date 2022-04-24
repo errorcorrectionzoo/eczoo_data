@@ -1,0 +1,42 @@
+code_id: coherent_state_constellations
+physical: qubits
+logical: bits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title (SINGULAR) + first reference(s) (optional).
+name: 'coherent state constellations for Bosonic Gaussian channels'
+introduced: '\cite{doi:10.1109/ISIT.2016.7541749}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: |
+    The capacity of quantum channels has not been stablished as good as classical channels, but for the case of coherent information restricitng to Gaussian inputs, the maximum is achieved when the input is in the form of thermal state. Thermal state can be created by adding infinite coherent state which in practice, is not attainable since both our systems and coding methods are finite-dimensional. This method developes a discrerization method to use a limited number of coherent state, a constellation, to replicate the thermal state to some extent. Having a finite-dimensional quantum setup, existing techniques for constructing well-performing codes can be applied. For example we can construct quantum polar codes that achieves the coherent information of thermal noise channel bound. 
+    Just to be clear, this is a signal modulation method that makes the information be less prone to errors caused by channel; like how FM signal modulation is used to send radio signals. The modulation in here is by mapping the nth basis of our m^2-dimension quantum system to the nth coherent state.
+protection: 'Protects against Bosonic thermal (Gaussian) noise.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'Implementing quantum polar codes, rate approaches Gaussian coherent information bound'
+
+
+notes:
+  - 'Thermal state and coherent state are to types of quantum states which photons can be in. Roughly speaking, thermal state have far from classical (electro-magnetic wave) behaviours of light and coherent states have similar behaviours.'
+  - 'Since we are dealing with transmiting photons, the medium used is optical fibers.'
+  
+relations:
+  parents:
+    - code_id: qecc
+      detail: ''
+  cousins:
+    - code_id: quantum polar codes
+      detail: 'Any coding technique can be applied, but using quantum polar codes makes us reach the rate bound'
