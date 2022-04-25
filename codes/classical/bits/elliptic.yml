@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+
+code_id: elliptic
+
+physical: q-ary_digits
+
+logical: q-ary_digits
+
+name: 'Elliptic'
+
+description: 'Algebraic geometry codes were invented by Goppa in 1977  as a natural generalization of the RS codes. We take an algebraic curve \( \chi \)of genus \(g\) over a finite field \(F_{q} \) Then we pick some points on the Curve (points are our messages). We then evaluate a collection of functions on these points as our messages. The function set that we choose has degree \( \alpha \). The detail will be described below'
+
+protection: 'Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\lfloor \frac{d-1}{2} \rfloor \) coordinates.'
+
+features:
+  
+  rate: 'the code is an \( [n,k=\alpha-g+1, d] \) and \( d \geq n-\alpha \)'
+
+  decoders:
+    - 'We have the standard List decoding \cite{doi:10.1.1.474.114}'
+
+    - 'Guruswami and Sudan \cite{doi=10.1109/18.782097} proposed another list decoding algorithm for both RS codes and AG codes, and improved the error-bounding to \( n-\sqrt{n(n-d)} \)'
+
+  encoders:
+    - 'Exactly as the Standard evaluation AG codes by choosing the genus \(g=1\)'
+
+realizations:
+  - 'The Elliptic Curve Cryptography covers all relevant asymmetric cryptographic primitives like digital signatures and key agreement algorithms \cite{doi:10.1109/WOSSPA.2011.5931464}.'
+
+  - 'Application in Network security in cloud computing \cite{doi:10.1109/ICICV50876.2021.9388629}.'
+
+  - 'RSA in electronic commerce (E-commerce) \cite{doi:10.1109/COMCAS.2017.8244805}.'
+
+notes:
+  - 'natural generalization of the RS codes.'
+
+  - 'Restricted version of Algebraic Geometry codes.(Elliptic curves can be viewed as genus \( 1 \) curves.'
+
+relations:
+  
+  parents:
+    - code_id: 'reed_solomon'
+    - code_id: 'evaluation'
