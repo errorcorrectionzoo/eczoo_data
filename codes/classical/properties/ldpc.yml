@@ -17,6 +17,8 @@ description: |
   To build a code based on a bipartite graph, we can build the parity check matrix H. The nodes of one side of the bipartite graph will be the columns of H and nodes of the other side rows of H. if there is an edge from a node i in one side to a node j in the other side, H(i,j) = 1 and 0 otherwise.
   The name Low Density comes from the fact that the code's parity check matrix is sparse (most of its elements are zero), meaning the mentioned bipartite graph has small number of edges with respect to the number of nodes.
 
+  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) in the \(q\)-ary setting. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
+
 features:
 
   rate: 'b/c. The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
