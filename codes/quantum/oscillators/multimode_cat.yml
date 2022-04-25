@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: multimode_cat
+physical: oscillators
+logical: qudits
+
+name: 'Multimode cat code'
+
+# First reference with the code (optional).
+#introduced: '\cite{doi:10.1088/2058-9565/ab1e69}'
+
+#description: 'It is a continuous-variable code that encode a logical qudit into multiple harmonic oscillators. It is the multi-mode generalization of cat code.'
+description: 'It is a continuous-variable code that encode a logical qudit into multiple harmonic oscillators. It is the multi-mode generalization of cat code. The logical information of a \(d\)-dimensional qudit is encoded into a \(M\)-mode harmonic oscillator which is simultaneously stabilized by \(S_\gamma=1+(a^d)^{\otimes M} -\gamma^{dM}\) and \(S_m=1+a_{m+1}^\dagger a_{m+1}-a_m^\dagger a_m-\Delta_m\) for \(m\in\{1, 2, \cdots, M-1\}\) and \(\Delta_m\) is a constant.'
+
+#protection: 'Can detect any loss errors of at most \(M-1\) weight.'
+
+
+
+
+features:
+  #encoders: 
+    #- ''
+    
+  general_gates:
+    - 'Pauli gates and two-qubit gates. Universal gate set exists.'
+
+
+
+
+  
+  # Propose a field that you feel is applicable to a large and interesting class of codes
+  #some_other_field:
+  # - 'detail'
+
+#notes:
+  #- ''
+  #- ''
+
+relations:
+
+  cousins:
+    - code_id: cat
+      detail: 'This entry is the multimode generalization of cat code.'
