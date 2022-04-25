@@ -13,32 +13,26 @@ introduced: '\cite{doi:10.1109/TIT.1962.1057683}'
 
 
 description: |
-  An (N, J, K) binary code which its parity check matrix, H, has N columns, J ones in each column, K ones in each row and zeros elsewhere. This code can be built from a sparse bipartite graph (reffered to as Tanner graph). If we put code words of a code on its respective node (all of the nodes are on one side of the bipartite graph), the value of the nodes on the other side should be zero and if atleast one node is non-zero, it means the code does not belong to our code-set.
-  To build a code based on a bipartite graph, we can build the parity check matrix H. The nodes of one side of the bipartite graph will be the columns of H and nodes of the other side rows of H. if there is an edge from a node i in one side to a node j in the other side, H(i,j) = 1 and 0 otherwise.
-  The name Low Density comes from the fact that the code's parity check matrix is sparse (most of its elements are zero), meaning the mentioned bipartite graph has small number of edges with respect to the number of nodes.
+  Also known as \textit{Gallager codes}. Family of \([n,k,d]\) linear codes for which the number of nonzero entries in each row and column of the parity check matrix are both bounded by a constant as \(n\to\infty\). In other words, the parity-check matrix of an LDPC code is sparse.
 
-  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) in the \(q\)-ary setting. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
+  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) for \(q\)-ary codes. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
-features:
-
-  rate: 'b/c. The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
-
-
-  encoders:
-    - 'Encoding complexity is of O(n) per symbol (which is good).'
-
+#features:
+#  rate: 'b/c. The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
+#  encoders:
+#    - 'Encoding complexity is of O(n) per symbol (which is good).'
 
 realizations:
-  - 'Satelite transmission of digital television, Wifi, 10GB Ethernet, 5G.'
-
-notes: 
-  - 'A code is said to be asymptotically good if its decoding is not complex and has a relatively good minimum distance with respect to its length (i.e. growth rate).'
-
+  - 'Used in 5G NR cellular communication for the traffic channel \cite{doi:10.1109/CSCITA47329.2020.9137797}.'
+  - 'WiMAX (IEEE 802.16e) \cite{manual:{LDPC coding for OFDMA PHY. 802.16REVe Sponsor Ballot Recirculation comment, July 2004. IEEE C802.16e-04/141r2}}.'
+  - 'Satelite transmission of digital television \cite{doi:10.1109/ICARES.2014.7024407}.'
 
 relations:
   parents:
     - code_id: ecc
       detail: ''
   cousins:
-    - code_id: parity_check
-      detail: 'Binary LDPC codes are parity check codes.'
+    - code_id: binary_linear
+      detail: 'Binary LDPC codes are a subset of binary linear codes.'
+    - code_id: q-ary_linear
+      detail: '\(q\)-ary LDPC codes are a subset of \(q\)-ary linear codes.'
