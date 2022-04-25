@@ -5,92 +5,52 @@ logical: qubits
 name: 'Triangle code'
 introduced: '\cite{doi:10.22331/q-2017-04-25-2}'
 
-description: 'Describe code subspace as best as you can here.'
+description: 'Triangle codes are types of non-CSS topological quantum error-correction codes with modified twist defects. A twist is a check of weight five that is embedded into the lattice of the code. For the triangle codes, the modified twist defects have weight four checks. Additionally, the codes have simple syndrome extraction circuits nad have a high threshold close to that of surface codes. Triangle codes also use about \(25\%\) fewer physical per logical qubit compared to the surface code \cite{doi:10.22331/q-2017-04-25-2}.'
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
-# protection: |
-#   text...
-#   more text...
-protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
+protection: 'Protects against depolarizing noise. In particular, with \(13\) physical qubits triangle codes have a high-pseudothreshold fault-tolerance for depolarizing noise \cite{doi:10.22331/q-2017-04-25-2}.'
 
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
 features:
 
-  # The fields below relate to specific properties of the code that are worth
-  # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
-  # accepts a list of text entries, with one item per piece of information.
-  #
-  # Any fields below should be omitted if they do not apply.
+  rate: 'For specific triangle codes, the rates are \(7/13\) or \(7/15\) both with distance \(3\) and weight-four check operators. In general, for \(d\) distance, there are \(3d^2 + O(d)\), \(9d^2/4 + O(d)\), or \(6d^2/4 + O(d)\) physical qubits per logical qubit depending on the type of initialization and measurement procedures (code conversion vs. basis-state conversion vs. CAT states). The general triangle codes still have weight-four check operators \cite{doi:10.22331/q-2017-04-25-2}.'
 
-  rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
-
-  # This field that starts a list of strings, indexed by a dash and a space; do not leave it
-  # empty. If empty, comment out.
   encoders:
-    - 'Specific description of a process that makes the states, usually for quantum codes.'
-    - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-    - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    - 'Leave discussion of fault tolerance to fault-tolerance field.'
+    - 'The general structure is to tile the plane with equilateral triangles. Each of these triangles can encode a qubit where one side is a string of \(Z\)s as \(\bar{Z}\), one side is a strong of \(X\)s as \(\bar{X}\), and the last side is a mixed-type string as \(\bar{Y}\). The size of the triangular patches and which patch encodes data versus act as ancillas for gates depends on the initialization and measurement procedures. Lastly, the triangles have a twist defect in the center \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'For the code conversion (CC) initialization and measurement method,  the surface code is used to hold data between gates in patches. To initialize a state in a distance \(2d+1\) code can be done by initializing a \(d \times d\) surface code patch and then extending the patch from a corner. Ancilla qubits are prepared in the \(|+\rangle\) or \(|0\rangle\) basis. Then the triangle code stabilizers are measured \(O(d)\) times. In figure 3 in \cite{doi:10.22331/q-2017-04-25-2}, the product of dashed loops and solid loops make a plaquette in the triangle code. So this converts from the surface code where initialization and measurement is well-known to the triangle code. Since this procudure is heavily based on the surface code, storing data with distance at least \(d\) can be stored without converting to triangle patches. However performing single-qubit Clifford gates requires surface code patches to be embedded in triangle patches. This procedure requires \(O(d)\) Clifford gate times for \(H,S,CNOT\) \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'The basis-state conversion (BC) initialization and measurement method initializes and measures a Pauli eigenstate. To do this, triangle ancilla qubits are required outside of the triangle patches that hold the data. That is, the ancilla patches must be empty of data and be adjacent to the side that contains the logical Pauli that is wanted to be measured or initialized. The method uses fewer qubits than the CC method to convert a basis state from the surface code to the triangle code. It also uses fewer qubits than the CC method to measure the basis-state transversally. This method preps a basis state in a \(d \times d\) surface code as the CC method except now instead of treating the surface code as \(1/3\) of a triangle patch, it is \(2/3\). To convert to the surface code, stop measuring the bottom loop operators of the patch and measure the stabilizers of a \((d+1)/2 \times (d+1)/2 \times d\) triangle code \(O(d)\) times. Then, symmetrize the triangle code by measuring the stabilizers and not measuring the stabilizers in the topmost rows. This procedure requires \(O(1)\) time to perform \(H,S\) gates and \(O(d)\) time to perform \(CNOT\). Sometimes reorientation of the sides is required and that takes \(O(d)\) to perform \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'The CAT states (CS) initialization and measurement method uses a row of \(d\) ancilla qubits along some edge of a triangle code with distance \(d\) to create and verify a CAT state that is to measure the logical operator along the same edge. Creating this CAT state takes \(O(d)\) time steps. To relaibly measure the logical state, the CAT state must be measured \(O(d)\) times resuling in \(O(d^2)\) time for logical measurement. Initialization is a similar procedure that requires \(O(d^2)\) time for logical operator measurements that occur \(O(d)\) times as well as \(O(d^2)\) time to project the code onto a logical state \cite{doi:10.22331/q-2017-04-25-2}.'
 
-  # Not all fields are indexed by a dash
-  transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+  transversal_gates: 'Triangle codes have transversal single-qubit Clifford gates of order \(3\) like Clifford gate \(\bar{SH}\) that performs \(H\) on all qubit positions \(x > 0\) or at \(x = 0\) and \(z > 0\) and then perform \(SH\) on the central qubit. Note that qubits are places on integer lattics in the \(xy-, yz-,\) and \(xz-\) planes \cite{doi:10.22331/q-2017-04-25-2}.'
 
-  general_gates:
-    - 'Universal gate set achieved by either additional ... gate.'
-    - 'Magic-state distillation protocols'
-    - 'kth Clifford hierarchy gates obtained by ... circuits'
+  #general_gates:
 
   decoders:
-    - 'Details about how syndrome measurements are done; discuss overhead, if applicable.'
-    - 'MWPM decoding algorithm \cite{doi:good-paper} with ... overhead.'
-    - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
+    - 'For decoding a single layer of the triangle code, a decoding graph is laid on the code. Nodes of the graph are located at each stabilizer (center of the triangle graph) and has red or blue edges where red associates with \(X\) errors and blue with \(Z\) errors. To take into account any errors from measuring the error syndrome, a three-dimensional stack of the decoding graphs is laid ontop of the code with vertical edges connecting to qubits between layers \cite{doi:10.22331/q-2017-04-25-2}.'
 
   fault_tolerance:
-    - 'Transversal gates are fault-tolerant w.r.t. ... noise \cite{doi:ok-paper}'
-    - 'Other fault-tolerant gadgets (measurements, encoders, error correcting steps)'
-    - 'Noise-model-preserving gadgets, noise-biased gates, fault-tolerant flag error correction'
-    - 'Pieceable fault tolerance.'
+    - 'The symmetry of triangle codes allows for fault-tolerant measurement and initialization in any Pauli basis \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'A non-fault-tolerant curcuit initializes the triangle code then to guarantee fault-tolerance, this is followed by postselection on trivial measurements of the syndrome and of the appropriate logical Pauli based on the basis of the logical states \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'For syndrome extraction, instead of using the conventional ordering of coupling to the loop after coupling to the plaquette, the extraction has the coupling to the loop interwoven with the coupling to the plaquette. These are equivalent in circuits, but makes a different to the fault-tolerance since the latter can detect hook errors and the former cannot \cite{doi:10.22331/q-2017-04-25-2}.'
 
   code_capacity_threshold:
-    - '\(1.5%\) error-correction threshold against some noise with *noiseless* decoder of some complexity \cite{arxiv:paper}.'
-    - '\(5.2\%\) asymptotic upper bound from some estimation algortihm (Monte Carlo, e.g.) that may or may not have a feasible decoder.'
+    - '\(10\%\) bit-flip error-correction threshold for ideal syndrome measurements and \(10\%\) bit-phase flip error-correction threshold for ideal syndrom measurements \cite{doi:10.22331/q-2017-04-25-2}.'
+    - '\(3.2\%\) bit-flip error-correction threshold for noisy syndrome measurements and \(2.6\%\) for bit-phase flip noise \cite{doi:10.22331/q-2017-04-25-2}.'
 
   threshold:
-    - '\(0.3\%\) error-correction threshold ... with *noisy* ... decoder of some complexity \cite{doi:good-paper}.'
-    - '\(10^{-5}\) computational threshold using concatenated scheme under ... noise with overhead of ... '
-    - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
-    - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
-
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
+    - 'For a triangle code with 7 qubits of information, 6 ancilla qubits, 13 qubits in total, and max degree of 4 the lower pseudothreshold is \(1.05 \times 10^{-4}\) and upper pseudothreshold is \(1.22 \times 10^{-4}\) \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'For a triangle code with 7 qubits of information, 6 ancilla qubits, 13 qubits in total, and max degree of 5 the lower pseudothreshold is \(1.57 \times 10^{-4}\) and upper pseudothreshold is \(1.92 \times 10^{-4}\) \cite{doi:10.22331/q-2017-04-25-2}.'
+    - 'For a triangle code with 7 qubits of information, 8 ancilla qubits, 15 qubits in total, and max degree of 4 the lower pseudothreshold is \(1.76 \times 10^{-4}\) and upper pseudothreshold is \(2.23 \times 10^{-4}\) \cite{doi:10.22331/q-2017-04-25-2}.'
 
 realizations:
-  # List and explain the different "domains" of realizations in list items.
-  # Group closely related realizations into a single item. It's OK to have a
-  # single list item. Each item should more or less correspond to what would be
-  # said in a paragraph.
-  - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
-  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+  - 'Code used to improve surface codes by creating a way to implement gate \(S\) without state distillation \cite{doi:10.22331/q-2017-04-25-2}.'
 
 notes:
-  - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
-  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-  - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  - 'Can reference other codes, but try to put such connections in the relations fields below.'
-  - 'Anything noteworthy that''s not above or below.'
+  - 'Several tables and helpful figured to more easily see what the code looks like can be found in \cite{doi:10.22331/q-2017-04-25-2}.'
 
 relations:
   parents:
-    - code_id: code_id1
-      detail: 'The smallest code family that includes this code that is defined over the same physical space structure or alphabet.'
+    - code_id: surface #not sure on this since these are CSS codes, but triangle are non-CSS
+      detail: 'Triangle codes are related to surface codes by lattice surgery \cite{doi:10.22331/q-2017-04-25-2}.'
   cousins:
-    - code_id: code_id2
-      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-    - code_id: code_id3
-      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-    - code_id: code_id4
-      detail: 'Codes (classical or quantum) related on other ways to this code.'
+    - code_id: dislocation
+      detail: 'Both triangle codes and dislocation codes are topological codes with twists on qubits \cite{doi:10.22331/q-2017-04-25-2}.'
+    
