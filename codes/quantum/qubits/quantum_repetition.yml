@@ -8,9 +8,19 @@ physical: qubits
 logical: qubits
 
 name: 'Quantum repetition code'
-#introduced: ''
+introduced: '\cite{doi:10.1103/PhysRevA.32.3266}'
 
-description: 'Encodes \(1\) qubit into \(n\) qubits according to \(|0\rangle\to|\phi_0\rangle^{\otimes n}\) and \(|1\rangle\to|\phi_1\rangle^{\otimes n}\). Also known as a \textit{bit-flip} code when \(|\phi_i\rangle = |i\rangle\), and a \textit{phase-flip} code when \(|\phi_0\rangle = |+\rangle\) and \(|\phi_1\rangle = |-\rangle\).'
+description: |
+  Encodes \(1\) qubit into \(n\) qubits according to \(|0\rangle\to|\phi_0\rangle^{\otimes n}\) and \(|1\rangle\to|\phi_1\rangle^{\otimes n}\). Also known as a \textit{bit-flip} code when \(|\phi_i\rangle = |i\rangle\), and a \textit{phase-flip} code when \(|\phi_0\rangle = |+\rangle\) and \(|\phi_1\rangle = |-\rangle\).
+
+  The \(\pm\)-basis codewords for the phase-flip code are expanded in the computational basis as
+  \begin{align}
+    \begin{split}
+      |\overline{+}\rangle&=\frac{1}{\sqrt{2^{n-1}}}\sum_{\sum_{i}v_{i}=0}|v_{1},\cdots,v_{n}\ket\\
+      |\overline{-}\rangle&=\frac{1}{\sqrt{2^{n-1}}}\sum_{\sum_{i}v_{i}=1}|v_{1},\cdots,v_{n}\ket~,
+    \end{split}
+  \end{align}
+  showing that the phase-flip code code stores information in the global parity of the qubits.
 
 protection: 'Bit-flip code detects bit-flip errors \(X\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any phase-flip errors \(Z\). Phase-flip code detects phase-flip errors \(Z\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any bit-flip errors \(X\).'
 
