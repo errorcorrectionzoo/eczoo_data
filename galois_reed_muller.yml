@@ -1,1 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: galois_reed_muller
+physical: bits
+logical: bits
+
+name: 'kerdock'
+introduced: '\cite{doi:10.1016/S0019-9958(72)90376-2}'
+
+description: 'Kerdock code is a \((2^m, 2^{2m}, 2^{m-1} - 2^{frac{m}{2}-1})\) binary code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\) where \(R(1,m)\)
+is the corresponding first order Reed Muller code. The code is nonlinear, and its size is twice the size of the largest possible linear code with the same length and distance.
+The relative minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large. Let the matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\) (See notes). 
+Boolean functions are of the form \(Q(X) + l(X) + b\) where \(Q(X) is \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), \(l(X)\) is linear in \(m\) variables and \(b\) is in 
+\(\mathbb{F}_{2}\). Codewords are  formed as evaluations of these functions over \(\mathbb{F}_{2}^{m}\). The variable \(X\) represents vectors constituting 
+\(F_{2}^{m}\).'
+
+features:
+
+rate: 'The transmission rate is \(\frac{2m}{2^m}\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
+
+decoders:
+  - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the binary first-order Reed-Muller code to Kerdock code. 
+       \cite{doi:10.1109/18.312154}.'
+  - 'Complexity of soft decision decoding algorithm: \(4^m\) multiplications and \(m4^m\) additions \cite{arXiv:math/0207208}.'
+    
+
+realizations:
+  - 'Kerdock codes find application in digital fingerprinting. t - collision secure schemes can be designed to detect a pirated copy once t users have 
+     colluded \cite{doi:10.1109/TIT.2004.838106}.'
+
+notes:
+  - 'Kerdock set is a set of symmetric binary matrices with zero diagonal entries with the property that difference of distinct matrices in the set have full rank.'
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+    - code_id: quatenary_over_z4
+      detail: 'Kerdock codes can be seen as an extended linear cyclic code over Z4 (quatenary code), where the appended bit is a zero sum check \cite{arXiv:math/0207208}.
+      We map the Kerdock codewords to Z4 via the Gray map which is 00->0, 01->1, 11->2, 10->3. It is easy to see that the Gray map is inherently non linear. The map is 
+      an isometry provided the metric in the binary space is the standard Hamming metric and the metric in Z4 space is the Lee metric.'  
+
+  cousins:
+    - code_id: reed_muller
+      detail: 'Kerdock code is a subcode of second order Reed Muller Code. It consists of a number of cosets of \(RM(2,m)\) created by quotienting with \(RM(1,m)\).' 
+      
+    - code_id: preparata
+      detail: 'Dual of Kerdock in the sense of McWilliams weight distribution. These well-known codes are in fact equivalent to a pair of mutually dual
+      linear codes over the ring Z4.'
 
