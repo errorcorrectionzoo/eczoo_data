@@ -16,13 +16,13 @@ description: |
   \begin{align}
   d \leq n-k+1
   \end{align}
-  becomes an equality. A bound for general \(q\)-ary codes can also be formulated; see Thm. 1.9.10 in Ref. \cite{doi:10.1201/9781315147901}.
+  becomes an equality. A code is called \textit{almost MDS} (AMDS) when \(d=n-k\). A bound for general \(q\)-ary codes can also be formulated; see Thm. 1.9.10 in Ref. \cite{doi:10.1201/9781315147901}.
 
 protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
 
 notes:
   - 'The dual of an MDS codes is always MDS.'
-  - 'The codes \( [[n,1,n]]_q, [[n,n-1,2]]_q, [[n,n,1]]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes.'
+  - 'The codes \( [n,1,n]_q, [n,n-1,2]_q, [n,n,1]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes.'
   - 'The only binary MDS codes are the trivial ones.'
 
 realizations:
@@ -32,5 +32,5 @@ relations:
   parents:
     - code_id: q-ary_linear
       detail: ''
-    - code_id: distributed_storage
-      detail: 'MDS codes are most efficient in terms of minimizing storage overhead for handling erasures.'
+    - code_id: locally_recoverable
+      detail: 'MDS codes are most efficient in terms of minimizing storage overhead for handling erasures. They are locally recoverable with locality \(k\).'
