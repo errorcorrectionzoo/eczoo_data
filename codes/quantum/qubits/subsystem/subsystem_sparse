@@ -1,0 +1,37 @@
+code_id: subsystem_sparse
+physical: qubits
+logical: qubits
+
+
+name: 'Sparse quantum codes from quantum circuits'
+introduced: '\cite{doi.org/10.48550/arXiv.1411.3334}'
+
+
+description: 'It is a constructive map from an arbitrary stabilizer code into a new subsystem code, with the same distance and number of encoded qubits. All genertors have constant weight, at the cost of additional ancilla qubits. The construction involvs the quantum error detecting circuit of the original code. Given such a circuit, there is a qubit corresponding to every output and input of each circuit element, and a set of gauge generators corresponding to each circuit element. Further, the new code can be made spatially local at the cost of more ancilla qubits.'
+
+
+
+protection: 'Protects against Pauli noise with possible improvement of error threshold because it is a sparse code (It is not clear a priori because there are more checks to be measured.).'
+
+
+features:
+
+
+  rate: 'Given any \([n_0,k_0,d_0]\) quantum stabilizer code, the construction outputs a \([n = O(\sum_i w_i),k=k_0,d=d_0]\) quantum subsystem code, with gauge generators of weight \(w_1,..., w_i,...,w_{n_0-k_0}\) such that \(w_i\) is \(O(1)\).'
+
+
+  fault_tolerance:
+    - 'A new fault-tolerant measurement gadget that is a modification based on the DiVincenzo-Shor cat-state method.'
+
+notes:
+  - 'This construction is used to show the existance of spatially local subsysem codes that nearly saturate the upper bound set by Bravyi and Terhal \cite{arXiv:0810.1983}.'
+
+  - 'This construction is used to show the existance of quantum error correcting subsystem codes with gauge generators of weight O(1), minimum distance \(d = n^{1-\epsilon}\) where \(\epsilon = O(1/\sqrt{\log n})\)'
+
+relations:
+  parents:
+    - code_id: subsystem_stabilizer
+      detail: 'This code gives a subsystem stabilizer code with checks of lower weight than the original stabilizer code.'
+  cousins:
+    - code_id: floquet
+      detail: 'Floquet code is a construction that also uses low weight gauge checks to obtain higher weight stabilizers. Both codes may require similar decoders.'
