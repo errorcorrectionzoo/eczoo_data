@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cat-like_2n_2n-2_2
+physical: qubits
+logical: qubits
+
+name: '\([[2n,2n-2,2]]\) cat-like codes'
+
+description: |
+  Family of 2n-qubit stabilizer codes
+  \cite{manual:{J. Preskill, Lecture Notes on Quantum Computation, \href{http://theory.caltech.edu/~preskill/ph229/notes/chap7.pdf}{Chapter 7} (1999)}}
+  with generators 
+  \begin{align}
+    \begin{split}
+      XX &\dots XX \\
+      ZZ &\dots ZZ
+    \end{split}
+  \end{align}
+  The generators are required to have even length so that they commute.
+  These codes are considered 'cat-like' because the codewords consist of the cat states
+  \begin{align}
+    \frac{1}{\sqrt{2}}(|x\rangle + |\neg x\rangle)
+  \end{align}
+  for all strings \(x\in\{0,1\}^{2n}\) of weight \(n\). There are \(2^{2n-2}\) such states, hence \(k=2n-2\).
+
+protection: 'Detects a single-qubit error or single erasure. Not able to correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+  cousins:
+    - code_id: cat
+      detail: '\([[2n,2n-2,2]]\) codes are not directly related to cat codes, but are considered ''cat-like'' because their codewords are cat states.'

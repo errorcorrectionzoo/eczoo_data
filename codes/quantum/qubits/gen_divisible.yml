@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gen_divisible
+physical: qubits
+logical: qubits
+
+name: 'Generalized divisible codes'
+introduced: '\cite{arXiv:1709.08658}'
+
+description: |
+  Given a vector of even integers \(\vec{w}\),
+  a code is called generalized divisible if the inner product of \(\vec{w}\) with any codeword is divisible by a fixed integer.
+  
+  Given a CSS code of distance \(d\) and divisor \(2^\nu\) where the transversal \(X\) is a nontrivial logical operator,
+  one can construct a CSS code with distance \(d\) and divisor \(2^{\nu+1}\)\cite{arXiv:1709.08658}.
+  The code has parameters \([[O(d^{\nu}),\Omega(d),d]]\).
+  This forms a tower of generalized divisible quantum codes.
+
+  Although it is valid to think of this procedure\cite{arXiv:1709.08658} as mapping binary matrices with a 
+  certain divisibilty to larger binary matrices with a higher divisibilty,
+  the construction is based on converting two magic state distillation protocols 
+  based on Clifford measurements to those based on codes with transversal T-gates.
+
+features:
+  transversal_gates: |
+    The method of Haah\cite{arXiv:1709.08658} constructs a code with divisor \(2^{\nu}\) 
+    that admits a transversal gate at the \(\nu\)-th level of the Clifford hierarchy.
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: css
+  cousins:
+    - code_id: quantum_reed_muller
+      detail: 'The tower constructed by starting with the Steane [\([7,1,3]]\) code gives the family of quantum Reed-Muller codes of distance 3'
+    - code_id: steane
+      detail: 'The tower constructed by starting with the Steane [\([7,1,3]]\) code gives the family of quantum Reed-Muller codes of distance 3'
+  #  - code_id: classical divisible 
+  #child: Triply even CSS codes occur as a subclass of the tower of generalized divisible quantum codes.
