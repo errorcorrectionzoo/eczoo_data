@@ -1,55 +1,34 @@
-
-# code id, physical, logical are all lower case
 code_id: quantum_h
 physical: qubits
 logical: qubits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'H code'
 introduced: '\cite{doi:10.1103/PhysRevA.87.042305}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
-description: 'The H code is a \[k+4,k,2\] CSS quantum codes. It supports transversal Hadmard gates and therefore a good code for magic state distillation. The H code is defined by four stablizer generators \(S_1=X_1X_2X_3X_4\), \(S_2=Z_1Z_2Z_3Z_4\), \(S_3=X_1X_2X_5X_6...X_n\), \(S_4=Z_1Z_2Z_5Z_6...Z_n\)'
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
-# protection: |
-#   text...
-#   more text...
+description: 'The H code is a \[k+4,k,2\] CSS quantum codes. It supports transversal Hadmard gates and therefore a good code for magic state distillation. The H code \([[n, k = n-4, 2]]\) is defined by four stablizer generators \(S_1=X_1X_2X_3X_4\), \(S_2=Z_1Z_2Z_3Z_4\), \(S_3=X_1X_2X_5X_6...X_n\), \(S_4=Z_1Z_2Z_5Z_6...Z_n\)'
+
+
 protection: 'Detects weight-1 Pauli errors. The r-level contatenated H code detects weight-\(2^r-1\) Pauli errors.
 
 magic: 'The protocals involve multirounds of multilevel concatenantion of H codes. If each round uses one higher level of contatenation than the previous one and in a total of r rounds, the magic-state distillation scaling exponent \(\gamma\), such that the number of input states is \(O(\log^{\gamma}(\epsilon_{in}/\epsilon_{out})\), tends to 1 in the limit of \(k\rightarrow \infty\) and \(r\rightarrow \infty\). This scaling exponent reaches the conjectured bound for \(gamma\)\cite{arXiv:1209.2426}.'
-# This field starts a list of specific labeled subfields; do not leave it
-# empty. If empty, comment out. Also, indentations are important!
+
 features:
 
   rate: 'The H codes are dense. The rate \((n-4)/n\rightarrow 1\) as \(n \rightarrow \infty\). The distance of the code is 2. However a \(r\)-level concatenation of H codes gives a distance of \(2^r\)'
 
-  # This field that starts a list of strings, indexed by a dash and a space; do not leave it
-  # empty. If empty, comment out.
   encoders:
     - 'Encoder for magic states for the code constructed in \cite{doi:10.1103/PhysRevA.87.042305}'
-    
-
-  # Not all fields are indexed by a dash
+   
   transversal_gates: 'Admits transversal Hadmard gates and the transversal \(TXT\dagger) gate (Clifford equivalent to Hadmard gate), where \(T=exp(i\pi(I-\sigma^z)/8)\) is the \(\pi/8\) rotation gate'
   general_gates:
     - 'H codes can be used for high-quality and high-efficiency magic-state distillation \cite{doi:10.1103/PhysRevA.87.042305}.'
 
 
 
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
-  # - 'detail'
+notes:
+   - 'The multi-level magic states protocals supported by H code have a efficency advantage over the 10-to-2 and 15-to-1 protocals for output error \(\epsilon_{out}\)below \(10^{-7}\).'
 
-
-# notes:
-#   - 'Bounds on n,k, or d for this class, unless mentioned in desciption.'
-#   - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
-#   - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-#   - 'Can reference other codes, but try to put such connections in the relations fields below.'
-#   - 'Anything noteworthy that''s not above or below.'
 
 relations:
   parents:
