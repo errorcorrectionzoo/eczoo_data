@@ -18,13 +18,17 @@ description: 'Stub.'
 #notes:
 #  - ''
 #
-#realizations:
-#  - 'Numerous applications: computer hard-disks, DVDs, 3G telephone networks (IS-2000, Release D), NASA deep-space exploration, etc.'
+realizations:
+  - 'Various cloud storage systems \cite{arxiv:1612.01361}.'
+  - 'Public-key cryptosystems \cite{doi:10.1007/s10623-003-6151-2}. Initial construction of McEliece Public Key Cryptosystem was based on Goppa codes which are subfield subcode of GRS codes. Public Key Cryptosystem designs based on GRS codes first proposed in Ref. \cite{doi:10.1002/oca.4660070108}, which replaced the generator matrix with the parity check matrix, were proven to be insecure \cite{doi:10.1515/dma.1992.2.4.439} since the public key exposes algebraic structure of code. More recent works focus on methods to mask the algebraic structure using subcodes of GRS codes \cite{doi:10.1007/s10623-003-6151-2}. Lately a key-recovery attack was developed in \cite{arXiv:1307.6458} for a variant of masking method proposed by \cite{arXiv:1108.2462}.'
 
 relations:
   parents:
     - code_id: alternant
-      detail: ''
-  cousins:
-    - code_id: goppa
-    - code_id: bch
+    - code_id: evaluation
+      detail: 'GRS codes are evaluation AG codes on the projetive line; see Thm. 15.3.24 of Ref. \cite{doi:10.1201/9781315147901}.'
+    - code_id: distributed_storage
+      detail: 'Generalized RS codes are used in various cloud storage systems \cite{arxiv:1612.01361}.'
+#  cousins:
+#    - code_id: goppa
+#    - code_id: bch
