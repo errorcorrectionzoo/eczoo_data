@@ -18,9 +18,11 @@ features:
 
   rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
   
-  encoder: 'A linear code \([n,k]_{q^{2}}\) contained in it's hermitian dual implies the existence of \([[n,n-2k,d]]_{q}\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\). Taking C
+  encoder: 'A linear code \([n,k]_{q^{2}}\) contained in its hermitian dual implies the existence of \([[n,n-2k,d]]_{q}\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\). Taking C
   as \(\mathcal{R}_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\) yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp}]]_{q}\) quantum code where 
   \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).'
+  
+  protection: '.'
    
 relations:
   parents: 
@@ -36,8 +38,3 @@ relations:
     - code_id: quantum_mds_code
       detail: 'There exists quantum code \([[q, q − 2ν − 2, ν + 2]]_{q}\) for \( 0\leq v \leq \frac{(q-2)}{2}\) and \([[q^2,q^2-2v-2,v+2]]_{q}\) for 
       \(0\leq v \leq q-2\). Both these codes satisfy quantum singleton bound.'
-      
-  relatives:
-    - code_id: magic
-    - detail: '.' 
-
