@@ -12,25 +12,27 @@ name: 'Nonbinary Quantum Reed-Muller Codes'
 introduced: '\cite{doi:10.1109/18.771249}'
 
 description: 'The pure stabilizer code \([[q^m,k(v_2)-k(v_1),min{d(v_1^{\perp}),d(v_2)}]]_{q}\) with parameters \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and 
-\(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq\ q-1) is called quantum Reed Muller code.'
+\(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq\ q-1) is called quantum Reed Muller code. Here \(0\leq v_1,v_2 leq m(q-1)-1\), q is prime and m is positive integer.'
 
 features:
 
-rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
+  rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
+  
+  encoder: 'A linear code \([n,k]_{q^{2}}\) contained in it's hermitian dual implies the existence of \([[n,n-2k,d]]_{q}\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\). Taking C
+  as \(\mathcal{R}_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\) yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp}]]_{q}\) quantum code where 
+  \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).'
    
 relations:
-  parents:
-    - code_id: bits_into_bits
-    - code_id: quatenary_over_z4
-      detail: 'Kerdock codes can be seen as an extended linear cyclic code over Z4 (quatenary code), where the appended bit is a zero sum check \cite{arXiv:math/0207208}.
-      We map the Kerdock codewords to Z4 via the Gray map which is 00->0, 01->1, 11->2, 10->3. It is easy to see that the Gray map is inherently non linear. The map is 
-      an isometry provided the metric in the binary space is the standard Hamming metric and the metric in Z4 space is the Lee metric.'  
+  parents: 
+    - code_id: css
+      detail: 'Quantum Reed Muller is a CSS code where the \([[q^m,k(v_2)-k(v_1),min{d(v_1^{\perp}),d(v_2)}]]_{q}\) code is constructed from the classical Reed Muller Codes
+      \(\mathcal{R}_{q}(v_1,m)\) and \(\mathcal{R}_{q}(v_2,m)\) with \(0\leq v_1 \leq v_2 \leq q(m-1)-1\).'  
 
   cousins:
-    - code_id: reed_muller
-      detail: 'Kerdock code is a subcode of second order Reed Muller Code. It consists of a number of cosets of \(RM(2,m)\) created by quotienting with \(RM(1,m)\).' 
+    - code_id: punctured_quantum_reed_muller
+      detail: 'For CSS code constructed from classical codes \(C_1\) and \(C_2\) the punctured code is defined as \(P(C) = \{(a_ib_i)_{i=1}^{n}|a \in C_1, b \in C_2^{\perp}\}^{\perp}\).
+      ' 
       
-    - code_id: preparata
-      detail: 'Dual of Kerdock in the sense of McWilliams weight distribution. These well-known codes are in fact equivalent to a pair of mutually dual
-      linear codes over the ring Z4.'
+    - code_id: quantum_mds_code
+      detail: ''
 
