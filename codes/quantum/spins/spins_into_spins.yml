@@ -8,11 +8,32 @@ physical: spins
 logical: spins
 
 name: 'Spin code'
+introduced: '\cite{arXiv:2005.10910}'
 
 description: |
   Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, where the canonical qudit basis consists of states of a quantum mechanical spin. In other words, canonical single-qudit states \(|^\ell_m\rangle\) are labeled by total angular momentum \(\ell\) (either integer or half-integer) and its \(z\)-axis projection \(m\), with \(q=2\ell+1\).
 
   In contrast to other qudit codes, spin codes are closely associated with the angular momentum Lie algebra and/or the Lie groups \(SU(2)\) or \(SO(3)\).
+
+  Codespaces are two-dimensional subspaces of a spin''s Hilbert space mapped to themselves using representatives of the binary octahedtral (\(2O\)) group. This is done by restricting the \(SU(2)\) irreducible representation to the \(2O\) representatives.
+  The irreducible representations of interest do not appear at all in integer spins, so half-integer spins are used.
+
+protection: 'Protects against errors that take the form of small random \(SU(2)\) representatives. These typically come in the form of dephasing errors, relaxation errors, and thermalization errors.'
+
+features:
+
+  encoders:
+    - 'Given any half-integer spin above \(3/2\), explicit codewords can be produced.'
+    - 'Producing codewords begins by creating a projection  onto an irreducible representation of \(2O\).'
+    - 'Then, irreducible representations of the Paulis \(\bar{\sigma}_w\) are defined using the above projection and the angular momentum operators.'
+    - 'Finally, \(|\bar{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\bar{\sigma}_z\) and \(|\bar{1} \rangle = \bar{\sigma}_x |\bar{0} \rangle \).'
+
+  general_gates:
+    - 'Universal computation results from being able to prepare a single logical state, perform one measurement, the phase gate, the Hadamard gate, the conditional phase gate, and the square root of the phase gate.'
+
+#notes:
+#  - 'The exact error correction condition is \(\langle \bar{0} | J_z | \bar{0} \rangle = 0\)'
+
 
 relations:
   parents:

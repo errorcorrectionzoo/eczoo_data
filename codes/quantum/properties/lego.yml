@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# Use UTF-8 unicode encoding
+# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
+# Allowed external bibliographic references are
+#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
+#    \cite{doi:#}, or, as a last resort
+#    \cite{manual:{(enter citation line incl. author and year here)}}
+# External websites such as code tables, coding theory packages, github pages linked as
+#    \url{https://example.com/example}
+#    \href{https://example.com/example}{link text}
+# Internal references to codes are
+#    \hyperref[code:code_id]{link text}
+# Delete instructional comments when submitting
+
+# code id, physical, logical are all lower case
+code_id: lego
+#physical: qubits
+#logical: qubits
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title (SINGULAR) + first reference(s) (optional).
+name: 'LEGO code'
+introduced: '\cite{arXiv:2109.08158}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: |
+  The quantum LEGO method is a method of combining multiple codes that have been converted into Tensors by tying together the input and outputs of those codes, in a way stacking them similar to LEGOs.
+
+
+
+features:
+
+  encoders:
+    - 'First each code mapping \(V\) is converted to a tensor by decomposing it using the formula \(V = \sum_{i_j} V_{i_1 \dots i_{n+k}} | i_{k+1}\dots i{k+n} \rangle \langle i_1 \dots i_k |\). '
+    - 'We then look at the codes graphically, treating each \(i_j\) as an edge dangling out of the tensor vertex \(V_{i_1 \dots i_{n+k}\). These edges are either connected to another tensor vertex''s edges or left dangling.'
+    - 'Each local tensor has unitary product stabilizers (UPS). The goal is to push each UPS through the tensor network until each dangling edge has only trivial support. Otherwise, a matching value is pushed through the edge and the process is repeated on the next tensor. If a UPS can be pushed through the whole network, then a UPS for the larger network has been found.'
+    - 'The dangling legs (edges) and UPS of the whole network can then be converted to physical/logical elements and stabilizers/logical operators for a new quantum ECC.'
+
+  decoders:
+    - 'The decoder is created by creating a decoding quantum circuit with dangling legs replaced with input/output wires, and tensors converted to unitary gates.'
+    - 'Maximum likelihood decoding can be used when the tensors are stabilizer codes.'
+
+notes:
+  - 'The bounds for these codes depend entirely on the codes used to create them.'
+  - 'These codes can serve as a bridge between quantum error correction and physics. For example, the introduction paper states that finding the tensor constructions of well-known gauge codes using the lego method can help with the understanding of low energy Hamiltonian behavior with frustration in the ground space.'
+  - 'Many known codes can be created using this code''s methods in order to further their understanding. Examples can be found in the paper that introduces these codes.'
+  - 'Tensor-network codes are types of LEGO codes where logical and physical legs are pre-assigned and logical legs are not contracted.'
+
+relations:
+  parents:
+    - code_id: qecc
+      detail: ''
+  cousins:
+    - code_id: code_id2
+      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
+    - code_id: code_id3
+      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
+    - code_id: code_id4
+      detail: 'Codes (classical or quantum) related on other ways to this code.'
