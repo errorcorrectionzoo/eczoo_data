@@ -3,31 +3,11 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# Use UTF-8 unicode encoding
-# AMS-TeX commands are rendered inside \( ... \) using MathJaX.
-# Allowed external bibliographic references are
-#    \cite{arXiv:#.#} or \cite{arXiv:quant-ph/#} (PREFERRED),
-#    \cite{doi:#}, or, as a last resort
-#    \cite{manual:{(enter citation line incl. author and year here)}}
-# External websites such as code tables, coding theory packages, github pages linked as
-#    \url{https://example.com/example}
-#    \href{https://example.com/example}{link text}
-# Internal references to codes are
-#    \hyperref[code:code_id]{link text}
-# Delete instructional comments when submitting
-
-# code id, physical, logical are all lower case
 code_id: lego
-#physical: qubits
-#logical: qubits
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
 name: 'LEGO code'
 introduced: '\cite{arXiv:2109.08158}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
 description: |
   The quantum LEGO method is a method of combining multiple codes that have been converted into Tensors by tying together the input and outputs of those codes, in a way stacking them similar to LEGOs.
 
@@ -55,10 +35,3 @@ relations:
   parents:
     - code_id: qecc
       detail: ''
-  cousins:
-    - code_id: code_id2
-      detail: 'Codes described by a property shared by this code other than physical space (e.g., topological, Hamiltonian-based). Can move to parent if the property was integral in the initial construction/motivation of the code.'
-    - code_id: code_id3
-      detail: 'Code family of similar encoding but with different physical space structures (qudit vs. qubit surface code).'
-    - code_id: code_id4
-      detail: 'Codes (classical or quantum) related on other ways to this code.'
