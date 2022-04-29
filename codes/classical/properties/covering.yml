@@ -4,36 +4,37 @@
 #######################################################
 
 code_id: covering
-
 name: 'Covering code'
 
-description: Covering codes are set of codewords that are within fixed distance to each other. Specifically, a code \(C\) is called \(\rho\)-covering code if \(\forall \bm{v} \in \mathbb{F}_q^{n}\) \(\exists \bm{c} \in C\) such that \(d(\bm{c},\bm{v})\leq \rho\). The covering radius of a code \(C\), \(\rho(C)\) is smallest \(\rho \in \mathbb{Z}^{+}\) such that \(C\) is \(\rho\)-covering, i.e.
+description: |
+  A code \(C\) in a metric space is covering if the union of balls of some radius centered at the codewords covers the entire space. For example, a \(q\)-ary code \(C\) is \(\rho\)-covering if \(\forall v \in GF(q)^{n}\), there is a codeword \(c \in C\) such that the Hamming distance \(D(c,v)\leq \rho\).
+
+  The \textit{covering radius} \(\rho(C)\) is the smallest non-negative integer \(\rho\) such that \(C\) is \(\rho\)-covering, i.e.
   \begin{align}
-    \rho(C)=\max_{{\bm{v}\in \mathbb{F}_q^{n}}}\min_{{\bm{c}\in C}}d(\bm{v},\bm{c})
+    \rho(C)=\max_{{v\in GF(q)^{n}}}\min_{{c\in C}}d(v,c)~.
   \end{align}
-  In general finding covering radius for a given code is difficult. Complexity analysis as well as an extensive study on bounds can be found in \cite{manual:{G. Cohen, I. Honkala, S. Litsyn, A. Lobstein, Covering Codes, Elsevier (1997).}}.
-  For \([n,k]\) linear codes over \(GF(q)\), \(\rho\) is minimum number of columns of \(H\) which cover \(\mathbb{F}_q^{n-k}\).
-features:
-    rate: ''
+  For a linear code \([n,k]_q\), the covering radius is the minimum number of columns of the code's parity check matrix which cover \(GF(q)^{n-k}\).
+
+  The covering radius satisfies various inequalities. A code \(C\) with distance \(d\) satisfies the relation
+  \begin{align}
+    \rho(C)\geq \frac{|d-1|}{2}~. \label{perfect-ref}
+  \end{align}
+  Linear \([n,k]_q\) codes also satisfy the \textit{redundancy bound}
+  \begin{align}
+    \rho(C)\leq n-k
+  \end{align}
+  and the \textit{sphere covering bound}
+  \begin{align}
+    \rho(C)\leq \min{\left(p~\bigg\rvert \sum_{i=0}^{p} {n \choose i}(q-1)^{i}|C| \geq q^{n}\right)}~. \label{spherepacking-perfect-label}
+  \end{align}
+  A code is perfect iff it satisfies Eqs. \eqref{perfect-ref} and \eqref{spherepacking-perfect-label} with equality.
+
+  In general, finding the covering radius of a given code is difficult. Complexity analysis as well as an extensive study on bounds can be found in Ref. \cite{manual:{G. Cohen, I. Honkala, S. Litsyn, A. Lobstein, \emph{Covering Codes}, Elsevier (1997).}}.
 
 realizations:
-  - 'Data compression both with or without compression.'
-  - 'Football-pool problem: smallest number of bets(on n matches) needed to guarantee at least one bet has at most \(\rho\) errors.'
+  - 'Data compression both with or without compression \cite{manual:{G. Cohen, I. Honkala, S. Litsyn, A. Lobstein, \emph{Covering Codes}, Elsevier (1997).}}.'
+  - 'Football-pool problem: finding the smallest number of bets on a set of matches needed to guarantee at least one bet has at most \(\rho\) errors \cite{doi:10.2307/2974552,doi:10.1007/BF03025254}.'
 
-notes:
-    - 'A code \(C\) with \(d(C)=d\) satisfies
-    \begin{align}
-      \rho(C)\geq \frac{|d-1|}{2} \label{perfect-ref}
-    \end{align}'
-    - '\textbf{(Redundancy Bound)}A code \(C\) with \([n,k]\) satisfies
-    \begin{align}
-      \rho(C)\leq n-k
-    \end{align}'
-    - '\textbf{(Sphere Covering Bound)} A code \(C\)  over \(\mathbb{F}_q^{n}\) satisfies
-    \begin{align}
-        \rho(C)\leq \min{\left(p~\bigg\rvert \sum_{i=0}^{p} {n \choose i}(q-1)^{i}|C| \geq q^{n}\right)} \label{spherepacking-perfect-label}
-    \end{align}'
-    - 'Perfect codes satisfy \eqref{perfect-ref} and \eqref{spherepacking-perfect-label} with equality. Converse is also true.'
 relations:
   parents:
     - code_id: ecc
