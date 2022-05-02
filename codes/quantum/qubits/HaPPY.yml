@@ -25,7 +25,7 @@ description: |
 protection: 'Protects against erasure errors and Pauli errors on the boundary qubits.'
 
 features:
-  rate: 'The pentagon HaPPY code converges to \(\frac{1}{\sqrt{5}} \approx 0.447\). The pentagon/hexagon HaPPY code, with alternating layers of pentagons and hexagons in the tiling, has a rate of \(0.299\) if the last layer is a pentagon layer and a rate of \(0.088\) if the last layer is a hexagon layer.'
+  rate: 'The pentagon HaPPY code has an asymptotic rate \(\frac{1}{\sqrt{5}} \approx 0.447\). The pentagon/hexagon HaPPY code, with alternating layers of pentagons and hexagons in the tiling, has a rate of \(0.299\) if the last layer is a pentagon layer and a rate of \(0.088\) if the last layer is a hexagon layer.'
 
   encoders:
     - 'Heisenberg-picture encoding is done through \textit{tensor pushing}. Each bulk operator (logical) is pushed to an operator supported on a portion of the boundary region (physical). Pushing all the bulk operators through results in reconstruction of the boundary.'
@@ -44,7 +44,7 @@ features:
 relations:
   parents:
     - code_id: holographic
-    - code_id: stabilizer
+    - code_id: qubit_stabilizer
       detail: 'The HaPPY code is a stabilizer code because it is defined by a contracted network of stabilizer tensors; see Thm. 6 in Ref. \cite{arxiv:1503.06237}.'
   cousins:
     - code_id: stab_5_1_3

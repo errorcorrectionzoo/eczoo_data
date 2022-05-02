@@ -7,7 +7,7 @@ code_id: reed_muller
 physical: bits
 logical: bits
 
-name: 'Reed-Muller code'
+name: 'Reed-Muller (RM) code'
 introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465}'
 
 description: 'Stub.'
@@ -24,7 +24,9 @@ relations:
   parents:
     - code_id: binary_linear
       detail: ''
-
+  cousins:
+    - code_id: divisible
+      detail: 'An RM\((r,m)\) code is \(2^{\left\lceil m/r\right\rceil-1}\)-divisible, according to McEliece's theorem \cite{doi:10.1016/0097-3165(71)90066-5,doi:10.1016/0012-365X(72)90032-5}.'
   #cousins:
     # - code_id: hamming
     #   detail: ''
