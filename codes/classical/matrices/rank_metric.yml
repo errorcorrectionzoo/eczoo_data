@@ -5,7 +5,7 @@
 
 code_id: rank_metric
 physical: matrices
-logical: q-ary_digits
+logical: matrices
 
 name: 'Rank metric code'
 introduced: '\cite{doi:10.1016/0097-3165(78)90015-8}'
@@ -13,18 +13,20 @@ introduced: '\cite{doi:10.1016/0097-3165(78)90015-8}'
 
 description: |
   Encodes \(k\) states in an \(m\times \n)-dimensional \textit{matrix} over \(GF(q)\), using the rank of the difference of matrices as the distance function.
-  Distance \(d\) is the minimum rank matrix in the code.
+  Distance \(d\) is the minimum rank of all nonzero matrices in the code.
   Generally linear.
 
 
 protection: 'Protects against errors with rank \(\leq \lfloor \frac{d-1}2 \rfloor\).'
 
 
+#todo add encoders
+
 notes:
   - 'Number of codewords \(k \leq max(n, m) (min(n, m) - d + 1) \).'
-  - 'Codes that achieve the above bound with equality are Maximum Rank Distance (MRD).'
-  - 'Number of codewords \(k \leq max(n, m) M\), where \(M\) is the max rank matrix in the code.'
-  - 'Codes that achieve this second bound with equality are Delsarte optimal anticodes.'
+  - 'Codes that achieve the above bound with equality are called Maximum Rank Distance (MRD).'
+  - 'Number of codewords \(k \leq max(n, m) M\), where \(M\) is the maximum rank of all matrices in the code.'
+  - 'Codes that achieve this bound with equality are called Delsarte optimal anticodes.'
   - 'Several useful properties (linearity, encoding, decoding, etc.) are present in \hyperref[code:gabidulin]{Gabidulin} codes, a child of rank metric codes.'
   - 'See \cite{arXiv:1410.1333v3} for a discussion of MacWilliams identities and the relationship between rank metric and Gabidulin codes.'
 
@@ -35,4 +37,4 @@ relations:
   cousins:
     - code_id: gabidulin
       detail: 'Gabidulin codes can be seen as a subset of rank metric codes where the rows are treated as single elements of \(GF(q^n)\)'
-
+#todo add info to gabidulin

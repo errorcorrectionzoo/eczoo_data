@@ -8,25 +8,25 @@ physical: bits
 logical: bits
 
 name: 'Raptor code'
-introduced: '\cite{manual:{A. Shokrohalli. \emph{Raptor Codes}. IEEE Transactions on Information Theory, 2006}}'
+introduced: '\cite{doi:10.1109/TIT.2006.874390}'
 
 description: |
   Raptor codes are erasure codes with two layers: a pre-code and a Luby-Transform (L-T) code.
   The pre-code is any traditional erasure code, which is applied first to the input to create some redundant data.
-  The L-T code is then applied to the intermediate symbols from the pre-code to generate final output symbols to then be transmitted.
+  The L-T code is then applied to the intermediate symbols from the pre-code to generate final output symbols to be transmitted.
 
   The parameters for a Raptor code are /( (k, C, \Omega(x)) /), with /(C/) being the pre-code with dimension /( k /), and /( \Omega(x) /) being the degree distribution for the L-T code. 
 
-protection: 'As a type of fountain code, a Raptor code is designed to correct erasure errors.'
+protection: 'As a type of fountain code, a Raptor code is designed to correct erasures.'
 
 features:
 
   decoders:
     - 'Raptor codes can be decoded using inactivation decoding \cite{arXiv:1706.05814}, which is a combination of belief-propogation decoding and Gaussian elimination decoding.'
 
-  threshold: |
-    The error probability of Raptor codes is measured in terms of its overhead, which is how many additional symbols are recieved above the dimension of the input /(k/). This relationship can vary widely depending on the input pre-code and degree distribution.
-    For a well-designed degree distribution, the error probability of a Raptor code is directly related to the error probability of the pre-code's decoder. In other words, if there is a linear time decoder for the pre-code that has subexponentially small error probability, then the Raptor code's error will decrease exponentially with increasing overhead (past the /(n-k/) overhead symbols necessary for the pre-code).
+  threshold:
+    - 'The error probability of Raptor codes is measured in terms of its overhead, which is how many additional symbols are recieved above the dimension of the input /(k/). This relationship can vary widely depending on the input pre-code and degree distribution.'
+    - 'For a well-designed degree distribution, the error probability of a Raptor code is directly related to the error probability of the pre-code''s decoder. In other words, if there is a linear time decoder for the pre-code that has subexponentially small error probability, then the Raptor code''s error probability will decrease exponentially with increasing overhead (past the /(n-k/) overhead symbols necessary for the pre-code).'
 
 realizations:
   - 'Two versions of Raptor codes have been standardized by IETF: \href{https://datatracker.ietf.org/doc/html/rfc5053}{R10} and \href{http://tools.ietf.org/html/rfc6330}{RaptorQ}. RaptorQ is the more advanced and more recent version.'
@@ -43,8 +43,8 @@ notes:
 
 relations:
   parents:
-    - code_id: luby-transform
-      detail: 'Raptor codes using a trivial pre-code are L-T codes. Typically Raptor codes have constant-sized more overhead but are faster to decode.'
+    - code_id: luby_transform
+      detail: 'Raptor codes using a trivial pre-code are LT codes. Typically Raptor codes have constant-sized more overhead but are faster to decode.'
   cousins:
     - code_id: tornado
-      detail: 'Tornado codes also use a multi-layer approach and so also has additional redundant data.'
+      detail: 'Tornado codes also use a multi-layer approach where redundant symbols are created by one code for another code to use as input.'
