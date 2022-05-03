@@ -11,12 +11,12 @@ logical: qudits
 name: 'Multimode cat code'
 
 # First reference with the code (optional).
-#introduced: '\cite{doi:10.1088/2058-9565/ab1e69}'
+introduced: '\cite{arXiv:1801.05897}'
 
-#description: 'It is a continuous-variable code that encode a logical qudit into multiple harmonic oscillators. It is the multi-mode generalization of cat code.'
-description: 'It is a continuous-variable code that encode a logical qudit into multiple harmonic oscillators. It is the multi-mode generalization of cat code. The logical information of a \(d\)-dimensional qudit is encoded into a \(M\)-mode harmonic oscillator which is simultaneously stabilized by \(S_\gamma=1+(a^d)^{\otimes M} -\gamma^{dM}\) and \(S_m=1+a_{m+1}^\dagger a_{m+1}-a_m^\dagger a_m-\Delta_m\) for \(m\in\{1, 2, \cdots, M-1\}\) and \(\Delta_m\) is a constant.'
 
-#protection: 'Can detect any loss errors of at most \(M-1\) weight.'
+description: 'It is a continuous-variable code that encode a logical qudit into multiple harmonic oscillators. It is the multi-mode generalization of cat code. The logical information of a \(d\)-dimensional qudit is encoded into a \(M\)-mode harmonic oscillator which is simultaneously stabilized by \(S_\gamma=1+(a^d)^{\otimes M} -\gamma^{dM}\) and \(S_m=1+a_{m+1}^\dagger a_{m+1}-a_m^\dagger a_m-\Delta_m\) for \(m\in\{1, 2, \cdots, M-1\}\) and \(\Delta_m\) is a constant. For pair-cat code which is the two-mode generalization of cat code, its codewords are \(|0_{\gamma,\Delta}\rangle \sim |\gamma_\Delta \rangle + (-1)^\Delta |I\gamma_\Delta\rangle\) and \(|1_{\gamma,\Delta}\rangle \sim |\gamma_\Delta\rangle - (-1)^\Delta |i \gamma\rangle\). Here \(|\gamma_\Delta \rangle =\frac{1}{\sqrt{I_\Delta (2|\gamma|^2)}} \sum_{n=0}^\infty \frac{\gamma^{2n+\Delta}}{\sqrt{n! (n+\Delta)!}} |n,n+\Delta\rangle \) which is called pair-coherent states \cite{doi:10.1007/BF01646483}.'
+
+protection: 'Can detect any loss errors of at most \(M-1\) weight. The two-mode cat code protects against arbitrary single-mode losses, but cannot correct simultaneous photon loss in both modes. In the multi-mode case, the occupation number difference is syndrome instead of photon number parity for single-mode cat code. Hence, any loss even combination that changes the relative differences of photons between modes is a detectable error.'
 
 
 
@@ -26,7 +26,7 @@ features:
     #- ''
     
   general_gates:
-    - 'Pauli gates and two-qubit gates. Universal gate set exists.'
+    - 'Hamiltonian \(X\), \(XX\), \(Z\) gates, holonomic \(Z\) gate, control-phase gate are available.'
 
 
 
@@ -41,6 +41,9 @@ features:
   #- ''
 
 relations:
+  parents:
+    - code_id: fock_state
+      detail: 'The codewords of multi-mode cat codes are superpositions of multi-mode Fock states.'
 
   cousins:
     - code_id: cat
