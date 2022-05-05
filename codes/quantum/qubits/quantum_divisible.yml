@@ -10,7 +10,19 @@ logical: qubits
 name: 'Quantum divisible code'
 introduced: '\cite{arXiv:2204.13176}'
 
-description: 'Stub.'
+description: |
+  Consider a CSS code whose \(Z\)-stabilizers are determined by the dual of a classical \([n, k_1]\) linear binary code \(C_1\), and whose \(X\)-stabilizers are determined by a classical \([n, k_2]\) binary code \(C_2 \subset C_1\). This code is quantum divisible if all weights in \(C_2\) share a common divisor \(\Delta > 1\), and all weights in each coset of \(C_2\) in \(C_1\) are congruent to \(\Delta\).
+
+  For example, if \(C_2\) is the first-order Reed-Muller code, and \(C_1/ C_2\) consists of quadratic forms with a bounded rank, then \([[n = 2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) is a family of quantum divisible codes.
+
+protection: 'Distance \(d\) is upper bounded by the two classical codes that determine the CSS code.'
+
+features:
+  general_gates:
+    - 'The \([[n = 2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) quantum divisible code family can serve as outer codes of either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code to realize a \(T\) gate on the inner code. For example, when \(m=5\) (\(m=6\)), the resulting \([[31,5,3]]\) (\([[63,7,3]]\)) code yields the \(T\) gate on the inner five-qubit (Steane) code.'
+
+  fault_tolerance:
+    - 'The \(T\) gate realized by concatenating members of the \([[n = 2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) quantum divisible code family with either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code is fault-tolerant and does not require magic-state distillation. The gate is performed on the inner five-qubit/Steane code and does require encoding and decoding algorithms to pass between the inner and outer codes.'
 
 relations:
   parents:
@@ -18,6 +30,16 @@ relations:
       detail: ''
   cousins:
     - code_id: divisible
-      detail: ''
+      detail: 'Quantum divisible codes are constructed via the CSS construction using a divisible linear binary code.'
     - code_id: reed_muller
-      detail: ''
+      detail: 'Quantum divisible codes can be constructed out of first-order RM codes.'
+    - code_id: quantum_reed_muller
+      detail: 'Quantum RM codes can be derived using a procedure that yields sufficient conditions for a CSS code to admit a given transversal diagonal logical gate. Quantum divisible codes are derived in a similar procedure, but one that yields necessary and sufficient conditions.'
+    - code_id: quantum_triorthogonal
+      detail: 'Triorthogonal codes can be derived using a procedure that yields sufficient conditions for a CSS code to admit a given transversal diagonal logical gate. Quantum divisible codes are derived in a similar procedure, but one that yields necessary and sufficient conditions.'
+    - code_id: quantum_concatenated
+      detail: 'A fault-tolerant \(T\) gate on the five-qubit or Steane code can be obtained by concatenating with particular quantum divisible codes.'
+    - code_id: stab_5_1_3
+      detail: 'A fault-tolerant \(T\) gate on the five-qubit code can be obtained by concatenating with particular quantum divisible codes.'
+    - code_id: steane
+      detail: 'A fault-tolerant \(T\) gate on the Steane code can be obtained by concatenating with particular quantum divisible codes.'
