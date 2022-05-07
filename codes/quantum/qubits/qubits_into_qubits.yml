@@ -10,9 +10,21 @@ logical: qubits
 name: 'Qubit code'
 #introduced: ''
 
-description: 'Encodes \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space. Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code''s distance.'
+description: |
+  Encodes \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space. Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code''s distance.
 
-protection: 'The minimum size of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}. Codes whose distance is greater than the diagonal distance are degenerate.'
+protection: |
+  A convenient and often considered error set is the \textit{Pauli error} or \textit{Pauli string} basis. For a single qubit, this set consists of products of powers of the Pauli matrices
+  \begin{align}
+    X=\begin{pmatrix}0 & 1\\
+    1 & 0
+    \end{pmatrix}\,\,\text{ and }\,\,Z=\begin{pmatrix}1 & 0\\
+    0 & -1
+    \end{pmatrix}~.
+  \end{align}
+  For multiple qubits, error set elements are tensor products of elements of the single-qubit error set.
+
+  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical nice error basis \cite{arxiv:quant-ph/9608048}. The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code. The minimum weight of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}. Codes whose distance is greater than the diagonal distance are degenerate.
 
 features:
   decoders:
