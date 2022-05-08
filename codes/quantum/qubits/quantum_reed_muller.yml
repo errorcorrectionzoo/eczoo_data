@@ -10,7 +10,12 @@ logical: qubits
 name: 'Quantum Reed-Muller code'
 introduced: '\cite{arXiv:quant-ph/9608026}'
 
-description: 'A CSS code formed from a classical Reed-Muller code in which polynomials over finite fields encode data. This is done by transforming these polynomials into the stabilizer generator matrices.'
+description: 'A CSS code formed from a classical Reed-Muller code in which polynomials over finite fields encode data. This is done by transforming these polynomials into the stabilizer generator matrices. 
+The pure stabilizer code \([[q^m,k(v_2)-k(v_1),min{d(v_1^{\perp}),d(v_2)}]]_{q}\) with parameters \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and 
+\(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq\ q-1) is called quantum Reed Muller code. Here \(0\leq v_1,v_2 leq m(q-1)-1\), q is prime and m is positive integer. 
+A linear code \([n,k]_{q^{2}}\) contained in its hermitian dual implies the existence of \([[n,n-2k,d]]_{q}\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\). Taking C
+as \(\mathcal{R}_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\) yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp}]]_{q}\) quantum code where 
+\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).'
 
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
