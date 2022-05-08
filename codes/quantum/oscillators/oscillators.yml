@@ -13,26 +13,15 @@ name: 'Bosonic code'
 description: 'Also called an \textit{oscillator} or a \textit{continuous-variable (CV)} code. Encodes logical Hilbert space, finite- or infinite-dimensional, into a physical Hilbert space that contains at least one \textit{oscillator} (a.k.a. \textit{bosonic mode} or \textit{qumode}). States of a single oscillator are elements of the Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{R}\)). Ideal codewords may not be normalizable because the space is infinite-dimensional, so approximate versions have to be constructed in practice.'
 
 protection: |
-  A convenient and often considered error set is the set of \textit{displacement operators}, a bosonic analogue of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes. For a single mode, its elements are products of exponentials of the momentum \(\hat p\) and position \(\hat x\) operators, acting on the mode's position states \(|y\rangle\) for \(y\in\mathbb{R}\) as
+  An error set relevant to \hyperref[code:multimodegkp]{bosonic Fock-state} codes is the set of loss operators associated with the \textit{amplitude damping} (a.k.a. \textit{photon loss} or \textit{attenuation}) noise channel, a common form of physical noise in bosonic systems. For a single mode, loss operators are proportional to powers of the mode's annihilation operator \(a=\frac{1}{\sqrt{2}}(\hat{x}+i\hat{p})\), where \(\hat x\) (\(\hat p\)) is the mode's position (momentum) operator, and with the power signifying the number of particles lost during the error. For multiple modes, error set elements are tensor products of elements of the single-mode error set. A definition of distance associated with this error set is the minimum weight of a loss error that implements a nontrivial logical operation in the code.
+
+  An error set relevant to \hyperref[code:multimodegkp]{bosonic stabilizer} codes is the set of \textit{displacement operators}, a bosonic analogue of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes. For a single mode, its elements are products of exponentials of the mode's position and momentum operators, acting on the mode's position states \(|y\rangle\) for \(y\in\mathbb{R}\) as
   \begin{align}
     e^{-i\xi\hat{p}}\left|y\right\rangle =\left|y+\xi\right\rangle \,\,\text{ and }\,\,e^{i\xi\hat{x}}\left|y\right\rangle =e^{i\xi y}\left|y\right\rangle ~,
   \end{align}
   where \(\xi\in\mathbb{R}\). For multiple modes, error set elements are tensor products of elements of the single-qudit error set.
 
-  The displacement error set is a unitary basis for trace-class linear operators on the \(n\)-mode Hilbert space that is Dirac-orthonormal under the Hilbert-Schmidt inner product \cite{doi:10.1103/PhysRev.177.1857}; it is a bosonic analogue of a nice error basis \cite{arxiv:quant-ph/9608048}. As such, products of position and momentum displacements can be expressed in a combined notation as
-  \begin{align}
-  D(\xi) = \exp \left\{-i \sqrt{2\pi} {\xi}^\mathrm{T} J \hat{q} \right\} , \quad \xi \in \mathbb{R}^{2n}~,
-  \end{align}
-  where \(\hat{q}\) is a \(2n\)-dimensional vector position and momentum operators of the modes, and the symplectic inner product between two vectors in \(\mathbb{R}^{2n}\) is
-  \begin{align}
-  J = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \otimes I_n = \begin{pmatrix}
-  0 &  I_n \\
-  -I_n  & 0 \end{pmatrix}~.
-  \end{align}
-  The distance associated with this set can be the minimum weight of a displacement operator that implements a nontrivial logical operation in the code. An alternative definition relevant for \hyperref[code:multimodegkp]{multimode GKP} codes is the Euclidean distance, i.e., the smallest norm of a \(\xi\) such that the corresponding displacement implements a nontrivial logical operation in the code.
-
-#notes:
-#  - '.'
+  The displacement error set is a unitary basis for trace-class linear operators on the \(n\)-mode Hilbert space that is Dirac-orthonormal under the Hilbert-Schmidt inner product \cite{doi:10.1103/PhysRev.177.1857}. There are two definitions of code distance associated with displacements. The definition inherited from qubit codes is the minimum weight of a displacement operator (i.e., number of nonzero entries in \(\xi\)) that implements a nontrivial logical operation in the code. The second definition is the minimum Euclidean distance (i.e., \(l^2\)-norm of \(\xi\)) such that the corresponding displacement implements a nontrivial logical operation in the code.
 
 relations:
   parents:
