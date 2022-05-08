@@ -11,7 +11,7 @@ logical: galois
 name: 'Galois-qudit quantum Reed-Muller code'
 introduced: '\cite{arXiv:quant-ph/0502001}'
 
-description: 'The pure stabilizer code \([[q^m,k(v_2)-k(v_1),min{d(v_1^{\perp}),d(v_2)}]]_{q}\) with parameters \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and 
+description: 'The non-degenerate stabilizer code \([[q^m,k(v_2)-k(v_1),min{d(v_1^{\perp}),d(v_2)}]]_{q}\) with parameters \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and 
 \(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq\ q-1) is called quantum Reed Muller code. Here \(0\leq v_1,v_2 leq m(q-1)-1\), q is prime and m is positive integer. 
 A linear code \([n,k]_{q^{2}}\) contained in its hermitian dual implies the existence of \([[n,n-2k,d]]_{q}\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\). Taking C
 as \(\mathcal{R}_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\) yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp}]]_{q}\) quantum code where 
@@ -19,14 +19,13 @@ as \(\mathcal{R}_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\) yields a pure \([[q^
 
 features:
 
-  rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
+rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
   
-  encoder: 'A linear code \([n,k]_{q^{2}}\) contained in its hermitian dual implies the existence of \([[n,n-2k,d]]_{q}\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\). Taking C
-  as \(\mathcal{R}_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\) yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp}]]_{q}\) quantum code where 
-  \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).'
-  
-  protection: '\(\mathcal{Q}\mathcal{R}\mathcal{M}_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance D=2.'
-   
+protection: '\(\mathcal{Q}\mathcal{R}\mathcal{M}_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance D=2.'
+
+notes: 
+  - 
+
 relations:
   parents: 
     - code_id: css
@@ -40,8 +39,9 @@ relations:
 
   cousins:
     - code_id: punctured_quantum_reed_muller
-      detail: 'For CSS code constructed from classical codes \(C_1\) and \(C_2\) the punctured code is defined as \(P(C) = \{(a_ib_i)_{i=1}^{n}|a \in C_1, b \in C_2^{\perp}\}^{\perp}\).
-      Quantum Reed Muller code can be punctured to any length r, provided \(\mathcal{R}_{q}(v_2-v_1,m)\) has a codeword of this weight.' 
+      detail: 'For CSS code constructed from classical codes \(C_1\) and \(C_2\) the punctured code is defined as the classical code
+      \(P(C) = \{(a_ib_i)_{i=1}^{n}|a \in C_1, b \in C_2^{\perp}\}^{\perp}\). Quantum Reed Muller code can be punctured to any length r, provided
+      \(P(C) = \mathcal{R}_{q}(v_2-v_1,m)\) has a codeword of this weight.' 
       
     - code_id: quantum_mds_code
       detail: 'There exists quantum code \([[q, q − 2ν − 2, ν + 2]]_{q}\) for \( 0\leq v \leq \frac{(q-2)}{2}\) and \([[q^2,q^2-2v-2,v+2]]_{q}\) for 
