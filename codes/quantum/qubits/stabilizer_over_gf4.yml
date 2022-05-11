@@ -11,10 +11,12 @@ name: 'Stabilizer code over \(GF(4)\)'
 introduced: '\cite{arXiv:quant-ph/9608006}'
 
 description: |
-  An \([[n,k,d]]\) stabilizer code whose encoding is based on a self-dual quaternary \([n, n-k, d^*]_4\) code over \(GF(4)^n\) with respect to the trace inner product where \(d \ge d^*\).
-  The field \(GF(4)=\mathbf{F}_4\) consists of \(\{0, 1, w, \bar{w}\}\), with \(\bar{w} = w^2 = w + 1\), \(\mathrm{Tr}(x) = x+\bar{x}\), and trace inner product \(u * v = \mathrm{Tr}(u \cdot \bar{v})\).
+  An \([[n,k,d]]\) stabilizer code whose encoding is based on a weakly self-dual additive quaternary code \((n, 2^{n-k}, d^*)_4\) with respect to the trace inner product where \(d \ge d^*\).
+  The quaternary field \(GF(4)=\mathbf{F}_4\) consists of \(\{0, 1, w, \bar{w}\}\), with \(\bar{w} = w^2 = w + 1\), \(\mathrm{Tr}(x) = x+\bar{x}\), and trace inner product \(u * v = \mathrm{Tr}(u \cdot \bar{v})\).
   There is a mapping \(L\) between Pauli matrices \(I, Y, Z, X\) and \(0, 1, \bar{w}, w\), in turn \([A, B] \Leftrightarrow Tr\langle L(A), L(A)\rangle\).
   The classical self-dual code \(C\) over \(GF(4)^n\) corresponds to the stabilizer group \(\mathsf{S}\) while \(C^{\perp}\) corresponds to \(\mathsf{N(S)}\).
+
+  The quaternary code needs to only be additive (its codewords are closed under addition). It need not be a linear code, which would require the set of codewords to be closed under multiplication as well.
 
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
@@ -27,5 +29,5 @@ relations:
     - code_id: qubit_stabilizer
       detail: ''
   cousins:
-    - code_id: q-ary_linear
-      detail: 'Quaternary \(q=4\) linear codes are used in this construction.'
+    - code_id: q-ary_additive
+      detail: 'Quaternary \(q=4\) additive codes are used in this construction.'
