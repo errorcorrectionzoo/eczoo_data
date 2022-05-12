@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: knill_laflamme_milburn_loqc
+physical: qubits
+logical: qubits
+
+name: 'Knill-Laflamme-Milburn Linear Optical QC encoding'
+introduced: '\cite{doi:10.1038/35051009}' 
+
+
+description: 'The Knill-Laflamme-Milburn (KLM) protocol was the first to show that universal quantum computation is possible using linear optics and photo-detectors. As part of the scheme, qubits are encoded with dual-rail logic i.e. using the physical location of a photon in two spatial modes. By performing non-linear gates adaptively, the Knill-Laflamme-Milburn protocol approximates linear gates for universal quantum computation. For scalability, the protocol is enhanced by using teleportation to increase success probability of the adaptive circuit.
+
+The KLM protocol is further enhanced by applying explicit error-correction after teleportation, by concatenating an outer stabilizer code with the dual-rail logic code.'
+
+
+protection: 'Here we can borrow the advantages of the stabilizer formalism \cite{arXiv:quant-ph/9705052}. The outer stabilizer code concatented with the dual rail encoding can protect against errors that anti-commute with the stabilizers. One example of the kind of noise we want to protect against is an effective projective measurement in the Z-basis that occurs when teleportation fails i.e. when the Bell measurement yields 0 or 2 photons. During the teleportation of a 2-qubit gate, the intermediate Bell-measurement step takes place through photo-detection, which requires detecting exactly 1 photon. When we measure 0 or 2 photons, we obtain \(|\bar{0}\rangle\) and \(|\bar{1}\rangle\) respectively and hence effectively measure the logical qubit in the Z-basis. \cite{arXiv:quant-ph/0512104}'
+
+
+features:
+
+  encoders:
+    - 'Qubits are first encoded with dual-rail logic i.e. using the physical location of a photon in two spatial modes. Logical \(|\bar{0}\rangle\) is encoded as \(|01\rangle_{ab}\) and logical \(|\bar{1}\rangle\) is encoded as \(|10\rangle_{ab}\), where a and b are spatial modes.'
+    - 'The dual-rail logic encoding is isomorphic to encoding in the horizontal and vertically polarized basis, up to a transformation using a polarising beam-splitter and polarising rotator.'
+    - 'The dual-rail code is concatenated with an outer stabilizer code. For example, if we want to protect against the specific case of Z-measurement errors, the logical \(|\bar{0}\rangle\) is encoded as \(1/\sqrt{2}\left|00\right\rangle + \left|11\right\rangle\), and logical \(|\bar{1}\rangle\) is encoded as \(1/\sqrt{2}\left|01\right\rangle+\left|10\right\rangle\).'
+
+  general_gates:
+    - 'Single-qubit unitaries can be performed using purely linear optical elements, since arbitary Z and Y rotations which can be achieved using phase-shifters and beam splitters.'
+    - 'The universal gate set is achieved by adding the controlled-Z phase (CZ) gate to the set of single-qubit unitaries.'
+    - 'A probabilistic controlled-Z gate is implemented by making use of the non-linear sign shift \((NS_{-1})\) gate, and then measuring the circuit adaptively to approximate linearity. The non-linear sign shift gate is defined by the following action: \( \alpha|0\rangle+\beta|1\rangle+\gamma|2\rangle \rightarrow \alpha|0\rangle+\beta|1\rangle-\gamma|2\rangle \)'
+    - 'The non-linear sign-shift gate \((NS_{-1})\) can be performed with a success probability of 1/4 \cite{arXiv:quant-ph/0512104}'
+    - 'Two non-linear sign-shift gates can perform the C-Sign gate with success probability 1/16. However it is not known whether these '
+    - 'Knill has shown that the CSign gate has an upper bound of 3/4 when using two ancilla modes, each with a maximum of 1 photon per mode.\cite{doi:10.1103/PhysRevA.68.064303}'
+    - 'The probability of success of the CZ gate (referred to in \cite{doi:10.1038/35051009} as the C-Sign gate) is improved using teleportation, by reducing the problem of construction of 2-qubit gates to a state preparation problem. We know when the state preparation fails, and can perform a correction.'
+
+  decoders:
+    - 'The qubits remain in the inner dual-rail encoding throughout the computation. The outer concatenated code is used to correct errors by measuring the syndroms of the code.'
+    - 'For example in case of Z-measurement errors i.e. \(Z \otimes \mathbb{1}\) and \(\mathbb{1} \otimes Z \), we perform syndrome measurement by measuring \(X \otimes X\), and apply Z-operation on the first and/or second qubit conditioned on the outcomes.'
+    - 'Similarly, a syndrome measurement circuit can be constructed for unintentional Y-measurement errors \cite{arXiv:quant-ph/0512104}.'
+
+  fault_tolerance:
+    - 'Code concatenation can be used to achieve fault-tolerance. If the error per qubit at one level of encoding is be less than the error per qubit at the next level of encoding we can keep this concatenated code and reduce the effective error rate, thereby implementing the circuit fault-tolerantly.'
+    - 'To ensure that fault tolerant error-correction procedure for teleportation reduces the error probability, we require the error probability of CSign gate,f, to be < 0.5 \cite{arXiv:quant-ph/0512104}'
+
+  threshold:
+    - 'The gate error threshold was found by Silva et. al.\cite{doi:10.1103/PhysRevA.72.032307} to be bounded below by a value between \(1.78\%\) and \(11.5\%\).'
+    - '\(1.78\%\) results from errors due to loss and \(11.5\%\) results from Z-measurement errors in teleportation.'
+
+notes:
+  - 'Review papers \cite{doi:10.1103/RevModPhys.79.797}, \cite{arXiv:quant-ph/0512104}.'
+  - 'This page mainly discusses Z-measurement errors during teleportation. Another source of error is photon loss, discussed in-depth in Silva et. al.\cite{doi:10.1103/PhysRevA.72.032307}.'
+  - 'Due to the high resource requirements of the KLM protocol, several modifications have been proposed which are based on cluster-state techniques (Yoran and Reznik 2003 \cite{doi:10.1103/PhysRevLett.91.037903}, Nielsen 2004 \cite{doi:10.1103/PhysRevLett.93.040503}, Browne and Rudolph 2005 \cite{doi:10.1103/PhysRevLett.95.010501})'
+
+relations:
+  parents:
+    - code_id: dual_rail
+
+  cousins:
+    - code_id: fock_state
+    - code_id: quantum_concatenated
+    - code_id: stabilizer
