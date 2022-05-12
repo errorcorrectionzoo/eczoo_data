@@ -17,10 +17,17 @@ description: |
 
 protection: 'Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.'
 
+features:
+  decoders:
+    - 'Random linear codes over large fields are list-recoverable and list-decodable up to near-optimal rates \cite{arXiv:1704.02420}.'
+
+
 notes:
   - 'Admits a parity check matrix \(H\), whose columns make up a maximal linearly independent set of vectors that are in the kernel of \(G\).'
 
+
+
 relations:
   parents:
-    - code_id: q-ary_digits_into_q-ary_digits
-      detail: ''
+    - code_id: q-ary_additive
+      detail: 'For \(q>2\), additive codes need not be linear since linearity also requires closure under multiplication.'

@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_tanner
+physical: qubits
+logical: qubits
+
+name: 'Quantum Tanner code'
+introduced: '\cite{arXiv:2202.13641}'
+
+description: Stub.
+
+features:
+  rate: 'Good QLDPC codes.'
+
+realizations:
+  - 'Used to obtain explicit lower bounds in the sum-of-squares game \cite{arXiv:2204.11469}.'
+
+notes:
+  - 'For details, see talk by \href{https://www.youtube.com/watch?v=5GO3BtJuo3I}{A. Leverrier}.'
+
+relations:
+  parents:
+    - code_id: balanced_product
+      detail: 'Balanced product of two Cayley graphs yield the left-right Cayler complex associated with quantum Tanner codes.'
+    - code_id: css
+      detail: ''
+  cousins:
+    - code_id: tanner
+    - code_id: expander_lifted_product
+      detail: 'Quantum Tanner codes are an attempt to construct asymptotically good QLDPC codes that are similar to but simpler than expander lifted-product codes.'
