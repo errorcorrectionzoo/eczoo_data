@@ -4,14 +4,59 @@
 #######################################################
 
 code_id: gkp-stabilizer
-physical: oscillators
+physical: oscillator modes
+logical: qubits
 
-name: 'GKP-stabilizer code'
-introduced: '\cite{arXiv:1903.12615}'
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title (SINGULAR) + first reference(s) (optional).
+name: 'GKP Stabilizer code'
+introduced: '\cite{doi:10.1103/PhysRevLett.125.080503}'
 
-description: Stub.
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: |
+    Generally speaking, there are two QEC schemes, qubit-into-oscillator encoding and oscillator-into-oscillator. Qubits are discrete variables while oscillators are continuous variables, meaning if we use qubit-into-oscillator encoding, we will lose the infinite-dimensional nature of the physical oscillator. On the other hand, using oscillator-into-oscillator encoding we encode an M dimensional oscillator into an N dimesional oscillator and therefore preserve the infinite-dimensional nature.
+    GKP stabilizer codes are an oscillator-into-oscillator encdoing scheme which encodes an M-mode bosonic state, \ket{\psi}, into and N-mode one. The first M modes of the encoded state is \[U_G^{ENC}\]\ket{\psi} where \[U_G^{ENC}\] is an encoding Gaussian unitary operation and the other N - M modes are canonical GKP states (ancilla modes).
+
+# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
+# protection: |
+#   text...
+#   more text...
+protection: 'Protects against position and momentum quadruture.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  # The fields below relate to specific properties of the code that are worth
+  # noting. In some cases (see below), there might be multiple pieces of
+  # information associated with a field (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # accepts a list of text entries, with one item per piece of information.
+  #
+  # Any fields below should be omitted if they do not apply.
+
+  rate: 'M/N'
+  
+  threshold:
+    - 'For M = 1, N = 2 and \[U_G^ENC\]\ = \[TS_{1,2}\] we have loss probability of at least (0.13\%\), \[TS_{1,2}(G)\] is the two-mode squeezing operation acting on the modes 1 and 2 with a gain G ≥ 1.'
+
+
+#realizations:
+  # List and explain the different "domains" of realizations in list items.
+  # Group closely related realizations into a single item. It's OK to have a
+  # single list item. Each item should more or less correspond to what would be
+  # said in a paragraph.
+#  - 'Code used in DVDs \cite{doi:####...}, 5G, etc.'
+#  - 'Realized in trapped-ion quantum devices \cite{arXiv:####.#####}, etc.'
+
+notes:
+  - 'Since we have flexability over choosing \[U_G^ENC\]\ and it can be any Gaussian operator, GKP-stabilizer formalism is at least as flexible as the stabilizer formalism for qubit-based QEC which encompasses almost all conventional multi-qubit QEC schemes.'
 
 relations:
   parents:
     - code_id: multimodegkp
       detail: 'GKP-stabilizer codes correspond to multimode GKP codes constructed using a degenerate lattice; see Appx. A of Ref. \cite{arXiv:2109.14645}.'
+  cousins:
+    - code_id: gkp_repetition
+      detail: 'For M = 1 and N = 2 we get the GKP repetition code.'
