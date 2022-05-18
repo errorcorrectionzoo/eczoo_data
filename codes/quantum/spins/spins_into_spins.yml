@@ -15,24 +15,20 @@ description: |
 
   In contrast to other qudit codes, spin codes are closely associated with the angular momentum Lie algebra and/or the Lie groups \(SU(2)\) or \(SO(3)\).
 
-  Codespaces are two-dimensional subspaces of a spin''s Hilbert space mapped to themselves using representatives of the binary octahedtral (\(2O\)) group. This is done by restricting the \(SU(2)\) irreducible representation to the \(2O\) representatives.
+  Codespaces are two-dimensional subspaces of a spin''s Hilbert space mapped to themselves using representatives of the binary octahedral (\(2O\)) group. This is done by restricting the \(SU(2)\) irreducible representation to the \(2O\) representatives.
   The irreducible representations of interest do not appear at all in integer spins, so half-integer spins are used.
+
+  Given any half-integer spin above \(3/2\), explicit codewords can be produced.
 
 protection: 'Protects against errors that take the form of small random \(SU(2)\) representatives. These typically come in the form of dephasing errors, relaxation errors, and thermalization errors.'
 
 features:
 
-  encoders:
-    - 'Given any half-integer spin above \(3/2\), explicit codewords can be produced.'
-    - 'Producing codewords begins by creating a projection  onto an irreducible representation of \(2O\).'
-    - 'Then, irreducible representations of the Paulis \(\bar{\sigma}_w\) are defined using the above projection and the angular momentum operators.'
-    - 'Finally, \(|\bar{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\bar{\sigma}_z\) and \(|\bar{1} \rangle = \bar{\sigma}_x |\bar{0} \rangle \).'
-
   general_gates:
-    - 'Universal computation results from being able to prepare a single logical state, perform one measurement, the phase gate, the Hadamard gate, the conditional phase gate, and the square root of the phase gate.'
+    - 'Universal computation results from being able to prepare a single logical state and perform one measurement, and including these logical gates: the phase gate (\( \bar{S} \)), the Hadamard gate (\(\bar{H}\)), the conditional phase gate (\(\bar{CZ}\)), and the square root of the phase gate (\(\bar{T}\)). Single-qubit Cliffords can be generated using \(\bar{S}\) and \(\bar{H}\), the extension to multiple-qubit Cliffords is done using \(\bar{CZ}\), and \(\bar{T}\) is to transform to non-Clifford states. Together these gates can be used to create all logical unitaries, while preparation and measurement complete universal quantum computation.'
 
-#notes:
-#  - 'The exact error correction condition is \(\langle \bar{0} | J_z | \bar{0} \rangle = 0\)'
+notes:
+  - 'The exact error correction condition is \(\langle \bar{\hat{0}} | J_z | \bar{\hat{0}} \rangle = 0\) where \( J_z \) is the angular momentum operator in dimension \( z \).'
 
 
 relations:

@@ -26,10 +26,9 @@ features:
     - 'Maximum likelihood decoding can be used when the tensors are stabilizer codes.'
 
 notes:
-  - 'The bounds for these codes depend entirely on the codes used to create them.'
-  - 'These codes can serve as a bridge between quantum error correction and physics. For example, the introduction paper states that finding the tensor constructions of well-known gauge codes using the lego method can help with the understanding of low energy Hamiltonian behavior with frustration in the ground space.'
-  - 'Many known codes can be created using this code''s methods in order to further their understanding. Examples can be found in the paper that introduces these codes.'
-  - 'Tensor-network codes are types of LEGO codes where logical and physical legs are pre-assigned and logical legs are not contracted.'
+  - 'Many known codes can be created using this code''s methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code.'
+  - 'For example, a simple \( [[4,2,2]] \) stabilizer code can be written as a rank 6 tensor. Attaching two of these via gluing together one logical leg from each can produce a \( [[6,4,2]] \) stabilizer code.'
+  - 'Tensor-network codes are types of LEGO codes made from stabilizer codes where logical and physical legs are pre-assigned and logical legs are not contracted. In other words, logical legs resulting from the conversion of codes to tensors must remain logical in the final tensor network, and the same for physical. Contracting logical legs is another word for gluing two logical legs together.'
 
 relations:
   parents:
