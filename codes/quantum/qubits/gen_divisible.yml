@@ -7,7 +7,7 @@ code_id: gen_divisible
 physical: qubits
 logical: qubits
 
-name: 'Generalized divisible codes'
+name: 'Generalized quantum divisible codes'
 introduced: '\cite{arXiv:1709.08658}'
 
 description: |
@@ -31,12 +31,11 @@ features:
 
 relations:
   parents:
-    - code_id: qubit_stabilizer
     - code_id: css
   cousins:
     - code_id: quantum_reed_muller
       detail: 'The tower constructed by starting with the Steane [\([7,1,3]]\) code gives the family of quantum Reed-Muller codes of distance 3'
     - code_id: steane
       detail: 'The tower constructed by starting with the Steane [\([7,1,3]]\) code gives the family of quantum Reed-Muller codes of distance 3'
-  #  - code_id: classical divisible 
-  #child: Triply even CSS codes occur as a subclass of the tower of generalized divisible quantum codes.
+    - code_id: divisible
+    - code_id: quantum_divisible
