@@ -1,13 +1,19 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
 code_id: self_correct
 
 name: 'Self-correcting quantum code'
+introduced: '\cite{arXiv:quant-ph/0110143,arXiv:0811.0033}'
 
 description: |
-  Also called a \textit{self-correcting quantum memory} or \text{thermally stable encoding}. A ground-state encoding of an \(n\)-body geometrically local Hamiltonian whose logical information remains recoverable for arbitrary long times in the thermodynamic \(n\to\infty\) limit after interaction with a sufficiently cold thermal environment. Typically, one also requires a polynomial-time decoder, i.e., a decoder whose decoding time scales polynomially with \(n\).
+  Also called a \textit{self-correcting quantum memory} or \textit{thermally stable encoding}. A ground-state encoding of an \(n\)-body geometrically local Hamiltonian whose logical information remains recoverable for arbitrary long times in the thermodynamic \(n\to\infty\) limit after interaction with a sufficiently cold thermal environment. Typically, one also requires a polynomial-time decoder, i.e., a decoder whose decoding time scales polynomially with \(n\).
 
-  The effect of a Markovian thermal environment consists of a Lindbladian in Davies form admitting a Gibbs steady state at some temperature \(T\) \cite{arxiv:1411.6643}. An initial codeword \(\rho(0)\) is evolved under the code Hamiltonian and the Davies Lindbladian to the state \(\rho(t)\) at time \(t\), after which it is decoded using a polynomial-time decoding map\(\cal{D}\). The memory time \(\tau\) is defined to be
+  The effect of a Markovian thermal environment consists of a Lindbladian in Davies form admitting a Gibbs steady state at some temperature \(T\) \cite{arxiv:1411.6643}. An initial codeword \(\rho(0)\) is evolved under the code Hamiltonian and the Davies Lindbladian to the state \(\rho(t)\) at time \(t\), after which it is decoded using a polynomial-time decoding map \(\cal{D}\). The memory time \(\tau\) is defined to be
   \begin{align}
-    \tau=\sup\left\{ t>0\,|\left\Vert {\cal D}(\rho(t))-\rho(0)\right\Vert _{1}<\epsilon\right\} \,,
+    \tau=\sup\left\{ t>0\,|\left\Vert {\cal D}(\rho(t))-\rho(0)\right\Vert _{1}<\epsilon\right\}~,
   \end{align}
   for some fixed \(\epsilon\). For a self-correcting memory, there exists a critical temperature \(T_\star>0\) such that \(\tau\to\infty\) (typically, exponentially with \(n\)) as \(n\to\infty\) for any temperature \(T<T_{\star}\) and any codeword \(\rho(0)\). A memory is \textit{partially self-correcting} if \(\tau\) scales polynomially with \(n\) up to some cutoff \(n_{max}\). A self-correcting memory is typically associated with a (stable) phase of quantum matter.
 
