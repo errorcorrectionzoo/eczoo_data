@@ -9,18 +9,18 @@ name: 'Self-correcting quantum code'
 introduced: '\cite{arXiv:quant-ph/0110143,arXiv:0811.0033}'
 
 description: |
-  Also called a \textit{self-correcting quantum memory} or \textit{thermally stable encoding}. A ground-state encoding of an \(n\)-body geometrically local Hamiltonian whose logical information remains recoverable for arbitrary long times in the thermodynamic \(n\to\infty\) limit after interaction with a sufficiently cold thermal environment. Typically, one also requires a polynomial-time decoder, i.e., a decoder whose decoding time scales polynomially with \(n\).
+  Also called a \textit{self-correcting quantum memory} or \textit{thermally stable encoding}. A ground-state encoding of an \(n\)-body geometrically local Hamiltonian whose logical information is recoverable for arbitrary long times in the \(n\to\infty\) limit after interaction with a sufficiently cold thermal environment. Typically, one also requires a decoder whose decoding time scales polynomially with \(n\).
 
-  The effect of a Markovian thermal environment consists of a Lindbladian in Davies form admitting a Gibbs steady state at some temperature \(T\) \cite{arxiv:1411.6643}. An initial codeword \(\rho(0)\) is evolved under the code Hamiltonian and the Davies Lindbladian to the state \(\rho(t)\) at time \(t\), after which it is decoded using a polynomial-time decoding map \(\cal{D}\). The memory time \(\tau\) is defined to be
+  The effect of a Markovian thermal environment consists of a Lindbladian in Davies form admitting a Gibbs steady state at some temperature \(T\) \cite{arxiv:1411.6643}. An initial codeword \(\rho(0)\) is evolved under the code Hamiltonian and the Davies Lindbladian to the state \(\rho(t)\) at time \(t\), after which it is decoded via decoding map \(\cal{D}\). The memory time \(\tau\) is defined to be
   \begin{align}
-    \tau=\sup\left\{ t>0\,|\left\Vert {\cal D}(\rho(t))-\rho(0)\right\Vert _{1}<\epsilon\right\}~,
+    \tau=\sup\left\{ t>0\,|\left\Vert {\cal D}(\rho(t))-\rho(0)\right\Vert _{1}<\epsilon\right\}
   \end{align}
   for some fixed \(\epsilon\). For a self-correcting memory, there exists a critical temperature \(T_\star>0\) such that \(\tau\to\infty\) (typically, exponentially with \(n\)) as \(n\to\infty\) for any temperature \(T<T_{\star}\) and any codeword \(\rho(0)\). A memory is \textit{partially self-correcting} if \(\tau\) scales polynomially with \(n\) up to some cutoff \(n_{max}\). A self-correcting memory is typically associated with a (stable) phase of quantum matter.
 
 protection: |
   Self-correcting classical memories exist in two and higher dimensions, with the canonical example being the classical Ising model. In that model, a classical bit is stored in the overall magnetization. The magnetization is thermally stable due to the fact that there is an \(n\)-dependent (i.e., \textit{macroscopic}) energy cost of flipping a contiguous region of physical bits \cite{doi:10.1017/S0305004100019174,arxiv:1411.6643}. This cost scales with the surface area of the region, and the surface area is \(n\)-dependent for dimensions greater than one.
 
-  Self-correcting quantum memories currently exist in four and higher dimensions, with their existence in three dimensions being an open question. For similar reasons as the classical Ising model, the four-dimensional toric code is a self-correcting quantum memory due to an order \(O(n)\) energy cost to creating a logical error \cite{arXiv:quant-ph/0110143,arXiv:0811.0033}. On the other hand, the 2D toric code is not thermally stable because its string-like logical operators anti-commite with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation.
+  Self-correcting quantum memories currently exist in four and higher dimensions, with their existence in three dimensions being an open question. For similar reasons as the classical Ising model, the four-dimensional toric code is a self-correcting quantum memory due to an order \(O(n)\) energy cost of creating a logical error \cite{arXiv:quant-ph/0110143,arXiv:0811.0033}. On the other hand, the 2D toric code is not thermally stable because its string-like logical operators anti-commite with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation.
 
   An \(n\)-dependent energy barrier to all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arXiv:1412.2858,arXiv:1601.01324,arxiv:2107.01628}. Two-dimensional stabilizer codes \cite{arXiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arXiv:1209.5750} admit only constant-energy excitations, and so do not have admit such a barrier. No-go theorems for 3D models are much more restrictive, and there exist several candidates for self-correction as well as several partially self-correcting memories (see cousins below).
 
@@ -38,4 +38,7 @@ relations:
     - code_id: color
       detail: 'The 6D color code is a self-correcting quantum memory \cite{arXiv:0907.5228}.'
     - code_id: haah_cubic
-      detail: 'Cubic code 1 is partially self-correcting with a logarithmic energy barrier \cite{arXiv:1112.3252}. Cubic codes were discovered during a search for 3D encodings with no logical string operators, a likely necessary condition for a self-correcting quantum memory.'
+      detail: 'Cubic code 1 is partially self-correcting with a logarithmic energy barrier \cite{arXiv:1112.3252}.'
+    - code_id: repetition
+      detail: 'The repetition code associated with the 2D classical Ising model is a self-correcting classical memory.'
+#Cubic codes were discovered during a search for 3D encodings with no logical string operators, a likely necessary condition for a self-correcting quantum memory.
