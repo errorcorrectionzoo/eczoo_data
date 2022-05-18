@@ -1,6 +1,6 @@
-code_id: cubic_rbh
+code_id: rbh
 
-name: 'Cubic RBH code'
+name: 'Raussendorf-Bravyi-Harrington (RBH) code'
 introduced: '\cite{arXiv:1805.01474}'
 
 description: |
@@ -11,10 +11,12 @@ protection: |
 
 relations:
   parents:
-    - code_id: symmetry_protected
-      detail: ''
     - code_id: qubit_stabilizer
       detail: ''
   cousins:
+    - code_id: symmetry_protected_self_correct
+      detail: ''
+    - code_id: subsystem_color
+      detail: 'The RBH code on a certain lattice is dual to the gauge color code.'
     - code_id: surface
-      detail: 'Without the symmetry protection, the system is effectively a 2D surface code on the face of its boundary with the toric-code boundary condition.'
+      detail: 'Without symmetry protection, one of 2D boundaries of the cubic RBH code is effectively a 2D toric code.'
