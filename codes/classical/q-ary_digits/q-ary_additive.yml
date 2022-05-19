@@ -10,10 +10,16 @@ logical: q-ary_digits
 name: 'Additive \(q\)-ary code'
 #introduced: ''
 
-description: |
-  A code whose codewords are closed under addition, i.e., for any codewords \(x,y\), \(x+y\) is also a codeword.
+description: 'A code whose codewords are closed under addition, i.e., for any codewords \(x,y\), \(x+y\) is also a codeword.'
+
+notes: 
+  - 'A self orthogonal code is defined as a code \(C\) satisfying, \(C \subset C^{\perp}\).'
+  - 'Suppose \(\bar{S} \subset \bar{E} = \mathbb{Z}_{2}^{2n}\) is a linear binary subspace. If \(\phi : \bar{S} \rightarrow GF(4)^{n}\), then
+     \(\phi\) is one-one, onto so it is an invertible map that gives an additive code over \(GF(4)\).' 
+  - 'Interpreting \(\bar{S}\) as a binary symplectic representation, it represents a string of \(n\) paulis or a matrix of dimension of \(2^{n} x 2^{n}\).'
 
 relations:
-  parents:
-    - code_id: q-ary_digits_into_q-ary_digits
-      detail: ''
+  cousins:
+    - code_id: stabilizer_over_gf4
+      detail: 'Suppose \(C\) is an additive self-orthogonal subcode of \(GF(4)^n\), containing \(2^{n-k}\) vectors, such that there are no vectors of 
+      weight \(\leq\) \(d - 1\) in \(C^{\perp}\setminus C\). Then any eigenspace of \(\phi^{-1}(C)\) is a quantum-error-correcting code with parameters \([[n, k, d]]\).'
