@@ -13,7 +13,7 @@ introduced: '\cite{doi:10.1103/PhysRevA.32.3266}'
 description: |
   Encodes \(1\) qubit into \(n\) qubits according to \(|0\rangle\to|\phi_0\rangle^{\otimes n}\) and \(|1\rangle\to|\phi_1\rangle^{\otimes n}\). Also known as a \textit{bit-flip} code when \(|\phi_i\rangle = |i\rangle\), and a \textit{phase-flip} code when \(|\phi_0\rangle = |+\rangle\) and \(|\phi_1\rangle = |-\rangle\).
 
-  The \(\pm\)-basis codewords for the bit-flip code are GHz (a.k.a. cat) states \(|0\rangle^{\otimes n}\pm|1\rangle^{\otimes n}\). These are ground states of the one-dimensional \textit{classical Ising model} Hamiltonian \(H=\sum{x} Z^{(x)}Z^{(x+1)}\).
+  The \(\pm\)-basis codewords for the bit-flip code are GHz (a.k.a. cat) states \(|0\rangle^{\otimes n}\pm|1\rangle^{\otimes n}\). These are ground states of the one-dimensional \textit{classical Ising model} Hamiltonian \(H=\sum_{i} Z_{i}Z_{i+1}\).
 
   The \(\pm\)-basis codewords for the phase-flip code are expanded in the computational basis as
   \begin{align}
@@ -37,8 +37,8 @@ realizations:
 
 relations:
   parents:
-    - code_id: css
-      detail: ''
+    - code_id: quantum_parity
+      detail: 'A \([[m_1 m_2,1,\min(m_1,m_2)]]\) QPC is a concatenation of a \(m_1\) bit-flip and a \(m_2\) phase-flip repetition codes, reducing to a repetition code when \(m_1\) or \(m_2\) is one.'
   cousins:
     - code_id: hamiltonian
       detail: 'Bit-flip codespace is the ground-state space of a one-dimensional classical Ising model with nearest-neighbor interactions.'
