@@ -7,7 +7,7 @@ code_id: maximum_rank_distance
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Maximum-rank vector code'
+name: 'Maximum-rank Gabidulin code'
 introduced: '\cite{manual:{E. M. Gabidulin, "Theory of Codes with Maximum Rank Distance", Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)},doi:10.1109/18.75248}'
 
 description: |
@@ -18,7 +18,10 @@ description: |
   \end{align}
   where \([i]:=q^i\) and \(k=n-d+1\) defines a maximum rank distance code.
 
-protection: '\(d\)-distance codes protect agains all errors of rank not greater \(\lfloor (d-1)/2\rfloor\)'
+protection: '\(d\)-distance codes protect agains all errors of rank not greater \(\lfloor (d-1)/2\rfloor\).'
+
+realizations:
+ - 'Useful for error and erasure correction in network coding \cite{arXiv:cs/0703061,arXiv:0711.0708}.'
 
 relations:
   parents:
@@ -26,4 +29,4 @@ relations:
       detail: 'Vector rank-metric codes with maximum rank.'
   cousins:
     - code_id: reed_solomon
-      detail: 'The construction of the generators matrix of both codes uses a Vandermonde matrix.'
+      detail: 'Maximum rank codes can be thought of as rank-metric analogues of RS codes as both constructions utilize a Vandermonde matrix \cite{10.1109/TIT.2008.926449}.'
