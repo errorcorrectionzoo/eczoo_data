@@ -7,29 +7,28 @@ code_id: j_gross
 physical: spins
 logical: spins
 
-# Apostrophes are denoted by two apostrophe characters, i.e., ''
-# Code title (SINGULAR) + first reference(s) (optional).
-name: 'J. Gross code'
+name: 'Gross spin code'
 introduced: '\cite{arXiv:2005.10910}'
 
-# Anything applicable to a larger parent set of codes (see below) should go in
-# that entry instead of here.
 description: |
-  A simple spin code.
-  Producing codewords begins by creating a projection onto an irreducible representation of \(2O\), referred to as either \( \varrho_4 \) or \( \varrho_5 \).
-  The projection is created as follows:
+  A spin code whose codewords are subspaces of a spin''s Hilbert space that house irreducible representations (irreps) of the single-qubit Clifford group (i.e., the binary octahedral (\(2O\)) subgroup of \(SU(2)\)). This is done by restricting the \(SU(2)\) irrep to \(2O\), and determining the carrier spaces of any nontrivial irreps of \(2O\). Since irreps of \(2O\) do not appear in integer spins, so half-integer spins are used.
+
+  Producing codewords begins by creating a projection onto an instance of a particular irrep of \(2O\), referred to as either \( \varrho_4 \) or \( \varrho_5 \).
+  In the case of only one instance of the desired irrep present, the projection is created as follows:
   \begin{align}
-    P_\varrho = \frac{dim \varrho}{|2O|} \sum_{g \in 2O} \chi_\varrho (g)^* D(g)
+    P_\varrho = \frac{dim \varrho}{|2O|} \sum_{g \in 2O} \chi_\varrho (g)^* D(g)~,
   \end{align}
-  where
+  where \(D(g)\) is the \(SU(2)\) Wigner matrix corresponding to group element \(g\), and the character \(\chi_D (g) = tr(D(g))\).
+
+  Logical Pauli matrices \(\overline{\sigma}_w\) are defined using the above projection and the angular momentum operators:
   \begin{align}
-    \chi_D (g) = tr(D(g))
+    \overline{\sigma}_w = P_\varrho (i \exp(-i \pi J_w))P_\varrho
   \end{align}
-  Then, irreducible representations of the Paulis \(\bar{\sigma}_w\) are defined using the above projection and the angular momentum operators:
-  \begin{align}
-    \bar{\sigma}_w = P_\varrho (i \exp(-i \pi J_w))P_\varrho
-  \end{align}
-  Finally, \(|\bar{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\bar{\sigma}_z\) and \(|\bar{1} \rangle = \bar{\sigma}_x |\bar{0} \rangle \).
+  Finally, \(|\overline{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\overline{\sigma}_z\) and \(|\overline{1} \rangle = \overline{\sigma}_x |\overline{0} \rangle \).
+
+features:
+  general_gates:
+    - 'Universal computation results from being able to prepare a single logical state, perform one measurement, and the following logical gates: the phase gate (\( \bar{S} \)), the Hadamard gate (\(\bar{H}\)), the conditional phase gate (\(\bar{CZ}\)), and the square root of the phase gate (\(\bar{T}\)). Single-qubit Cliffords can be generated using \(\bar{S}\) and \(\bar{H}\), the extension to multiple-qubit Cliffords is done using \(\bar{CZ}\), and \(\bar{T}\) is to transform to non-Clifford states. Together these gates can be used to create all logical unitaries, while preparation and measurement complete universal quantum computation.'
 
 relations:
   parents:
