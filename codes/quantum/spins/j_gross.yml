@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: j_gross
+physical: spins
+logical: spins
+
+# Apostrophes are denoted by two apostrophe characters, i.e., ''
+# Code title (SINGULAR) + first reference(s) (optional).
+name: 'J. Gross code'
+introduced: '\cite{arXiv:2005.10910}'
+
+# Anything applicable to a larger parent set of codes (see below) should go in
+# that entry instead of here.
+description: |
+  A simple spin code.
+  Producing codewords begins by creating a projection onto an irreducible representation of \(2O\), referred to as either \( \varrho_4 \) or \( \varrho_5 \).
+  The projection is created as follows:
+  \begin{align}
+    P_\varrho = \frac{dim \varrho}{|2O|} \sum_{g \in 2O} \chi_\varrho (g)^* D(g)
+  \end{align}
+  where
+  \begin{align}
+    \chi_D (g) = tr(D(g))
+  \end{align}
+  Then, irreducible representations of the Paulis \(\bar{\sigma}_w\) are defined using the above projection and the angular momentum operators:
+  \begin{align}
+    \bar{\sigma}_w = P_\varrho (i \exp(-i \pi J_w))P_\varrho
+  \end{align}
+  Finally, \(|\bar{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\bar{\sigma}_z\) and \(|\bar{1} \rangle = \bar{\sigma}_x |\bar{0} \rangle \).
+
+relations:
+  parents:
+    - code_id: spins_into_spins
+      detail: ''

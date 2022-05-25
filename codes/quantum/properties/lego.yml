@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lego
+
+name: 'LEGO code'
+introduced: '\cite{arXiv:2109.08158}'
+
+description: |
+  The quantum LEGO method is a method of combining multiple codes that have been converted into Tensors by tying together the input and outputs of those codes, in a way stacking them similar to LEGOs.
+
+
+
+features:
+
+  encoders:
+    - 'First each code mapping \(V\) is converted to a tensor by decomposing it using the formula \(V = \sum_{i_j} V_{i_1 \ldots i_{n+k}} | i_{k+1} \ldots i_{k+n} \rangle \langle i_1 \ldots i_k |\). '
+    - 'We then look at the codes graphically, treating each \(i_j\) as an edge dangling out of the tensor vertex \(V_{i_1 \ldots i_{n+k}}\). These edges are either connected to another tensor vertex''s edges or left dangling.'
+    - 'Each local tensor has unitary product stabilizers (UPS). The goal is to push each UPS through the tensor network until each dangling edge has only trivial support. Otherwise, a matching value is pushed through the edge and the process is repeated on the next tensor. If a UPS can be pushed through the whole network, then a UPS for the larger network has been found.'
+    - 'The dangling legs (edges) and UPS of the whole network can then be converted to physical/logical elements and stabilizers/logical operators for a new quantum ECC.'
+
+  decoders:
+    - 'The decoder is created by creating a decoding quantum circuit with dangling legs replaced with input/output wires, and tensors converted to unitary gates.'
+    - 'Maximum likelihood decoding can be used when the tensors are stabilizer codes.'
+
+notes:
+  - 'Many known codes can be created using this code''s methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code.'
+  - 'For example, a simple \( [[4,2,2]] \) stabilizer code can be written as a rank 6 tensor. Attaching two of these via gluing together one logical leg from each can produce a \( [[6,4,2]] \) stabilizer code.'
+  - 'Tensor-network codes are types of LEGO codes made from stabilizer codes where logical and physical legs are pre-assigned and logical legs are not contracted. In other words, logical legs resulting from the conversion of codes to tensors must remain logical in the final tensor network, and the same for physical. Contracting logical legs is another word for gluing two logical legs together.'
+
+relations:
+  parents:
+    - code_id: qecc
+      detail: ''
