@@ -28,6 +28,10 @@ features:
     - 'Gao decoder using extended Euclidean algorithm \cite{doi:10.1007/978-1-4757-3789-9_5}.'
     - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaulation of \(Q(\alpha_i,y_i)\) and homogenous linear equation(interpolation). Once this is done, list roots of \(y\) that agree at \(\geq t\) points. The Sudan list decoding algorithm corrects up to \(1-\sqrt{2R}\) proportion of errors \cite{doi:10.1006/JCOM.1997.0439}. The Sudan–Guruswami algorithm improves that to \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}.'
 
+#    - Berlekamp-Welch: 'Error locator polynomial \(E(y_i) = E(f(\alpha_i))\).'
+#    - 'This problem is linearized to \(E(y_i) = N(\alpha_i)\). Using the known degrees of these polynomials \(deg_q f \leq k-1, deg_q E \leq t\), this problem becomes a set of linear equations which can be solved for \(E\) and \(f\).'
+#    - 'Finally we perform \(E(y_i - f_i(\alpha_i)) = 0\) to solve for the error vector.'
+
 realizations:
   - 'Cross-interleaved RS code (CIRC) is adopted in Compact Discs (CDs) and RS Product Code (RSPC) in DVDs; see Ch. 4 of Ref. \cite{doi:10.1109/9780470546345}.'
   - 'In DSL technologies and its variants against impluse noise \cite{doi:10.1109/ICC.2012.6364040}.'
