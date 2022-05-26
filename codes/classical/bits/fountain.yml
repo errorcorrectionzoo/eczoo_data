@@ -1,0 +1,35 @@
+code_id: fountain
+physical: bits
+logical: bits
+
+name: 'Fountain'
+introduced: '\cite{doi:10.1049/ip-com:20050237}'
+
+description: 'Fountain codes are a class of erasure codes based on the idea of generating an endless stream of encoded packets for the receiver. The code is designed so that the receiver can recover the original transmission of size \(Kl\) bits after receiving at least \(K\) packets each of \(l\) bits. The simplest example of a fountain code is the random linear fountain code.'
+
+protection: 'Designed to protect agains erasures. '
+
+features:
+  rate: 'This class of codes does not have a fixed rate, and as such are also called rateless erasure codes. Since the number of encoded packets is technically unlimited, the rate will tend to zero. In practice, transmission times and total packets sent are chosen so that the rate is finite.'
+  
+  encoders:
+    - 'Take some message of size \(Kl\) and split into \(K\) packets, \(p_0, p_1, ..., p_K\). For each packet \(\hat{p}_n\) to be transmitted do the following: Generate \(K\) random bits \(G_{nk}\) and let \(\hat{p}_n\) be the bitwise sum of the source packets when \(G_{nk}\) is 1, \( \hat{p}_n = \sum_{k=1}^K p_k G_{kn} \) '
+    - 'Error correction can be applied to each packet.'
+
+  decoders:
+    - 'Invert the fragment generator matrix resulting from the continuous encoding process. If exactly \(K\) packets are received, then the probability of decoding correctly is 0.289. Extra packets increase this probability exponentially.'
+    - 'The runtime of decoding is dominated by matrix inversion, which takes \(O(n^3\) time.'
+
+realizations:
+  - 'Useful in situations like broadcasting and file distribution.'
+
+notes:
+  - 'Random linear fountain codes approach the Shannon limit as the file size \(K\) increases.'  
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+#    - code_id: tornado
+  cousins:
+    - code_id: random
+     
