@@ -18,17 +18,17 @@ description: |
   \begin{align}
     P_\varrho = \frac{\text{dim} \varrho}{|2O|} \sum_{g \in 2O} \chi_\varrho (g)^* D(g)~,
   \end{align}
-  where \(D(g)\) is the \(SU(2)\) Wigner matrix corresponding to group element \(g\), and the character \(\chi_D (g) = \text{tr}(D(g))\).
+  where \(D(g)\) is the \(SU(2)\) Wigner matrix corresponding to group element \(g\), and the character \(\chi_\varrho (g) = \text{tr}(\varrho(g))\) is the trace of the desired irrep evaluated at a group element.
 
   Logical Pauli matrices \(\overline{\sigma}_w\) are defined using the above projection and the angular momentum operators:
   \begin{align}
-    \overline{\sigma}_w = i P_\varrho \exp^{-i \pi J_w} P_\varrho~.
+    \overline{\sigma}_w = i P_\varrho e^{-i \pi J_w} P_\varrho~.
   \end{align}
   Finally, \(|\overline{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\overline{\sigma}_z\) and \(|\overline{1} \rangle = \overline{\sigma}_x |\overline{0} \rangle \).
 
 features:
   general_gates:
-    - 'Universal computation results from being able to prepare a single logical state, perform one measurement, and the following logical gates: the phase gate (\( \bar{S} \)), the Hadamard gate (\(\bar{H}\)), the conditional phase gate (\(\bar{CZ}\)), and the square root of the phase gate (\(\bar{T}\)). Single-qubit Cliffords can be generated using \(\bar{S}\) and \(\bar{H}\), the extension to multiple-qubit Cliffords is done using \(\bar{CZ}\), and \(\bar{T}\) is to transform to non-Clifford states. Together these gates can be used to create all logical unitaries, while preparation and measurement complete universal quantum computation.'
+    - 'Universal computation results from being able to prepare a single logical state, perform one measurement, and the following logical gates: the phase gate (\( \overline{S} \)), the Hadamard gate (\(\overline{H}\)), the conditional phase gate (\(\overline{CZ}\)), and the square root of the phase gate (\(\overline{T}\)). Single-qubit Cliffords can be generated using \(\overline{S}\) and \(\overline{H}\), the extension to multiple-qubit Cliffords is done using \(\overline{CZ}\), and \(\overline{T}\) is to transform to non-Clifford states. Together these gates can be used to create all logical unitaries, while preparation and measurement complete universal quantum computation.'
 
 relations:
   parents:
