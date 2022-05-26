@@ -7,26 +7,32 @@ code_id: gabidulin
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Vector code'
-introduced: '\cite{manual:{E. M. Gabidulin, "Theory of Codes with Maximum Rank Distance", Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)},doi:10.1109/18.75248}'
+name: 'Gabidulin code'
+introduced: '\cite{manual:{E. M. Gabidulin, \textit{Theory of Codes with Maximum Rank Distance}, Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)},doi:10.1109/18.75248}'
 
 description: |
-  Also called \textit{Gabidulin} or \textit{vector rank-metric code}. The code corrects errors over rank metric instead of the traditional Hamming distance. The rank of an \(n\)-dimensional vector over \(GF(q)^N\) is the maximum number of its linearly independent coordinates.
+  Also called a \textit{vector rank-metric code}. A linear code over \(GF(q^N)\) that corrects errors over rank metric instead of the traditional Hamming distance. Every element \(GF(q^N)\) can be written as an \(N\)-dimensional vector with coefficients in \(GF(q)\), and the rank of a set of elements is rank of the matrix formed by their coefficients.
 
-  Given \(X^n=\text{span}\{x_i\}\), an \(n\)-dimensional vector space over \(GF(q)^N\) where \(q\) is a power of a prime number, the \textit{rank metric} \(d(x, y)\) is defined via the rank norm \(r(x, q) = \mathrm{rank}(A(x))\), where
+  Given \(X^n=\text{span}\{x_i\}\), an \(n\)-dimensional vector space over \(GF(q^N)\) (where \(q\) is a power of a prime number), the \textit{rank metric} \(d(x, y)\) is defined via the rank norm \(r(x, q) = \mathrm{rank}(A(x))\), where
   \begin{align}
-  A(x) = \begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1n} \\ a_{21} & a_{22} & \ldots & a_{2n} \\  a_{N1} & a_{N2} & \ldots & a_{Nn} \end{pmatrix}
+  A(x) = \begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1n} \\ a_{21} & a_{22} & \ldots & a_{2n} \\  a_{N1} & a_{N2} & \ldots & a_{Nn}~, \end{pmatrix}
   \end{align}
   and \(x_i = a_{1i} u_1 + a_{2i} u_2 + \ldots + a_{Ni}u_N \) for some fixed basis \(\{u_i\}_{i=1}^N\).
 
-  If the vector set \(\{x_1, x_2, \ldots, x_M\}\) defines a \(k\)-dimensional subspace, then the code is \([n,k]\)-linear.
+#  The code is called \([n,k]\)-linear if the vectors \(\{x_1, x_2, \ldots, x_M\}\) define a \(k\)-dimensional subspace.
 
 protection: 'Set of vectors \(\{x_1, x_2, \ldots, x_M\}\) determines a rank code with distance \(d=\min d(x_i, x_j)\). The code with distance \(d\) corrects all errors with rank of the error not greater than \(\lfloor (d-1)/2\rfloor\).'
 
-realizations:
- - 'Useful for error and erasure correction in network coding'
+features:
+  decoders:
+    - 'Fast decoder based on a transform-domain approach \cite{arXiv:0901.2483}.'
 
 relations:
   parents:
-    - code_id: q-ary_digits_into_q-ary_digits
-      detail: ''
+    - code_id: q-ary_linear
+    - code_id: rank_metric
+      detail: 'Gabidulin codes over \(GF(q^N)\), when expressed as matrices over \(GF(q)\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(GF(q^N)\)-linear (see Rm. 16 in Ref. \cite{arxiv:1410.1333}).'
+  cousins:
+    - code_id: maximum_rank_distance
+      detail: 'Gabidulin codes over \(GF(q^N)\) with maximum rank-distance, when expressed as matrices over \(GF(q)\), are MRD codes.'
+#Each Gabidulin codeword will be an evaluation of a bounded-degree linearized polynomial with coefficients in \(GF(q^m)\) over a set of \(n\) elements in \(GF(q^m)\) that are independent over \(GF(q)\). These \(n\) elements can each be converted into rows of a rank metric code over \(GF(q)\) by taking a basis of \(GF(q^m)\) in \(GF(q)\) and using the coefficients of the linear expansion as a row vector.

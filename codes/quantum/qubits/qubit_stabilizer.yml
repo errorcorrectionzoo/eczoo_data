@@ -11,15 +11,9 @@ name: 'Qubit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}'
 
 description: |
-  Also called a \textit{Pauli stabilizer code}. An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\).
+  Also called a \textit{Pauli stabilizer code}. An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\). The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
-  The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
-
-  (Pauli matrices go here.)
-
-  Each stabilizer code can be represented by a \((n-k) \times 2n\) stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the binary symplectic representation of a stabilizer generator. (Standard form goes here.)
-
-  Qubit stabilizer codes can be extended to modular-qudit stabilizer codes by decorating appropriate generators with powers. For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\). A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into \textit{local-dimension-invariant (LDI)} form  \cite{arxiv:1910.08122}. Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.
+  Each stabilizer code can be represented by a \((n-k) \times 2n\) \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the binary symplectic representation of an element from a set of generating elements of the stabilizer group. The check matrix can be brought into standard form via Gaussian elimination \cite{doi:10.1017/CBO9780511976667}.
 
 protection: |
   Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
@@ -55,12 +49,16 @@ notes:
 relations:
   parents:
     - code_id: stabilizer
+    - code_id: cws
+      detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
     - code_id: xp_stabilizer
       detail: 'The XP stabilizer formalism reduces to the Pauli formalism at \(N=2\).'
+    - code_id: quantum_lego
+      detail: 'Qubit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qubit repetition code, single-qubit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state.'
   cousins:
     - code_id: binary_linear
       detail: 'Qubit stabilizer codes are quantum analogues of binary linear codes.'
     - code_id: hamiltonian
       detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, which consists of an equal linear combination of stabilizer generators and which can be made into a commuting projector Hamiltonian.'
     - code_id: qudit_stabilizer
-      detail: 'Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a Pauli group with a unique number of generators. Conversely, qubit stabilizer codes can be extended to qudits by decorating the appropriate Pauli strings with powers, and the local-dimension-invariant (LDI) form \cite{arxiv:1910.08122} of the generator matrix yields systematic extensions to prime qudits.'
+      detail: 'Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a Pauli group with a unique number of generators. Conversely, qubit codes can be extended to modular-qudit codes by decorating appropriate generators with powers. For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\). A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into local-dimension-invariant (LDI) form  \cite{arxiv:1910.08122}. Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.'
