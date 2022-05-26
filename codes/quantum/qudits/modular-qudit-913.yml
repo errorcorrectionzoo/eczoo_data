@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_shor_nine
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit \([[9,1,3]]\) code'
+introduced: '\cite{arXiv:quant-ph/9610023}'
+
+description: 'Precisely speaking, we call it modular-qudit \([[9,1,3]]_p\) code (if the qudit dimension is prime) or modular-qudit \([[9,1,3]]_q\) code if it is defined for all composite dimensions. A qubit is a two-level system, and a qudit is a quantum system over \(N\) levels. This code is constructed for qudits and is related to the symmetry group \(\mathbb{Z}_2^{\otimes(N-1)}\otimes S_N\). It generalizes the nine-qubit Shor code.'
+
+protection: 'Protects against any quantum error arising from any one of the nine quantum registers.'
+
+
+features:
+
+  encoders: 'With \(O(1)\) generalized \(CNOT\) gates and the quantum discrete Fourier transformation \cite{doi:10.1109/SFCS.1994.365700, doi:10.1103/RevModPhys.68.733}, a state \(|m\rangle\) is encoded as \(\frac{1}{N^{3/2}}\sum_{k,p,q = 0}^{N-1}\omega_N^{m(k+p+q)}|kkkpppqqq\rangle\), where \(m = 0, 1, \ldots, N-1\), and the addition is defined in \(\mathbb{Z}_N\).'
+
+
+notes:
+  - 'The condition \([1 + (N^2 -1)n]N \leq N^n\) must be satisfied in order to have enough room in the encoded Hilbert space, \(n\) is the number of quantum registers.'
+
+relations:
+  parents:
+    - code_id: qudit_css
+      detail: ''
