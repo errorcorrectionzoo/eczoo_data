@@ -7,10 +7,10 @@ code_id: xzzx
 physical: qubits
 logical: qubits
 
-name: XZZX surface code
+name: 'XZZX surface code'
 introduced: \cite{arXiv:2009.07851}
 
-description: Non-CSS derivative of the surface code whose generators are \(XZXZ\)
+description: Also called a \textit{rotated surface code}. Non-CSS derivative of the surface code whose generators are \(XZXZ\)
   Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional
   lattice (with a qubit located at each vertex of the tessellation).
 
@@ -24,6 +24,7 @@ features:
     - 'For large but finite \(X\)- or \(Z\)-biased noise, the code''s thresholds exceed the zero-rate hashing bound.  The difference of the threshold from the hashing bound exceeds \(2.9\%\) at a \(Z\) or \(X\) bias of 300.'
     - '\(18.7\%\) for standard depolarising noise with maximum-likelihood decoder.'
     - '\(0.817\%\) and \(0.940\%\) with minimum-weight perfect matching and belief-matching decoder, respectively, for biased circuit-level noise \cite{arxiv:2203.04948}.'
+    - '\(4.15\%\) when \(98\%\) of depolarizing errors are coverted into erasure errors with union-find decoder on a planar code, vs. \(0.937\%\) for pure depolarizing noise. In Rydberg atomic devices, erasure conversion during gates is promising because the dominant source of noise is spontaneous decay into detectable energy levels outside of the computational subspace \cite{arxiv:2201.03540}.'
   decoders:
     - 'Minimum-weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the XY code in Ref. \cite{arXiv:1907.02554}.'
 
