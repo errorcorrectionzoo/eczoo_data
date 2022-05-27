@@ -11,9 +11,13 @@ name: 'Fountain code'
 introduced: '\cite{doi:10.1145/285243.285258}'
 
 description: |
-  Code based on the idea of generating an endless stream of custom encoded packets for the receiver. The code is designed so that the receiver can recover the original transmission of size \(Kl\) bits after receiving at least \(K\) packets each of \(l\) bits. The simplest example of a fountain code is the random linear fountain code.
+  Code based on the idea of generating an endless stream of custom encoded packets for the receiver. The code is designed so that the receiver can recover the original transmission of size \(Kl\) bits after receiving at least \(K\) packets each of \(l\) bits.
 
-  A simple fountain encoding is as follows. Take some message of size \(Kl\) and split into \(K\) packets, \(p_0, p_1, ..., p_K\). For each packet \(\hat{p}_n\) to be transmitted do the following: Generate \(K\) random bits \(G_{nk}\) and let \(\hat{p}_n\) be the bitwise sum of the source packets when \(G_{nk}\) is 1, \( \hat{p}_n = \sum_{k=1}^K p_k G_{kn} \). Error correction can then be applied to each packet.
+  The simplest example of a fountain code is the random linear fountain code. Take some message of size \(Kl\) and split into \(K\) packets, \(p_0, p_1, ..., p_K\). For each packet \(\hat{p}_n\) to be transmitted do the following: Generate \(K\) random bits \(G_{nk}\) and let \(\hat{p}_n\) be the bitwise sum of the source packets when
+  \begin{align}
+  G_{nk}\) is 1, \( \hat{p}_n = \sum_{k=1}^K p_k G_{kn}~.
+  \end{align}
+  Error correction can then be applied to each packet.
 
 protection: 'Designed to protect against erasures during broadcasting of information by a sender to multiple receivers.'
 #Huffman Kim Sole 30.3

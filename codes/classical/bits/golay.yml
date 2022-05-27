@@ -11,9 +11,9 @@ name: 'Binary Golay code'
 introduced: '\cite{manual:{Golay, M. J. E. "Notes on Digital Coding." Proc. IRE 37, 657, 1949.}}'
 
 description: |
-  A \([23, 12, 7]\) perfect binary linear code. Adding a parity bit to the code results in the \([24, 12, 8]\) \textit{extended Golay code}. The codespace is a 12-dimensional linear subspace of \(GF(2)^23\), or \(GF(2)^24\) in the extended case.
+  A \([23, 12, 7]\) perfect binary linear code with connections to the theory of sporadic simple groups. Adding a parity bit to the code results in the \([24, 12, 8]\) \textit{extended Golay code}. The codespace is a 12-dimensional linear subspace of \(GF(2)^{23}\), or \(GF(2)^{24}\) in the extended case.
 
-  The \([23, 12, 7]\) code can be constructed with the polynomial \(x^{11} + x^{10} + x^6 + x^5 + x^4 + x^2 + 1\) over GF(2). This representation of the Golay code is cyclic. Alternatively, one can use the Great Dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the inner icosahedron.
+  The \([23, 12, 7]\) code can be constructed with the polynomial \(x^{11} + x^{10} + x^6 + x^5 + x^4 + x^2 + 1\) over \(GF(2)\). This representation of the Golay code is cyclic. Alternatively, one can use the Great Dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the inner icosahedron.
 
 protection: 'The binary Golay code has distance 7 and can correct up to \(\frac{7-1}{2}=3\) errors.'
 
@@ -21,7 +21,7 @@ features:
   rate: 'The perfect binary Golay code has a rate of \(12/23 = 0.522\). The extended binary Golay code has a rate of \(12/24 = 0.5\).'
 
   decoders:
-    - 'Table lookup or algebraic algorithms such as Berlekamp-Welch.'
+    - 'Table lookup or algebraic algorithms such as Berlekamp-Welch \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S. Patent, Number 4,633,470 1986.}}.'
     - 'Both Golay codes have a trellis representation and can thus be decoded using trellis decoding \cite{doi:10.1142/9789814287517_0004,doi:10.1049/el:19931456}.'
 
 realizations:
