@@ -1,0 +1,56 @@
+code_id: frameproof
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Frameproof Code'
+introduced: '\cite{doi:10.1007/3-540-44750-4_36}'
+
+description: |
+  Frameproof codes are those that prevent a group of users from being able to collude to frame another user outside of the group of creating an unauthorized copy of data. Even further, the group of users cannot frame a separate user even if they know the unique codeword of the separate user \cite{doi:10.1007/3-540-44750-4_36}.
+  
+  Let us start with some definitions to then define what a c-frameproof code is. A set \(\Gamma = \{w^{(1)}, \dots, w^{(n)}\} \subseteq \{(0,1)\}^{l}\) is an ( \(l,n\) )-code. Each codeword \(w^{(i)}\) correlates to a user \(u_i\).
+  Let \(C\) be a group of users. A bit in position \(i\) is undetectable for the group \(C\) when the words assigned to the users in the group match at the the same position \(i\).
+  The feasible set of the group \(C\), denoted \(F(C;\Gamma)\) or \(F(C)\), for some user \(u\) in \(C\) contains all of the codewords that match the groups set of undetectable bits. Finally, if every subset \(S \subset \Gamma\) of size at most \(c\) satisfies \(F(S)\cap\Gamma = S\), then \(\Gamma\) is a c-frameproof code \cite{doi:10.1007/3-540-44750-4_36}.
+  Additionally, any c-frameproof code must have at least length \(c\) \cite{doi:10.1007/3-540-44750-4_36}.
+  A length \(l\) q-ary c-frameproof code has at most \(tq^{\lceil l/c \rceil} + O(q^{\lceil l/c \rceil - 1})\) codewords where \(t\) is an integer between \(1\) and \(c\) and \(t\) is \(1\) mod \(c\) \cite{doi:10.1137/S0895480101384633}.
+
+
+protection: 'Frameproof codes help to provide software protection from the illegal distribution and copying of computer software and copyrighted materials. These codes help protect products of distributors as well as other naive users from being framed of illegal activity \cite{doi:10.1007/3-540-44750-4_36}.'
+
+# This field starts a list of specific labeled subfields; do not leave it
+# empty. If empty, comment out. Also, indentations are important!
+features:
+
+  rate: 'The specific type of frameproof error correcting codes spoken in \cite{doi:10.1007/3-540-44750-4_36} have a large minimal distance and a low rate. Specifically, for any positive integers n and c, if \(l = 16c^{2}logn\) then there exists a c-frameproof \( (l,n) \)-code which has rate \(n/l\) \cite{doi:10.1007/3-540-44750-4_36}.'
+
+  #encoders:
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  #general_gates:
+
+  #decoders:
+
+  #fault_tolerance:
+
+  #code_capacity_threshold:
+    
+  #threshold:
+    
+  #some_other_field:
+  # - 'detail'
+
+realizations:
+  - 'Frameproof codes are utilized in digital fingerprinting and watermarking \cite{doi:10.1137/S0895480101384633}.'
+
+#notes:
+  
+relations:
+  parents:
+    - code_id: ipp
+      detail: 'Codes with the identifiable parent property have the ability that given any descendent, a parent codeword can always be identified \cite{doi:10.1016/j.endm.2005.07.012}.'
+  cousins:
+    - code_id: traceability
+      detail: 'Codes with traceability also deter users from unauthorized copying or sharing of digital materials by being able to trace source of leaks which also helps to ensure that an innocent user is not framed for the unauthorized activity \cite{doi:10.1109/18.841169}.'
+    #- code_id: separating
+     # detail: 'Separating codes are equivalent to codes with the secure frameproof property. A c-separating code has the property that for any two disjoint sets that each contain at most \(c\) code words, there is at least one position where the set of symbols of each set are disjoint \cite{doi:10.1007/s10623-021-00988-z}.'
