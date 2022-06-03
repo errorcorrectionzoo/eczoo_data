@@ -10,7 +10,19 @@ logical: bits
 
 name: 'Parity-check code'
 
-description: 'Stub.'
+description: 'An \([n,k,d]\) parity-check code is a binary linear code that finds errors by computing the parity of linear combinations of bits. A given parity-check code is defined by the particular set of linear combinations it uses.'
+
+protection: 'Protection varies among parity-check codes. Depending on its construction, a given parity-check code may be able to correct errors or it may only be able to detect errors.'
+
+features:
+  encoders:
+    - 'Compute the parity of each linear combination of bits and include them in the code vector as \emph{parity bits}. The details vary by code.'
+
+  decoders:
+    - 'Compute the parities and compare against the parity bits. If the parity information of a codeword disagrees with its corresponding parity bit, then an error has occured. At this point, correction may or may not be possible.'
+
+notes:
+  - 'The number of parity bits is n-k.'
 
 relations:
   parents:
