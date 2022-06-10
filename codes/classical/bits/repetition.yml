@@ -20,9 +20,11 @@ features:
   decoders:
     - 'Calculate the Hamming weight \(d_H\) of the code. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
 
-
   threshold:
     - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then people can always increase the probability of success by increasing the number of physical bit \(n\).'
+
+  fault_tolerance:
+    - 'Triple modular redundancy (TMR) error-correction protocol \cite{doi:10.1147/rd.62.0200}; see Ref. \cite{arXiv:2111.08894} for a pedagogical explanation.'
 
 realizations:
   - 'Repetition codesm in conjunction with other codes, were used in magnetic disks \cite{doi:10.1109/TCOM.1984.1096094}.'
