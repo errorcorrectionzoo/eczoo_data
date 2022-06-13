@@ -11,11 +11,14 @@ name: 'Reed-Muller (RM) code'
 short_name: 'RM'
 introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465}'
 
-description: 'Stub. Define first order (\(r=1\)) and second order.'
+description: 'Member of the RM\(r,m\) family of linear binary codes derived from Boolean functions. The code parameters \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code.'
 
 protection: ''
 
 features:
+  decoders:
+    - 'Reed decoder \cite{doi:10.1109/irepgelc.1954.6499441}.'
+
   rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829}.'
 #notes:
 #  - ''
@@ -30,6 +33,9 @@ relations:
   cousins:
     - code_id: divisible
       detail: 'An RM\((r,m)\) code is \(2^{\left\lceil m/r\right\rceil-1}\)-divisible, according to McEliece''s theorem \cite{doi:10.1016/0097-3165(71)90066-5,doi:10.1016/0012-365X(72)90032-5}.'
+    - code_id: dual
+      detail: 'The codes RM\((r,m)\) and RM\((m-r-1,m)\) are dual to each other.'
+
   #cousins:
     # - code_id: hamming
     #   detail: ''
