@@ -86,15 +86,6 @@ features:
       just-in-time decoding \cite{arXiv:1903.11634}.
   # Last sentence valid for more general codes; possibly upgrade
 
-  code_capacity_threshold:
-    - 'Independent \(X,Z\) noise: \(10.31\%\) with MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}). The threshold with ML decoding corresponds to the value of critical point of the two-dimensional random-bond Ising model on the Nishimori line \cite{arxiv:quant-ph/0110143}, calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arXiv:cond-mat/0001014}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}.'
-    - 'Depolarizing noise: \(17\%\) and \(18.5\%\)) with MPS decoding \cite{arxiv:1405.4883}, and between \(15\%\) and \(16\%\) with RG \cite{arXiv:0911.0581}, Markov-chain \cite{arXiv:1302.2669}, or MWPM \cite{arXiv:0905.0531} decoding. The threshold with ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arXiv:1202.1852}.'
-    - 'Erasure noise: \(50\%\) for square tiling \cite{arXiv:0904.3556}.'
-    - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arXiv:quant-ph/0401101}.'
-    #The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
-  threshold:
-    - '\(0.5-1.1\%\) for various error models \cite{arXiv:1311.5003,arxiv:0811.0464}.'
-
   encoders:
     - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arXiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arXiv:0712.0348,arXiv:1207.0253} (matching a lower bound in Ref. \cite{arXiv:1810.03912}).'
     - 'Dissipative Lindbladian-based encoder \cite{arXiv:1310.1036}.'
@@ -104,12 +95,21 @@ features:
   decoders:
     - 'Maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}.'
     - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} and pipeline MWPM \cite{arXiv:1310.0863,arXiv:2205.09828}, a modification accounting for correlations between events.'
-    - 'Union-find \cite{arXiv:1709.06218}.'
     - 'Renormalization group (RG) \cite{arXiv:0911.0581,arXiv:1304.6100,arXiv:1411.3028}.'
-    - 'Tensor network \cite{arXiv:1405.4883}.'
     - 'Markov-chain Monte Carlo \cite{arXiv:1302.2669}.'
+    - 'Tensor network \cite{arXiv:1405.4883}.'
     - 'Cellular automaton \cite{arXiv:1511.05579}.'
     - 'Machine learning \cite{arXiv:1610.04238,arXiv:1802.06441,arXiv:1810.07207}.'
+    - 'Union-find \cite{arXiv:1709.06218}.'
+
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(10.31\%\) with MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}). The threshold with ML decoding corresponds to the value of critical point of the two-dimensional random-bond Ising model on the Nishimori line \cite{arxiv:quant-ph/0110143}, calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arXiv:cond-mat/0001014}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}.'
+    - 'Depolarizing noise: between \(17\%\) and \(18.5\%\) with tensor-network decoding \cite{arxiv:1405.4883}, and between \(15\%\) and \(16\%\) with RG \cite{arXiv:0911.0581}, Markov-chain \cite{arXiv:1302.2669}, or MWPM \cite{arXiv:0905.0531} decoding. The threshold with ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arXiv:1202.1852}.'
+    - 'Erasure noise: \(50\%\) for square tiling \cite{arXiv:0904.3556}.'
+    - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arXiv:quant-ph/0401101}.'
+    #The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
+  threshold:
+    - '\(0.5-2.9\%\) for various noise models \cite{arxiv:0811.0464} (see also Refs. \cite{arXiv:quant-ph/0207088,arXiv:1311.5003}).'
 
 notes:
   - '\textit{Surfmap} framework provides a way to stitch the surface code to various superconducting-circuit geometries by assigning each superconducting qubit to be either a physical or ancilla qubit, designing stabilizer measurement circuits, and scheduling stabilizer measurements \cite{arxiv:2111.13729}.'
