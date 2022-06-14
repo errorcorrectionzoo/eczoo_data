@@ -18,13 +18,13 @@ description: |
   1 & 1
   \end{smallmatrix}\right)^{\otimes m}\), labeling its rows top-to-bottom from \(0\) to \(2^m-1\), converting the labels to binary strings of length \(m\), and deleting all rows whose labels have a Hamming weight less than \(m-r\). The recursive nature of the tensor product in the matrix \(F^{(m)}\) implies that RM\((r,m)\) is a subcode of RM\((r+1,m)\).
 
-  Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}).
+  Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).
 
 protection: ''
 
 features:
   decoders:
-    - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}).'
+    - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).'
     - 'Sequential code-reduction decoding \cite{doi:10.1109/TIT.1973.1055023}.'
     - 'First-order (\(r=1\)) RM codes admit specialized decoders \cite{manual:manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
 
@@ -36,12 +36,12 @@ realizations:
   - 'Deep-space communication, including the Mariner 9 spacecraft \cite{doi:10.1007/bfb0036046,manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
 
 notes:
-  - 'See Chs. 13-15 of Ref. \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}} for details of RM codes and their variants.'
+  - 'See Chs. 13-15 of Ref. \cite{preset:MacSlo} for details of RM codes and their variants.'
 
 relations:
   parents:
     - code_id: bch
-      detail: 'RM\((r,m)\) codes are subcodes of BCH codes of designed distance \(2^{m-r}-1\) (\cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}, Ch. 13).'
+      detail: 'RM\((r,m)\) codes are subcodes of BCH codes of designed distance \(2^{m-r}-1\) (\cite{preset:MacSlo}, Ch. 13).'
     - code_id: quaternary_over_z4
       detail: 'RM codes are images of linear quaternary codes under the Gray map (\cite{doi:10.1201/9781315147901}, Sec. 6.3).'
     - code_id: divisible
@@ -52,7 +52,7 @@ relations:
     - code_id: dual
       detail: 'The codes RM\((r,m)\) and RM\((m-r-1,m)\) are dual to each other.'
     - code_id: cyclic
-      detail: 'Punctured RM codes are cyclic (\cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}, Ch. 13, Thm. 11), making RM codes extended cyclic codes.'
+      detail: 'Punctured RM codes are cyclic (\cite{preset:MacSlo}, Ch. 13, Thm. 11), making RM codes extended cyclic codes.'
   #cousins:
     # - code_id: hamming
     #   detail: ''
