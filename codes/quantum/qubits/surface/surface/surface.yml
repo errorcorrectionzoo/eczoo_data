@@ -86,6 +86,9 @@ features:
       just-in-time decoding \cite{arXiv:1903.11634}.
   # Last sentence valid for more general codes; possibly upgrade
 
+  fault_tolerance:
+    - 'Transversal (non-Clifford) CCZ gate by bringing 2D surface codes together and using just-in-time decoding \cite{arxiv:1903.11634}. Gate can be simulated by taking 2D slices out of 3D surface codes \cite{arXiv:2012.08536}.'
+
   encoders:
     - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arXiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arXiv:0712.0348,arXiv:1207.0253} (matching a lower bound in Ref. \cite{arXiv:1810.03912}).'
     - 'Dissipative Lindbladian-based encoder \cite{arXiv:1310.1036}.'
@@ -94,7 +97,7 @@ features:
 
   decoders:
     - 'Maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}.'
-    - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} and pipeline MWPM \cite{arXiv:1310.0863,arXiv:2205.09828}, a modification accounting for correlations between events.'
+    - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}) and pipeline MWPM \cite{arXiv:1310.0863,arXiv:2205.09828}, a modification accounting for correlations between events.'
     - 'Renormalization group (RG) \cite{arXiv:0911.0581,arXiv:1304.6100,arXiv:1411.3028}.'
     - 'Markov-chain Monte Carlo \cite{arXiv:1302.2669}.'
     - 'Tensor network \cite{arXiv:1405.4883}.'
@@ -109,6 +112,7 @@ features:
     - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arXiv:quant-ph/0401101}.'
     #The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
   threshold:
+    - '\(0.57\%\) for depolarizing noise on data and syndrome qubits as well initialization, gate, and measurement errors under MPWM decoding \cite{arxiv:1208.0928}. For this model, a logical qubit with a \(10^{-14}\) logical error rate requires between \(10^3\) to \(10^4\) physical qubits and a target gate fidelity above \(99.9\%\).'
     - '\(0.5-2.9\%\) for various noise models \cite{arxiv:0811.0464} (see also Refs. \cite{arXiv:quant-ph/0207088,arXiv:1311.5003}).'
 
 notes:
