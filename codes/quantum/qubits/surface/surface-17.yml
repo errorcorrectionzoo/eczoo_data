@@ -10,19 +10,25 @@ logical: qubits
 name: 'Surface-17 code'
 introduced: '\cite{arXiv:1404.3747}'
 
-description: 'A \([[9,1,3]]\) rotated surface code with 9 data qubits and 8 syndrome qubits. It uses the smallest number of qubits to perform error correction on a surface code with parallel syndrome extraction.'
+description: 'A \([[9,1,3]]\) rotated surface code named for the sum of its 9 data qubits and 8 syndrome qubits. It uses the smallest number of qubits to perform error correction on a surface code with parallel syndrome extraction.'
 
 protection: 'Independent correction of single-qubit \(X\) and \(Z\) errors. Correction for some two-qubit \(X\) and \(Z\) errors.'
 
 features:
-  transversal_gates: 'Pauli gates, CNOT gate, and H gate (with relabeling).'
+  transversal_gates: 'Pauli gates, CNOT gate, and \(H\) gate (with relabeling).'
+
+  decoders:
+    - 'Lookup table \cite{arxiv:1404.3747}.'
+
+  fault_tolerance:
+    - 'For the rotated surface code, a particular choice of CNOT gates during syndrome extraction is required to be fault-tolerant to syndrome qubit errors \cite{arXiv:1404.3747}.'
 
 notes:
     - 'Subject of various numerical studies examining the system for noises and architectures specific to trapped ions \cite{arXiv:1404.3747,arXiv:1710.01378,arxiv:1910.08495} and superconducting circuits \cite{arxiv:1612.08208,arxiv:1703.04136,arxiv:2002.07119}'
 
 realizations:
   - |
-    Implemented at ETH Zurich
+    Implemented at ETH Zurich by the Wallraff group
     \cite{arxiv:2112.03708} and on the Zuchongzhi 2.1 superconducting quantum processor \cite{arxiv:2112.13505}. Both experimental error rates are above the pseudothreshold for this code relative to a single qubit.
 
 relations:

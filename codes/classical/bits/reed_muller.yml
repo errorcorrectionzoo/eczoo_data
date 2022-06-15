@@ -9,27 +9,50 @@ logical: bits
 
 name: 'Reed-Muller (RM) code'
 short_name: 'RM'
-introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465}'
+introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465,manual:{N. Mitani, \emph{On the transmission of numbers in a sequential computer}, delivered at the National Convention of the Inst. of Elect. Engineers of Japan, November 1951.}}'
 
-description: 'Stub. Define first order (\(r=1\)) and second order.'
+description: |
+  Member of the RM\((r,m)\) family of linear binary codes derived from multivariate polynomials. The code parameters are \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code satisfying \(0\leq r\leq m\). \textit{Punctured RM codes} RM\(^*(r,m)\) are obtained from RM codes by deleting one or more coordinates from each codeword.
+
+  Generator matrices of RM codes are constructed by starting from the \(2^m\)-dimensional matrix \(F^{(m)}=\left(\begin{smallmatrix}1 & 0\\
+  1 & 1
+  \end{smallmatrix}\right)^{\otimes m}\), labeling its rows top-to-bottom from \(0\) to \(2^m-1\), converting the labels to binary strings of length \(m\), and deleting all rows whose labels have a Hamming weight less than \(m-r\). The recursive nature of the tensor product in the matrix \(F^{(m)}\) implies that RM\((r,m)\) is a subcode of RM\((r+1,m)\).
+
+  Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).
 
 protection: ''
 
 features:
-  rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829}.'
+  decoders:
+    - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).'
+    - 'Sequential code-reduction decoding \cite{doi:10.1109/TIT.1973.1055023}.'
+    - 'First-order (\(r=1\)) RM codes admit specialized decoders \cite{manual:manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
+
+  rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829} and of the binary memoryless symmetric (BMS) channel under bitwise maximum-a-posteriori decoding \cite{arxiv:2110.14631}.'
 #notes:
 #  - ''
 
-#realizations:
-#  - ''
+realizations:
+  - 'Deep-space communication, including the Mariner 9 spacecraft \cite{doi:10.1007/bfb0036046,manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
+
+notes:
+  - 'See Chs. 13-15 of Ref. \cite{preset:MacSlo} for details of RM codes and their variants.'
 
 relations:
   parents:
-    - code_id: binary_linear
-      detail: ''
-  cousins:
+    - code_id: bch
+      detail: 'RM\((r,m)\) codes are subcodes of BCH codes of designed distance \(2^{m-r}-1\) (\cite{preset:MacSlo}, Ch. 13).'
+    - code_id: quaternary_over_z4
+      detail: 'RM codes are images of linear quaternary codes under the Gray map (\cite{doi:10.1201/9781315147901}, Sec. 6.3).'
     - code_id: divisible
       detail: 'An RM\((r,m)\) code is \(2^{\left\lceil m/r\right\rceil-1}\)-divisible, according to McEliece''s theorem \cite{doi:10.1016/0097-3165(71)90066-5,doi:10.1016/0012-365X(72)90032-5}.'
+    - code_id: group
+      detail: 'Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the group algebra \( \mathbb{F}_2 G_m \), where \(\mathbb{F}_2=GF(2)\). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
+  cousins:
+    - code_id: dual
+      detail: 'The codes RM\((r,m)\) and RM\((m-r-1,m)\) are dual to each other.'
+    - code_id: cyclic
+      detail: 'Punctured RM codes are cyclic (\cite{preset:MacSlo}, Ch. 13, Thm. 11), making RM codes extended cyclic codes.'
   #cousins:
     # - code_id: hamming
     #   detail: ''
