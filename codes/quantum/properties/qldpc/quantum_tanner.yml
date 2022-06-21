@@ -13,7 +13,11 @@ introduced: '\cite{arXiv:2202.13641}'
 description: Stub.
 
 features:
-  rate: 'Good QLDPC codes.'
+  rate: 'Asymptotically good QLDPC codes.'
+
+  decoders:
+    - 'Linear-time decoder similar to the small-set-flip decoder for quantum expander codes \cite{arxiv:2206.06557}.'
+    - 'Linear-time decoder \cite{arxiv:2206.07571}.'
 
 realizations:
   - 'Used to obtain explicit lower bounds in the sum-of-squares game \cite{arXiv:2204.11469}.'
@@ -29,5 +33,8 @@ relations:
       detail: ''
   cousins:
     - code_id: tanner
+      detail: 'Tanner codes are used in constructing quantum Tanner codes.'
+    - code_id: tensor
+      detail: 'Tensor codes are used in constructing quantum Tanner codes.'
     - code_id: expander_lifted_product
-      detail: 'Quantum Tanner codes are an attempt to construct asymptotically good QLDPC codes that are similar to but simpler than expander lifted-product codes.'
+      detail: 'Quantum Tanner codes are an attempt to construct asymptotically good QLDPC codes that are similar to but simpler than expander lifted-product codes; see Ref. \cite{arxiv:2206.07571} for connection between the codes.'
