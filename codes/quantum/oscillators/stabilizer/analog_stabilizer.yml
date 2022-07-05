@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: analog_stabilizer
+physical: oscillators
+
+name: 'Gaussian stabilizer code'
+#introduced: '\cite{arxiv:quant-ph/0405064}'
+
+description: |
+  Also known as an \textit{analog stabilizer code}. Oscillator-into-oscillator stabilizer code encoding \(k\) logical modes into \(n\) physical modes. An \(((n,k,d))_{\mathbb{R}}\) Gaussian stabilizer code is denoted as \([[n,k,d]]_{\mathbb{R}}\), where \(d\) is the code's distance.
+
+  Gaussian stabilizer codes admit continuous stabilizer group of displacements.  This group can equivalently be defined in terms of its Lie algebra. The codespace is equivalently the common \(0\)-eigenvalue eigenspace of the Lie algebra generators, which are mutually commuting linear combinations of oscillator position and momentum operators called \textit{nullifiers} \cite{arxiv:0903.3233} or \textit{annihilators}. A Gaussian stabilizer code admitting a set a set of nullifiers such that each nullifier consists of either position or momentum operators is called a \textit{Gaussian CSS code}.
+
+protection: 'Protect against erasures of at most \(d-1\) modes, or arbitrarily large dispalcements on those modes. If an error operator does not commute with a nullifier, then that error is detectable. Protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:1810.00047,arxiv:quant-ph/0204052,arxiv:0811.3128}'
+
+features:
+  encoders:
+    - 'A Gaussian operation acting on position states.'
+  decoders:
+    - 'Homodyne measurement of nullifiers yields real-valued syndromes, and recovery can be performed by displacements conditional on the syndromes.'
+
+relations:
+  parents:
+    - code_id: oscillator_stabilizer
+    - code_id: oscillators_into_oscillators
+  cousins:
+    - code_id: gkp-stabilizer
+      detail: 'Gaussian stabilizer codes protect logical modes against artbirarily large displacements on a few modes, while GKP-stabilizer codes protect a logical qubit against sufficiently small displacements in any number of modes. Encoding in such Gaussian-stabilizer (GKP-stabilizer) codes can be done by a Gaussian operation acting on a tensor product of an arbitrary state in the first mode and position states (GKP states) on the remaining modes. Protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:1810.00047,arxiv:quant-ph/0204052,arxiv:0811.3128}, so GKP-stabilizer codes can be thought of as Gaussian stabilizer codes prepended with GKP resource states.'
