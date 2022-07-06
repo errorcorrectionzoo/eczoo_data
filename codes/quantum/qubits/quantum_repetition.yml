@@ -13,7 +13,7 @@ introduced: '\cite{doi:10.1103/PhysRevA.32.3266}'
 description: |
   Encodes \(1\) qubit into \(n\) qubits according to \(|0\rangle\to|\phi_0\rangle^{\otimes n}\) and \(|1\rangle\to|\phi_1\rangle^{\otimes n}\). Also known as a \textit{bit-flip} code when \(|\phi_i\rangle = |i\rangle\), and a \textit{phase-flip} code when \(|\phi_0\rangle = |+\rangle\) and \(|\phi_1\rangle = |-\rangle\).
 
-  The \(\pm\)-basis codewords for the bit-flip code are GHz (a.k.a. cat) states \(|0\rangle^{\otimes n}\pm|1\rangle^{\otimes n}\). These are ground states of the one-dimensional \textit{classical Ising model} Hamiltonian \(H=\sum{x} Z^{(x)}Z^{(x+1)}\).
+  The \(\pm\)-basis codewords for the bit-flip code are GHz (a.k.a. cat) states \(|0\rangle^{\otimes n}\pm|1\rangle^{\otimes n}\). These are ground states of the one-dimensional \textit{classical Ising model} Hamiltonian \(H=\sum_{i} Z_{i}Z_{i+1}\).
 
   The \(\pm\)-basis codewords for the phase-flip code are expanded in the computational basis as
   \begin{align}
@@ -22,23 +22,34 @@ description: |
       |\overline{-}\rangle =\frac{1}{\sqrt{2^{n-1}}}\sum_{\sum_{i}v_{i}=1}|v_{1},\cdots,v_{n}\rangle~,
     \end{split}
   \end{align}
-  showing that the phase-flip code code stores information in the total parity of the qubits.
+  showing that the phase-flip code stores information in the total parity of the qubits.
 
 protection: 'Bit-flip code detects bit-flip errors \(X\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any phase-flip errors \(Z\). Phase-flip code detects phase-flip errors \(Z\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any bit-flip errors \(X\). Because they protect against only one type of noise, both codes can be thought of as a classical \([n,1,d]\) repetition code with classical distance \(d=\left\lfloor (n-1)/2\right\rfloor\) embedded in a quantum system.'
 
+features:
+  encoders:
+    - 'Lindbladian-based dissipative encoding passively protecting against bit flips \cite{arxiv:quant-ph/0110111,arxiv:1702.08673}.'
+
 realizations:
-  - 'Superconducting circuits: IBM 15-qubit device \cite{arXiv:1709.00990}, Google Quantum AI Sycamore utilizing from 5 to 21 qubits \cite{arXiv:2102.06132}.'
+  - 'NMR: 3-qubit phase-flip code \cite{arxiv:quant-ph/9802018,arXiv:1108.4842}, with up to two rounds of error correction in liquid-state NMR \cite{arXiv:1109.4821}.'
+  - 'Superconducting circuits: 3-qubit phase-flip and bit-flip code by Schoelkopf group \cite{arXiv:1109.4948}, another 3-qubit bit-flip code \cite{arXiv:1411.5542}, 3-qubit phase-flip code up to 3 cycles of error correction \cite{arXiv:1508.01388}, IBM 15-qubit device \cite{arXiv:1709.00990}, IBM Rochester device using 43-qubit code \cite{arXiv:2004.11037}, Google system performing up to 8 error-correction cycles on 5 and 9 qubits \cite{arXiv:1411.7403}, and Google Quantum AI Sycamore utilizing from 5 to 21 qubits \cite{arXiv:2102.06132}. Continuous error correction protocols have been implemented on a 3-qubit device \cite{arxiv:2107.11398}.'
   - 'Semiconductor spin-qubit devices: 3-qubit devices at RIKEN \cite{arXiv:2201.08581} and Delft \cite{arXiv:2202.11530}.'
   - 'Nitrogen-vacancy centers in diamond: 3-qubit device \cite{doi:10.1038/s42005-022-00875-6}.'
-  - 'Continuous error correction protocols have been implemented on a 3-qubit superconducting circuit device \cite{arxiv:2107.11398}.'
-  - 'Liquid-state NMR: 3-qubit phase-flip code \cite{arxiv:quant-ph/9802018}.'
   - 'See Table S6 in Ref. \cite{arXiv:2102.06132} for a history of earlier implementations.'
+  - 'Trapped-ion device: 3-qubit phase-flip algorithm implemented in 3 cycles on high fidelity gate operations \cite{doi:10.1126/science.1203329}.'
+  - 'NV Center: 3-qubit phase-flip code \cite{arXiv:1309.6424}.'
+
+#  - 'Molecular spin qubits: 3-qubit molecule \cite{doi:10.1039/d0sc03107k}.'
+
+notes:
   - 'Repetition codes can be used to benchmark device performance \cite{arxiv:2202.11045}.'
+
+
 
 relations:
   parents:
-    - code_id: css
-      detail: ''
+    - code_id: quantum_parity
+      detail: 'A \([[m_1 m_2,1,\min(m_1,m_2)]]\) QPC is a concatenation of a \(m_1\) bit-flip and a \(m_2\) phase-flip repetition codes, reducing to a repetition code when \(m_1\) or \(m_2\) is one.'
   cousins:
     - code_id: hamiltonian
       detail: 'Bit-flip codespace is the ground-state space of a one-dimensional classical Ising model with nearest-neighbor interactions.'

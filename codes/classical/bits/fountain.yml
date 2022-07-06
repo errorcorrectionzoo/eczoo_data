@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fountain
+physical: bits
+logical: bits
+
+name: 'Fountain code'
+introduced: '\cite{doi:10.1145/285243.285258}'
+
+description: |
+  Code based on the idea of generating an endless stream of custom encoded packets for the receiver. The code is designed so that the receiver can recover the original transmission of size \(Kl\) bits after receiving at least \(K\) packets each of \(l\) bits.
+
+  The simplest example of a fountain code is the random linear fountain code. Take some message of size \(Kl\) and split into \(K\) packets, \(p_0, p_1, ..., p_K\). For each packet \(\hat{p}_n\) to be transmitted do the following: Generate \(K\) random bits \(G_{nk}\) and let \(\hat{p}_n\) be the bitwise sum of the source packets when \(G_{nk}\) is 1,
+  \begin{align}
+  \hat{p}_n = \sum_{k=1}^K p_k G_{kn}~.
+  \end{align}
+  Error correction can then be applied to each packet.
+
+protection: 'Designed to protect against erasures during broadcasting of information by a sender to multiple receivers.'
+#Huffman Kim Sole 30.3
+#https://www.andrew.cmu.edu/user/gaurij/FountainCodes.pdf REF: \cite{}
+
+features:
+  rate: 'Random linear fountain codes approach the Shannon limit as the file size \(K\) increases.'
+
+  decoders:
+    - 'Invert the fragment generator matrix resulting from the continuous encoding process. If exactly \(K\) packets are received, then the probability of decoding correctly is \(0.289\). Extra packets increase this probability exponentially. The decoding runtime is dominated by the matrix inversion step, which takes order \(O(n^3)\) time.'
+
+realizations:
+  - 'Designed for servers sending data to many recipients, such as during broadcasting or file distribution \cite{doi:10.1109/TIT.2006.874390}.'
+
+notes:
+  - 'Review on fountain codes can be found in Refs. \cite{doi:10.1049/ip-com:20050237,manual:{Joshi, G., Rhim, J. B., Sun, J., & Wang, D. (2010). Fountain codes. In Global telecommunications conference (GLOBECOM 2010) (pp. 7–12). IEEE.}}.'
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+  cousins:
+    - code_id: random
