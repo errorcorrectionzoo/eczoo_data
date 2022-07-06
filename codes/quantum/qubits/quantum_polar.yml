@@ -10,14 +10,26 @@ logical: qubits
 name: 'Quantum polar code'
 introduced: '\cite{arxiv:1109.3195}'
 
-description: 'Stub.'
+description: 'Quantum polar codes are CSS codes based on the properties of classical polar codes. The channel transformation is the unitary operator \(V=\sum_{z\in\{0,1\}^n}|G_kz\rangle\langle z|\) where \(G_k=G^{\otimes k}\) and \(G=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)\). To \(V\) and then the channels are input halves of maximally entangled qubit pairs in the Bell state \(\frac{1}{\sqrt{2}}\sum_{z\in\{0,1\}}|z,z\rangle\). Let \(B\) be the input qubits and \(A\) be the other halves of \(B\). There is also an auxiliary system, making these codes generically entanglement-assisted. There are two induced channels corresponding to measuring the amplitude and phase of \(A\). These channels are essentially classical and polarize as such. The output of the \(j\)th amplitude channel is \(Z_1\dots Z_{j-1}B\) and the output of the corresponding phase channel is \(X_{j+1}\dots X_nB\). By using the inputs that are good for both the amplitude and phase channels and freezing the remaining inputs, quantum information can be transmitted. This is possible through the essentially classical channels because both amplitude and phase information can be recovered.'
 
-protection: ''
+protection: 'Protects against Pauli noise and erasures.'
+
+features:
+
+  rate: 'The rate approaches the symmetric coherent information.'
+
+  decoders:
+    - 'The decoder is constructed using the classical polar decoders for the amplitude and phase channels.'
+  
+notes:
+  - 'The amount of entanglement assistance needed vanishes when the sum of the amplitude channel fidelity and the phase channel fidelity is not greater than 1.'
 
 relations:
   parents:
     - code_id: css
-      detail: ''
+      detail: ''  
+    - code_id: eaqecc
+      detail: 'Quantum polar codes require entanglement assistance in general.'
 
   cousins:
     - code_id: polar
