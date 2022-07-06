@@ -15,12 +15,13 @@ description: |
     \begin{align}
       |\overline{i}\rangle = \frac{1}{\sqrt{q^N}} \sum_{\substack{p=0\\p\equiv i \pmod{q}}}^{(q-1)(N+1)} \sqrt{\binom{N+1}{p}_q} \ket{p(S+1)}.
     \end{align}
-    Here, \(\binom{N+1}{p}_q\) are extended binomial coefficients, or polynomial coeffiients, defined recursively as
+    The set \( \ket{i} \mid i \in \mathbb{N}\) is the set of Fock states. Also, \(\binom{N+1}{p}_q\) are extended binomial coefficients, or polynomial coeffiients, defined recursively as
     \begin{align}
       \binom{n}{m}_1 \equiv 1,\quad \binom{n}{m}_q \equiv \sum_{k=0}^n \binom{n}{k}\binom{k}{m-k}_{q-1}.
     \end{align}
+    The extended binomial coefficients \( \binom{n}{m}_q \) are also the coefficients of \( x^m \) in the polynomial \( (1 + x + \cdots + x^{q-1})^n \).
 
-protection: 'An \((N, S)\) binomial code protects against \(L\) boson losses, \(G\) boson gains, and dephasing up to \(\hat{n}^{D}\), where \(S=L+G\) and \(N = \mathrm{max}(L,G,2D)\). Binomial codes approximately protect against continuous-time amplitude damping, boson loss and gain, and dephasing.'
+protection: 'An \((N, S)\) binomial code protects against \(L\) boson losses, \(G\) boson gains, and dephasing up to \(\hat{n}^{D}\), where \(S=L+G\) and \(N = \mathrm{max}(L,G,2D)\).  Binomial codes approximately protect against continuous-time amplitude damping, boson loss and gain, and dephasing.'
 
 features:
 
@@ -29,7 +30,7 @@ features:
     - 'Recovery can be done via projective measurements and unitary operations \cite{arXiv:1602.00008,arXiv:1708.05010}.'
 
 realizations:
-  - 'Realized in microwave cavities coupled to superconducting circuits \cite{doi:10.1038/s41567-018-0414-3}.'
+  - 'Microwave cavities coupled to superconducting circuits: state transfer between a binomial codeword to another system \cite{arxiv:1712.05832}, error-correction protocol nearly reaching break-even \cite{arxiv:1805.09072}, and a teleported CNOT gate \cite{arxiv:1810.04690}.'
 
 notes:
   - 'The mean occupation number, or average Fock-state number in maximally-mixed state of the code, is \((N+1)(S+1)(q-1)/2 \), where \(q\) is the qudit dimension.'
@@ -44,3 +45,5 @@ relations:
       detail: 'For a fixed \(S\), binomial codes with \(N \to \infty\) coincide with cat codes as \(\alpha \to \infty\) \cite{arXiv:1602.00008}.'
     - code_id: number_phase
       detail: 'In the limit as \(N,S \to \infty\), phase measurement in the binomial code has vanishing variance, just like in a number-phase code \cite{arxiv:1901.08071}.'
+    - code_id: chuang-leung-yamamoto
+      detail: 'Two-mode version of binomial codes correspond to two-mode CLY codes (see Sec. IV.A of Ref. \cite{arXiv:1602.00008}).'

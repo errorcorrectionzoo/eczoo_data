@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: covering
+name: 'Covering code'
+
+description: |
+  A code \(C\) in a metric space is covering if the union of balls of some radius centered at the codewords covers the entire space. For example, a \(q\)-ary code \(C\) is \(\rho\)-covering if \(\forall v \in GF(q)^{n}\), there is a codeword \(c \in C\) such that the Hamming distance \(D(c,v)\leq \rho\).
+
+  The \textit{covering radius} \(\rho(C)\) is the smallest non-negative integer \(\rho\) such that \(C\) is \(\rho\)-covering, i.e.
+  \begin{align}
+    \rho(C)=\max_{{v\in GF(q)^{n}}}\min_{{c\in C}}d(v,c)~.
+  \end{align}
+  For a linear code \([n,k]_q\), the covering radius is the minimum number of columns of the code's parity check matrix which cover \(GF(q)^{n-k}\).
+
+  The covering radius satisfies various inequalities. A code \(C\) with distance \(d\) satisfies the relation
+  \begin{align}
+    \rho(C)\geq \frac{|d-1|}{2}~. \label{perfect-ref}
+  \end{align}
+  Linear \([n,k]_q\) codes also satisfy the \textit{redundancy bound}
+  \begin{align}
+    \rho(C)\leq n-k
+  \end{align}
+  and the \textit{sphere covering bound}
+  \begin{align}
+    \rho(C)\leq \min{\left(p~\bigg\rvert \sum_{i=0}^{p} {n \choose i}(q-1)^{i}|C| \geq q^{n}\right)}~. \label{spherepacking-perfect-label}
+  \end{align}
+  A code is perfect iff it satisfies Eqs. \eqref{perfect-ref} and \eqref{spherepacking-perfect-label} with equality.
+
+  In general, finding the covering radius of a given code is difficult. Complexity analysis as well as an extensive study on bounds can be found in Ref. \cite{manual:{G. Cohen, I. Honkala, S. Litsyn, A. Lobstein, \emph{Covering Codes}, Elsevier (1997).}}.
+
+realizations:
+  - 'Data compression both with or without compression \cite{manual:{G. Cohen, I. Honkala, S. Litsyn, A. Lobstein, \emph{Covering Codes}, Elsevier (1997).}}.'
+  - 'Football-pool problem: finding the smallest number of bets on a set of matches needed to guarantee at least one bet has at most \(\rho\) errors \cite{doi:10.2307/2974552,doi:10.1007/BF03025254}.'
+
+relations:
+  parents:
+    - code_id: ecc
+      detail: ''
