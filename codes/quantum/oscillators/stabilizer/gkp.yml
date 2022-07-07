@@ -11,15 +11,15 @@ name: 'Gottesman-Kitaev-Preskill (GKP) code'
 short_name: 'GKP'
 introduced: '\cite{arXiv:quant-ph/0008040}'
 
-description: 'Bosonic qudit-into-oscillator code whose stabilizers are oscillator displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{q}}\). To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group that is Abelian, there is another constraint that \(\alpha\beta=2k\pi\) where \(k\) is an integer. Codewords can be expressed as equal weight superpositions of coherent states on an infinite lattice, such as a square lattice in phase space with spatial period \(2\sqrt{\pi}\). The exact GKP state is non-normalizable, so approximate constructs have to be considered.'
+description: 'Bosonic qudit-into-oscillator code whose stabilizers are oscillator displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{x}}\). To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group that is Abelian, there is another constraint that \(\alpha\beta=2k\pi\) where \(k\) is an integer. Codewords can be expressed as equal weight superpositions of coherent states on an infinite lattice, such as a square lattice in phase space with spatial period \(2\sqrt{\pi}\). The exact GKP state is non-normalizable, so approximate constructs have to be considered.'
 
 protection: 'For stabilizer \(\hat{S}_q(2\alpha),\hat{S}_p(2\beta)\), code can correct displacement errors up to \(\frac{\alpha}{2}\) in the \(q\)-direction and \(\frac{\beta}{2}\) at \(p\)-direction. Approximately protects against photon loss errors \cite{doi:10.1103/PhysRevA.93.012315}, outperforming most other codes designed to explicitly protect against loss \cite{arxiv:1708.05010}. Very sensitive to dephasing errors \cite{doi:10.1103/PRXQuantum.2.020101}. A biased-noise GKP error correcting code can be prepared by choosing \(\alpha\neq \beta\).'
 
 features:
 
   encoders:
-    - 'Preparation of approximate GKP states is studied both theoretically and experimentally on circuit-QED platforms, by putting the GKP lattice inside a Gaussian envelope \cite{doi:10.1103/PhysRevA.93.012315,doi:10.1103/PhysRevA.97.022341,doi:10.1038/s41586-020-2603-3}.'
-
+    - 'Preparation of approximate GKP states is studied both theoretically and experimentally by putting the GKP lattice inside a Gaussian envelope \cite{doi:10.1103/PhysRevA.93.012315,doi:10.1103/PhysRevA.97.022341,doi:10.1038/s41586-020-2603-3,arxiv:1910.03673}.'
+    - 'Dissipative stabilization of finite-energy GKP states using stabilizers conjugated by a \textit{cooling} (\cite{arxiv:1310.7596}, Appx. B) or \textit{damping} operator, i.e., a damped exponential of the total occupation number \cite{arXiv:2009.07941,arxiv:2010.09681}.'
   general_gates:
     - 'By applying GKP error correction to Gaussian input states, universality can be achieved without non-Gaussian elements \cite{doi:10.1103/PhysRevLett.123.200502}.'
 
@@ -28,18 +28,20 @@ features:
     - 'Error correction scheme is fault-tolerant to displacement noise as long as all input states have displacement errors less than \(\sqrt{\pi}/6\) \cite{arxiv:quant-ph/0510107}.'
 
   decoders:
-    - 'Syndrome measruement of displacement error can be done by applying a controlled-displacement controlled by an ancilla qubit. The syndrome information can be obtained by measuring the ancilla qubit after controlled-displacement opearation. See Section. 2D in \cite{doi:10.1103/PRXQuantum.2.020101}.'
-    - 'Pauli \(X\),\(Y\) and \(Z\) measurements can be performed by measuring \(-\hat{p},\hat{q}-\hat{p}\) and \(\hat{q}\) repectively. If the measurement outcome is closed to an even multiple of \(\sqrt{\pi}\), then the outcome is +1. If the measurement outcome is closed to an odd multiple of \(\sqrt{\pi}\), then the outcome is -1. See Section. 2D in \cite{doi:10.1103/PRXQuantum.2.020101}.'
+    - 'Syndrome measurement can be done by applying a controlled-displacement controlled by an ancilla qubit. The syndrome information can be obtained by measuring the ancilla qubit after controlled-displacement opearation. See Section. 2D in \cite{doi:10.1103/PRXQuantum.2.020101}.'
+    - 'Pauli \(X\),\(Y\) and \(Z\) measurements can be performed by measuring \(-\hat{p},\hat{x}-\hat{p}\) and \(\hat{x}\) repectively. If the measurement outcome is closed to an even multiple of \(\sqrt{\pi}\), then the outcome is +1. If the measurement outcome is closed to an odd multiple of \(\sqrt{\pi}\), then the outcome is -1. See Section. 2D in \cite{doi:10.1103/PRXQuantum.2.020101}.'
 
 notes:
   - 'GKP codes were obtained after iterative numerical optimization of encoding and recovery against photon loss, starting with Haar-random states \cite{arXiv:1801.07271}.'
+  - 'Pedagogical introduction into GKP codes presented in Ref. \cite{arXiv:2106.12989}.'
 
 realizations:
-  - 'Microwave cavity coupled to superconducting circuits \cite{doi:10.1038/s41586-020-2603-3}.'
-  - 'Motional degree of freedom in a trapped ion \cite{doi:10.1038/s41586-019-0960-6}.'
+  - 'Motional degree of freedom of a trapped ion: GKP encoding realized with the help of post-selection \cite{arxiv:1807.01033,arXiv:1907.06478}, followed by realization of reduced form of GKP error correction, where displacement error syndromes are measured to one bit of precision using an ion electronic state \cite{arxiv:2010.09681}.'
+  - 'Microwave cavity coupled to superconducting circuits: reduced form of GKP error correction, where displacement error syndromes are measured to one bit of precision using an ancillary transmon \cite{arxiv:1907.12487}.'
 
 relations:
   parents:
+    - code_id: single-mode
     - code_id: multimodegkp
   cousins:
     - code_id: approximate_qecc

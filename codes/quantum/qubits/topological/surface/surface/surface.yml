@@ -21,12 +21,12 @@ description: |
   construction. The construction on surfaces with boundaries is often called the
   \textit{planar code} \cite{arXiv:quant-ph/9811052}.
 
-  The original construction can be naturally extended to arbitrary dimensional
+  The original construction can be naturally extended to arbitrary \(D\)-dimensional
   manifolds
   \cite{doi:10.1201/9781420035377-13,doi:10.1007/978-3-642-01877-0_21}. Given a
   cellulation, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers
   are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are
-  associated with \(i+1\)-faces.
+  associated with \(i+1\)-faces. Such extensions are often called the \(D\)\textit{-dimensional surface} or \(D\)\textit{-dimensional toric} codes.
 
   The stabilizers of the surface code on the 2-dimensional torus are generated
   by star operators \(A_v\) and plaquette operators \(B_p\).  Each star operator
@@ -49,8 +49,6 @@ description: |
   operator of the \(i\)-th logical qubit.  They can are represented by strings
   of Pauli-\(X\) operators or Pauli-\(Z\) operators that wrap around the torus
   as shown in \ref{figure:toric-code-operators}.
-
-
 
 protection: |
   Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code, and there
@@ -88,32 +86,34 @@ features:
       just-in-time decoding \cite{arXiv:1903.11634}.
   # Last sentence valid for more general codes; possibly upgrade
 
-  code_capacity_threshold:
-    - 'For correlated Pauli noise, bounds on code capacity thresholds can be obtained by mapping the effect of noise on the code to a statistical mechanical model. The first such threshold, based on the planar code, is \(0.017\%\) \cite{arxiv:quant-ph/0110143}.'
-    - |
-      \(10.9\%\) (\(10.31\%\)) with pure \(Z\)-dephasing noise for square tiling
-      using tensor-network \cite{arxiv:cond-mat/0106023,arxiv:1405.4883}
-      (minimum-weight perfect matching \cite{arXiv:quant-ph/0207088}) decoder.
-    - '\(18.9\%\) with depolarizing noise for square tiling \cite{arXiv:1202.1852}.'
-    - '\(50\%\) with loss errors for square tiling \cite{arXiv:0904.3556}.'
-    - '\(3.3\%\) with phenomenological noise for square tiling \cite{arXiv:quant-ph/0401101}.'
-  threshold:
-    - '\(0.5-1.1\%\) for various error models \cite{arXiv:1311.5003,arxiv:0811.0464}.'
+  fault_tolerance:
+    - 'Transversal (non-Clifford) CCZ gate by bringing 2D surface codes together and using just-in-time decoding \cite{arxiv:1903.11634}. Gate can be simulated by taking 2D slices out of 3D surface codes \cite{arXiv:2012.08536}.'
+
   encoders:
-    - 'Unitary \cite{arXiv:0712.0348,arXiv:2002.00362,arXiv:2110.02020}.'
-    - 'Dissipative \cite{arXiv:1310.1036}.'
-    - 'Stabilizer measurement-based \cite{arXiv:1404.2495}.'
+    - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arXiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arXiv:0712.0348,arXiv:1207.0253} (matching a lower bound in Ref. \cite{arXiv:1810.03912}).'
+    - 'Lindbladian-based dissipative encoding for the toric code \cite{arXiv:1310.1036} that does not give a speedup relative to circuit-based encoders \cite{arxiv:1310.1037}.'
+    - 'Stabilizer measurement-based circuit of linear depth \cite{arXiv:quant-ph/0110143,arXiv:1404.2495}.'
   #make one that you feel is applicable to a large and interesting class of codes
 
   decoders:
-    - |
-      Minimum weight perfect-matching
-      \cite{arXiv:quant-ph/0110143,doi:10.26421/QIC15.1-2-9}, union-find
-      \cite{arXiv:1709.06218}, renormalization group
-      \cite{doi:10.26421/QIC14.9-10-1,arXiv:1411.3028}, tensor network
-      \cite{arXiv:1405.4883}, Markov chain Monte Carlo \cite{arXiv:1302.2669},
-      cellular automaton \cite{arXiv:1511.05579}, machine learning
-      \cite{arXiv:1610.04238,arXiv:1802.06441,arXiv:1810.07207}.
+    - 'Maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}.'
+    - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}). Pipeline MWPM \cite{arXiv:1310.0863,arXiv:2205.09828} - a modification accounting for correlations between events. A modification utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}.'
+    - 'Renormalization group (RG) \cite{arXiv:0911.0581,arXiv:1304.6100,arXiv:1411.3028}.'
+    - 'Markov-chain Monte Carlo \cite{arXiv:1302.2669}.'
+    - 'Tensor network \cite{arXiv:1405.4883}.'
+    - 'Cellular automaton \cite{arXiv:1511.05579}.'
+    - 'Machine learning \cite{arXiv:1610.04238,arXiv:1802.06441,arXiv:1810.07207}.'
+    - 'Union-find \cite{arXiv:1709.06218} and a modification utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}.'
+
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(10.31\%\) under MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}). The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond Ising model on the Nishimori line \cite{arxiv:quant-ph/0110143}, calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arXiv:cond-mat/0001014}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}.'
+    - 'Depolarizing noise: between \(17\%\) and \(18.5\%\) under tensor-network decoding \cite{arxiv:1405.4883}, and between \(15\%\) and \(16\%\) under RG \cite{arXiv:0911.0581}, Markov-chain \cite{arXiv:1302.2669}, or MWPM \cite{arXiv:0905.0531} decoding. The threshold under ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arXiv:1202.1852}.'
+    - 'Erasure noise: \(50\%\) for square tiling \cite{arXiv:0904.3556}.'
+    - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arXiv:quant-ph/0401101}.'
+    #The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
+  threshold:
+    - '\(0.57\%\) for depolarizing noise on data and syndrome qubits as well initialization, gate, and measurement errors under MPWM decoding \cite{arxiv:1208.0928}. For this model, a logical qubit with a \(10^{-14}\) logical error rate requires between \(10^3\) to \(10^4\) physical qubits and a target gate fidelity above \(99.9\%\).'
+    - '\(0.5-2.9\%\) for various noise models \cite{arxiv:0811.0464} (see also Refs. \cite{arXiv:quant-ph/0207088,arXiv:1311.5003}).'
 
 notes:
   - '\textit{Surfmap} framework provides a way to stitch the surface code to various superconducting-circuit geometries by assigning each superconducting qubit to be either a physical or ancilla qubit, designing stabilizer measurement circuits, and scheduling stabilizer measurements \cite{arxiv:2111.13729}.'
@@ -131,24 +131,15 @@ notes:
 
 realizations:
   - |
-    Distance-two surface codes have been implemented by Andersen et
-    al. \cite{arXiv:1912.09410}, Erhard et al. \cite{arXiv:2006.03071}, Marques et al. \cite{arXiv:2102.13071},
-    Google Quantum AI \cite{arxiv:2102.06132}, and both planar and toric versions by Bluvstein et al. \cite{arxiv:2112.03923}.
-
+    One cycle of syndrome readout on 19-qubit planar and 24-qubit toric codes realized in two-dimensional Rydberg atomic arrays \cite{arxiv:2112.03923}.
   - |
-    Distance-three surface code implemented at ETH Zurich
-    \cite{arxiv:2112.03708} and on the Zuchongzhi 2.1 superconducting quantum
-    processor \cite{arxiv:2112.13505}.
-  - |
-    Signatures of corresponding topological phase of matter detected in
-    superconducting circuits \cite{arxiv:2104.01180} and two-dimensional arrays
-    of Rydberg atoms \cite{arXiv:2104.04119}.
+    Signatures of corresponding topological phase of matter detected in superconducting circuits \cite{arxiv:2104.01180} and two-dimensional Rydberg atomic arrays \cite{arXiv:2104.04119}.
 
 relations:
   parents:
     - code_id: css
     - code_id: clifford-deformed_surface
-      detail: 'CDSC is generally a non-CSS derivative of the surface code.'
+      detail: 'CDSC codes are deformations of the surface code via constant-depth Clifford circuits that may not be CSS.'
     - code_id: topological_abelian
       detail: |
         When treated as ground states of the code Hamiltonian, the code states
@@ -157,6 +148,9 @@ relations:
         \cite{doi:10.1063/1.1665530}.
   cousins:
     - code_id: hypergraph_product
-      detail: |
-        Planar (toric) code obtained from hypergraph product of two repetition
-        (cyclic) codes.
+      detail: 'Planar (toric) code obtained from hypergraph product of two repetition
+        (cyclic) codes.'
+    - code_id: quantum_double
+      detail: 'A quantum-double model with \(G=\mathbb{Z}_2\) is the surface code.'
+    - code_id: string_net
+      detail: 'String-net model reduces to the surface code when the category is the group \(\mathbb{Z}_2\).'

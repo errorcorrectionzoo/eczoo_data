@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eaqecc
+#physical: bits
+#logical: qubits
+
+name: 'Entanglement-assisted (EA) QECC'
+short_name: 'EAQECC'
+introduced: '\cite{arxiv:quant-ph/0608027,arxiv:quant-ph/0610092}'
+
+description: 'QECC whose encoding and decoding utilizes pre-shared entanglement between sender and receiver.'
+
+relations:
+  parents:
+    - code_id: eacq
+      detail: ''
+  cousins:
+    - code_id: qecc
+      detail: 'EA-QECCs are QECCs utilizing pre-shared entanglement.'
+    - code_id: qudits_into_qudits
+      detail: 'Pure modular-qudit codes can be used to make EA-QECCs with the same distance and dimension; see Thm. 10 of Ref. \cite{arxiv:2010.07902}.'
+    - code_id: binary_linear
+      detail: 'Any linear binary code can be used to construct an EAQECC.'
+    - code_id: q-ary_linear
+      detail: 'Any linear \(q\)-ary code can be used to construct an EAQECC.'
+# Add all children
+
+#  cousins:
+#    - code_id: ecc
+#      detail: ''

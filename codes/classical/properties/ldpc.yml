@@ -8,7 +8,7 @@ code_id: ldpc
 physical: bits
 logical: bits
 
-name: 'Low-density parity-check code'
+name: 'Low-density parity-check (LDPC) code'
 short_name: 'LDPC'
 introduced: '\cite{doi:10.1109/TIT.1962.1057683}'
 
@@ -17,8 +17,8 @@ description: |
 
   A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) for \(q\)-ary codes. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
-#features:
-#  rate: 'b/c. The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
+features:
+  rate: 'Achieve capacity on the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}. Some LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}. Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
 #  encoders:
 #    - 'Encoding complexity is of O(n) per symbol (which is good).'
 

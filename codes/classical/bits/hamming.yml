@@ -10,7 +10,7 @@ logical: bits
 name: 'Hamming code'
 introduced: '\cite{doi:10.1002/j.1538-7305.1950.tb00463.x}'
 
-description: 'Hamming codes are an infinite family of linear codes with parameters \((2^r-1,2^r-r-1, 3)\) for \(r \geq 3\). The \(r \times (2^r-1) \) parity check matrix \(H\) has all possible non-zero \(r\)-bit strings as its columns. The codewords are \(\{x|Hx=0\}\).'
+description: 'An infinite family of perfect linear codes with parameters \((2^r-1,2^r-r-1, 3)\) for \(r \geq 2\). Their \(r \times (2^r-1) \) parity check matrix \(H\) has all possible non-zero \(r\)-bit strings as its columns.'
 
 protection: 'Can detect 1-bit and 2-bit errors, and can correct 1-bit errors.'
 
@@ -18,21 +18,19 @@ features:
   rate: 'Asymptotic rate \(k/n = 1-\frac{\log n}{n} \to 1\) and normalized distance \(d/n \to 0\).'
 
 realizations:
-  - 'Commonly used when error rates are very low, for example, computer RAM.'
+  - 'Commonly used when error rates are very low, for example, computer RAM or integrated circuits \cite{doi:10.1109/SBCCI.2002.1137643}.'
 
-notes:
-  - 'Has the maximum rate among binary codes for that block length and with minimum distance 3.
-  Therefore, it is a perfect code, i.e, it saturates the Hamming Bound.'
+#notes:
+#  - 'Has the maximum rate among binary codes for that block length and with minimum distance 3. Therefore, it is a perfect code, i.e, it saturates the Hamming Bound.'
 
 relations:
   parents:
-    - code_id: 'binary_linear'
-      detail: ''
-
-  cousins:
+    - code_id: binary_linear
     - code_id: perfect
-      detail: ''
+  cousins:
     - code_id: quad_residue
-      detail: '\([7,4,3]\) Hamming code is a quadratic-residue code \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}.'
+      detail: '\([7,4,3]\) Hamming code is a quadratic-residue code \cite{preset:MacSlo}.'
     - code_id: quantum_hamming
       detail: ''
+    - code_id: reed_muller
+      detail: 'Hamming codes are equivalent to RM\(^*(m-2,m)\).'

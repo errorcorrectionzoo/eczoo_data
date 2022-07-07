@@ -17,7 +17,7 @@ protection: |
   Denoting Hilbert spaces by the letter \(\mathsf{H}\), a finite-dimensional quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{K}\to\mathsf{H}_{N}\) with a set of correctable errors \({\cal{E}}:\mathsf{H}_N\to\mathsf{H}_M\) with the following property: there exists a quantum operation \({\cal{D}}:\mathsf{H}_M\to \mathsf{H}_K\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{K}\),
   \begin{align}
   {\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\end{align}
-  for some constant \(c\). A code is said to \textit{protect against} or \textit{correct} the errors \(\mathcal{E}\).
+  for some constant \(c\) \cite{preset:GottesmanBook}. A code is said to \textit{protect against} or \textit{correct} the errors \(\mathcal{E}\).
 
   Equivalently, correction capability is determined by the \textit{quantum error-correction conditions} \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}: for all \(|\psi\rangle,|\phi\rangle\in\mathsf{H}_{N}\) and all errors \(E_a,E_b\in{\mathcal{E}}\),
   \begin{align}
@@ -33,9 +33,7 @@ features:
 
   #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
 
-  encoders:
-    - 'Given a decoder, an encoding that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
-
+#  encoders:
   #  - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
   #  - 'Measurement-based preparation ... with ancilla overhead of ... .'
   #  - 'Leave discussion of fault tolerance to fault-tolerance field.'
@@ -47,7 +45,6 @@ features:
 
   decoders:
     - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of an encoder, which does not correct errors.'
-    - 'Given an encoding, a decoder that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
     - 'Quantum machine-learning based decoders such as quantum convolutional neural networks \cite{arXiv:1810.03787} and quantum autoencoders \cite{arxiv:2202.00555}.'
   #  - 'Just-in-time decoder with ... \cite{arxiv:awesome-paper}.'
 

@@ -5,12 +5,12 @@
 
 code_id: niset_andersen_cerf
 physical: oscillators
-logical: oscillators
+logical: points
 
 name: 'Niset-Andersen-Cerf code'
 introduced: '\cite{arXiv:0710.4858}'
 
-description: 'Encodes two-mode coherent states \(\{|\alpha\rangle, |\beta\rangle\}\) over two modes into four modes such that the values \((\alpha,\beta)\) are recoverable after a single-mode erasure. There are two variations of the storage procedure: a deterministic protocol that offers recovery against a single mode erasure, and a probabalistic that can protect against multiple errors with post selection. This code is effectively protecting classical information stored in \((\alpha,\beta)\) using quantum operations.'
+description: 'Quantum-inspired classical code encoding two-mode coherent states \(\{|\alpha\rangle, |\beta\rangle\}\) into four modes such that the complex values \((\alpha,\beta)\) are recoverable after a single-mode erasure. There are two variations of the storage procedure: a deterministic protocol that offers recovery against a single mode erasure, and a probabalistic that can protect against multiple errors with post selection. This code is effectively protecting classical information stored in \((\alpha,\beta)\) using quantum operations.'
 
 protection: 'The deterministic protocol protects against a single erasure error on a known mode. This recovers one state perfectly and the other state with fidelity \(F = \frac{1}{1 + e^{-2 r}}\) for an initial EPR pair squeezed with variance \(e^{-2r}\). The probabalistic protocol utilizes post-selection to protect against multiple erasures with state-dependent fidelity.'
 
@@ -28,5 +28,5 @@ realizations:
 
 relations:
   parents:
-    - code_id: oscillators_into_oscillators
-      detail: ''
+    - code_id: points_into_lattices
+      detail: 'The Niset-Andersen-Cerf code encodes two coherent states at a time with arbitrary complex values, making it analogous to a lattice-based (classical) code encoding two points in \(\mathbb{R}^2\). The code does not encode any quantum information since superpositions of the coherent states are not stored.'
