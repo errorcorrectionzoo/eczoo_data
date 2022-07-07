@@ -7,13 +7,13 @@ code_id: binary_cyclic
 physical: bits
 logical: bits
 
-name: 'Binary cyclic code'
+name: 'Cyclic binary code'
 #introduced: ''
 
 description: |
   A binary code of length \(n\) is cyclic if, for each codeword \(c_1 c_2 \cdots c_n\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\) is also a codeword.
 
-  Codewords \(c_1 c_2 \cdots c_n\) of a binary code can be thought of as coefficients in a polynomial \(c_1+c_2 x+\cdots+c_n x^{n-1}\) in the set of polynomials with binary coefficients, \(\mathbb{F}_2[x]\) with \(\mathbb{F}_2=GF(2)\). Polynomials corresponding to codewords of a linear cyclic code form an ideal (i.e., are closed under multiplication and addition) in the ring \(\mathbb{F}_2[x]/(x^n-1)\) (i.e., the set of equivalence classes of polynomials congruent modulo \(x^n-1\)). Codeword polynomials of such a code can be generated, via multiplication, by a \textit{generator polynomial} \(g(x)\). A particular generator polynomial \(e(x)\) has the additional property of being \textit{idempotent}, i.e., \(e(x)^2=e(x)\) \cite{doi:10.1007/978-3-7091-2786-5}.
+  Codewords \(c_1 c_2 \cdots c_n\) of a binary code can be thought of as coefficients in a polynomial \(c_1+c_2 x+\cdots+c_n x^{n-1}\) in the set of polynomials with binary coefficients, \(\mathbb{F}_2[x]\) with \(\mathbb{F}_2=GF(2)\). Polynomials corresponding to codewords of a linear cyclic code form an ideal (i.e., are closed under multiplication and addition) in the ring \(\mathbb{F}_2[x]/(x^n-1)\) (i.e., the set of equivalence classes of polynomials congruent modulo \(x^n-1\)). Codeword polynomials of such a code can be generated, via multiplication, by a \textit{generator polynomial} \(g(x)\). A particular generator polynomial \(e(x)\) has the additional property of being \textit{idempotent}, i.e., \(e(x)^2=e(x)\) \cite{doi:10.1007/978-3-7091-2786-5_1}.
 
 features:
   decoders:
