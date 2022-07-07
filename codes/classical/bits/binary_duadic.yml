@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: binary_duadic
+physical: bits
+logical: bits
+
+name: 'Binary duadic code'
+introduced: '\cite{doi:10.1109/TIT.1984.1056944}'
+
+description: |
+  Member of a pair of cyclic linear binary codes that satisfy certain relations, depending on whether the pair is \textit{even-like} or \textit{odd-like} duadic. Duadic codes exist for lengths \(n\) that are products of powers of primes, with each prime being \(\pm 1\) modulo \(8\) \cite{doi:10.1007/978-3-7091-2786-5}.
+
+  Duadic codes come in two pairs, an even-like duadic pair and an odd-like duadic pair. All codewords in the respective pairs are \textit{even-like}, i.e., \(\sum_i c_i = 0\), or \textit{odd-like}, i.e., \(\sum_i c_i = 1\). A code with all even-like (odd-like) codewords is called even-like (odd-like).
+
+  Duadic code pairs can be defined in terms of their idempotent generators (see \hyperref[code:binary_cyclic]{binary cyclic} code description).
+  A pair of even-like codes \(C_1\) and \(C_2\) with respective idempotents \(e_1\) and \(e_2\) is an \textit{even-like duadic pair} if (1) \(e_1(x)+e_2(x)=1-\frac{1}{n}(1+x+x^2+\cdots+x^{n-1})\) and (2) there exists a multiplier \(mu\) such that \(C_1 \mu=C_2\) and \(C_2 \mu=C_1\).
+
+  There is an odd-like duadic pair \(D_1,D_2\) associated with the even-like pair \(\{C_1, C_2\}\), where \(1-e_2(x)\) generates \(D_1\) and \(1-e_1(x)\) generates \(D_2\). The even-pair codes are \([n,\frac{n-1}{2}]\) codes while the odd-pair codes are \([n,\frac{n+1}{2}]\) codes.
+
+protection: 'Since duadic codes are cyclic, the BCH bound can be used to determine their minimum distance.'
+
+notes:
+  - 'Reviews of duadic codes \cite{doi:10.1007/978-3-7091-2786-5,doi:10.1017/CBO9780511807077}.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: binary_cyclic
+  cousins:
+    - code_id: q-ary_duadic

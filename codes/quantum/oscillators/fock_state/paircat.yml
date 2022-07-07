@@ -11,9 +11,18 @@ name: 'Pair-cat code'
 introduced: '\cite{arxiv:1801.05897}'
 
 description: |
-  Two- or higher-mode extension of cat codes whose codewords are right eigenstates of powers of products of the modes' lowering operators. Stub.
+  Two- or higher-mode extension of cat codes whose codewords are right eigenstates of powers of products of the modes' lowering operators.
 
-protection: ''
+  Paircat codewords suppored by two-mode Fock states with occupation number difference \(\Delta\) are \(|\overline{0}_{\gamma,\Delta}\rangle \sim |\gamma_\Delta \rangle + (-1)^\Delta |I\gamma_\Delta\rangle\) and \(|\overline{1}_{\gamma,\Delta}\rangle \sim |\gamma_\Delta\rangle - (-1)^\Delta |i \gamma\rangle\), where the corresponding pair-coherent state \cite{doi:10.1007/BF01646483} with amplitude \(\gamma\) is
+  \begin{align}
+  |\gamma_\Delta \rangle =\frac{1}{\sqrt{I_\Delta (2|\gamma|^2)}} \sum_{n=0}^\infty \frac{\gamma^{2n+\Delta}}{\sqrt{n! (n+\Delta)!}} |n,n+\Delta\rangle~.
+  \end{align}
+
+protection: 'Can detect any loss errors of at most \(M-1\) weight. The two-mode cat code protects against arbitrary single-mode losses, but cannot correct simultaneous photon loss in both modes. The occupation-number differences form the syndromes, as opposed to the photon number parity for the single-mode cat code. Any loss even combination that changes the relative differences of photons between modes is a detectable error.'
+
+features:
+  general_gates:
+    - 'Hamiltonian \(X\), \(XX\), \(Z\) gates, holonomic \(Z\) gate, control-phase gate are available. Many cat-code gates have two-mode analogues for the pair-cat codes.'
 
 relations:
   parents:
