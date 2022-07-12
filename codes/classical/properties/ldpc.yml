@@ -19,6 +19,9 @@ features:
   rate: 'Achieve capacity on the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}. Some LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}. Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
 #  encoders:
 #    - 'Encoding complexity is of O(n) per symbol (which is good).'
+  decoders:
+    - 'Belief propagation using min-sum algorithm \cite{preset:LinCostello}.'
+    - 'Linear programming \cite{doi:10.1007/978-1-4939-2864-4_216}.'
 
 realizations:
   - '5G NR cellular communication for the traffic channel \cite{doi:10.1109/CSCITA47329.2020.9137797}.'
@@ -28,6 +31,7 @@ realizations:
 notes:
   - 'See database \cite{preset:KLdatabase} for explicit representatives of several classes of LDPC codes, including \(q\)-ary, WiMAX, multi-edge, and spatially-coupled.'
   - 'See Ref. \cite{doi:10.1007/978-3-0348-7865-4_5} for a review of LDPC codes circa 2005.'
+  - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
 
 relations:
   parents:
