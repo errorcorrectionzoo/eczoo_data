@@ -12,16 +12,16 @@ short_name: 'GRS'
 introduced: \cite{preset:MacSlo}
 
 description: |
-  An \([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\) multiplied by additional prefactors. Each codeword \(\mu\) of a Reed-Solomon (RS) code is a string of values of a corresponding polynomial \(f_\mu\) at the points \(\alpha_i\). Codewords of a GRS code multiply the polynomial by a factor \(v_i\) for each \(i\). In other words, each codeword becomes \( ( v_1 f_{\mu}(\alpha_1), v_2 f_{\mu}(\alpha_2), \cdots, v_n f_{\mu}(\alpha_n) ) \), and the case where all \(v_i=1\) reduces to the RS case.
+  An \([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\) multiplied by additional prefactors. Each codeword \(\mu\) of a Reed-Solomon (RS) code is a string of values of a corresponding polynomial \(f_\mu\) at the points \(\alpha_i\). Codewords of a GRS code multiply the polynomial by a factor \(v_i\) for each \(i\). In other words, each codeword becomes \( ( v_1 f_{\mu}(\alpha_1), v_2 f_{\mu}(\alpha_2), \cdots, v_n f_{\mu}(\alpha_n) ) \).
+
+  The decoding process of GRS codes reduces to the solution of a polynomial congruence equation, usually referred to as the key equation. Decoding schemes are based on applications of Euclid algorithm to solve the key equation.
 
 #  The algebraic code exploits the bijective correspondence between \( F^k \), the \( k \)-dimensional vector space over \( F \), and \( F_k[x] \), the polynomial ring over \( F \) consisting of univariate polynomials of degree at most \( k  - 1 \). Let \( (\alpha_1, \cdots, \alpha_n) \) be \( n \) distinct non-zero elements of \( F \), and let \( (v_1, \cdots, \v_n) \) be define similarly. The message \( (c_0, \cdots, c_{k-1}) \), which can be represented as the polynomial \( p(x) = c_0 + c_1 x + \cdots + c_{k-1} x^{k-1} \), is encoded as the codeword \( ( v_1 f(\alpha_1), \cdots, v_n f(\alpha_n) ) \).'
 
-protection: 'The code can detect \(n-k\) errors, and can correct  errors \( \floor*{\frac{n-k}{2}} \) errors.'
+protection: 'The code can detect \(n-k\) errors, and can correct  errors \( \left\lfloor (n-k)/2\right\rfloor  \) errors.'
 
 features:
   decoders:
-    - 'The decoding process reduces to the solution of a polynomial congruence equation, usually referred to as the key equation.'
-    - 'Decoding schemes are based on applications of Euclid algorithm to solve the key equation.'
     - 'Berlekamp-Massey decoder \cite{doi:10.1109/TIT.1968.1054109,doi:10.1109/TIT.1969.1054260,preset:Berlekamp}.'
     - 'Guruswami-Sudan list decoder \cite{doi:10.1109/SFCS.1998.743426} and modification by Koetter-Vardy for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332}.'
 
@@ -30,7 +30,6 @@ realizations:
 
 notes:
 #  - 'Generalized Reed Solomon codes contain the special case of conventiontal Reed Solomon codes. These are cyclic codes, and can also be defined by using the discrete Fourier transform.'
-  - 'Since the distance of the code is \(n-k+1\), the family of codes saturate the singelton bound. Hence these are MDS codes.'
 
 realizations:
   - 'Various cloud storage systems \cite{arxiv:1612.01361}.'
@@ -43,3 +42,4 @@ relations:
     - code_id: distributed_storage
       detail: 'GRS codes are used in various cloud storage systems \cite{arxiv:1612.01361}.'
     - code_id: mds
+      detail: 'GRS codes have distance \(n-k+1\), saturating the Singleton bound.'
