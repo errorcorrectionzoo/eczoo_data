@@ -7,18 +7,30 @@ code_id: generalized_reed_solomon
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Generalized Reed-Solomon (GRS) code'
+name: 'Generalized Reed Solomon (GRS) code'
 short_name: 'GRS'
 introduced: |-
   \cite{preset:MacSlo}
 
-description: 'Stub.'
-#
-#protection: 'Corrects erasures on \(n-k\) coordinates.'
+description: 'Generalized Reed-Solomon codes are an infinite family of algebraic codes defined over the finite (Galois) field \(F = GF(p^m)\) for \(m \geq 0 \) and prime \( p \). The parameters of the code are \( [n,k,n-k+1] \) where \(n \leq 2^m-1\), the number of non-zero elements in the finite field. The algebraic code exploits the bijective correspondence between \( F^k \), the \( k \)-dimensional vector space over \( F \), and \( F_k[x] \), the polynomial ring over \( F \) consisting of univariate polynomials of degree at most \( k  - 1 \). Let \( (\alpha_1, \cdots, \alpha_n) \) be \( n \) distinct non-zero elements of \( F \), and let \( (v_1, \cdots, \v_n) \) be define similarly. The message \( (c_0, \cdots, c_{k-1}) \), which can be represented as the polynomial \( p(x) = c_0 + c_1 x + \cdots + c_{k-1} x^{k-1} \), is encoded as the codeword \( ( v_1 f(\alpha_1), \cdots, v_n f(\alpha_n) ) \).'
 
-#notes:
-#  - ''
-#
+
+protection: 'The code can detect \(n-k\) errors, and can correct  errors \( \floor*{\frac{n-k}{2}} \) errors.'
+
+features:
+  
+  decoders:
+    - 'The decoding process reduces to the solution of a polynomial congruence equation, usually referred to as the key equation.'
+    - 'Decoding schemes are based on applications of Euclid algorithm to solve the key equation.'
+    - 'The Berlekamp-Massey algorithm \cite{doi:10.1109/TIT.1968.1054109} \cite{doi:10.1109/TIT.1969.1054260} can also be used to implement the decoding procedure.'
+
+realizations:
+  - 'Commonly used in mass storage systems such as CDs, DVDs, QR codes etc.'
+  
+notes:
+  - 'Generalized Reed Solomon codes contain the special case of conventiontal Reed Solomon codes. These are cyclic codes, and can also be defined by using the discrete Fourier transform.'
+  - 'Since the distance of the code is \(n-k+1\), the family of codes saturate the singelton bound. Hence these are MDS codes.'
+
 realizations:
   - 'Various cloud storage systems \cite{arxiv:1612.01361}.'
   - 'Public-key cryptosystems \cite{doi:10.1007/s10623-003-6151-2}. Initial construction of McEliece Public Key Cryptosystem was based on Goppa codes which are subfield subcode of GRS codes. Public Key Cryptosystem designs based on GRS codes first proposed in Ref. \cite{doi:10.1002/oca.4660070108}, which replaced the generator matrix with the parity check matrix, were proven to be insecure \cite{doi:10.1515/dma.1992.2.4.439} since the public key exposes algebraic structure of code. More recent works focus on methods to mask the algebraic structure using subcodes of GRS codes \cite{doi:10.1007/s10623-003-6151-2}. Lately a key-recovery attack was developed in \cite{arXiv:1307.6458} for a variant of masking method proposed by \cite{arXiv:1108.2462}.'
