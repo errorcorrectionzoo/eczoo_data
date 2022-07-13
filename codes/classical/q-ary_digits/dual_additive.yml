@@ -1,0 +1,27 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual_additive
+
+name: 'Dual additive code'
+
+description: |
+  For any  \(q\)-ary additive code \(C\), the dual additive code is
+  \begin{align}
+  C^\perp = \{ y\in GF(q)^{\times n} ~|~ x \star y=0 \forall x\in C\},
+  \end{align}
+  where the trace inner product is \(x\star y = \sum_{i=1}^n \text{tr}(x_i y_i)\) for coordinates \(x_i,y_i\), and the trace maps elements of the field \(GF(q)\) with \(q=p^m\) to elements of \(GF(p)\) as
+  \begin{align}
+    \text{tr}(\gamma)=\sum_{k=0}^{m-1}\gamma^{p^{k}}~.
+  \end{align}
+
+  A code that contains its dual, \(C^\perp \subseteq C\), is called \textit{weakly self-dual additive} or \textit{self-orthogonal additive}. A code that is equal to its dual, \(C^\perp = C\), is called \textit{self-dual additive}.
+
+relations:
+  parents:
+    - code_id: q-ary_additive
+  cousins:
+    - code_id: dual
+      detail: 'The difference between the definitions of dual linear and dual additive codes is in the inner product. Self-dual linear codes are also self-dual additive codes.'

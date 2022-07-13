@@ -5,27 +5,33 @@
 
 
 code_id: ldpc
-physical: bits
-logical: bits
 
 name: 'Low-density parity-check (LDPC) code'
 short_name: 'LDPC'
 introduced: '\cite{doi:10.1109/TIT.1962.1057683}'
 
 description: |
-  Also known as \textit{Gallager codes}. Family of \([n,k,d]\) linear codes for which the number of nonzero entries in each row and column of the parity check matrix are both bounded by a constant as \(n\to\infty\). In other words, the parity-check matrix of an LDPC code is sparse.
+  Also known as \textit{Gallager codes}. Family of \([n,k,d]\) binary or \(q\)-ary linear codes for which the number of nonzero entries in each row and column of the parity check matrix are both bounded by a constant as \(n\to\infty\). In other words, the parity-check matrix of an LDPC code is sparse.
 
   A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) for \(q\)-ary codes. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
-#features:
-#  rate: 'b/c. The rate (b/c) for this code comes close to the maximum of what channel allows (Shannon limit) as code size increases.'
+features:
+  rate: 'Achieve capacity on the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}. Some LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}. Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
 #  encoders:
 #    - 'Encoding complexity is of O(n) per symbol (which is good).'
+  decoders:
+    - 'Belief propagation using min-sum algorithm \cite{preset:LinCostello}.'
+    - 'Linear programming \cite{doi:10.1007/978-1-4939-2864-4_216}.'
 
 realizations:
   - '5G NR cellular communication for the traffic channel \cite{doi:10.1109/CSCITA47329.2020.9137797}.'
   - 'WiMAX (IEEE 802.16e) \cite{manual:{LDPC coding for OFDMA PHY. 802.16REVe Sponsor Ballot Recirculation comment, July 2004. IEEE C802.16e04/141r2}}.'
   - 'Satelite transmission of digital television \cite{doi:10.1109/ICARES.2014.7024407}.'
+
+notes:
+  - 'See database \cite{preset:KLdatabase} for explicit representatives of several classes of LDPC codes, including \(q\)-ary, WiMAX, multi-edge, and spatially-coupled.'
+  - 'See Ref. \cite{doi:10.1007/978-3-0348-7865-4_5} for a review of LDPC codes circa 2005.'
+  - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
 
 relations:
   parents:

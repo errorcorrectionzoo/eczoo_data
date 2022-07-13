@@ -23,8 +23,10 @@ features:
   rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel.'
 
   decoders:
-    - 'Successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
-    - 'Successive cancellation list decoder \cite{doi:10.1109/TIT.2015.2410251}.'
+    - 'Successive cancellation (SC) decoder \cite{doi:10.1109/TIT.2009.2021379}.'
+    - 'Successive cancellation list (SCL) decoder \cite{doi:10.1109/TIT.2015.2410251} and a modification utilizing sequence repetition (SR-List) \cite{arXiv:2205.08857}.'
+    - 'Soft cancellation (SCAN) decoder \cite{doi:10.1109/JSAC.2014.140515,doi:10.1109/ICC.2013.6655247}.'
+    - 'Belief propagation (BP) decoder \cite{doi:10.1109/LCOMM.2008.080017}.'
 
   threshold:
     - 'Achieves Shannon capacity of the binary-input memoryless channel under successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
@@ -34,6 +36,8 @@ realizations:
 
 notes:
   - 'For more details, see Ch. 32 of Ref. \cite{doi:10.1201/9781315147901}.'
+  - 'See database \cite{preset:KLdatabase} for explicit codes.'
+  - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
 
 relations:
   parents:

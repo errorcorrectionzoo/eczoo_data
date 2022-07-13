@@ -24,7 +24,10 @@ features:
     - 'Multiplication by generator matrix with runtime \(O(n^2)\)'
 
   decoders:
-    - 'Decoding can be done in \(O(n)\) runtime using a greedy algorithm. The algorithm consists of flipping a bit of the received word if it will result in a greater number of satisfied parity checks. This is repeated until a codeword is reached.'
+    - 'Decoding can be done in \(O(n)\) runtime using a greedy \textit{flip} algorithm. The algorithm consists of flipping a bit of the received word if it will result in a greater number of satisfied parity checks. This is repeated until a codeword is reached.'
+
+  fault_tolerance:
+    - 'The flip decoding algorithm is fault tolerant against parity check errors \cite{doi:10.1109/18.556668}; see also \href{http://courses.csail.mit.edu/6.440/spring08/index.html}{course notes} by M. Sudan.'
 
 relations:
   parents:
