@@ -11,13 +11,18 @@ name: 'Cyclic \(q\)-ary code'
 #introduced: ''
 
 description: |
-  A \(q\)-ary code of length \(n\) is cyclic if, for each codeword \(c_1 c_2 \cdots c_n\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\) is also a codeword.
+  A \(q\)-ary code of length \(n\) is cyclic if, for each codeword \(c_1 c_2 \cdots c_n\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\) is also a codeword. A cyclic code is called \textit{primitive} when \(n=q^r-1\) for some \(r\geq 2\). A \textit{shortened cyclic code} is obtained from a cyclic code by taking only codewords with the first \(j\) zero entries, and deleting those zeroes.
 
-  Codewords \(c_1 c_2 \cdots c_n\) of a \(q\)-ary code can be thought of as coefficients in a polynomial \(c_1+c_2 x+\cdots+c_n x^{n-1}\) in the set of polynomials with \(q\)-ary coefficients, \(\mathbb{F}_q[x]\) with \(\mathbb{F}_q=GF(q)\). Polynomials corresponding to codewords of a linear cyclic code form an ideal (i.e., are closed under multiplication and addition) in the ring \(\mathbb{F}_q[x]/(x^n-1)\) (i.e., the set of equivalence classes of polynomials congruent modulo \(x^n-1\)). Codeword polynomials of such a code can be generated, via multiplication, by a \textit{generator polynomial} \(g(x)\). A particular generator polynomial \(e(x)\) has the additional property of being \textit{idempotent}, i.e., \(e(x)^2=e(x)\) \cite{doi:10.1007/978-3-7091-2786-5_1}.
+  Cyclic codes correspond to ideals in a particular polynomial ring. Codewords \(c_1 c_2 \cdots c_n\) of a \(q\)-ary code can be thought of as coefficients in a polynomial \(c_1+c_2 x+\cdots+c_n x^{n-1}\) in the set of polynomials with \(q\)-ary coefficients, \(\mathbb{F}_q[x]\) with \(\mathbb{F}_q=GF(q)\). That way, multiplication by \(x\) corresponds to a cyclic shift. Polynomials corresponding to codewords of a linear cyclic code form an ideal (i.e., are closed under multiplication and addition) in the ring \(\mathbb{F}_q[x]/(x^n-1)\) (i.e., the set of equivalence classes of polynomials congruent modulo \(x^n-1\)). Codeword polynomials of such a code can be generated, via multiplication, by a \textit{generator polynomial} \(g(x)\). A particular generator polynomial \(e(x)\) has the additional property of being \textit{idempotent}, i.e., \(e(x)^2=e(x)\) \cite{doi:10.1007/978-3-7091-2786-5_1}. Given a generator polynomial, the corresponding \textit{check polynomial} \(h(x)=(x^n-1)/g(x)\) yields zero when multiplying a codeword polynomial. Its entries correspond to the code's parity check matrix.
+
+  Whenever \(q\) and \(n\) are relatively prime, cyclic codes can also be defined in terms of zeroes of their generator polynomial. Since \(g(x)\) is a polynomial over \(GF(q)\), it can be factorized over some potentially larger \textit{splitting field} (just like \(x^2+1\) can be factorized over the complex numbers but not the reals). Roots of \(g(x)\) are called \textit{zeroes} of the code, and they are all powers of a primitive \(n\)th root of unity because \(g(x)\) is a divisor of \(x^n-1\). Since the generator polynomial generates all codeword polynomials \(c(x)\) by multiplication by \(x\), its zeroes are also zeroes of those polynomials.
 
 features:
   decoders:
     - 'Meggitt decoder \cite{doi:10.1109/TIT.1961.1057659}.'
+
+notes:
+  - 'See Ch. 7 of Ref. \cite{preset:MacSlo} for an exposition on cyclic codes.'
 
 relations:
   parents:
