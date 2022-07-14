@@ -1,0 +1,26 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: parvaresh_vardy
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Parvaresh-Vardy (PV) code'
+introduced: '\cite{doi:10.1109/SFCS.2005.29}'
+
+description: |
+  Also called a \textit{correlated RS code}. An IRS code with additional algebraic relations (a.k.a. correlations) imposed between the codeword polynomials \(\{f^{(j)}\}_{j=1}^{t}\). These relations yielded a list decoder that achieves list-decoding capacity.
+
+features:
+  decoders:
+  - 'PV codes can be list-decoded up to \(1-(t k/n)^{1/(t+1)}\) fraction of errors. This result improves over the Guruswami-Sudan algorithm for \hyperref[code:reed_solomon]{ordinary RS} codes, which list-decodes up to \(1-\sqrt{k/n}\) fraction of errors.'
+
+relations:
+  parents:
+    - code_id: interleaved_reed_solomon
+  cousins:
+    - code_id: folded_reed_solomon
+      detail: 'The specific relations imposed on the polynomials of PV codes allow for them to be expressed in a similar way as FRS codes, but with more redundancy. Folded RS codes can be list-decoded up to a higher fraction of errors.'
+# detail is from Wikipedia
