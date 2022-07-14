@@ -8,10 +8,11 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Parvaresh-Vardy (PV) code'
+short_name: 'PV'
 introduced: '\cite{doi:10.1109/SFCS.2005.29}'
 
 description: |
-  Also called a \textit{correlated RS code}. An IRS code with additional algebraic relations (a.k.a. correlations) imposed between the codeword polynomials \(\{f^{(j)}\}_{j=1}^{t}\). These relations yielded a list decoder that achieves list-decoding capacity.
+  Also called a \textit{correlated RS code}. An IRS code with additional algebraic relations (a.k.a. correlations) between the codeword polynomials \(\{f^{(j)}\}_{j=1}^{t}\). These relations yielded a list decoder that achieves list-decoding capacity.
 
 features:
   decoders:
@@ -20,6 +21,7 @@ features:
 relations:
   parents:
     - code_id: interleaved_reed_solomon
+      detail: 'PV codes are IRS codes with specific algebraic relations between the codeword polynomials that allow for efficient list decoding.'
   cousins:
     - code_id: folded_reed_solomon
       detail: 'The specific relations imposed on the polynomials of PV codes allow for them to be expressed in a similar way as FRS codes, but with more redundancy. Folded RS codes can be list-decoded up to a higher fraction of errors.'
