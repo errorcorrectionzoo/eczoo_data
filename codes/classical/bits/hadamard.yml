@@ -4,12 +4,13 @@ logical: bits
 
 name: 'Hadamard code'
 
-description: 'The Hadamard code is dual to the extended Hamming Code.'
+description: 'An \([2^k,k,2^{k-1}]\) balanced binary code dual to an extended Hamming Code.'
 
 relations:
   parents:
     - code_id: 'binary_linear'
-      detail: ''
+    - code_id: 'balanced'
+      detail: 'Each Hadamard codeword has length \(2^m\) and Hamming weight of \(2^{m-1}\), making this code balanced.'
   cousins:
     - code_id: dual
       detail: 'The Hadamard code is the dual of the extended Hamming Code.'
