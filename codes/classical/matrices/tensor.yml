@@ -6,14 +6,19 @@
 code_id: tensor
 physical: matrices
 
-name: 'Tensor code'
+name: 'Tensor-product code'
+introduced: '\cite{doi:10.1109/TIT.1954.1057464,doi:10.1109/TIT.1965.1053802,preset:Forney,doi:10.1109/TIT.1970.1054477}'
 
-description: 'Martix-based code constructed out of two linear binary or \(q\)-ary codes \(C_A,C_B\) in an outer-product construction denoted as \(C_A \otimes C_B\). The codewords are those matrices whose column vectors are in \(C_A\) and whose row vectors are in \(C_B\).'
+description: |
+  Also called a \textit{tensor code} or a \text{product code}. A matrix-based code constructed out of two linear binary or \(q\)-ary codes \(C_A,C_B\) in an outer-product construction denoted as \(C_A \otimes C_B\). The codewords are those matrices whose column vectors are in \(C_A\) and whose row vectors are in \(C_B\). For linear codes \(C_A=[n_A,k_A,d_A]\) and \(C_B=[n_B,k_B,d_B]\), the resulting tensor code is \(C_A \otimes C_B=[n_A n_B,k_A k_B,d_A d_B]\).
+
+protection: |
+  Tensor codes can be useful for protecting against burst errors \cite{doi:10.1109/TIT.1971.1054690,doi:10.1109/TIT.1973.1055085}. Tensor codes formed by two random linear codes are robustly testable \cite{arxiv:2206.07750,arxiv:2206.09973}.
 
 notes:
-  - 'Tensor codes formed by two random linear codes are robustly testable \cite{arxiv:2206.07750,arxiv:2206.09973}.'
+  - 'See book \cite{preset:MacSlo}, Ch. 18 for an exposition.'
 
 relations:
   parents:
     - code_id: matrices_into_matrices
-      detail: ''
+    - code_id: generalized_concatenated
