@@ -24,19 +24,22 @@ protection: 'Designed to protect against erasures during broadcasting of informa
 #https://www.andrew.cmu.edu/user/gaurij/FountainCodes.pdf REF: \cite{}
 
 features:
-  rate: 'Random linear fountain codes approach the Shannon limit as the file size \(K\) increases.'
+  rate: 'Random linear fountain codes approach the Shannon limit as the file size \(K\) increases. However, they do not have a fixed encoding rate.'
 
   decoders:
     - 'Invert the fragment generator matrix resulting from the continuous encoding process. If exactly \(K\) packets are received, then the probability of decoding correctly is \(0.289\). Extra packets increase this probability exponentially. The decoding runtime is dominated by the matrix inversion step, which takes order \(O(n^3)\) time.'
 
 realizations:
-  - 'Designed for servers sending data to many recipients, such as during broadcasting or file distribution \cite{doi:10.1109/TIT.2006.874390}.'
+  - 'Designed for servers sending data to many recipients, such as during broadcasting or file distribution \cite{doi:10.1109/TIT.2006.874390,doi:10.1109/MASS.2012.6502540}.'
 
 notes:
   - 'Review on fountain codes can be found in Refs. \cite{doi:10.1049/ip-com:20050237,manual:{Joshi, G., Rhim, J. B., Sun, J., & Wang, D. (2010). Fountain codes. In Global telecommunications conference (GLOBECOM 2010) (pp. 7–12). IEEE.}}.'
 
 relations:
   parents:
-    - code_id: bits_into_bits
+    - code_id: binary_linear
+    - code_id: ldpc
   cousins:
     - code_id: random
+    - code_id: distributed_storage
+      detail: 'There are proposals \cite{arXiv:1401.0734,arXiv:1705.07983} adapting fountain codes to distributed storage systems.'
