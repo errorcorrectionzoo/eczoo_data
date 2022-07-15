@@ -10,7 +10,7 @@ logical: qubits
 name: 'XZZX surface code'
 introduced: \cite{arXiv:2009.07851}
 
-description: 'Non-CSS derivative of the rotated surface code whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).'
+description: 'Non-CSS variant of the rotated surface code whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).'
 
 protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
@@ -26,9 +26,13 @@ features:
   decoders:
     - 'Minimum-weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the XY code in Ref. \cite{arXiv:1907.02554}.'
 
+realizations:
+  - 'Distance-five 49-qubit code implemented on a superconducting quantum processor by Google Quantum AI \cite{arxiv:2207.06431}. This code outperformed the average of several instances of the smaller distance-three 9-qubit \(XZZX\) variant of the \hyperref[code:surface-17]{surface-17} code realized on the same device, both in terms of logical error probability over 25 cycles and in terms of logical error per cycle. This increase in error-correcting capabilities while using more physical qubits supports the notion of an error threshold.'
+
 notes:
   - 'A single \(X\) or \(Z\) error gives rise to two nearby defects, which can be viewed as endpoints of a string. That way, multiple \(Z\) errors can be decomposed into a combination of diagonal strings.'
   - Originally formulated as an example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
+
 relations:
   parents:
     - code_id: clifford-deformed_surface
