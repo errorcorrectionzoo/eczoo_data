@@ -9,7 +9,7 @@ logical: q-ary_digits
 
 name: 'Projective code'
 
-description: 'Linear \([n,k,d]_q\) code such that columns of its generator matrix does not contain repeated columns. Equivalently, its generator matrix columns form points in the projective space \(PG(k-1,q)\).'
+description: 'Linear \([n,k,d]_q\) code such that columns of its generator matrix does not contain any repeated columns or the zero column. Equivalently, its generator matrix columns form points in the projective space \(PG(k-1,q)\).'
 
 notes:
   - 'See corresponding definition in \href{http://mint.sbg.ac.at/glossary.php#GProjectiveCode}{MinT}.'
@@ -17,5 +17,7 @@ notes:
 relations:
   parents:
     - code_id: ecc
-
-# May be related to AG; check algebraic geometric codes: basic notions
+  cousins:
+    - code_id: constant_weight
+      detail: 'There is a 1-1 correpondence between projective and weight-two codes \cite{doi:10.1023/A:1008294128110}'
+    # May be related to AG; check algebraic geometric codes: basic notions
