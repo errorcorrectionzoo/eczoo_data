@@ -9,7 +9,8 @@ logical: q-ary_digits
 
 name: 'Projective code'
 
-description: 'Linear \([n,k,d]_q\) code such that columns of its generator matrix does not contain any repeated columns or the zero column. That way, each column corresponds to a distinct point in the projective space \(PG(k-1,q)\).'
+description: |
+  Linear binary or \(q\)-ary \([n,k,d]\) code such that columns of its generator matrix does not contain any repeated columns or the zero column. That way, each column corresponds to a distinct point in the projective space \(PG(k-1,q)\). If the columns are linearly independent, then the codewords are collectively called an \textit{information set}.
 
 notes:
   - 'See corresponding definition in \href{http://mint.sbg.ac.at/glossary.php#GProjectiveCode}{MinT}.'
@@ -19,5 +20,5 @@ relations:
     - code_id: ecc
   cousins:
     - code_id: constant_weight
-      detail: 'There is a 1-1 correpondence between projective and weight-two codes \cite{doi:10.1023/A:1008294128110}'
+      detail: 'There is a 1-1 correpondence between projective and weight-two codes \cite{doi:10.1112/blms/18.2.97,doi:10.1023/A:1008294128110}.'
     # May be related to AG; check algebraic geometric codes: basic notions

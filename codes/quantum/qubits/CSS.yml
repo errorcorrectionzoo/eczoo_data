@@ -34,8 +34,9 @@ description: |
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for CSS codes is \([[n,k,(d_X,d_Z),w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance}.
 
-  \begin{defterm}{CSS-to-homology dictionary}
-  \subsection{CSS-to-homology dictionary}
+  \begin{defterm}{CSS-to-homology correspondence}
+  \subsection{CSS-to-homology correspondence}
+  CSS codes and their properties can be formulated in terms of homology theory, yielding a powerful correspondence between codes and chain complexes, the primary homological structures.
   There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes. Codes constructed in this manner are sometimes called \textit{homological CSS codes}, but they are equivalent to CSS codes. This mapping of codes to manifolds allows the application of structures from topology to error correction, yielding \hyperref[code:generalized_homological_product]{various QLDPC codes} with favorable properties.
 
   A \textit{chain complex} of size three is given by binary vector spaces \(A_2\), \(A_1\), \(A_0\) and binary matrices \(\partial_{i=1,2}\) (called \textit{boundary operators}) \(A_i\) to \(A_{i-1}\) that satisfy \(\partial_1 \partial_2 = 0\). Such a complex is typically denoted as
@@ -72,7 +73,7 @@ features:
     - 'Coherent decoders allow for measurement-free error correction \cite{arxiv:2109.00086}. One method is table/multi-control decoding \cite{arXiv:1002.1536}, which scales exponentially with the number of ancillas used in syndrome measurement. Another method, the Ising-based decoder, utilizes the mapping of the effect of the noise to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:2002.11733} such that the decoding problem maps to preparation of the ground state of an Ising model.'
 
 notes:
-  - 'Introduction to \term{CSS-to-homology dictionary} by \href{https://www.youtube.com/watch?v=SeLpWg_8qlc}{M. Hastings}.'
+  - 'Introduction to \term{CSS-to-homology correspondence} by \href{https://www.youtube.com/watch?v=SeLpWg_8qlc}{M. Hastings}.'
   - 'Entanglement purification protocols related to quantum key distribution (QKD) utilize CSS error correction \cite{arxiv:quant-ph/0003004}.'
   - 'Using linear programming to solve a set of equations and inequalities on weight distribution of a classical self-orthogonal code \(C=(n, 2^n-k)\) and its dual, one can find a \(C\) such that the \([[n,k,d]]\) CSS code constructed using \(C\) and its dual would have rate and distance close to the Singleton bound \cite{arXiv:quant-ph/9608006}.'
 
