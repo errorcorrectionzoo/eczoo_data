@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: linear
+
+name: 'Linear code'
+
+description: |
+  A code whose codewords are closed under addition and multiplication under some field or ring.
+  An \((n,K,d)_q\) linear code is denoted as \([n,k,d]_q\), where \(k=\log_{q}K\) need not be an integer. Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(\alpha x+ \beta y\) is also a codeword for any \(q\)-ary digits \(\alpha,\beta\).
+
+  Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k~~A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) \(q\)-ary matrix.
+
+protection: 'Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.'
+
+features:
+  decoders:
+    - 'Soft-decision maximum-likelihood trellis-based decoder \cite{doi:10.1109/TIT.1978.1055821}.'
+    - 'Random linear codes over large fields are list-recoverable and list-decodable up to near-optimal rates \cite{arXiv:1704.02420}.'
+
+
+notes:
+  - 'Admits a parity check matrix \(H\), whose columns make up a maximal linearly independent set of vectors that are in the kernel of \(G\).'
+  - 'University of Salzburg''s \href{http://mint.sbg.ac.at/table.php?i=c}{MinT application} generates an optimal parameter table for a linear code \([n,k,d]_q\), contingent on an optional fluctuation of maximal Hamming code distance, rank, and length, along with other specifications.'
+
+relations:
+  parents:
+    - code_id: q-ary_additive
+      detail: 'For \(q>2\), additive codes need not be linear since linearity also requires closure under multiplication.'
