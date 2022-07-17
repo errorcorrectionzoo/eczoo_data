@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: weight_two
+
+name: 'Weight-two code'
+#introduced: ''
+
+description: |
+  A length-\(n\) binary code whose codewords all have a Hamming weight of two. Such codes provide slightly extra redundancy for storage of small-scale information such as ZIP codes or decimal digits.
+
+  For example, the two-in-five code has a size 10, thereby providing an encoding for the decimal digits 0 through 9. Such a code detects some single bit-flips as well as unidirectional errors using the fact that each codeword is weight-two. The code fails for any sequence of flips that maintains the constant weight.
+
+realizations:
+  - 'Two-in-five, also known as the two-out-of-five code, was used in the United States Postal Service''s POSTNET barcode system as well as the Postal Alpha-numeric Encoding Technique (PLANET).'
+  - 'Two-in-five code forms the numerical part of the \textit{Code 39} barcode encoding.'
+  - 'Two-in-five code was used on early IBM computers \cite{doi:10.1145/1457838.1457879}.'
+
+notes:
+  - 'See Ch. 19 of book \cite{doi:10.1201/9781315147901} on weight-two codes.'
+
+relations:
+  parents:
+    - code_id: constant_weight
+    - code_id: binary_linear
+  cousins:
+    - code_id: projective
+      detail: 'There is a 1-1 correpondence between projective and weight-two codes \cite{doi:10.1112/blms/18.2.97,doi:10.1023/A:1008294128110}.'
