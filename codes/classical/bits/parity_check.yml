@@ -3,16 +3,25 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-
 code_id: parity_check
 physical: bits
 logical: bits
 
-name: 'Parity-check code'
+name: 'Single-parity-check code'
 
-description: 'Stub.'
+description: 'Also known as a \textit{sum-zero} or \textit{even-weight} code. An \([n,n-1,2]\) linear binary code whose codewords consist of the message string appended with a parity-check bit such that the sum over all coordinates of each codeword is zero.'
 
 relations:
   parents:
     - code_id: binary_linear
-      detail: ''
+    - code_id: binary_cyclic
+      detail: 'Since permutations preserve parity, the cyclic permutation of a parity-check codeword is another codeword.'
+    - code_id: mds
+    - code_id: divisible
+      detail: 'Binary parity-check codes are two-divisible.'
+  cousins:
+    - code_id: repetition
+      detail: 'Binary parity-check codes and repetition codes are dual to each other.'
+    - code_id: q-ary_parity_check
+    - code_id: perfect
+      detail: 'Parity-check codes are nearly perfect.'
