@@ -21,7 +21,7 @@ description: |
     \mu\to\left\{ f_{\mu}\left(\alpha_{1}\right),f_{\mu}\left(\alpha_{2}\right),\cdots,f_{\mu}\left(\alpha_{n}\right)\right\} \,.
   \end{align}
 
-  In an alternative convention (not used here), the above is referred to as a generalized RS code, and an RS code is the case where the points are powers of some generating element, \(\alpha_i=\beta^i\) for some \(\beta\).
+  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is a \textit{narrow-sense RS code}. In an alternative convention (not used here), the primite-root case is called an RS code, and the general-root case is a generalized RS code.
 
 protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it can be determined from its values at \(k\) points. This means that RS codes can correct erasures on up to \(n-k\) registers. The resulting distance, \(d=n-k+1\), saturates the Singleton bound.'
 
@@ -71,6 +71,6 @@ relations:
     - code_id: mds
       detail: 'RS codes have distance \(n-k+1\), saturating the Singleton bound. If \(k \leq p\), then all linear MDS codes \( [n,k,n-k+1]_{p^m} \) are RS codes \cite{doi:10.4171/JEMS/316}.'
     - code_id: q-ary_bch
-      detail: 'Cyclic RS codes of length \(n=q-1\) are BCH codes; see Remark 15.3.21 of Ref. \cite{doi:10.1201/9781315147901}. Moreover, an RS code can be represented as a union of cosets, with each coset being an interleaver of several binary BCH codes \cite{doi:10.1109/26.79287}.'
+      detail: 'Narrow-sense RS codes are BCH codes (\cite{doi:10.1201/9781315147901}, Remark 15.3.21; \cite{doi:10.1017/CBO9780511807077}, Thms. 5.2.1 and 5.2.3). Moreover, an RS code can be represented as a union of cosets, with each coset being an interleaver of several binary BCH codes \cite{doi:10.1109/26.79287}.'
     - code_id: q-ary_cyclic
       detail: 'If the length divides \(q-1\), then it is possible to construct a cyclic RS code.'
