@@ -12,16 +12,16 @@ short_name: 'RS'
 introduced: '\cite{doi:10.1214/aoms/1177729387,doi:10.1137/0108018}'
 
 description: |
-  An \([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero points in \(GF(q)\) with \(q>n\). An RS code encodes a message \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(\alpha_1),\cdots,f_\mu(\alpha_n)\}\) using a message-dependent polynomial
+  An \([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct points in \(GF(q)\). An RS code encodes a message \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(\alpha_1),\cdots,f_\mu(\alpha_n)\}\) using a message-dependent polynomial
   \begin{align}
   f_\mu(x)=\mu_0+\mu_1 x + \cdots + \mu_{k-1}x^{k-1}.
   \end{align}
-  In other words, each codeword \(\mu\) is a string of values of the corresponding polynomial \(f_\mu\) at the points \(\alpha_i\),
+  In other words, each message \(\mu\) is encoded into a string of values of the corresponding polynomial \(f_\mu\) at the points \(\alpha_i\),
   \begin{align}
-    \mu\to\left\{ f_{\mu}\left(\alpha_{1}\right),f_{\mu}\left(\alpha_{2}\right),\cdots,f_{\mu}\left(\alpha_{n}\right)\right\} \,.
+    \mu\to\left( f_{\mu}\left(\alpha_{1}\right),f_{\mu}\left(\alpha_{2}\right),\cdots,f_{\mu}\left(\alpha_{n}\right)\right) \,.
   \end{align}
 
-  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is a \textit{narrow-sense RS code}. In an alternative convention (not used here), the primite-root case is called an RS code, and the general-root case is a generalized RS code.
+  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is a \textit{narrow-sense RS code}. In an alternative convention (not used here), the primitive-root case is called an RS code, and the general-root case is a generalized RS code.
 
 protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it can be determined from its values at \(k\) points. This means that RS codes can correct erasures on up to \(n-k\) registers. The resulting distance, \(d=n-k+1\), saturates the Singleton bound.'
 
