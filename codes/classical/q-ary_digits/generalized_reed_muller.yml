@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_reed_muller
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Generalized Reed-Muller (RM) code'
+short_name: 'RM'
+introduced: '\cite{doi:10.1109/TIT.1968.1054127,doi:10.1109/TIT.1968.1054128}'
+
+description: |
+  Reed-Muller code RM\(_q(r,m)\) of length \(n=q^m\) over \(GF(q)\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at a set of distinct points \(\{\alpha_1,\cdots,\alpha_n\}\) in \(GF(q)\).
+
+  Since \(\beta^q=\beta\) for any \(\beta\in GF(q)\), the above definition is not injective. Replacing each factor in each polynomial as \(x^q\to x\), the above set reduces to the set of all degree-\(\leq r\) polynomials in \(m\) variables such that no term has an exponent \(q\) or higher on any variable.
+
+protection: 'Code parameters for specific \(m,r\) are given in Ref. \cite{doi:10.1007/978-94-011-3810-9}, pg. 46.'
+
+notes:
+  - 'See books \cite{doi:10.1017/CBO9781316529836,doi:10.1017/CBO9780511807077,manual:{E. F. Assmus, Jr. and J. D. Key, “Polynomial codes and finite geometries,” in Handbook of Coding Theory, eds. V. S. Pless and W. C. Huffman. Amsterdam: Elsevier, 1998, pp. 1269–1343.}} for details of generalized RM codes.'
+
+relations:
+  parents:
+    - code_id: evaluation
+      detail: 'Generalized RM codes are evaluation codes of multivariate polynomials (\cite{doi:10.1007/978-94-011-3810-9}, pgs. 44-46).'
+  cousins:
+    - code_id: reed_muller
+    - code_id: q-ary_cyclic
+      detail: 'Generalized RM codes with nonzero evaluation points are cyclic (\cite{doi:10.1007/978-94-011-3810-9}, pg. 52).'

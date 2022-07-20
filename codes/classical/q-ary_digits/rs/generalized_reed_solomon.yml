@@ -12,7 +12,7 @@ short_name: 'GRS'
 #introduced: \cite{preset:MacSlo}
 
 description: |
-  An \([n,k,n-k+1]_q\) linear code that is a modification of the RS code where codeword polynomials are multiplied by additional prefactors. Each codeword \(\mu\) is a string of values of the corresponding polynomial \(f_\mu\) at the points \(\alpha_i\), multiplied by a corresponding nonzero factor \(v_i \in GF(q)\),
+  An \([n,k,n-k+1]_q\) linear code that is a modification of the RS code where codeword polynomials are multiplied by additional prefactors. Each message \(\mu\) is encoded into a string of values of the corresponding polynomial \(f_\mu\) at the points \(\alpha_i\), multiplied by a corresponding nonzero factor \(v_i \in GF(q)\),
   \begin{align}
     \mu\to\left( v_{1}f_{\mu}\left(\alpha_{1}\right),v_{2}f_{\mu}\left(\alpha_{2}\right),\cdots,v_{n}f_{\mu}\left(\alpha_{n}\right)\right)~.
   \end{align}
@@ -39,7 +39,7 @@ relations:
   parents:
     - code_id: q-ary_linear
     - code_id: evaluation
-      detail: 'GRS codes are evaluation AG codes on the projective line; see Thm. 15.3.24 of Ref. \cite{doi:10.1201/9781315147901}.'
+      detail: 'GRS codes are in one-to-one correspondence with evaluation AG codes of univariate polynomials on the projective line (\cite{doi:10.1201/9781315147901}, Thm. 15.3.24).'
   cousins:
     - code_id: mds
       detail: 'GRS codes have distance \(n-k+1\), saturating the Singleton bound.'
