@@ -7,18 +7,18 @@ code_id: ag
 
 name: 'Algebraic-geometry (AG) code'
 short_name: 'AG'
+introduced: '\cite{manual:{V. D. Goppa, “Codes Associated with Divisors”, Probl. Peredachi Inf., 13:1 (1977), 33–39; Problems Inform. Transmission, 13:1 (1977), 22–27},manual:{V. D. Goppa, “Codes on algebraic curves”, Dokl. Akad. Nauk SSSR, 259:6 (1981), 1289–1290},manual:{V. D. Goppa, “Algebraico-geometric codes”, Izv. Akad. Nauk SSSR Ser. Mat., 46:4 (1982), 762–781; Izv. Math., 21:1 (1983), 75–91}}'
 
 description: |
-  Linear binary or \(q\)-ary code constructed from an algebraic curve. And no varieties. Stub.
-
-  In a alternate convention (not used here), AG codes are called Goppa codes or geometric Goppa codes.
+  Also called a \textit{geometric Goppa code}. Linear binary or \(q\)-ary code constructed from an algebraic curve of some genus over a finite field.
 
 features:
-  rate: 'A class of AG codes exceed the asymptotic Gilbert-Varshamov (GV) bound \cite{doi:10.1002/mana.19821090103}.'
+  rate: 'A class of AG codes with non-constant genera exceed the asymptotic Gilbert-Varshamov (GV) bound \cite{doi:10.1002/mana.19821090103} (see also Ref. \cite{manual:{Y. Ihara. "Some remarks on the number of rational points of algebraic curves over finite fields." J. Fac. Sci. Univ. Tokyo Sect. IA Math., 28:721-724 (1982),1981.}}). The rate of such codes satisfies
+  \begin{align}
+    \frac{k}{n} \geq 1 - \frac{d}{n} - \frac{1}{\sqrt{q}-1}~.
+  \end{align}
+  Roughly speaking, this breakthrough result implies that AG codes can be more optimal than random codes. Such families of codes are optimal \cite{manual:{S. G. Vlăduţ, V. G. Drinfeld, “Number of points of an algebraic curve”, Funktsional. Anal. i Prilozhen., 17:1 (1983), 68–69; Funct. Anal. Appl., 17:1 (1983), 53–54}}.'
 
 relations:
   parents:
     - code_id: linear
-
-# Handbook of coding theory
-# HKS
