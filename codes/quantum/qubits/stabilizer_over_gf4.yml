@@ -13,10 +13,10 @@ introduced: '\cite{arXiv:quant-ph/9608006}'
 description: |
   An \([[n,k,d]]\) stabilizer code constructed from a quaternary classical code using the one-to-one correspondence between the four Pauli matrices \(\{I,X,Y,Z\}\) and the four elements \(\{0,1,\alpha^2,\alpha\}\) of the quaternary field \(GF(4)\).
 
-  An \(n\)-qubit Pauli stabilizer can be represented as a length-\(n\) quaternary vector. The stabilizer commutation condition corresponds to a zero trace-Hermitian inner product between the corresponding vectors. Stabilizer codes over \(GF(4)\) can thus be constructed from classical trace-Hermitian weakly self-dual additive quaternary codes.
+  An \(n\)-qubit Pauli stabilizer can be represented as a length-\(n\) quaternary vector. The stabilizer commutation condition corresponds to a zero trace-Hermitian inner product between the corresponding vectors. Stabilizer codes over \(GF(4)\) can thus be constructed from classical trace-Hermitian self-orthogonal additive quaternary codes and Hermitian self-orthogonal linear quaternary codes (since the latter are automatically trace-Hermitian self-orthogonal).
   The classical code corresponds to the stabilizer group \(\mathsf{S}\) while \(C^{\perp}\) corresponds to the normalizer \(\mathsf{N(S)}\).
 
-  Stabilizer codes over \(GF(4)\) can be constructed as follows. Let \(\phi\) be a bijection from a linear binary subspace to \(GF(4)^n\). Let \(C\) be a trace-Hermitian weakly self-dual additive subcode over \(GF(4)\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(GF(4)\).
+  Stabilizer codes over \(GF(4)\) can be constructed as follows. Let \(\phi\) be a bijection from a linear binary subspace to \(GF(4)^n\). Let \(C\) be a trace-Hermitian self-orthogonal additive subcode over \(GF(4)\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(GF(4)\).
 
 #  The quaternary code needs to only be additive (its codewords are closed under addition). It need not be a linear code, which would require the set of codewords to be closed under multiplication as well.
 
@@ -31,6 +31,6 @@ relations:
       detail: ''
   cousins:
     - code_id: dual_additive
-      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(4)\) can equivalently be stated in the representation of stabilizers as quaternary vectors. A pair of \(n\)-qubit stabilizers commute iff the trace-Hermitian inner product of their corresponding vectors is zero. Stabilizer codes over \(GF(4)\) can thus be constructed from trace-Hermitian weakly self-dual additive quaternary codes.'
+      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(4)\) can equivalently be stated in the representation of stabilizers as quaternary vectors. A pair of \(n\)-qubit stabilizers commute iff the trace-Hermitian inner product of their corresponding vectors is zero. Stabilizer codes over \(GF(4)\) can thus be constructed from trace-Hermitian self-orthogonal additive quaternary codes.'
     - code_id: dual
-      detail: 'If the classical additive code of quaternary vectors corresponding a stabilizer code over \(GF(4)\) is linear, then the code is self-orthogonal with respect to both the trace-Hermitian and Hermitian inner products. In other words, the extra trace operation can be removed from the definition of inner product.'
+      detail: 'If the classical additive code of quaternary vectors corresponding a stabilizer code over \(GF(4)\) is linear, then the code is self-orthogonal with respect to both the trace-Hermitian and Hermitian inner products (\cite{doi:10.1201/9781315147901}, Thm. 27.4.1). In other words, the extra trace operation can be removed from the definition of inner product.'

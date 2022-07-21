@@ -13,10 +13,8 @@ introduced: '\cite{arXiv:quant-ph/0005008,arXiv:quant-ph/0508070}'
 description: |
   An \([[n,k,d]]_{GF(q)}\) Galois-qudit stabilizer code constructed from a classical code over \(GF(q^2)\) using the one-to-one correspondence between the Galois-qudit Pauli matrices and elements of the Galois field \(GF(q^2)\).
 
-  An \(n\) Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(GF(q^2)\). The stabilizer commutation condition corresponds to a zero trace-alternating inner product between the corresponding vectors. Stabilizer codes over \(GF(q^2)\) can thus be constructed from classical trace-alternating weakly self-dual additive codes over \(GF(q^2)\) \cite{arXiv:quant-ph/0508070}.
+  An \(n\) Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(GF(q^2)\). The stabilizer commutation condition corresponds to a zero trace-alternating inner product between the corresponding vectors. Stabilizer codes over \(GF(q^2)\) can thus be constructed from classical trace-alternating self-orthogonal additive codes over \(GF(q^2)\) \cite{arXiv:quant-ph/0508070} and Hermitian self-orthogonal linear codes over \(GF(q^2)\) (since the latter are automatically trace-alternating self-orthogonal).
 
-  Since trace-alternating self-orthognal linear codes are also Hermitian self-orthogonal (\cite{arxiv:quant-ph/0508070}, Corr. 19), stabilizer codes over \(GF(q^2)\) can also be constructed from classical Hermitian weakly self-dual linear codes \cite{arXiv:quant-ph/0005008}.
-  Many quantum codes have been constructed using this  \textit{Hermitian construction} (e.g., \cite{doi:10.1142/S0219749919500060,doi:10.26421/QIC13.1-2-3,doi:10.1007/s11128-020-02921-0,arxiv:1507.08355,arXiv:2007.13309}).
 #  The classical code corresponds to the stabilizer group \(\mathsf{S}\) while \(C^{\perp}\) corresponds to the normalizer \(\mathsf{N(S)}\).
 
 relations:
@@ -24,15 +22,8 @@ relations:
     - code_id: galois_stabilizer
   cousins:
     - code_id: dual_additive
-      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(q^2)\) can equivalently be stated in the representation of stabilizers as vectors over \(GF(q^2)\). A pair of \(n\) Galois-qudit stabilizers commute iff the trace-alternating inner product of their their corresponding vectors is zero. Stabilizer codes over \(GF(q^2)\) can thus be constructed from trace-alternating weakly self-dual additive codes over \(GF(q^2)\).'
+      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(q^2)\) can equivalently be stated in the representation of stabilizers as vectors over \(GF(q^2)\). A pair of \(n\) Galois-qudit stabilizers commute iff the trace-alternating inner product of their their corresponding vectors is zero. Stabilizer codes over \(GF(q^2)\) can thus be constructed from trace-alternating self-orthogonal additive codes over \(GF(q^2)\).'
     - code_id: dual
-      detail: 'If the classical additive code of vectors over \(GF(q^2)\) corresponding a stabilizer code over \(GF(q^2)\) is linear, then the code is self-orthogonal with respect to both the trace-alternating and Hermitian inner products (\cite{arxiv:quant-ph/0508070}, Corr. 19).'
+      detail: 'If the classical additive code of vectors over \(GF(q^2)\) corresponding a stabilizer code over \(GF(q^2)\) is linear, then the code is self-orthogonal with respect to both the trace-alternating and Hermitian inner products (\cite{arxiv:quant-ph/0508070}, Corr. 19; \cite{doi:10.1201/9781315147901}, Thm. 27.4.1).'
     - code_id: stabilizer_over_gf4
       detail: 'Stabilizer codes over \(GF(q^2)\) are Galois-qudit extensions of those over \(GF(4)\).'
-    - code_id: quantum_mds
-      detail: 'The stabilizer-over-\(GF(q^2)\) can yield quantum MDS codes from Hermitian self-orthogonal codes \cite{arxiv:0906.2509,arxiv:1507.08355,arxiv:1803.07927}.'
-    - code_id: matrix_product
-      detail: 'Hermitian self-orthogonal matrix-product codes can be used to construct stabilizer codes over \(GF(q^2)\) \cite{doi:10.1007/s11128-020-02921-0}.'
-
-#    - code_id: constacyclic
-#      detail: 'The stabilizer-over-\(GF(q^2)\) can yield quantum MDS codes from Hermitian self-orthogonal constacyclic codes \cite{arxiv:1803.07927}.'
