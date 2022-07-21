@@ -10,14 +10,19 @@ logical: galois
 name: 'Stabilizer code over \(GF(q^2)\)'
 introduced: '\cite{arXiv:quant-ph/0508070}'
 
-description: Stub.
+description: |
+  An \([[n,k,d]]_{GF(q)}\) Galois-qudit stabilizer code constructed from a classical code over \(GF(q^2)\) using the one-to-one correspondence between the Galois-qudit Pauli matrices and elements of the Galois field \(GF(q^2)\).
+
+  An \(n\) Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(GF(q^2)\). The stabilizer commutation condition corresponds to a zero trace-alternating inner product between the corresponding vectors. Stabilizer codes over \(GF(q^2)\) can thus be constructed from classical trace-alternating weakly self-dual additive codes over \(GF(q^2)\).
+  The classical code corresponds to the stabilizer group \(\mathsf{S}\) while \(C^{\perp}\) corresponds to the normalizer \(\mathsf{N(S)}\).
 
 relations:
   parents:
     - code_id: galois_stabilizer
-      detail: ''
   cousins:
     - code_id: dual_additive
-      detail: 'Self-orthogonal additive codes are used in this stabilizer code construction.'
+      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(q^2)\) can equivalently be stated in the representation of stabilizers as vectors over \(GF(q^2)\). A pair of \(n\) Galois-qudit stabilizers commute iff the trace-alternating inner product of their their corresponding vectors is zero. Stabilizer codes over \(GF(q^2)\) can thus be constructed from trace-alternating weakly self-dual additive codes over \(GF(q^2)\).'
+    - code_id: dual
+      detail: 'If the classical additive code of vectors over \(GF(q^2)\) corresponding a stabilizer code over \(GF(q^2)\) is linear, then the code is self-orthogonal with respect to both the trace-alternating and Hermitian inner products (\cite{arxiv:quant-ph/0508070}, Corr. 19).'
     - code_id: stabilizer_over_gf4
       detail: 'Stabilizer codes over \(GF(q^2)\) are Galois-qudit extensions of those over \(GF(4)\).'

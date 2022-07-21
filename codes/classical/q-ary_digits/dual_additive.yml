@@ -19,9 +19,14 @@ description: |
 
   A code that contains its dual, \(C^\perp \subseteq C\), is called \textit{weakly self-dual additive} or \textit{self-orthogonal additive}. A code that is equal to its dual, \(C^\perp = C\), is called \textit{self-dual additive}.
 
+  For cases when \(q\) is a square, an alternative definition of dual substitutes the trace inner product for the \textit{trace Hermitian inner product}, \(x\star y \to \sum_{i=1}^n \text{tr}(x_i y^{\sqrt{q}}_i)\). A further extension, relevant to \hyperref[code:stabilizer_over_gfqsq]{certain stabilizer codes} and reducing to the trace Hermitian case for \(q=4\), is the \textit{trace alternating inner product}, \begin{align}
+    x\star y \to \sum_{i=1}^{n}\text{tr}\left(\frac{x_{i}y_{i}^{\sqrt{q}}-x_{i}^{\sqrt{q}}y_{i}}{\alpha-\alpha^{q}}\right)~,
+  \end{align}
+  where \(\{1,\alpha\}\) is a basis of \(GF(q)\) over \(GF(\sqrt{q})\). Self-dual additive codes with respect to the trace Hermitian (alternating) inner product are called \textit{trace Hermitian (alternating) self-dual additive}.
+
 relations:
   parents:
     - code_id: q-ary_additive
   cousins:
     - code_id: dual
-      detail: 'The difference between the definitions of dual linear and dual additive codes is in the inner product. Self-dual linear codes are also self-dual additive codes.'
+      detail: 'The difference between the definitions of dual linear and dual additive codes is in the trace used in the inner product. Self-dual linear codes are also self-dual additive codes.'

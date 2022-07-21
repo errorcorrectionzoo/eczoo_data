@@ -15,6 +15,12 @@ description: |
 
   Each stabilizer code can be represented by a \((n-k) \times 2n\) \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the binary symplectic representation of an element from a set of generating elements of the stabilizer group. The check matrix can be brought into standard form via Gaussian elimination \cite{doi:10.1017/CBO9780511976667}.
 
+  The stabilizer commutation condition can equivalently be stated in the symplectic representation. A pair of \(n\)-qubit stabilizers with symplectic representations \((a|b)\) and \((a^{\prime}|b^{\prime})\) commute iff their \textit{symplectic inner product} is zero,
+  \begin{aling}
+    a \cdot b^{\prime} + a^{\prime}\cdot b = \sum_{j=1}^{n} a_j b^{\prime}_j + a^{\prime}_i b_i = 0~.
+  \end{align}
+  Symplectic representations of stabilizer group elements thus form a self-orthogonal subspace of \(GF(2)^{2n}\) with respect to the symplectic inner product.
+
 protection: |
   Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
 
@@ -46,7 +52,6 @@ notes:
   - 'Tables of bounds and examples of stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Ref. \cite{doi:10.1007/978-3-540-37634-7_13}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'
   - 'Stabilizer error-recovery circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}).'
 
-# https://arxiv.org/pdf/0903.0566.pdf parent is code over GF(4): an additive self-orthogonal code over GF(4) with respect to the trace Hermitian inner product
 relations:
   parents:
     - code_id: stabilizer
@@ -59,6 +64,8 @@ relations:
   cousins:
     - code_id: binary_linear
       detail: 'Qubit stabilizer codes are quantum analogues of binary linear codes.'
+    - code_id: dual
+      detail: 'Symplectic representations of stabilizer group elements form a linear code over \(GF(2)\) that is self-orthogonal with respect to the symplectic inner product (\cite{doi:10.1201/9781315147901}, Thm. 27.3.6).'
     - code_id: hamiltonian
       detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, which consists of an equal linear combination of stabilizer generators and which can be made into a commuting projector Hamiltonian.'
     - code_id: qudit_stabilizer
