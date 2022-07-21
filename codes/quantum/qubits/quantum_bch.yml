@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_bch
+physical: qubits
+logical: qubits
+
+name: 'Quantum BCH code'
+short_name: 'QBCH'
+introduced: '\cite{arXiv:quant-ph/9610042,arxiv:quant-ph/9608006,arxiv:quant-ph/9910060}'
+
+description: |
+  Stabilizer code constructed from a self-orthogonal binary BCH code via the CSS construction, from a Hermitian self-orthogonal quaternary BCH code via the stabilizer-over-\(GF(4)\) construction, or by taking a Euclidean self-orthogonal BCH code over \(GF(2^m)\), converting it to a binary code, and applying the CSS construction. Follow-up work uses Hermitian self-orthogonal BCH codes \cite{doi:10.5555/2481591.2481594}.
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: 'QBCH codes constructed via the CSS construction are CSS codes, and the rest are stabilizer codes over \(GF(4)\).'
+
+  cousins:
+    - code_id: bch
+      detail: 'Binary BCH codes are used to construct a subset of QBCH codes via the CSS construction.'
+    - code_id: q-ary_bch
+      detail: 'BCH codes are used to construct QBCH codes via the CSS and stabilizer-over-\(GF(4)\) constructions.'
+    - code_id: css
+      detail: 'Binary BCH codes are used to construct a subset of QBCH codes via the CSS construction.'
+    - code_id: stabilizer_over_gf4
+      detail: 'Self-orthogonal linear quaternary BCH codes are used to construct a subset of QBCH codes via the stabilizer-over-\(GF(4)\) construction.'
