@@ -7,24 +7,23 @@ code_id: quantum_bch
 physical: qubits
 logical: qubits
 
-name: 'Quantum BCH code'
-short_name: 'QBCH'
-introduced: '\cite{arXiv:quant-ph/9610042,arxiv:quant-ph/9608006,arxiv:quant-ph/9910060}'
+name: 'Qubit BCH code'
+introduced: '\cite{arXiv:quant-ph/9610042,arxiv:quant-ph/9608006,arxiv:quant-ph/9802061,arxiv:quant-ph/9910060}'
 
 description: |
-  Stabilizer code constructed from a self-orthogonal binary BCH code via the CSS construction, from a Hermitian self-orthogonal quaternary BCH code via the stabilizer-over-\(GF(4)\) construction, or by taking a Euclidean self-orthogonal BCH code over \(GF(2^m)\), converting it to a binary code, and applying the CSS construction. Other work uses Hermitian \cite{doi:10.26421/QIC13.1-2-3} or Euclidean \cite{arxiv:quant-ph/0604102} (Galois-qudit) self-orthogonal BCH codes.
+  Qubit stabilizer code constructed from a self-orthogonal binary BCH code via the CSS construction, from a Hermitian self-orthogonal quaternary BCH code via the stabilizer-over-\(GF(4)\) construction, or by taking a Euclidean self-orthogonal BCH code over \(GF(2^m)\), converting it to a binary code, and applying the CSS construction.
 
 relations:
   parents:
     - code_id: qubit_stabilizer
-      detail: 'QBCH codes constructed via the CSS construction are CSS codes, and the rest are stabilizer codes over \(GF(4)\).'
+      detail: 'qubit BCH codes constructed via the CSS construction are CSS codes, and the rest are stabilizer codes over \(GF(4)\).'
 
   cousins:
     - code_id: bch
-      detail: 'Binary BCH codes are used to construct a subset of QBCH codes via the CSS construction.'
+      detail: 'Binary BCH codes are used to construct a subset of qubit BCH codes via the CSS construction.'
     - code_id: q-ary_bch
-      detail: 'BCH codes are used to construct QBCH codes via the CSS and stabilizer-over-\(GF(4)\) constructions.'
+      detail: 'BCH codes are used to construct qubit BCH codes via the CSS and stabilizer-over-\(GF(4)\) constructions.'
     - code_id: css
-      detail: 'Binary BCH codes are used to construct a subset of QBCH codes via the CSS construction.'
+      detail: 'Some qubit BCH codes are CSS.'
     - code_id: stabilizer_over_gf4
-      detail: 'Hermitian self-orthogonal linear quaternary BCH codes are used to construct a subset of QBCH codes via the stabilizer-over-\(GF(4)\) construction.'
+      detail: 'Hermitian self-orthogonal linear quaternary BCH codes are used to construct a subset of qubit BCH codes via the stabilizer-over-\(GF(4)\) construction.'
