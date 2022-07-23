@@ -7,13 +7,18 @@ code_id: polynomial
 physical: qudits
 logical: qudits
 
-name: 'Prime-qudit polynomial code (QPyC)'
-short_name: 'Prime QPyc'
+name: 'Quantum Reed-Solomon code'
+short_name: 'Quantum RS'
 introduced: '\cite{arxiv:quant-ph/9910059}'
 # doi:10.1103/PhysRevA.77.012308?
 
 description: |
-  Also called \textit{quantum Reed-Solomon code}. An \([[n,k,n-k+1]]_p\) (with prime \(p>n\)) prime-qudit CSS code constructed using two Reed-Solomon codes over \(GF(p)=\mathbb{Z}_p\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(\mathbb{Z}_p\), and let \(g\) be a number satisfying \(0\leq k \leq g < n\). Then, define degree-\(g\) polynomials
+  Also called \textit{prime-qudit polynomial code (QPyC)}. Prime-qudit CSS code constructed using two Reed-Solomon codes.
+
+  The original construction \cite{arxiv:quant-ph/9910059} was for a qubit code (\(p=2\)) by using a basis for a larger Galois field over \(GF(2)\), yielding an \([[kN,k(N-2K),K+1]]\) qubit code from a \([N,K,\delta]_{GF(2^k)}\) RS code with \(N=2^k-1\) and \(K=N-\delta+1\).
+
+  An alternative construction \cite{preset:GottesmanBook} yields an \([[n,k,n-k+1]]_p\) (with prime \(p>n\)) prime-qudit CSS code constructed using two Reed-Solomon codes over \(GF(p)=\mathbb{Z}_p\).
+  Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(\mathbb{Z}_p\), and let \(g\) be a number satisfying \(0\leq k \leq g < n\). Then, define degree-\(g\) polynomials
   \begin{align}
     f_{\mu\cup c}\left(x\right)=\mu_{0}+\mu_{1}x+\cdots+\mu_{k-1}x^{k-1}+c_{k}x^{k}+\cdots+c_{g}x^{g}\,,
   \end{align}
