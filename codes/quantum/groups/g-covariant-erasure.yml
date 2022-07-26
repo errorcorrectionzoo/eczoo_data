@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: g_covariant_erasure
+physical: qudits
+logical: qudits
+
+name: '\(G\)-covariant erasure code'
+introduced: '\cite{arxiv:1709.04471}'
+
+description: |
+  Is a proof-of-principle construction to demonstrate the existence of 
+  \hyperref[code:g_covariant]{\(G\)-covariant codes} where \(G\) is a finite 
+  group and the physical space is finite dimensional.
+
+  Consider a finite group \(G\) acting on a finite set 
+  \(A\) as a subgroup of the symmetric group on \(|A|\) elements, \(G \subset S_{|A|}\).  
+  Let \(\mathcal{E}_0: \mathcal{H}_{\text{logical}} \rightarrow \mathcal{H}_{\text{physical}} 
+  = \mathcal{H}^{\otimes n}\) be any code, possibly non-covariant, capable of perfect 
+  recovery after an erasure of $k$ of out $n$ physical subsystems.  Now define the new 
+  encoder \(\mathcal{E} \equiv \mathcal{E}_0^{\otimes |A|}: \mathcal{H}_{\text{logical}}^{\otimes |A|} 
+  \rightarrow \mathcal{H}_{\text{physical}}^{\otimes |A|}\) on \(|A|\).  The group acts on codewords by index
+  permutation:
+  \begin{equation*}
+  U(g) | \phi_{a_1} \rangle | \phi_{a_2} \rangle \cdots | \phi_{a_{|A|}} \rangle = | \phi_{g^{-1} a_1} \rangle | \phi_{g^{-1} a_2} \rangle \cdots | \phi_{g^{-1} a_{|A|}} \rangle
+  \end{equation*}
+  where \(U(g)\) is the unitary representation of \(g \in G\) acting on the physical space.
+
+  Like all \hyperref[code:g_covariant]{\(G\)-covariant codes}, the action of \(U(g)\) is tranvsersal 
+  with respect to the partition \(\mathcal{H}_{\text{physical}}^{\otimes |A|}\).
+
+protection: |
+  \(k\) out of \(n\) modes within each of the \(|A|\) copies of \(\mathcal{H}_{\text{physical}}\).
+  Each copy may have a different set of \(k\) erased modes.
+
+relations:
+  parents:
+    - code_id: g_covariant
