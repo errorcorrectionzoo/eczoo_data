@@ -4,13 +4,13 @@
 #######################################################
 
 code_id: permutation_invariant
-physical: qubits
-logical: qubits # also qudits
 
 name: 'Permutation-invariant code'
 introduced: '\cite{arXiv:quant-ph/0304153}'
 
-description: 'Codes which are stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (non-abelian) group actions (in particular, \(S_n\) is non-abelian).'
+description: 'A code \(C\) constructed in a physical space consisting of a tensor product of \(n\) identical subsystems (e.g., qubits, modular qudits, or Galois qudits) such that any permutation of the subsystems leaves any codeword invariant.'
+
+#Such a code is said to be stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (non-abelian) group actions.'
 
 protection: 'Depends on the family. The GNU permutation-invariant family (parameterized by \(t\)) protects against arbitrary weight \(t\) qubit errors and approximately corrects spontaneous decay errors \cite{arXiv:1302.3247,doi:10.1103/PhysRevA.93.042340}. Other related codes protect against amplitude damping \cite{doi:10.1109/TIT.2019.2956142} while admitting a constant number of excitations, and against deletion errors \cite{arxiv:2102.02494,arXiv:2102.03015}.'
 
@@ -27,8 +27,5 @@ notes:
 
 relations:
   parents:
-    - code_id: qubits_into_qubits
-      detail: ''
-  cousins:
     - code_id: quantum_cyclic
       detail: 'The cyclic group of these codes is a subgroup of the \(S_n\) symmetric group used in permutation invariant codes.'
