@@ -9,23 +9,24 @@ name: 'Covariant code'
 introduced: '\cite{arxiv:1709.04471}'
 
 description: |
-  A \(G\)-covariant code is constructed in a physical space consisting of a tensor product of \(n\) subsystems (e.g., qubits, modular qudits, or Galois qudits) and admits a group \(G\) of transversal gates. Finite-\(G\) covariant codes are relevant to fault tolerance, and continuous-\(G\) covariant codes are relevant to error correction of quantum reference frames \cite{arxiv:1709.04471}.
+  A \(G\)-covariant code is constructed in a physical space consisting of a tensor product of \(n\) subsystems (e.g., qubits, modular qudits, or Galois qudits) and admits a group \(G\) of transversal gates. \(G\)-covariant codes are equivalent to codes with a transversal gate set realizing \(G\), and such a group has to finite for finite-dimensional codes due to the Eastin-Knill theorem. Continuous-\(G\) covariant codes are relevant to error correction of quantum reference frames \cite{arxiv:1709.04471}. \(U(1)\)-covariant codes for \(n=1\) are relevant to error-corrected parameter estimation.
 
   Denoting the code's encoding map as \(U\), covariance is equivalent to
   \begin{align}
     \left(\bigotimes_{j=1}^{n}V_{j}\left(g\right)\right)U=UV_{L}\left(g\right)\quad\quad\forall g\in G\,,
   \end{align}
   where \(V_j(g)\) is a unitary representation of \(g\) acting on the \(j\) subsystem, and \(V_L\) is a unitary representation acting on the unencoded logical information.
-  In this way, covariant encoding maps are equivariant (i.e., commute) with group actions on the logical and physical spaces.
+  In this way, covariant encoding maps are equivariant (i.e., commute) with group actions on the logical and physical spaces. Almost always, the physical representation is defined to be the transversal one (with respect to some tensor-product decomposition), but reduces to any other representation when the code is a subspace of a larger space that is not expressed as a tensor product (\(n=1\)).
 
 #The physical group action is the unitary tensor product representation, making physical group actions intrinsically transversal with respect to the \(n\)-subsystem decomposition.
 
 protection: |
-  Covariant codes with continuous \(G\), i.e., error-correcting codes admitting a continuious-parameter family of transversal gates, cannot exist in finite dimensions due to the Eastin-Knill theorem. As a result, there is generally a tradeoff between covariance and error correction.
+  Finite-dimensional codes correcting a single-subsystem erasure and admitting a continuous-parameter family of transversal gates (assuming \(n>1\)) cannot exist in finite
+  dimensions due to the Eastin-Knill theorem. As a result, there is generally a tradeoff between covariance and error correction.
 
-  Exact error-correcting \(G\)-covariant codes can exist in infinite dimensions but their codewords are non-normalizable, meaning that approximate constructions have to be considered that are only approximately error correcting.
+  Exact error-correcting \(G\)-covariant codes can exist in infinite dimensions, but their codewords are non-normalizable, meaning that approximate constructions have to be considered that are only approximately error correcting.
   On the other hand, there exist exact error-correcting codes in finite dimensions that are approximately covariant \cite{arxiv:2111.06360,arxiv:2111.06355}.
-  Various bounds exist quantifying the covariance-performance tradeoff \cite{arxiv:1902.07714,arxiv:1910.08472,arxiv:2003.10559,arxiv:2004.11893,arxiv:2111.06355}.
+  Various bounds quantify the covariance-performance tradeoff \cite{arxiv:1902.07714,arxiv:1910.08472,arxiv:2003.10559,arxiv:2004.11893,arxiv:2111.06360,arxiv:2111.06355}.
 
 #  The noise model is an erasure of a known subset of the physical subsystems.
 #  The ability to perfectly protect however depends on both the group and the
@@ -43,6 +44,9 @@ protection: |
 #  against erasure in case B represents the in-principle ability to circumvent
 #  the Eastin-Knill theorem.  Approximate codes for case A have been considered
 #  in \cite{arxiv:1902.07714}.'
+
+features:
+  transversal_gates: '\(G\)-covariant codes defined on a tensor product space consisting of \(n\) subsystems are equivalent to codes with a transversal gate set realizing \(G\).'
 
 relations:
   parents:
