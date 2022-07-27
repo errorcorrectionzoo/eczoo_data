@@ -8,7 +8,7 @@ physical: galois
 logical: galois
 
 name: 'Galois-qudit stabilizer code'
-introduced: '\cite{arXiv:quant-ph/0005008,arXiv:quant-ph/0508070}'
+introduced: '\cite{doi:10.1109/18.959288,arXiv:quant-ph/0508070}'
 
 description: |
   An \(((n,K,d))_{GF(q)}\) Galois-qudit code whose logical subspace is the joint eigenspace of commuting Galois-qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation in the code.
@@ -41,7 +41,7 @@ features:
   encoders:
     - 'Encoder with \(O(n^2)\) gates can be determined in classical runtime of order \(O(n^3)\) \cite{arxiv:quant-ph/0211014}.'
   general_gates:
-    - 'As opposed to modular qudits for composite \(q\), Galois qudits inherit most of the properties of the prime-qudit Clifford group due to the correspondence between a \(q=p^m\) Galois qudit and \(m\) prime qudits of dimension \(p\) \cite{arXiv:quant-ph/0005008}.'
+    - 'As opposed to modular qudits for composite \(q\), Galois qudits inherit most of the properties of the prime-qudit Clifford group due to the correspondence between a \(q=p^m\) Galois qudit and \(m\) prime qudits of dimension \(p\) \cite{doi:10.1109/18.959288}.'
 
 relations:
   parents:
@@ -53,9 +53,9 @@ relations:
     - code_id: qubit_stabilizer
       detail: 'Galois-qudit stabilizer codes reduce to qubit stabilizer codes for \(q=2\).'
     - code_id: qudit_stabilizer
-      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{arXiv:quant-ph/0005008}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits.'
+      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{doi:10.1109/18.959288}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits.'
     - code_id: q-ary_additive
       detail: 'A Galois-qudit stabilizer code is the closest quantum analogue of an additive code over \(GF(q)\) because addition in the field corresponds to multiplication of stabilizers in the quantum case.'
     - code_id: dual_additive
-      detail: 'An additive code of length \(2n\) over \(GF(q)\) that is self-orthogonal with respect to the trace-symplectic inner product corresponds to symplectic representations of an \(n\) Galois-qudit stabilizer group \cite{arXiv:quant-ph/0005008}. Moreover, any additive code whose self-orthogonality under some inner product (such as Hermitian, Euclidean, or symplectic) implies trace-symplectic self-orthogonality of an equivalent code can be used to construct a Galois-qudit stabilizer code.'
+      detail: 'An additive code of length \(2n\) over \(GF(q)\) that is self-orthogonal with respect to the trace-symplectic inner product corresponds to symplectic representations of an \(n\) Galois-qudit stabilizer group \cite{doi:10.1109/18.959288}. Moreover, any additive code whose self-orthogonality under some inner product (such as Hermitian, Euclidean, or symplectic) implies trace-symplectic self-orthogonality of an equivalent code can be used to construct a Galois-qudit stabilizer code.'
 #For example, an additive code of length \(n\) over \(GF(q^2)\) that is self-orthogonal with respect to the trace-alternating inner product corresponds to \hyperref[code:stabilizer_over_gfqsq]{stabilizer-over-\(GF(q^2)\)} representations of an \(n\) Galois-qudit stabilizer group \cite{arxiv:quant-ph/0508070}.
