@@ -15,13 +15,13 @@ description: |
 
   Letting \(\Pi = U U^\dagger\) be the codespace projector for encoding isometry \(U\) and projecting a pair of errors \(E_i,E_j\) from an error set \(\cal E\) into the two-dimensional codespace yields
   \begin{align}
-    E_{i}^{^{\dagger}}E_{j}\Pi=c_{ij}\,\Pi+x_{ij}\overline{X}+y_{ij}\overline{X}+z_{ij}\overline{X}
+    \Pi E_{i}^{^{\dagger}}E_{j}\Pi=c_{ij}\,\Pi+x_{ij}\overline{X}+y_{ij}\overline{Y}+z_{ij}\overline{Z}
   \end{align}
-  with error coefficients
+  with error rate \(c_{ij}\) and logical-error coefficients
   \begin{align}
     \left\{ x,y,z\right\} _{ij}={\textstyle \frac{1}{2}}\text{Tr}\left(\left\{ \overline{X},\overline{Y},\overline{Z}\right\} E_{i}^{^{\dagger}}E_{j}\right)~.
   \end{align}
-  If all three error coefficients are zero, then the \term{Knill-Laflamme conditions} are satisfied, and the code is a \hyperref[code:qecc]{QECC}. If only two of the three coefficients are zero, then the code is the more general metrological code.
+  If all three error coefficients are zero, then the \term{Knill-Laflamme conditions} are satisfied, and the code is a \hyperref[code:qecc]{QECC}. If only one of the three coefficients is zero, then the code is the more general metrological code.
 
 protection: |
   Physical noise can cause logical errors along one of the three axes, i.e., either logical-\(X\), \(Y\), or \(Z\), depending on what basis is used. Codes protect against logical errors along the remaining two axes.
@@ -37,5 +37,5 @@ relations:
     - code_id: metopt
       detail: 'Error-corrected sensing codes are required to satisfy the \term{Knill-Laflamme conditions}, while metrological codes need only satisfy the conditions partially. The satisfied part of the conditions ensures that both codes are useful for local parameter estimation.'
     - code_id: covariant
-    - code_id: stabilizer
-      detail: 'A joint \(+1\) and \(-1\) eigenstate of a set of stabilizer forms a metrological stabilizer code \cite{arxiv:2207.13707}.'
+    - code_id: qubit_stabilizer
+      detail: 'A joint \(+1\) and \(-1\) eigenstate of a set of stabilizer can form a metrological stabilizer code \cite{arxiv:2207.13707}.'
