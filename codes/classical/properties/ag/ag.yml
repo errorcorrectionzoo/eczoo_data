@@ -10,15 +10,19 @@ short_name: 'AG'
 introduced: '\cite{manual:{V. D. Goppa, “Codes Associated with Divisors”, Probl. Peredachi Inf., 13:1 (1977), 33–39; Problems Inform. Transmission, 13:1 (1977), 22–27},manual:{V. D. Goppa, “Codes on algebraic curves”, Dokl. Akad. Nauk SSSR, 259:6 (1981), 1289–1290},manual:{V. D. Goppa, “Algebraico-geometric codes”, Izv. Akad. Nauk SSSR Ser. Mat., 46:4 (1982), 762–781; Izv. Math., 21:1 (1983), 75–91}}'
 
 description: |
-  Also called a \textit{geometric Goppa code}. Linear binary or \(q\)-ary code constructed from an algebraic curve of some genus over a finite field.
+  Binary or \(q\)-ary code constructed from an algebraic curve of some genus over a finite field via the evaluation construction, the residue construction, or more general constructions that yield nonlinear codes. Linear AG codes from the first two constructions are also called \textit{geometric Goppa codes}.
+#HKS mention nonlinear refs
 
 features:
-  rate: 'A class of AG codes with non-constant genera exceed the asymptotic Gilbert-Varshamov (GV) bound \cite{doi:10.1002/mana.19821090103} (see also Ref. \cite{manual:{Y. Ihara. "Some remarks on the number of rational points of algebraic curves over finite fields." J. Fac. Sci. Univ. Tokyo Sect. IA Math., 28:721-724 (1982),1981.}}). The rate of such codes satisfies
+  rate: 'A class of AG codes with non-constant genera exceed the asymptotic Gilbert-Varshamov (GV) bound \cite{doi:10.1002/mana.19821090103} (see also Ref. \cite{manual:{Y. Ihara. "Some remarks on the number of rational points of algebraic curves over finite fields." J. Fac. Sci. Univ. Tokyo Sect. IA Math., 28:721-724 (1982),1981.}}). Roughly speaking, this breakthrough result implies that AG codes can outperform random codes. Such families of codes are optimal. Generally, the rate of AG codes satisfies
   \begin{align}
-    \frac{k}{n} \geq 1 - \frac{d}{n} - \frac{1}{\sqrt{q}-1}~.
+    \frac{k}{n} \geq 1 - \frac{d}{n} - \frac{1}{\sqrt{q}-1}~,
   \end{align}
-  Roughly speaking, this breakthrough result implies that AG codes can outperform random codes. Such families of codes are optimal \cite{manual:{S. G. Vlăduţ, V. G. Drinfeld, “Number of points of an algebraic curve”, Funktsional. Anal. i Prilozhen., 17:1 (1983), 68–69; Funct. Anal. Appl., 17:1 (1983), 53–54}}.'
+  which comes from the Drinfeld-Vladut bound \cite{manual:{S. G. Vlăduţ, V. G. Drinfeld, “Number of points of an algebraic curve”, Funktsional. Anal. i Prilozhen., 17:1 (1983), 68–69; Funct. Anal. Appl., 17:1 (1983), 53–54}}. There exist several sequences of algebraic curves that attain this bound and yield asymptotically good codes \cite{doi:10.1007/BF01884295,doi:10.1006/jnth.1996.0147} (see Ref. \cite{preset:HPAlgCodes} for details).'
+
+notes:
+  - 'See book by Goppa \cite{doi:10.1007/978-94-015-6870-8}.'
 
 relations:
   parents:
-    - code_id: linear
+    - code_id: ecc

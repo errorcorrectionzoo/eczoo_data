@@ -8,10 +8,17 @@ code_id: evaluation
 name: 'Evaluation AG code'
 
 description: |
-  Stub. 
+  Evaluation code on a set of points \({\cal P} = \left( P_1,P_2,\cdots,P_n \right)\) lying on an algebraic curve \(\cal X\) whose corresponding vector space of functions \(f\) is a Riemann-Roch space \(L\) (\cite{doi:10.1201/9781315147901}, pg. 313), i.e., a vector space of rational functions with certain behavior of the functions' zeroes and poles. Being an evaluation code, its codewords are evaluations of all functions at the specified points,
+  \begin{align}
+    \left( f(P_1), f(P_2), \cdots, f(P_n) \right) \quad\quad\forall f\in L~.
+  \end{align}
+
+protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) (\cite{doi:10.1201/9781315147901}, Thm. 15.3.12). The order or Feng-Rao bound, a generalization of the shift bound for cyclic codes, gives a lower bound on the distance of evaluation AG codes \cite{doi:10.1109/18.179340,doi:10.1515/9783110811056.155,doi:10.1016/j.ffa.2006.09.006}.'
 
 relations:
   parents:
     - code_id: ag
+    - code_id: evaluation_varieties
+      detail: 'Evaluation AG codes are evaluation codes for which \(\cal X\) is an algebraic curve, i.e., an algebraic variety of dimension one \cite{preset:HPAlgCodes}.'
     - code_id: projective
       detail: 'An AG-code generator matrix has columns that form a subset of points on a curve in projective space.'
