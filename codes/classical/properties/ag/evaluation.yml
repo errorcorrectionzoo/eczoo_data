@@ -8,10 +8,17 @@ code_id: evaluation
 name: 'Evaluation AG code'
 
 description: |
-  Stub. 
+  Evaluation code on a set of points \(\cal P = \left( P_1,P_2,\cdots,P_n \right)\) lying on an algebraic curve \(\cal X\) whose corresponding vector space \(L\) of functions is a Riemann-Roch space, i.e., a vector space of rational functions with certain behavior of the functions''s zeroes and poles. Codewords are
+  \begin{align}
+    \left( f(P_1), f(P_2), \cdots, f(P_n) \right) \quad\quad\forall f\in L~.
+  \end{align}
+
+protection: 'A generalization of the shift bound \cite{doi:10.1515/9783110811056.155} gives a lower bound on the distance of evaluation AG codes.'
 
 relations:
   parents:
     - code_id: ag
+    - code_id: evaluation
+      detail: 'Evaluation AG codes are evaluation codes for which \(\cal X\) is an algebraic curve, i.e., an algebraic variety of dimension one \cite{preset:HPAlgCodes}.'
     - code_id: projective
       detail: 'An AG-code generator matrix has columns that form a subset of points on a curve in projective space.'
