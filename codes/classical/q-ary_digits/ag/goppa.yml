@@ -10,7 +10,10 @@ logical: q-ary_digits
 name: 'Classical Goppa code'
 introduced: '\cite{manual:{V. D. Goppa, "A new class of linear error-correcting codes", Probl. Peredach. Inform., vol. 6, no. 3, pp. 24-30, Sept. 1970.},manual:{V. D. Goppa, "Rational representation of codes and (Lg) codes", Probl. Peredach. Inform., vol. 7, no. 3, pp. 41-49, Sept. 1971.},doi:10.1109/TIT.1973.1055088}'
 
-description: 'Let \( G(x) \)  be a polynomial describing a projective plane curve with coefficients from \( GF(q^m) \) for some fixed integer \(m\). Let \( L \) be a finite subset of the extension field \( GF(q^m) \)  where \(q\) is prime, meaning \( L  = \{\alpha_1, \cdots, \alpha_n\} \) is a subset of nonzero elements of \( GF(q^m) \). A Goppa code \( \Gamma(L,G) \) is an \([n,k,d]_q\) linear code consisting of all vectors \(a = a_1, \cdots, a_n\) such that \( R_a(x) =0 \) modulo \(G(x)\), where \( R_a(x) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).'
+description: |
+  Let \( G(x) \)  be a polynomial describing a projective plane curve with coefficients from \( GF(q^m) \) for some fixed integer \(m\). Let \( L \) be a finite subset of the extension field \( GF(q^m) \)  where \(q\) is prime, meaning \( L  = \{\alpha_1, \cdots, \alpha_n\} \) is a subset of nonzero elements of \( GF(q^m) \). A Goppa code \( \Gamma(L,G) \) is an \([n,k,d]_q\) linear code consisting of all vectors \(a = a_1, \cdots, a_n\) such that \( R_a(x) =0 \) modulo \(G(x)\), where \( R_a(x) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).
+
+  Goppa codes are residue AG codes (\cite{doi:10.1201/9781315147901}, Thm. 15.3.28). Their duals are evaluation codes that are sometimes called \textit{geometric Reed Solomon codes} (\cite{preset:HPAlgCodes}, Thm. 2.71).
 
 protection: 'The length \( n = |L| \) , dimension \( k \geq n-mr \) where \( r = \text{deg} G(x) \), and the minimum distance \( d \geq r +1 \).'
 
@@ -30,8 +33,8 @@ relations:
   parents:
     - code_id: generalized_reed_solomon
       detail: 'Goppa codes are \(GF(q)\)-subfield subcode of the dual of the GRS code over \(GF(q^m)\) with evaluation points \(\alpha_i\) and factors \(v_i=G(\alpha_i)^{-1}\) (\cite{doi:10.1017/CBO9780511807077}, pg. 523; \cite{preset:HPAlgCodes}).' #alternant
-    - code_id: residue
-      detail: 'Goppa codes are residue AG codes (\cite{doi:10.1201/9781315147901}, Thm. 15.3.28) Their duals are evaluation codes that are sometimes called \textit{geometric Reed Solomon codes} (\cite{preset:HPAlgCodes}, Thm. 2.71).'
+    - code_id: cartier
+      detail: 'Goppa codes are Cartier codes from a curve of genus zero \cite{arxiv:1206.4728}.'
 
 #  cousins:
 #    - code_id: q-ary_bch

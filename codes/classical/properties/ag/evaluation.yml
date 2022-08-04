@@ -13,7 +13,15 @@ description: |
     \left( f(P_1), f(P_2), \cdots, f(P_n) \right) \quad\quad\forall f\in L~.
   \end{align}
 
-protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) (\cite{doi:10.1201/9781315147901}, Thm. 15.3.12). The order or Feng-Rao bound, a generalization of the shift bound for cyclic codes, gives a lower bound on the distance of evaluation AG codes \cite{doi:10.1109/18.179340,doi:10.1515/9783110811056.155,doi:10.1016/j.ffa.2006.09.006}.'
+protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) (\cite{doi:10.1201/9781315147901}, Thm. 15.3.12). The order or Feng-Rao bound, a generalization of the shift bound for cyclic codes, gives a lower bound on the distance of evaluation AG codes \cite{doi:10.1109/18.179340,doi:10.1515/9783110811056.155,doi:10.1016/j.ffa.2006.09.006}. Connection to semigroups yields another bound \cite{doi:10.1109/18.333893,preset:HPAlgCodes}.'
+
+features:
+  decoders:
+    - 'Generalization of plane-curve decoder \cite{doi:10.1109/18.476214,manual:{V. Yu. Krachkovskii, "Decoding of codes on algebraic curves," (in Russian), Conference Odessa, 1988.}}. Another decoder \cite{doi:10.1109/18.165441} was later showed to be equivalent in Ref. \cite{doi:10.1007/BFb0087989}. Application of several algorthims in parallel can be used to decode up to half the minimum distance \cite{doi:10.1109/18.45279,doi:10.1109/18.59945}. Computational procedure implementing these decoders is based on an extension of the Berlekamp-Massey algorithm by Sakata \cite{doi:10.1016/S0747-7171(88)80033-6,doi:10.1016/0890-5401(90)90039-K,doi:10.1109/18.86974}.'
+    - 'Decoder based on majority voting of unknown syndromes \cite{doi:10.1109/18.179340} decodes up to half of the minimum distance \cite{doi:10.1109/18.256485}.'
+
+notes:
+  - 'See Refs. \cite{preset:HPAlgCodes,doi:10.1109/18.476214} for surveys and descriptions of decoders.'
 
 relations:
   parents:
