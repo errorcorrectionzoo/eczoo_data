@@ -30,17 +30,17 @@ description: |
 
 protection: 'The Steane code is a distance 3 code. It detects errors on 2 qubits, corrects errors on 1 qubit.'
 
-features:
-  encoders:
-    - 'Nine CNOT and four Hadamard gates (\cite{doi:10.1201/9781420012293}, Fig. 10.14).'
-
 realizations:
   - 'Trapped-ion qubits: seven-qubit device in Blatt group \cite{arXiv:1403.5426}, ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} (see APS Physics Synopsys \cite{doi:10.1103/Physics.14.184}). Fault-tolerant universal two-qubit gate set by Monz group \cite{arxiv:2111.12654}. Logical CNOT gate between two logical qubits, including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.'
   - 'Rydberg atom arrays: Lukin group \cite{arXiv:2112.03923}.'
 
 features:
+  encoders:
+    - 'Nine CNOT and four Hadamard gates (\cite{doi:10.1201/9781420012293}, Fig. 10.14).'
+
   general_gates:
     - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
+
   fault_tolerance:
     - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
     - 'Syndrome measurement can be done with ancillary flag qubits \cite{arXiv:1612.04795,arXiv:1705.02329} or with no extra qubits \cite{doi:10.1088/2058-9565/abc6f4}.'
