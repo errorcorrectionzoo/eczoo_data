@@ -4,10 +4,13 @@
 #######################################################
 
 code_id: projective
+physical: q-ary_digits
+logical: q-ary_digits
+
 name: 'Projective code'
 
 description: |
-  Linear binary or \(q\)-ary \([n,k,d]\) code such that columns of its generator matrix \(G\) does not contain any repeated columns or the zero column. That way, each column corresponds to a distinct point in the projective space \(PG(k-1,q)\) arising from a \(k\)-dimensional vector space over \(GF(q)\). If the columns are linearly independent, then the codewords are collectively called an \textit{information set}. Columns of a code's parity-check matrix can similarly correspond to points in projective space.
+  Linear \(q\)-ary \([n,k,d]\) code such that columns of its generator matrix \(G\) does not contain any repeated columns or the zero column. That way, each column corresponds to a distinct point in the projective space \(PG(k-1,q)\) arising from a \(k\)-dimensional vector space over \(GF(q)\). If the columns are linearly independent, then the codewords are collectively called an \textit{information set}. Columns of a code's parity-check matrix can similarly correspond to points in projective space.
 
   Recall that a linear code encodes a message \(h\) into a codeword \(c = hG\). The \(i\)th coordinate of a codeword is given the dot product \(h \cdot G_{i}\) with \(G_{i}\) being the \(i\)th column of the generator matrix. The zero-coordinate condition \(h \cdot x = 0\) defines a hyperplane of points \(x\) with normal vector \(h\). Therefore, the Hamming weight of the corresponding codeword is the number of points \(G_i\) \textit{not} contained in said hyperplane.
 
@@ -22,8 +25,8 @@ notes:
 
 relations:
   parents:
-    - code_id: linear
-      detail: 'Columns of the generator matrix of a projective linear \([n,k]\) binary or \(q\)-ary code correspond to distinct nonzero points in projective space. In general, linear codes admit repeating columns or columns proportional to each other. In that case, the columns correspond to a multiset of non-distinct nonzero points, and multisets are in one-to-one correspondence to arcs in projective space (\cite{doi:10.1007/978-1-4613-0283-4_14}, Thm. 1.1). '
+    - code_id: q-ary_linear
+      detail: 'Columns of the generator matrix of a projective linear \([n,k]_q\) code correspond to distinct nonzero points in projective space. In general, linear codes admit repeating columns or columns proportional to each other. In that case, the columns correspond to a multiset of non-distinct nonzero points, and multisets are in one-to-one correspondence to arcs in projective space (\cite{doi:10.1007/978-1-4613-0283-4_14}, Thm. 1.1). '
   cousins:
     - code_id: evaluation_varieties
       detail: 'Codewords of an evaluation code of polynomials up to degree one evaluated at points in projective space yields a projective code.'
