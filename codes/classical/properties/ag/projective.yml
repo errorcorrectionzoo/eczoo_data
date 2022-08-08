@@ -12,11 +12,19 @@ description: |
 
   Recall that a linear code encodes a message \(h\) into a codeword \(c = hG\). The \(i\)th coordinate of a codeword is given the dot product \(h \cdot G_{i}\) with \(G_{i}\) being the \(i\)th column of the generator matrix. The zero-coordinate condition \(h \cdot x = 0\) defines a hyperplane of points \(x\) with normal vector \(h\). Therefore, the Hamming weight of the corresponding codeword is the number of points \(G_i\) \textit{not} contained in said hyperplane.
 
+protection: 'Distance \(d\) is \(n\) minus the maximum number of points that are contained in a hyperplane.'
+#https://www.birs.ca/workshops/2018/18frg220/report18frg220.pdf
+
 notes:
   - 'See corresponding definition in \href{http://mint.sbg.ac.at/glossary.php#GProjectiveCode}{MinT}.'
 
 relations:
   parents:
     - code_id: linear
-      detail: 'Columns of the generator matrix of a projective linear code correspond to distinct points in projective space. In general, linear codes may admit (a multiset of ) non-distinct points.'
+      detail: 'Columns of the generator matrix of a projective linear \([n,k]\) binary or \(q\)-ary code correspond to distinct nonzero points in projective space. In general, linear codes admit repeating columns or columns proportional to each other. In that case, the columns correspond to a multiset of non-distinct nonzero points, and multisets are in one-to-one correspondence to arcs in projective space (\cite{doi:10.1201/9781315147901}, Thm. 14.2.1; \cite{doi:10.1007/978-1-4613-0283-4_13}, Thm. 1.1).'
     # May be related to AG; check algebraic geometric codes: basic notions
+
+#    - code_id: mds
+#      detail: 'An \(n\)-arc in the projective space \(PG_{n-k-1}(q)\) defines an MDS code \cite{doi:10.1007/978-1-4613-0283-4_13}.'
+#    - code_id: weight-two
+#      detail: 'There is a correpondence between projective and weight-two codes \cite{doi:10.1112/blms/18.2.97,doi:10.1023/A:1008294128110,doi:10.1016/j.ffa.2017.12.010}.'

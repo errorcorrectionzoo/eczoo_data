@@ -6,7 +6,7 @@
 code_id: mds
 #physical: q-ary_digits
 #logical: q-ary_digits
-# Property code since, despite being trivial, binary MDS codes still exist 
+# Property code since, despite being trivial, binary MDS codes still exist
 
 name: 'Maximum distance separable (MDS) code'
 short_name: 'MDS'
@@ -22,7 +22,6 @@ description: |
 protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
 
 notes:
-  - 'The dual of an MDS codes is always MDS.'
   - 'The codes \( [n,1,n]_q, [n,n-1,2]_q, [n,n,1]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes.'
   - 'The only binary MDS codes are the trivial ones.'
 
@@ -32,7 +31,8 @@ realizations:
 
 relations:
   parents:
-    - code_id: projective
-      detail: 'An \(n\)-arc in the projective space \(PG_{n-k-1}(q)\) defines an MDS code \cite{doi:10.1007/978-1-4613-0283-4_13}.'
     - code_id: locally_recoverable
       detail: 'MDS codes are most efficient in terms of minimizing storage overhead for handling erasures. They are locally recoverable with locality \(k\).'
+  cousins:
+    - code_id: dual
+      detail: 'A linear binary or \(q\)-ary \([n,k,n-k+1]\) code is MDS if and only if its dual \([n,n-k,k+1]\) is MDS (\cite{doi:10.1201/9781315147901},Thm. 1.9.13).'
