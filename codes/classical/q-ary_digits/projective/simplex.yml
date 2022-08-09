@@ -10,7 +10,7 @@ logical: q-ary_digits
 name: 'Simplex code'
 
 description: |
-  Also known as a \textit{maximum length feedback shift register code}. An \([n,k,q^{k-1}]_q\) projective code with \(n=\frac{q^k-1}{q-1}\), denoted as \(S(q,k)\). The columns of the generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(k-1,q)\), with each column being a chosen representative of the corresponding element. All of the non-zero codewords have a constant weight \(q^{k-1}\). Its dual code is the \([n,n-k,3]_q\) \(q\)-ary Hamming code. The name of the code comes from the property that, for \(q=2\), the codewords form a \((2^k-1)\)-simplex of constant edge length if the codewords are interpreted as points in \(\mathbb{R}^n\).
+  Also known as a \textit{maximum length feedback shift register code}. An \([n,k,q^{k-1}]_q\) projective code with \(n=\frac{q^k-1}{q-1}\), denoted as \(S(q,k)\). The columns of the generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(k-1,q)\), with each column being a chosen representative of the corresponding element. Its dual code is the \([n,n-k,3]_q\) \(q\)-ary Hamming code. The name of the code comes from the property that, for \(q=2\), the codewords form a \((2^k-1)\)-simplex of constant edge length if the codewords are interpreted as points in \(\mathbb{R}^n\).
 
 features:
   decoders:
@@ -24,8 +24,11 @@ notes:
 relations:
   parents:
     - code_id: projective
+      detail: 'Columns of the simplex code''s generator matrix are in one-to-one correspondence with elements of a projective space.'
     - code_id: griesmer
       detail: 'Simplex codes saturate the Griesmer bound (\cite{doi:10.1201/9781315371993}, Exer. 5.1.11).'
+    - code_id: constant_weight
+      detail: 'All non-zero simplex codewords have a constant weight of \(q^{k-1}\).'
   cousins:
     - code_id: extended_reed_solomon
       detail: '\(S(2,k)\) is an extended RS code \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Simplex Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CSimplex.html}}.'
