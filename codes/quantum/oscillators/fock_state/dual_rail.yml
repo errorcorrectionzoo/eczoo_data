@@ -1,13 +1,16 @@
-code_id: dual_rail
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
 
+code_id: dual_rail
 physical: qubits
 logical: qubits
 
-name: 'Dual-rail code'
+name: 'Dual-rail quantum code'
 introduced: \cite{doi:10.1103/PhysRevA.52.3489}
 
-description: 'Two-mode code encoding a logical qubit in Fock states with one excitation. The logical-zero state is represented by \(|01\rangle\),
-while the logical-one state is represented by \(|10\rangle\).'
+description: 'Two-mode code encoding a logical qubit in Fock states with one excitation. The logical-zero state is represented by \(|01\rangle\), while the logical-one state is represented by \(|10\rangle\).'
 
 protection: |
   This is an error-detecting code against one photon loss event; it is often used in photonic quantum devices because of its ease of realization. A single loss event can be detected because, after the loss occurs, the output state \(|00\rangle\) is orthogonal to the codespace. Recovery is not possible, so a successful run of a quantum circuit is conditioned on not losing a photon during the circuit.
@@ -17,15 +20,21 @@ protection: |
 
 features:
   general_gates:
-    - 'General gates are performed using beamsplitters and Kerr non-linearities.
-    Universal quantum computing can be achieved with photons in dual-rail encodings using the
-    KLM protocol \cite{doi:10.1038/35051009} with only linear optical elements and photon detectors.'
+    - 'General gates are performed using beamsplitters and Kerr non-linearities. Universal quantum computing can be achieved with photons in dual-rail encodings using the KLM protocol \cite{doi:10.1038/35051009} with only linear optical elements and photon detectors.'
 
 notes:
-  - 'For Deutsch''s problem \cite{doi:10.1098/rspa.1992.0167} with optical qubits, error correction using photon number detection
-  reduces the error probability from \(\frac{1}{4} (1+e^{-\gamma}-2e^{-3\gamma/2}) \)   to \(\frac{1}{2} (1- \text{sech} \gamma/2)\).'
+  - 'For Deutsch''s problem \cite{doi:10.1098/rspa.1992.0167} with optical qubits, error correction using photon number detection reduces the error probability from \(\frac{1}{4} (1+e^{-\gamma}-2e^{-3\gamma/2}) \)   to \(\frac{1}{2} (1- \text{sech} \gamma/2)\).'
 
 relations:
   parents:
     - code_id: constant_excitation_permutation_invariant
       detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Dhruv Devulapalli'
+      githubusername: dhruvdevu
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

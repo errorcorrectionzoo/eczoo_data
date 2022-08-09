@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_cyclic
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Cyclic linear \(q\)-ary code'
+#introduced: ''
+
+description: |
+  A \(q\)-ary code of length \(n\) is cyclic if, for each codeword \(c_1 c_2 \cdots c_n\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\) is also a codeword. A cyclic code is called \textit{primitive} when \(n=q^r-1\) for some \(r\geq 2\). A \textit{shortened cyclic code} is obtained from a cyclic code by taking only codewords with the first \(j\) zero entries, and deleting those zeroes.
+
+#Since \(g(x)\) is a polynomial over \(GF(q)\), it can be factorized over some potentially larger \textit{splitting field} (just like \(x^2+1\) can be factorized over the complex numbers but not the reals).
+
+protection: 'Shift bound \cite{doi:10.1109/TIT.1986.1057134} gives a lower bound on the distance of cyclic \(q\)-ary codes.'
+
+features:
+
+  decoders:
+    - 'Meggitt decoder \cite{doi:10.1109/TIT.1961.1057659}.'
+
+notes:
+  - 'See Ch. 7 of Ref. \cite{preset:MacSlo} for an exposition on cyclic codes.'
+
+relations:
+  parents:
+    - code_id: cyclic
+    - code_id: q-ary_linear
+    - code_id: group
+      detail: 'A length-\(n\) cyclic \(q\)-ary linear code is an abelian group code for the cyclic group with \(n\) elements \( \mathbb{Z}_n \).'
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

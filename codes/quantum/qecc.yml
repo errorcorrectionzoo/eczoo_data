@@ -11,16 +11,29 @@ name: 'Quantum error-correcting code (QECC)'
 short_name: 'QECC'
 
 # Following Gottesman's book, but removed finite dims
-description: 'Encodes quantum information in a (\textit{logical}) subspace of a (\textit{physical}) Hilbert space such that it is possible to recover said information from errors that act as linear maps on the physical space. The logical subspace is spanned by a basis comprised of \textit{code basis states} or \textit{codewords}. Codewords may not be normalizable if the physical Hilbert space in infinite, so approximate versions have to be constructed in practice.'
+description: |
+  Encodes quantum information in a (\textit{logical}) subspace of a
+  (\textit{physical}) Hilbert space such that it is possible to recover said
+  information from errors that act as linear maps on the physical space. The
+  logical subspace is spanned by a basis comprised of \textit{code basis states}
+  or \textit{codewords}. Codewords may not be normalizable if the physical
+  Hilbert space in infinite, so approximate versions have to be constructed in
+  practice.
 
 protection: |
-  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with a set of correctable errors \(\cal{E}\) with the following property: there exists a quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\),
+  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a quantum code
+  \((U,\cal{E})\) is a partial isometry
+  \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with a set of
+  correctable errors \(\cal{E}\) with the following property: there exists a
+  quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states
+  \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\),
   \begin{align}
-  {\cal D} (EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|
+    {\cal D} (EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})
+    = c(E,|\psi\rangle)|\psi\rangle\langle\psi|
   \end{align}
   for some constant \(c\).
 
-  Equivalently, correction capability is determined by of the \textit{quantum error-correction conditions} \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}, which may admit infinite terms due to non-normalizability of ideal code states. A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate code}.
+  Equivalently, correction capability is determined by the \term{Knill-Laflamme conditions}, which may admit infinite terms due to non-normalizability of ideal code states in the case of codes with infinite-dimenional physical spaces. A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate code}. These conditions can also be formulated in terms of a dual Heisenberg picture, where correctability is checked for some algebra of observables \cite{arxiv:0811.0421}.
 # Include other often used defs
 
 #notes:
@@ -31,8 +44,19 @@ relations:
   parents:
     - code_id: oaecc
       detail: ''
+    - code_id: metrological
+      detail: 'Metrological codes satisfy the \term{Knill-Laflamme conditions} conditions only partially, and codes that satisfy them fully are QECCs.'
 # Add all children
 
 #  cousins:
 #    - code_id: ecc
 #      detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Philippe Faist'
+      githubusername: phfaist

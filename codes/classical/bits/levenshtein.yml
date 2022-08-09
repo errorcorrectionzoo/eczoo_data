@@ -17,9 +17,18 @@ description: |
 
   Next, apply the following way of combining codes. Suppose we have an \((n_1,M_1,d_1)\) code \(C_1\) and an \((n_2,M_2,d_2)\) code \(C_2\). The combined \((an_1+bn_2,\min(M_1,M_2),ad_1+bd_2)\) code \(a C_1\bigoplus b C_2\) may be constructed by pasting \(a\) copies of \(C_1\) and \(b\) copies of \(C_2\) together and omitting the last \(|M_1-M_2|\) rows. Applying this to construct a Levenshtein code with length \(n\) and distance \(d\), define \(k=\lfloor d/(2d-n)\rfloor\), \(a=d(2k+1)-n(k+1)\), and \(b=kn-d(2k-1)\). If \(n\) is even, construct \(\frac{a}{2}A_{4k}'\bigoplus\frac{b}{2}A_{4k+4}'\). If \(n\) is odd and \(k\) is even, construct \(aA_{2k}\bigoplus\frac{b}{2}A_{4k+4}'\). If \(n\) is odd and \(k\) is odd, construct \(\frac{a}{2}A_{4k}'\bigoplus b A_{2k+2}\).
 
-protection: Levenshtein codes meet the Plotkin bound \(K\leq 2\left\lfloor\frac{d}{2d-n}\right\rfloor\), where \(K\) is the number of codewords, \(d\) is the distance, and \(n\) is the length, and with the assumption that the Hadamard matrices for such parameters exist. The general proof depends on the correctness of Hadamard''s conjecture \cite{manual:{F. J. MacWilliams and N. J. A. Sloane. \emph{The theory of error correcting codes}. Elsevier, 1977}}.
+protection: Levenshtein codes meet the Plotkin bound \(K\leq 2\left\lfloor\frac{d}{2d-n}\right\rfloor\), where \(K\) is the number of codewords, \(d\) is the distance, and \(n\) is the length, and with the assumption that the Hadamard matrices for such parameters exist. The general proof depends on the correctness of Hadamard's conjecture \cite{preset:MacSlo}.
 
 relations:
   parents:
     - code_id: bits_into_bits
       detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Richard Barney'
+      githubusername: rbarney4
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

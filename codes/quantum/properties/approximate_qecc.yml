@@ -4,13 +4,29 @@
 #######################################################
 
 code_id: approximate_qecc
-#physical: bits
-#logical: qubits
 
-name: 'Approximate quantum code'
+name: 'Approximate quantum error-correcting code (AQECC)'
+short_name: 'AQECC'
 introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0307138,arXiv:quant-ph/0503139,arXiv:0907.4207,arXiv:0907.5391}'
 
 description: 'Stub.'
+
+features:
+  encoders:
+    - 'Given a decoder, an encoding that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
+  decoders:
+    - 'Given an encoding, a decoder that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
+    - 'The \textit{Petz recovery map} (a.k.a. the \textit{transpose map}) \cite{doi:10.1007/BF01212345,doi:10.1093/qmath/39.1.97}, a quantum channel determined by the codespace and noise channel, recovers information perfectly for strictly correctable noise and yields an infidelity of recovery that is at most twice away from the infidelity of the best possible recovery \cite{arXiv:quant-ph/0004088}. The infidelity of a modified Petz recovery map can be bounded using relative entropies between uncorrupted and corrupted code states on countably infinite Hilbert spaces \cite{arxiv:1509.07127}.'
+
+
+notes:
+  - |
+    There exist approximate versions of the \term{Knill-Laflamme conditions} that
+    can be used to determine the degree to which a code is an approximate
+    error-correcting code~\cite{arXiv:0907.5391}.  Various sufficient criteria
+    have also been derived; see for instance
+    refs.~\cite{arXiv:quant-ph/9704002,arXiv:quant-ph/0503139,
+    arXiv:1710.04631,arXiv:1902.07714}.
 
 relations:
   parents:
@@ -21,3 +37,13 @@ relations:
 #  cousins:
 #    - code_id: ecc
 #      detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Manasi Shingane'
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Philippe Faist'
+      githubusername: phfaist

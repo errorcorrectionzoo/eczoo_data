@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_duadic
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary duadic code'
+introduced: '\cite{doi:10.1016/0097-3165(86)90066-X,doi:10.1007/978-3-7091-2786-5_1,doi:10.7907/CZA5-PX53,doi:10.1109/TIT.1987.1057300}'
+
+description: |
+  Member of a pair of cyclic linear binary codes that satisfy certain relations, depending on whether the pair is \textit{even-like} or \textit{odd-like} duadic. Duadic codes exist only when \(q\) is a square modulo \(n\) \cite{doi:10.1007/978-3-7091-2786-5_1}.
+
+  Duadic codes come in two pairs, an even-like duadic pair and an odd-like duadic pair. All codewords in the respective pairs are \textit{even-like}, i.e., \(\sum_i c_i = 0\), or \textit{odd-like}, i.e., \(\sum_i c_i \neq 0\). A code with all even-like (odd-like) codewords is called even-like (odd-like).
+
+  Duadic code pairs can be defined in terms of their idempotent generators (see \term{Cyclic-to-polynomial correspondence}).
+  A pair of even-like codes \(C_1\) and \(C_2\) with respective idempotents \(e_1\) and \(e_2\) is an \textit{even-like duadic pair} if (1) \(e_1(x)+e_2(x)=1-\frac{1}{n}(1+x+x^2+\cdots+x^{n-1})\) and (2) there exists a multiplier \(\mu\) such that \(C_1 \mu=C_2\) and \(C_2 \mu=C_1\).
+
+  There is an odd-like duadic pair \(\{D_1,D_2\}\) associated with the even-like pair \(\{C_1, C_2\}\), where \(1-e_2(x)\) generates \(D_1\) and \(1-e_1(x)\) generates \(D_2\). The even-pair codes are \([n,\frac{n-1}{2}]_q\) codes while the odd-pair codes are \([n,\frac{n+1}{2}]_q\) codes.
+
+notes:
+  - 'Reviews of duadic codes \cite{doi:10.1007/978-3-7091-2786-5_1,doi:10.1017/CBO9780511807077}.'
+
+relations:
+  parents:
+    - code_id: q-ary_cyclic
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

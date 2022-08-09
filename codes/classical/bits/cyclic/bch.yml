@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bch
+physical: bits
+logical: bits
+
+name: 'Binary BCH code'
+introduced: '\cite{doi:10.1016/s0019-9958(60)90287-4,doi:10.1016/S0019-9958(60)90870-6,manual:{A. Hocquenghem, Codes correcteurs d''Erreurs, Chiffres (Paris), vol.2, pp.147-156, 1959.}}'
+
+description: |
+  Cyclic binary code of odd length \(n\) whose zeroes are consecutive powers of a primitive \(n\)th root of unity \(\alpha\) (see \term{Cyclic-to-polynomial correspondence}). More precisely, the generator polynomial of a BCH code of \textit{designed distance} \(\delta\geq 1\) is the lowest-degree monic polynomial with zeroes \(\{\alpha^b,\alpha^{b+1},\cdots,\alpha^{b+\delta-2}\}\) for some \(b\geq 0\). BCH codes are called \textit{narrow-sense} when \(b=1\), and are called \textit{primitive} when \(n=2^r-1\) for some \(r\geq 2\).
+
+  The code dimension is related to the \textit{multiplicative order} of \(2\) modulo \(n\), i.e., the smallest integer \(m\) such that \(n\) divides \(2^m-1\). The dimension of a BCH code with \(\delta=2t+1\) is at least \(n-mt\). The field \(GF(2^m)\) is the smallest field containing the above root of unity \(\alpha\), and is the splitting field of the polynomial \(x^n-1\) (see \term{Cyclic-to-polynomial correspondence}).
+
+protection: |
+  By the BCH bound, BCH code with designed distance \(\delta\) has true distance \(d\geq\delta\). BCH codes with different designed distances may coincide, and the largest possible designed distance for a given code is the \textit{Bose distance}; the true distance may still be larger than that.
+
+features:
+  decoders:
+    - 'Peterson decoder with runtime of order \(O(n^3)\) \cite{doi:10.1109/TIT.1960.1057586,manual:{S. Arimoto, "Encoding and decoding of p-ary group codes and the correction system," Information Processing in Japan (in Japanese), vol. 2, pp. 320-325, Nov. 1961.}} (see exposition in Ref. \cite{preset:Blahut}).'
+    - 'Berlekamp-Massey decoder with runtime of order \(O(n^2)\) \cite{doi:10.1109/TIT.1969.1054260,preset:Berlekamp} and modification by Burton \cite{doi:10.1109/TIT.1971.1054655}; see also \cite{preset:PetersonWeldon,doi:10.1007/978-3-7091-2945-6}.'
+    - 'Sugiyama et al. modification of the extended Euclidean algorithm \cite{doi:10.1016/S0019-9958(75)90090-X,doi:10.1017/CBO9780511606267}.'
+    - 'Guruswami-Sudan list decoder \cite{doi:10.1109/SFCS.1998.743426}.'
+
+notes:
+  - 'See books \cite{preset:MacSlo,preset:LinCostello,doi:10.1017/CBO9780511807077} for expositions on BCH codes and code tables.'
+  - 'See database \cite{preset:KLdatabase} for explicit codes.'
+  - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Cyclic Codes (BCH-Bound).” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CCyclic-BCHBound.html}}.'
+
+realizations:
+  - 'Satellite communication \cite{manual:{Cheung, K-M., and F. Pollara. "Phobos lander coding system: Software and analysis." The Telecommunications and Data Acquisition Report (1988).}}'
+
+relations:
+  parents:
+    - code_id: binary_cyclic
+  cousins:
+    - code_id: quasi_perfect
+      detail: 'Only double error-correcting BCH codes \([2^m-1,n-2m,5]\) are quasi-perfect \cite{doi:10.1016/S0019-9958(60)90877-9,doi:10.1109/TIT.1979.1056043} (see also Ref. \cite{preset:MacSlo}, Ch. 9).'
+    - code_id: q-ary_bch
+    - code_id: generalized_reed_solomon
+      detail: 'Binary BCH codes are subfield subcodes of GRS codes.'
+    - code_id: griesmer
+      detail: 'The \([15,5,7]\) BCH code extended with a parity check saturates the Griesmer bound (\cite{doi:10.1201/9781315371993}, pg. 157).'
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Nolan Coble'
+      githubusername: nolanjcoble
+    - name: 'Manasi Shingane'
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Muhammad Junaid Aftab'
+      githubusername: MJunaidAftab

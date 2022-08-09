@@ -19,22 +19,23 @@ protection: |
   Code distance may not be a reliable marker of code performance. QLDPC codes with generator weights bounded by some constant can correct many stochastic errors far beyond the distance, which may not scale as favorably. Together with more accurate, faster, and easier-to-parallelize measurements than those of general stabilizer codes, this property makes QLDPC codes interesting in practice.
 
 features:
-  rate: 'A family of QLDPC codes \([[n_i,k_i,d_i]]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive. The first examples of good qubit codes are a family of \hyperref[code:lifted_product]{lifted-product codes}.'
   decoders:
+    - 'Belief-propagation (BP) decoder \cite{arxiv:0801.1241}.'
     - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
+    - 'BP-OSD decoder adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.'
+    - 'Soft (i.e., analog) syndrome iterative belief propagation for CSS-type QLDPC codes, utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2205.02341}.'
+    - 'Message-passing decoder utilizing stabilizer inactivation (MP-SI) for CSS-type QLDPC qubit codes \cite{arxiv:2205.06125}.'
   fault_tolerance:
     - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794}.'
     - 'Fault-tolerance with constant overhead can be performed on certain QLDPC codes \cite{arXiv:1310.2984}, e.g., quantum expander codes \cite{arXiv:1808.03821}.'
   code_capacity_threshold:
-    - 'For correlated Pauli noise, bounds on code capacity thresholds for families of QLDPC codes can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688}.'
+    - 'Bounds on code capacity thresholds using maximum-likelihood (ML) decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688}.'
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1412.6172}.'
   threshold:
     - 'QLDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant \cite{arXiv:1310.2984}.'
 notes:
   - 'Links to code tables of notable QLDPC codes \cite{arXiv:2103.06309}.'
   - 'Reviews of QLDPC codes provided in Refs. \cite{doi:10.1109/ACCESS.2015.2503267,arxiv:2103.06309}.'
-
-#A \textit{good QLDPC code} family satisfies \(k \in \theta(n) \) and \(d \in \theta(n)\) \cite{arXiv:2103.06309}, and
 
 relations:
   parents:
@@ -44,4 +45,13 @@ relations:
     - code_id: topological
       detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace forms a ground-state subspace of a geometrically local Hamiltonain. In this sense, topological codes are QLDPC codes. On the other hand, chain complexes describing some QLDPC codes can be ''lifted'' into higher-dimensional manifolds admitting some notion of geometric locality \cite{arXiv:2012.02249}. This opens up the possibility that some QLDPC codes, despite not being \textit{geometrically} local, can in fact be associated with a geometrically local theory described by a category.'
     - code_id: dynamic_gen
-      detail: 'QLDPC codes can arise form a dynamical process \cite{arxiv:2004.09560}.'
+      detail: 'QLDPC codes can arise from a dynamical process \cite{arxiv:2004.09560}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Xiaozhen Fu'
+      githubusername: merrysalad

@@ -8,7 +8,7 @@ physical: galois
 logical: galois
 
 name: 'Galois-qudit CSS code'
-introduced: '\cite{arXiv:quant-ph/0005008,arxiv:quant-ph/0508070}'
+introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029,arxiv:quant-ph/0312164,doi:10.1016/j.disc.2007.08.038}'
 
 description: |
   An \([[n,k,d]]_{GF(q)} \) Galois-qudit true stabilizer code admitting a set of stabilizer generators that
@@ -42,9 +42,19 @@ protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor
 relations:
   parents:
     - code_id: galois_true_stabilizer
-      detail: ''
+      detail: 'Galois-qudit CSS codes are true stabilizer codes \cite{preset:GottesmanBook}.'
   cousins:
     - code_id: css
       detail: 'Extension of qubit CSS codes to Galois qudits.'
     - code_id: q-ary_linear
       detail: 'Construction uses two related \(q\)-ary linear codes \(C_X\) and \(C_Z\).'
+    - code_id: q-ary_cyclic
+      detail: 'Galois CSS codes can be constructed using self-orthogonal \(q\)-ary cyclic codes \cite{arxiv:1608.06674}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Qingfeng Wang'

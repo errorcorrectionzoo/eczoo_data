@@ -7,14 +7,15 @@ code_id: non_stabilizer
 physical: galois
 logical: galois
 
-name: 'Non-stabilizer code'
+name: 'Galois-qudit non-stabilizer code'
+short_name: 'Non-stabilizer'
 introduced: '\cite{arxiv:quant-ph/0210097}'
 
 description: |
-    The projection onto a stabilizer code is proportional to an equal sum over all elements of the stabilizer group \(\mathsf{S}\).
-    Non-stabilizer codes generalize stabilizer codes by modifying the code projection with elements of a subset \(\mathsf{B}\subset\mathsf{S}\) called the \textit{Fourier description} (see proof of Thm. 2.7 in Ref. \cite{arxiv:quant-ph/0210097}). When \(\mathsf{B}\) is a subgroup of \(\mathsf{S}\), then the code reduces to an ordinary stabilizer code.
+  The projection onto a stabilizer code is proportional to an equal sum over all elements of the stabilizer group \(\mathsf{S}\).
+  Non-stabilizer codes generalize stabilizer codes by modifying the code projection with elements of a subset \(\mathsf{B}\subset\mathsf{S}\) called the \textit{Fourier description} (see proof of Thm. 2.7 in Ref. \cite{arxiv:quant-ph/0210097}). When \(\mathsf{B}\) is a subgroup of \(\mathsf{S}\), then the code reduces to an ordinary stabilizer code.
 
-    The following non-stabilizer codes were constructed in Ref. \cite{arxiv:quant-ph/0210097}: \(((33, 155, 3))\), \(((15, 8, 3))\), \(((n, \lceil\frac{q^n}{n(q^2-1)}\rceil,2))_{GF(q)}\) and \(((n, 1+n(q-1),2))_{GF(q)}\), where \(n\) is odd. The last code family is a Galois-qudit extension of the non-additive \(((5,6,2))\) \hyperref[code:qubits_into_qubits]{qubit code} from Ref. \cite{arxiv:quant-ph/9703002}.
+  The following non-stabilizer codes were constructed in Ref. \cite{arxiv:quant-ph/0210097}: \(((33, 155, 3))\), \(((15, 8, 3))\), \(((n, \lceil\frac{q^n}{n(q^2-1)}\rceil,2))_{GF(q)}\) and \(((n, 1+n(q-1),2))_{GF(q)}\), where \(n\) is odd. The last code family is a Galois-qudit extension of the non-additive \(((5,6,2))\) \hyperref[code:qubits_into_qubits]{qubit code} from Ref. \cite{arxiv:quant-ph/9703002}.
 #    Asymptotically good non-stabilizer codes admitting efficient encoding and decoding procedures have been constructed.
 #    A technical definition for non-Galois qudits is as follows. For any \(\alpha\)-good \(n\times n\) matrix over \(\mathbb{F}_q\) and
 #    any \(\lfloor\alpha n\rfloor\)-pure maximal Gottesman subgroup of the error group \(\mathsf{E}, 0<\alpha<1\),
@@ -33,3 +34,12 @@ features:
 relations:
   parents:
     - code_id: galois_into_galois
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Jiaxin Jacky Huang'
+      githubusername: jackkyyh
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

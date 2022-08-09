@@ -8,11 +8,15 @@ code_id: concatenated
 #logical: bits
 
 name: 'Concatenated code'
-introduced: '\cite{manual:{G. D. Forney, Jr (1966). Concatenated Codes. MIT Press, Cambridge, MA.}}'
+introduced: '\cite{preset:Forney}'
 
 description: 'Also called a \textit{serially concatenated} code \cite{doi:10.1109/TIT.2005.846392}. Stub.'
 
 protection: ''
+
+features:
+  decoders:
+    - 'Generalized minimum-distance decoding \cite{doi:10.1109/TIT.1966.1053873}.'
 
 #notes:
 #  - ''
@@ -21,3 +25,12 @@ relations:
   parents:
     - code_id: generalized_concatenated
       detail: ''
+  cousins:
+    - code_id: quantum_concatenated
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

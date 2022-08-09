@@ -13,11 +13,13 @@ name: 'Binary code'
 description: 'Encodes \(K\) states (codewords) in \(n\) binary coordinates and has distance \(d\). Usually denoted as \((n,K,d)\). The distance is the minimum Hamming distance between a pair of distinct codewords.'
 
 protection: |
-  A binary code \(C\) \textit{corrects} \(t\) errors if
+  A binary code \(C\) \textit{corrects} \(t\) errors in the Hamming distance if
   \begin{align}
     \forall x \in C~,~D(x,x+y) < D(x' , x+y)
   \end{align}
-  for all codewords \(x' \neq x\) and all \(y\) such that \(|y|=t\), where \(D\) is the Hamming distance and \(|y| = D(y,0) \). A code corrects \(t\) errors if and only if \(d \geq 2t+1\), i.e., a code corrects errors on \(t \leq \left\lfloor (d-1)/2 \right\rfloor\) coordinates. In addition, a code detects errors on up to \(d-1\) coordinates, and corrects erasure errors on up to \(d-1\) coordinates.
+  for all codewords \(x' \neq x\) and all \(y\) such that \(|y|=t\), where \(D\) is the \textit{Hamming distance} and \(|y| = D(y,0) \). A code corrects \(t\) errors if and only if \(d \geq 2t+1\), i.e., a code corrects errors on \(t \leq \left\lfloor (d-1)/2 \right\rfloor\) coordinates. In addition, a code detects errors on up to \(d-1\) coordinates, and corrects erasure errors on up to \(d-1\) coordinates.
+
+  Performance of binary codes can also be measured with respect to deletions and insertions of bits into the codewords. In this case, the metric measuring distance of an error word to the nearest codeword is the \textit{deletion distance}: given vectors \(u,v\), this distance is one-half the smallest number of deletions and insertions needed to change \(u\) to \(v\). A code \(C\) corrects \(e\) delections if all codewords are separated by at least \(e+1\) in the deletion distance \cite{arxiv:math/0207197}.
 
 features:
   decoders:
@@ -33,3 +35,10 @@ relations:
   parents:
     - code_id: ecc
       detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

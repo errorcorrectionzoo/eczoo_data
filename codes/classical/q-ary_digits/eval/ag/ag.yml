@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ag
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Algebraic-geometry (AG) code'
+short_name: 'AG'
+introduced: '\cite{manual:{V. D. Goppa, “Codes Associated with Divisors”, Probl. Peredachi Inf., 13:1 (1977), 33–39; Problems Inform. Transmission, 13:1 (1977), 22–27},manual:{V. D. Goppa, “Codes on algebraic curves”, Dokl. Akad. Nauk SSSR, 259:6 (1981), 1289–1290},manual:{V. D. Goppa, “Algebraico-geometric codes”, Izv. Akad. Nauk SSSR Ser. Mat., 46:4 (1982), 762–781; Izv. Math., 21:1 (1983), 75–91}}'
+
+description: |
+  Binary or \(q\)-ary code constructed from an algebraic curve of some genus over a finite field via the evaluation construction, the residue construction, or more general constructions that yield nonlinear codes. Linear AG codes from the first two constructions are also called \textit{geometric Goppa codes}.
+
+  In alternative conventions (not used here), AG codes are often restricted to be linear and/or include \hyperref[code:evaluation_varieties]{evaluation} codes defined using algebraic varieties.
+
+features:
+  rate: 'Several sequences of linear AG codes beat the Gilbert-Varshamov bound and/or are asymptotically good \cite{doi:10.1007/BF01884295,doi:10.1006/jnth.1996.0147} (see Ref. \cite{preset:HPAlgCodes} for details). The rate of any linear AG code satisfies \begin{align} \frac{k}{n} \geq 1 - \frac{d}{n} - \frac{1}{\sqrt{q}-1}~, \end{align} which comes from the Drinfeld-Vladut bound \cite{manual:{S. G. Vlăduţ, V. G. Drinfeld, “Number of points of an algebraic curve”, Funktsional. Anal. i Prilozhen., 17:1 (1983), 68–69; Funct. Anal. Appl., 17:1 (1983), 53–54}}. Nonlinear AG codes can outperform this bound.'
+
+notes:
+  - 'See book by Goppa \cite{doi:10.1007/978-94-015-6870-8}.'
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+  cousins:
+    - code_id: mds
+      detail: 'Near MDS \([n,k,d]_{GF(p^m)}\) AG codes exist when \(n,p,m\) satisfy certain relations according to the Tsfasman-Vladut bound \cite{doi:10.1007/978-94-011-3810-9,doi:10.1016/S0012-365X(99)00183-1}.'
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4

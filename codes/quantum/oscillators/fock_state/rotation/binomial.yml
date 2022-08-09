@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: binomial
+physical: oscillators
+logical: qudits
+
+name: 'Binomial code'
+introduced: '\cite{arXiv:1602.00008}'
+
+description: |
+  Bosonic rotation codes designed to approximately protect against errors consisting of powers of raising and lowering operators up to some maximum power. Binomial codes can be thought of as spin-coherent states embedded into an oscillator \cite{arXiv:1708.05010}. The \(q\)-dimensional qudit \((N, S)\) binomial codeword states are \(\{|\overline{i}\rangle\mid i\in \mathbb Z_q \}\), where
+    \begin{align}
+      |\overline{i}\rangle = \frac{1}{\sqrt{q^N}} \sum_{\substack{p=0\\p\equiv i \pmod{q}}}^{(q-1)(N+1)} \sqrt{\binom{N+1}{p}_q} \ket{p(S+1)}.
+    \end{align}
+    The set \( \ket{i} \mid i \in \mathbb{N}\) is the set of Fock states. Also, \(\binom{N+1}{p}_q\) are extended binomial coefficients, or polynomial coeffiients, defined recursively as
+    \begin{align}
+      \binom{n}{m}_1 \equiv 1,\quad \binom{n}{m}_q \equiv \sum_{k=0}^n \binom{n}{k}\binom{k}{m-k}_{q-1}.
+    \end{align}
+    The extended binomial coefficients \( \binom{n}{m}_q \) are also the coefficients of \( x^m \) in the polynomial \( (1 + x + \cdots + x^{q-1})^n \).
+
+protection: 'An \((N, S)\) binomial code protects against \(L\) boson losses, \(G\) boson gains, and dephasing up to \(\hat{n}^{D}\), where \(S=L+G\) and \(N = \mathrm{max}(L,G,2D)\).  Binomial codes approximately protect against continuous-time amplitude damping, boson loss and gain, and dephasing.'
+
+features:
+
+  decoders:
+    - 'Photon loss and dephasing errors can be detected by measuring the phase-space rotation \(\exp\left(2\pi\mathrm{i} \hat{n} / (S+1)\right)\) and the check operator \(J_x/J\) in the spin-coherent state language, where \(J\) is the total angular momentum and \(J_x\) is the angular momentum in the \(x\) direction \cite{arXiv:1708.05010}. This type of error correction fails for errors that are products of photon loss/gain and dephasing errors. However, for certain \((N,S)\) instances of the binomial code, detection of these types of errors can be done.'
+    - 'Recovery can be done via projective measurements and unitary operations \cite{arXiv:1602.00008,arXiv:1708.05010}.'
+
+realizations:
+  - 'Microwave cavities coupled to superconducting circuits: state transfer between a binomial codeword to another system \cite{arxiv:1712.05832}, error-correction protocol nearly reaching break-even \cite{arxiv:1805.09072}, and a teleported CNOT gate \cite{arxiv:1810.04690}.'
+
+notes:
+  - 'The mean occupation number, or average Fock-state number in maximally-mixed state of the code, is \((N+1)(S+1)(q-1)/2 \), where \(q\) is the qudit dimension.'
+
+relations:
+  parents:
+    - code_id: bosonic_rotation
+      detail: 'One can verify by direct calculation that the logical states are eigenstates of the discrete rotation operator. One has freedom in the exact form of the primitive state to choose; see Appendix B.2 of Ref. \cite{arxiv:1901.08071}.'
+
+  cousins:
+    - code_id: cat
+      detail: 'For a fixed \(S\), binomial codes with \(N \to \infty\) coincide with cat codes as \(\alpha \to \infty\) \cite{arXiv:1602.00008}.'
+    - code_id: number_phase
+      detail: 'In the limit as \(N,S \to \infty\), phase measurement in the binomial code has vanishing variance, just like in a number-phase code \cite{arxiv:1901.08071}.'
+    - code_id: chuang-leung-yamamoto
+      detail: 'Two-mode version of binomial codes correspond to two-mode CLY codes (see Sec. IV.A of Ref. \cite{arXiv:1602.00008}).'
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Joseph T. Iosue'
+      githubusername: jtiosue
+    - name: 'Thomas Wrona'
+      githubusername: thomaswrona

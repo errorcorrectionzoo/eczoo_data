@@ -8,11 +8,16 @@ physical: qubits
 logical: qubits
 
 name: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming code'
+short_name: '\([[2^r, 2^r-r-2, 3]]\)'
 introduced: '\cite{arXiv:quant-ph/9604038}'
 
 description: 'A family of stabilizer codes of distance \(3\) that asymptotically saturate quantum Hamming bound.'
 
 protection: 'Protects against any single qubit error.'
+
+features:
+  fault_tolerance:
+    - 'Concatenations of Hamming codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826}.'
 
 relations:
   parents:
@@ -22,3 +27,11 @@ relations:
   cousins:
     - code_id: quantum_perfect
       detail: 'Quantum Hamming codes saturate the asymptotic Hamming bound.'
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
+    - name: 'Marianna Podzorova'

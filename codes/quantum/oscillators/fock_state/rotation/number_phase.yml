@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: number_phase
+physical: oscillators
+logical: qubits
+
+name: 'Number-phase code'
+introduced: '\cite{arxiv:1901.08071}'
+
+description: |
+  Bosonic rotation code consisting of superpositions of Pegg-Barnett phase states \cite{doi:10.1088/0305-4470/19/18/030},
+  \begin{align}
+  |\phi\rangle \equiv \frac{1}{\sqrt{2\pi}}\sum_{n=0}^{\infty} \mathrm{e}^{\mathrm{i} n \phi} \ket{n}.
+  \end{align}
+  Since phase states and thus the ideal codewords are not normalizable, approximate versions need to be constructed. The codes' key feature is that, in the ideal case, phase measurement has zero uncertainty, making it a good canditate for a syndrome measurement.
+
+  Logical states of an order-\(N\) number-phase qubit encoding are \(|\overline{0}\rangle= \sum_{m=0}^{2N-1} |\phi = m\pi/N\rangle\) and \(|\overline{1}\rangle = \sum_{m=0}^{2N-1} (-1)^m |\phi=m\pi/N\rangle\). By performing the summation over \(m\), one finds that \(|\overline{0}\rangle\) is supported on Fock states \(|2kN\rangle\), while \(|\overline{1}\rangle\) is supported on states \(|(2k+1)N\rangle\), for \(k \geq 0\).
+
+protection: 'Number-phase codes of order \(N\) detect up to \(N\) photon loss or gain errors, and dephasing up to \(\theta = \pi/N\).'
+
+features:
+
+  decoders:
+    - 'Modular phase measurement done in the logical \(X\), or dual, basis has zero uncertainty in the case of ideal number phase codes. Approximate number-phase codes are characterized by vanishing phase uncertainty. Such measurements can be utilized for Knill error correction (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), which is based on teleportation \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}. This type of error correction substitutes the complicated correction procedures typical in Fock-state codes for necessity of clean codewords \cite{arxiv:1901.08071}.'
+    - 'Number measurement can be done by extracting modular number information using a CROT gate \(\mathrm{e}^{(2\pi \mathrm{i} / NM) \hat n \otimes \hat n}\) and performing phase measurements \cite{doi:10.1007/BF01007479,doi:10.1007/978-88-7642-378-9} on an ancillary mode. See Section 4.B.1 of Ref. \cite{arxiv:1901.08071}.'
+
+  fault_tolerance:
+    - 'Fault-tolerant computation schemes with number-phase codes have been proposed based on concatenation with Bacon-Shor subsystem codes \cite{arxiv:1901.08071}.'
+
+relations:
+  parents:
+    - code_id: bosonic_rotation
+      detail: 'Number-phase codes are bosonic rotation codes with the primitive state is a Pegg-Barnett phase state \cite{doi:10.1088/0305-4470/19/18/030}.'
+
+  cousins:
+    - code_id: rotor_gkp
+      detail: 'Number-phase codes are a manifestation of planar-rotor GKP codes in an oscillator. Both codes protect against small shifts in angular degrees of freedom.'
+    - code_id: oscillator_stabilizer
+      detail: 'Number-phase codewords span the joint right eigenspace of the \(N\)th power of the Pegg-Barnett phase operator and the bosonic rotation operator \cite{arxiv:1901.08071}. These operators no longer form a group since the phase operator is not unitary.'
+    - code_id: gkp
+      detail: 'GKP codes utilize translational symmetry in phase space, while number-phase codes utilize rotational symmetry. The two are related via a mapping \cite{arxiv:2206.01751}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  contributors:
+    - name: 'Joseph T. Iosue'
+      githubusername: jtiosue
+    - name: 'Victor V. Albert'
+      githubusername: valbert4
