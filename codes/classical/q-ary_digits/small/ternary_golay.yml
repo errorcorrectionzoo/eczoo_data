@@ -8,7 +8,7 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Ternary Golay Code'
-introduced: '\cite{manual:{M. J. E. Golay. \emph{Notes on digital coding}. Proc. IEEE 37 (1949): 657.}}'
+introduced: '\cite{manual:{M. J. E. Golay. \emph{Notes on digital coding}. Proc. IRE 37 (1949): 657.}}'
 
 description: |
   A \([11,6,5]_{GF(3)}\) perfect ternary linear code with connections to various areas of mathematics, e.g., lattices and sporadic simple groups \cite{doi:10.1007/978-1-4757-6568-7}. Adding a parity bit to the code results in the \([12, 6, 6]\) \textit{extended ternary Golay code}.
@@ -29,8 +29,7 @@ description: |
 #  perfect code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with
 #  generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) over \(\mathbf{F}_3\).
 
-protection: 'Corrects up to 2 errors and detects up to 4 errors'
-
+#protection: 'Corrects up to 2 errors and detects up to 4 errors'
 #features:
 #  rate: '6/11'
 #  encoders:
@@ -45,8 +44,8 @@ relations:
       detail: 'The ternary Golay code is perfect.'
     - code_id: q-ary_quad_residue
       detail: 'The ternary Golay code is a quadratic residue code over \(GF(3)\) with residue set \(Q = \{1, 3, 4, 5, 9\} \) and generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\).'
- cousins:
-    - code_id: binary_golay
+  cousins:
+    - code_id: golay
     - code_id: dual
       detail: 'The extended ternary Golay code is self-dual.'
     - code_id: projective
