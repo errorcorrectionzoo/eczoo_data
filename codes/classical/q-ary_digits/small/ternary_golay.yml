@@ -8,10 +8,10 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Ternary Golay Code'
-introduced: '\cite{manual:{M. J. E. Golay. \emph{Notes on digital coding}. Proc. IRE 37 (1949): 657.}}'
+introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
 
 description: |
-  A \([11,6,5]_{GF(3)}\) perfect ternary linear code with connections to various areas of mathematics, e.g., lattices and sporadic simple groups \cite{doi:10.1007/978-1-4757-6568-7}. Adding a parity bit to the code results in the \([12, 6, 6]\) \textit{extended ternary Golay code}.
+  A \([11,6,5]_{GF(3)}\) perfect ternary linear code with connections to various areas of mathematics, e.g., lattices \cite{doi:10.1007/978-1-4757-6568-7} and sporadic simple groups \cite{preset:MacSlo}. Adding a parity bit to the code results in the \([12, 6, 6]\) \textit{extended ternary Golay code}. Up to equivalence, both codes are unique for their respective parameters.
 
   One generator matrix for the ternary Golay code is
   \begin{align}
@@ -43,12 +43,15 @@ features:
 realizations:
   - 'Code used in football pools with at least one good bet \cite{doi:10.1016/0097-3165(91)90024-B,doi:10.1007/BF03025254}. In fact, the code was originally constructed by Juhani Virtakallio and published in the Finnish football pool magazine Veikkaaja \cite{doi:10.1007/BF03025254}.'
 
+notes:
+  - 'The automorphism group of the ternary Golay code is the Mathieu group \(\mathcal{M}_{11}\), and the automorphism group of the extended ternary Golay code is the Mathieu group \(\mathcal{M}_{12}\), two of the sporadic simple groups.'
+
 relations:
   parents:
     - code_id: perfect
       detail: 'The ternary Golay code is perfect.'
     - code_id: q-ary_quad_residue
-      detail: 'The ternary Golay code is a quadratic residue code over \(GF(3)\) with residue set \(Q = \{1, 3, 4, 5, 9\} \) and generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\).'
+      detail: 'The ternary Golay code is a quadratic residue code over \(GF(3)\) with residue set \(Q = \{1, 3, 4, 5, 9\} \) and generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) (\cite{preset:MacSlo}, Ch. 16).'
   cousins:
     - code_id: golay
     - code_id: dual
