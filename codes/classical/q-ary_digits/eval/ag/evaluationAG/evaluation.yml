@@ -14,7 +14,7 @@ description: |
   \begin{align}
     \left( f(P_1), f(P_2), \cdots, f(P_n) \right) \quad\quad\forall f\in L~.
   \end{align}
-  The code is denoted as \(C_L({\cal X},{\cal P},D)\), where the \textit{divisor} \(D\) determines which rational functions are used by prescribing features associated with their zeroes and poles.
+  The code is denoted as \(C_L({\cal X},{\cal P},D)\), where the \textit{divisor} \(D\) (with degree less than \(n\)) determines which rational functions to use by prescribing features associated with their zeroes and poles.
 
   The algebraic curve \(\cal X\) used for this construction is the set of zeroes of a nontrivial polynomial that is both smooth and irreducible over any field extension of \(GF(q)\). The curve can be defined over affine space or projective space, which contains the affine coordinates as a subset and which can yield an increase in length.
   If evaluations are made over projective coordinates, then the codewords are evaluations of homogeneous polynomials, and there are relations between such polynomials with polynomials over affine space. See Refs. \cite{preset:HPAlgCodes,doi:10.1007/978-3-319-51103-0} for more details.
@@ -36,6 +36,7 @@ notes:
 relations:
   parents:
     - code_id: q-ary_linear
+      detail: 'The degree of the divisor for evaluation AG codes is restricted to be less than \(n\). When there is no restriction, any \(q\)-ary linear code can be formulated as an evaluation AG code \cite{doi:10.1109/18.79915}.'
     - code_id: ag
     - code_id: evaluation_varieties
       detail: 'Evaluation AG codes are evaluation codes of rational functions \(f\) for which \(\cal X\) is an algebraic curve, i.e., an algebraic variety of dimension one \cite{preset:HPAlgCodes}.'
