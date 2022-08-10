@@ -24,7 +24,10 @@ protection: 'Properties of \(\cal X\) can be used to bound the code dimension \(
 relations:
   parents:
     - code_id: linear
-      detail: 'Evaluation codes are defined using polynomial or rational functions evaluated on a subset of affine or projective space. Given access to more general structures (i.e., morphisms of algebras), any linear code can be formulated as an evaluation code (\cite{preset:HPAlgCodes}, Sec. 4.1; \cite{preset:TVNAlgCodes}, Prop. 1.1.4).'
+# This is parent because children include binary RM codes
+  cousins:
+    - code_id: q-ary_linear
+      detail: 'Evaluation codes are defined using polynomial or rational functions evaluated on a subset of affine or projective space. Given access to more general structures (i.e., morphisms of algebras), any \(q\)-ary linear code can be formulated as an evaluation code (\cite{preset:HPAlgCodes}, Sec. 4.1; \cite{preset:TVNAlgCodes}, Prop. 1.1.4).'
 
 #    - code_id: projective
 #      detail: 'An evaluation-code generator matrix has columns that form a subset of points on a curve in projective space.'
