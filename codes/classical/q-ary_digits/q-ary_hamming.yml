@@ -8,6 +8,7 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: '\(q\)-ary Hamming code'
+introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
 
 description: 'Member of an infinite family of perfect linear \(q\)-ary codes with parameters \([(q^r-1)/(q-1),(q^r-1)/(q-1)-r, 3]_q\) for \(r \geq 2\).'
 
@@ -18,6 +19,8 @@ relations:
     - code_id: q-ary_linear
     - code_id: perfect
   cousins:
+    - code_id: projective
+      detail: 'Columns of a Hamming parity-check matrix correspond to one-dimensional subspaces of \(GF(q)^n\).'
     - code_id: q-ary_cyclic
       detail: 'Hamming codes are equivalent to cyclic codes when \(q\) and \(r\) are relatively prime (\cite{preset:MacSlo}, pg. 194).'
     - code_id: bch
