@@ -3,6 +3,8 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
+
+
 code_id: stab_3_1_2
 physical: qudits
 logical: qudits
@@ -12,7 +14,7 @@ short_name: '\([[3,1,2]]_3\)'
 introduced: '\cite{arXiv:quant-ph/9901025}'
 
 description: |
-  A \([[3,1,2]]_3\) prime-qudit CSS code with stabilizer generators \(ZZZ\) and \(XXX\). The code defines a quantum secret-sharing scheme and serves as a minimal model for the AdS/CFT holographic duality. The codewords are
+  A \([[3,1,2]]_3\) prime-qudit CSS code with stabilizer generators \(ZZZ\) and \(XXX\). The code defines a quantum secret-sharing scheme and serves as a minimal model for the AdS/CFT holographic duality. It is also the smallest non-trivial instance of a quantum maximum distance separable code (QMDS), saturating the quantum Singleton bound. The codewords are
   \begin{align}
     \begin{split}
       | \overline{0} \rangle &= \frac{1}{\sqrt{3}} (| 000 \rangle + | 111 \rangle + | 222 \rangle) \\
@@ -33,35 +35,36 @@ features:
 
   encoders:
     - 'In addition to thinking about the encoding of states, it is also interesting to look at the trasformation of operators from the physical space into the logical space. Due to the unique structure and recovery protocol of the three qutrit code, the representation of a logical operator \( \overline{O} \) is not unique. Instead, \( \overline{O} \) can be constructed from unitary matricies with support on only two out of the three qutrits. Therefore, the logical operator has valid representations constructed from support on different sets of two qutrits. This operator construction is directly analogous to the construction of operators in the bulk (at the center) of the AdS\(_3\)-Rindler reconstruction. The three-qutrit code can then be used to describe how these local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}.'
+
     - 'This construction is related to the cleaning lemma \cite{arXiv:0810.1983}, which was introduced in the context of constructing self-correcting quantum memories from stabilizer codes with geometrically-local generators. In this lemma, subspaces can be \textit{cleaned out} by removing operators with support on a subset of qutrits.'
-
-  # transversal_gates:
-
-  # general_gates:
 
   decoders:
     - 'The quantum information (the secret) can be recovered from a unitary transformation acting on only two qutrits, \( U_{ij} \otimes I \), where \(U_{ij}\) acts on qutrits \(i,j\) and \(I\) is the identity on the remaining qutrit. By the cyclic structure of the codewords, this unitary transformation performs a permutation that recovers the information and stores it in one of the two qutrits involved in recovery.'
-
-#For example, there exists a permutation matrix \( U_{12} \) that recovers the information and stores it in the first qutrit via \( U_{12} \otimes I_3 ( \alpha | \overline{0} \rangle + \beta | \overline{1} \rangle + \gamma | \overline{2} \rangle ) = ( \alpha | 0 \rangle + \beta | 1 \rangle + \gamma | 2 \rangle ) \otimes ( \ket{00} + \ket{11} + \ket{22} ) / \sqrt{3} \).'
 
 notes:
   - 'Connections to Ads/CFT from the perspetive of how arbitrary operators are encoded into the logical space. This encoding is analagous and helps explain why operators acting on the bulk are protected against localized boundary errors \cite{arXiv:1411.7041}.'
 
 relations:
+
   parents:
     - code_id: qudit_css
       detail: 'Smallest single-erasure correcting qudit code for \(q>2\).'
     - code_id: holographic
       detail: 'Three-qutrit code is a minimal model for holography \cite{arxiv:1411.7041,arXiv:1607.03901}.'
+    - code_id: quantum_mds
+      detail: 'The three-qutrit code is the smallest nontrivial quantum MDS code.'
   cousins:
-    - code_id: quantum_secret_sharing
+    - code_id: 'quantum_secret_sharing'
       detail: 'Three-qutrit code defines a minimal secret-sharing scheme \cite{arXiv:quant-ph/9901025} that is substantially generalized by approximate secret-sharing codes.'
 
-
-# Begin Entry Meta Information
 _meta:
+
   contributors:
     - name: 'Elizabeth R. Bennewitz'
-      githubusername: ebennewitz
+      githubusername: 'ebennewitz'
+
+    - name: 'Felix Huber'
+      gscholaruser: '1O58f3gAAAAJ'
+
     - name: 'Victor V. Albert'
-      githubusername: valbert4
+      githubusername: 'valbert4'
