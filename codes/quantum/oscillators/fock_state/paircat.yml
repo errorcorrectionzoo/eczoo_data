@@ -11,7 +11,7 @@ name: 'Pair-cat code'
 introduced: '\cite{arxiv:1801.05897}'
 
 description: |
-  Two- or higher-mode extension of cat codes whose codewords are right eigenstates of powers of products of the modes' lowering operators.
+  Two- or higher-mode extension of cat codes whose codewords are right eigenstates of powers of products of the modes' lowering operators. Many gadgets for cat codes have two-mode pair-cat analogues, with the advantage being that such gates can be done in parallel with a dissipative error-correction process.
 
   Two-mode codewords are supported by Fock states with occupation number \(\hat{n}_2-\hat{n}_1\) fixed to some integer \(\Delta\). In the \textit{two-legged} case, \(|\overline{0}_{\gamma,\Delta}\rangle \sim |\gamma_\Delta \rangle + (-1)^\Delta |i\gamma_\Delta\rangle\) and \(|\overline{1}_{\gamma,\Delta}\rangle \sim |\gamma_\Delta\rangle - (-1)^\Delta |i \gamma\rangle\), where
   \begin{align}
@@ -22,8 +22,11 @@ description: |
 protection: 'The occupation-number differences form the syndromes, as opposed to the photon number parity for the single-mode cat code. Any loss even combination that changes the relative differences of photons between modes is a detectable error. The two-mode two-legged paircat code can detect arbitrary single-mode losses, but cannot detect simultaneous photon loss in both modes. An \(n\)-mode code can detect any loss errors of at most \(n-1\) weight. Higher numbers of legs correspond to more pair-coherent state present in the codewords, and allow for protection against simulataneous losses.'
 
 features:
+  decoders:
+    - 'Lindbladian-based dissipative encoding utilizing two-mode two-photon absorption \cite{doi:10.1103/PhysRevLett.57.827}. Encoding passively protects against cavity dephasing, suppressing dephasing noise exponentially with \(\gamma^2\).'
   general_gates:
-    - 'Hamiltonian \(X\), \(XX\), \(Z\) gates, holonomic \(Z\) gate, control-phase gate are available. Many cat-code gates have two-mode analogues for the pair-cat codes.'
+    - 'Hamiltonian \(X\), \(XX\), \(Z\) gates, holonomic \(Z\) gate, control-phase gate.'
+    - 'Bias-preserving gates \cite{arxiv:2208.06913}.'
 
 relations:
   parents:
