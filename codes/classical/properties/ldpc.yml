@@ -16,11 +16,13 @@ description: |
   A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) for \(q\)-ary codes. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
 features:
-  rate: 'Achieve capacity on the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/18.748992,doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}. Nearly achieve Shannon limit for Gaussian channels \cite{doi:10.1049/el:19970362}. Some LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}. Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
+  encoders:
+    - 'Almost linear-time encoder based on transforming parity-check matrix into upper triangular form \cite{doi:10.1109/18.910579}.'
+  rate: 'Achieve capacity on the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/18.748992,doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}. Some LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}. Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
 #  encoders:
 #    - 'Encoding complexity is of O(n) per symbol (which is good).'
   decoders:
-    - 'Belief propagation using min-sum algorithm \cite{preset:LinCostello}.'
+    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},preset:LinCostello}.'
     - 'Linear programming \cite{doi:10.1007/978-1-4939-2864-4_216}.'
 
 realizations:
