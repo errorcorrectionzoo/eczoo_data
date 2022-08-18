@@ -5,18 +5,15 @@
 
 
 
-code_id: 'quantum_w_state'
-
-name: 'W state code'
-
-introduced: '\cite{arXiv:1902.07714}'
-
+code_id: 'w_state'
 logical: 'qudits'
-
 physical: 'qudits'
 
+name: 'W-state code'
+introduced: '\cite{arXiv:1902.07714}'
+
 description: |-
-  Encodes a quantum state of a \(d_L\)-dimensional Hilbert space onto
+  Encodes a quantum state of a \(d_L\)-dimensional Hilbert space into
   \(n\) physical quantum systems, each associated with a Hilbert space
   of dimension \(d_L+1\).  The encoding resembles the structure of the
   W state~\cite{arXiv:quant-ph/0005115}:
@@ -61,7 +58,10 @@ features:
 relations:
 
   parents:
-    - code_id: 'approximate_qecc'
+    - code_id: approximate_qecc
+      detail: 'The W-state code approximately protects against a single erasure while allowing for a universal transversal set of gates.'
+    - code_id: covariant
+      detail: 'The W-state code approximately protects against a single erasure while allowing for a universal transversal set of gates.'
 
 _meta:
 
