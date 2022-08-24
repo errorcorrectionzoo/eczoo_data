@@ -15,7 +15,11 @@ description: |
 
   Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a message \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k~~A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) \(q\)-ary matrix.
   
-  An example of decoding for q-ary code is also Maximum Likelihood Decoding (MLD). This algorithm decodes a received word to the most likley sent codeword based on the received word.
+  An example of decoding for q-ary code is also Maximum Likelihood Decoding (MLD). This algorithm decodes a received word to the most likely sent codeword based on the received word.
+  
+  Another example of a popular decoding algorithm for q-ary linear code, specifically in the Hamming Metric, is called Information Set Decoding - a probabilistic decoding strategy that essentially tries to guess \(k\) correct positions in the received word, and \(k\) is also the dimension of the code. Then, an error vector is constructed to map the received word onto the nearest codeword, assuming the k positions are error free. When the Hamming weight of the error vector is low enough, that codeword is assumed to be the intended transmission. The best Information Set Decoding algorithms have an average time complexity of exponential time - approximately \(n\)^{3}*2^{\(n\)}.
+  
+  Within Rank Metric, however, the lower bound of the time complexity for the most efficient decoding algorithms for an m*n codeword representation code is approximately \(m\)^{3}*2^{\(n\)^{2}}, which is exponentially better than the Hamming Metric. For applications such as cryptography where the decoding algorithms having high time complexity is desired, Rank Metric offers promise for security in a post quantum era.
 
 protection: 'Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.'
 
