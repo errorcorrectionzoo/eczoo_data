@@ -10,13 +10,13 @@ short_name: 'qLTC'
 introduced: '\cite{arxiv:1310.5664}'
 
 description: |
-  A commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes.
+  A commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining qLTC code families as those for which the soundness is asymptotically constant.
 
-  More technically, a qLTC code is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(m\) \(k\)-local projectors for some constant \(k\). Such a code is qLTC with soundness function \(R(\delta)\in[0,1]\) if
+  More technically, a qLTC code is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(m\) local projectors, each of which acts on exactly \(k\) qubits (for some constant \(k\)). Such a code is qLTC with soundness function \(R(\delta)\in[0,1]\) if
   \begin{align}
-    \forall \delta > 0,|\psi\rangle~|~\text{dist}(|\psi\rangle,C) \geq \delta n \rightarrow \frac{1}{m}\langle\psi|H|\psi\rangle\geq R(\delta)~,
+    \forall \delta > 0,|\psi\rangle~:~\text{dist}(|\psi\rangle,C) \geq \delta n \rightarrow \frac{1}{m}\langle\psi|H|\psi\rangle\geq R(\delta)~,
   \end{align}
-  where \(\text{dist}(|\psi\rangle,C)\) is some distance function between the state \(\psi\) and the codespace \(\mathsf{C}\). The locality parameter \(k\) is called the \textit{query complexity} of the code.
+  where \(\text{dist}(|\psi\rangle,C)\) is some distance function between the state \(|\psi\rangle\) and the codespace \(\mathsf{C}\). The locality parameter \(k\) is called the \textit{query complexity} of the code.
 
 notes:
   - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a qLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363}.'
