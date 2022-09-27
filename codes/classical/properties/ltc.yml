@@ -12,8 +12,16 @@ introduced: '\cite{doi:10.1145/103418.103428,doi:10.1137/S0097539793255151,arxiv
 description: |
   Code for which one can efficiently check whether a given string is a codeword.
 
-  More technically, we recount what it means for a binary code \(C\) of length \(n\) to be \((k,R)\)-locally testable with \textit{query complexity} \(k\) and \textit{soundness} \(R\) \cite[Thm. 1.1]{arxiv:2111.04808}. Similar definitions can be done for more general alphabets \cite{10.1007/978-3-642-16367-8_6}. The idea is to reliably test whether a given bit-string \(x\) is in the code by only sampling subsets of \(k\) bits. First, define a collection of length-\(w\) subsets \(S\) of bit locations that are called allowed local views. A code is LTC if the following two conditions are satisfied. First, if \(x\) is a codeword, then all of its restrictions to the subsets, \(x|_S\), are allowed local views; this guarantees that codewords can indeed be determined from this limited sampling procedure. Second, the probability that a given restriction is not an allowed local view is lower-bounded by the relative distance to the code,
-  \begin{aling}
+  More technically, we recount what it means for a binary code \(C\) of length \(n\) to be \((k,R)\)-locally testable with \textit{query complexity} \(k\) and \textit{soundness} \(R\) \cite[Thm. 1.1]{arxiv:2111.04808}. Similar definitions can be done for more general alphabets \cite{10.1007/978-3-642-16367-8_6}. The idea is to reliably test whether a given bit-string \(x\) is in the code by only sampling subsets of \(k\) bits. To have something to check against, we define a collection of length-\(w\) subsets \(S\) of bit locations that are called \textit{allowed local views}.
+
+  A code is LTC if the following two conditions are satisfied. First, if \(x\) is a codeword, then all of its restrictions to the subsets, \(x|_S\), are allowed local views,
+  \begin{align}
+    x\in C \Rightarrow x|_S \in \{allowed local views\}~.
+  \end{align}
+  This guarantees that codewords can indeed be determined from this limited sampling procedure.
+
+  Second, the probability that a given restriction is not an allowed local view is lower-bounded by the relative distance to the code,
+  \begin{align}
     \text{Pr}_S (x|_S\text{ not an allowed local view}) \geq R \frac{D(x,C)}{n}~,
   \end{align}
   where \(D(x,C)\) is the Hamming distance between \(x\) and the closest codeword to \(x\). This condition ensures that strings \(x\) can be deemed to be not in the codespace with high probability, i.e., with probability increasing as \(x\) gets farther from the code.
