@@ -18,6 +18,8 @@ description: |
   \end{align}
   where \(\text{dist}(|\psi\rangle,C)\) is some distance function between the state \(|\psi\rangle\) and the codespace \(\mathsf{C}\). The locality parameter \(k\) is called the \textit{query complexity} of the code.
 
+  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (sLTC)}. In other words, the code admits a set of \(m\) \(k\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^m I-S_i\) satisfies the requirement of being qLTC.
+
 notes:
   - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a qLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363}.'
 
@@ -25,6 +27,9 @@ relations:
   parents:
     - code_id: hamiltonian
       detail: 'Quantum LTC codespaces are ground-state spaces of \(k\)-local Hamiltonians.'
+  cousins:
+    - code_id: qldpc
+      detail: 'Stabilizer LTC codes are QLDPC.'
 
 # Begin Entry Meta Information
 _meta:
