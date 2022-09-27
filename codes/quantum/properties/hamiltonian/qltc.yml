@@ -5,23 +5,23 @@
 
 code_id: qltc
 
-name: 'Quantum locally testable code (qLTC)'
-short_name: 'qLTC'
+name: 'Quantum locally testable code (QLTC)'
+short_name: 'QLTC'
 introduced: '\cite{arxiv:1310.5664}'
 
 description: |
-  A commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining qLTC code families as those for which the soundness is asymptotically constant.
+  A commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC code families as those for which the soundness is asymptotically constant.
 
-  More technically, a qLTC code is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(m\) local projectors, each of which acts on exactly \(k\) qubits (for some constant \(k\)). Such a code is qLTC with soundness function \(R(\delta)\in[0,1]\) if
+  More technically, a QLTC code is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(m\) local projectors, each of which acts on exactly \(k\) qubits (for some constant \(k\)). Such a code is QLTC with soundness function \(R(\delta)\in[0,1]\) if
   \begin{align}
     \forall \delta > 0,|\psi\rangle~:~\text{dist}(|\psi\rangle,C) \geq \delta n \Rightarrow \frac{1}{m}\langle\psi|H|\psi\rangle\geq R(\delta)~,
   \end{align}
   where \(\text{dist}(|\psi\rangle,C)\) is some distance function between the state \(|\psi\rangle\) and the codespace \(\mathsf{C}\). The locality parameter \(k\) is called the \textit{query complexity} of the code.
 
-  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (sLTC)}. In other words, the code admits a set of \(m\) \(k\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^m I-S_i\) satisfies the requirement of being qLTC.
+  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (sLTC)}. In other words, the code admits a set of \(m\) \(k\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^m I-S_i\) satisfies the requirement of being QLTC.
 
 notes:
-  - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a qLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363}.'
+  - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a QLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363}.'
 
 relations:
   parents:
@@ -29,7 +29,7 @@ relations:
       detail: 'Quantum LTC codespaces are ground-state spaces of \(k\)-local Hamiltonians.'
   cousins:
     - code_id: qldpc
-      detail: 'Stabilizer LTC codes are QLDPC.'
+      detail: 'Stabilizer LTC codes are QLDPC. More general QLTC codes are not defined using Pauli strings, but the codespace is the ground-state subspace of a local Hamiltonain. In this sense, QLTC codes are QLDPC codes.'
 
 # Begin Entry Meta Information
 _meta:
