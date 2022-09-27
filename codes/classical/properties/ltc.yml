@@ -12,7 +12,7 @@ introduced: '\cite{doi:10.1145/103418.103428,manual:{Sanjeev Arora. \emph{Probab
 description: |
   Code for which one can efficiently check whether a given string is a codeword.
 
-  More technically, we recount what it means for a binary code \(C\) of length \(n\) to be \((k,R)\)-locally testable with \textit{query complexity} \(k\) and \textit{soundness} \(R\) \cite[Thm. 1.1]{arxiv:2111.04808}. Similar definitions can be done for more general alphabets \cite{10.1007/978-3-642-16367-8_6}. The idea is to reliably test whether a given bit-string \(x\) is in the code by only sampling subsets of \(k\) bits. To have something to check against, we define a collection of length-\(w\) subsets \(S\) of bit locations that are called \textit{allowed local views}.
+  More technically, we recount what it means for a binary code \(C\) of length \(n\) to be \((k,R)\)-locally testable with \textit{query complexity} \(k\) and \textit{soundness} \(R\) \cite[Thm. 1.1]{arxiv:2111.04808}. Similar definitions can be done for more general alphabets \cite{doi:10.1007/978-3-642-16367-8_6}. The idea is to reliably test whether a given bit-string \(x\) is in the code by only sampling subsets of \(k\) bits. To have something to check against, we define a collection of length-\(w\) subsets \(S\) of bit locations that are called \textit{allowed local views}.
 
   A code is LTC if the following two conditions are satisfied. First, if \(x\) is a codeword, then all of its restrictions to the subsets, \(x|_S\), are allowed local views,
   \begin{align}
@@ -27,7 +27,7 @@ description: |
   where \(D(x,C)\) is the Hamming distance between \(x\) and the closest codeword to \(x\). This condition ensures that strings \(x\) can be deemed to be not in the codespace with high probability, i.e., with probability increasing as \(x\) gets farther from the code.
 
 notes:
-  - 'LTCs first appeared implicitly in works on probabilistically checkable proofs \cite{doi:10.1016/0022-0000(93)90044-W,doi:10.1007/BF01200056,doi:10.1145/146585.146605,doi:10.1145/103418.103428,doi:10.1145/273865.273901,doi:10.1145/278298.278306}; see Ref. \cite{10.1007/978-3-642-16367-8_6} for a detailed review.'
+  - 'LTCs first appeared implicitly in works on probabilistically checkable proofs \cite{doi:10.1016/0022-0000(93)90044-W,doi:10.1007/BF01200056,doi:10.1145/146585.146605,doi:10.1145/103418.103428,doi:10.1145/273865.273901,doi:10.1145/278298.278306}; see Ref. \cite{doi:10.1007/978-3-642-16367-8_6} for a detailed review.'
 
 relations:
   parents:
