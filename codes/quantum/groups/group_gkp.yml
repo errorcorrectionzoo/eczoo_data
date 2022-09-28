@@ -10,15 +10,39 @@ logical: groups
 name: 'Group GKP code'
 introduced: '\cite{arXiv:1911.00099}'
 
-description: 'Group code whose construction is based on nested subgroups \(H\subset K \subset G\). Logical subspace is spanned by basis states that are equal superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or infinite-dimensional. Extension of the \hyperref[code:gkp]{GKP code} construction.'
+description: |
+  Group code whose construction is based on nested subgroups \(H\subset K
+  \subset G\). Logical subspace is spanned by basis states that are equal
+  superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or
+  infinite-dimensional. Extension of the \hyperref[code:gkp]{GKP code}
+  construction.
+
+  \begin{table}
+    \begin{cells}
+    \celldata<r H, c H, c H, c H, l H>{ Ref & Space & Group & Subgroup & Related QECC }
+    \celldata<r, c, c, c, l>{
+    ref...
+        & \(n\) qubits & \(\mathbb{Z}_2^n\) & \(\mathbb{Z}_2^m\)
+        & qubit CSS code (...cites...)
+        \\
+    ref...
+        & planar rotor & \(U(1)\) & \(\mathbb{Z}_n\)
+        & rotor GKP code (...cites...)
+        \\
+    ref...
+        & \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{R}^m \)
+        & analog CSS code (...cites...)
+    }
+    \end{cells}
+    \caption{Instances and special cases of group GKP codes}
+    \label{table:group-gkp-codes}
+  \end{table}
 
 protection: 'Protects against generalized bit-flip errors \(g\in G\) that are inside the fundamental domain of \(G/K\). Protection against phase-flip errors determined by branching rules of irreps of \(G\) into those of \(K\), and further into those of \(H\).'
 
 features:
   transversal_gates: 'Group-GKP codes corresponding to the \(G^{k_1} \subseteq G^{ k_2} \subset G^{n}\) group construction admit \(X\)-type transversal Pauli gates representing \(G\) \cite{arxiv:1902.07714}.'
 
-#notes:
-#  - ''
 
 relations:
   parents:
