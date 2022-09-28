@@ -19,6 +19,7 @@ features:
 
   decoders:
     - 'Calculate the Hamming weight \(d_H\) of the code. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
+    - 'Automaton-like decoders for the repetition code on a 2D lattice, otherwise known as the classical 2D Ising model, were developed by Toom \cite{manual:{A. L. Toom, “Nonergodic Multidimensional System of Automata”, Probl. Peredachi Inf., 10:3 (1974), 70–79; Problems Inform. Transmission, 10:3 (1974), 239–246},doi:10.1007/978-1-4612-2168-5_18}. An automaton by Gacs yields a decoder for a 1D lattice \cite{doi:10.1023/A:1004823720305}.'
 
   threshold:
     - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then people can always increase the probability of success by increasing the number of physical bit \(n\).'
@@ -29,7 +30,6 @@ features:
 realizations:
   - 'Repetition codes, in conjunction with other codes, were used in magnetic disks \cite{doi:10.1109/TCOM.1984.1096094}.'
 #  - 'Although classical repetition code does not have many real-world applications, it still inspire the studies of quantum error correction. Quantum repetition code is widely studied in quantum computing community.'
-
 
 relations:
   parents:

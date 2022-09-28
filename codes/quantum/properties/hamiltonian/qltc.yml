@@ -10,18 +10,20 @@ short_name: 'QLTC'
 introduced: '\cite{arxiv:1310.5664}'
 
 description: |
-  A local commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. Informally, for a QLTC code, if an error state is far away from the codespace, then the state is an excited state of a lot of local projectors. The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC code families as those for which the soundness is asymptotically constant.
+  A local commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. Informally, QLTC error states that are far away from the codespace have to be excited states of many of the code's local projectors.
 
-  More technically, a QLTC code is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(m\) local projectors, each of which acts on exactly \(k\) qubits (for some constant \(k\)). Such a code is QLTC with soundness function \(R(\delta)\in[0,1]\) if
+  The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC families as those for which the soundness is asymptotically constant.
+
+  More technically, a QLTC is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(r\) local projectors, each of which acts on exactly \(k\) qubits (for some constant \(k\)). Such a code is a QLTC with soundness function \(R(\delta)\in[0,1]\) if
   \begin{align}
   \label{eq:qltc}
-    \forall \delta > 0,|\psi\rangle~:~\text{dist}(|\psi\rangle,C) \geq \delta n \Rightarrow \frac{1}{m}\langle\psi|H|\psi\rangle\geq R(\delta)~,
+    \forall \delta > 0,|\psi\rangle~:~\text{dist}(|\psi\rangle,C) \geq \delta n \Rightarrow \frac{1}{r}\langle\psi|H|\psi\rangle\geq R(\delta)~,
   \end{align}
   where \(\text{dist}(|\psi\rangle,\mathsf{C})\) is a particular distance function between the state \(|\psi\rangle\) and the codespace \(\mathsf{C}\) \cite[Def. 13]{arxiv:1310.5664}. The locality parameter \(k\) is called the \textit{query complexity} of the code.
 
-  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (SLTC)}. In other words, the code admits a set of \(m\) \(k\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^m I-S_i\) satisfies the requirement of being QLTC.
+  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (SLTC)}. In other words, the code admits a set of \(r\) \(k\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^r I-S_i\) satisfies the requirement of being QLTC.
 
-  For example, the \([[2L^2,2,L]]\) toric code on an \(L\times L\) lattice is \textit{not} a QLTC because of the following argument. Consider \(|\psi\rangle\) to be a ground state excited by \(L/3\) Pauli strings, each of length \(L/2\) and each forming a horizontal line in the toric-code lattice. The distance function \(\text{dist}(|\psi\rangle,\mathsf{C})\) is the weight of the smallest Pauli string that multiplies \(|\psi\rangle\) to yield a state in the codespace. In this case, that weight is the same as the weight of the perturbing string, i.e., \(L^2/6\), yielding a \(\delta = 1/12\) in \eqref{eq:qltc}. There are only \(2 \times L/3\) violated Hamiltonian terms because each string violates only 2 stabilizer generators. Since there are \(m = 2(L^2-1)\) stabilizer generators, the implication of \eqref{eq:qltc} is not satisfied for nonzero soundness as \(L\to\infty\) because \(\frac{1}{m}\langle\psi|H|\psi = \frac{2L/3}{2(L^2-1)}\to 0\).
+  For example, the \([[n=2L^2,k=2,d=L]]\) toric code on an \(L\times L\) lattice is \textit{not} a QLTC because of the following argument. Let \(|\psi\rangle\) be a ground state that is excited by \(L/3\) Pauli strings, each of length \(L/2\). In order to fit on the lattice, such strings can, e.g., be horizontal and aligned next to each other in the vertical direction. The distance function \(\text{dist}(|\psi\rangle,\mathsf{C})\) is the weight of the smallest Pauli string that multiplies \(|\psi\rangle\) to yield a state in the codespace. In this case, that weight is the same as the weight of the perturbing string, i.e., \(L^2/6\), requiring \(\delta = 1/12\) to satisfy \eqref{eq:qltc}. There are \(2L/3\) violated Hamiltonian terms because each of the \(L/3\) strings violates only two stabilizer generators. However, there are \(r = 2(L^2-1)\) stabilizer generators, so the implication of \eqref{eq:qltc} is not satisfied for nonzero soundness as \(L\to\infty\) because \(\frac{1}{r}\langle\psi|H|\psi\rangle = \frac{2L/3}{2(L^2-1)}\to 0\).
 
 notes:
   - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a QLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363}.'
@@ -32,7 +34,9 @@ relations:
       detail: 'Quantum LTC codespaces are ground-state spaces of \(k\)-local Hamiltonians.'
   cousins:
     - code_id: qldpc
-      detail: 'Stabilizer LTC codes are QLDPC. More general QLTC codes are not defined using Pauli strings, but the codespace is the ground-state subspace of a local Hamiltonain. In this sense, QLTC codes are QLDPC codes.'
+      detail: 'Stabilizer LTCs are QLDPC. More general QLTCs are not defined using Pauli strings, but the codespace is the ground-state subspace of a local Hamiltonain. In this sense, QLTCs are QLDPC codes.'
+    - code_id: self_correct
+      detail: 'The notion of an energy barrier in a self-correcting memory is intimately related to the soundness of a QLTC.'
 
 # Begin Entry Meta Information
 _meta:
