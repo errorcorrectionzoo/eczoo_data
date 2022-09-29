@@ -15,6 +15,8 @@ description: |
 
   A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) for \(q\)-ary codes. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
+protection: 'With high probability, random LDPC codes have constant distance \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}.'
+
 features:
   encoders:
     - 'Almost linear-time encoder based on transforming parity-check matrix into upper triangular form \cite{doi:10.1109/18.910579}.'
@@ -42,6 +44,8 @@ relations:
   cousins:
     - code_id: ldgm
       detail: 'LDPC and LDGM codes are dual to each other.'
+    - code_id: tensor
+      detail: 'Tensor products of random LDPC codes are robustly testable \cite{doi:10.1007/11830924_29,doi:10.1007/978-3-540-85363-3_24}.'
 #  cousins:
 #    - code_id: binary_linear
 #      detail: 'Binary LDPC codes are a subset of binary linear codes.'
