@@ -14,10 +14,12 @@ description: |
 
   Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining LTC families as those for which the soundness is asymptotically constant. Such LTC families with asymptotically constant distance, rate, and query complexity are called \(c^3\)\textit{-LTCs}. The first two such families are classical codes arising from the \hyperref[code:expander_lifted_product]{expander lifted-product} quantum code construction and \hyperref[code:lr-cayley-complex]{left-right Cayley complex} codes.
 
-  A technical definition codes over binary alphabets is provided as follows; for general alphabets, see Ref. \cite{doi:10.1007/978-3-642-16367-8_6}.
+  A technical definition for codes over binary alphabets is provided as follows; for general alphabets, see Ref. \cite{doi:10.1007/978-3-642-16367-8_6}.
   The idea behind LTCs is to be able to reliably test whether a given bit-string \(x\) is in the code by only sampling subsets of \(u\) bits.
   To have something to check against, we first have to define a collection of length-\(u\) subsets \(S\) of bit locations that are called \textit{allowed local views}.
-  A code is LTC if the following two conditions are satisfied \cite[Thm. 1.1]{arxiv:2111.04808}. First, if \(x\) is a codeword, then all of its restrictions \(x|_S\) to the subsets \(S\) are allowed local views,
+  A code is LTC if the following two conditions are satisfied \cite[Thm. 1.1]{arxiv:2111.04808}.
+
+  First, if \(x\) is a codeword, then all of its restrictions \(x|_S\) to the subsets \(S\) are allowed local views,
   \begin{align}
     x\in C \Rightarrow x|_S \in \{\text{allowed local views}\}~.
   \end{align}
