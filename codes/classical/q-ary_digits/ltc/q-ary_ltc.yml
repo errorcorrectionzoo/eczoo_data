@@ -3,24 +3,24 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: binary_ltc
-physical: bits
-logical: bits
+code_id: q-ary_ltc
+physical: q-ary_digits
+logical: q-ary_digits
 
-name: 'Binary linear LTC'
+name: '\(q\)-ary linear LTC'
 #introduced: '\cite{doi:10.1145/103418.103428,manual:{Sanjeev Arora. \emph{Probabilistic checking of proofs and hardness of approximation problems}. UC Berkeley, 1994.},doi:10.1137/S0097539793255151,arxiv:1307.3975}'
 
 description: |
-  A binary linear code \(C\) of length \(n\) that is a \((u,R)\)-LTC with query complexity \(u\) and soundness \(R>0\).
-  More technically, the code is a \((u,R)\)-LTC if the rows of its parity-check matrix \(H\in GF(2)^{r\times n}\) have weight at most \(u\) and if
+  A \(q\)-ary linear code \(C\) of length \(n\) that is a \((u,R)\)-LTC with query complexity \(u\) and soundness \(R>0\).
+  More technically, the code is a \((u,R)\)-LTC if the rows of its parity-check matrix \(H\in GF(q)^{r\times n}\) have weight at most \(u\) and if
   \begin{align}
     \frac{1}{r}|H x| \geq \frac{R}{n} D(x,C)
   \end{align}
-  holds for any bitstring \(x\), where \(D(x,C)\) is the Hamming distance between \(x\) and the closest codeword to \(x\) \cite[Def. 11]{1911.03069}.
+  holds for any \(q\)-ary string \(x\), where \(D(x,C)\) is the \(q\)-ary Hamming distance between \(x\) and the closest codeword to \(x\) \cite[Def. 11]{1911.03069}.
 
 relations:
   parents:
-    - code_id: binary_linear
+    - code_id: q-ary_linear
     - code_id: ltc
 
 # Begin Entry Meta Information
