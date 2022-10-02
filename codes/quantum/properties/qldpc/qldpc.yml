@@ -11,6 +11,34 @@ introduced: '\cite{arXiv:quant-ph/0304161}'
 description: |
   Family of \([[n,k,d]]\) stabilizer codes for which the number of sites (either qubit or qudit) participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\). A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\). As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
 
+  Notable QLDPC codes are summarized in the table below, demonstrating the steady improvement in code parameters that culminated in the first asymptotically good QLDPC codes.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H>{\(k\) & \(d\) & Code}
+      \celldata<c, c, c>{
+      \(2\) & \(\sqrt{n\sqrt{\log n}}\) & \hyperref[code:freedman_meyer_luo]{Freedman-Meyer-Luo}
+          \\
+      \(n\) & \(\sqrt{n}\) & \hyperref[code:hypergraph_product]{hypergraph product}
+          \\
+      \(n\) & \(\sqrt{n} \log n\) & \hyperref[code:ramanujan_tensor_product]{Ramanujan-complex product}
+          \\
+      \(\sqrt{n}\) & \(\sqrt{n} \log^c n\) & \hyperref[code:iterated_ramanujan]{tensored-Ramanujan-complex product}
+          \\
+      \(n^{3/5}/\text{polylog}(n)\) & \(n^{3/5}/\text{polylog}(n)\) & \hyperref[code:fiber_bundle]{fiber-bundle}
+          \\
+      \(\log n\) & \(n/\log n\) & \hyperref[code:lifed_product]{lifted-product}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:expander_lifed_product]{expander lifted-product}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:quantum_tanner]{quantum Tanner}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick}
+      }
+      \end{cells}
+      \caption{Notable QLDPC codes; \(c\) is a positive integer.}
+      \label{table:qldpc-codes}
+    \end{table}
+
   Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit stabilizer codes satisfying the above criteria are also called QLDPC codes.
 
 protection: |
