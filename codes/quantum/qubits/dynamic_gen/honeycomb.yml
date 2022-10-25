@@ -7,7 +7,7 @@ code_id: honeycomb
 physical: qubits
 logical: qubits
 
-name: 'Honeycomb code'
+name: 'Honeycomb Floquet code'
 introduced: '\cite{arXiv:2107.02194}'
 
 description: |
@@ -41,13 +41,16 @@ features:
     - '\(1.5\%<p<2.0\%\) in a circuit model with native two-body measurements and a correlated minimum-weight perfect-matching decoder \cite{arXiv:2108.10457}. Here, \(p\) is the collective error rate of the two-body measurement gate, including both measurement and correlated data depolarization error processes.'
     - 'Against circuit-level noise: within \(0.2\% − 0.3\%\) for SD6 (standard depolarizing 6-step cycle), \(0.1\% − 0.15\%\) for SI1000 (superconducting-inspired 1000 ns cycle), and \(1.5\% − 2.0\%\) for EM3 (entangling-measurement 3-step cycle) \cite{arxiv:2202.11845,arxiv:2202.11829}.'
 
+realizations:
+  - 'Plaquette stabilizer measurement realized on the IBM Falcon superconducting-qubit device \cite{arxiv:2210.13154}'
+
 relations:
   parents:
     - code_id: floquet
-      detail: 'The honeycomb code is the first 2D Floquet code.'
+      detail: 'The honeycomb Floquet code is the first 2D Floquet code.'
   cousins:
     - code_id: surface
-      detail: 'Measurement of each check operator involves two qubits and projects the state of the two qubits to a two-dimensional subspace, which we regard as an effective qubit. These effective qubits form a surface code on a hexagonal superlattice. Electric and magnetic operators on the embedded surface code correspond to outer logical operators of the Floquet code. In fact, outer logical operators transition back and forth from magnetic to electric surface code operators under the measurement dynamics. Inspired by this code, stabilizer measurement circuits consisting of two-body measurements have been designed for the surface code \cite{arxiv:2007.00307,arxiv:2206.12780}.'
+      detail: 'Measurement of each check operator of the honeycomb Floquet code involves two qubits and projects the state of the two qubits to a two-dimensional subspace, which we regard as an effective qubit. These effective qubits form a surface code on a hexagonal superlattice. Electric and magnetic operators on the embedded surface code correspond to outer logical operators of the Floquet code. In fact, outer logical operators transition back and forth from magnetic to electric surface code operators under the measurement dynamics. Inspired by this code, stabilizer measurement circuits consisting of two-body measurements have been designed for the surface code \cite{arxiv:2007.00307,arxiv:2206.12780}.'
     - code_id: subsystem_color
       detail: 'Both honeycomb and subsystem color codes are generated via periodic sequences of measurements. However, any measurement sequence can be performed on the color code without destroying the logical qubits, while honeycomb codes can be maintained only with specific sequences. Honeycomb codes require a shorter measurement cycle and use fewer qubits at the given code distance \cite{arXiv:2107.02194}.'
     - code_id: majorana_stab
