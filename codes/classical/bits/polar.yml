@@ -20,7 +20,7 @@ description: |
 protection: 'Protects against various types of noise in the communication channel, for instance, errors, erasures, or other types of noise. Distance plays no role in the analysis of its properties, and is much lower than the largest possible value given \(K,N\).'
 
 features:
-  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel.'
+  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel under the successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
 
   decoders:
     - 'Successive cancellation (SC) decoder \cite{doi:10.1109/TIT.2009.2021379}.'
@@ -28,9 +28,6 @@ features:
     - 'Soft cancellation (SCAN) decoder \cite{doi:10.1109/JSAC.2014.140515,doi:10.1109/ICC.2013.6655247}.'
     - 'Belief propagation (BP) decoder \cite{doi:10.1109/LCOMM.2008.080017}.'
     - 'Noisy quantum gate-vased decoder \cite{arxiv:2210.10854}.'
-
-  threshold:
-    - 'Achieves Shannon capacity of the binary-input memoryless channel under successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
 
 realizations:
   - 'Code control channels for the 5G NR (New Radio) interfaces \cite{manual:{3rd Generation Partnership Project (3GPP), \emph{Technical specification group radio access network}, 3GPP TS 38.212 V.15.0.0, 2017.}}.'
@@ -43,7 +40,7 @@ notes:
 
 relations:
   parents:
-    - code_id: binary_linear
+    - code_id: polar_for_quantum
     - code_id: generalized_concatenated
       detail: 'Polar codes can be represented as generalized concatenations of their kernels.'
   cousins:
