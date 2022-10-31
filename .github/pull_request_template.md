@@ -9,7 +9,11 @@ changes below. Don't forget to remove this text.]
 
 ## Modified Codes:
 
-- *UVW code*: Added mention of ABC decoder, added citaitons to blah
+**UVW code**:
+- added ABC decoder
+- expanded citations
+
+**PQR code**:
 - ...
 
 ## Checklist:
