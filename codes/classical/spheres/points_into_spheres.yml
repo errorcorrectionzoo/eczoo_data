@@ -9,17 +9,38 @@ logical: spheres
 
 name: 'Spherical code'
 
-description: 'Encodes states (codewords) into points on an \(n\)-dimensional sphere \(S^n\).'
+description: |
+  Code whose codewords are points on an \(n\)-dimensional sphere \(S^n\).
+  It is denoted as \((n,M,\rho)\), where \(n\) is the dimension, \(M\) is the size or number of codewords, and \(\rho\) is the \textit{squared minimum distance}, i.e., the smallest Euclidean distance between pairs of distinct codewords,
+  \begin{align}
+    \rho=\min\left\{ \left\Vert x-y\right\Vert ^{2}\,\text{s.t.}\,x,y\in C,\,\,x\neq y\right\}~.
+  \end{align}
+  The radius of the sphere squared is called the \textit{energy}, and it is taken to be unity for spherical codes.
+  Points on a sphere with non-unity radius make up \textit{constant-energy codes}.
+
+  A spherical code can be defined using the Gram matrix \(G = XX^T\), where the rows of \(X\) are the codeword vectors.
+  The Gram matrix is symmetric, positive-definite, and has all diagonal elements equal to one.
+
+notes:
+  - 'See the book \cite{doi:EricZin} for more details.'
 
 relations:
   parents:
     - code_id: ecc
       detail: ''
 
+  cousins:
+    - code_id: bits_into_bits
+      detail: 'Any binary \((n,K,d)\) code can be converted into an \((n,K,4d/n)\) spherical code via a component-wise antipodal mapping \(0\to +1\) and \(1 \to -1\) \cite[Example 1.2.1]{doi:EricZin}.'
+    - code_id: constant_weight
+      detail: 'Any \((n,K,d)\) code of constant weight \(w\) can be converted into an \((n-1,K,\frac{nd}{nw-w^2})\) spherical code \cite[Example 1.2.2]{doi:EricZin}.'
+
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-03'
     - user_id: VictorVAlbert
       date: '2022-02-16'
