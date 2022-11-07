@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qam
+physical: reals
+logical: reals
+
+name: 'Lattice-based QAM'
+short_name: 'Latice QAM'
+
+description: |
+  Encodes into points into a subset of points lying on a lattice in \(\mathbb{R}^{2n}\), which is usually treated as \(\mathbb{C}^n\).
+  Each pair of points is typically associated with a complex amplitude of an electromagnetic signal, and information is encoded into both the norm and phase of that signal using quandrature amplitude modulation \cite[Ch. 16]{doi:10.1017/9781316822708}.
+
+features:
+  rate: 'Nearly achieves Shannon AWGN capacity for two-dimensional constellations in the limit of infinite signal to noise \cite[Fig. 11.8]{doi:10.1017/CBO9780511811401}.'
+
+relations:
+  parents:
+    - code_id: points_into_lattices
+      detail: 'A finite lattice QAM encoding consits of points scooped out of an infinite lattice.'
+  cousins:
+    - code_id: gkp
+      detail: 'The GKP code is a quantum analogue of lattice-based QAM.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'

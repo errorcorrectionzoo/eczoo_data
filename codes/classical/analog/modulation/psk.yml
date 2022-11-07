@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: psk
+physical: reals
+logical: reals
+
+name: 'Phase-shift keyring (PSK)'
+short_name: 'PSK'
+
+description: |
+  A \(q\)-ary phase-shift keyring encodes one \(q\)-ary digit of information into \(q\) points distributed equidistantly on a circle in either \(\mathbb{R}^2\) or \(\mathbb{C}\).
+  Each point is typically associated with a complex amplitude of an electromagnetic signal, and information is encoded into the phase of that signal.
+
+features:
+  rate: 'Nearly achieves Shannon AWGN capacity for one-dimensional constellations in the limit of infinite signal to noise \cite[Fig. 11.7]{doi:10.1017/CBO9780511811401}.'
+
+relations:
+  parents:
+    - code_id: points_into_spheres
+  cousins:
+    - code_id: cat
+      detail: 'The cat code is a quantum analogue of PSK for \(q=2S\).'
+    - code_id: q-ary_over_zq
+      detail: 'Concatenating linear codes over \(\mathbb{Z}_q\) with \(q\)-ary PSK yields a natural non-binary way of digitizing the analog AGWN channel \cite{manual:{Massey, J. L. "Convolutional codes over rings." Fourth Joint Swedish-Soviet International Workshop on Information Theory. 1989.},manual:{Massey, J. L. "Ring convolutional codes for phase modulation." presented at the IEEE Int. Symp. on Information Theory, San Diego, CA, Jan. 14-19. 1990.}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'
