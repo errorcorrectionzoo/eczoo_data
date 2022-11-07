@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: points_into_lattices
-#physical: lattices
-logical: points
+physical: reals
+logical: reals
 
 name: 'Lattice-based code'
 
@@ -16,8 +16,8 @@ features:
 
 relations:
   parents:
-    - code_id: ecc
-      detail: 'Error-correcting codes are defined for a finite alphabet, so only finite lattice-based codes are children.'
+    - code_id: analog
+#      detail: 'Error-correcting codes are defined for a finite alphabet, so only finite lattice-based codes are children.'
   cousins:
     - code_id: linear
       detail: 'Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.'

@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: analog
+physical: reals
+logical: reals
+
+name: 'Analog code'
+
+description: |
+  Encodes states (codewords) into coordinates in the \(n\)-dimensional real coordinate space \(\mathbb{R}^n\).
+  The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice.
+
+  Analog codes are useful for communication over the additive white-noise Gaussian channel due to Kotelnikov's \cite{manual:{V. A. Kotelnikov, “The theory of optimum noise immunity,” PhD Thesis, Molotov Energy Institute, Moscow, Jan. 1947}} and Shannon's \cite{doi:10.1109/JRPROC.1949.232969} observation that a discretized signal of finite-bandwidth can be represented as a point in \(\mathbb{R}^n\), which is called \textit{signal space} in this context.
+
+features:
+  rate: 'Random analog codes can achieve the capacity of the additive Gaussian white-noise channel \cite{doi:10.1002/j.1538-7305.1959.tb03905.x}; see the book \cite{doi:10.1007/978-1-4757-6568-7} for more details.'
+
+relations:
+  parents:
+    - code_id: ecc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-02'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'
