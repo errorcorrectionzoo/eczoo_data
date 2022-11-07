@@ -11,7 +11,11 @@ name: 'Phase-shift keyring (PSK)'
 short_name: 'PSK'
 
 description: |
-  A \(q\)-ary phase-shift keyring encodes one \(q\)-ary digit of information into \(q\) points distributed equidistantly on a circle in either \(\mathbb{R}^2\) or \(\mathbb{C}\).
+  A \(q\)-ary phase-shift keyring encodes one \(q\)-ary digit of information into a constellation of \(q\) points distributed equidistantly on a circle in \(\mathbb{C}\) or, equivalently, \(\mathbb{R}^2\).
+  For example, such a constellation could be
+  \begin{align}
+    \{1,e^{i\frac{2\pi}{q}},\cdots,e^{i\frac{2\pi}{q}(q-1)}}\}~.
+  \end{align}
   Each point is typically associated with a complex amplitude of an electromagnetic signal, and information is encoded into the phase of that signal.
 
 features:
@@ -21,6 +25,8 @@ relations:
   parents:
     - code_id: points_into_spheres
   cousins:
+    - code_id: gray
+      detail: '1D Gray codes are often concatenated with PSKs so that the Hamming distance between the bitstrings encoded into the points is a discretized version of the Euclidean distance between the points.'
     - code_id: cat
       detail: 'The cat code is a quantum analogue of PSK for \(q=2S\).'
     - code_id: q-ary_over_zq

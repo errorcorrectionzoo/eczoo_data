@@ -7,23 +7,24 @@ code_id: bpsk
 physical: reals
 logical: reals
 
-name: 'Binary phase-shift keyring (BPSK)'
+name: 'Binary PSK (BPSK)'
 short_name: 'BPSK'
+introduced: '\cite{doi:10.1002/j.1538-7305.1948.tb00917.x}'
 
 description: |
   Also called a \textit{binary antipodal modulation}, \textit{phase-reversal keyring (PRK)}, or \textit{antipodal signaling} code.
   Encodes one bit of information into antipodal points \(\pm\alpha\) for complex \(\alpha\).
-  These points are typically associated with two phase of an electromagnetic signal.
+  These points are typically associated with two phases of an electromagnetic signal.
 
 features:
-  rate: 'Achieve capacity of AGWN in the low signal-to-noise regime \cite{doi:10.1109/ALLERTON.2010.5706965} (see also \cite{doi:10.1002/j.1538-7305.1948.tb00917.x}). Achieve Holevo capacity for the pure-loss channel \cite{arxiv:1202.0533}.'
+  rate: 'Achieve capacity of AGWN in the low signal-to-noise regime \cite{doi:10.1109/ALLERTON.2010.5706965} (see also \cite{doi:10.1002/j.1538-7305.1948.tb00917.x}). BPSK concatenated with quantum-classical polar codes achieves the Holevo capacity for the pure-loss channel \cite{arxiv:1202.0533}.'
 
 relations:
   parents:
     - code_id: psk
-      detail: 'Binary PSK is also known as 2-PSK.'
+      detail: 'BPSK is also known as 2-PSK.'
     - code_id: qam
-      detail: 'Binary PSK is the simplest non-trivial lattice QAM encoding.'
+      detail: 'BPSK is the simplest non-trivial lattice QAM encoding.'
   cousins:
     - code_id: binary_linear
       detail: 'Concatenating binary linear codes with BPSK yields a standard way of digitizing the analog AGWN channel \cite[Ch. 29]{doi:10.1017/9781316822708}.'
