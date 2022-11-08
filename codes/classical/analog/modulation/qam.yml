@@ -13,10 +13,13 @@ short_name: 'Latice QAM'
 description: |
   Encodes into points into a subset of points lying on a lattice in \(\mathbb{R}^{2n}\), which is usually treated as \(\mathbb{C}^n\).
   Each pair of points is typically associated with a complex amplitude of an electromagnetic signal, and information is encoded into both the norm and phase of that signal using QAM \cite[Ch. 16]{doi:10.1017/9781316822708}.
-  QAM schemes with \(q\) points are often called \(q\)-QAM, and \(q\) is often a power of two in order to further concatenate with a binary code.
+  QAM schemes with \(q\) complex coordinates are often called \(q\)-QAM, and \(q\) is often a power of two in order to further concatenate with a binary code.
 
 features:
   rate: 'Nearly achieves Shannon AWGN capacity for two-dimensional constellations in the limit of infinite signal to noise \cite[Fig. 11.8]{doi:10.1017/CBO9780511811401}.'
+
+realizations:
+  - 'Optical communication (e.g., Ref. \cite{doi:10.1109/JLT.2015.2510034}).'
 
 relations:
   parents:
@@ -26,7 +29,7 @@ relations:
     - code_id: multimodegkp
       detail: 'Multimode GKP codes are quantum analogues of lattice-based QAM codes.'
     - code_id: gray
-      detail: '2D Gray codes are often concatenated with \(n=1\) lattice-based QAM codes so that the Hamming distance between the bitstrings encoded into the points is almost a discretized version of the Euclidean distance between the points \cite[Fig. 2.18]{doi:10.1007/b100498}.'
+      detail: '2D Gray codes are often concatenated with \(n=1\) lattice-based QAM codes so that the Hamming distance between the bitstrings encoded into the points is a discretized version of the Euclidean distance between the points.'
 
 
 # Begin Entry Meta Information
