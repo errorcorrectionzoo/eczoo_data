@@ -7,11 +7,11 @@ code_id: psk
 physical: reals
 logical: reals
 
-name: 'Phase-shift keyring (PSK)'
+name: 'Phase-shift keyring (PSK) code'
 short_name: 'PSK'
 
 description: |
-  A \(q\)-ary phase-shift keyring encodes one \(q\)-ary digit of information into a constellation of \(q\) points distributed equidistantly on a circle in \(\mathbb{C}\) or, equivalently, \(\mathbb{R}^2\).
+  A \(q\)-ary phase-shift keyring (\(q\)-PSK) encodes one \(q\)-ary digit of information into a constellation of \(q\) points distributed equidistantly on a circle in \(\mathbb{C}\) or, equivalently, \(\mathbb{R}^2\).
   For example, such a constellation could be
   \begin{align}
     \{1,e^{i\frac{2\pi}{q}},\cdots,e^{i\frac{2\pi}{q}(q-1)}\}~.
@@ -21,9 +21,15 @@ description: |
 features:
   rate: 'Nearly achieves Shannon AWGN capacity for one-dimensional constellations in the limit of infinite signal to noise \cite[Fig. 11.7]{doi:10.1017/CBO9780511811401}.'
 
+realizations:
+  - 'Telephone-line modems: 1967 Milgo 4400/48 and international standard V.27 used 8-PSK \cite{}.'
+
 relations:
   parents:
     - code_id: points_into_spheres
+      detail: 'PSK is a spherical code on the 1D sphere.'
+    - code_id: qam
+      detail: 'PSK is a version of QAM where the constellation consists of points arranged equidistantly on a circle.'
   cousins:
     - code_id: gray
       detail: '1D Gray codes are often concatenated with PSKs so that the Hamming distance between the bitstrings encoded into the points is a discretized version of the Euclidean distance between the points.'

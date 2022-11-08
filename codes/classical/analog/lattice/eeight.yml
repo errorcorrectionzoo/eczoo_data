@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eeight
+physical: reals
+logical: reals
+
+name: 'Gosset \(E_8\) lattice code'
+
+description: |
+  BW lattice in dimension \(8\), which is the lattice corresponding to the \([8,4,4]\) Hamming code via the mod-two lattice construction.
+
+protection: |
+  The \(E_8\) lattice has a nominal coding gain of \(2\).
+
+relations:
+  parents:
+    - code_id: barnes_wall
+    - code_id: construction_a
+  cousins:
+    - code_id: hamming
+      detail: 'The \([8,4,4]\) Hamming code yields the \(E_8\) lattice code via the mod-two lattice construction.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'

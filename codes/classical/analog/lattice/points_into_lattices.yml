@@ -11,6 +11,15 @@ name: 'Lattice-based code'
 
 description: 'Encodes states (codewords) in coordinates of a lattice in the \(n\)-dimensional real coordinate space \(\mathbb{R}^n\). The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.'
 
+protection: |
+  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the number of nearest neighbors at each lattice point known as the \textit{kissing number} \(K_{\text{min}}\), and the \textit{volume} \(V=\text{det}G\), which is equal to the determinant of the lattice generator matrix.
+
+  The \textit{nominal coding gain} \(\gamma_{c}\) (a.k.a. \textit{Hermite parameter}) of an \(n\)-dimensional lattice is
+  \begin{aling}
+    \gamma_{c}=\left(d_{\text{min}}/\sqrt[n]{V}\right)^{2}~,
+  \end{align}
+  characterizing the ratio of the level of protection to the required spatial resources.
+
 relations:
   parents:
     - code_id: analog
