@@ -4,14 +4,14 @@
 #######################################################
 
 code_id: polar_for_quantum
-physical: bits
+physical: qubits
 logical: bits
 
 name: 'Quantum-classical polar code'
 introduced: '\cite{arxiv:1109.2591,arxiv:1701.03397}'
 
 description: |
-  Polar code used to transmit classical information over quantum channels.
+  Polar code used to transmit classical information over channels with classical inputs and quantum outputs.
 
 features:
   rate: 'Codes achieve the symmetric Holevo information for sending classical information over any quantum channel.'
@@ -21,12 +21,14 @@ features:
 
 relations:
   parents:
-    - code_id: binary_linear
+    - code_id: classical_into_quantum
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
     - user_id: VictorVAlbert
       date: '2022-10-31'
