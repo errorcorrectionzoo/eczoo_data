@@ -9,16 +9,19 @@ logical: reals
 
 name: 'Lattice-based code'
 
-description: 'Encodes states (codewords) in coordinates of a lattice in the \(n\)-dimensional real coordinate space \(\mathbb{R}^n\). The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.'
+description: 'Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice. The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.'
 
 protection: |
-  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the number of nearest neighbors at each lattice point known as the \textit{kissing number} \(K_{\text{min}}\), and the \textit{volume} \(V=\text{det}G\), which is equal to the determinant of the lattice generator matrix.
+  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=\det G\), which is equal to the determinant of the lattice generator matrix \(G\).
 
   The \textit{nominal coding gain} \(\gamma_{c}\) (a.k.a. \textit{Hermite parameter}) of an \(n\)-dimensional lattice is
   \begin{align}
     \gamma_{c}=\left(d_{\text{min}}/\sqrt[n]{V}\right)^{2}~,
   \end{align}
   characterizing the ratio of the level of protection to the required spatial resources.
+
+notes:
+  - 'See book \cite{doi:10.1007/978-1-4757-6568-7} for an introduction and overview of lattices.'
 
 relations:
   parents:
