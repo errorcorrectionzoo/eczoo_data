@@ -19,27 +19,26 @@ description: |-
   H_1^x \otimes H_2^x \otimes I \otimes I \\
   I \otimes I \otimes H_3^x \otimes H_4^x
   \end{array}\right) \\
-  H_{\otimes}^z:=\left(\begin{array}{c}
+  H_{\otimes}^z &:=\left(\begin{array}{c}
   H_1^z \otimes I \otimes H_3^z \otimes I \\
   I \otimes H_2^z \otimes I \otimes H_4^z
   \end{array}\right)~.
   \end{align}
 
-  The above construction can be generalized to the case with a symmetric \(D\)-fold product as
-  \begin{align}
-  &H_{(D)}^x:=\left[\begin{array}{c}
-  D \text { Stack } \\
-  j=0
-  \end{array} \bigotimes_{\ell=1}^{D^2} \mathcal{H}_{\ell, j}^x \quad \mathcal{H}_{\ell, j}^x= \begin{cases}H_{\ell}^x & \text { if } j D+1 \leq \ell \leq(j+1) D \\
-  I_{n_{\ell}} & \text { otherwise }\end{cases}\right.\\
-  &H_{(D)}^z:=\left[\begin{array}{c}
-  D \text { Stack } \\
-  j=0
-  \end{array}\right] \bigotimes_{\ell=1}^{D^2} \mathcal{H}_{\ell, j}^z \quad \mathcal{H}_{\ell, j}^z=\left\{\begin{array}{lll}
-  H_{\ell}^z & \text { if }(\ell-1) \equiv j & \bmod D \\
-  I_{n_{\ell}} & \text { otherwise }
-  \end{array}\right.
-  \end{align}
+# The above construction can be generalized to the case with a symmetric \(D\)-fold product as  \begin{align}
+# &H_{(D)}^x:=\left[\begin{array}{c}
+# D \text { Stack } \\
+# j=0
+# \end{array} \bigotimes_{\ell=1}^{D^2} \mathcal{H}_{\ell, j}^x \quad \mathcal{H}_{\ell, j}^x= \begin{cases}H_{\ell}^x & \text { if } j D+1 \leq \ell \leq(j+1) D \\
+# I_{n_{\ell}} & \text { otherwise }\end{cases}\right.\\
+# &H_{(D)}^z:=\left[\begin{array}{c}
+# D \text { Stack } \\
+# j=0
+# \end{array}\right] \bigotimes_{\ell=1}^{D^2} \mathcal{H}_{\ell, j}^z \quad \mathcal{H}_{\ell, j}^z=\left\{\begin{array}{lll}
+# H_{\ell}^z & \text { if }(\ell-1) \equiv j & \bmod D \\
+# I_{n_{\ell}} & \text { otherwise }
+# \end{array}\right.
+# \end{align}
 
 
 relations:
@@ -47,7 +46,7 @@ relations:
     - code_id: css
   cousins:
     - code_id: quantum_tanner
-      detail: 'A \([[512,174,8]]\) classical-product code performed well against erasure and depolarizing noise when compared to a member of an asymptotically good quantum Tanner code family.'
+      detail: 'A \([[512,174,8]]\) classical-product code performed well \cite{arxiv:2209.13474} against erasure and depolarizing noise when compared to a member of an asymptotically good quantum Tanner code family.'
     - code_id: parity_check
       detail: 'SPC codes are used as component codes in classical-product code constructions.'
     - code_id: tensor
