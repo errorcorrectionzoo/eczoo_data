@@ -3,30 +3,50 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: points_into_spheres
+code_id: spherical
 physical: reals
 logical: reals
 
 name: 'Spherical code'
 
 description: |
-  Code whose codewords are points on an \(n\)-dimensional sphere \(S^n\).
+  Code whose codewords are points on an \(n\)-dimensional sphere \(S^n\) with radius one.
   It is denoted as \((n,M,\rho)\), where \(n\) is the dimension, \(M\) is the size or number of codewords, and \(\rho\) is the \textit{squared minimum distance}, i.e., the smallest Euclidean distance between pairs of distinct codewords,
   \begin{align}
     \rho=\min\left\{ \left\Vert x-y\right\Vert ^{2}\,\text{s.t.}\,x,y\in C,\,\,x\neq y\right\}~.
   \end{align}
-  The radius of the sphere squared is called the \textit{energy}, and it is taken to be unity for spherical codes.
-  Points on a sphere with non-unity radius make up \textit{constant-energy codes}.
 
-  A spherical code can be defined using the Gram matrix \(G = XX^T\), where the rows of \(X\) are the codeword vectors.
+  A spherical code can be defined using the Gram matrix \(G = XX^T\), where the rows of \(X\) are the \(n+1\)-dimensional codeword vectors.
   The Gram matrix is symmetric, positive-definite, and has all diagonal elements equal to one.
+
+  Spherical codeword components are often taken from a discrete set of real values called an \textit{alphabet}.
+  For example, codewords of any length-\(n\) binary code can be mapped into spherical codewords with alphabet \(\{\pm 1/\sqrt{n} \}\) via the antipodal mapping \(0\to +1\) and \(1 \to -1\) \cite[Example 1.2.1]{preset:EricZin}.
+
+
+protection: |
+  The Euclidean distance between two points is related to the dot product as \(\left\Vert x-y\right\Vert ^{2}=2-2x\cdot y\), so often the \textit{angular distance},
+  \begin{align}
+    \theta=\arccos(x\cdot y) \in[0,\pi]~,
+  \end{align}
+  is used to quantify code performance.
+
+  Denote \(A_n(\rho)\) to be the largest possible size for a spherical code to have distance \(\rho\).
+  Spherical code parameters \((n,M,\rho)\) as well as \(\(A_n(\rho)\)) satisfy the following three \textit{Rankin bounds} \cite{}
+  \begin{align}
+    \begin{split}
+    \rho & \leq\frac{2M}{M-1}\\
+    A_{n}\left(\rho\right) & \leq n+1\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,2<\rho\leq4\\
+    A_{n}\left(2\right) & \leq2n~.
+    \end{split}
+  \end{align}
+
 
 notes:
   - 'See the book \cite{preset:EricZin} for more details.'
 
 relations:
   parents:
-    - code_id: analog
+    - code_id: points_into_spheres
 
   cousins:
     - code_id: bits_into_bits
