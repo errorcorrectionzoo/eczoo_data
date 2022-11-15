@@ -38,6 +38,8 @@ features:
   encoders:
     - 'Nine CNOT and four Hadamard gates (\cite{doi:10.1201/9781420012293}, Fig. 10.14).'
 
+  transversal_gates: 'All single-qubit Clifford gates \cite{arxiv:quant-ph/9605011,arxiv:0706.1382}.'
+
   general_gates:
     - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
 
@@ -47,6 +49,8 @@ features:
 
 relations:
   parents:
+    - code_id: diagonal_clifford
+      detail: 'Steane code is the smallest member of a family of Reed-Muller-based CSS codes.'
     - code_id: quantum_hamming_css
       detail: 'Steane code is the smallest member of a family of Hamming-based CSS codes.'
     - code_id: color
