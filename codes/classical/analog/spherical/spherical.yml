@@ -24,14 +24,18 @@ description: |
 
 
 protection: |
-  The Euclidean distance between two points is related to the dot product as \(\left\Vert x-y\right\Vert^{2} = 2-2x \cdot y\), where \(x\cdot y\) is the Euclidean inner product. As a result, the \textit{angular distance},
+  The Euclidean distance between two points is related to the dot product as
+  \begin{align}
+    \left\Vert x-y\right\Vert^{2} = 2-2x \cdot y~,
+  \end{align}
+  where \(x\cdot y\) is the Euclidean inner product. As a result, the \textit{angular distance},
   \begin{align}
     \theta=\arccos(x\cdot y) \in[0,\pi]~,
   \end{align}
   can be equivalently used to quantify code performance.
 
-  Denote \(A_n(\rho)\) to be the largest possible size for a spherical code to have distance \(\rho\).
-  Spherical code parameters \((n,M,\rho)\) as well as \((A_n(\rho)\) satisfy the following three \textit{Rankin bounds} \cite{}
+  Denote \(A_n(\rho)\) to be the largest possible size of a spherical code with distance \(\rho\).
+  Spherical code parameters \((n,M,\rho)\) as well as \(A_n(\rho)\) satisfy the following three \textit{Rankin bounds} \cite{doi:10.2307/1969393,manual:{Davenport, H., & Hajos, G. (1951). Aufgabe 35. Math. Lapok, 58.},doi:10.1017/S2040618500033219}
   \begin{align}
     \begin{split}
     \rho & \leq\frac{2M}{M-1}\\
