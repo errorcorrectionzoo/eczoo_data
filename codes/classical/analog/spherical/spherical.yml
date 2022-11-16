@@ -10,14 +10,15 @@ logical: reals
 name: 'Spherical code'
 
 description: |
-  Code whose codewords are points on an \(n-1\)-dimensional sphere \(S^{n-1}\) with radius one.
-  It is denoted as \((n,M,\rho)\), where \(M\) is the size or number of codewords, and \(\rho\) is the \textit{squared minimum distance}, i.e., the smallest Euclidean distance between pairs of distinct codewords,
+  Code whose codewords are points on an \(n\)-dimensional sphere \(S^{n}\) with radius one.
+  It is denoted as \((n,M,\rho)\), where \(n\) is the code \textit{dimension}, \(M\) is the size or number of codewords, and \(\rho\) is the \textit{squared minimum distance}, i.e., the smallest Euclidean distance between pairs of distinct codewords,
   \begin{align}
     \rho=\min\left\{ \left\Vert x-y\right\Vert ^{2}\,\text{s.t.}\,x,y\in C,\,\,x\neq y\right\}~.
   \end{align}
 
-  A spherical code can be defined using the Gram matrix \(G = XX^T\), where the rows of \(X\) are the \(n\)-dimensional codeword vectors.
+  A spherical code can be defined using the Gram matrix \(G = XX^T\), where the rows of \(X\) are the codeword vectors.
   The Gram matrix is symmetric, positive-definite, and has all diagonal elements equal to one.
+  The code dimension is equal to the rank of \(G\), which can be less than the dimension of the codeword vectors.
 
   Spherical codeword components are often taken from a discrete set of real values called an \textit{alphabet}.
   For example, codewords of any length-\(n\) binary code can be mapped into spherical codewords with alphabet \(\{\pm 1/\sqrt{n} \}\) via the antipodal mapping \(0\to +1\) and \(1 \to -1\) \cite[Example 1.2.1]{preset:EricZin}.
