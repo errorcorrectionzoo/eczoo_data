@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dfour_spherical
+physical: reals
+logical: reals
+
+name: '\(D_4\) lattice-shell code'
+
+description: |
+  Spherical code whose codewords are points on the \(D_4\) lattice.
+  The smallest shell of the lattice consists of the 24 permutations of the four vectors \((0,0,\pm 1,\pm 1)\), yielding a \((4,24,1)\) code.
+  The next highest shell consists of the 16 vectors \((\pm 1,\pm 1,\pm 1,\pm 1)\) and the 8 permutations of the vectors \((0,0,0,\pm 2)\), yielding a equivalent instance of the \((4,24,1)\) code.
+  The union of the two codes yields the \((4,48,2(1-1/\sqrt{2}))\) code.
+
+relations:
+  parents:
+    - code_id: lattice_shell
+    - code_id: dfour
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'
