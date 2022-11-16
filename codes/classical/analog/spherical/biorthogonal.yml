@@ -7,17 +7,24 @@ code_id: biorthogonal
 physical: reals
 logical: reals
 
-name: 'Biorthogonal code'
+name: 'Biorthogonal spherical code'
 
 description: |
-  Spherical \((n,2n,2)\) code whose codewords are all permutations of the \(n+1\)-dimensional vectors \((0,0,\cdots,0,\pm1)\), up to normalization.
+  Spherical \((n,2n,2)\) code whose codewords are all permutations of the \(n\)-dimensional vectors \((0,0,\cdots,0,\pm1)\), up to normalization.
+  For example, the biorthogonal code in \(n=3\) makes up the corners of an octahedron.
+
+  The set of permutations of \((0,0,\cdots,0,1)\) forms an orthogonal set and yields the biorthogonal code when combined with the set of permutations of \((0,0,\cdots,0,-1)\).
 
 protection: |
   Biorthogonal spherical codes saturate the third Rankin bound \cite{preset:EricZin}.
 
 relations:
   parents:
-    - code_id: spherical
+    - code_id: binary_antipodal
+      detail: 'An RM\((1,m)\) code maps to a \((2^m,2^{m+1})\) biorthogonal signal set under the antipodal mapping \cite{doi:10.1109/18.720542}. This set is equivalent to the  biorthogonal code since all such codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}.'
+  cousins:
+    - code_id: reed_muller
+      detail: 'An RM\((1,m)\) code maps to a \((2^m,2^{m+1})\) biorthogonal signal set under the antipodal mapping \cite{doi:10.1109/18.720542}. This set is equivalent to the  biorthogonal code since all such codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}.'
 
 
 # Begin Entry Meta Information

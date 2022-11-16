@@ -12,7 +12,9 @@ short_name: 'RM'
 introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465,manual:{N. Mitani, \emph{On the transmission of numbers in a sequential computer}, delivered at the National Convention of the Inst. of Elect. Engineers of Japan, November 1951.}}'
 
 description: |
-  Member of the RM\((r,m)\) family of linear binary codes derived from multivariate polynomials. The code parameters are \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code satisfying \(0\leq r\leq m\). \textit{Punctured RM codes} RM\(^*(r,m)\) are obtained from RM codes by deleting one or more coordinates from each codeword.
+  Member of the RM\((r,m)\) family of linear binary codes derived from multivariate polynomials. The code parameters are \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code satisfying \(0\leq r\leq m\).
+  First-order RM codes are also called \textit{biorthogonal} codes, while \(m\)th order RM codes are also called \textit{universe} codes.
+  \textit{Punctured RM codes} RM\(^*(r,m)\) are obtained from RM codes by deleting one or more coordinates from each codeword.
 
   Generator matrices of RM codes are constructed using the \((u|u+v)\) construction by starting from the \(2^m\)-dimensional matrix \(F^{(m)}=\left(\begin{smallmatrix}1 & 0\\
   1 & 1
@@ -60,8 +62,6 @@ relations:
       detail: 'Certain punctured RM codes such as RM\(^*(2,5)\) are duadic; see Ref. \cite{doi:10.1017/CBO9780511807077}, Table 6.2.'
     - code_id: binary_cyclic
       detail: 'Punctured RM codes are cyclic (\cite{preset:MacSlo}, Ch. 13, Thm. 11), making RM codes extended cyclic codes. RM codes with nonzero evaluation points are cyclic (\cite{doi:10.1007/978-94-011-3810-9}, pg. 52).'
-    - code_id: parity_check
-      detail: 'RM\((m-1,m)\) are parity-check codes.'
     - code_id: binary_ltc
       detail: 'RM codes can be LTCs in the low- \cite{doi:10.1109/TIT.2005.856958,doi:10.1137/S0097539704445615} and high-error \cite{arxiv:math/0604353} regimes.'
   #cousins:
