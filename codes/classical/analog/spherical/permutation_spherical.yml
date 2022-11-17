@@ -8,11 +8,18 @@ physical: reals
 logical: reals
 
 name: 'Permutation spherical code'
-introduced: '\cite{doi:10.1109/PROC.1965.3680}'
+introduced: '\cite{doi:10.1109/PROC.1965.3680,doi:10.1109/18.57208}'
 
 description: |
   Spherical code whose codewords are constructed from an arbitrary unit vector in two possible variants. Variant 1 consists of codewords that are permutations of the vector's coordinates, while Variant 2 consits of such permutations and all possible sign changes of the vector's components.
 
+features:
+  rate: 'Number of codewords cannot increase exponentially with dimension \(n\) \cite{doi:10.1109/TIT.1971.1054601}'
+  decoders:
+    - 'Efficient maximum-likelihood decoder determining the Voronoi region of an error word.'
+
+notes:
+  - 'See \cite[Ch. 4]{preset:EricZin} for more details and tables of optimal codes.'
 
 relations:
   parents:
