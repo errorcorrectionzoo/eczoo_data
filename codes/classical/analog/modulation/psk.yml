@@ -18,6 +18,8 @@ description: |
   \end{align}
   Each point is typically associated with a complex amplitude of an electromagnetic signal, and information is encoded into the phase of that signal.
 
+  Concatenating PSK with \(q\)-ary codes yields a natural non-binary way of digitizing the analog AGWN channel \cite{manual:{Massey, J. L. "Convolutional codes over rings." Fourth Joint Swedish-Soviet International Workshop on Information Theory. 1989.},manual:{Massey, J. L. "Ring convolutional codes for phase modulation." presented at the IEEE Int. Symp. on Information Theory, San Diego, CA, Jan. 14-19. 1990.}}.
+
 features:
   rate: 'Nearly achieves Shannon AWGN capacity for one-dimensional constellations in the limit of infinite signal to noise \cite[Fig. 11.7]{doi:10.1017/CBO9780511811401}.'
 
@@ -26,8 +28,8 @@ realizations:
 
 relations:
   parents:
-    - code_id: points_into_spheres
-      detail: 'PSK is a constant-energy code on the 1D sphere.'
+    - code_id: polyphase
+      detail: 'A polyphase code can be thought of as a concatenation of a \(q\)-ary outer code with a PSK inner code. When the outer code is trivial, the construction reduces to a PSK code.'
     - code_id: qam
       detail: 'PSK is a version of QAM where the constellation consists of points arranged equidistantly on a circle.'
   cousins:
@@ -35,8 +37,6 @@ relations:
       detail: '1D Gray codes are often concatenated with PSKs so that the Hamming distance between the bitstrings encoded into the points is a discretized version of the Euclidean distance between the points.'
     - code_id: cat
       detail: 'The cat code is a quantum analogue of PSK for \(q=2S\).'
-    - code_id: q-ary_over_zq
-      detail: 'Concatenating linear codes over \(\mathbb{Z}_q\) with \(q\)-ary PSK yields a natural non-binary way of digitizing the analog AGWN channel \cite{manual:{Massey, J. L. "Convolutional codes over rings." Fourth Joint Swedish-Soviet International Workshop on Information Theory. 1989.},manual:{Massey, J. L. "Ring convolutional codes for phase modulation." presented at the IEEE Int. Symp. on Information Theory, San Diego, CA, Jan. 14-19. 1990.}}.'
 
 
 # Begin Entry Meta Information
