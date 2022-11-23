@@ -14,13 +14,16 @@ description: |
   Spherical code in \(n\) dimensions whose codewords correspond to points in an orbit of some \textit{initial vector} under a \textit{generating group} \(G\), which is a subgroup of the group \(O(n)\) of rotations in \(n\) dimensions.
   Neither the vector nor the group are unique for a given code.
 
+# Lattice-shell not quite group-orbit because one can combine different shells, meaning that one needs more than one initial vector.
+# Polytopes too general to all be group-orbit codes? 
+
 protection: |
   Code properties depend on the relationship between the group and the initial vector, and the number of codewords is the number of cosets of an initial vector's symmetry subgroup in \(G\) per the orbit-stabilizer theorem.
   See Refs. \cite{manual:{Biggs, Norman. Finite groups of automorphisms: course given at the University of Southampton, October-December 1969. Vol. 6. CUP Archive, 1971.},doi:10.1109/TIT.1977.1055744,doi:10.1137/0134060} for allowed code parameters.
 
 
 notes:
-  - 'See \cite[Ch. 8]{preset:EricZin}\cite{doi:10.1007/BFb0042068} for more details.'
+  - 'See \cite[Ch. 8]{preset:EricZin}\cite{doi:10.1007/BFb0042068} for more details and code tables.'
 
 relations:
   parents:
@@ -28,8 +31,6 @@ relations:
     - code_id: group_orbit
       detail: 'Slepian group-orbit codes are group-orbit codes on spheres. Binary group-orbit codes can be mapped into Slepian group-orbit codes via various mappings \cite[Ch. 8]{preset:EricZin}.'
   cousins:
-    - code_id: polyphase
-      detail: 'Slepian group-orbit codes for abelian groups are naturally interpreted as polyphase codes \cite[Ch. 8]{preset:EricZin}.'
     - code_id: binary_linear
       detail: 'Any length-\(n\) binary linear code can be used to define a diagonal subgroup of \(n\)-dimensional rotation matrices with \(\pm 1\) on the diagonals via the antipodal mapping \(0\to+1\) and \(1\to-1\). The orbit of this subgroup yields the corresponding Slepian group-orbit code; see \cite[Thm. 8.5.2]{preset:EricZin}.'
     - code_id: binary_antipodal

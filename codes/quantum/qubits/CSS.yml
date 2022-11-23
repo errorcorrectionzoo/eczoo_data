@@ -26,13 +26,13 @@ description: |
   \end{align}
   The above condition guarantees that the \(X\)-stabilizer generators, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
 
-  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d^\prime_X]\) code \(C_X\) and \([n,k_Z,d^\prime_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d^\prime_X,d^\prime_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm}.
+  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm}.
   Basis states for the code are, for \(\gamma \in C_X\),
   \begin{align}
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
 
-  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance}.
+  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}.
 
 
   \subsection{CSS-to-homology correspondence}
