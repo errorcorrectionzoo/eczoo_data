@@ -21,7 +21,14 @@ description: |
 
   For cases when \(q\) is a square, an alternative definition of dual substitutes the Euclidean inner product for the \textit{Hermitian inner product}, \(x\cdot y \to \sum_{i=1}^n x_i y^{\sqrt{q}}_i\). More general inner products can also be considered \cite{doi:10.1007/s10623-016-0282-8}. Self-dual codes with respect to the Hermitian inner product are called \textit{Hermitian self-dual}; similar definitions hold for self-orthogonal and dual-containing as well as other inner products.
 
-protection: 'The dual of an \([n,k,d] \) code is an \([n,n-k,d'']\) code, where \(d''\) is not always related to \(d\). The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.'
+protection: |
+  The dual of an \([n,k,d] \) code is an \([n,n-k,d'']\) code, where \(d''\) is not always related to \(d\). The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.
+
+  The minimum distance of a binary self-dual code satisfies
+  \begin{align}
+    d\leq 4\left[\frac{n}{24}\right]+4
+  \end{align}
+  unless \(n = 22\) modulo four \cite{doi:10.1109/18.651000}.
 
 notes:
   - See books \cite{doi:10.1007/3-540-30731-1,doi:10.1017/CBO9780511807077} for more on self-dual codes.
