@@ -11,13 +11,19 @@ name: 'Cubeoctahedron code'
 
 description: |
   Spherical \((3,12,1)\) code whose codewords are the vertices of the cubeoctahedron.
+  Codewords form the minimal lattice-shell code of the \(D_3\) face-centered cubic (fcc) lattice.
 
-protection: 'The cubeoctahedron code solves the kissing problem in 3D \cite{doi:10.1007/BF01343127}.'
+protection: |
+  Code yields an optimal solution to the kissing problem in 3D \cite{doi:10.1007/BF01343127}.
+
 
 relations:
   parents:
     - code_id: polytope
-
+    - code_id: lattice_shell
+  cousins:
+    - code_id: dthree
+      detail: 'Cubeoctahedron codewords form the smallest shell of the \(D_3\) face-centered cubic (fcc) lattice.'
 
 # Begin Entry Meta Information
 _meta:

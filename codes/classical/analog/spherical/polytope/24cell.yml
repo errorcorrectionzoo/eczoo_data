@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 24cell
+physical: reals
+logical: reals
+
+name: '\(24\)-cell code'
+
+description: |
+  Spherical \((4,24,1)\) code whose codewords are the vertices of the \(24\)-cell.
+  Codewords form the minimal lattice-shell code of the \(D_4\) lattice.
+
+protection: |
+  Code yields an optimal solution to the kissing problem in 4D \cite{manual:{Schläfli, L. (1901). Theorie der vielfachen Kontinuität (Vol. 38). Zürcher & Furrer.},arxiv:math/0309430}.
+
+
+relations:
+  parents:
+    - code_id: polytope
+    - code_id: dfour_spherical
+      detail: '\(24\)-cell codewords form the smallest shell of the \(D_4\) lattice.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-23'

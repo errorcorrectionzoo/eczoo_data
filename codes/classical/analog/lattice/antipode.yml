@@ -3,24 +3,25 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: bw32
+code_id: antipode
 physical: reals
 logical: reals
 
-name: '\(BW_{32}\) Barnes-Wall lattice code'
-short_name: '\(BW_{32}\)'
-introduced: '\cite{doi:10.1017/S1446788700025064}'
+name: 'Antipode lattice code'
+introduced: '\cite{doi:10.1007/BF01232378}'
 
 description: |
-  BW lattice in dimension \(32\).
+  Lattice code constructed via the antipode construction.
 
 #protection: |
 #  The \(E_8\) lattice has a nominal coding gain of \(2\).
 
 relations:
   parents:
-    - code_id: barnes_wall
-#    - code_id: construction_a
+    - code_id: points_into_lattices
+  cousins:
+    - code_id: anticode
+      detail: 'The antipode and anticode construcions are morally similar \cite{preset:splag}.'
 
 
 # Begin Entry Meta Information
@@ -28,4 +29,4 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2022-11-22'
+      date: '2022-11-23'
