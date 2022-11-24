@@ -3,27 +3,27 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: polytope
+code_id: wrapped_spherical
 physical: reals
 logical: reals
 
-name: 'Polytope code'
+name: 'Wrapped spherical code'
+introduced: '\cite{doi:10.1109/18.641544}'
 
 description: |
-  Spherical code whose codewords are the vertices of a polytope, i.e., a geometrical figure bounded by lines, planes, and hyperplanes \cite{preset:coxeter}.
+  Spherical code in dimension \(n\) whose codewords are obtained from centers of spheres from a finite \(S^{n-1}\)-sphere packing of \(\mathbb{R}^{n}\) that is "wrapped" onto the \(S^n\).
 
-
+features:
+  rate: 'Asymptotically maximum spherical coding density is obtained using the densest possible sphere packing.'
 
 relations:
   parents:
     - code_id: spherical
-  cousins:
-    - code_id: slepian_group
-      detail: 'Vertices of many regular polytopes form an orbit of the polytope''s symmetry group.'
+
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2022-11-16'
+      date: '2022-11-23'
