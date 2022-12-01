@@ -11,11 +11,17 @@ name: 'Subsystem surface code'
 introduced: '\cite{arxiv:1207.1443}'
 
 description: |
-  Stub.
+  Subsystem version of the surface code defined on a square lattice with qubits placed at every vertex and center of everry edge.
+
+  For example, a \([[3L^2,2,L]]\) family has weight-six \(X,Z\)-type stabilizers supported on two of the four triangles of each plaquette.
 
 features:
   fault_tolerance:
     - 'Gauge fixing and changing the order in which check operators are measured yields a fault-tolerant decoder \cite{arxiv:2010.09626}.'
+
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: the threshold under ML decoding corresponds to the value of critical point of the two-dimensional hexagonal-lattice random-bond Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:1207.1443}, calculated to be around \(7\%\) in Ref. \cite{arXiv:cond-mat/0510816}.'
+
 
   threshold:
     - '\(0.81\%\) threshold for circuit-level depolarizing noise under a variant of MWPM and using gauge-fixing and specific measurement schedules \cite{arxiv:2010.09626}, improving the \(0.67\%\) threshold for standard measurement schedules \cite{arxiv:1207.1443}.'
@@ -27,8 +33,6 @@ notes:
 relations:
   parents:
     - code_id: subsystem_stabilizer
-      detail: ''
-
   cousins:
     - code_id: surface
 
