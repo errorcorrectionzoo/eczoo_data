@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: fermions
-physical: fermions
-logical: fermions
+physical: qubits
+logical: qubits
 
 name: 'Fermionic code'
 #introduced: ''
@@ -19,12 +19,9 @@ protection: ''
 
 relations:
   parents:
-    - code_id: qecc_finite
-      detail: ''
-
-  cousins:
     - code_id: qubits_into_qubits
-      detail: 'While the Majorana operator algebra is isomorphic to the qubit Pauli-operator algebra via the Jordan-Wigner transformation \cite{arXiv:cond-mat/0010440}, codes based on the two algebras have different notions of locality and thus qualitatively different physical interpretations.'
+      detail: 'The Majorana operator algebra is isomorphic to the qubit Pauli-operator algebra via the Jordan-Wigner transformation \cite{arXiv:cond-mat/0010440}. However, Majorana codes and the noise they are designed for are based on a different notion of locality.'
+  cousins:
     - code_id: oscillators
       detail: 'Bosonic (fermionic) codes are associated with bosonic (fermionic) degrees of freedom.'
 
@@ -33,5 +30,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-04'
     - user_id: VictorVAlbert
       date: '2021-12-01'
