@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lattice_shell
+physical: spheres
+logical: reals
+
+name: 'Lattice-shell code'
+
+description: |
+  Spherical code whose codewords are scaled versions of points on a lattice.
+  Each code is constructed by normalizing a set of lattice vectors in one or more \textit{shells}, i.e., sets of lattice points lying on a hypersphere.
+
+
+relations:
+  parents:
+    - code_id: spherical
+  cousins:
+    - code_id: points_into_lattices
+      detail: 'Lattice-shell codes consists of lattice points that have been normalized.'
+    - code_id: cyclic
+      detail: 'Lattice-shell codewords are often permutations of a particular set of reference vectors, meaning that a cyclic permutation of a codeword yields another codeword.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'

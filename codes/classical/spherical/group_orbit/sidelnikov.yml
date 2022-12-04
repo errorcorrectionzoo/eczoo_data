@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: sidelnikov
+physical: spheres
+logical: reals
+
+name: 'Sidelnikov group-orbit code'
+introduced: '\cite{manual:{V. M. Sidel''nikov, “On One Finite Matrix Group and Codes on Euclidean Spheres”, Probl. Peredachi Inf., 33:1 (1997), 35–54; Problems Inform. Transmission, 33:1 (1997), 29–44},doi:10.1109/ISIT.1997.613373}'
+
+description: |
+  Slepian group-orbit code of dimension \(2^r\), approximate asympotic size \(2.38 \cdot 2^{r(r+1)/2+1}\), and distance \(1\).
+  Code is constructed by applying elements of a particular family of orthogonal groups onto the vector \((1,0,0,\cdots,0)\).
+  The code coincides with the optimal spherical codes for dimensions \(\{4,8,16\}\).
+
+
+relations:
+  parents:
+    - code_id: slepian_group
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-22'
