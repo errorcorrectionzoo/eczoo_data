@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: kitaev_honeycomb
+physical: qubits
+logical: qubits
+
+name: 'Kitaev honeycomb code'
+introduced: '\cite{arxiv:cond-mat/0506438,arxiv:1701.05052}'
+
+description: 'Code whose logical subspace is labeled by different fusion outcomes of Ising anyons present in the non-Abelian topological phase of the Kitaev honeycomb model \cite{arXiv:cond-mat/0506438}.
+Each logical qubit is constructed out of four Majorana operators, which admit braiding-based gates due to their non-Abelian statistics and which can be used for topological quantum computation.'
+
+features:
+  encoding:
+    - 'Anyon initialization via quantum control \cite{arxiv:2205.10114}.'
+  general_gates:
+    - 'Clifford gates can be performed by braiding Majorana fermions \cite{arxiv:1701.05052}.'
+    - 'Pauli measurements performed by measuring certain Majorana operators \cite{arxiv:1701.05052}.'
+    - 'CPHASE gate and \(\pi/8\) rotation can be done with the help of ancilla states \cite{arxiv:1701.05052}.'
+
+relations:
+  parents:
+    - code_id: majorana_stab
+      detail: 'While the Kitaev honeycomb model is bosonic, a fermionic mapping is useful for solving and understanding the model. Logical subspace of the Kitaev honeycomb code can be formulated as a joint eigenspace of certain Majorana operators \cite[Sec. 4.1]{arxiv:1701.05052}. Logical Paulis are also be constructed out of Majorana operators.'
+    - code_id: topological
+      detail: 'Kitaev honeycomb codes utilizes the non-Abelian Ising-anyon topological order phase of the Kitaev honeycomb model \cite{arXiv:cond-mat/0506438}. This phase is also known as a \(p+ip\) superconducting phase \cite{arxiv:1104.5485}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-06'

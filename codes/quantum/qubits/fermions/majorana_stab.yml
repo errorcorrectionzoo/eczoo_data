@@ -11,36 +11,27 @@ name: 'Majorana stabilizer code'
 
 introduced: '\cite{arXiv:1004.3791}'
 
-description: 'Majorana fermion stabilizer codes are stabilizer codes whose stabilizers are products of an even number of Majorana fermion operators, analogous to Pauli strings for a traditional stabilizer code and referred to as \textit{Majorana stabilizers}. The codespace is the mutual \(+1\) eigenspace of all Majorana stabilizers. In such systems, Majorana fermions may either be considered individually or paired into creation and annihilation operators for fermionic modes. Codes can be denoted as \([[n,k,d]]_{f}\) \cite{arXiv:1703.00459}, where \(n\) is the number of fermionic modes.'
+description: |
+  Majorana fermion stabilizer codes are stabilizer codes whose stabilizers are products of an even number of Majorana fermion operators, analogous to Pauli strings for a traditional stabilizer code and referred to as \textit{Majorana stabilizers}.
+  The codespace is the mutual \(+1\) eigenspace of all Majorana stabilizers.
+  In such systems, Majorana fermions may either be considered individually or paired into creation and annihilation operators for fermionic modes.
+  Codes can be denoted as \([[n,k,d]]_{f}\) \cite{arXiv:1703.00459}, where \(n\) is the number of fermionic modes.
+
+  In some cases, Majorana-based stabilizer codes are designed to protect against fermionic noise \cite{arXiv:cond-mat/0010440} and are thus useful for physical platforms based on fermions.
+  In other cases, Majorana-based frameworks are helpful for understanding conventional qubit stabilizer codes designed for qubit-based platforms.
+
 # f in subscript should be bold, but this requires changing mathjax input
 
 protection: 'Detects products of Majorana operators with weight up to \(d-1\). Physically, protects against dephasing errors caused by coupling of fermion density to the environment and bit-flip errors caused by quasiparticle poisoning processes.'
 
-#features:
-
-  # rate:
-
-  # encoders:
-
-  # transversal_gates:
-
-  # general_gates:
-
-  # decoders:
-
-  # fault_tolerance:
-
-  # threshold:
-
-# realizations:
-
-# notes:
 
 relations:
   parents:
     - code_id: fermions
     - code_id: qubit_stabilizer
-      detail: 'The Majorana stabilizer code is a stabilizer code whose stabilizers are composed of Majorana fermion operators. In addition, any \([[n,k,d]]\) stabilizer code can be mapped into a \([[2n,k,2d]]_{f}\) Majorana stabilizer code \cite{arXiv:cond-mat/0506438,arXiv:1004.3791}. However, Pauli- and Majorana-based stabilizer codes have different notions of locality \cite{arXiv:cond-mat/0010440} and are thus useful for different physical platforms.'
+      detail: |
+        The Majorana stabilizer code is a stabilizer code whose stabilizers are composed of Majorana fermion operators.
+        In addition, any \([[n,k,d]]\) stabilizer code can be mapped into a \([[2n,k,2d]]_{f}\) Majorana stabilizer code \cite{arXiv:cond-mat/0506438,arXiv:1004.3791}.
 
   cousins:
     - code_id: dual
