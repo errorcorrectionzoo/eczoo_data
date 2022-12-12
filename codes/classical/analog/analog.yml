@@ -7,20 +7,20 @@ code_id: analog
 physical: reals
 logical: reals
 
-name: 'Analog code'
+name: 'Sphere packing'
 
 description: |
   Encodes states (codewords) into coordinates in the \(n\)-dimensional real coordinate space \(\mathbb{R}^n\).
   The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice.
 
-  Analog codes provide ways of encoding digital or analog information into the frequency, amplitude, and phase of one or more analog waveforms for transmission through, e.g., an optical fiber or free space.
+  Sphere packings provide ways of encoding digital or analog information into the frequency, amplitude, and phase of one or more analog waveforms for transmission through, e.g., an optical fiber or free space.
   This is due to Kotelnikov's \cite{manual:{V. A. Kotelnikov, “The theory of optimum noise immunity,” PhD Thesis, Molotov Energy Institute, Moscow, Jan. 1947}} and Shannon's \cite{doi:10.1109/JRPROC.1949.232969} fundamental observation that a discretized electromagnetic signal of finite-bandwidth can be represented as a point in \(\mathbb{R}^n\).
   Questions of capacity of electromagnetic communication channels then translate to packing problems in \(\mathbb{R}^n\) \cite{doi:10.1007/978-1-4757-6568-7}.
 
   In the electromagnetic context, the information stored in the code is called the \textit{bitstream}, coordinates used for encoding are often called \textit{signal points} and form a \textit{constellation}, and \(\mathbb{R}^n\) is called the \textit{signal space}.
 
-  An analog code is mapped into a time-dependent electromagnetic signal using a \textit{modulation scheme} \cite{doi:10.1007/b100498,doi:10.1017/9781316822708}.
-  There is a close relation between abstract real-space encodings and modulation schemes, so analog codes are often named after modulation schemes.
+  An sphere packing is mapped into a time-dependent electromagnetic signal using a \textit{modulation scheme} \cite{doi:10.1007/b100498,doi:10.1017/9781316822708}.
+  There is a close relation between abstract real-space encodings and modulation schemes, and certain simple sphere packings are often synonymous with their corresponding modulation schemes.
 
   Linear modulation schemes encode points into amplitudes of electromagnetic waveforms.
   \textit{Pulse-amplitude modulation (PAM)} associates each point with a real-valued amplitude of one quadrature of an electromagnetic waveform \cite[Sec. 10.5]{doi:10.1017/9781316822708}.
@@ -30,22 +30,25 @@ description: |
 
 
 protection: |
-  The primary application of analog codes is to transmist information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive Gaussian white-noise channel (AGWN)}, which adds a random Gaussian-distributed displacement to each signal point.
+  Sphere packings can be used to transmist information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive Gaussian white-noise channel (AGWN)}, which adds a random Gaussian-distributed displacement to each signal point.
   Protection of a constellation thus depends on how far apart its points are in terms of the Euclidean distance.
   As usual, there is a tradeoff between packing of space and level of protection.
 
 features:
-  rate: 'Random analog codes can achieve the capacity of the additive Gaussian white-noise (AGWN) channel \cite{doi:10.1002/j.1538-7305.1959.tb03905.x}; see the book \cite{doi:10.1007/978-1-4757-6568-7} for more details. Tradeoffs between various parameters have been analyzed \cite{doi:10.1002/j.1538-7305.1963.tb04013.x}. Deterministic sets of constellations from quadrature rules can also achieve capacity \cite{doi:10.1109/ALLERTON.2010.5706965}.'
+  rate: 'Random sphere packings can achieve the capacity of the additive Gaussian white-noise (AGWN) channel \cite{doi:10.1002/j.1538-7305.1959.tb03905.x}; see the book \cite{doi:10.1007/978-1-4757-6568-7} for more details. Tradeoffs between various parameters have been analyzed \cite{doi:10.1002/j.1538-7305.1963.tb04013.x}. Deterministic sets of constellations from quadrature rules can also achieve capacity \cite{doi:10.1109/ALLERTON.2010.5706965}.'
 
   decoders:
     - 'Each signal point is assigned its own Voronoi cell, and a received point is mapped back to the center of the Voronoi cell that it is located upon reception.'
+
+notes:
+  - 'Database of sphere packings \cite{manual:{Agrell, E. "Database of sphere packings, 2019." Online: http://codes. se/packings. Accessed (2015).}}.'
 
 relations:
   parents:
     - code_id: ecc
   # cousins:
   #   - code_id: oscillators
-  #     detail: 'Bosonic codes are quantum analogues to analog codes or coded modulation schemes.'
+  #     detail: 'Bosonic codes are quantum analogues to sphere packings or coded modulation schemes.'
 
 # Begin Entry Meta Information
 _meta:
