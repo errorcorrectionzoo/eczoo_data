@@ -13,7 +13,7 @@ description: |
   Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice, i.e., a discrete set of points in Euclidean space \(\mathbb{R}^n\) that forms a group under vector addition when the set is translated such that one point is at the origin. The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.
 
   A \(n\)-dimensional lattice-based code can be defined using a generator matrix \(G\) of rank \(n\), where the rows of \(G\) are the lattice translation vectors \(g_i\).
-  Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 \cdots + c_n g_n\).
+  Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 + \cdots + c_n g_n\).
   A lattice-based code can also be defined using the Gram matrix \(GG^T\).
 
 
@@ -43,11 +43,11 @@ notes:
 relations:
   parents:
     - code_id: analog
+    - code_id: group_orbit
+      detail: 'Lattice-base codes are group-orbit codes on \(\mathbb{R}^n\). The group used to generate all codewords of lattice-based codes is an additive group in \(\mathbb{R}^n\).'
   cousins:
     - code_id: linear
       detail: 'Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.'
-    - code_id: group_orbit
-      detail: 'Lattice-base codes are group-orbit codes on \(\mathbb{R}^n\). The group used to generate all codewords of lattice-based codes is an additive group in \(\mathbb{R}^n\).'
 
 
 # Begin Entry Meta Information

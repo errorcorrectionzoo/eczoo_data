@@ -19,7 +19,7 @@ description: |
 
   In the electromagnetic context, the information stored in the code is called the \textit{bitstream}, coordinates used for encoding are often called \textit{signal points} and form a \textit{constellation}, and \(\mathbb{R}^n\) is called the \textit{signal space}.
 
-  An sphere packing is mapped into a time-dependent electromagnetic signal using a \textit{modulation scheme} \cite{doi:10.1007/b100498,doi:10.1017/9781316822708}.
+  A sphere packing is mapped into a time-dependent electromagnetic signal using a \textit{modulation scheme} \cite{doi:10.1007/b100498,doi:10.1017/9781316822708}.
   There is a close relation between abstract real-space encodings and modulation schemes, and certain simple sphere packings are often synonymous with their corresponding modulation schemes.
 
   Linear modulation schemes encode points into amplitudes of electromagnetic waveforms.
@@ -34,6 +34,11 @@ protection: |
   Protection of a constellation thus depends on how far apart its points are in terms of the Euclidean distance.
   As usual, there is a tradeoff between packing of space and level of protection.
 
+  The \textit{minimum distance} \(d\) of a constellation is the infimum over distances between any two of it''s points.
+  Defining a code density \(\Delta\) for infinite constellations can be done using a limit \cite[pg. 349]{preset:EricZin}.
+  Bounds on the density of sphere packings include the Rogers bound \cite{doi:10.1112/plms/s3-8.4.609} and the Kabatianskii-Levenshtein bound \cite{manual:{G. A. Kabatiansky, V. I. Levenshtein, “On Bounds for Packings on a Sphere and in Space”, Probl. Peredachi Inf., 14:1 (1978), 3–25; Problems Inform. Transmission, 14:1 (1978), 1–17}}; see \cite[Ch. 10.4]{preset:EricZin}
+
+
 features:
   rate: 'Random sphere packings can achieve the capacity of the additive Gaussian white-noise (AGWN) channel \cite{doi:10.1002/j.1538-7305.1959.tb03905.x}; see the book \cite{doi:10.1007/978-1-4757-6568-7} for more details. Tradeoffs between various parameters have been analyzed \cite{doi:10.1002/j.1538-7305.1963.tb04013.x}. Deterministic sets of constellations from quadrature rules can also achieve capacity \cite{doi:10.1109/ALLERTON.2010.5706965}.'
 
@@ -46,9 +51,6 @@ notes:
 relations:
   parents:
     - code_id: ecc
-  # cousins:
-  #   - code_id: oscillators
-  #     detail: 'Bosonic codes are quantum analogues to sphere packings or coded modulation schemes.'
 
 # Begin Entry Meta Information
 _meta:
