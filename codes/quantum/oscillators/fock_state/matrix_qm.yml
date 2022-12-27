@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: matrix_qm
+physical: oscillators
+logical: qudits
+
+name: 'Matrix-model code'
+introduced: '\cite{arxiv:2211.08448}'
+
+description: |
+  Multimode-mode Fock-state bosonic approximate code derived from a matrix model, i.e., a non-Abelian bosonic gauge theory with a large gauge group.
+  The degrees of freedom of matrix models are matrix-valued bosons, each consisting of \(N^2\) harmonic oscillator modes and subject to an \(SU(N)\) gauge symmetry.
+
+  A simple matrix-model code consists of two spatially separated bosons with codewords
+  \begin{align}
+      |\mathcal{I}\rangle :=\prod_{(m,n)\in \mathcal{I} } \frac{\Tr(a_1^{\dagger m}a_2^{\dagger n})}{N^{\frac{m+n}{2}}}|0\rangle_{12}~,
+  \end{align}
+  where \(\cal I\) is some set of integer two-tuples, and \(n,m\geq 0\).
+
+  Gauge symmetry is assumed to be enforced in the above model.
+  In other variants, gauge symmetry is enforced energetically, requiring a parameter to scale as \(log(N)\) for polynomial memory lifetime. This translates to the bath coupling being suppressed as \(1/N\).
+
+protection: |
+  For the spatially separated boson code, logical errors stemming from gauge-invariant physical errors are suppressed polynomially with the number of modes \(N\), as shown per the error-correcting conditions.
+  Memory time scales as \(N^2\) when the model is subject to a thermal bath.
+  This is similar to a self-correcting memory in the sense that memory time becomes infinite in the thermodynamic limit, with corrections being polynomial in \(N\).
+
+
+relations:
+  parents:
+    - code_id: fock_state
+      detail: 'Matrix-model logical states are picked to be in a low-occupation number subspace of the \(N\) modes.'
+    - code_id: approximate_qecc
+      detail: 'Matrix-model codes approximately protect against gauge-invariant errors.'
+    - code_id: hamiltonian
+      detail: 'Matrix-model codewords for simple codes are eigenstates of a matrix-model Hamiltonian.'
+  cousins:
+    - code_id: holographic
+      detail: 'Matrix-model codes are motivated by the Ads/CFT correspondence because it is manifest in continuous non-Abelian gauge theories with large gauge groups.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-27'
