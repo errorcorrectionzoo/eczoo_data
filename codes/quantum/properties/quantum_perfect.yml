@@ -23,13 +23,15 @@ description: |
   \end{align}
   where \(h\) is the binary entropy function.
 
-protection: 'Perfect codes have been classified. For qubits (\(q=2\)), the only codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\) \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. For qudits, the family is parameterized by \(K=q^{n-2r}\) for \(n=\frac{q^{2r}-1}{q^{2}-1}\) and \(r \geq 2\); all codes correct a single error (\(t=1\)) \cite{arxiv:0907.0049,doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}. The trivial code (\(k=n\)) is also perfect.'
+protection: |
+  Perfect codes have been classified. For qubits (\(q=2\)), the only codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\) \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. For qudits, the family is parameterized by \(K=q^{n-2r}\) for \(n=\frac{q^{2r}-1}{q^{2}-1}\) and \(r \geq 2\); all codes correct a single error (\(t=1\)) \cite{arxiv:0907.0049,doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}. The trivial code (\(k=n\)) is also perfect.
 
 features:
   rate: '\(k/n\to 1\) asymptotically with \(n\).'
 
-#notes:
-#  - ''
+notes:
+  - 'Codes that are not non-degenerate can in principle violate the quantum Hamming bound. It was shown that qubit stabilizer codes up to distance \(d\leq 85\) must obey the bound \cite{arxiv:2208.11800}.'
+#In general, impure not the same as non-degenerate for general codes
 
 relations:
   parents:
@@ -41,8 +43,11 @@ relations:
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
-    - name: 'Mazin Karjikar'
-      githubusername: MazinKarjikar
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-26'
+    - user_id: MazinKarjikar
+      date: '2022-06-03'
+    - user_id: VictorVAlbert
+      date: '2021-12-03'

@@ -1,7 +1,7 @@
 domains:
   - domain_id: classical_domain
     name: 'Classical Domain'
-    description: 'codes for classical systems'
+    description: 'codes for communication over classical channels'
 
     kingdoms:
       - code_id: bits_into_bits
@@ -10,8 +10,8 @@ domains:
         name: 'Galois-field Kingdom'
       - code_id: matrices_into_matrices
         name: 'Matrix Kingdom'
-      - code_id: points_into_lattices
-        name: 'Lattice Kingdom'
+      - code_id: analog
+        name: 'Analog Kingdom'
       - code_id: points_into_spheres
         name: 'Spherical Kingdom'
       - code_id: rings_into_rings
@@ -22,7 +22,7 @@ domains:
 
   - domain_id: quantum_domain
     name: 'Quantum Domain'
-    description: 'codes for quantum systems'
+    description: 'codes for quantum communication over quantum channels'
 
     kingdoms:
       - code_id: qubits_into_qubits
@@ -33,11 +33,22 @@ domains:
         name: 'Galois-qudit Kingdom'
       - code_id: oscillators
         name: 'Bosonic Kingdom'
-      - code_id: fermions
-        name: 'Fermionic Kingdom'
       - code_id: spins_into_spins
         name: 'Spin Kingdom'
       - code_id: group_quantum
         name: 'Group Kingdom'
       - code_id: category_quantum
         name: 'Category Kingdom'
+      # - code_id: fermions
+      #   name: 'Fermionic Kingdom'
+
+
+  - domain_id: quantum_into_classical_domain
+    name: 'Classical-quantum Domain'
+    description: 'codes for classical communication over quantum channels'
+
+    kingdoms:
+      - code_id: qubit_classical_into_quantum
+        name: 'Binary c-q Kingdom'
+      - code_id: bosonic_classical_into_quantum
+        name: 'Bosonic/analog c-q Kingdom'

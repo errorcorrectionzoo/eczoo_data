@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_hamming
+physical: qubits
+logical: qubits
+
+name: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming code'
+short_name: '\([[2^r, 2^r-r-2, 3]]\)'
+introduced: '\cite{arXiv:quant-ph/9604038}'
+
+description: 'A family of stabilizer codes of distance \(3\) that asymptotically saturate quantum Hamming bound. Can be obtained from the CSS construction using a first-order \([2^r,r+1,2^{r-1}]\) RM code and a \([2^r,2^r-1,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.'
+
+protection: 'Protects against any single qubit error.'
+
+features:
+  fault_tolerance:
+    - 'Concatenations of Hamming codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826}.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: ''
+
+  cousins:
+    - code_id: quantum_perfect
+      detail: 'Quantum Hamming codes saturate the asymptotic Hamming bound.'
+    - code_id: hamming
+      detail: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming codes are analogues of Hamming codes in that they saturate the asymptotic Hamming bound.'
+    - code_id: reed_muller
+      detail: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming code can be obtained from the CSS construction using a first-order \([2^r,r+1,2^{r-1}]\) RM code and a \([2^r,2^r-1,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-04'
+    - user_id: VictorVAlbert
+      date: '2022-07-20'
+    - user_id: MariannaPodzorova
+      date: '2021-12-13'
+    - user_id: VictorVAlbert
+      date: '2021-11-24'

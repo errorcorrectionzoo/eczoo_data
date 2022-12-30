@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: points_into_spheres
+physical: spheres
+logical: reals
+
+name: 'Constant-energy code'
+
+description: |
+  Code whose codewords are points on a complex or real hypersphere in either whose radius squared is called the \textit{energy}.
+  Typically, only angular distances between points are relevant for code performance, so one can normalize codewords of a constant-energy code to obtain up a spherical code, i.e., a constant energy code with energy one.
+
+notes:
+  - 'See \cite[Ch. 7]{preset:EricZin} for more details.'
+
+relations:
+  parents:
+    - code_id: ecc
+  cousins:
+    - code_id: analog
+      detail: 'Constant-energy codes are sphere packings constrained to lie on a hypersphere.'
+    - code_id: constant_excitation
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-15'

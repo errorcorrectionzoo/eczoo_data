@@ -7,7 +7,7 @@ code_id: parity_check
 physical: bits
 logical: bits
 
-name: 'Parity-check code'
+name: 'Single parity-check (SPC) code'
 
 description: 'Also known as a \textit{sum-zero} or \textit{even-weight} code. An \([n,n-1,2]\) linear binary code whose codewords consist of the message string appended with a parity-check bit such that the parity (i.e., sum over all coordinates of each codeword) is zero. If the Hamming weight of a message is odd (even), then the parity bit is one (zero). This code requires only one extra bit of overhead and is therefore inexpensive.'
 
@@ -18,30 +18,39 @@ features:
 
   decoders:
     - 'If the receiver finds that the parity information of a codeword disagrees with the parity bit, then the receiver will discard the information and request a resend.'
+    - 'Wagner''s rule yields a procedure that is linear in \(n\) \cite{doi:10.1109/TIT.1954.1057466} (see \cite[Sec. 29.7.2]{doi:10.1017/9781316822708} for a description).'
 
 realizations:
-  - 'Can be realized on almost every communication device. Parity-check codes are some of the earlier error-correcting codes (\cite{doi:10.1201/9781315115870}, Ch. 27).'
+  - 'Can be realized on almost every communication device. SPCs are some of the earliest error-correcting codes (\cite{doi:10.1201/9781315115870}, Ch. 27).'
 
 relations:
   parents:
     - code_id: binary_cyclic
-      detail: 'Since permutations preserve parity, the cyclic permutation of a parity-check codeword is another codeword.'
+      detail: 'Since permutations preserve parity, the cyclic permutation of an SPC codeword is another codeword.'
+    - code_id: reed_muller
+      detail: 'RM\((m-1,m)\) are parity-check codes.'
     - code_id: nearly_perfect
     - code_id: mds
     - code_id: divisible
-      detail: 'Binary parity-check codes are two-divisible.'
+      detail: 'Binary SPCs are two-divisible.'
   cousins:
     - code_id: repetition
-      detail: 'Binary parity-check codes and repetition codes are dual to each other.'
+      detail: 'Binary SPCs and repetition codes are dual to each other.'
     - code_id: q-ary_parity_check
     - code_id: binary_linear
       detail: 'Any \([n,k,d]\) code with odd distance can be \textit{extended} to an \([n+1,k,d+1]\) code by adding a bit storing the sum of codeword coordinates.'
     - code_id: ldgm
-      detail: 'Concatenated parity-check codes are LDGM \cite{doi:10.1109/20.917609}.'
+      detail: 'Concatenated SPCs are LDGM \cite{doi:10.1109/20.917609}.'
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
-    - name: 'Qingfeng Wang'
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
+    - user_id: VictorVAlbert
+      date: '2022-07-20'
+    - user_id: VictorVAlbert
+      date: '2021-12-15'
+    - user_id: YijiaXu
+      date: '2021-12-14'

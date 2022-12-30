@@ -10,7 +10,7 @@ logical: qubits
 name: 'Dual-rail quantum code'
 introduced: \cite{doi:10.1103/PhysRevA.52.3489}
 
-description: 'Two-mode code encoding a logical qubit in Fock states with one excitation. The logical-zero state is represented by \(|01\rangle\), while the logical-one state is represented by \(|10\rangle\).'
+description: 'Two-mode code encoding a logical qubit in Fock states with one excitation. The logical-zero state is represented by \(|01\rangle\), while the logical-one state is represented by \(|10\rangle\). The two modes of the encoding can represent temporal or spatial modes, corresponding to a \textit{time-bin} or \textit{frequency-bin} encoding.'
 
 protection: |
   This is an error-detecting code against one photon loss event; it is often used in photonic quantum devices because of its ease of realization. A single loss event can be detected because, after the loss occurs, the output state \(|00\rangle\) is orthogonal to the codespace. Recovery is not possible, so a successful run of a quantum circuit is conditioned on not losing a photon during the circuit.
@@ -24,8 +24,13 @@ features:
   fault_tolerance:
     - 'Dual-rail qubits can be used to convert leakage and amplitude damping noise into erasure noise \cite{arxiv:2208.05461}.'
 
+realizations:
+  - 'The dual-rail code is ubiquitous in linear optical quantum devices \cite{arxiv:quant-ph/0512071}.'
+#  - 'Supercondcuting circuit devices \cite{arxiv:2212.12077}.'
+
 notes:
   - 'For Deutsch''s problem \cite{doi:10.1098/rspa.1992.0167} with optical qubits, error correction using photon number detection reduces the error probability from \(\frac{1}{4} (1+e^{-\gamma}-2e^{-3\gamma/2}) \)   to \(\frac{1}{2} (1- \text{sech} \gamma/2)\).'
+  - 'See review \cite{arxiv:quant-ph/0512071} for more details.'
 
 relations:
   parents:
@@ -35,8 +40,9 @@ relations:
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Dhruv Devulapalli'
-      githubusername: dhruvdevu
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-18'
+    - user_id: DhruvDevulapalli
+      date: '2021-12-17'

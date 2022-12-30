@@ -10,15 +10,51 @@ logical: groups
 name: 'Group GKP code'
 introduced: '\cite{arXiv:1911.00099}'
 
-description: 'Group code whose construction is based on nested subgroups \(H\subset K \subset G\). Logical subspace is spanned by basis states that are equal superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or infinite-dimensional. Extension of the \hyperref[code:gkp]{GKP code} construction.'
+description: |
+  Group-based quantum code whose construction is based on nested subgroups \(H\subset K
+  \subset G\). Logical subspace is spanned by basis states that are equal
+  superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or
+  infinite-dimensional.
+
+  The group GKP code was originally formulated as an extension of the \hyperref[code:gkp]{GKP code} construction, and has turned out to encompass a wide variety of codes, tabulated in \ref{table:group-gkp-codes}.
+  \begin{table}
+    \begin{cells}
+    \celldata<c H, c H, c H, l H>{Space & \(G\) & \(H\) & Related code}
+    \celldata<c, c, c, l>{
+    \(n\) qubits & \(\mathbb{Z}_2^n\) & \(\mathbb{Z}_2^m\)
+        & qubit CSS
+        \\
+    \(n\) modular qudits & \(\mathbb{Z}_q^n\) & \(\mathbb{Z}_q^m\)
+        & modular-qudit CSS
+        \\
+    \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{R}^m \)
+        & analog stabilizer
+        \\
+    \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{Z}^n \)
+        & multimode GKP
+        \\
+    \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{Z}^{m<n} \)
+        & GKP-stabilizer
+        \\
+    planar rotor & \(U(1)\) & \(\mathbb{Z}_n\)
+        & rotor GKP
+        \\
+    rigid body & \(SO(3)\) & point group
+        & molecular
+    }
+    \end{cells}
+    \caption{Special cases of group GKP codes}
+    \label{table:group-gkp-codes}
+  \end{table}
 
 protection: 'Protects against generalized bit-flip errors \(g\in G\) that are inside the fundamental domain of \(G/K\). Protection against phase-flip errors determined by branching rules of irreps of \(G\) into those of \(K\), and further into those of \(H\).'
 
 features:
   transversal_gates: 'Group-GKP codes corresponding to the \(G^{k_1} \subseteq G^{ k_2} \subset G^{n}\) group construction admit \(X\)-type transversal Pauli gates representing \(G\) \cite{arxiv:1902.07714}.'
 
-#notes:
-#  - ''
+realizations:
+  - 'Cryptographic applications stemming from the monogamy of entanglement of group GKP code and error words \cite{arxiv:2212.03935}.'
+
 
 relations:
   parents:
@@ -27,13 +63,22 @@ relations:
 
   cousins:
     - code_id: oscillator_stabilizer
-      detail: 'The group-GKP construction encompasses all bosonic CSS codes. For example, a single-mode qubit GKP code corresponds to the \(2\mathbb{Z}\subset\mathbb{Z}\subset\mathbb{R}\) group construction. For another example, an \([[n,k,d]]_{\mathbb{R}}\) oscillator-into-oscillator stabilizer code corresponds to the \(\mathbb{R}^{ k_1} \subseteq \mathbb{R}^{ k_2} \subset \mathbb{R}^{n}\) group construction, where \(k=k_2/k_1\).'
+      detail: 'The group-GKP construction encompasses all bosonic CSS codes. A singlemode qubit GKP code corresponds to the \(2\mathbb{Z}\subset\mathbb{Z}\subset\mathbb{R}\) group construction, and multimode GKP codes can be similarly described. An \([[n,k,d]]_{\mathbb{R}}\) analog stabilizer code corresponds to the \(\mathbb{R}^{ k_1} \subseteq \mathbb{R}^{ k_2} \subset \mathbb{R}^{n}\) group construction, where \(k=k_2/k_1\). GKP stabilizer codes for \(n\) modes correspond to subgroups \(\mathbb{Z}^m\) for \(m<n\).'
     - code_id: css
       detail: 'An \(n\)-qubit CSS code corresponds to the \(C_1^\perp \subseteq C_2 \subset \mathbb{Z}_2^{n}\) group construction.'
+    - code_id: qudit_css
+      detail: 'An \(n\) modular-qubit CSS code corresponds to the \(\mathbb{Z}_q^{k_1} \subseteq \mathbb{Z}_q^{k_2} \subset \mathbb{Z}_q^{n}\) group construction, where \(k=k_2/k_1\).'
+    - code_id: rotor_gkp
+      detail: 'Rotor GKP codes correspond to the \(\mathbb{Z}_{k_1} \subseteq \mathbb{Z}_{k_2} \subset U(1)\) group construction, where \(k=k_2/k_1\).'
 
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-28'
+    - user_id: PhilippeFaist
+      date: '2022-09-27'
+    - user_id: VictorVAlbert
+      date: '2021-11-29'

@@ -5,14 +5,15 @@
 
 code_id: rank_modulation
 physical: groups
-logical: points
+logical: q-ary_digits
 
-name: 'Rank-modulation code'
+name: 'Rank-modulation Gray code (RMGC)'
+short_name: 'RMGC'
 introduced: '\cite{doi:10.1109/TIT.1969.1054291,doi:10.1109/ISIT.2008.4595285}'
 
 description: |
   Also known as a \textit{code in permutations}.
-  A family of codes that encode a finite set of size \(M\) into a set \(S_n\) of permutations of \([n]=(1,2,...,n)\).
+  A family of codes that encode a finite set of size \(M\) into a group \(S_n\) of permutations of \([n]=(1,2,...,n)\).
   They can be derived from Lee-metric codes, Reed-Solomon codes \cite{doi:10.1109/ISIT.2011.6034261}, quadratic residue codes and most binary codes.
 
 protection: |
@@ -28,20 +29,24 @@ realizations:
 relations:
   parents:
     - code_id: group_classical
-      detail: 'Group-based codes whose alphabet is based on the permutation group \(S_n\) are rank-modulation codes.'
-
+      detail: 'Group-alphabet codes whose alphabet is based on the permutation group \(S_n\) are rank-modulation codes.'
+# Do the points form a subgroup?
   cousins:
+    - code_id: gray
+      detail: 'The rank-modulation Gray code is an extension of the original binary Gray code to a code on the permutation group \cite{doi:10.1109/TIT.2009.2018336}.'
     - code_id: reed_solomon
       detail: 'RS codes can be used to design rank modulation codes \cite{doi:10.1109/ISIT.2011.6034261}.'
-
     - code_id: binary_permutation
       detail: 'Binary permutation-based codes also encode messages into permutations but protect against errors with the Hamming distance.'
 
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Jiaxin Jacky Huang'
-      githubusername: jackkyyh
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'
+    - user_id: VictorVAlbert
+      date: '2022-04-12'
+    - user_id: JiaxinHuang
+      date: '2022-04-08'

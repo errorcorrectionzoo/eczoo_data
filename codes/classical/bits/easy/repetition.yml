@@ -19,6 +19,7 @@ features:
 
   decoders:
     - 'Calculate the Hamming weight \(d_H\) of the code. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
+    - 'Automaton-like decoders for the repetition code on a 2D lattice, otherwise known as the classical 2D Ising model, were developed by Toom \cite{manual:{A. L. Toom, “Nonergodic Multidimensional System of Automata”, Probl. Peredachi Inf., 10:3 (1974), 70–79; Problems Inform. Transmission, 10:3 (1974), 239–246},doi:10.1007/978-1-4612-2168-5_18}. An automaton by Gacs yields a decoder for a 1D lattice \cite{doi:10.1023/A:1004823720305}.'
 
   threshold:
     - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then people can always increase the probability of success by increasing the number of physical bit \(n\).'
@@ -30,11 +31,12 @@ realizations:
   - 'Repetition codes, in conjunction with other codes, were used in magnetic disks \cite{doi:10.1109/TCOM.1984.1096094}.'
 #  - 'Although classical repetition code does not have many real-world applications, it still inspire the studies of quantum error correction. Quantum repetition code is widely studied in quantum computing community.'
 
-
 relations:
   parents:
     - code_id: binary_cyclic
     - code_id: nearly_perfect
+    - code_id: reed_muller
+      detail: 'RM\((0,m)\) are repetition codes.'
   cousins:
     - code_id: perfect
       detail: 'Repetition codes are perfect for odd \(n\).'
@@ -45,7 +47,13 @@ relations:
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Qingfeng Wang'
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-28'
+    - user_id: VictorVAlbert
+      date: '2022-05-27'
+    - user_id: VictorVAlbert
+      date: '2021-12-15'
+    - user_id: YijiaXu
+      date: '2021-12-14'

@@ -16,11 +16,11 @@ description: |
 
   Hermitian codes of polynomials of total degree at most \(D\) can come in affine and epicyclic flavours, depending on whether the evaluations are over the affine plane or the bicyclic plane. The affine codes have length \(q^3 - q\) while epicyclic codes have length \((q-2)(q+1)^2\). More precisely, fix \(r, D\) and let
   \begin{align}
-    M_D = \left{f(x,y,z) = \sum_{i+j \leq D = D}a_{i,j}x^{i}y^{j}z^{D - (i+j)}\right}
+    M_D = \left\{f(x,y,z) = \sum_{i+j \leq D = D}a_{i,j}x^{i}y^{j}z^{D - (i+j)}\right\}
   \end{align}
   be the message space of degree-\(D\) polynomials and
   \begin{align}
-    \(S = \{(x:y:z) \in PG(2,q) \mid H(x:y:z) = 0 \}\)~,
+    S = \{(x:y:z) \in PG(2,q) \mid H(x:y:z) = 0 \}~,
   \end{align}
   where \(H(x:y:z) = x^{q+1} + y^{q+1} - z^{q+1}\) is the homogenized Hermitian curve over the projective plane. The Hermitian code \( C \) over is
   \begin{align}
@@ -55,12 +55,16 @@ relations:
       detail: 'Hermitian codes are concatenated GRS codes \cite{doi:10.1007/BF00124208}.'
     - code_id: evaluation
       detail: 'Hermitian codes are evaluation AG codes with \(\cal X\) being a Hermitian curve (\cite{preset:HPAlgCodes}, Ex. 2.74). This curve is maximal, meaning that Hermitian codes are evaluation AG codes with maximum possible length given a fixed genus.'
+  cousins:
+    - code_id: group
+      detail: 'Some Hermitian codes are group-algebra codes \cite{manual:{Hansen, Johan P. Group codes on algebraic curves. Universität zu Göttingen. SFB Geometrie und Analysis, 1987.}}\cite[Remark 16.4.14]{doi:10.1201/9781315147901}.'
 
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Shashank Sule'
-      githubusername: ShashankSule
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-09'
+    - user_id: ShashankSule
+      date: '2022-04-03'

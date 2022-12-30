@@ -58,6 +58,7 @@ features:
   fault_tolerance:
     - 'Piecably fault-tolerant circuits can be employed to construct non-transversal gates effectively \cite{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
   threshold:
+    - 'The number of check operators scales sublinearly with system size, so the Bacon-Shor codes alone do not exhibit a threshold \cite{arxiv:1903.03937}.'
     - 'A lower bound of \(1.94 \times 10^{-4}\) for the accuracy threshold was proved for Bacon-Shor code with 5 levels of concatenation, using Steane method of FTEC \cite{arxiv:quant-ph/0610063}.'
     - 'The three dimensional version offers the possibility of being a self-correcting quantum memory \cite{doi:10.1103/PhysRevA.73.012340}.'
   decoders:
@@ -65,17 +66,28 @@ features:
 
 realizations:
   - 'Trapped-ion qubits: state preparation, logical measurement, and stabilizer measurement for nine-qubit Bacon-Shor code demonstrated on a 13-qubit device by M. Cetina and C. Monroe groups \cite{arxiv:2009.11482}.'
+
+notes:
+  - 'See \cite[Sec. III.C1]{arxiv:1302.3428} for an exposition.'
+
 relations:
   parents:
     - code_id: bravyi_bacon_shor
-
+  cousins:
+    - code_id: hamiltonian
+      detail: 'The 2D Bacon-Shor code Hamiltonian is the compass model \cite{doi:10.1070/PU1982v025n04ABEH004537,arxiv:cond-mat/0501708}.'
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
-    - name: 'Srilekha Gandhari'
-      githubusername: gndhari
-    - name: 'Mazin Karjikar'
-      githubusername: MazinKarjikar
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-31'
+    - user_id: MazinKarjikar
+      date: '2022-06-28'
+    - user_id: VictorVAlbert
+      date: '2022-03-15'
+    - user_id: SrilekhaGandhari
+      date: '2022-01-20'
+    - user_id: VictorVAlbert
+      date: '2021-12-03'

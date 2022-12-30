@@ -9,7 +9,37 @@ short_name: 'QLDPC'
 introduced: '\cite{arXiv:quant-ph/0304161}'
 
 description: |
-  Family of \([[n,k,d]]\) stabilizer codes for which the number of sites (either qubit or qudit) participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\). A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\).
+  Family of \([[n,k,d]]\) stabilizer codes for which the number of sites (either qubit or qudit) participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\). A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\). As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
+
+  Notable \([[n,k,d]]\) QLDPC codes are summarized in \ref{table:qldpc-codes}, demonstrating the steady improvement in code parameters that culminated in the first asymptotically good QLDPC codes.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H>{\(k\) & \(d\) & Code}
+      \celldata<c, c, c>{
+      \(2\) & \(\sqrt{n}\) & \hyperref[code:surface]{Kitaev toric}
+          \\
+      \(2\) & \(\sqrt{n\sqrt{\log n}}\) & \hyperref[code:freedman_meyer_luo]{Freedman-Meyer-Luo}
+          \\
+      \(n\) & \(\sqrt{n}\) & \hyperref[code:hypergraph_product]{hypergraph product}
+          \\
+      \(n\) & \(\sqrt{n} \log n\) & \hyperref[code:ramanujan_tensor_product]{Ramanujan-complex product}
+          \\
+      \(\sqrt{n}\) & \(\sqrt{n} \log^c n\) & \hyperref[code:iterated_ramanujan]{tensored-Ramanujan-complex product}
+          \\
+      \(n^{3/5}/\text{polylog}(n)\) & \(n^{3/5}/\text{polylog}(n)\) & \hyperref[code:fiber_bundle]{fiber-bundle}
+          \\
+      \(\log n\) & \(n/\log n\) & \hyperref[code:lifted_product]{lifted-product}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:expander_lifted_product]{expander lifted-product}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:quantum_tanner]{quantum Tanner}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick}
+      }
+      \end{cells}
+      \caption{Notable QLDPC codes; \(c\) is a positive integer.}
+      \label{table:qldpc-codes}
+    \end{table}
 
   Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit stabilizer codes satisfying the above criteria are also called QLDPC codes.
 
@@ -25,9 +55,11 @@ features:
     - 'BP-OSD decoder adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.'
     - 'Soft (i.e., analog) syndrome iterative belief propagation for CSS-type QLDPC codes, utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2205.02341}.'
     - 'Message-passing decoder utilizing stabilizer inactivation (MP-SI) for CSS-type QLDPC qubit codes \cite{arxiv:2205.06125}.'
+    - 'Extension of the union-find decoder for qubit QLDPC codes, as well as a related heuristic decoder \cite{arxiv:2209.01180}.'
   fault_tolerance:
     - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794}.'
     - 'Fault-tolerance with constant overhead can be performed on certain QLDPC codes \cite{arXiv:1310.2984}, e.g., quantum expander codes \cite{arXiv:1808.03821}.'
+    - 'GHz state distillation for Steane error correction \cite{arxiv:2210.14143}.'
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds using maximum-likelihood (ML) decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688}.'
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1412.6172}.'
@@ -40,18 +72,30 @@ notes:
 relations:
   parents:
     - code_id: stabilizer
+    - code_id: hamiltonian
+      detail: 'QLDPC codespaces are ground-state subspaces of a local Hamiltonian consisting of commuting terms.'
+
   cousins:
     - code_id: ldpc
     - code_id: topological
-      detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace forms a ground-state subspace of a geometrically local Hamiltonain. In this sense, topological codes are QLDPC codes. On the other hand, chain complexes describing some QLDPC codes can be ''lifted'' into higher-dimensional manifolds admitting some notion of geometric locality \cite{arXiv:2012.02249}. This opens up the possibility that some QLDPC codes, despite not being \textit{geometrically} local, can in fact be associated with a geometrically local theory described by a category.'
+      detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace is the ground-state subspace of a geometrically local Hamiltonian. In this sense, topological codes are QLDPC codes. On the other hand, chain complexes describing some QLDPC codes can be ''lifted'' into higher-dimensional manifolds admitting some notion of geometric locality \cite{arXiv:2012.02249}. This opens up the possibility that some QLDPC codes, despite not being \textit{geometrically} local, can in fact be associated with a geometrically local theory described by a category.'
     - code_id: dynamic_gen
       detail: 'QLDPC codes can arise from a dynamical process \cite{arxiv:2004.09560}.'
 
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
-    - name: 'Xiaozhen Fu'
-      githubusername: merrysalad
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-10-02'
+    - user_id: EugeneTang
+      date: '2022-10-02'
+    - user_id: VictorVAlbert
+      date: '2022-09-16'
+    - user_id: VictorVAlbert
+      date: '2022-05-13'
+    - user_id: VictorVAlbert
+      date: '2022-01-24'
+    - user_id: XiaozhenFu
+      date: '2021-12-12'

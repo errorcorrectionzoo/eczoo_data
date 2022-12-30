@@ -92,4 +92,5 @@ repository](https://github.com/errorcorrectionzoo/eczoo_generator).
 
 ## Contributing
 
-Get in touch with Victor V Albert & feel free to submit pull requests!
+Get in touch with Victor V Albert & feel free to submit pull requests!  Check
+out our [contributing guidelines](https://github.com/errorcorrectionzoo/eczoo_data/blob/main/CONTRIBUTING.md).

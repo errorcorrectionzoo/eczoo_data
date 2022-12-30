@@ -10,7 +10,7 @@ name: 'Tensor-product code'
 introduced: '\cite{doi:10.1109/TIT.1954.1057464,doi:10.1109/TIT.1965.1053802,preset:Forney,doi:10.1109/TIT.1970.1054477}'
 
 description: |
-  Also called \textit{tensor code}, \textit{Kroneckerian code}, or \textit{product code}. A matrix-based code constructed out of two linear binary or \(q\)-ary codes \(C_A,C_B\) in an outer-product construction denoted as \(C_A \otimes C_B\).
+  Also called \textit{tensor code}, \textit{Kroneckerian code}, or \textit{product code}. A matrix-based code constructed out of two linear binary or \(q\)-ary codes \(C_A,C_B\) in an outer-product construction denoted as \(C_A \otimes C_B\). Its dual is sometimes called the \textit{check-product} code \cite[Lemma 3.3]{arxiv:2209.11405}.
 
   Codewords are those matrices whose column vectors are in \(C_A\) and whose row vectors are in \(C_B\).
   In other words, the matrix-valued codewords \(c\) of a tensor code satisfy the parity check equation \(H_A c H^{\text{T}}_B = 0\).
@@ -18,7 +18,8 @@ description: |
 protection: |
   For linear codes \(C_A=[n_A,k_A,d_A]\) and \(C_B=[n_B,k_B,d_B]\), the resulting tensor code is \(C_A \otimes C_B=[n_A n_B,k_A k_B,d_A d_B]\).
   Tensor codes can be useful for protecting against burst errors \cite{doi:10.1109/TIT.1971.1054690,doi:10.1109/TIT.1973.1055085}.
-  Dual codes of tensor codes formed by two random linear codes are robustly testable, a property useful for constructing asymptotically good QLDPC codes \cite{arxiv:2206.07750,arxiv:2206.09973} and proving distance bounds \cite{arxiv:2208.05537}.
+
+  Many (but not all \cite{doi:10.1007/11538462_40}) tensor codes are \textit{robustly testable} \cite{arXiv:cs/0408066,doi:10.1007/11830924_29,doi:10.1007/978-3-540-85363-3_24}, a property useful for constructing LTCs \cite{doi:10.1145/1236457.1236459}, including a family of \(c^3\)-LTCs \cite{arxiv:2111.04808}. Duals of tensor codes formed by two random linear codes are also robustly testable, a property useful for constructing asymptotically good QLDPC codes \cite{arxiv:2206.07750,arxiv:2206.09973} and proving distance bounds \cite{arxiv:2208.05537}.
 
 features:
   rate: 'Rate of the tensor-product code \(C_A \otimes C_B\) is a product of the rates of the codes \(C_A\) and \(C_B\).'
@@ -41,8 +42,9 @@ relations:
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Shashank Sule'
-      githubusername: ShashankSule
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-09'
+    - user_id: ShashankSule
+      date: '2022-04-21'

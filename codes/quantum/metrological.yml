@@ -4,14 +4,13 @@
 #######################################################
 
 code_id: metrological
-#physical: bits
-#logical: qubits
+logical: qubits
 
 name: 'Metrological code'
 introduced: '\cite{arxiv:2207.13707}'
 
 description: |
-  Linear subspace of a Hilbert space whose basis states satisfy only a part of the \term{Knill-Laflamme conditions}. The satisfied part of the conditions ensures that the code can be used for local parameter estimation.
+  Two-dimensional subspace of a Hilbert space whose basis states satisfy only a part of the \term{Knill-Laflamme conditions}. The satisfied part of the conditions ensures that the code can be used for local parameter estimation.
 
   Letting \(\Pi = U U^\dagger\) be the codespace projector for encoding isometry \(U\) and projecting a pair of errors \(E_i,E_j\) from an error set \(\cal E\) into the two-dimensional codespace yields
   \begin{align}
@@ -29,7 +28,8 @@ protection: |
   A metrological code defined in a physical space consisting of a tensor product of \(n\) subsystems (e.g., qubits, modular qudits, or Galois qudits) has distance \(d\) if the above conditions are satisfied for an error set \(\cal E\) consisting of errors supported on \(d-1\) subsystems of less.
 
 relations:
-#  parents:
+  parents:
+    - code_id: quantum_into_quantum
 #    - code_id: oaecc
 #      detail: ''
 # Unclear if these are oaecc
@@ -44,6 +44,7 @@ relations:
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-30'

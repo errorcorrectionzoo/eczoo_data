@@ -32,19 +32,22 @@ features:
 
 notes:
   - 'See Ch. 7 of Ref. \cite{preset:MacSlo} for an exposition on cyclic codes.'
+  - 'See Ref. \cite{doi:10.1109/18.119714} for tables of the best binary cyclic codes of odd lengths 101 to 127.'
 
 relations:
   parents:
     - code_id: cyclic
     - code_id: binary_linear
     - code_id: group
-      detail: 'A length-\(n\) cyclic binary linear code is an abelian group code for the cyclic group with \(n\) elements \( \mathbb{Z}_n \).'
-#  cousins:
-#    - code_id: q-ary_linear
+      detail: 'A length-\(n\) cyclic binary linear code is an abelian group-algebra code for the cyclic group with \(n\) elements \( \mathbb{Z}_n \).'
+  cousins:
+    - code_id: binary_ltc
+      detail: 'Cyclic linear codes cannot be \(c^3\)-LTCs \cite{doi:10.1109/TIT.2005.851735}. Codeword symmetries are in general an obstruction to achieving such LTCs \cite{doi:10.1007/978-3-642-16367-8_12}.'
 
 
 # Begin Entry Meta Information
 _meta:
-  contributors:
-    - name: 'Victor V. Albert'
-      githubusername: valbert4
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-13'
