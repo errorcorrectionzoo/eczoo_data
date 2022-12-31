@@ -21,6 +21,8 @@ features:
 
   decoders:
     - 'Meggitt decoder \cite{doi:10.1109/TIT.1961.1057659}.'
+    - 'Information set decoding (ISD) \cite{doi:10.1109/TIT.1962.1057777}, a probabilistic decoding strategy that essentially tries to guess \(k\) correct positions in the received word, where \(k\) is the size of the code. Then, an error vector is constructed to map the received word onto the nearest codeword, assuming the \(k\) positions are error free. When the Hamming weight of the error vector is low enough, that codeword is assumed to be the intended transmission.'
+    - 'Permutation decoding \cite{doi:10.1002/j.1538-7305.1964.tb04075.x}.'
 
 notes:
   - 'See Ch. 7 of Ref. \cite{preset:MacSlo} for an exposition.'
@@ -42,5 +44,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: MazinKarjikar
+      date: '2022-12-30'
     - user_id: VictorVAlbert
       date: '2022-07-13'

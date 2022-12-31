@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rg_cat
+physical: oscillators
+logical: qubits
+
+name: 'Renormalization group (RG) cat code'
+short_name: 'RG cat'
+introduced: '\cite{arxiv:2012.14001,arXiv:2112.05099}'
+
+description: |
+  Code whose codespace is spanned by \(q\) field-theoretic coherent states which are flowing under the renormalization group (RG) flow of massive free fields. The code approximately protects against displacements that represent local (i.e., short-distance, ultraviolet, or UV) operators. Intuitively, this is because RG cat codewords represent non-local (i.e., long-distance) degrees of freedom, which should only be excitable by acting on a macroscopically large number of short-distance degrees of freedom.
+
+protection: |
+  Approximately protects against displacements that represent ultraviolet coherent operators, i.e., short-distance degrees of freedom of the field theory.
+
+
+relations:
+  parents:
+    - code_id: coherent_constellation
+  cousins:
+    - code_id: approximate_qecc
+      detail: 'RG cat codes approximately protect against displacements that represent ultraviolet coherent operators.'
+    - code_id: holographic
+      detail: 'The RG cat code encoder has similar coarse-graining features as that of a holographic code \cite{arxiv:2012.14001}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-29'
