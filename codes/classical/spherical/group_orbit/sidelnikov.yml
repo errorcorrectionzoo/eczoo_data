@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: sidelnikov
+physical: spheres
+logical: reals
+
+name: 'Real-Clifford subgroup-orbit code'
+introduced: '\cite{manual:{V. M. Sidelnikov, On a finite group of matrices and codes on the Euclidean sphere (in Russian), Probl. Peredach. Inform. 33 (1997), 35–54 (1997); English translation in Problems Inform. Transmission 33 (1997), 29–44},doi:10.1109/ISIT.1997.613373}'
+
+description: |
+  Slepian group-orbit code of dimension \(2^r\), approximate asympotic size \(2.38 \cdot 2^{r(r+1)/2+1}\), and distance \(1\).
+  Code is constructed by applying elements of an index-two subgroup of the real Clifford group, when taken as a subgroup of the orthogonal group \cite{arxiv:math/0001038}, onto the vector \((1,0,0,\cdots,0)\).
+  This group is the automorphism group of BW lattice, and the resulting codes coincide with the optimal spherical codes for dimensions \(\{4,8,16\}\).
+
+  The orbit of any point under the subgroup is a spherical 7-design \cite{doi:10.1023/A:1018723416627}, and some are 11-designs \cite{manual:{V. M. Sidel'nikov, “Orbital spherical 11-designs in which the initial point is a root of an invariant polynomial”, Algebra i Analiz, 11:4 (1999), 183–203; St. Petersburg Math. J., 11:4 (2000), 673–686}}.
+
+  Taking the orbit under the entire real Clifford group yields spherical codes twice the points and with distance \(2-\sqrt{2}\).
+
+relations:
+  parents:
+    - code_id: slepian_group
+  cousins:
+    - code_id: barnes_wall
+      detail: 'The automorphism group of BW lattices is a subgroup of index 2 of a real Clifford group \cite{manual:{V. M. Sidelnikov, On a finite group of matrices and codes on the Euclidean sphere (in Russian), Probl. Peredach. Inform. 33 (1997), 35–54 (1997); English translation in Problems Inform. Transmission 33 (1997), 29–44},doi:10.1109/ISIT.1997.613373} (see \cite{arxiv:math/0001038} for an explanation).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-22'

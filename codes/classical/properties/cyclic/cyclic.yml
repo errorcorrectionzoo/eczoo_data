@@ -4,16 +4,38 @@
 #######################################################
 
 code_id: cyclic
-physical: q-ary_digits
-logical: q-ary_digits
 
 name: 'Cyclic code'
-#introduced: ''
+introduced: '\cite{manual:{E. Prange, \emph{Cyclic Error-Correcting Codes in Two Symbols}, TN-57-/03, (September 1957)},manual:{E. Prange, \emph{Some cyclic error-correcting codes with simple decoding algorithms}, TN-58-156, (April 1958)},manual:{E. Prange, \emph{The use of coset equivalence in the analysis and decoding of group codes}, TN-59-/64, (1959)},manual:{E. Prange, \emph{An algorithm for factoring xn - I over a finite field}. TN-59-/75, (October 1959)},preset:PetersonWeldon}'
 
-description: 'A classical code \(C\) of length \(n\) over an alphabet is cyclic if, for each string \(c_1 c_2 \cdots c_n\in C\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\in C\).'
+description: |
+  A code of length \(n\) over an alphabet is cyclic if, for each codeword \(c_1 c_2 \cdots c_n\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\) is also a codeword.
 
-protection: ''
+  \subsection{Cyclic-to-polynomial correspondence}
+
+  \begin{defterm}{Cyclic-to-polynomial correspondence}
+  \label{topic:Cyclic-to-polynomial-correspondence}
+  Binary and \(q\)-ary cyclic codes and their properties can be naturally formulated using the theory of polynomials.
+  Cyclic codes correspond to ideals in a particular polynomial ring. Codewords \(c_1 c_2 \cdots c_n\) of a \(q\)-ary Galois-field code can be thought of as coefficients in a polynomial \(c_1+c_2 x+\cdots+c_n x^{n-1}\) in the set of polynomials with \(q\)-ary coefficients, \(\mathbb{F}_q[x]\) with \(\mathbb{F}_q=GF(q)\). Polynomials corresponding to codewords of a linear cyclic code form an ideal (i.e., are closed under multiplication and addition) in the ring \(\mathbb{F}_q[x]/(x^n-1)\) (i.e., the set of equivalence classes of polynomials congruent modulo \(x^n-1\)). Multiplication of a codeword polynomial \(c(x)\) by \(x\) in such a ring corresponds to a cyclic shift of the corresponding codeword string.
+  \end{defterm}
+
+  Codeword polynomials of a cyclic code can be generated, via multiplication, by a \textit{generator polynomial} \(g(x)\). A particular generator polynomial \(e(x)\) has the additional property of being \textit{idempotent}, i.e., \(e(x)^2=e(x)\). Given a generator polynomial, the corresponding \textit{check polynomial} \(h(x)=(x^n-1)/g(x)\) yields zero when multiplying a codeword polynomial. Its coefficients correspond to the code's parity check matrix.
+
+  Since the generator polynomial \(g(x)\) is a polynomial over \(GF(q)\), it can be factorized over some potentially larger \textit{splitting field} (just like \(x^2+1\) can be factorized over the complex numbers but not the reals). Whenever \(q\) and \(n\) are relatively prime, cyclic codes can also be defined in terms of roots of \(g(x)\). Such roots are called \textit{zeroes} of the code, and they are all powers of a primitive \(n\)th root of unity because \(g(x)\) is a divisor of \(x^n-1\). Since the generator polynomial generates all codeword polynomials \(c(x)\) by multiplication by \(x\), its zeroes are also zeroes of those polynomials.
 
 relations:
   parents:
     - code_id: quasi_cyclic
+      detail: 'Quasi-cyclic codes with \(\ell=1\) are cyclic.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-20'
+    - user_id: VictorVAlbert
+      date: '2021-11-30'
+    - user_id: NolanCoble
+      date: '2021-11-28'

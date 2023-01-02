@@ -1,0 +1,82 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qecc_finite
+#physical: bits
+#logical: qubits
+
+name: 'Finite-dimensional quantum error-correcting code'
+short_name: 'Finite QECC'
+
+# Following Gottesman's book
+description: 'Encodes quantum information in a \(K\)-dimensional (\textit{logical}) subspace of an \(N\)-dimensional (\textit{physical}) Hilbert space such that it is possible to recover said information from errors. The logical subspace is spanned by a basis comprised of \textit{code basis states} or \textit{codewords}.'
+
+protection: |
+  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a finite-dimensional quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{K}\to\mathsf{H}_{N}\) with a set of correctable errors \({\cal{E}}:\mathsf{H}_N\to\mathsf{H}_M\) with the following property: there exists a quantum operation \({\cal{D}}:\mathsf{H}_M\to \mathsf{H}_K\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{K}\),
+  \begin{align}
+  {\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\end{align}
+  for some constant \(c\) \cite{preset:GottesmanBook}. A code is said to \textit{protect against} or \textit{correct} the errors \(\mathcal{E}\).
+
+  \subsection{Knill-Laflamme error correction conditions}
+
+  Equivalently, correction capability is determined by of the quantum
+  error-correction conditions
+  \cite{arXiv:quant-ph/9604034,arXiv:quant-ph/9604024}, which may admit infinite
+  terms due to non-normalizability of ideal code states. A code that satisfies
+  these conditions approximately, i.e., up to some small quantifiable error, is
+  called an \hyperref[code:approximate_qecc]{approximate code}.
+
+  \begin{defterm}{Knill-Laflamme conditions}
+  In a finite-dimensional Hilbert space, there are necessary and sufficient
+  conditions for a code to successfully
+  correct a set of errors.  These are called the \emph{Knill-Laflamme
+  conditions}~\cite{arXiv:quant-ph/9604034,preset:PreskillNotes}\cite[Thm. 10.1]{doi:10.1017/CBO9780511976667}.
+  A code defined by a partial isometry \(U\) with code space projector \(\Pi = U U^\dagger\)
+  can correct a set of errors \(\{ E_j \}\) if and only if
+  \begin{align}
+    \Pi E_i^\dagger E_j \Pi = c_{ij}\, \Pi\qquad\text{for all \(i,j\),}
+  \end{align}
+  where \(c_{ij}\) can be arbitrary numbers.
+  \end{defterm}
+
+  A code is \textit{degenerate} with respect to a noise model if different errors map code states to the same error subspace. For a linearly independent error set \(\cal{E}\), degeneracy is equivalent to \(\text{rank}(c_{ij}) < |\cal{E}|\).
+# Include other often used defs
+# Include complementary channel + approximate defs; approx should be a separate property or not?
+
+features:
+
+  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
+
+#  encoders:
+  #  - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
+  #  - 'Measurement-based preparation ... with ancilla overhead of ... .'
+  #  - 'Leave discussion of fault tolerance to fault-tolerance field.'
+
+  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+
+  general_gates:
+    - 'Universal gate set cannot be transversal for any code that detects single-qubit errors due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
+
+  decoders:
+    - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of an encoder, which does not correct errors.'
+    - 'Quantum machine-learning based decoders such as quantum convolutional neural networks \cite{arXiv:1810.03787} and quantum autoencoders \cite{arxiv:2202.00555}.'
+
+relations:
+  parents:
+    - code_id: qecc
+  cousins:
+    - code_id: ecc_finite
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-15'
+    - user_id: VictorVAlbert
+      date: '2022-03-18'
+    - user_id: VictorVAlbert
+      date: '2021-12-09'

@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: binary_quad_residue
+physical: bits
+logical: bits
+
+name: 'Binary quadratic-residue (QR) code'
+short_name: 'Binary QR'
+#introduced: ''
+
+description: |
+  Member of a quadruple of cyclic binary codes of prime length \(n=8m\pm 1\) for \(m\geq 1\) constructed using quadratic residues and nonresidues of \(n\).
+
+  The roots of the generator polynomial \(r(x)\) of the first code (see \ref{topic:Cyclic-to-polynomial-correspondence}) are all of the inequivalent quadratic residues of \(n\), and the second code's generator polynomial is \((x-1)r(x)\). The roots of the generator polynomial \(a(x)\) of the third code are all inequivalent nonresidues of \(n\), and the fourth code's generator polynomial is \((x-1)a(x)\). The codes corresponding to polynomials \(r,a\) are often called \textit{augmented} quadratic-residue codes, while the remaining codes are called \textit{expurgated}.
+
+notes:
+  - 'Introduction of quadratic-residue codes in Refs. \cite{preset:MacSlo,doi:10.1017/CBO9780511807077}.'
+
+relations:
+  parents:
+    - code_id: binary_duadic
+      detail: 'QR codes are duadic codes of prime length satisfying certain relations \cite{doi:10.1007/978-3-7091-2786-5_1}.'
+  cousins:
+    - code_id: q-ary_quad_residue
+    - code_id: group
+      detail: 'The self-dual \([48,24,12]\) extended quadratic residue code is a group-algebra code \cite{doi:10.1007/s10623-011-9530-0}\cite[Ex. 16.5.1]{doi:10.1201/9781315147901}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-15'
+    - user_id: YijiaXu
+      date: '2022-04-25'

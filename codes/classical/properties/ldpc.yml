@@ -3,28 +3,66 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
+
 code_id: ldpc
-physical: bits
-logical: bits
 
 name: 'Low-density parity-check (LDPC) code'
 short_name: 'LDPC'
-#introduced: ''
+introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}'
 
 description: |
-  Stub.
+  Also known as \textit{Gallager codes}. Binary or \(q\)-ary linear code with a sparse parity-check matrix. More precisely, a member of an infinite family of \([n,k,d]\) codes for which the number of nonzero entries in each row and column of the parity-check matrix are both bounded by a constant as \(n\to\infty\). An LDPC code is \((j,k)\)-\textit{regular} if the parity-check matrix has a fixed number of \(j\) nonzero entries in each row and \(k\) entries in each column; otherwise, the LDPC code is \textit{irregular}. The dual of an LDPC code has a sparse generator matrix and is called an LDGM code.
 
-  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, \(q\)-ary linear codes satisfying the above criteria are also called LDPC codes.
+  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel. A parity check yields either zero (no error) or one (error) for binary codes, while yielding zero (no error) or a nonzero field element (error) for \(q\)-ary codes. Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
-#protection: ''
+protection: 'With high probability, random LDPC codes have constant distance \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}.'
 
-#notes:
-  #- ''
+features:
+  encoders:
+    - 'Almost linear-time encoder based on transforming parity-check matrix into upper triangular form \cite{doi:10.1109/18.910579}.'
+  rate: 'Achieve capacity on the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/18.748992,doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}. Some LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}. Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
+#  encoders:
+#    - 'Encoding complexity is of O(n) per symbol (which is good).'
+  decoders:
+    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},preset:LinCostello}.'
+    - 'Linear programming \cite{doi:10.1007/978-1-4939-2864-4_216}.'
+    - 'Reinforcement learning \cite{arxiv:2112.13934}.'
+
+realizations:
+  - '5G NR cellular communication for the traffic channel \cite{doi:10.1109/CSCITA47329.2020.9137797}.'
+  - 'WiMAX (IEEE 802.16e) \cite{manual:{LDPC coding for OFDMA PHY. 802.16REVe Sponsor Ballot Recirculation comment, July 2004. IEEE C802.16e04/141r2}}.'
+  - 'Satellite transmission of digital television \cite{doi:10.1109/ICARES.2014.7024407}.'
+  - 'Quantum key distribution \cite{arxiv:2212.01121}.'
+
+notes:
+  - 'See Kaiserslautern database \cite{preset:KLdatabase} for explicit representatives of several classes of LDPC codes, including \(q\)-ary, WiMAX, multi-edge, and spatially-coupled.'
+  - 'See pretty-good-codes database \cite{preset:PGCdatabase} for explicit representatives and benchmarking.'
+  - 'See Ref. \cite{doi:10.1007/978-3-0348-7865-4_5} for a review of LDPC codes circa 2005.'
+  - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
+  - 'See book \cite{doi:10.1093/acprof:oso/9780198570837.001.0001} for an introduction to LDPC codes, belief-propagation decoding, and connections to statistical mechanics.'
 
 relations:
   parents:
-    - code_id: ecc
-      detail: ''
+    - code_id: linear
   cousins:
-    - code_id: parity_check
-      detail: 'Binary LDPC codes are parity check codes.'
+    - code_id: ldgm
+      detail: 'LDPC and LDGM codes are dual to each other.'
+    - code_id: tensor
+      detail: 'Tensor products of random LDPC codes are robustly testable \cite{doi:10.1007/11830924_29,doi:10.1007/978-3-540-85363-3_24}.'
+#  cousins:
+#    - code_id: binary_linear
+#      detail: 'Binary LDPC codes are a subset of binary linear codes.'
+#    - code_id: q-ary_linear
+#      detail: '\(q\)-ary LDPC codes are a subset of \(q\)-ary linear codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-17'
+    - user_id: VictorVAlbert
+      date: '2022-04-25'
+    - user_id: ArminGerami
+      date: '2022-04-23'

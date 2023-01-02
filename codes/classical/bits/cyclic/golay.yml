@@ -1,0 +1,62 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: golay
+physical: bits
+logical: bits
+
+name: 'Golay code'
+introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
+
+description: |
+  A \([23, 12, 7]\) perfect binary linear code with connections to various areas of mathematics, e.g., lattices \cite{doi:10.1007/978-1-4757-6568-7} and sporadic simple groups \cite{preset:MacSlo}. Adding a parity bit to the code results in the \([24, 12, 8]\) \textit{extended Golay code}. Up to equivalence, both codes are unique for their respective parameters.
+
+  To construct the Golay code, one can use the great dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the inner icosahedron.
+
+#protection: 'The extended Golay code has distance 7 and can correct up to \(\frac{7-1}{2}=3\) errors.'
+
+features:
+#  rate: 'The perfect binary Golay code has a rate of \(12/23 = 0.522\). The extended binary Golay code has a rate of \(12/24 = 0.5\).'
+
+  decoders:
+    - 'Majority decoding for the extended Golay code \cite{doi:10.1016/0097-3165(71)90043-4}.'
+    - 'Decoder for the extended Golay code using the hexacode \cite{doi:10.1109/TIT.1986.1057197}.'
+    - 'Both Golay codes have a trellis representation and can thus be decoded using trellis decoding \cite{doi:10.1142/9789814287517_0004,doi:10.1049/el:19931456}.'
+    - 'Bounded-distance decoder requiring at most 121 real operations \cite{doi:10.1109/18.412695}.'
+
+realizations:
+  - 'Used in the Voyager 1 and 2 spacecraft \cite{doi:10.1029/JA092iA13p14873}.'
+  - 'Radio communications \cite{manual:{E. E. Johnson. An Efficient Golay Codec For MIL-STD-188-141A and FED-STD-1045. Department of Electrical and Computer Engineering, New Mexico State University, 1991.}}.'
+  - 'Proofs of the quantum mechanical Kochen-Specker theorem \cite{arxiv:2206.04209}.'
+
+notes:
+  - 'The automorphism group of the Golay code is the Mathieu group \(\mathcal{M}_{23}\), and the automorphism group of the extended Golay code is the Mathieu group \(\mathcal{M}_{24}\), two of the sporadic simple groups.'
+
+relations:
+  parents:
+    - code_id: perfect
+      detail: 'The Golay code is perfect.'
+    - code_id: binary_quad_residue
+      detail: 'The Golay code is a binary quadratic residue code with generator polynomial \(r(x)\) over \(GF(2)\) with length \(n=23\) (\cite{preset:MacSlo}, Ch. 16).'
+    - code_id: bch
+      detail: 'The Golay code is equivalent to a BCH code with Bose distance 5 (\cite{preset:MacSlo}, Ch. 20).'
+  cousins:
+    - code_id: nearly_perfect
+      detail: 'The extended Golay code is nearly perfect.'
+    - code_id: dual
+      detail: 'The extended Golay code is self-dual.'
+    - code_id: group
+      detail: 'The extended Golay code is a group-algebra code for various groups \cite{doi:10.1109/TIT.2008.928260,doi:10.1007/s10623-017-0440-7,doi:10.1016/0097-3165(90)90069-9}\cite[Ex. 16.5.1]{doi:10.1201/9781315147901}.'
+
+# The Golay code can be constructed as a cyclic code with the generator polynomial \(x^{11} + x^{10} + x^6 + x^5 + x^4 + x^2 + 1\) over \(GF(2)\).
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-10'
+    - user_id: NoahBerthusen
+      date: '2022-03-02'

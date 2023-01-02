@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: oscillator_stabilizer
+physical: oscillators
+
+name: 'Bosonic stabilizer code'
+introduced: '\cite{arxiv:quant-ph/0405064}'
+
+description: |
+  Also known as a \textit{continuous-variable (CV) stabilizer code}. Bosonic code whose codespace is defined as the common \(+1\) eigenspace of a group of mutually commuting displacement operators. Displacements form the stabilizers of the code, and have continuous eigenvalues, in contrast with the discrete set of eigenvalues of qubit stabilizers. As a result, exact codewords are non-normalizable, so approximate constructions have to be considered.
+
+  Stabilizer codewords encoding a finite-dimensional codespace admit a discrete infinite stabilizer group. Such \hyperref[code:qudits_into_oscillators]{qudit-into-oscillator} stabilizer codes are \hyperref[code:gkp]{GKP} and \hyperref[code:multimodegkp]{multimode GKP} codes.
+
+  Stabilizer codewords encoding a logical oscillator (i.e., CV quantum information) admit either a discrete or a continuous stabilizer group. The former, called GKP-stabilizer codes, are obtained from multimode GKP codes by removing stabilizer generators for some of the modes. The latter can be defined in terms of the continuous group's Lie algebra, i.e., as the common \(0\)-eigenvalue eigenspace of mutually commuting linear combinations of oscillator position and momentum operators called \textit{nullifiers} \cite{arxiv:0903.3233} or \textit{annihilators}. An \hyperref[code:oscillators_into_oscillators]{oscillator-into-oscillator} stabilizer code encoding \(k\) logical modes into \(n\) physical modes is denoted as \([[n,k,d]]_{\mathbb{R}}\), where \(d\) is the code's distance.
+
+#A stabilizer code admitting a set a set of group generators such that each generator consists of either position or momentum operators is called a \textit{bosonic CSS code}.
+
+protection: 'Protective properties can be delineated in terms of the nullifiers or displacements, and the most natural noise model for such codes is displacement noise. If an error operator does not commute with a stabilizer group element, then that error is detectable. Oscillator-into-oscillator stabilizer codes protect against erasures of a subset of modes, while GKP codes protect against sufficiently small displacements in any number of modes.'
+
+
+
+relations:
+  parents:
+    - code_id: stabilizer
+    - code_id: oscillators
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-05'
+    - user_id: VictorVAlbert
+      date: '2022-03-24'

@@ -13,14 +13,22 @@ name: 'Modular-qudit code'
 description: |
   Also called a \(\mathbb{Z}_q\)\textit{-qudit code}. Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the group \(\mathbb{Z}_q\) of integers \textit{modulo} \(q\). Usually denoted as \(((n,K))_q\) or \(((n,K,d))_q\), whenever the code's distance \(d\) is defined, and with \(q=p\) when the dimension is prime.
 
-#protection: ''
+protection: |
+  A convenient and often considered error set is the modular-qudit analogue of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes. For a single qudit, this set consists of products of powers of the qudit Pauli matrices \(X\) and \(Z\), which act on computational basis states \(|k\rangle\) for \(k\in\mathbb{Z}_q\) as
+  \begin{align}
+    X\left|k\right\rangle =\left|k+1\right\rangle \,\,\text{ and }\,\,Z\left|k\right\rangle =e^{i\frac{2\pi}{q}k}\left|k\right\rangle ~,
+  \end{align}
+  with addition performed modulo \(q\). For multiple qudits, error set elements are tensor products of elements of the single-qudit error set.
+
+  The Pauli error set is a unitary basis for linear operators on the multi-qudit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a nice error basis \cite{arxiv:quant-ph/9608048,arxiv:quant-ph/9608049,arxiv:quant-ph/0010082}. The distance associated with this set is often the minimum weight of a qudit Pauli string that implements a nontrivial logical operation in the code.
 
 features:
   decoders:
     - 'For few-qudit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
 
-# notes:
-#   - ''
+notes:
+  - 'See Refs. \cite{arxiv:quant-ph/9802007,arxiv:quant-ph/0408190} for descriptions of the qudit Clifford group.'
+  - 'Weight distribution of a code depends on the average entanglement of codewords \cite{arXiv:quant-ph/0310137,arxiv:2209.07607}.'
 
 relations:
   parents:
@@ -30,3 +38,13 @@ relations:
   #cousins:
   #  - code_id: code_id4
   #    detail: 'code_id4 are other codes of similar encoding but with different physical space structures (classical or quantum)'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-07'
+    - user_id: VictorVAlbert
+      date: '2021-10-29'

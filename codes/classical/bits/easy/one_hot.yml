@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: one_hot
+physical: bits
+logical: bits
+
+name: 'One-hot code'
+#introduced: ''
+
+description: |
+  Also known as an \textit{\(1\)-in-\(n\)} code. A length-\(n\) binary code whose codewords are those with Hamming weight one. The reverse of this code, where all codewords have Hamming weight \(n-1\) is called a \textit{one-cold} code.
+
+realizations:
+  - 'The bi-quinary code, a combination of one-hot 1-in-2 and 1-in-5 one-hot codes to encode decimal digits, was used in several early computers (\cite{doi:10.1201/9781315115870}, Ch. 27).'
+  - 'Marking the state of a finite automaton \cite{doi:10.1109/43.41505}.'
+  - 'Used in machine-learning based classification tasks because one-hot encodings, as opposed to integer encodings, do not presume an order \cite{doi:10.5120/ijca2017915495}.'
+
+relations:
+  parents:
+    - code_id: constant_weight
+    - code_id: binary_cyclic
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-14'

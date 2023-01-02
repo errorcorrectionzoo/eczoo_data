@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: group_linear
+physical: groups
+logical: groups
+introduced: '\cite{doi:10.1109/49.29613,doi:10.1109/18.133243,doi:10.1109/18.104333}'
+
+name: 'Linear code over \(G\)'
+
+description: 'Encodes \(K\) states (codewords) in \(n\) coordinates over a group \(G\) such that the codewords form a subgroup of \(G^n\).'
+
+relations:
+  parents:
+    - code_id: group_classical
+    - code_id: group_orbit
+      detail: 'Since codewords of a linear code over \(G\) form a group, any codeword \(c\) can be obtained from any other codeword via action of a codeword. This means that the set of codewords can be thought of as an orbit of a particular codeword under the group.'
+  cousins:
+    - code_id: binary_linear
+      detail: 'Linear codes over \(G=GF(2)\) are binary linear codes since fields are abelian groups under addition.'
+    - code_id: q-ary_linear
+      detail: 'Linear codes over \(G=GF(q)\) are \(q\)-ary linear codes since fields are abelian groups under addition.'
+    - code_id: points_into_lattices
+      detail: 'Linear codes over \(G=\mathbb{R}\) are lattices.'
+    - code_id: rings_linear
+      detail: 'Linear codes over \(G=R\) are linear codes over \(R\) since rings are abelian groups under addition.'
+    - code_id: linear
+      detail: 'Since linear codes over \(G\) for abelian (non-Abelian) groups are closed under addition (multiplication), such codes can be thought of as linear codes over groups.'
+    - code_id: group_gkp
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'
+    - user_id: VictorVAlbert
+      date: '2022-03-24'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hessian_polyhedron
+physical: spheres
+logical: reals
+
+name: 'Hessian polyhedron code'
+
+description: |
+  Spherical \((6,27,3/2)\) code whose codewords are the vertices of the Hessian complex polyhedron and the \(2_{21}\) real polytope.
+  The code forms a tight spherical 4-design \cite[Exam. 7.3]{arxiv:1104.4692}.
+  See \cite[Exam. 1.2.5]{preset:EricZin} (\cite[pg. 119]{preset:coxeterComplex}) for a real (complex) realization of the 27 codewords.
+
+# 4-design checked manually in spherical_002
+
+
+realizations:
+  - 'Quantum mechanical SIC-POVMs \cite{arxiv:1911.05809}.'
+
+relations:
+  parents:
+    - code_id: polytope
+  cousins:
+    - code_id: esix
+      detail: 'The 27 Hessian polyhedron codewords are intimately related to the \(E_6\) Lie group \cite{arxiv:math/0507118}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'

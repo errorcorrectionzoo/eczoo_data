@@ -8,16 +8,17 @@ physical: qubits
 logical: qubits
 
 name: 'Quantum parity code (QPC)'
-introduced: '\cite{arxiv:quant-ph/0501184,arxiv:quant-ph/0006088}'
+short_name: 'QPC'
+introduced: '\cite{arxiv:quant-ph/0501184,doi:10.1038/35051009,arxiv:quant-ph/0006088}'
 
 description: |
-      Also called a \textit{generalized Shor code} \cite{arxiv:quant-ph/0610088}. A \([[m_1 m_2,1,\min(m_1,m_2)]]\) CSS code family obtained from concatenating an \(m_1\)-qubit phase-flip repetition code with an \(m_2\)-qubit bit-flip repetition code. Logical codewords are
-      \begin{align}
-      \begin{split}
-      |\overline{0}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}+|1\rangle^{\otimes m_1}\right)^{\otimes m_2}\\
-      |\overline{1}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}-|1\rangle^{\otimes m_1}\right)^{\otimes m_2}~.
-      \end{split}
-      \end{align}
+  Also called a \textit{generalized Shor code} \cite{arxiv:quant-ph/0610088}. A \([[m_1 m_2,1,\min(m_1,m_2)]]\) CSS code family obtained from concatenating an \(m_1\)-qubit phase-flip repetition code with an \(m_2\)-qubit bit-flip repetition code. Logical codewords are
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}+|1\rangle^{\otimes m_1}\right)^{\otimes m_2}\\
+  |\overline{1}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}-|1\rangle^{\otimes m_1}\right)^{\otimes m_2}~.
+  \end{split}
+  \end{align}
 
 protection: 'Has distance \(d=\min(m_1,m_2)\).'
 
@@ -27,20 +28,29 @@ protection: 'Has distance \(d=\min(m_1,m_2)\).'
 
 realizations:
   - 'The \([[m^2,1,m]]\) codes for \(m\leq 7\) have been realized in trapped-ion quantum devices \cite{arXiv:2104.01205}.'
+
+notes:
   - 'Non-determinisitic linear-optical encoding \cite{arxiv:quant-ph/0501184} whose success probability \(P_{E}\) is determined by the efficiency \(\eta\) of the photonic encoding circuit. A threshold \(\eta > 0.82 \) exists for the efficiency, above which \(P_{E}\to 1\) as \(m_1\to\infty\) given particular \(m_2\).'
   - 'Studied in the context of error-corrected quantum repeaters \cite{arXiv:1310.5291}.'
 
 relations:
   parents:
     - code_id: css
-      detail: ''
-    - code_id: constant_excitation
-      detail: 'QPC codewords like in a common eigenspace of the total spin Hamiltonian.'
+#    - code_id: constant_excitation
+#      detail: 'QPC codewords lie in a common eigenspace of the total spin Hamiltonian.'
+    - code_id: translationally_invariant_stabilizer
+  cousins:
     - code_id: quantum_concatenated
       detail: 'A QPC is a concatenation of a phase-flip repetition code with a bit-flip repetition code.'
-
-  cousins:
-    - code_id: quantum_repetition
-      detail: 'A QPC is a concatenation of a bit-flip and a phase-flip repetition codes.'
     - code_id: bacon_shor
       detail: 'Bacon-Shor codes reduce to QPCs for a particular gauge configuration.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-31'
+    - user_id: XinyuanZheng
+      date: '2021-12-20'

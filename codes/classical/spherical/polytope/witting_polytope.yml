@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: witting_polytope
+physical: spheres
+logical: reals
+
+name: 'Witting polytope code'
+
+description: |
+  Spherical \((8,240,1)\) code whose codewords are the vertices of the Witting complex polytope and the \(4_{21}\) real polytope.
+  This code is optimal and unique up to equivalence \cite{doi:10.4153/CJM-1981-038-7,doi:10.1007/978-1-4757-6568-7} and forms a tight spherical 7-design \cite[Ch. 14]{doi:10.1007/978-1-4757-6568-7}.
+  Codewords form the minimal lattice-shell code of the \(E_8\) lattice.
+
+  A representation of the codewords consists of all 112 permutations of the four vectors \((0,0,0,0,0,0,\pm 2,\pm 2)\) along with the 128 vectors \((\pm 1)^{\times 8}\) where the number of minus signs is even.
+  See \cite[pg. 132]{preset:coxeterComplex} for a complex representation.
+
+protection: |
+  Code yields an optimal solution to the kissing problem in 4D \cite{manual:{Schläfli, L. (1901). Theorie der vielfachen Kontinuität (Vol. 38). Zürcher & Furrer.},arxiv:math/0309430}.
+
+
+relations:
+  parents:
+    - code_id: polytope
+    - code_id: eeight_shell
+      detail: 'Witting polytope codewords form the minimal shell of the \(E_8\) lattice.'
+    - code_id: sidelnikov
+      detail: 'The Witting polytope code is equivalent to the real Clifford subgroup-orbit code for \(n=8\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-28'

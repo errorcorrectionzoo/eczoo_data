@@ -8,14 +8,20 @@ physical: galois
 logical: galois
 
 name: 'Galois-qudit stabilizer code'
-introduced: '\cite{arXiv:quant-ph/0005008,arXiv:quant-ph/0508070}'
+introduced: '\cite{doi:10.1109/18.959288,arXiv:quant-ph/0508070}'
 
 description: |
   An \(((n,K,d))_{GF(q)}\) Galois-qudit code whose logical subspace is the joint eigenspace of commuting Galois-qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation in the code.
 
-  (Pauli matrices go here.)
-
   A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{GF(q)}\) or \([[n,k,d]]_{GF(q)}\). This notation differentiates between Galois-qudit and modular-qudit stabilizer codes, although the same notation, \([[n,k,d]]_q\), is usually used for both. Galois-qudit stabilizer codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
+
+  The stabilizer commutation condition can equivalently be stated in the symplectic representation. A pair of Galois-qudit stabilizers on \(n\) Galois qudits with symplectic representation vectors \((a|b)\) and \((a^{\prime}|b^{\prime})\) commute iff their \textit{trace symplectic inner product} is zero,
+  \begin{align}
+  \text{tr}(a \cdot b^{\prime} - a^{\prime}\cdot b) = \sum_{j=1}^{n} \text{tr}(a_j b^{\prime}_j - a^{\prime}_i b_i) = 0~.
+  \end{align}
+  Symplectic representations of stabilizer group elements thus form a self-orthogonal subspace of \(GF(q)^{2n}\) with respect to the trace-symplectic inner product.
+
+  Note that the above trace-symplectic inner product reduces to the \textit{symplectic inner product} when the trace is removed, and a symplectic self-orthogonal set of vectors is automatically trace-symplectic self-orthogonal. More generally, any additive classical code whose self-orthogonality under some inner product (such as Hermitian, Euclidean, or symplectic) implies trace-symplectic self-orthogonality of an equivalent code can be used to construct a Galois-qudit stabilizer code (see children).
 
 #  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(GF(q)\)-valued symplectic representation of a stabilizer generator. # Leonid comment: "Usually, if the group is additive, we have to list all generators explicitly.  But if it is linear over some field F (subfield of F_q or F_q itself) we may list the generators as would be expected for that group -fewer of them, as the number of generators is the rank of the matrix over that field (or additive rank).  All may have different values.  I think the explicit specification is needed to reduce any confusion."
 
@@ -32,8 +38,13 @@ description: |
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. Corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qudits.'
 
 features:
+  encoders:
+    - 'Encoder with \(O(n^2)\) gates can be determined in classical runtime of order \(O(n^3)\) \cite{arxiv:quant-ph/0211014}.'
   general_gates:
-    - 'As opposed to modular qudits for composite \(q\), Galois qudits inherit most of the properties of the prime-qudit Clifford group due to the correspondence between a \(q=p^m\) Galois qudit and \(m\) prime qudits of dimension \(p\) \cite{arXiv:quant-ph/0005008}.'
+    - 'As opposed to modular qudits for composite \(q\), Galois qudits inherit most of the properties of the prime-qudit Clifford group due to the correspondence between a \(q=p^m\) Galois qudit and \(m\) prime qudits of dimension \(p\) \cite{doi:10.1109/18.959288}.'
+
+notes:
+  - 'The number of Galois-qudit stabilizer codes was determined in Ref. \cite{arxiv:quant-ph/0602001}.'
 
 relations:
   parents:
@@ -42,5 +53,28 @@ relations:
       detail: 'A non-stabilizer code is also a stabilizer code if its Fourier description \(\mathsf{B}\) is a subgroup of some Gottesman subgroup \(\mathsf{S}\). When \(\mathsf{B}\) is just a subset, the code is explicitly not a stabilizer code.'
 
   cousins:
+    - code_id: qubit_stabilizer
+      detail: 'Galois-qudit stabilizer codes reduce to qubit stabilizer codes for \(q=2\).'
     - code_id: qudit_stabilizer
-      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{arXiv:quant-ph/0005008}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits.'
+      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{doi:10.1109/18.959288}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits.'
+    - code_id: q-ary_additive
+      detail: 'A Galois-qudit stabilizer code is the closest quantum analogue of an additive code over \(GF(q)\) because addition in the field corresponds to multiplication of stabilizers in the quantum case.'
+    - code_id: dual_additive
+      detail: 'An additive code of length \(2n\) over \(GF(q)\) that is self-orthogonal with respect to the trace-symplectic inner product corresponds to symplectic representations of an \(n\) Galois-qudit stabilizer group \cite{doi:10.1109/18.959288}. Moreover, any additive code whose self-orthogonality under some inner product (such as Hermitian, Euclidean, or symplectic) implies trace-symplectic self-orthogonality of an equivalent code can be used to construct a Galois-qudit stabilizer code.'
+#For example, an additive code of length \(n\) over \(GF(q^2)\) that is self-orthogonal with respect to the trace-alternating inner product corresponds to \hyperref[code:stabilizer_over_gfqsq]{stabilizer-over-\(GF(q^2)\)} representations of an \(n\) Galois-qudit stabilizer group \cite{arxiv:quant-ph/0508070}.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'
+    - user_id: VictorVAlbert
+      date: '2022-04-13'
+    - user_id: LeonidPryadko
+      date: '2022-04-13'
+    - user_id: VictorVAlbert
+      date: '2022-01-12'
+    - user_id: QingfengKeeWang
+      date: '2022-01-07'

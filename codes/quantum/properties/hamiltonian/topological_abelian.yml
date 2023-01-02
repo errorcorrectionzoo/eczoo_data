@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: topological_abelian
+
+name: 'Abelian topological code'
+#introduced: ''
+
+description: |
+  Code whose codewords realize topological order associated with an abelian group. Stub.
+
+  Any local quantum circuit connecting ground states of topological orders with non-isomorphic abelian groups must have depth that is at least linear in the system’s diameter \cite{arXiv:1407.2926}.
+
+#protection: ''
+
+features:
+  fault_tolerance:
+    - 'Fault-tolerant logical operations can be interpreted as anyon condensation events \cite{arxiv:2212.00042}.'
+
+#notes:
+#  - ''
+
+relations:
+  parents:
+    - code_id: topological
+    - code_id: subsystem_stabilizer
+      detail: 'All premodular abelian topological orders can be realized as modular-qudit subsystem stabilizer codes \cite{arxiv:2211.03798}.'
+  cousins:
+    - code_id: qudit_stabilizer
+      detail: 'All non-chiral abelian topological orders can be realized as modular-qudit stabilizer codes \cite{arxiv:2112.11394}.'
+    - code_id: qldpc
+      detail: 'Topological-code Hamiltonians are geometrically local for appropriate tesselations.'
+      # Not a parent since it encompasses codes from different kingdoms. Each constituent code family is instead endowed with a parent within its own kingdom.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-08'

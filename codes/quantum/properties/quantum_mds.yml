@@ -6,7 +6,7 @@
 code_id: quantum_mds
 
 name: 'Quantum maximum-distance-separable (MDS) code'
-short_name: 'Quantum MDS code'
+short_name: 'Quantum MDS'
 #introduced: '\cite{doi:10.1109/TIT.1964.1053661}'
 
 description: |
@@ -16,10 +16,8 @@ description: |
   \end{align}
   becomes an equality.
 
-protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
 
-notes:
-  - 'The \([[5,1,3]]\) code and \([[n,n-2,2]]\) codes, where \(n\) is even, are the only examples of MDS qubit codes.'
+protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
 
 relations:
   parents:
@@ -27,5 +25,20 @@ relations:
   cousins:
     - code_id: mds
       detail: ''
-    - code_id: generalized_reed_solomon
-      detail: 'Quantum MDS codes can be constructed through classical generalized Reed-Solomon codes \cite{arXiv:2002.06040}.'
+    - code_id: q-ary_cyclic
+      detail: 'Quantum MDS codes can be constructed from \(q\)-ary cyclic codes using the Hermitian construction \cite{doi:10.1109/TIT.2011.2159039}.'
+# Not needed since galois_grs is an entry
+#    - code_id: generalized_reed_solomon
+#      detail: 'Quantum MDS codes can be constructed from GRS codes using the Hermitian construction \cite{arXiv:2002.06040}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'
+    - user_id: VictorVAlbert
+      date: '2022-01-10'
+    - user_id: QingfengKeeWang
+      date: '2021-12-20'

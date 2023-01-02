@@ -13,10 +13,7 @@ introduced: '\cite{arXiv:2101.09310}'
 
 description: 'Fusion Based Quantum Computing, or FBQC, describes a fault tolerant way to produce \textit{fusion networks}, or large entangled states starting from small constant-sized entangled resource states along with destructive measurements called \textit{fusions}. These large states can be produced asychronously in the fusion framework and can be used as resources, as in measurement-based quantum computation (MBQC), or as logical states of topological codes. The difference from ordinary MBQC is that error-correction is baked into the state-generation protocol.'
 
-protection: 'Protects against erasure, Pauli errors, photon loss, fusion failure from non-determinism, and faulty resource states.
-   Redundancy in fusion outcomes is captured by the check operator group.
-   Fusion measurement outcomes form a syndrome that allows to correct for Pauli errors.
-   There is no physical error correction, and decoding output is simply used to update the Pauli frame.'
+protection: 'Protects against erasure, Pauli errors, photon loss, fusion failure from non-determinism, and faulty resource states. Redundancy in fusion outcomes is captured by the check operator group. Fusion measurement outcomes form a syndrome that allows to correct for Pauli errors. There is no physical error correction, and decoding output is simply used to update the Pauli frame.'
 
 features:
   encoders:
@@ -40,6 +37,7 @@ features:
     - '\(1.07\%\) against Pauli error.'
     - 'In linear optical systems, can tolerate \(10.4\%\) probability of photon loss in each fusion.'
     - '\(43.2\%\) against fusion failure.'
+    - 'FBQC applied to the surface code yields thresholds for logical gates that is consistent with the code capacity threshold \cite{arxiv:2112.12160}.'
 
 relations:
   parents:
@@ -51,3 +49,15 @@ relations:
       detail: 'Arbitrary topological codes can be created using FBQC, as can topological features such as defects and boundaries, by modifying fusion measurements or adding single qubit measurements.'
     - code_id: fock_state
       detail: 'While FBQC is a general framework, an intended application to linear-optical quantum computing will likely utilize small Fock-state bosonic codes such as the dual-rail code.'
+    - code_id: dynamic_gen
+      detail: 'Building a fusion network is done using a measurement-based dynamical process.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-30'
+    - user_id: DhruvDevulapalli
+      date: '2021-12-17'

@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dfour_gkp
+physical: oscillators
+logical: qudits
+
+name: '\(D_4\) GKP code'
+introduced: '\cite{arxiv:2201.12337}'
+
+description: |
+  Two-mode GKP qudit-into-oscillator code based on the \(D_4\) hyper-diamond lattice.
+
+features:
+  general_gates:
+    - 'Logical Clifford operations are given by passive Gaussian unitaries. Non-Clifford gates can be done through Kerr-type unteractions.'
+
+relations:
+  parents:
+    - code_id: multimodegkp
+  cousins:
+    - code_id: dfour
+    - code_id: quantum_concatenated
+      detail: 'The \(D_4\) GKP code can be seen as a concatenation of a rotated square-lattice GKP code with a repetition code \cite{arxiv:2201.12337}.'
+    - code_id: quantum_repetition
+      detail: 'The \(D_4\) GKP code can be seen as a concatenation of a rotated square-lattice GKP code with a repetition code \cite{arxiv:2201.12337}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-25'
