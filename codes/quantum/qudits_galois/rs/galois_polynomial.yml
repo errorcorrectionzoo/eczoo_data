@@ -20,14 +20,15 @@ description: |
   =
   \sum_{(\beta_{k_2},\cdots,\beta_{k_1-1})\in GF(q) }
   \bigotimes_{i=1}^{n}
-  \left|\sum_{j=0}^{k_1-1} \beta_j \alpha_i^j \right\rangle,
+  \left| \sum_{j=0}^{k_1-1} \beta_j \alpha_i^j \right\rangle,
   \end{align}
   where \((\alpha_1, \cdots, \alpha_n)\) are \(n\) distinct points chosen for code \(C_1\) from \(GF(q)\setminus \{0\}\).'
 
 relations:
   parents:
     - code_id: galois_grs
-    - code_id: galois_css
+    - code_id: galois_fqrs
+      detail: 'An FQRS code with no extra grouping (\(m=1\)) reduces to an galois-qudit RS code.'
   cousins:
     - code_id: polynomial
       detail: 'Polynomial codes can be defined for modular qudits of prime dimension or, more generally, for Galois qudits.'
