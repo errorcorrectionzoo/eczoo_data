@@ -15,14 +15,14 @@ description: |
   The formulation of such codes relies on a notion of \textit{quantum list decoding}.
   Sampling a description of this code can be done with an efficient randomized algorithm with \(2^{-\Omega(n)}\) failure probability.
 
-protection: For any \(\gamma>0\) and rate \(0<R<1\), these approximate quantum \([[n,R \cdot n]]_{GF(q)}\) codes have constant alphabet size \(q=q(\gamma)\) and correct errors acting on \((1-R-\gamma) \cdot n/2\) registers, up to a recovery error of \(2^{-\Omega(n)}\).
+protection: For any \(\gamma>0\) and rate \(0<R<1\), these approximate quantum \([[n,R \cdot n]]_{GF(q)}\) codes have constant Galois-qudit dimension \(q=q(\gamma)\) and correct errors acting on \((1-R-\gamma) \cdot n/2\) registers, up to a recovery error of \(2^{-\Omega(n)}\).
 
 features:
   rate: 'Given rate \(R\), tolerate adversarial errors nearly saturating the quantum Singleton bound of \((1-R)/2\).'
   encoders:
     - 'Efficient encoding.'
   decoders:
-    - 'Quantum list decodable.'
+    - 'Quantum list decodable \cite{arXiv:2212.09935}.'
 
 
 relations:
@@ -31,9 +31,9 @@ relations:
     - code_id: approximate_qecc
   cousins:
     - code_id: galois_fqrs
-      detail: 'Singleton-bound approaching AQECCs utilize QFRS codes.'
+      detail: 'Singleton-bound approaching AQECCs utilize FQRS codes.'
     - code_id: quantum_secret_sharing
-      detail: 'Quantum secret-sharing codes have asymptotically decaying rate and require qudit dimension to increase exponentially with \(n\), while singleton-bound approaching AQECCs have constant rate and qudit dimension.'
+      detail: 'Quantum secret-sharing codes have asymptotically decaying rate and require qudit dimension to increase exponentially with \(n\), while Singleton-bound approaching AQECCs have constant rate and qudit dimension.'
 
 # Begin Entry Meta Information
 _meta:
