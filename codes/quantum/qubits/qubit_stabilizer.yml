@@ -28,10 +28,9 @@ protection: |
 
 features:
   encoders:
-    - 'Circuits consisting of CNOT, Hadamard, and phase gates using algorithm based on the Gottesman-Knill theorem \cite{arXiv:quant-ph/0406196}.'
+    - 'Clifford circuits, i.e., those consisting of CNOT, Hadamard, and certain phase gates, using an algorithm based on the Gottesman-Knill theorem \cite{arXiv:quant-ph/0406196} or using ZX-calculus \cite{arxiv:2301.02356}.'
     - 'Circuits obtained by first constructing the CWS form of the code \cite{arXiv:0803.3232,arXiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
-    - 'Dissipative preparation, for which codespace is steady-state space of a Lindbladian \cite{arXiv:1310.1036}.'
-    - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arXiv:1310.1036} that does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}.'
+    - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arXiv:1310.1036}, for which codespace is steady-state space of a Lindbladian. This does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}.'
 
   transversal_gates: 'Transversal logical gates are in a finite level of the Clifford hierarchy \cite{arxiv:1710.07256} (see also \cite{arxiv:0706.1382,arxiv:1409.8320}). Transversal gates for \(n\in\{1,2\}\) are semi-Clifford \cite{arxiv:0712.2084}.'
 
@@ -68,11 +67,11 @@ notes:
 
 relations:
   parents:
-    - code_id: stabilizer
     - code_id: cws
       detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
     - code_id: xp_stabilizer
       detail: 'The XP stabilizer formalism reduces to the Pauli formalism at \(N=2\).'
+    - code_id: stabilizer
     - code_id: quantum_lego
       detail: 'Qubit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qubit repetition code, single-qubit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state.'
   cousins:
