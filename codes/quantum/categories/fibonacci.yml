@@ -29,9 +29,12 @@ features:
   decoders:
     - Clustering decoder (provides best known threshold for this code) \cite{arxiv:1506.03815,arxiv:1607.02159,arXiv:2012.04610}.
     - Fusion-aware iterative minimum-weight perfect matching decoder. Note that ordinary MWPM decoders do not produce a threshold with this code \cite{arXiv:2012.04610}.
-  threshold:
+    - 'Cellular automaton decoder \cite{arxiv:2301.00054}.'
+  code_capacity_threshold:
     - \(4.7\%\) for depolarizing noise, \(7.3\%\) for dephasing noise, and \(3.8\%\) for bit-flip noise with clustering decoder, assuming perfect measurements and gates \cite{arXiv:2012.04610}. See also Ref. \cite{arxiv:1506.03815}.
     - \(3.0\%\) for depolarizing noise, \(6.0\%\) for dephasing noise, and \(2.5\%\) for bit-flip noise with fusion-aware iterative MWPM decoder, assuming perfect measurements and gates \cite{arXiv:2012.04610}.
+  threshold:
+    - 'Between \(10^{-2}\%\) and \(5\cdot 10^{-2}\%\) for pair-creation and measurement noise \cite{arxiv:2301.00054}.'
 
 realizations:
   - 'NMR: Implementation of braiding-based Hamamard gate on two qubits \cite{arxiv:2210.12145}.'
