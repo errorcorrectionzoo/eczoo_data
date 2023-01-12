@@ -14,18 +14,46 @@ jobs:
         with:
           path: ./eczoo_data
 
-      # Install NodeJS
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-          node-version: 'latest'
-
-
       # Check out site generation code
       - name: Check out eczoo_sitegen code
         run: |
           git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen
 
+
+      # Install NodeJS
+      - uses: actions/setup-node@v3
+        with:
+          #cache: 'yarn'
+          node-version: 'latest'
+
+
+      - name: Corepack enable
+        run: 'corepack enable'
+        working-directory: ./eczoo_sitegen/
+
+      - name: Yarn version
+        run: 'yarn --version'
+        working-directory: ./eczoo_sitegen/
+
+
+
+      # Cache Yarn Modules
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        shell: bash
+        working-directory: tooling
+  
+      - name: Restore yarn cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+
+  
       - name: Yarn install
         run: 'yarn'
         working-directory: ./eczoo_sitegen/
