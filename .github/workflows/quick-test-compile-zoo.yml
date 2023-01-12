@@ -1,0 +1,67 @@
+name: 'quick-test-compile-zoo'
+
+on:
+  push:
+    branches: [ "eczoodb" ]
+
+
+jobs:
+  quick-test-compile-zoo:
+    runs-on: 'ubuntu-latest'
+      
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: ./eczoo_data
+
+      # Install NodeJS
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 'latest'
+
+
+      # Check out site generation code
+      - name: Check out eczoo_sitegen code
+        run: |
+          git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen
+
+      - name: Yarn install
+        run: 'yarn'
+        with:
+          path: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      - name: Quick build site
+        run: 'yarn build-simple'
+        with:
+          path: ./eczoo_sitegen/site/
+
+      # --------------------------------
+
+      # - name: Parcel build jscomponents
+      #   run: 'yarn build'
+      #   with:
+      #     path: ./eczoo_sitegen/jscomponents/
+
+      # - name: Yarn build site
+      #   run: 'yarn build'
+      #   with:
+      #     path: ./eczoo_sitegen/site/
+
+      # - name: Yarn build site
+      #   run: 'yarn build'
+      #   with:
+      #     path: ./eczoo_sitegen/site/
+
+      # - name: Make archive of zoo files
+      #   run: 'zip -r eczoo_website_files.zip _site/'
+      #   with:
+      #     path: ./eczoo_sitegen/site/
+
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: eczoo_website_files
+      #     path: ./eczoo_sitegen/site/eczoo_website_files.zip
+      #     retention-days: 5
