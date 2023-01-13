@@ -10,8 +10,14 @@ logical: q-ary_digits
 name: 'PPM c-q code'
 introduced: '\cite{arXiv:1111.4017}'
 
-description: 'Bosonic c-q code whose \(j\)th codeword corresponds to a tensor-product state of zero-amplitude coherent states at all modes except mode \(j\).'
+description: 'A \(q\)-PPM c-q code is a bosonic c-q code whose \(j\)th codeword corresponds to a tensor-product state of zero-amplitude coherent states at all modes except mode \(j\). For example, a 3-PPM encoding corresponds to the three-mode states \(|\alpha\rangle|0\rangle|0\rangle\), \(|0\rangle|\alpha\rangle|0\rangle\), and \(|0\rangle|0\rangle|\alpha\rangle\) for some complex \(\alpha\).'
 
+features:
+  decoders:
+    - 'Conditional pulse nulling (CPN) receiver \cite{manual:{S. J. Dolinar, Jr., “A near-optimum receiver structure for the detection of M-ary optical PPM signals”, The Telecommunications and Data Acquisition Progress Report 42 72: December 1982; NASA: Pasadena, CA, (1983)}}.'
+
+realizations:
+  - 'Conditional pulse nulling (CPN) receiver \cite{arxiv:1111.4017}.'
 
 relations:
   parents:
