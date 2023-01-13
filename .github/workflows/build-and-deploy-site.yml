@@ -1,0 +1,80 @@
+name: 'build-and-deploy-site'
+
+on: 'workflow_dispatch'
+
+
+jobs:
+  build-and-deploy-site:
+    runs-on: 'ubuntu-latest'
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: ./eczoo_data
+
+      # Check out site generation code
+      - name: Check out eczoo_sitegen code
+        run: |
+          git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen
+
+      # --------------------------------
+
+      # Install NodeJS
+      - uses: actions/setup-node@v3
+        with:
+          #cache: 'yarn'
+          node-version: 'latest'
+
+      - name: Corepack enable
+        run: 'corepack enable'
+        working-directory: ./eczoo_sitegen/
+
+      - name: Yarn version
+        run: 'yarn --version'
+        working-directory: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      # Avoid bugs maybe by skipping cache?
+
+      # # Cache Yarn Modules
+      # - name: Get yarn cache directory path
+      #   id: yarn-cache-dir-path
+      #   run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+      #   shell: bash
+      #   working-directory: ./eczoo_sitegen
+  
+      # - name: Restore yarn cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      #     key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+      #     restore-keys: |
+      #       yarn-cache-folder-
+
+      # --------------------------------
+
+      # Install any missing modules
+      - name: Yarn install
+        run: 'yarn'
+        working-directory: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      - name: Parcel build jscomponents
+        run: 'yarn build'
+        working-directory: ./eczoo_sitegen/jscomponents/
+
+      - name: Yarn build site
+        run: 'yarn build'
+        working-directory: ./eczoo_sitegen/site/
+
+      - name: Make archive of zoo files
+        run: 'zip -r eczoo_website_files.zip _site/'
+        working-directory: ./eczoo_sitegen/site/
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: eczoo_website_files
+          path: ./eczoo_sitegen/site/eczoo_website_files.zip
+          retention-days: 5
