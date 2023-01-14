@@ -11,23 +11,22 @@ name: 'Five-qudit code'
 introduced: '\cite{arXiv:quant-ph/9702033,arxiv:quant-ph/9703048}'
 
 description: |
-  Modular-qudit \(((5,q,3))_{q}\) code that generalizes the five-qubit perfect code using properties of the multiplicative group \(\mathbb{Z}_q\) \cite{arXiv:quant-ph/9702033}; see also \cite[Thm. 13]{arxiv:quant-ph/9703048}. For prime \(q=p\), the code is a \([[5,1,3]]_p\) prime-qudit stabilizer code with four stabilizer generators consisting of \(X Z Z^\dagger X^\dagger I\) and its cyclic permutations.
+  Modular-qudit \([[5,1,3]]_{q}\) stabilizer code that generalizes the five-qubit perfect code using properties of the multiplicative group \(\mathbb{Z}_q\) \cite{arXiv:quant-ph/9702033}; see also \cite[Thm. 13]{arxiv:quant-ph/9703048}. It has four stabilizer generators consisting of \(X Z Z^\dagger X^\dagger I\) and its cyclic permutations.
 
 protection: 'Protects against a single error on any one qudit. Detects two-qudit errors.'
 
 relations:
   parents:
-    - code_id: qudits_into_qudits
+    - code_id: qudit_stabilizer
     - code_id: quantum_cyclic
   cousins:
     - code_id: stab_5_1_3
       detail: 'The five-qudit code reduces to the five-qubit perfect code for \(q=2\).'
-    - code_id: qudit_stabilizer
-      detail: 'For prime \(q=p\), the five-qudit code is a \([[5,1,3]]_p\) prime-qudit stabilizer code'
+
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2023-01-12'
+      date: '2023-01-14'
