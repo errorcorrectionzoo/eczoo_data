@@ -16,7 +16,7 @@ jobs:
           path: ./eczoo_data
 
       # Check out site generation code
-      - name: Check out eczoo_sitegen code
+      - name: 'Check out eczoo_sitegen code'
         run: |
           git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen
 
@@ -28,11 +28,11 @@ jobs:
           #cache: 'yarn'
           node-version: 'latest'
 
-      - name: Corepack enable
+      - name: 'Enable Yarn (corepack enable)'
         run: 'corepack enable'
         working-directory: ./eczoo_sitegen/
 
-      - name: Yarn version
+      - name: 'Inspect Yarn version'
         run: 'yarn --version'
         working-directory: ./eczoo_sitegen/
 
