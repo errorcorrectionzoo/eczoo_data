@@ -5,12 +5,15 @@
 
 code_id: single_spin
 physical: spins
-logical: spins
 
 name: 'Single-spin code'
 
 description: |
-  Encodes \(K\)-dimensional Hilbert space into a \(2\ell+1\)-dimensional Hilbert space, where the latter is thought of as a spin-\(\ell\) quantum system. This spin system can in turn be thought of as the maximally symmetric subspace or \textit{collective spin} of \(2\ell\) spin-half systems.
+  Permutation invariant qubit code encoding a \(K\)-dimensional Hilbert space into the maximally symmetric subspace or \textit{collective spin} of \(2\ell\) spin-half systems.
+  This \(2\ell+1\)-dimensional Hilbert space can be thought of as a spin-\(\ell\) quantum system.
+
+protection: |
+  Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not. The former include single-spin errors akin to qubit Pauli noise. The latter include collective rotations or decays.
 
 features:
   transversal_gates: 'When the physical Hilbert space is thought of a collective spin, logical gates for spin codes have the form \(U^{\otimes N}\), where \(U\) is a local rotation on the physical system.'
@@ -19,6 +22,7 @@ features:
 relations:
   parents:
     - code_id: spins_into_spins
+    - code_id: permutation_invariant
 
 
 # Begin Entry Meta Information
