@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_bpsk
+physical: oscillators
+logical: bits
+
+name: 'BPSK c-q code'
+#introduced: '\cite{doi:10.1038/nphoton.2014.280}'
+
+description: 'Bosonic c-q binary code encoding one bit of information into coherent states \(|\pm\alpha\rangle\) for complex \(\alpha\).'
+
+features:
+  decoders:
+    - 'Linear-optical quantum receiver \cite{arxiv:1103.5592}.'
+    - 'Kennedy receiver \cite{manual:{Kennedy, Robert S. "A near-optimum receiver for the binary coherent state quantum channel." Quarterly Progress Report 108 (1973): 219-225.},arxiv:0706.1038}.'
+    - 'Photon-number resolving detector \cite{arxiv:1807.05199}.'
+    - 'Non-Gaussian near-optimal receiver \cite{arxiv:0706.1038}.'
+    - 'Multi-stage quantum receiver \cite{arxiv:1404.5033}.'
+
+realizations:
+  - 'Linear-optical quantum receiver \cite{arxiv:1103.5592}.'
+  - 'Homodyne receiver \cite{arxiv:0809.4953}.'
+  - 'Kennedy receiver \cite{arxiv:0809.4953,arxiv:1911.08932}.'
+  - 'Photon-number resolving detector \cite{arxiv:1807.05199}.'
+  - 'Communication over dephasing \cite{arxiv:1907.12515}, time-varying phase-noise \cite{doi:10.1103/PhysRevResearch.2.023384}, and thermal-noise \cite{arxiv:2007.11109} channels.'
+
+relations:
+  parents:
+    - code_id: quantum_psk
+  cousins:
+    - code_id: bpsk
+      detail: 'BPSK (BPSK c-q) codes are used to transmit classical information using antipodal coherent states over classical (quantum) channels.'
+    - code_id: two-legged-cat
+      detail: 'BPSK c-q (two-component cat) codes are used to transmit classical (quantum) information using (superpositions of) antipodal coherent states over quantum channels.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-01-13'

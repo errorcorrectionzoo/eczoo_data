@@ -4,12 +4,18 @@
 #######################################################
 
 code_id: rotor_3_1_2
+physical: groups
+logical: groups
 
-name: '\([[3,1,2]]_{\mathbb Z}\) rotor code'
+name: 'Three-rotor code'
 introduced: '\cite{arxiv:1709.04471}'
 
 description: |
-  Extension of the \([[3,1,2]]_3\) qutrit CSS code to the integer alphabet, i.e., the angular momentum states of a planar rotor. The code is \(U(1)\)-covariant and ideal codewords are not normalizable.
+  \([[3,1,2]]_{\mathbb Z}\) rotor code that is an extension of the \([[3,1,2]]_3\) qutrit CSS code to the integer alphabet, i.e., the angular momentum states of a planar rotor. The code is \(U(1)\)-covariant and its ideal codewords,
+  \begin{align}
+    |\overline{x}\rangle = \sum_{y\in\mathbb{Z}} \left| -3y,y-x,2(y+x) \right\rangle~,
+  \end{align}
+  where \(x\in\mathbb{Z}\), are not normalizable.
 
 protection: |
   Normalized codewords approximately protect against erasure while maintaining covariance \cite{arxiv:1902.07714}.
@@ -18,7 +24,7 @@ relations:
   parents:
     - code_id: rotor
     - code_id: covariant
-      detail: 'The \([[3,1,2]]_{\mathbb Z}\) code is \(U(1)\)-covariant.'
+      detail: 'The three-rotor code is \(U(1)\)-covariant.'
   cousins:
     - code_id: stab_3_1_2
 
