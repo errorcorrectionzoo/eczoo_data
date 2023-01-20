@@ -64,13 +64,9 @@ jobs:
 
       # --------------------------------
 
-      - name: Parcel build jscomponents
-        run: 'yarn build'
-        working-directory: ./eczoo_sitegen/jscomponents/
-
-      - name: Yarn build site
-        run: 'yarn build'
-        working-directory: ./eczoo_sitegen/site/
+      - name: Yarn build all
+        run: 'yarn buildall'
+        working-directory: ./eczoo_sitegen/
 
       - name: Make archive of zoo files
         run: 'zip -r eczoo_website_files.zip _site/'
