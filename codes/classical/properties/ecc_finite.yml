@@ -20,7 +20,9 @@ protection: 'A code corrects errors associated with a noise channel if it is pos
 
 features:
   decoders:
-    - 'Capacity-achieving Guessing Random Additive Noise Decoding (GRAND) \cite{arxiv:1802.07010}.'
+    - 'Capacity-achieving Guessing Random Additive Noise Decoding (GRAND) \cite{arxiv:1802.07010} (see also \cite{doi:10.1109/ISIT.2018.8437648}).'
+#Consider a transmitted binary code-word $X_n \in C$ drawn from an arbitrary rate R code-book C, i.e. a set of $2^{nR} = 2^K$ strings in $\{0, 1\}^n$, where (n, K) is a core pair of parameters of a codebook. Assume independent post-hard-detection channel noise, $N^n$, which also takes values from ${0, 1}^n$, additively alters $X^n$ between transmission and reception. The resulting sequence is $Y^n = X^n \bigoplus N^n$, where $\bigoplus$ represents addition modulo 2.
+#From $Y^n$ GRAND attempts to determine $X^n$ indirectly by identifying $N^n$ through sequentially taking putative noise sequences, $z^n$, which is sometimes refered to as patterns, subtracting them from the received signal and querying if what remains, $Y^n \bigoplus z^n$, is in the code-book C. If transmitted code-words are all equally likely and $z^n$ are queried in order from most likely to least likely based on the true channel statistics, the first instance where a code-book element is found is an optimally accurate maximum likelihood decoding in the hard detection setting.
 
 notes:
   - 'The modern theory of error-correcting codes is rooted in the foundational work of C. Shannon \cite{doi:10.1002/j.1538-7305.1948.tb01338.x}, but error-correcting codes have been used prior to that work \cite{doi:10.1007/bf03025254}.'
