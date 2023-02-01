@@ -63,16 +63,22 @@ jobs:
 
       # --------------------------------
 
-      # Install any missing modules
-      - name: Yarn install
-        run: 'yarn'
-        working-directory: ./eczoo_sitegen/
 
-      # --------------------------------
 
-      - name: Yarn build all
-        run: 'yarn buildall'
-        working-directory: ./eczoo_sitegen/
+      # # Install any missing modules
+      # - name: Yarn install
+      #   run: 'yarn'
+      #   working-directory: ./eczoo_sitegen/
+
+      # # --------------------------------
+
+      # - name: Yarn build all
+      #   run: 'yarn buildall'
+      #   working-directory: ./eczoo_sitegen/
+
+
+      - name: 'DUMMY CREATE SITE FILES'
+        run: 'mkdir -p ./eczoo_sitegen/_site/ && echo "<html>TEST</html>" >./eczoo_sitegen/_site/index.html'
 
 
       # --------------------------------
@@ -88,7 +94,6 @@ jobs:
           delete-removed: true
           no-cache: true
           private: true
-          files-to-include: ".*/*,*/*,**"
 
       # --------------------------------
 
