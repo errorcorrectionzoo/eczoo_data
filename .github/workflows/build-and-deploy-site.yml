@@ -9,6 +9,12 @@ on:
 jobs:
   build-and-deploy-site:
     runs-on: 'ubuntu-latest'
+
+    environment: 's3-deploy'
+
+    env:
+      AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+      AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
     
     steps:
       - uses: actions/checkout@v3
@@ -68,9 +74,27 @@ jobs:
         run: 'yarn buildall'
         working-directory: ./eczoo_sitegen/
 
+
+      # --------------------------------
+
+      - name: 'Deploy site to S3/Cloudfront'
+        uses: reggionick/s3-deploy@v3
+        with:
+          folder: ./eczoo_sitegen/site/_site
+          bucket: '${{ secrets.S3_BUCKET }}'
+          bucket-region: '${{ secrets.S3_BUCKET_REGION }}'
+          dist-id: '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: ".*/*,*/*,**"
+
+      # --------------------------------
+
       - name: Make archive of zoo files
-        run: 'zip -r eczoo_website_files.zip _site/'
-        working-directory: ./eczoo_sitegen/site/
+        run: 'zip -r ../eczoo_website_files.zip ./'
+        working-directory: ./eczoo_sitegen/site/_site/
 
       - uses: actions/upload-artifact@v3
         with:
