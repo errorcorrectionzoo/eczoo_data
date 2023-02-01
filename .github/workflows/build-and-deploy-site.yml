@@ -77,7 +77,8 @@ jobs:
       #   working-directory: ./eczoo_sitegen/
 
       - name: 'DUMMY CREATE SITE FILES'
-        run: 'mkdir -p ./eczoo_sitegen/_site/ && echo "<html>TEST</html>" >./eczoo_sitegen/_site/index.html'
+        run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+        working-directory: ./eczoo_sitegen/
 
 
       # --------------------------------
