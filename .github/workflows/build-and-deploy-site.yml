@@ -72,14 +72,15 @@ jobs:
 
       # --------------------------------
 
-      # - name: Yarn build all
-      #   run: 'yarn buildall'
-      #   working-directory: ./eczoo_sitegen/
-
-      - name: 'DUMMY CREATE SITE FILES'
-        run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+      - name: Build Site (yarn buildall)
+        run: 'yarn buildall'
         working-directory: ./eczoo_sitegen/
 
+      # ## To Debug S3 deployment w/o building the full site ...
+      # 
+      # - name: 'DUMMY CREATE SITE FILES'
+      #   run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+      #   working-directory: ./eczoo_sitegen/
 
       # --------------------------------
 
