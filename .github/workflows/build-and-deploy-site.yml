@@ -83,10 +83,15 @@ jobs:
 
       # --------------------------------
 
+      - name: 'Move generated site to base dir'
+        run: 'mv ./eczoo_sitegen/site/_site .'
+
+      # --------------------------------
+
       - name: 'Deploy site to S3/Cloudfront'
         uses: reggionick/s3-deploy@v3
         with:
-          folder: ./eczoo_sitegen/site/_site
+          folder: _site
           bucket: '${{ secrets.S3_BUCKET }}'
           bucket-region: '${{ secrets.S3_BUCKET_REGION }}'
           dist-id: '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'
@@ -99,10 +104,10 @@ jobs:
 
       - name: Make archive of zoo files
         run: 'zip -r ../eczoo_website_files.zip ./'
-        working-directory: ./eczoo_sitegen/site/_site/
+        working-directory: ./_site/
 
       - uses: actions/upload-artifact@v3
         with:
           name: eczoo_website_files
-          path: ./eczoo_sitegen/site/eczoo_website_files.zip
+          path: ./eczoo_website_files.zip
           retention-days: 5
