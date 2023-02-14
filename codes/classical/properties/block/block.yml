@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: block
+
+name: 'Block code'
+
+description: |
+  A code defined on a \textit{block} of \(n\) symbols, with each symbol taken from some fixed alphabet \(\Sigma\) \cite[Ch. 3]{doi:10.1007/978-3-642-58575-3}. Such alphabets include bits, Galois fields, rings, or real numbers, and the alphabet of the code is \(\Sigma^n\). In this context, \(n\) is called the length of the code.
+
+  An alternative definition (not used here) is in terms of a map encoding logical information from \(\Sigma^k\) into \(\Sigma^n\), yielding an \((n,k,d)_{\Sigma}\) block code, where \(d\) is the code distance.
+
+protection: |
+  Block codes protect from errors acting on a few of the \(n\) symbols. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) symbols, and corrects erasure errors on up to \(d-1\) symbols.
+
+relations:
+  parents:
+    - code_id: ecc
+  cousins:
+    - code_id: block_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-02-14'
