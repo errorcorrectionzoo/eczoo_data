@@ -9,7 +9,23 @@ name: 'Good QLDPC code'
 description: |
   Also called \textit{asymptotically good QLDPC codes}. A family of QLDPC codes \([[n_i,k_i,d_i]]\) whose asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive.
 
-  The first good QLDPC codes are families of \hyperref[code:expander_lifted_product]{expander lifted-product} codes, followed by \hyperref[code:quantum_tanner]{quantum Tanner} codes and \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick} codes.
+  The first good QLDPC codes are families constructed by applying the CSS construction to classical Tanner codes on expander graphs.
+  The three constructions are closely related, assigning qubits and check operators to vertices, edges, and faces of a particular graph called the left-right Cayley complex.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H, c H>{Code & vertices & edges & faces}
+      \celldata<c, c, c, c>{
+      \hyperref[code:expander_lifted_product]{expander lifted-product} & qubits & \(X,Z\) checks & qubits
+          \\
+      \hyperref[code:quantum_tanner]{quantum Tanner} & \(X,Z\) checks &  & qubits
+          \\
+      \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick} & \(X\) checks & qubits & \(Z\) checks
+      }
+      \end{cells}
+      \caption{Assignment of qubits and checks for three asymptotically good QLDPC codes.}
+      \label{table:good-qldpc-codes}
+    \end{table}
+
 
 relations:
   parents:
