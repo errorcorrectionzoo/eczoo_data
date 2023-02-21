@@ -41,13 +41,15 @@ description: |
     \label{figure:local-view-stabilizer}
   \end{figure}
 
+  To achieve asymptotically good parameters, fixed classical local codes are chosen so that their dual tensor codes are sufficiently robust, and the left-right Cayley complexes are chosen to be sufficiently expanding. The family is defined using a family of groups \(G\) of increasing size but constant-size generating sets \(A\), \(B\).
 
-protection: 'Minimum distance bound obtained using robustness of dual \hyperref[code:tensor]{tensor-product} codes \cite{arxiv:2208.05537}.'
+
+protection: 'For correctly chosen complexes and local codes, the distance scales as \(d=\Theta(n)\). Minimum distance bound obtained using robustness of dual \hyperref[code:tensor]{tensor-product} codes \cite{arxiv:2208.05537}.'
 
 features:
-  rate: 'Asymptotically good QLDPC codes.'
+  rate: 'Asymptotically good QLDPC codes. When \(C_A\) and \(C_B\) are chosen to have rates not equal to a half, the number of encoded qubits scales as \(k=\Theta(n)\).'
 
-  transversal_gates: 'Hadamard because quantum Tanner codes are self-dual.'
+#transversal_gates: 'Hadamard because quantum Tanner codes are self-dual.'
 
   decoders:
     - 'Linear-time decoder similar to the small-set-flip decoder for quantum expander codes \cite{arxiv:2206.06557}.'
@@ -79,6 +81,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: BaileyGu
+      date: '2023-02-21'
+    - user_id: VictorVAlbert
+      date: '2023-02-21'
     - user_id: VictorVAlbert
       date: '2022-08-12'
     - user_id: VictorVAlbert
