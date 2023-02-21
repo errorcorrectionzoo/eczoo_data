@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: schubert
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Schubert code'
+introduced: '\cite{doi:10.1007/978-3-642-57189-3_11,doi:10.1109/18.850689}'
+
+description: |
+  Evaluation code of polynomials evaluated on points lying on a Schubert variety.
+
+protection: 'Minimum distance bounds computed in Refs. \cite{doi:10.1109/18.850689,doi:10.1023/B:DESI.0000035470.05639.2b,doi:10.1016/j.ffa.2004.09.002}.'
+
+relations:
+  parents:
+    - code_id: flag_variety
+      detail: 'Schubert codes are flag-variety evaluation codes with the flag variety being a Schubert variety.'
+  cousins:
+    - code_id: grassmannian
+      detail: 'Schubert varieties are subvarieties of Grassmannians, and Schubert codes were initially constructed as a generalization of Grassmannian codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-10'

@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: octacode
+physical: rings
+logical: rings
+
+name: 'Octacode'
+introduced: '\cite{doi:10.1016/0097-3165(93)90070-O,doi:10.1007/978-1-4757-6568-7,arXiv:math/0208001}'
+
+description: |
+  The unique self-dual linear code of length 8 over \(\mathbb{Z}_4\) with generator matrix
+  \begin{align}
+    \begin{pmatrix}
+    3 & 3 & 2 & 3 & 1 & 0 & 0 & 0\\
+    3 & 0 & 3 & 2 & 3 & 1 & 0 & 0\\
+    3 & 0 & 0 & 3 & 2 & 3 & 1 & 0\\
+    3 & 0 & 0 & 0 & 3 & 2 & 3 & 1
+    \end{pmatrix}\,.
+  \end{align}
+
+relations:
+  parents:
+    - code_id: quaternary_over_z4
+  cousins:
+    - code_id: cyclic
+      detail: 'The octacode is a cyclic code over \(\mathbb{Z}_4\) with generator polynomial \(x^2+3x^2+2x+3\) extended by a parity check \cite{doi:10.1007/3-540-30731-1}.'
+    - code_id: hamming743
+      detail: 'The octacode reduces modulo-two to the \([8,4,4]\) extended Hamming code \cite{doi:10.1007/3-540-30731-1}.'
+    - code_id: dual_additive
+      detail: 'The octacode is self-dual with respect to the Euclidean inner product.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-11'

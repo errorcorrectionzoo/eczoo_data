@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: simplex
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Simplex code'
+
+description: |
+  Also known as a \textit{maximum length feedback shift register code}. An \([n,k,q^{k-1}]_q\) projective code with \(n=\frac{q^k-1}{q-1}\), denoted as \(S(q,k)\). The columns of the generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(k-1,q)\), with each column being a chosen representative of the corresponding element. Its dual code is the \([n,n-k,3]_q\) \(q\)-ary Hamming code. The name of the code comes from the property that, for \(q=2\), the codewords form a \((2^k-1)\)-simplex of constant edge length if the codewords are interpreted as points in \(\mathbb{R}^n\).
+
+features:
+  decoders:
+    - 'Due to the small size, it can be decoded according to maximum likelihood.'
+    - 'Some faster decoders for the \(q=2\) case: \cite{manual:{R. R. Green, "A serial orthogonal decoder," JPL Space Programs Summary, vol. 37–39-IV, pp. 247–253, 1966.},doi:10.1109/ITW.2003.1216684}'
+    - 'A quantum decoder for the \(q=2\) case: \cite{manual:{A. Barg and S. Zhou, “A quantum decoding algorithm for the simplex code”, in Proceedings of the 36th Annual Allerton Conference on Communication, Control and Computing, Monticello, IL, 23–25 September 1998 (UIUC 1998) 359–365}}.'
+
+notes:
+  - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Simplex Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CSimplex.html}}.'
+
+relations:
+  parents:
+    - code_id: projective
+      detail: 'Columns of the simplex code''s generator matrix are in one-to-one correspondence with elements of a projective space.'
+    - code_id: griesmer
+      detail: 'Simplex codes saturate the Griesmer bound (\cite{doi:10.1201/9781315371993}, Exer. 5.1.11).'
+    - code_id: constant_weight
+      detail: 'All non-zero simplex codewords have a constant weight of \(q^{k-1}\).'
+  cousins:
+    - code_id: extended_reed_solomon
+      detail: '\(S(2,k)\) is an extended RS code \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Simplex Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CSimplex.html}}.'
+    - code_id: repetition
+      detail: '\(S(2,1)\) reduces to the repetition code.'
+    - code_id: q-ary_hamming
+      detail: 'Hamming and simplex codes are dual to each other.'
+    - code_id: hadamard
+      detail: 'Binary simplex codes are \([2^m,m-1,2^{m-1}]\) shortened Hadamard codes.'
+    - code_id: simplex_spherical
+      detail: 'Binary simplex codes map to simplex spherical codes under the antipodal mapping \cite[Sec. 6.5.2]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 18]{preset:EricZin}. In other words, simplex (simplex spherical) codes form simplices in Hamming (Euclidean) space.'
+    - code_id: reed_muller
+      detail: 'Binary simplex codes can be constructed from the generator matrix of RM\((1,k)\) by removing first the all-ones row, and then the all-zero column. Punctured RM codes and simplex codes are interconvertible via expurgation and augmentation (\cite{preset:MacSlo}, pg. 31).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-09'
+    - user_id: YiTingRickTu
+      date: '2022-03-28'

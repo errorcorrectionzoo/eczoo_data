@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: single_spin
+physical: spins
+
+name: 'Single-spin code'
+
+description: |
+  Permutation invariant qubit code encoding a \(K\)-dimensional Hilbert space into the maximally symmetric subspace or \textit{collective spin} of \(2\ell\) spin-half systems.
+  This \(2\ell+1\)-dimensional Hilbert space can be thought of as a spin-\(\ell\) quantum system.
+
+protection: |
+  Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not. The former include single-spin errors akin to qubit Pauli noise. The latter include collective rotations or decays.
+
+features:
+  transversal_gates: 'When the physical Hilbert space is thought of a collective spin, logical gates for spin codes have the form \(U^{\otimes N}\), where \(U\) is a local rotation on the physical system.'
+
+
+relations:
+  parents:
+    - code_id: spins_into_spins
+    - code_id: permutation_invariant
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-13'

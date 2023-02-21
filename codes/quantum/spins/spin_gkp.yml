@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: spin_gkp
+physical: spins
+logical: qudits
+
+name: 'Spin GKP code'
+introduced: '\cite{arXiv:2211.05181}'
+
+description: |
+  An analogue of the single-mode GKP code designed for atomic ensembles. Was designed by using the Holstein-Primakoff mapping \cite{doi:10.1103/PhysRev.58.1098} (see also \cite{doi:10.2307/3212170}) to pull back the phase-space structure of a bosonic system to the compact phase space of a quantum spin. A different construction emerges depending on which particular expression for GKP codewords is pulled back.
+
+protection: 'Protect against errors native to spin systems like random rotations and stochastic relaxation.'
+
+features:
+  encoders:
+    - 'Linear combination of unitaries method \cite{arxiv:1412.4687,arXiv:1610.06546,arXiv:2203.08882}, which may be applicable to more general codewords.'
+  general_gates:
+    - 'Approximate Clifford-group generators are composed of Hamiltonians at most quadratic in angular momentum operators of two spin systems. Assuming that these generators can be implemented with high fidelity, a magic state can be prepared from an atomic ensemble analog of the vacuum state'
+
+
+relations:
+  parents:
+    - code_id: single_spin
+  cousins:
+    - code_id: gkp
+      detail: 'Spin-GKP code constructions utilize the Holstein-Primakoff mapping \cite{doi:10.1103/PhysRev.58.1098} (see also \cite{doi:10.2307/3212170}) to convert various expressions for GKP states into codes for spin systems.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-13'
+    - user_id: SivaprasadOmanakuttan
+      date: '2022-11-13'

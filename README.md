@@ -86,10 +86,11 @@ Example:
 ## Building and previewing the site
 
 To build and preview the site locally, follow the instructions given
-in the [`eczoo_generator`
-repository](https://github.com/errorcorrectionzoo/eczoo_generator).
+in the [`eczoo_sitegen`
+repository](https://github.com/errorcorrectionzoo/eczoo_sitegen).
 
 
 ## Contributing
 
-Get in touch with Victor V Albert & feel free to submit pull requests!
+Get in touch with Victor V Albert & feel free to submit pull requests!  Check
+out our [contributing guidelines](https://github.com/errorcorrectionzoo/eczoo_data/blob/main/CONTRIBUTING.md).

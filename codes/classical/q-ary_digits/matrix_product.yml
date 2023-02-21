@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: matrix_product
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Matrix-product code'
+introduced: '\cite{doi:10.1007/PL00004226}'
+
+description: |
+  Code constructed using a concatenation procedure that yields a code consisting of all products of codewords in \(M\) length-\(n\) \(q\)-ary codes and an \(M\times N\) \(q\)-ary matrix with \(N\geq M\). A prominent subclass is the case with \(A\) is non-singular by columns (NSC).
+
+#notes:
+#  - 'This code has nothing to do with tensor trains or matrix-product quantum states.'
+
+features:
+  decoders:
+    - 'Decoder up to half of the minimum distance for NSC codes \cite{doi:10.1007/s00200-009-0113-5}.'
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-21'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: permutation_spherical
+physical: spheres
+logical: reals
+
+name: 'Permutation spherical code'
+introduced: '\cite{doi:10.1109/PROC.1965.3680,doi:10.1109/18.57208}'
+
+description: |
+  Slepian group-orbit code whose codewords are constructed from an arbitrary unit vector in two possible variants. Variant 1 consists of codewords that are permutations of the vector's coordinates, while Variant 2 consists of such permutations and all possible sign changes of the vector's components.
+
+features:
+  rate: 'Number of codewords cannot increase exponentially with dimension \(n\) \cite{doi:10.1109/TIT.1971.1054601}'
+  decoders:
+    - 'Efficient maximum-likelihood decoder determining the Voronoi region of an error word.'
+
+notes:
+  - 'See \cite[Ch. 4]{preset:EricZin} for more details and tables of optimal codes.'
+
+relations:
+  parents:
+    - code_id: slepian_group
+      detail: 'Permutations and sign changes can be implemented on vectors by orthogonal matrices, so permutation spherical codes are Slepian group-orbit codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-03'

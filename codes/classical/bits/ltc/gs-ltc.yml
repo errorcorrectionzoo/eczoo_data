@@ -1,0 +1,28 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gs-ltc
+physical: bits
+logical: bits
+
+name: 'Goldreich-Sudan code'
+introduced: '\cite{doi:10.1145/1162349.1162351}'
+
+description: |
+  Locally testable \([[n,k,d]]\) code with \(n = k^{1+O(1/u)}\) and distance \(\Omega(n)\) for query complexity \(u\). The same work also presented a probabilistic construction of codes of size \(k^{1+o(1)}\).
+
+relations:
+  parents:
+    - code_id: binary_ltc
+      detail: 'Goldreich-Sudan codes resulted from what is often referred to as the first systematic study of LTCs.'
+  cousins:
+    - code_id: random
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-29'

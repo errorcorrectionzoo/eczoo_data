@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: binary_balanced
+physical: spheres
+logical: reals
+
+name: 'Binary balanced spherical code'
+
+description: |
+  An \((n-1,K,\frac{nd}{nw-w^2})\) spherical code obtained from a constant-weight-\(w\) binary \((n,K,d)\) code via a component-wise \textit{binary balanced mapping} (also known as \textit{the CW\(_2\) construction}),
+  \begin{align}
+    \begin{split}
+      0&\to\sqrt{\frac{w}{n\left(n-w\right)}}\\1&\to -\sqrt{\frac{n-w}{nw}}~.
+    \end{split}
+  \end{align}
+  This construction can be extended to the general balanced binary construction CW\(_q\) for spherical code alphabets of size \(q\) \cite[Sec. 6.6]{preset:EricZin}.
+
+
+notes:
+  - 'See \cite[Sec. 6.2]{preset:EricZin} for more details.'
+
+
+relations:
+  parents:
+    - code_id: spherical
+    - code_id: concatenated
+      detail: 'A binary balanced spherical code can be thought of as a concatenation of a constant-weight binary outer code with a shifted and scaled BPSK-like inner code.'
+  cousins:
+    - code_id: constant_weight
+      detail: 'Binary balanced spherical codes are obtained from constant-weight binary codes.'
+    - code_id: bpsk
+      detail: 'A binary balanced spherical code can be thought of as a concatenation of a constant-weight binary outer code with a shifted and scaled BPSK-like inner code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'

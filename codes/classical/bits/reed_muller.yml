@@ -8,28 +8,79 @@ physical: bits
 logical: bits
 
 name: 'Reed-Muller (RM) code'
-introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465}'
+short_name: 'RM'
+introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465,manual:{N. Mitani, \emph{On the transmission of numbers in a sequential computer}, delivered at the National Convention of the Inst. of Elect. Engineers of Japan, November 1951.}}'
 
-description: 'Stub. Define first order (\(r=1\)) and second order.'
+description: |
+  Member of the RM\((r,m)\) family of linear binary codes derived from multivariate polynomials. The code parameters are \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code satisfying \(0\leq r\leq m\).
+  First-order RM codes are also called \textit{biorthogonal} codes, while \(m\)th order RM codes are also called \textit{universe} codes.
+  \textit{Punctured RM codes} RM\(^*(r,m)\) are obtained from RM codes by deleting one or more coordinates from each codeword.
+
+  Generator matrices of RM codes are constructed using the \((u|u+v)\) construction by starting from the \(2^m\)-dimensional matrix \(F^{(m)}=\left(\begin{smallmatrix}1 & 0\\
+  1 & 1
+  \end{smallmatrix}\right)^{\otimes m}\), labeling its rows top-to-bottom from \(0\) to \(2^m-1\), converting the labels to binary strings of length \(m\), and deleting all rows whose labels have a Hamming weight less than \(m-r\). The recursive nature of the tensor product in the matrix \(F^{(m)}\) implies that RM\((r,m)\) is a subcode of RM\((r+1,m)\).
+
+  Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).
 
 protection: ''
 
 features:
-  rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829}.'
-#notes:
-#  - ''
+  decoders:
+    - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).'
+    - 'Sequential code-reduction decoding \cite{doi:10.1109/TIT.1973.1055023}.'
+    - 'First-order (\(r=1\)) RM codes admit specialized decoders \cite{manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
 
-#realizations:
-#  - ''
+  rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829} and the binary memoryless symmetric (BMS) channel under bitwise maximum-a-posteriori decoding \cite{arxiv:2110.14631}; see also Ref. \cite{arxiv:1411.4590}.'
 
+realizations:
+  - 'Deep-space communication \cite{doi:10.1007/bfb0036046,manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}. For example, the \((32, 6, 16)\) RM code was used for the Mariner 9 spacecraft.'
+
+notes:
+  - 'See Chs. 13-15 of Ref. \cite{preset:MacSlo} for details of RM codes and their variants.'
+  - 'See Ref. \cite{doi:10.1109/TIT.1972.1054732} for the weight distribution of the \(2^{26}\) cosets of the \((32,6)\) first-order RM code, obtained in part by hand computation.'
+
+# If mobing to evaluation, then remove "nontrivial" in that entry
 relations:
   parents:
+    - code_id: evaluation_polynomial
+      detail: 'RM codes are multivariate polynomial evaluation codes with \(\cal X\) being the entire \(m\)-dimensional affine binary space (\cite{doi:10.1007/978-94-011-3810-9}, pgs. 44-46; \cite{doi:10.1007/BF02249124,preset:HPAlgCodes}).'
     - code_id: binary_linear
-      detail: ''
-  cousins:
+    - code_id: quaternary_over_z4
+      detail: 'RM codes are images of ring-linear quaternary codes under the Gray map (\cite{doi:10.1201/9781315147901}, Sec. 6.3).'
     - code_id: divisible
       detail: 'An RM\((r,m)\) code is \(2^{\left\lceil m/r\right\rceil-1}\)-divisible, according to McEliece''s theorem \cite{doi:10.1016/0097-3165(71)90066-5,doi:10.1016/0012-365X(72)90032-5}.'
+    - code_id: group
+      detail: 'RM codes are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.}}\cite[Ex. 16.4.11]{doi:10.1201/9781315147901}. Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the group algebra \( \mathbb{F}_2 G_m \), where \(\mathbb{F}_2=GF(2)\). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
+  cousins:
+    - code_id: bch
+      detail: 'RM\((r,m)\) codes are subcodes of BCH codes of designed distance \(2^{m-r}-1\) (\cite{preset:MacSlo}, Ch. 13).'
+    - code_id: dual
+      detail: 'The codes RM\((r,m)\) and RM\((m-r-1,m)\) are dual to each other.'
+    - code_id: binary_duadic
+      detail: 'Certain punctured RM codes such as RM\(^*(2,5)\) are duadic; see Ref. \cite{doi:10.1017/CBO9780511807077}, Table 6.2.'
+    - code_id: binary_cyclic
+      detail: 'Punctured RM codes are cyclic (\cite{preset:MacSlo}, Ch. 13, Thm. 11), making RM codes extended cyclic codes. RM codes with nonzero evaluation points are cyclic (\cite{doi:10.1007/978-94-011-3810-9}, pg. 52).'
+    - code_id: binary_ltc
+      detail: 'RM codes can be LTCs in the low- \cite{doi:10.1109/TIT.2005.856958,doi:10.1137/S0097539704445615} and high-error \cite{arxiv:math/0604353} regimes.'
+    - code_id: biorthogonal
+      detail: 'The RM\((1,m)\) maps to a \((2^m,2^{m+1})\) biorthogonal spherical code under the antipodal mapping \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 19]{preset:EricZin}.'
+
+# - code_id: biorthogonal
+#   detail: 'An RM\((1,m)\) code maps to a \((2^m,2^{m+1})\) biorthogonal signal set under the antipodal mapping \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}. This set is equivalent to the  biorthogonal code since all such codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}.'
+
   #cousins:
     # - code_id: hamming
     #   detail: ''
 # Images of linear quaternary codes under Gray map (Huffman Kim Sole Sec. 6.3)
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-28'
+    - user_id: AnqiGong
+      date: '2022-07-28'
+    - user_id: VictorVAlbert
+      date: '2021-11-04'

@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: permutation_invariant
+
+name: 'Permutation-invariant code'
+introduced: '\cite{arXiv:quant-ph/0304153}'
+
+description: 'A code \(C\) constructed in a physical space consisting of a tensor product of \(n\) identical subsystems (e.g., qubits, modular qudits, or Galois qudits) such that any permutation of the subsystems leaves any codeword invariant. In other words, the automorphism group of the code contains the symmetric group \(S_n\).'
+
+#Such a code is said to be stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (non-abelian) group actions.'
+
+protection: 'Depends on the family. The GNU permutation-invariant family (parameterized by \(t\)) protects against arbitrary weight \(t\) qubit errors and approximately corrects spontaneous decay errors \cite{arXiv:1302.3247,doi:10.1103/PhysRevA.93.042340}. Other related codes protect against amplitude damping \cite{doi:10.1109/TIT.2019.2956142} while admitting a constant number of excitations, and against deletion errors \cite{arxiv:2102.02494,arXiv:2102.03015}.'
+
+features:
+
+  encoders:
+    - 'With quantum harmonic oscillators (superconducting charge qubits in a ultrastrong coupling regime) in \(O(N)\) as in \cite{doi:10.1103/PhysRevA.99.012335}. Can be done in \(O(N^2)\) steps using quantum circuits \cite{arXiv:1904.07358}, or using geometric phase gates in \(O(N)\) \cite{arxiv:1908.01120}.'
+
+  decoders:
+    - 'For a family of codes, using projection, probability amplitude rebalancing, and gate teleportation can be done in \(O(N^2)\) \cite{arXiv:2102.02494}.'
+
+notes:
+  - 'Can be constructed using real polynomials for high-dimensional qudit spaces \cite{doi:10.1016/j.laa.2017.06.031}.'
+
+relations:
+  parents:
+    - code_id: quantum_cyclic
+      detail: 'The cyclic group of these codes is a subgroup of the \(S_n\) symmetric group used in permutation invariant codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-26'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: BenjaminQuiring
+      date: '2021-12-16'

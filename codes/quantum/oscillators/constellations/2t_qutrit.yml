@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2t_qutrit
+physical: oscillators
+logical: qubits
+
+name: '2T-qutrit code'
+introduced: '\cite{arxiv:2210.16188}'
+
+description: |
+  Two-mode qutrit code constructed out of superpositions of coherent states whose amplitudes make up the binary tetrahedral group \(2T\).
+  The codespace is a particular three-dimensional subspace of the 24-dimensional two-mode coherent-state subspace,
+  \begin{align}
+    \mathrm{Span}( \{|\sqrt{2} e^{i (2k+1) \pi/4} \alpha\rangle |0\rangle,  |0\rangle |\sqrt{2} e^{i (2k+1) \pi/4} \alpha\rangle, |e^{i k\pi/2} \alpha\rangle |e^{i \ell \pi/2} \alpha\rangle \: : \: 0\leq  k, \ell \leq 3\})
+  \end{align}
+  for any \(\alpha \geq 0\).
+  A basis can be constructed whose elements are equal superpositions of coherent states whose amplitudes make up cosets of the quaternion subgroup \(Q\) in \(2T\).
+
+features:
+  general_gates:
+    - 'Logical phase-flip can be implemented using an excitation-preserving Gaussian transformation. Degree-four polynomial in the lowering operators of the two modes serves as a non-unitary logical bit-flip. Rotations of either mode by \(\pi/4\) are logical gates that swap two logical codewords.'
+
+relations:
+  parents:
+    - code_id: coherent_constellation
+      detail: '\(2T\)-qutrit codewords are constructed using a coherent-state constellation that forms the binary tetrahedral group \(2T\).'
+  cousins:
+    - code_id: chuang-leung-yamamoto
+      detail: 'The \(2T\)-qutrit code reduces to the two-mode "0-2-4" CLY code as \(\alpha\to 0\).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-10-31'
