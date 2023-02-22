@@ -7,8 +7,7 @@ code_id: gkp
 physical: oscillators
 logical: qudits
 
-name: 'Gottesman-Kitaev-Preskill (GKP) code'
-short_name: 'GKP'
+name: 'Square-lattice GKP code'
 introduced: '\cite{arXiv:quant-ph/0008040}'
 
 description: 'Single-mode GKP qudit-into-oscillator code based on the rectangular lattice. Its stabilizers are oscillator displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{x}}\). To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group that is Abelian, there is another constraint that \(\alpha\beta=2k\pi\) where \(k\) is an integer. Codewords can be expressed as equal weight superpositions of coherent states on a rectangular lattice in phase space with spatial period \(2\sqrt{\pi}\). The exact GKP state is non-normalizable, so approximate constructs have to be considered.'
@@ -18,11 +17,11 @@ protection: 'For stabilizer \(\hat{S}_q(2\alpha),\hat{S}_p(2\beta)\), code can c
 features:
 
   encoders:
-    - 'Preparation of approximate GKP states is studied both theoretically and experimentally by putting the GKP lattice inside a Gaussian envelope \cite{arxiv:1506.05033,doi:10.1103/PhysRevA.97.022341,doi:10.1038/s41586-020-2603-3,arxiv:1910.03673}.'
-    - 'Dissipative stabilization of finite-energy GKP states using stabilizers conjugated by a \textit{cooling} (\cite{arxiv:1310.7596}, Appx. B) or \textit{damping} operator, i.e., a damped exponential of the total occupation number \cite{arXiv:2009.07941,arxiv:2010.09681}.'
+    - 'Preparation of approximate square-lattice GKP states is studied both theoretically and experimentally by putting the GKP lattice inside a Gaussian envelope \cite{arxiv:1506.05033,doi:10.1103/PhysRevA.97.022341,doi:10.1038/s41586-020-2603-3,arxiv:1910.03673}.'
+    - 'Dissipative stabilization of finite-energy square-lattice GKP states using stabilizers conjugated by a \textit{cooling} (\cite{arxiv:1310.7596}, Appx. B) or \textit{damping} operator, i.e., a damped exponential of the total occupation number \cite{arXiv:2009.07941,arxiv:2010.09681}.'
     - 'Two Josephson junctions coupled by a gyrator \cite{arxiv:2002.07718}.'
   general_gates:
-    - 'By applying GKP error correction to Gaussian input states, universality can be achieved without non-Gaussian elements \cite{arxiv:1903.00012}.'
+    - 'By applying square-lattice GKP error correction to Gaussian input states, universality can be achieved without non-Gaussian elements \cite{arxiv:1903.00012}.'
 
   fault_tolerance:
     - 'Clifford gates can be realized by performing linear-optical operations, sympletic transformations and displacements, all of which are Gaussian operations. Pauli gates can be performed using displacement operators. Clifford gates are fault tolerant in the sense that they map bounded-size errors to bounded-size errors \cite{arXiv:quant-ph/0008040}.' #for the qubit square-lattice GKP code performed by occupation-number-preserving Gaussian operations
@@ -37,8 +36,8 @@ notes:
   - 'Reviews on GKP codes presented in Refs. \cite{arxiv:2002.11008,arXiv:2106.12989}.'
 
 realizations:
-  - 'Motional degree of freedom of a trapped ion: GKP encoding realized with the help of post-selection \cite{arxiv:1807.01033,arXiv:1907.06478}, followed by realization of reduced form of GKP error correction, where displacement error syndromes are measured to one bit of precision using an ion electronic state \cite{arxiv:2010.09681}.'
-  - 'Microwave cavity coupled to superconducting circuits: reduced form of GKP error correction, where displacement error syndromes are measured to one bit of precision using an ancillary transmon \cite{arxiv:1907.12487}. Subsequent paper \cite{arxiv:2211.09116} uses reinforcement learning for error-correction cycle design and is the first to go beyond break-even error-correction, with the lifetime of a logical qubit exceeding the cavity lifetime by about a factor of two (see also \cite{arxiv:2211.09319}).'
+  - 'Motional degree of freedom of a trapped ion: square-lattice GKP encoding realized with the help of post-selection \cite{arxiv:1807.01033,arXiv:1907.06478}, followed by realization of reduced form of GKP error correction, where displacement error syndromes are measured to one bit of precision using an ion electronic state \cite{arxiv:2010.09681}.'
+  - 'Microwave cavity coupled to superconducting circuits: reduced form of square-lattice GKP error correction, where displacement error syndromes are measured to one bit of precision using an ancillary transmon \cite{arxiv:1907.12487}. Subsequent paper \cite{arxiv:2211.09116} uses reinforcement learning for error-correction cycle design and is the first to go beyond break-even error-correction, with the lifetime of a logical qubit exceeding the cavity lifetime by about a factor of two (see also \cite{arxiv:2211.09319}).'
   - 'Single-qubit \(Z\)-gate has been demonstrated in the single-photon subspace of an infinite-mode space \cite{arxiv:1904.01351}, in which time and frequency become bosonic conjugate variables of a single effective bosonic mode.'
   - 'In signal processing, GKP state position-state wavefunctions are related to Dirac combs \cite{doi:10.1007/978-1-4612-2016-9}.'
 
@@ -48,9 +47,9 @@ relations:
     - code_id: multimodegkp
   cousins:
     - code_id: approximate_qecc
-      detail: 'GKP codes approximately protect against photon loss \cite{arxiv:1506.05033,arxiv:1708.05010,arXiv:1801.07271}.'
+      detail: 'Square-lattice GKP codes approximately protect against photon loss \cite{arxiv:1506.05033,arxiv:1708.05010,arXiv:1801.07271}.'
     - code_id: rotor
-      detail: 'Because GKP error states are parameterized by two modular (i.e., periodic) variables of position and momentum, measuring one of the GKP stabilizers constrains the oscillator Hilbert space into that of a rotor.'
+      detail: 'Because square-lattice GKP error states are parameterized by two modular (i.e., periodic) variables of position and momentum, measuring one of the GKP stabilizers constrains the oscillator Hilbert space into that of a rotor.'
 
 
     #- code_id: toric_GKP

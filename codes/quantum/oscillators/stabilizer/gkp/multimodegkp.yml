@@ -7,7 +7,8 @@ code_id: multimodegkp
 physical: oscillators
 logical: qudits
 
-name: 'Multi-mode GKP code'
+name: 'Gottesman-Kitaev-Preskill (GKP) code'
+short_name: 'GKP'
 introduced: '\cite{arXiv:quant-ph/0008040,arXiv:quant-ph/0105058}'
 
 description: |
@@ -41,7 +42,7 @@ features:
   rate: 'Transmission schemes with multimode GKP codes achieve, up to a constant-factor offset, the capacity of displacement-noise and thermal-noise Gaussian loss channels \cite{arXiv:quant-ph/0105058,arXiv:1708.07257,arXiv:1801.04731,arXiv:1801.07271}. Particular lattice families of multimode GKP codes achieve the hashing bound of the displacement noise channel \cite{arxiv:quant-ph/0105058}.'
 
   encoders:
-    - 'Multi-mode GKP codes with fixed \(n\) and prime-dimensional logical Hilbert space are symplectically related to a disjoint product of single-mode GKP codes on \(n\) modes, such that encoding via Gaussian unitaries is possible.'
+    - 'GKP codes with fixed \(n\) and prime-dimensional logical Hilbert space are symplectically related to a disjoint product of single-mode GKP codes on \(n\) modes, such that encoding via Gaussian unitaries is possible.'
     - 'Dissipative stabilization of finite-energy GKP states using stabilizers conjugated by \textit{cooling} (\cite{arxiv:1310.7596}, Appx. B) or \textit{damping} operator, i.e., a damped exponential of the total occupation number \cite{arXiv:2009.07941,arxiv:2201.12337}.'
 
   general_gates:
@@ -54,7 +55,7 @@ features:
     - 'The MLD decoder for Gaussian displacement errors is realized by evaluating a lattice theta function, and in general the decision can be approximated by either solving (approximating) the closest vector problem (CVP) or by using other effective iterative schemes when e.g. the lattice represents a concatenated GKP code \cite{arXiv:1810.00047,arXiv:1908.03579,arXiv:2109.14645,arxiv:2111.07029}.'
 
 realizations:
-  - 'Multimode GKP states are similar to the lattice Gaussian states featured in the proof of hardness of LWE \cite[pg. 12]{doi:10.1145/1568318.1568324}.'
+  - 'GKP states are similar to the lattice Gaussian states featured in the proof of hardness of LWE \cite[pg. 12]{doi:10.1145/1568318.1568324}.'
 
 relations:
   parents:
@@ -65,7 +66,7 @@ relations:
     - code_id: 'approximate_qecc'
       detail: 'Approximate error-correction offered by GKP codes yields achievable rates that are a constant away from the capacity of Guassian loss channels \cite{arXiv:quant-ph/0105058,arXiv:1708.07257,arXiv:1801.04731,arXiv:1801.07271}.'
     - code_id: points_into_lattices
-      detail: 'Multimode GKP codes can be thought of as quantum lattice codes because they store information in quantum superpositions of points on a lattice in quantum phase space.'
+      detail: 'GKP codes can be thought of as quantum lattice codes because they store information in quantum superpositions of points on a lattice in quantum phase space.'
 
 
 # Begin Entry Meta Information
