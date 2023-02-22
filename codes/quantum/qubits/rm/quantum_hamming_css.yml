@@ -16,8 +16,13 @@ description: 'CCS code constructed with a classical Hamming code \([2^r-1,2^r-1-
 protection: 'Protects against any single qubit error.'
 
 features:
+  transversal_gates: 'Pauli, Hadamard, and CNOT gates.'
+  decoders:
+    - 'Efficient decoder \cite{arxiv:2207.08826}.'
   fault_tolerance:
     - 'Syndrome measurement can be done with two ancillary flag qubits \cite{arxiv:1705.02329}.'
+  threshold:
+    - 'Concatenated thresholds requiring constant-space and quasi-polylogarithmic time overhead \cite{arxiv:2207.08826}.'
 
 relations:
   parents:

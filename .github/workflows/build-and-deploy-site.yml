@@ -1,0 +1,114 @@
+name: 'build-and-deploy-site'
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  workflow_dispatch: {}
+
+
+jobs:
+  build-and-deploy-site:
+    runs-on: 'ubuntu-latest'
+
+    environment: 's3-deploy'
+
+    env:
+      AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+      AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: ./eczoo_data
+
+      # Check out site generation code
+      - name: 'Check out eczoo_sitegen code'
+        run: |
+          git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen
+
+      # --------------------------------
+
+      # Install NodeJS
+      - uses: actions/setup-node@v3
+        with:
+          #cache: 'yarn'
+          node-version: 'latest'
+
+      - name: 'Enable Yarn (corepack enable)'
+        run: 'corepack enable'
+        working-directory: ./eczoo_sitegen/
+
+      - name: 'Inspect Yarn version'
+        run: 'yarn --version'
+        working-directory: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      # Avoid bugs maybe by skipping cache?
+
+      # # Cache Yarn Modules
+      # - name: Get yarn cache directory path
+      #   id: yarn-cache-dir-path
+      #   run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+      #   shell: bash
+      #   working-directory: ./eczoo_sitegen
+  
+      # - name: Restore yarn cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      #     key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+      #     restore-keys: |
+      #       yarn-cache-folder-
+
+      # --------------------------------
+
+
+
+      # Install any missing modules
+      - name: Yarn install
+        run: 'yarn'
+        working-directory: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      - name: Build Site (yarn buildall)
+        run: 'yarn buildall'
+        working-directory: ./eczoo_sitegen/
+
+      # ## To Debug S3 deployment w/o building the full site ...
+      # 
+      # - name: 'DUMMY CREATE SITE FILES'
+      #   run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+      #   working-directory: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      - name: 'Move generated site to base dir'
+        run: 'mv ./eczoo_sitegen/site/_site .'
+
+      # --------------------------------
+
+      - name: 'Deploy site to S3/Cloudfront'
+        uses: reggionick/s3-deploy@v3
+        with:
+          folder: _site
+          bucket: '${{ secrets.S3_BUCKET }}'
+          bucket-region: '${{ secrets.S3_BUCKET_REGION }}'
+          dist-id: '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+
+      # --------------------------------
+
+      - name: Make archive of zoo files
+        run: 'zip -r ../eczoo_website_files.zip ./'
+        working-directory: ./_site/
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: eczoo_website_files
+          path: ./eczoo_website_files.zip
+          retention-days: 5
