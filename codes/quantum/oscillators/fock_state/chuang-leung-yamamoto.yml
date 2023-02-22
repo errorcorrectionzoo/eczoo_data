@@ -8,10 +8,20 @@ code_id: chuang-leung-yamamoto
 physical: oscillators
 logical: qubits
 
-name: 'Chuang-Leung-Yamamoto code'
+name: 'Chuang-Leung-Yamamoto (CLY) code'
 introduced: '\cite{doi:10.1103/PhysRevA.56.1114}'
 
-description: 'Bosonic Fock-state code that encodes \(k\) qubits into \(n\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Codewords are superpositions of oscillator Fock states which have exactly \(N\) total excitations, and are either uniform (i.e., balanced) superpositions or unbalanced superpositions. Codes can be denoted as \([[N,n,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.'
+description: |
+  Bosonic Fock-state code that encodes \(k\) qubits into \(n\) oscillators, with each oscillator restricted to having at most \(N\) excitations. Codewords are superpositions of oscillator Fock states which have exactly \(N\) total excitations, and are either uniform (i.e., balanced) superpositions or unbalanced superpositions. Codes can be denoted as \([[N,n,2^k,d]]\), which conflicts with \hyperref[code:stabilizer]{stabilizer code} notation.
+
+  A simple example of a CLY code is a two-mode "0-2-4" qubit code with codewords
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle&=\frac{1}{\sqrt{2}}\left(|40\rangle+|04\rangle\right)\\
+    |\overline{1}\rangle&=|22\rangle~.
+  \end{split}
+  \end{align}
+
 
 protection: |
   Protects against amplitude damping for up to \(t = d-1\) excitation losses. Defining the \textit{spacing} between two Fock states \(|u_1\cdots u_n\rangle\) and \(|v_1\cdots v_n\rangle\),
@@ -49,3 +59,15 @@ relations:
 #      and can be considered as a special case. However, when photon loss occurs in a dual rail
 #      encoding, information is irrecoverably lost, while the more general Chuang-Leung-Yamomoto
 #      codes allow for recovery.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-03-02'
+    - user_id: DhruvDevulapalli
+      date: '2021-12-17'
+    - user_id: JonathanKunjummen
+      date: '2021-12-07'

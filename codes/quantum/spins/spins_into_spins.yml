@@ -5,7 +5,6 @@
 
 code_id: spins_into_spins
 physical: spins
-logical: spins
 
 name: 'Spin code'
 
@@ -13,6 +12,11 @@ description: |
   Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, where the canonical qudit basis consists of states of a quantum mechanical spin. In other words, canonical single-qudit states \(|^\ell_m\rangle\) are labeled by total angular momentum \(\ell\) (either integer or half-integer) and its \(z\)-axis projection \(m\), with \(q=2\ell+1\).
 
   In contrast to other qudit codes, spin codes are closely associated with the angular momentum Lie algebra and/or the Lie groups \(SU(2)\) or \(SO(3)\).
+
+protection: 'Spin codes are often designed to protect against \(SU(2)\) rotations by small angles.'
+
+#notes:
+#  - 'The exact error correction condition is \(\langle \bar{\hat{0}} | J_z | \bar{\hat{0}} \rangle = 0\) where \( J_z \) is the angular momentum operator in dimension \( z \).'
 
 relations:
   parents:
@@ -22,3 +26,13 @@ relations:
   cousins:
     - code_id: qubits_into_qubits
       detail: 'Spin codes with spin \(\ell=1/2\) correspond to qubit codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ThomasWrona
+      date: '2022-05-18'
+    - user_id: VictorVAlbert
+      date: '2022-02-22'

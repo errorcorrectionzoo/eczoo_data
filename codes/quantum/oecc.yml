@@ -10,11 +10,11 @@ short_name: 'Subsystem QECC'
 introduced: '\cite{arXiv:quant-ph/0412076,arXiv:quant-ph/0504189}'
 
 description: |
-  A subsystem code, also known as an \textit{operator} or \textit{gauge QECC}, encodes information in a subsystem \(\mathsf{A}\) of the code space \(\mathsf{C}\), which is part of the system Hilbert space \(\mathsf{H}\).
+  A subsystem code, also known as an \textit{operator QECC} or \textit{gauge QECC}, encodes information in a subsystem \(\mathsf{A}\) of the code space \(\mathsf{C}\), which is part of the system Hilbert space \(\mathsf{H}\), as
   \begin{align}
-  \mathsf{H}=\mathsf{C} \oplus \mathsf{C}^{\perp} = \mathsf{A} \otimes \mathsf{B} \oplus \mathsf{C}^{\perp}
+  \mathsf{H}=\mathsf{C} \oplus \mathsf{C}^{\perp} = \mathsf{A} \otimes \mathsf{B} \oplus \mathsf{C}^{\perp}~.
   \end{align}
-  Following an error, it is sufficient to revert back to the original state modulo a transformation on the auxiliary or \textit{gauge} subsystem \(\mathsf{B}\). The subsystem \(\mathsf{B}\) therefore gives additional freedom to the error correction process, and is said to encode \textit{gauge qubits} when its dimension is a power of two. While strictly speaking all operator QECCs are also ordinary QECCs, the attachment of a subsystem to a code can yield more efficient correction procedures and a wider variety of encoding procedures.
+  Following an error, it is sufficient to revert back to the original state modulo a transformation on the auxiliary or \textit{gauge} subsystem \(\mathsf{B}\). The subsystem \(\mathsf{B}\) therefore gives additional freedom to the error correction process, and is said to encode \textit{gauge qubits} when its dimension is a power of two. While strictly speaking all operator QECCs are also ordinary QECCs, the attachment of a subsystem to a code allows for a wider variety of encoding procedures, fault-tolerant logical operations, and efficient error-correction protocols.
 
 protection: |
   Necessary and sufficient \cite{arxiv:quant-ph/0506069} error-correction conditions are, for all errors \(E_a,E_b\) in an error set \(\cal{E}\),
@@ -26,7 +26,19 @@ protection: |
 relations:
   parents:
     - code_id: oaecc
-
+    - code_id: quantum_into_quantum
   cousins:
     - code_id: qecc
       detail: 'A subsystem code reduces to an ordinary error-correcting code when the gauge subsystem is trivial, \(\mathsf{B} = \mathbb{C}\). Conversely, any QECC with a tensor-product logical subspace can be turned into a subsystem code by treating a logical tensor factor as a gauge subsystem.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-03-02'
+    - user_id: SrilekhaGandhari
+      date: '2021-12-14'
+    - user_id: VictorVAlbert
+      date: '2021-11-24'

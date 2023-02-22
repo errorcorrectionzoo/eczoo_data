@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: construction_a
+physical: reals
+logical: reals
+
+name: 'Mod-2 lattice code'
+introduced: '\cite{doi:10.4153/CJM-1967-017-0}'
+
+description: |
+  Lattice constructed from a binary linear \([n,k,d]\) code using Construction \(A_2\) \cite{doi:10.1007/978-1-4757-6568-7}.
+  Each binary codeword \(c\) of the code is mapped to an infinite set of points \(x\) such that \(x = c\) modulo two.
+  Linearity of the code ensures that the resulting set of points forms a lattice.
+
+relations:
+  parents:
+    - code_id: points_into_lattices
+  cousins:
+    - code_id: binary_linear
+      detail: 'Each binary linear code yields a mod-two lattice code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'

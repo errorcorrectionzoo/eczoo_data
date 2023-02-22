@@ -9,19 +9,23 @@ code_id: ecc
 
 name: 'Error-correcting code (ECC)'
 short_name: 'ECC'
-#introduced: ''
 
-description: 'A \textit{code} is a subset of a set or \textit{alphabet}, with each element called a \textit{codeword}. An \textit{error-correcting code} consists of \(K\) codewords over an alphabet with \(N\) elements such that it is possible to recover the codewords from errors \(E\) from some error set \(\mathcal{E}\).'
+description: |
+  Code designed for transmission of classical information through classical channels in a robust way.
 
-protection: 'A code corrects errors associated with a noise channel if it is possible to recover any codeword after its coordinates have been changed after going through the channel. More technically, an error-correcting code \((u,\mathcal{E})\) is an \textit{encoder} function \(u:[1\cdots K]\to[1\cdots N]\) with a set of correctable errors \(E:[1\cdots N]\to [1\cdots M]\) with the following property: there exists a \textit{decoder} function \(d:[1\cdots M]\to [1\cdots K]\) such that for all \(E\in\cal{E}\) and states \(x\in[1\cdots K]\), \(d(E(e(x)))=x\).'
+features:
+  rate: 'The Shannon channel capacity is the highest rate of information transmission through a classical (i.e., non-quantum) channel with arbitrarily small error rate \cite{doi:10.1002/j.1538-7305.1948.tb01338.x}.
+  Corrections to the capacity and tradeoff between decoding error, code rate and code length are determined using small \cite{manual:{V. Strassen, “Asymptotische Absch¨atzungen in Shannons Informationstheorie,” Trans. Third Prague Conference on Information Theory, Prague, 689–723, (1962)},arxiv:0801.2242,doi:10.1109/TIT.2010.2043769}, moderate \cite{arxiv:1208.1924,doi:10.1109/ALLERTON.2010.5707068,arxiv:1701.03114} and large \cite{doi:10.1007/978-3-7091-2945-6,doi:10.1017/CBO9780511921889,doi:10.1109/TIT.1973.1055007,doi:10.1109/TIT.1979.1056003} deviation analysis.'
 
-notes:
-  - 'The modern theory of error-correcting codes is rooted in the foundational work of C. Shannon \cite{doi:10.1002/j.1538-7305.1948.tb01338.x}, but error-correcting codes have been used prior to that work \cite{doi:10.1007/bf03025254}.'
-
-#realizations: ''
-
-# Maybe oecc is enough?
 relations:
   parents:
     - code_id: oaecc
-      detail: ''
+      detail: 'Any ECC can be embedded into a quantum Hilbert space, and thus passed through a quantum channel, by associating elements of the alphabet with basis vectors in a Hilbert space over the complex numbers. For example, a bit of information can be embedded into a two-dimensional vector space by associating the two bit values with two basis vectors for the space.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-06'

@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bosonic_classical_into_quantum
+physical: oscillators
+logical: q-ary_digits
+
+name: 'Bosonic c-q code'
+
+description: |
+  Bosonic code designed for transmission of classical information through non-classical channels.
+  Typically, such codes encode real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced receiver.
+
+features:
+  rate: 'The Holevo (also known as Gordon) capacity has been calculated for various bosonic quantum channels such as AGWN \cite{arxiv:1312.6225} (see Ref. \cite{arxiv:2002.05766} for a review).'
+
+  decoders:
+    - 'Joint-detection receiver that can attain channel capacity \cite{arxiv:1101.1550}.'
+    - 'Near-optimal receiver for coherent-state c-q codes utilizing passive linear optics and photon counting \cite{arxiv:2109.00008}.'
+    - 'See review \cite{doi:10.1116/5.0036959} for details on receivers used for bosonic c-q codes.'
+
+
+relations:
+  parents:
+    - code_id: classical_into_quantum
+  cousins:
+    - code_id: oscillators
+      detail: 'Bosonic c-q codes are bosonic codes designed to transmit classical information.'
+    - code_id: coherent_constellation
+      detail: 'Typical bosonic c-q codes encode classical alphabets into constellations of coherent states.'
+    - code_id: analog
+      detail: 'Bosonic c-q codes are extensions of sphere packings to transmission of classical information over quantum analog channels.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-04'

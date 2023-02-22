@@ -1,0 +1,56 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: expander_lifted_product
+physical: galois
+logical: galois
+
+name: Expander lifted-product code
+introduced: '\cite{arXiv:2111.03654}'
+
+description: |
+  Family of \(G\)-lifted product codes constructed using two random classical \hyperref[code:tanner]{Tanner codes} defined on expander graphs. For certain parameters, this construction yields the first asymptotically good QLDPC codes. Classical codes resulting from this construction are one of the first two families of \(c^3\)-LTCs.
+
+  An expander lifted-product code family is constructed as follows. First, take the Cayley graph of a finite group \(G\). Second, take the double cover of the graph, resulting in a graph that satisfies the requirements of participating in a \(G\)-lifted product (i.e., the resulting graph is a free \({\mathbb{F}}_q G\)-module). Third, create a \hyperref[code:tanner]{Tanner code} out of the graph, in which parity-check supports are defined by the graph, and bitstrings satisfying a particular parity check are defined to be the codewords of a small classical code (chosen to be a random code in the construction). Fourth, take the \(G\)-lifted product of two copies of the \hyperref[code:tanner]{Tanner code}.
+
+  The small classical codes used in the construction of good QLDPC codes are required to have a certain product-expansion property (Lemma 10 in Ref. \cite{arXiv:2111.03654}); it is proven that random codes satisfy said property in the thermodynamic limit.
+
+protection: 'Code performance strongly depends on \(G\). Certain nonabelian groups yield asymptotically good QLDPC codes with parameters \([[n, k = \Theta(n), d = \Theta(n)]]\) \cite{arXiv:2111.03654}. Abelian groups like \(\mathbb{Z}_{\ell}\) for \(\ell=\Theta(n / \log n)\) yield constant-rate codes with parameters \([[n, k = \Theta(n), d = \Theta(n / \log n)]]\) \cite{arxiv:2012.04068}; this construction can be derandomized by being reformulated as a balanced product code \cite{arXiv:2012.09271}.'
+
+features:
+  rate: 'Expander lifted-product codes include the first examples \cite{arXiv:2111.03654} of (asymptotically) \textit{good QLDPC codes}, i.e., codes with asymptotically constant rate and linear distance. The existence of such codes proves the QLDPC conjecture \cite{arXiv:2103.06309}. Another notable family encodes \(k \in \Theta(n^\alpha \log n)\) logical qubits with distance \(d \in \Omega(n^{1 - \alpha} / \log n)\) for any number of physical qubits \(n\) and any real parameter \(0 \leq \alpha < 1\) \cite{arxiv:2012.04068}.'
+
+  decoders:
+    - 'Linear-time decoder \cite{arxiv:2206.07571}.'
+    - 'Logarithmic-time subroutine \cite{arxiv:2208.05537}.'
+
+notes:
+  - 'Construction outlined in talk by \href{https://www.youtube.com/watch?v=k7LuOiOBYyQ}{R. O''Donnell}.'
+  - 'Popular summary in \href{https://www.quantamagazine.org/qubits-can-be-as-safe-as-bits-researchers-show-20220106}{Quanta Magazine}.'
+
+relations:
+  parents:
+    - code_id: lifted_product
+  cousins:
+    - code_id: good_qldpc
+      detail: 'Lifted products of certain classical Tanner codes are the first asymptotically good QLDPC codes.'
+    - code_id: q-ary_ltc
+      detail: 'Classical codes resulting from the expander lifted-product construction are one of the first two families of \(c^3\)-LTCs.'
+    - code_id: tanner
+      detail: 'Expander lifted-product codes are products of \(q\)-ary Tanner codes defined on expander graphs.'
+    - code_id: random
+      detail: 'Expander lifted-product codes are quantum CSS codes that utilize short classical codes in their construction which need to satisfy some properties (Ref. \cite{arXiv:2111.03654}, Lemma 10). It is shown that such codes exist, but they are not explicitly constructed. Such codes can be obtained by repeated random sampling or by performing a search of all codes of desired length. Nevertheless, since the length of the desired short codes does not scale with \(n\), this construction is effectively explicit.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-26'
+    - user_id: VictorVAlbert
+      date: '2022-01-19'
+    - user_id: PavelPanteleev
+      date: '2021-11-30'

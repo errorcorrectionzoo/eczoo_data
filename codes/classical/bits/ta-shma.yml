@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ta-shma
+
+name: 'Ta-Shma zigzag code'
+introduced: '\cite{doi:10.1145/3055399.3055408}'
+
+description: |
+  Member of a family of \(\epsilon\)-balanced codes that nearly achieves the asymptotic Gilbert-Varshamov bound. The codes have relative distance \(\frac{1}{2}-\frac{\epsilon}{2}\) and rate of order \(\Omega (\epsilon^{2+\beta})\) for \(\beta\to 0\) as \(n\to\infty\) \cite{arxiv:2011.05500}.
+
+features:
+  decoders:
+    - 'Unique and list decoders \cite{arxiv:2011.05500}.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+  cousins:
+    - code_id: balanced
+      detail: 'Ta-Shma codes are \(\epsilon\)-balanced.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-16'

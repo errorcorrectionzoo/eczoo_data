@@ -10,7 +10,11 @@ logical: groups
 name: 'Hybrid qudit-oscillator code'
 #introduced: ''
 
-description: 'Encodes a \(K\)-dimensional logical Hilbert space into \(n_1\) qudits of dimension \(q\) and \(n_2 \neq 0\) oscillators, i.e., the Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{Z}_q^{n_1} \times \mathbb{R}^{n_2}\).'
+description: |
+  Encodes a \(K\)-dimensional logical Hilbert space into \(n_1\) modular qudits of dimension \(q\) and \(n_2 \neq 0\) oscillators, i.e., the Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{Z}_q^{n_1} \times \mathbb{R}^{n_2}\).
+
+  Codewords of a simple hybrid code \cite{arxiv:1112.0825} are \(|\alpha\rangle|+\rangle\) and \(|-\alpha\rangle|V\rangle\), i.e., hyper-entangled states of the polarization \(|\pm\rangle\) and occupation-number degrees of freedom of a photon, with the latter being in a coherent state \(|\pm\alpha\rangle\).
+
 
 protection: ''
 
@@ -23,5 +27,13 @@ relations:
       detail: 'The physical Hilbert space of a hybrid qubit-oscillator code contains at least one oscillator.'
 
   cousins:
-     - code_id: 'qudits_into_oscillators'
-       detail: 'Hybrid code with \(n_1=0\).'
+    - code_id: 'qudits_into_oscillators'
+      detail: 'Hybrid code with \(n_1=0\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-11-03'

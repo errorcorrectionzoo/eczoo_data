@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: points_into_lattices
+physical: reals
+logical: reals
+
+name: 'Lattice-based code'
+
+description: |
+  Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice, i.e., a discrete set of points in Euclidean space \(\mathbb{R}^n\) that forms a group under vector addition when the set is translated such that one point is at the origin. The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.
+
+  A \(n\)-dimensional lattice-based code can be defined using a generator matrix \(G\) of rank \(n\), where the rows of \(G\) are the lattice translation vectors \(g_i\).
+  Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 + \cdots + c_n g_n\).
+  A lattice-based code can also be defined using the Gram matrix \(GG^T\).
+
+
+
+protection: |
+  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=\det G\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
+
+  The \textit{nominal coding gain} \(\gamma_{c}\) (a.k.a. \textit{Hermite parameter}) of an \(n\)-dimensional lattice is
+  \begin{align}
+    \gamma_{c}=\left(d_{\text{min}}/\sqrt[n]{V}\right)^{2}~,
+  \end{align}
+  characterizing the ratio of the level of protection to the required spatial resources.
+
+  Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a non-zero vector in the lattice. This is an analogue of the minimum distance of binary codes. Half of the minimal norm is called the \textit{packing radius}.
+
+features:
+  rate: 'Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040}.'
+
+notes:
+  - 'See books \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/b98975} for introductions and overviews of lattices.'
+  - 'See Catalogue of Lattices \cite{manual:{G. Nebe and N. J. A. Sloane. "Catalogue of Lattices." http://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/index.html}} for more information.'
+  - 'Tables of bounds on kissing numbers \cite{manual:{H. Cohn. "Kissing numbers." https://cohn.mit.edu/kissing-numbers}}.'
+  - 'See Refs. \cite{manual:{Cannon, J., Bosma, W., Fieker, C., & Steel, A. (2008). HANDBOOK OF MAGMA FUNCTIONS.},doi:10.1145/190347.190362,doi:10.1006/jsco.1996.0125} for various examples and implementations in Magma.'
+
+
+
+relations:
+  parents:
+    - code_id: analog
+    - code_id: group_orbit
+      detail: 'Lattice-base codes are group-orbit codes on \(\mathbb{R}^n\). The group used to generate all codewords of lattice-based codes is an additive group in \(\mathbb{R}^n\).'
+  cousins:
+    - code_id: linear
+      detail: 'Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-02'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'

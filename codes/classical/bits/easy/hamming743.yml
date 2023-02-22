@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hamming743
+physical: bits
+logical: bits
+
+name: '\([7,4,3]\) Hamming code'
+introduced: '\cite{doi:10.1002/j.1538-7305.1948.tb01338.x,doi:10.1002/j.1538-7305.1950.tb00463.x,manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
+
+description: |
+  Second-smallest member of the Hamming code family with generator matrix
+  \begin{align}
+  \left(\begin{array}{ccccccccccc}
+    1 & 0 & 0 & 0 & 1 & 1 & 0\\
+    0 & 1 & 0 & 0 & 1 & 0 & 1\\
+    0 & 0 & 1 & 0 & 0 & 1 & 1\\
+    0 & 0 & 0 & 1 & 1 & 1 & 1
+  \end{array}\right)~.
+  \end{align}
+  Can be extended to yield the \([8,4,4]\) extended Hamming code.
+
+
+protection: 'Can detect 1-bit and 2-bit errors, and can correct 1-bit errors.'
+
+relations:
+  parents:
+    - code_id: hamming
+    - code_id: projective
+      detail: 'The \([7,4,3]\) Hamming code parity-check matrix corresponds to points in the Fano plane \(PG_2(2)\). Columns of a general Hamming parity-check matrix correspond to one-dimensional subspaces of \(GF(2)^n\).'
+    - code_id: binary_quad_residue
+      detail: '\([7,4,3]\) Hamming code is a quadratic-residue code \cite{preset:MacSlo}.'
+  cousins:
+    - code_id: steane
+      detail: 'The Steane code is constructed from the \([7,4,3]\) classical Hamming code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-21'
