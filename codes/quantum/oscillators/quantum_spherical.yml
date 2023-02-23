@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_spherical
+physical: oscillators
+logical: qubits
+
+name: 'Quantum Spherical code'
+
+description: |
+  Code whose codewords are superpositions of points on an \(n\)- \textit{complex} dimensional sphere \(S^{2n} \subset \mathbb{C}^n\) with radius one.  
+
+  A \textit{quantum spherical code}, or \textit{QSC},is a collection \(\{\mathcal{C}_k\}_{k=1}^K\) of \textit{codeword constellations}, each of which gives rise to a codeword of the QSC obtained by taking a quantum superposition of all points \(\mathbf{x}\in \mathcal{C}_k\). 
+  Taken together, the codeword constellations yield the \textit{code constellation}, \(\mathcal{C}=\bigcup_{k=1}^{K}\mathcal{C}_{k}\) with each 
+  \begin{align}
+    \mathcal{C}_{k}\rangle\sim\frac{1}{\sqrt{|{\mathcal{C}}_{k}|}}\sum_{\mathbf{\alpha}\in\mathcal{C}_{k}}|\mathbf{\alpha}\rangle~ 
+  \end{align}
+  and \( |\alpha \rangle = |\alpha_1,\alpha_2,...\alpha_n \rangle \) coherent states.
+
+  It is denoted as \((({n,K,d_E,\rangle t_{\downarrow},d_{\updownarrow},d_{\downarrow}\rangle}))\), where \(n\) is the number of oscillator modes or complex dimension, \(K\) is codespace dimension, \(\d_E\) is the \textit{squared minimum distance}, i.e., the smallest Euclidean distance between pairs of distinct points across all codewords, \( t_{\downarrow},d_{\updownarrow},d_{\downarrow} \) are the number of \textit{correctable} losses (plus 1), the degree distance and the number of \textit{detectable} losses (plus 1)
+protection: |
+  1. The \textit{resolution} \(d_E\) of the code is defined as 
+    \begin{align}
+      d_E = \min_{\mathbf{\alpha},\mathbf{\beta}\in\mathcal{C}} \Vert\mathbf{\alpha}-\mathbf{\beta}\Vert^2~
+    \end{align}
+  The code protrcts against rotations on the sphere \( |\mathbf{\alpha}\rangle \rightarrow \|\mathbf{R}\mathbf{\alpha}\rangle \) for all \(\mathbf{R}\) such that 
+    \begin{align}
+      \Vert \mathbf{R}\mathbf{\alpha} - \mathbf{\alpha}\Vert^2 < d_E
+    \end{align}
+
+  2. The general ladder error is defined as
+    \begin{align}
+      L_{\mathbf{p},\mathbf{q}}(\mathbf{a}^{\dagger},\mathbf{a})=\prod_{j=1}^{n}a_{j}^{\dagger p_{j}}a_{j}^{q_{j}}~
+    \end{align}
+    
+  Any pure-loss ladder error \(L_{\mathbf{p}=\boldsymbol{0},\mathbf{q}}$ with $|\mathbf{q}|<d_{\downarrow}\) is detectable.
+  Any ladder error \(L_{\mathbf{p},\mathbf{q}}\) with \(|\mathbf{p}|,|\mathbf{q}|<t_{\downarrow}\) is detectable.
+  Any ladder error with degree \(|\mathbf{p}+\mathbf{q}|<d_\updownarrow\) is detectable.
+
+relations:
+  parents:
+    - code_id: coherent_constellation
+    - code_id: oscillators
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: Shubham Jain
+      date: '2023-02-23'
