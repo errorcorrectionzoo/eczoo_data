@@ -62,7 +62,7 @@ In most text fields, you can make use of LaTeX-inspired
 command syntax.  You can insert math expressions, add citations,
 format text, add figures and tables, etc., using a precise
 syntax with commands that is described here:
-https://github.com/errorcorrectionzoo/eczoo_generator/blob/main/latexlike_minilang_howto.md
+https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/llm_howto.md
 
 Example:
 
@@ -94,3 +94,10 @@ repository](https://github.com/errorcorrectionzoo/eczoo_sitegen).
 
 Get in touch with Victor V Albert & feel free to submit pull requests!  Check
 out our [contributing guidelines](https://github.com/errorcorrectionzoo/eczoo_data/blob/main/CONTRIBUTING.md).
+
+
+## I want to create the &lt;Your Favorite Topic> Zoo. How did you build the EC Zoo and can I reuse your code?
+
+Get in touch with me, I'll be happy to point to the basic tools we used and how they
+can be reused to build other zoos (contact info at https://phfaist.com/).
+
