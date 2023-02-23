@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cgs_spherical
+physical: spheres
+logical: reals
+
+name: 'Cameron-Goethals-Seidel (CGS) isotropic subspace code'
+short_name: 'CGS isotropic subspace'
+introduced: '\cite{doi:10.1016/0021-8693(78)90220-X}'
+
+description: |
+  Member of a \((q(q^2-q+1),(q+1)(q^3+1),2-2/q^2))\) family of spherical codes for any prime-power \(q\).
+  Constructed from generalized quadrangles, which in this case correspond to sets of totally isotropic points and lines in the projective space \(PG_{5}(q)\) \cite[Ex. 9.4.5]{preset:EricZin}.
+  There exist multiple distinct spherical codes using this construction for \(q>3\).
+
+protection: 'CGS isotropic subspace codes saturate the Levenshtein bound \cite[pg. 64]{preset:EricZin}.'
+
+relations:
+  parents:
+    - code_id: spherical
+    - code_id: sharp_config
+      detail: 'CGS isotropic subspace codes are the only known sharp configurations not derived from regular polytopes or lattices \cite{arxiv:math/0607446}.'
+  cousins:
+    - code_id: projective
+      detail: 'CSG isotropic subspace codes are constructed from incidence matrices of \(PG_5(q)\) \cite[Ex. 9.4.5]{preset:EricZin}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-02-23'

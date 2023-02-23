@@ -19,13 +19,14 @@ description: |
   Simplex spherical codes are the only tight spherical 2-designs \cite[Tab. 9.3]{preset:EricZin}.
 
 protection: |
-  Simplex spherical codes for \(2 < \rho \leq 4\) saturate the first two Rankin bounds \cite{preset:EricZin}.
+  Simplex spherical codes saturate the absolute bound, the Levenshtein bound and, for \(2 < \rho \leq 4\), the first two Rankin bounds \cite{preset:EricZin}.
 
 relations:
   parents:
-    - code_id: permutation_spherical
     - code_id: polytope
       detail: 'Simplex spherical codewords in 2 (3, 4, \(n\)) dimensions form the vertices of a triangle (tetrahedron, 5-cell, \(n\)-simplex).'
+    - code_id: sharp_config
+    - code_id: permutation_spherical
   cousins:
     - code_id: binary_antipodal
       detail: 'A binary simplex code (also known as a shortened Hadamard code) to a \((2^m,2^m+1)\) simplex signal set under the antipodal mapping \cite[Sec. 6.5.2]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}. This set is equivalent to the simplex code since all such codes are unique up to equivalence \cite[pg. 18]{preset:EricZin}. Simplex (simplex spherical) codes form simplices in Hamming (Euclidean) space.'
