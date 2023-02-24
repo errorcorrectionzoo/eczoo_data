@@ -11,6 +11,7 @@ name: 'Constant-weight code'
 description: |
   A linear binary or \(q\)-ary block code whose codewords all have the same Hamming weight \(w\).
   The \textit{complement} of a binary constant-weight code is a constant-weight code obtained by interchanging zeroes and ones in the codewords.
+  The set of all binary codewords of length \(n\) forms the \textit{Johnson space} \(J(n,w)\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379}.
 
   Constant-weight codes that contain all strings of some fixed Hamming weight are known as \textit{\(m\)-in-\(n\)} or \({n \choose m}\) codes.
 
@@ -28,7 +29,8 @@ relations:
   cousins:
     - code_id: constant_excitation
       detail: 'Constant-weight codes are classical analogues of qubit constant-excitation codes.'
-
+    - code_id: delsarte_optimal_q-ary
+      detail: 'See \cite[Table 8.4]{doi:10.1007/BF00053379} for universally optimal constant-weight codes.'
 
 # Begin Entry Meta Information
 _meta:

@@ -9,7 +9,7 @@ logical: qubits
 
 name: 'Quantum spherical code (QSC)'
 short_name: 'QSC'
-#introduced: '\cite{}'
+introduced: '\cite{arxiv:2302.11593}'
 
 description: |
   Code whose codewords are superpositions of points on an \(n\)-dimensional real or complex sphere.
@@ -20,10 +20,10 @@ description: |
 
   Codewords of coherent-state QSCs of uniform superposition are defined as
   \begin{align}
-    |\mathcal{C}_{k}\rangle\sim\frac{1}{\sqrt{|{\mathcal{C}}_{k}|}}\sum_{\mathbf{\alpha}\in\mathcal{C}_{k}}|\sqrt{\textnormal{\ensuremath{\bar{\textsc{n}}}}}\mathbf{\alpha}\rangle~,
+    |\mathcal{C}_{k}\rangle\sim\frac{1}{\sqrt{|{\mathcal{C}}_{k}|}}\sum_{\mathbf{\alpha}\in\mathcal{C}_{k}}|\sqrt{\bar{\textsc{n}}}\mathbf{\alpha}\rangle~,
   \end{align}
   where \( |\alpha \rangle = |\alpha_1,\alpha_2,...\alpha_n \rangle \) is an \(n\)-mode coherent state.
-  This expression is valid in the limit of large energy \(\textnormal{\ensuremath{\bar{\textsc{n}}}}\to\infty\).
+  This expression is valid in the limit of large energy \(\bar{\textsc{n}}\to\infty\).
 
   Coherent-state QSCs on \(n\) modes are denoted by
   \(((n,K,d_E,\langle t_{\downarrow},d_{\updownarrow},d_{\downarrow}\rangle))\),
@@ -60,6 +60,12 @@ relations:
       detail: 'Single-spin codes whose codewords are expressed in terms of discrete sets of spin-coherent states may also be interpreted as QSCs.'
     - code_id: paircat
       detail: 'Pair-cat codes are QSCs embedded into the configuration space of pair-coherent states.'
+    - code_id: css
+      detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
+    - code_id: quantum_concatenated
+      detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
+    - code_id: two-legged-cat
+      detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
 
 
 # Begin Entry Meta Information
