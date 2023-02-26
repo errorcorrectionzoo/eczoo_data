@@ -21,13 +21,19 @@ description: |
 protection: |
   Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=\det G\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
 
+  The minimum Euclidean distance is an analogue of the minimum distance of binary codes. Half of this distance is called the \textit{packing radius}.
+
   The \textit{nominal coding gain} \(\gamma_{c}\) (a.k.a. \textit{Hermite parameter}) of an \(n\)-dimensional lattice is
   \begin{align}
     \gamma_{c}=\left(d_{\text{min}}/\sqrt[n]{V}\right)^{2}~,
   \end{align}
   characterizing the ratio of the level of protection to the required spatial resources.
+  The \textit{density} of a lattice is the fraction of the total volume of space that is occupied by spheres of radius \(\frac{1}{2}d_{\text{min}}\) centered at each point in the lattice,
+  \begin{align}
+    \Delta=\frac{\text{volume of one sphere}}{\sqrt{V}}~.
+  \end{align}
 
-  Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a non-zero vector in the lattice. This is an analogue of the minimum distance of binary codes. Half of the minimal norm is called the \textit{packing radius}.
+# Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a non-zero vector in the lattice.
 
 features:
   rate: 'Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040}.'
