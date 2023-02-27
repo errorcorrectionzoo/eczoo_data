@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual_lattice
+
+name: 'Dual lattice code'
+
+description: |
+  Also called the \textit{reciprocal} or \textit{polar} lattice code.
+  For any \(n\)-dimensional lattice \(L\), the dual lattice is
+  \begin{align}
+  L^{\perp} = \{ y\in \mathbb{R}^{n} ~|~ x \cdot y \in \mathbb{Z} \forall x \in L\},
+  \end{align}
+  where the Euclidean inner product is used.
+
+  A lattice that is contained in its dual, \(L \subseteq L^\perp\), is called \textit{integral}. The Gram matrix of such a lattice has integer entries, and its dual is contained in a suitably scaled version of itself, \(L^{\perp} \subseteq L/\det L\).
+  Integral lattices are classified into \textit{even} or \textit{odd}, where the norm squared of every lattice vector is an even or odd integer, respectively.
+
+  A lattice that is equal to its dual, \(L^\perp = L\), is called \textit{unimodular} or \textit{self-dual}.
+  Unimodular lattices have \(\det L = \pm 1\).
+
+#   A code that contains its dual, \(C^\perp \subseteq C\), is called \textit{dual-containing}.  The dual of a dual code is the original code. A code is dual-containing iff its dual is self-orthogonal.
+
+protection: |
+  The Gram matrix of \(L^{\perp}\) is the inverse of that of \(L\).
+  The generator matrix of \(L^{\perp}\) is the transposed inverse of that of \(L\).
+
+  The minimum norm of a unimodular lattice satisfies
+  \begin{align}
+    \mu\leq2\left[\frac{n}{24}\right]+2~,
+  \end{align}
+  unless \(n = 23\) \cite{doi:10.1006/jnth.1998.2306}.
+
+relations:
+  parents:
+    - code_id: points_into_lattices
+  cousins:
+    - code_id: dual
+      detail: 'Dual lattices are lattice analogues of dual codes. There are several parallels between (doubly-even) self-dual binary codes and (even) unimodular lattices \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/3-540-30731-1}. There are also parallels between self-dual codes over \(\mathbb{Z}_{2k}\) and even unimodular lattices \cite{doi:10.1109/18.761269}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-25'
