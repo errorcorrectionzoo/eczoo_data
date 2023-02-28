@@ -11,7 +11,7 @@ name: 'Sphere packing'
 
 description: |
   Encodes states (codewords) into coordinates in the \(n\)-dimensional real coordinate space \(\mathbb{R}^n\).
-  The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice.
+  The number of codewords may be infinite because the coordinate space is infinite, so various restricted versions have to be constructed in practice.
 
   Sphere packings provide ways of encoding digital or analog information into the frequency, amplitude, and phase of one or more analog waveforms for transmission through, e.g., an optical fiber or free space.
   This is due to Kotelnikov's \cite{manual:{V. A. Kotelnikov, “The theory of optimum noise immunity,” PhD Thesis, Molotov Energy Institute, Moscow, Jan. 1947}} and Shannon's \cite{doi:10.1109/JRPROC.1949.232969} fundamental observation that a discretized electromagnetic signal of finite-bandwidth can be represented as a point in \(\mathbb{R}^n\).
@@ -41,6 +41,14 @@ protection: |
   The Kabatiansky-Levenshtein bound \cite{manual:{G. A. Kabatiansky, V. I. Levenshtein, “On Bounds for Packings on a Sphere and in Space”, Probl. Peredachi Inf., 14:1 (1978), 3–25; Problems Inform. Transmission, 14:1 (1978), 1–17}} says that any sphere packing must satistfy \(\frac{1}{n}\log_{2}\Delta\lesssim-0.5990\) asymptotically with dimension \(n\).
   Other bounds include the Rogers bound \cite{doi:10.1112/plms/s3-8.4.609}.
   For more details, see \cite[Ch. 10.4]{preset:EricZin}\cite[Ch. 1]{doi:10.1007/978-1-4757-6568-7}.
+
+  The covering problem asks how one can cover all of space by overlapping spheres in the most efficient way.
+  The \textit{thickness} \(\Theta\) (a.k.a. covering density or sparsity) of a covering is defined in the same way as the (packing) density, but with the spheres' \textit{covering radius} now being the smallest one such that the spheres cover all space.
+
+  There is an upper bound on the thickness of a covering in dimensions \(n>3\) \cite{doi:10.1112/S0025579300001030} as well as an asymptotic lower bound \cite{doi:10.1112/S0025579300002059},
+  \begin{align}
+    \frac{n}{e\sqrt{e}}\lesssim\Theta\leq n\ln n+n\ln\ln n+5n~.
+  \end{align}
 
 features:
   rate: 'Random sphere packings can achieve the capacity of the additive Gaussian white-noise (AGWN) channel \cite{doi:10.1002/j.1538-7305.1959.tb03905.x}; see the book \cite{doi:10.1007/978-1-4757-6568-7} for more details. Tradeoffs between various parameters have been analyzed \cite{doi:10.1002/j.1538-7305.1963.tb04013.x}. Deterministic sets of constellations from quadrature rules can also achieve capacity \cite{doi:10.1109/ALLERTON.2010.5706965}.'
