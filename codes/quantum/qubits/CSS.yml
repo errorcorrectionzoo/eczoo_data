@@ -32,8 +32,14 @@ description: |
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
 
-  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}.
+  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}. Note, that \(C_X^\perp \subseteq C_Z\) implies  \(C_Z^\perp \subseteq C_X^\). In case of a degenerate code, to find the minimum distance of the quantum code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators. Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,dZ)]]\) \(CSS(C_X, C_Z)\) code are: 
+  \begin{align}
+  d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
+  d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
+  d&=\min\{d_X,d_Z\}
+  \end{align}
 
+  , where \(w_H\) is the Hamming weight of a codeword. 
 
   \subsection{CSS-to-homology correspondence}
 
@@ -115,6 +121,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: balopat
+      date: '2023-02-25'
     - user_id: VictorVAlbert
       date: '2022-09-10'
     - user_id: VictorVAlbert
