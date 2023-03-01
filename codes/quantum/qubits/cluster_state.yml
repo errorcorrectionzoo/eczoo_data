@@ -11,14 +11,14 @@ name: 'Cluster-state code'
 introduced: '\cite{arxiv:quant-ph/0004051}'
 
 description: |
-  Qubit stabilizer code whose codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
-  This is done by encoding the computation into the geometry of the codeword.
-
-  Cluster states \cite{arxiv:quant-ph/0004051} are stabilizer states defined on a graph. There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
+  Code consisting of cluster states \cite{arxiv:quant-ph/0004051}, which are stabilizer states defined on a graph. There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
   \begin{align}
     S_v = X_{v} \prod_{w\in N(v)} Z_w~,
-  \end{aling}
+  \end{align}
   where the neighborhood \(N(v)\) is the set of vertices which share an edge with \(v\).
+
+  Cluster-state codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
+  This is done by encoding the computation into the geometry of the codeword.
 
   The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the three-dimensional RBH cluster state on the bcc lattice out of the 2D surface code (equivalently, a cubic lattice with qubits on edges and faces).
   More generally, an MBQC scheme can be constructed out of any qubit CSS code (via \textit{clusterization} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
