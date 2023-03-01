@@ -11,7 +11,12 @@ name: 'Fusion-based quantum computing (FBQC) code'
 short_name: 'FBQC'
 introduced: '\cite{arXiv:2101.09310}'
 
-description: 'Fusion Based Quantum Computing, or FBQC, describes a fault tolerant way to produce \textit{fusion networks}, or large entangled states starting from small constant-sized entangled resource states along with destructive measurements called \textit{fusions}. These large states can be produced asychronously in the fusion framework and can be used as resources, as in measurement-based quantum computation (MBQC), or as logical states of topological codes. The difference from ordinary MBQC is that error-correction is baked into the state-generation protocol.'
+description: |
+  Code whose codewords are resource states used in an FBQC scheme. Related to a cluster state via Hadamard transformations.
+
+  FBQC is a fault tolerant way to produce \textit{fusion networks}, or large entangled resource states starting from small constant-sized entangled resource states along with destructive measurements called \textit{fusions}.
+  These large states can be produced asychronously in the fusion framework and can be used as resources, as in measurement-based quantum computation (MBQC), or as logical states of topological codes.
+  The difference from ordinary MBQC is that error-correction is baked into the state-generation protocol and two-qubit (instead of single-qubit) measurements are performed.
 
 protection: 'Protects against erasure, Pauli errors, photon loss, fusion failure from non-determinism, and faulty resource states. Redundancy in fusion outcomes is captured by the check operator group. Fusion measurement outcomes form a syndrome that allows to correct for Pauli errors. There is no physical error correction, and decoding output is simply used to update the Pauli frame.'
 
@@ -43,8 +48,9 @@ relations:
   parents:
     - code_id: qubit_stabilizer
       detail: 'The resource states in FBQC are small stabilizer states, and after fusion measurements, the outputs are stabilizers (conditioned on measurement outcomes).'
-
   cousins:
+    - code_id: cluster_state
+      detail: 'FBQC resource states are related to cluster states by Hadamard transformations.'
     - code_id: topological
       detail: 'Arbitrary topological codes can be created using FBQC, as can topological features such as defects and boundaries, by modifying fusion measurements or adding single qubit measurements.'
     - code_id: dual_rail
@@ -57,6 +63,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-01'
+    - user_id: YaronJarach
+      date: '2023-03-01'
     - user_id: VictorVAlbert
       date: '2021-12-30'
     - user_id: DhruvDevulapalli
