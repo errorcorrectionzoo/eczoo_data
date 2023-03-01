@@ -15,7 +15,15 @@ description: |
 features:
 
   rate: |
-    The Holevo channel capacity is the highest rate of classical information transmission through a quantum channel with arbitrarily small error rate \cite{manual:{A. S. Holevo, “Bounds for the Quantity of Information Transmitted by a Quantum Communication Channel”, Probl. Peredachi Inf., 9:3 (1973), 3–11; Problems Inform. Transmission, 9:3 (1973), 177–183},doi:10.1103/PhysRevA.56.131,doi:10.1109/18.651037}.
+    The Holevo channel capacity,
+    \begin{align}
+      C=\lim_{n\to\infty}\frac{1}{n}\chi\left({\cal N}^{\otimes n}\right)~,
+    \end{align}
+    where \(\chi\) is the Holevo information,
+    is the highest rate of classical information transmission through a quantum channel with arbitrarily small error rate \cite{manual:{A. S. Holevo, “Bounds for the Quantity of Information Transmitted by a Quantum Communication Channel”, Probl. Peredachi Inf., 9:3 (1973), 3–11; Problems Inform. Transmission, 9:3 (1973), 177–183},doi:10.1103/PhysRevA.56.131,doi:10.1109/18.651037}.
+
+    This capacity is equal to the \textit{single-letter} Holevo information of a single copy of the channel, \(\chi(\cal{N})\), for all known deterministically constructed channels.
+    However, it is known to be superadditive, i.e., not equal to the single-copy case, for particular random channels \cite{arxiv:0809.3972}.
 
     Corrections to the Holevo capacity and tradeoff between decoding error, code rate and code length are determined in quantum generalizations of small \cite{arxiv:1308.6503}, moderate \cite{arxiv:1701.03114,arxiv:1709.05258}, and large \cite{arxiv:1409.3562} deviation analysis.
     Bounds also exist on the one-shot capacity, i.e., the achievability of classical codes given only one use of the quantum channel \cite{arxiv:quant-ph/9703013,arxiv:quant-ph/0206186,arxiv:quant-ph/0611013,arxiv:1007.5456,arxiv:1312.3822,arxiv:2208.02132}; see \cite[Table 2]{arxiv:2208.02132} for a summary.
