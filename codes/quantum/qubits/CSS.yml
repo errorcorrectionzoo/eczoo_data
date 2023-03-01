@@ -26,15 +26,21 @@ description: |
   \end{align}
   The above condition guarantees that the \(X\)-stabilizer generators, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
 
-  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\). The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X^\).
+  Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\).
+  The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
+  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)).
+  The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
   Basis states for the code are, for \(\gamma \in C_X\),
   \begin{align}
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
 
-  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\). In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\). The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}.
+  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
+  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
+  The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}.
 
-  To find the minimum distance of degenerate CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators. Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,dZ)]]\) \(CSS(C_X, C_Z)\) code are:
+  To find the minimum distance of degenerate CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
+  Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,dZ)]]\) \(CSS(C_X, C_Z)\) code are:
   \begin{align}
   d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
   d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
@@ -47,7 +53,9 @@ description: |
   \begin{defterm}{CSS-to-homology correspondence}
   \label{topic:CSS-to-homology-correspondence}
   CSS codes and their properties can be formulated in terms of homology theory, yielding a powerful correspondence between codes and chain complexes, the primary homological structures.
-  There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes. Codes constructed in this manner are sometimes called \textit{homological CSS codes}, but they are equivalent to CSS codes. This mapping of codes to manifolds allows the application of structures from topology to error correction, yielding \hyperref[code:generalized_homological_product]{various QLDPC codes} with favorable properties.
+  There exists a many-to-one mapping from size three chain complexes to CSS codes \cite{doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0605094,arXiv:1311.0885,arXiv:1802.01520} that allows one to extract code properties from topological features of the complexes.
+  Codes constructed in this manner are sometimes called \textit{homological CSS codes}, but they are equivalent to CSS codes.
+  This mapping of codes to manifolds allows the application of structures from topology to error correction, yielding \hyperref[code:generalized_homological_product]{various QLDPC codes} with favorable properties.
   \end{defterm}
 
   A \textit{chain complex} of size three is given by binary vector spaces \(A_2\), \(A_1\), \(A_0\) and binary matrices \(\partial_{i=1,2}\) (called \textit{boundary operators}) \(A_i\) to \(A_{i-1}\) that satisfy \(\partial_1 \partial_2 = 0\). Such a complex is typically denoted as
@@ -122,6 +130,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: balopat
+      date: '2023-02-28'
     - user_id: balopat
       date: '2023-02-25'
     - user_id: VictorVAlbert
