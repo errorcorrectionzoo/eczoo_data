@@ -20,7 +20,7 @@ description: |
   Cluster-state codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
   This is done by encoding the computation into the topological features of the cluster state''s graph.
 
-  An MBQC scheme can be constructed out of any qubit CSS code (via \textit{clusterization} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
+  An MBQC scheme can be constructed out of any qubit CSS code (via \textit{foliation} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
   The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (equivalently, a cubic lattice with qubits on edges and faces).
 
 protection: |
@@ -33,14 +33,18 @@ features:
 
   general_gates:
     - 'The computation encoded in pre-determined fashion via topological features of the cluster state''s graph, such as boundaries, defects, or twists.
+    Such features can be created using \(Z\)-type measurements, which effectively cut a qubit off from the cluster state.
     Non-Clifford gates are performed by inserting non-Clifford states into particular \textit{singular} qubits.
+    More generally, any gate protocol of a qubit stabilizer code yields an MBQC protocol \cite{arxiv:1811.11780}.
 
     To perform the computation, subsets qubits are measured, e.g., along one two-dimensional slice of a 3D lattice for each time step.
     This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
-    The computation terminates after all qubits are measured.'
+    The computation terminates after all qubits are measured.
+
+    The entire cluster state does not need to be created at the start of the computation. Instead, the portion of the cluster state in the extra dimension can be initialized as the computation progresses.'
 
   decoders:
-    - 'MBQC syndrome extraction is performed by multiplying certain single-qubit measurements, which yield syndrome values.'
+    - 'MBQC syndrome extraction is performed by multiplying certain single-qubit \(X\)-type measurements, which yield syndrome values.'
 
   code_capacity_threshold:
     - 'Independent \(X,Z\) noise: \(p_X = 2.9\%\) under MWPM decoding \cite{arxiv:quant-ph/0510135}.
@@ -73,9 +77,9 @@ relations:
   cousins:
     - code_id: fusion
       detail: 'FBQC and MBQC are both computational models in which computation is done by measuring resource states (which are qubit stabilizer states).
-      The difference of FBQC from ordinary MBQC is that error-correction is baked into the state-generation protocol, and two-qubit (instead of single-qubit) measurements are performed.'
+      The difference from ordinary MBQC is that error-correction two-qubit measurements are performed, which requires a foliation with more qubits.'
     - code_id: css
-      detail: 'A resource cluster state can be constructed out of any qubit CSS code via clusterization. Conversely, CSS codes can be constructed out of cluster states via \textit{foliation} \cite{arxiv:1607.02579}.'
+      detail: 'A resource cluster state can be constructed out of any qubit CSS code via foliation. Conversely, CSS codes can be constructed out of cluster states \cite{arxiv:1607.02579}.'
     - code_id: qubit_stabilizer
       detail: 'Any fault-tolerant scheme based on qubit stabilizer codes can be mapped into an MBQC protocol \cite{arxiv:1811.11780}.'
     - code_id: gkp-cluster-state
