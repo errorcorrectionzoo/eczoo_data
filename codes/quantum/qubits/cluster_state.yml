@@ -11,9 +11,10 @@ name: 'Cluster-state code'
 introduced: '\cite{arxiv:quant-ph/0004051,arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}'
 
 description: |
-  Qubit stabilizer code used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension by encoding the computation into the geometry of a resource cluster state.
+  Qubit stabilizer code whose codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
+  This is done by encoding the computation into the geometry of the codeword.
 
-  Cluster states \cite{arxiv:quant-ph/0004051} are stabilizer states defined on a graph, with one stabilizer generator \(S_v\) per vertex \(v\) of the form
+  Cluster states \cite{arxiv:quant-ph/0004051} are stabilizer states defined on a graph. There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
   \begin{align}
     S_v = X_{v} \prod_{w\in N(v)} Z_w~,
   \end{aling}
@@ -33,7 +34,6 @@ features:
     This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
     The computation terminates after all qubits are measured.'
 
-features:
   decoders:
     - 'MBQC Syndrome extraction is performed by multiplying certain single-qubit measurements, which yield syndrome values.'
 
@@ -71,8 +71,6 @@ relations:
   cousins:
     - code_id: fusion
       detail: 'FBQC and MBQC are both computational modeals based on resource states (in the form of qubit stabilizer states) and measurements. A difference of FBQC is that it constructs a large state by fusing multiple smaller resource states in such a way that error-correction can be performed during the fusion.'
-    - code_id: surface
-      detail: 'The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses a three-dimensional cluster state on the bcc lattice out of the 2D surface code.'
     - code_id: css
       detail: 'A resource cluster state can be constructed out of any qubit CSS code via clusterization. Conversely, CSS codes can be constructed out of cluster states via \textit{foliation} \cite{arxiv:1607.02579}.'
     - code_id: qubit_stabilizer
@@ -86,5 +84,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-01'
+    - user_id: YaronJarach
+      date: '2023-03-01'
     - user_id: VictorVAlbert
       date: '2023-03-01'

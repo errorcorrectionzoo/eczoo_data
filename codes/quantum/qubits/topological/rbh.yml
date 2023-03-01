@@ -12,7 +12,11 @@ introduced: '\cite{arxiv:quant-ph/0407255,arxiv:quant-ph/0510135,arxiv:quant-ph/
 
 description: |
   Three-dimensional cluster-state code on the bcc lattice (equivalently, a cubic lattice with qubits on edges and faces).
-  Corresponds to a clusterization of the 2D surface code and used in the first MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}.
+
+  The MBQC version of the code is defined as the unique ground state of a certain code Hamiltonian. This state is the resource state used in the first MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}.
+  It encodes the temporal gate operations on the surface code into a third spatial dimension.
+
+  Addition of certain boundary Hamiltonians yields a degenerate ground-state space that serves as an example of a symmetry-protected self-correcting memory \cite{arXiv:1805.01474}.
 
 protection: |
   Exhibits symmetry-protected self-correction \cite{arXiv:1805.01474}. The energy barrier for symmetry-preserving exhitations outside of the code space grows linearly with the lattice width. When the system is coupled locally to a thermal bath respecting the symmetry and below a critical temperature, the memory time grows exponentially with the lattice width.
@@ -28,11 +32,11 @@ relations:
     - code_id: cluster_state
   cousins:
     - code_id: symmetry_protected_self_correct
-      detail: ''
+      detail: 'The RBH code can exhibit self-correction protected by a certain symmetry.'
     - code_id: subsystem_color
       detail: 'The RBH code on a certain lattice is dual to the gauge color code.'
     - code_id: surface
-      detail: 'Without symmetry protection, one of 2D boundaries of the cubic RBH code is effectively a 2D toric code.'
+      detail: 'The RBH state encodes the temporal gate operations on the surface code into a third spatial dimension \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}. In addition, without symmetry protection, one of 2D boundaries of the underlying cubic RBH code is effectively a 2D toric code.'
     - code_id: bcc
       detail: 'The RBH state is defined on the bcc lattice.'
 
