@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Cluster-state code'
-introduced: '\cite{arxiv:quant-ph/0004051,arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}'
+introduced: '\cite{arxiv:quant-ph/0004051}'
 
 description: |
   Qubit stabilizer code whose codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
@@ -37,6 +37,9 @@ features:
   decoders:
     - 'MBQC Syndrome extraction is performed by multiplying certain single-qubit measurements, which yield syndrome values.'
 
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(p_X = 2.9\%\) under MWPM decoding \cite{arxiv:quant-ph/0510135}.
+    The threshold under ML decoding corresponds to the value of critical point of the 3D random-plaquette \(\mathbb{Z}_2\) gauge theory (3D-RPGM) via the statistical mechanical mapping \cite{arxiv:quant-ph/0110143}, calculated to be \(3.3 \%\) \cite{arxiv:quant-ph/0401101} (see also \cite{arxiv:cond-mat/0501372}).'
 
 # Do only local measurements, X in the bulk (vacuum V)
 # Multiply outcomes to get stabilizers XXXXXX on cube, which is the same as product of cluster state stabs on a cube since Z's cancel
@@ -58,19 +61,13 @@ features:
 
 # So information is effectively stored near the boundary of the 2D slice. Measuring slice by slice will teleport it to the next slice.
 
-
-code_capacity_threshold:
-   - 'Independent \(X,Z\) noise: \(p_X = 2.9\%\) under MWPM decoding \cite{arxiv:quant-ph/0510135}.
-   The threshold under ML decoding corresponds to the value of critical point of the 3D random-plaquette \(\mathbb{Z}_2\) gauge theory (3D-RPGM) via the statistical mechanical mapping \cite{arxiv:quant-ph/0110143}, calculated to be \(3.3 \%\) \cite{arxiv:quant-ph/0401101} (see also \cite{arxiv:cond-mat/0501372}).'
-
-
 relations:
   parents:
     - code_id: qubit_stabilizer
       detail: 'Cluster states are particular qubit stabilizer states defined on a graph.'
   cousins:
     - code_id: fusion
-      detail: 'FBQC and MBQC are both computational modeals based on resource states (in the form of qubit stabilizer states) and measurements. A difference of FBQC is that it constructs a large state by fusing multiple smaller resource states in such a way that error-correction can be performed during the fusion.'
+      detail: 'FBQC and MBQC are both computational modeals done by measuring resource states (which are qubit stabilizer states). A difference of FBQC is that it constructs a large state by fusing multiple smaller resource states in such a way that error-correction can be performed during the fusion.'
     - code_id: css
       detail: 'A resource cluster state can be constructed out of any qubit CSS code via clusterization. Conversely, CSS codes can be constructed out of cluster states via \textit{foliation} \cite{arxiv:1607.02579}.'
     - code_id: qubit_stabilizer
