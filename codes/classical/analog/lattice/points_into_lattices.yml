@@ -36,11 +36,25 @@ protection: |
   The covering radius of a lattice is defined similarly as above, but with the spheres' \textit{covering radius} now being the smallest one such that the spheres cover all space.
   In general, finding the covering radius of lattice is \(NP\)-hard \cite{manual:{van Emde, Boas P. "Another NP-complete partition problem and the complexity of computing short vectors in lattices." TR (1981).}}.
 
+  The \textit{lattice quantizer problem} is to find a lattice whose \textit{fundamental Voronoi cell} \(\Pi\), the Voronoi cell at the origin, has the smallest possible normalized second moment,
+  \begin{align}
+    G(\Pi)=\frac{\frac{1}{n}\int_{\Pi}x\cdot x\,dx}{\text{Vol}(\Pi)^{1+2/n}}\,.
+  \end{align}
+  Higher-dimensional lattices yield quantizers with lower second moments than the 1D integer lattice CITE.
+
+# P. L. Zador, Development and evaluation of procedures for quantiZing multivariate distributions, Ph.D. Dissertation, Stanford Univ., 1963 [2].
+# Asymptotic quantization error of continuous signals and their quantization dimension, PGIT 28 (1982), 139-149 [2].
 
 # Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a non-zero vector in the lattice.
 
 features:
-  rate: 'Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040}.'
+  rate: |
+    Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040} CITE.
+
+# R. de Buda, The upper error bound of a new near-optimal code, PGIT 21 (1975}, 441-445
+# R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145
+# W. Kassem, Optimal Lattice Codes for the Gaussian Channel, Ph.D Dissertation, McMaster Univ., Hamilton, Ontario, 1981
+
 
 notes:
   - 'See books \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/b98975} for introductions and overviews of lattices.'

@@ -19,7 +19,13 @@ description: |
 
   The dual code \(C^\perp\) is the row space of the parity check matrix of \(C\). The dual code is the kernel of the encoding map for \(C\), and \(\dim C^\perp = n-k\).
 
-  For cases when \(q\) is a square, an alternative definition of dual substitutes the Euclidean inner product for the \textit{Hermitian inner product}, \(x\cdot y \to \sum_{i=1}^n x_i y^{\sqrt{q}}_i\). More general inner products can also be considered \cite{doi:10.1007/s10623-016-0282-8}. Self-dual codes with respect to the Hermitian inner product are called \textit{Hermitian self-dual}; similar definitions hold for self-orthogonal and dual-containing as well as other inner products.
+  An alternative definition of dual substitutes the Euclidean inner product for the \textit{Hermitian inner product},
+  \begin{align}
+    x\cdot y \to x\cdot \bar{y} = \sum_{i=1}^n x_i y^{p}_i~.
+  \begin{align}
+  Self-dual codes with respect to the above product are called \textit{Hermitian self-dual}; similar definitions hold for self-orthogonal and dual-containing.
+
+  More general inner products can also be considered \cite{doi:10.1007/s10623-016-0282-8}.
 
 protection: |
   The dual of an \([n,k,d] \) code is an \([n,n-k,d'']\) code, where \(d''\) is not always related to \(d\). The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.
@@ -29,8 +35,9 @@ protection: |
     d\leq 4\left[\frac{n}{24}\right]+4
   \end{align}
   unless \(n = 22\) modulo four \cite{doi:10.1109/18.651000}.
-  The minimum distance of doubly-even binary self-dual codes asymptotically satisfies \(d\leq0.1664n+o(n)\) \cite{doi:10.1109/18.605587}.
 
+  The generator matrix of the Hermitian dual of a code with generator matrix \(G = [I_k~~A]\) is \([-\bar{A}^T~~I_{n-k}]\), where \(\bar{A}\) contains matrix elements of \(A\) raised to the \(p\)th power.
+  A code is Hermitian self-dual if and only if \(A \bar{A}^{T} = -I_{n/2}\).
 
 notes:
   - See books \cite{doi:10.1007/3-540-30731-1,doi:10.1017/CBO9780511807077} for more on self-dual codes.
@@ -42,7 +49,7 @@ relations:
     - code_id: linear
   cousins:
     - code_id: divisible
-      detail: 'Binary self-dual codes are singly-even.'
+      detail: 'Binary self-dual codes are singly-even. The minimum distance of doubly-even binary self-dual codes asymptotically satisfies \(d\leq0.1664n+o(n)\) \cite{doi:10.1109/18.605587}.'
 
 
 # Begin Entry Meta Information
