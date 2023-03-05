@@ -4,7 +4,7 @@
 #######################################################
 
 code_id: psk
-physical: reals
+physical: spheres
 logical: reals
 
 name: 'Phase-shift keying (PSK) code'
@@ -28,12 +28,12 @@ realizations:
 
 relations:
   parents:
-    - code_id: polyphase
-      detail: 'A polyphase code can be thought of as a concatenation of a \(q\)-ary outer code with a PSK inner code. When the outer code is trivial, the construction reduces to a PSK code.'
-    - code_id: qam
-      detail: 'PSK is a version of QAM where the constellation consists of points arranged equidistantly on a circle.'
+    - code_id: modulation
+      detail: 'PSK is a modulation whose constellation consists of points arranged equidistantly on a circle.'
     - code_id: polygon
       detail: 'The PSK constellation forms a \(q\)-gon.'
+    - code_id: polyphase
+      detail: 'A polyphase code can be thought of as a concatenation of a \(q\)-ary outer code with a PSK inner code. When the outer code is trivial, the construction reduces to a PSK code.'
   cousins:
     - code_id: gray
       detail: '1D Gray codes are often concatenated with PSKs so that the Hamming distance between the bitstrings encoded into the points is a discretized version of the Euclidean distance between the points.'
