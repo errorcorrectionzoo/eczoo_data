@@ -5,16 +5,18 @@
 
 code_id: rings_into_rings
 physical: rings
-#logical: rings
+
 
 name: 'Ring code'
 
-description: 'Encodes \(K\) states (codewords) in \(n\) coordinates over a ring \(R\).'
+description: 'Encodes \(K\) states (codewords) in \(n\) coordinates over a finite ring \(R\).'
 
 relations:
   parents:
-    - code_id: ecc_finite
     - code_id: block
+    - code_id: ecc_finite
+    - code_id: group_classical
+      detail: 'A ring \(R\) is an abelian group under addition.'
 
 
 # Begin Entry Meta Information
