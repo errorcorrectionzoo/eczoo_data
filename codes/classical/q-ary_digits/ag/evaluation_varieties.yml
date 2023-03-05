@@ -4,6 +4,8 @@
 #######################################################
 
 code_id: evaluation_varieties
+physical: q-ary_digits
+logical: q-ary_digits
 
 name: 'Evaluation code'
 introduced: '\cite{doi:10.1007/BF02249124,doi:10.1007/978-94-011-3810-9}'
@@ -27,10 +29,9 @@ notes:
 relations:
   parents:
     - code_id: q-ary_linear
-# This is parent because children include binary RM codes
+      detail: 'Evaluation codes are defined using polynomial or rational functions evaluated on a subset of affine or projective space.
+      Given access to more general structures (i.e., morphisms of algebras), any \(q\)-ary linear code can be formulated as an evaluation code (\cite{preset:HPAlgCodes}, Sec. 4.1; \cite{preset:TVNAlgCodes}, Prop. 1.1.4).'
   cousins:
-    - code_id: q-ary_linear
-      detail: 'Evaluation codes are defined using polynomial or rational functions evaluated on a subset of affine or projective space. Given access to more general structures (i.e., morphisms of algebras), any \(q\)-ary linear code can be formulated as an evaluation code (\cite{preset:HPAlgCodes}, Sec. 4.1; \cite{preset:TVNAlgCodes}, Prop. 1.1.4).'
     - code_id: ag
       detail: 'Evaluation codes on varieties can also be considered AG codes since they use algebraic geometry in quantifying code bounds. However, early AG constructions all used only one-dimensional varieties, i.e., algebraic curves.'
 

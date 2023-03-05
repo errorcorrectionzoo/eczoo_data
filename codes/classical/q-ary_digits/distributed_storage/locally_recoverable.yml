@@ -4,6 +4,8 @@
 #######################################################
 
 code_id: locally_recoverable
+physical: q-ary_digits
+logical: q-ary_digits
 
 name: 'Locally recoverable code (LRC)'
 short_name: 'LRC'
@@ -26,8 +28,9 @@ realizations:
 
 relations:
   parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+      detail: 'Locally recoverable codes protect against coordinate erasure.'
     - code_id: distributed_storage
-      detail: ''
 #    - code_id: codes_with_availability
 #      detail: ''
 #     - code_id: regenerating_code
