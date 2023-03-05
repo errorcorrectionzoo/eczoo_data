@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: gabidulin
-physical: q-ary_digits
-logical: q-ary_digits
+physical: matrices
+logical: matrices
 
 name: 'Gabidulin code'
 introduced: '\cite{manual:{E. M. Gabidulin, \textit{Theory of Codes with Maximum Rank Distance}, Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)},doi:10.1109/18.75248}'
@@ -34,11 +34,14 @@ realizations:
 relations:
   parents:
     - code_id: rank_metric
-      detail: 'Gabidulin codes over \(GF(q^N)\), when expressed as matrices over \(GF(q)\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(GF(q^N)\)-linear (see Rm. 16 in Ref. \cite{arxiv:1410.1333}).'
-    - code_id: q-ary_linear
+      detail: 'Gabidulin codes over \(GF(q^N)\), when expressed as matrices over \(GF(q)\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(GF(q^N)\)-linear \cite[Rm. 16]{arxiv:1410.1333}.'
   cousins:
     - code_id: maximum_rank_distance
       detail: 'Gabidulin codes over \(GF(q^N)\) with maximum rank-distance, when expressed as matrices over \(GF(q)\), are MRD codes.'
+    - code_id: q-ary_linear
+      detail: 'Gabidulin codes over \(GF(q^N)\), when expressed as vectors over \(GF(q^N)\), are linear \(q\)-ary codes.'
+
+
 #Each Gabidulin codeword will be an evaluation of a bounded-degree linearized polynomial with coefficients in \(GF(q^m)\) over a set of \(n\) elements in \(GF(q^m)\) that are independent over \(GF(q)\). These \(n\) elements can each be converted into rows of a rank metric code over \(GF(q)\) by taking a basis of \(GF(q^m)\) in \(GF(q)\) and using the coefficients of the linear expansion as a row vector.
 
 
