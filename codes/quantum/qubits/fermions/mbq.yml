@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mbq
+physical: qubits
+logical: qubits
+
+name: 'Tetron Majorana code'
+short_name: 'Tetron'
+introduced: '\cite{arXiv:cond-mat/0010440,arXiv:1609.01697,arxiv:1610.05289}'
+
+description: |
+  Also called a \textit{Majorana box qubit} or \textit{Majorana qubit}.
+  An \([[2n,2,2]]_{f}\) Majorana stabilizer code forming the even-fermion-parity ground-state subspace of two parallel Kitaev Majorana chains in their topological phase.
+  An extension using three Kitaev chains and housing two logical qubits of the same parity is called the \text{hexon Majorana code}.
+
+protection: |
+  Single Majorana operators are detectable because they map the even-parity codespace into an odd-parity error space.
+
+features:
+  general_gates:
+    - 'Braiding and fusion of MZMs, which act as Ising anyons \cite{arxiv:1006.4395,arxiv:1511.05153}.'
+  decoders:
+    - 'Qubit readout can be done by charge sensing \cite{arxiv:1511.05153,arXiv:1609.01697,arxiv:1610.05289,arxiv:2004.02124}.'
+
+
+relations:
+  parents:
+    - code_id: majorana_stab
+  cousins:
+    - code_id: hamiltonian
+      detail: 'The tetron code forms the ground-state subspace of two Kitaev Majorana chain Hamiltonians.'
+    - code_id: topological
+      detail: 'The MZMs used to define the tetron code act as Ising anyons, which are non-Abelian.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-07'
