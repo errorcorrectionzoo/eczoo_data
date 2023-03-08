@@ -9,7 +9,7 @@ logical: qubits
 
 name: 'Very small logical qubit (VSLQ) code'
 short_name: 'VSLQ'
-introduced: '\cite{doi:10.1103/PhysRevLett.116.150501}'
+introduced: '\cite{arxiv:1510.06117}'
 
 description: 'The two logical codewords are \(|\pm\rangle \propto (|0\rangle\pm|2\rangle)(|0\rangle\pm|2\rangle)|0\rangle|0\rangle\), where the total Hilbert space is the tensor product of two qudits (whose ground states \(|0\rangle\) and second excited states \(|2\rangle\) are used in the codewords) and two oscillators. In the original proposal for implementation, the single logical qubit is given by the two lowest energy states of a circuit composed of two transmons coupled to two lossy resonators, but the resonators can also be thought of as qubits since only a few low-lying Fock states are used by the code.'
 
@@ -28,9 +28,10 @@ features:
 
   decoders:
     - 'Logical qubit can be measured with physical qubit measurements along \(X\). Can be implemented by engineering a coupling of one of the qubits to a readout cavity via the interaction \(\sigma_x (a+a^\dagger)\) \cite{doi:10.1103/PhysRevLett.115.203601}. This results in an \(X\)-dependent shift of the readout cavity resonance which can be measured.'
+    - 'Star-code autonomous correction scheme \cite{arxiv:2302.06707}.'
 
 realizations:
-  - 'Related star code realized using superconducting circuits \cite{arxiv:2302.06707}.'
+  - 'Star-code autonomous correction scheme realized using superconducting circuits \cite{arxiv:2302.06707}.'
 
 relations:
   parents:
