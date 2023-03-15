@@ -52,8 +52,8 @@ description: |
 
 protection: |
   Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code, and there
-  exists a planar code with \([[L^2,1,L]]\) \cite{arxiv:1111.4022}. More
-  generally, the code distance is related to the homology of the cellulation
+  exists a planar \(2L^2-2d+1\) CSS code \cite{arxiv:quant-ph/9810055}\cite{arxiv:quant-ph/9811052}. 
+  More generally, the code distance is related to the homology of the cellulation
   \cite{arXiv:quant-ph/0110143}.
 
   Coherent physical errors are expected to become incoherent logical errors after MWPM decoding; see corroborating numerical studies performed via the Majorana mapping \cite{arxiv:1710.02270} as well as analytical bounds \cite{arxiv:1912.04319}.
@@ -166,6 +166,9 @@ relations:
         realize \(\mathbb{Z}_2\) topological order, a topological phase of
         matter that also exists in \(\mathbb{Z}_2\) lattice gauge theory
         \cite{doi:10.1063/1.1665530}. Codewords correspond to ground state of the code Hamiltonian, and error operators correspond to spontaneous creation and annihilation of pairs of charges or vortices.
+  child:
+    - code_is: rotated_surface_code
+      detail: 'A planar code with higher rate (for the same distance) can be obtained by rotating the lattice \(45^{\circ}\) and modifying the boundaries.'
   cousins:
     - code_id: hypergraph_product
       detail: 'Planar (toric) code can be obtained from hypergraph product of two repetition (cyclic) codes (\cite{arxiv:1202.0928}, Ex. 6).'
@@ -180,6 +183,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: marcusps # github
+      date: '2023-03-15'
     - user_id: VictorVAlbert
       date: '2022-09-20'
     - user_id: VictorVAlbert
