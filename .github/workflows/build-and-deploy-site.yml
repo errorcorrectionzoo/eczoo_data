@@ -106,10 +106,10 @@ jobs:
         working-directory: ./eczoo_sitegen/
         run: |-
           yarn s3-deploy  \
-              "./_site/vv/**"  \
+              "./site/_site/vv/**"  \
               --bucket '${{ secrets.S3_BUCKET }}'  \
               --region '${{ secrets.S3_BUCKET_REGION }}'  \
-              --cwd "./_site/"  \
+              --cwd "./site/_site/"  \
               --etag  \
               --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
               --cacheControl 'max-age=31536000, s-max-age=31536000'  \
@@ -119,10 +119,10 @@ jobs:
         working-directory: ./eczoo_sitegen/
         run: |-
           yarn s3-deploy  \
-              "./_site/**"  \
+              "./site/_site/**"  \
               --bucket '${{ secrets.S3_BUCKET }}'  \
               --region '${{ secrets.S3_BUCKET_REGION }}'  \
-              --cwd ./_site  \
+              --cwd ./site/_site  \
               --distId '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'  \
               --etag  \
               --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
