@@ -84,8 +84,8 @@ jobs:
 
       # --------------------------------
 
-      - name: 'Move generated site to base dir'
-        run: 'mv ./eczoo_sitegen/site/_site .'
+      # - name: 'Move generated site to base dir'
+      #   run: 'mv ./eczoo_sitegen/site/_site .'
 
       # --------------------------------
 
@@ -103,6 +103,7 @@ jobs:
       #     cache: 86400
 
       - name: 'Deploy versioned assets to S3 with durable cache'
+        working-directory: ./eczoo_sitegen/
         run: |-
           yarn s3-deploy  \
               "./_site/vv/**"  \
@@ -115,6 +116,7 @@ jobs:
               --private
 
       - name: 'Deploy site to S3/Cloudfront'
+        working-directory: ./eczoo_sitegen/
         run: |-
           yarn s3-deploy  \
               "./_site/**"  \
