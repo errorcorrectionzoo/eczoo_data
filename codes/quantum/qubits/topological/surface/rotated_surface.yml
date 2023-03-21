@@ -18,14 +18,12 @@ features:
   decoders:
     - 'Local neural-network using 3D convolutions, combined with a separate global decoder \cite{arxiv:2208.01178}.'
   fault_tolerance:
-    - 'A particular choice of CNOT gates during syndrome extraction is required to be fault-tolerant to syndrome qubit errors \cite{arXiv:quant-ph/0110143}\cite{arXiv:1208.0928}\cite{arXiv:1404.3747}.'
+    - 'A particular choice of CNOT gates during syndrome extraction is required to be fault-tolerant to syndrome qubit errors \cite{arXiv:quant-ph/0110143,arXiv:1208.0928,arXiv:1404.3747}.'
 
 relations:
   parents:
-    - code_id: clifford-deformed_surface
-      detail: 'Rotated surface codes can be obtained from surface codes via a constant-depth Clifford circuit.'
     - code_id: surface
-      detail: 'Rotated surface codes can be obtained using the same procedure as for the original surface codes but considering slightly different combinatorial surfaces \cite{arXiv:quant-ph/0703272} \cite{arXiv:1606.07116} than those considered in the original proposal.'
+      detail: 'Rotated surface codes can be obtained using the same procedure as for the original surface codes but considering slightly different combinatorial surfaces \cite{arXiv:quant-ph/0703272,arXiv:1606.07116} than those considered in the original proposal.'
     - code_id: quantum_tanner
       detail: 'Specializing the quantum Tanner construction to the surface code yields the rotated surface code \cite{manual:{Nikolas P. Breuckmann, private communication, 2022},manual:{Anthony Leverrier, \href{https://github.com/errorcorrectionzoo/eczoo_data/files/9210173/rotated.pdf}{Mapping the toric code to the rotated toric code}, 2022.}}.'
     - code_id: hierarchical
@@ -35,6 +33,9 @@ relations:
       detail: 'Rotated code can be obtained from hypergraph product of two cyclic binary cyclic codes with palindromic generator polynomial (\cite{arxiv:1202.0928}, Ex. 7).'
     - code_id: heavy_hex
       detail: 'A rotated surface code can be mapped onto a heavy square lattice, resulting in a code similar to the heavy-hexagon code \cite{arxiv:1907.09528}.'
+
+    # - code_id: clifford-deformed_surface
+    #   detail: 'Rotated surface codes can be obtained from surface codes via a constant-depth Clifford circuit.'
 
 
 # Begin Entry Meta Information
