@@ -11,14 +11,15 @@ name: 'Bosonic c-q code'
 
 description: |
   Bosonic code designed for transmission of classical information through non-classical channels.
-  Typically, such codes encode real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced receiver.
+  Encodes real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced \textit{receiver}.
 
-  Consider we have \(K\) \(n\)-mode coherent states, where each state is uniquely defined through the amplitude vectors \(\mathfb{\alpha}^j=(\alpha_1^j, \alpha_2^j, …, \alpha_n^j)\} for \{j = {1, 2, \cdots, K}\) known as the codeword. The \textit{codebook},
+  The codes consists of \(K\) coherent states on \(n\) modes, where each state is uniquely defined through the amplitude vectors \(\boldsymbol{\alpha}^j=(\alpha_1^j, \alpha_2^j, …, \alpha_n^j)\} for \{j = {1, 2, \cdots, K}\) known as the codeword.
+  The \textit{codebook},
   \begin{align}
   C=\left(\begin{array}{c}
-  \mathbf{\alpha}^{1}\\
+  \boldsymbol{\alpha}^{1}\\
   \vdots\\
-  \mathbf{\alpha}^{K}
+  \boldsymbol{\alpha}^{K}
   \end{array}\right)=\left(\begin{array}{cccc}
   \alpha_{1}^{1} & \alpha_{2}^{1} & \dots & \alpha_{n}^{1}\\
   \vdots & \vdots & \ddots & \vdots\\
@@ -27,7 +28,6 @@ description: |
   \end{align}
   collects each codeword into the matrix \(C\) that characterizes the system of states to discriminate.
 
-  Decoding which codeword in the codebook was sent through a channel is done by a \textit{receiver}.
   From the properties of \(C\), we can assess whether it is possible to optimally discriminate the codebook unambiguously.
   Optimal unambiguous state discrimination requires each vector to be linearly independent, which corresponds to a full-rank codebook.
   This is possible only if \(K \leq n\).
