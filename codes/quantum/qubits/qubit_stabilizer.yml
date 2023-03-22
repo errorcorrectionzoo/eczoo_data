@@ -71,18 +71,20 @@ relations:
       detail: 'If the CWS set \( \mathcal{W} \) is an abelian group not containing \(-I\), then the CWS code is a stabilizer code.'
     - code_id: xp_stabilizer
       detail: 'The XP stabilizer formalism reduces to the Pauli formalism at \(N=2\).'
-    - code_id: stabilizer
-    - code_id: quantum_lego
-      detail: 'Qubit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qubit repetition code, single-qubit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state.'
+    - code_id: qudit_stabilizer
+      detail: 'Modular-qudit stabilizer codes for \(q=2\) correspond to qubit stabilizer codes.
+      Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a Pauli group with a unique number of generators.
+      Conversely, qubit codes can be extended to modular-qudit codes by decorating appropriate generators with powers.
+      For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\).
+      A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into local-dimension-invariant (LDI) form  \cite{arxiv:1910.08122}.
+      Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.'
+    - code_id: galois_stabilizer
+      detail: 'Galois-qudit stabilizer codes for \(q=2\) correspond to qubit stabilizer codes.'
   cousins:
     - code_id: binary_linear
-      detail: 'Qubit stabilizer codes are quantum analogues of binary linear codes.'
+      detail: 'Qubit stabilizer codes are the closest quantum analogues of binary linear codes because addition modulo two corresponds to multiplication of stabilizers in the quantum case.'
     - code_id: dual
       detail: 'Symplectic representations of stabilizer group elements form a linear code over \(GF(2)\) that is self-orthogonal with respect to the symplectic inner product (\cite{doi:10.1201/9781315147901}, Thm. 27.3.6).'
-    - code_id: hamiltonian
-      detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, which consists of an equal linear combination of stabilizer generators and which can be made into a commuting projector Hamiltonian.'
-    - code_id: qudit_stabilizer
-      detail: 'Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a Pauli group with a unique number of generators. Conversely, qubit codes can be extended to modular-qudit codes by decorating appropriate generators with powers. For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\). A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into local-dimension-invariant (LDI) form  \cite{arxiv:1910.08122}. Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.'
 
 
 # Begin Entry Meta Information

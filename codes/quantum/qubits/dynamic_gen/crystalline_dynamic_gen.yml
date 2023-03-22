@@ -3,12 +3,11 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-
 code_id: crystalline_dynamic_gen
 physical: qubits
 logical: qubits
 
-name: 'Crystalline-circuit code'
+name: 'Crystalline-circuit qubit code'
 introduced: '\cite{arxiv:2210.10808}'
 
 description: |
@@ -30,10 +29,9 @@ features:
 
 relations:
   parents:
-    - code_id: dynamic_gen
     - code_id: qubit_stabilizer
+    - code_id: dynamic_gen
     - code_id: translationally_invariant_stabilizer
-
   cousins:
     - code_id: random_circuit
       detail: 'Crystalline-circuit codes can be thought of as random-circuit codes with symmetries.'

@@ -11,7 +11,15 @@ name: 'Subsystem modular-qudit stabilizer code'
 # introduced: '\cite{arXiv:quant-ph/0508131}'
 
 description: |
+  Also called a \textit{gauge stabilizer code}.
   Modular qudit version of a subsystem qubit stabilizer code. Can be obtained by taking a modular qudit stabilizer code and assigning some of its logical qubits to be gauge qubits.
+  For composite qudit dimensions, such codes need not encode an integer number of qudits.
+
+features:
+  decoders:
+    - 'Syndrome measurements are obtained by first measuring gauge operators of the code and taking their products, which give the stabilizer measurement outcomes.
+    The order in which gauge operators are measured is important since they do not commute.
+    There is a sufficient condition for inferring the stabilizer syndrome from the measurements of the gauge generators \cite[Appendix]{arxiv:1012.0425}.'
 
 relations:
   parents:

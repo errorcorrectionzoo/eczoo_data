@@ -10,7 +10,7 @@ short_name: 'QLTC'
 introduced: '\cite{arxiv:1310.5664}'
 
 description: |
-  A local commuting-projector Hamiltonian-based quantum error-correcting code on a finite-tensor-product space of \(n\) identical factors (e.g., qubits, modular qudits, or Galois qudits) which has a nonzero average-energy penalty for creating large errors. Informally, QLTC error states that are far away from the codespace have to be excited states of many of the code's local projectors.
+  A local commuting-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, QLTC error states that are far away from the codespace have to be excited states of many of the code's local projectors.
 
   The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC families as those for which the soundness is asymptotically constant. QLTC families that also have asymptotically constant distance, rate, and weight of local projectors are called \(c^3\)\textit{-QLTCs}; none have been found so far.
 
@@ -30,6 +30,7 @@ notes:
 
 relations:
   parents:
+    - code_id: block_quantum
     - code_id: hamiltonian
       detail: 'Quantum LTC codespaces are ground-state spaces of \(u\)-local Hamiltonians.'
   cousins:
@@ -37,6 +38,7 @@ relations:
       detail: 'Stabilizer LTCs are QLDPC. More general QLTCs are not defined using Pauli strings, but the codespace is the ground-state subspace of a local Hamiltonian. In this sense, QLTCs are QLDPC codes.'
     - code_id: self_correct
       detail: 'The notion of an energy barrier in a self-correcting memory is intimately related to the soundness of a QLTC.'
+
 
 # Begin Entry Meta Information
 _meta:

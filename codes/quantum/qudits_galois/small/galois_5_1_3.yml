@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_5_1_3
+physical: galois
+logical: galois
+
+name: '\([[5,1,3]]_q\) Galois-qudit code'
+introduced: '\cite{preset:GottesmanBook}'
+
+description: |
+  True stabilizer code that generalizes the five-qubit perfect code to Galois qudits of prime-power dimension \(q=p^m\). It has \(4(m-1)\) stabilizer generators expressed as \(X^{\gamma} Z^{\gamma} Z^{-\gamma} X^{-\gamma} I\) and its cyclic permutations, with \(\gamma\) iterating over basis elements of \(GF(q)\) over \(GF(p)\).
+
+notes:
+  - 'This code is described in a talk by \href{https://ethz.ch/content/vp/en/conferences/2014/qec/05_thursday/dab6ca18-7453-4197-aaaa-8b1964ece714.html}{Gottesman}.'
+
+relations:
+  parents:
+    - code_id: galois_true_stabilizer
+    - code_id: quantum_cyclic
+    - code_id: small_distance
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: SarahMengLi
+      date: '2022-02-21'
+    - user_id: VictorVAlbert
+      date: '2022-02-21'
+    - user_id: VictorVAlbert
+      date: '2023-01-14'
