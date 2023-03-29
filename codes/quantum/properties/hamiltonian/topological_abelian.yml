@@ -9,14 +9,23 @@ name: 'Abelian topological code'
 #introduced: ''
 
 description: |
-  Code whose codewords realize topological order associated with an Abelian anyon theory, i.e., an anyon theory which generates an Abelian group under fusion.
-  Any theory is defined by an Abelian group and, for each anyon type \(a\), the phases \(\theta(a)\) obtained by exchanging two anyons of said type CITE In and around Abelian anyon models.
+  Code whose codewords realize topological order associated with an Abelian anyon theory, equivalently, a braided fusion category which is an Abelian group under fusion.
+  Any theory is defined by an Abelian group and, for each anyon type \(a\), the phases \(\theta(a)\) obtained by exchanging two anyons of said type.
 
-  Any local quantum circuit connecting ground states of topological orders with non-isomorphic Abelian groups must have depth that is at least linear in the system's diameter \cite{arXiv:1407.2926}.
+  All 2D abelian topological orders can be understood within the stabilizer formalism \cite{arxiv:2211.03798}.
+  As such, many of the operations one can perform on such codes have both a stabilizer and a topological-phase interpretation.
 
-# non-modular anyon theories (i.e., those with degenerate braiding relations) as well as chiral anyon theories (i.e., those with no possible gapped boundary to the vacuum).
+  Stabilizer generators of topological codes are interpreted as one-form symmetries (i.e., tensor-product operators acting on 1D loops of qubits) of the underlying code states.
+
+  Identification of an anyon \(a\) with the vacuum is equivalent to adding string excitation operators corresponding to \(a\) to the stabilizer group and taking the center to get another stabilizer group.
+  Code states of this new stabilizer code correspond to a \textit{condensed phase} of the parent topological phase.
+  The remaining unidentified parent-phase anyons behave differently with respect to the new condensed-phase state.
+  Some become \textit{confined} while the remaining ones pick up new braiding relations.
+
 
 features:
+  encoders:
+    - 'Any local quantum circuit connecting ground states of topological orders with non-isomorphic Abelian groups must have depth that is at least linear in the system's diameter \cite{arXiv:1407.2926}.'
   general_gates:
     - 'Clifford gates can be implemented by braiding defects; for qubit-based stabilizer codes realizing Abelian topological phases, see Refs. \cite{arxiv:1305.7203,arxiv:2210.09282}. Most of such designs focus on the surface code \cite{arxiv:1004.1838,arXiv:1104.5047,arXiv:1208.0928,arXiv:1508.04166,arXiv:1609.04673,arXiv:2103.08381}.'
   fault_tolerance:
