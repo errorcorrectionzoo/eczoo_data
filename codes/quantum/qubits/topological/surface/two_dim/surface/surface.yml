@@ -16,18 +16,13 @@ description: |
   whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings
   associated to the stars and plaquettes, respectively, of a cellulation of a
   two-dimensional surface (with a qubit located at each edge of the
-  cellulation). \textit{Toric code} often either refers to the construction on
+  cellulation).
+  \textit{Toric code} often either refers to the construction on
   the two-dimensional torus or is an alternative name for the general
-  construction. The construction on surfaces with boundaries is often called the
+  construction.
+  The construction on surfaces with boundaries is often called the
   \textit{planar code} \cite{arXiv:quant-ph/9810055,arXiv:quant-ph/9811052,arXiv:1606.07116}.
   Codewords correspond to ground states of the surface code Hamiltonian, and error operators create or annihilate pairs of anyonic charges or vortices.
-
-  The original construction can be naturally extended to arbitrary \(D\)-dimensional
-  manifolds
-  \cite{doi:10.1201/9781420035377-13,doi:10.1007/978-3-642-01877-0_21}. Given a
-  cellulation, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers
-  are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are
-  associated with \(i+1\)-faces. Such extensions are often called the \(D\)\textit{-dimensional surface} or \(D\)\textit{-dimensional toric} codes.
 
   The stabilizers of the surface code on the 2-dimensional torus are generated
   by star operators \(A_v\) and plaquette operators \(B_p\).  Each star operator
@@ -54,28 +49,12 @@ description: |
 protection: |
   Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code.
   The original planar code on a square-lattice patch with different boundary conditions on the vertical and horizontal edges is a \([[L^2+(L-1)^2,1,L]]\) CSS code \cite{arXiv:quant-ph/9810055}.
-  There exists another planar code, the \hyperref[code:rotated_surface]{rotated surface code}, with
-  \([[L^2,1,L]]\) \cite{arXiv:quant-ph/0703272}.
-
-  The toric code saturates the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice.
-  More generally, the code distance
-  is related to the homology of the cellulation \cite{arXiv:quant-ph/0110143}
-  \cite{arXiv:1606.07116}.
 
   Coherent physical errors are expected to become incoherent logical errors under syndrome measurement; see corroborating numerical studies performed via the Majorana mapping \cite{arxiv:1710.02270} as well as analytical bounds \cite{arxiv:1912.04319}.
 
 features:
   rate: |
-    Rate depends on the underlying cellulation and manifold. For general 2D
-    manifolds, \(kd^2\leq c(\log k)^2 n\) for some constant \(c\)
-    \cite{arXiv:1301.6588}, meaning that (1) 2D surface codes with bounded
-    geometry have distance scaling at most as \(O(\sqrt{n})\)
-    \cite{arXiv:0909.5200,doi:10.1063/1.4726034}, and (2) surface codes with
-    finite rate can only achieve an asymptotic minimum distance that is
-    logarithmic in \(n\). Higher-dimensional hyperbolic manifolds (see code
-    children below) yield distances scaling more favorably. Loewner's theorem
-    provides an upper bound for any bounded-geometry surface code
-    \cite{doi:10.1201/9781420035377-13}.
+    Both the planar and toric codes saturate the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice.
 
   encoders:
     - 'A depth-\(L^2\) circuit that grows the code out of a small patch on an \(L\times L\) square lattice using CNOT gates (i.e., "local moves") \cite{arxiv:quant-ph/0110143,arxiv:0712.0348}.'
@@ -151,10 +130,6 @@ notes:
   - '\textit{Surfmap} framework provides a way to stitch the surface code to various superconducting-circuit geometries by assigning each superconducting qubit to be either a physical or ancilla qubit, designing stabilizer measurement circuits, and scheduling stabilizer measurements \cite{arxiv:2111.13729}.'
 
   - |
-    2D and 3D surface code \href{http://gui.quantumcodes.io/}{visualization
-    tool}.
-
-  - |
     Tutorials from error-correction perspective by
     \href{https://boulderschool.yale.edu/2018/boulder-school-2018-lecture-notes}{J. Haah}
     and condensed-matter perspective by
@@ -169,16 +144,18 @@ realizations:
 
 relations:
   parents:
-    - code_id: css
+    - code_id: higher_dimensional_surface
     - code_id: clifford-deformed_surface
       detail: 'CDSC codes are deformations of the surface code via constant-depth Clifford circuits that may not be CSS.'
+    - code_id: hypergraph_product
+      detail: 'Planar (toric) code can be obtained from hypergraph product of two repetition (cyclic) codes \cite[Ex. 6]{arxiv:1202.0928}.'
+    - code_id: lifted_product
+      detail: 'A lifted-product code for the ring \(R=\mathbb{F}_2[x,y]/(x^L-1,y^L-1)\) is the toric code \cite[Appx. B]{arXiv:2111.03654}.'
     - code_id: qudit_surface
       detail: 'The modular-qudit surface code for \(q=2\) reduces to the surface code.'
     - code_id: galois_topological
       detail: 'The surface code has been extended to Galois qudits.'
   cousins:
-    - code_id: hypergraph_product
-      detail: 'Planar (toric) code can be obtained from hypergraph product of two repetition (cyclic) codes (\cite{arxiv:1202.0928}, Ex. 6).'
     - code_id: majorana_stab
       detail: 'The Majorana mapping can be used to construct efficient algorithms for simulating rounds of error correction for the surface code \cite{arxiv:1710.02270}.'
     - code_id: quantum_double
@@ -188,6 +165,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-29'
     - user_id: MarcusPS
       date: '2023-03-20'
     - user_id: VictorVAlbert
