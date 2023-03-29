@@ -16,13 +16,12 @@ description: |
   The 4D surface code serves as a self-correcting quantum memory, while surface codes in higher dimensions can have distances not possible in lower dimensions.
 
   Given a cellulation of a manifold, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers
-  are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \(i+1\)-faces.
+  are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \((i+1)\)-faces.
 
 
 features:
   rate: |
     Rate depends on the underlying cellulation and manifold \cite{arXiv:quant-ph/0110143,arXiv:1606.07116}.
-
     For general 2D
     manifolds, \(kd^2\leq c(\log k)^2 n\) for some constant \(c\)
     \cite{arXiv:1301.6588}, meaning that (1) 2D surface codes with bounded
@@ -30,7 +29,6 @@ features:
     \cite{arXiv:0909.5200,doi:10.1063/1.4726034}, and (2) surface codes with
     finite rate can only achieve an asymptotic minimum distance that is
     logarithmic in \(n\).
-
     Higher-dimensional manifolds yield distances scaling more favorably.
     Loewner's theorem
     provides an upper bound for any bounded-geometry surface code
@@ -51,7 +49,7 @@ relations:
   parents:
     - code_id: css
     - code_id: generalized_homological_product_css
-      detail: 'The generalized surface code is constructed from chain complexes arising from cell complexes of the underlying manifold. Such complexes are not necessarily products of two non-trivial complexes, but the manifolds are picked to as to ensure favorable properties.'
+      detail: 'The generalized surface code is constructed from chain complexes arising from cell complexes of the underlying manifold. Such complexes are not necessarily products of two non-trivial complexes, but the manifolds are picked so that their homology ensures favorable code properties.'
 
 
 # Begin Entry Meta Information

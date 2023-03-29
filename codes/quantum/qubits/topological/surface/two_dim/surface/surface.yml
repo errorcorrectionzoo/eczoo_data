@@ -54,7 +54,7 @@ protection: |
 
 features:
   rate: |
-    Both the planar and toric codes saturate the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice.
+    Both the planar and toric codes saturate the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice of length \(O(L)\).
 
   encoders:
     - 'A depth-\(L^2\) circuit that grows the code out of a small patch on an \(L\times L\) square lattice using CNOT gates (i.e., "local moves") \cite{arxiv:quant-ph/0110143,arxiv:0712.0348}.'
@@ -145,6 +145,7 @@ realizations:
 relations:
   parents:
     - code_id: higher_dimensional_surface
+      detail: 'The surface-code stabilizer generator prescription is extendable to higher-dimensional manifolds.'
     - code_id: clifford-deformed_surface
       detail: 'CDSC codes are deformations of the surface code via constant-depth Clifford circuits that may not be CSS.'
     - code_id: hypergraph_product
