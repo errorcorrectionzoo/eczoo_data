@@ -52,10 +52,12 @@ description: |
   as shown in \ref{figure:toric-code-operators}.
 
 protection: |
-  Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code, and there
-  exists a planar code, the \hyperref[code:rotated_surface]{rotated surface code}, with
+  Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code.
+  The original planar code on a square-lattice patch with different boundary conditions on the vertical and horizontal edges is a \([[L^2+(L-1)^2,1,L]]\) CSS code \cite{arXiv:quant-ph/9810055}.
+  There exists another planar code, the \hyperref[code:rotated_surface]{rotated surface code}, with
   \([[L^2,1,L]]\) \cite{arXiv:quant-ph/0703272}.
-  The toric code saturates the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice. 
+
+  The toric code saturates the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice.
   More generally, the code distance
   is related to the homology of the cellulation \cite{arXiv:quant-ph/0110143}
   \cite{arXiv:1606.07116}.
@@ -74,6 +76,15 @@ features:
     children below) yield distances scaling more favorably. Loewner's theorem
     provides an upper bound for any bounded-geometry surface code
     \cite{doi:10.1201/9781420035377-13}.
+
+  encoders:
+    - 'A depth-\(L^2) circuit that grows the code out of a small patch on an \(L\times L\) square lattice using CNOT gates (i.e., "local moves") \cite{arxiv:quant-ph/0110143,arxiv:0712.0348}.'
+    - 'Graph-state based adaptive circuit \cite{arxiv:quant-ph/0703143,arxiv:1105.2111}.'
+    - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arXiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arXiv:0712.0348,arxiv:0806.4583,arXiv:1207.0253} (matching lower bounds \cite{arxiv:quant-ph/0603121,arXiv:1810.03912}).'
+    - 'Lindbladian-based dissipative encoding for the toric code \cite{arXiv:1310.1036} that does not give a speedup relative to circuit-based encoders \cite{arxiv:1310.1037}.'
+    - 'Stabilizer measurement-based circuit of linear depth \cite{arXiv:quant-ph/0110143,arXiv:1404.2495}.'
+    - 'Any geometrically local unitary circuit on a lattice \(\Lambda\) that prepares a state whose energy density with respect to the surface code Hamiltonian is \(\epsilon\) must have depth of order \(\Omega(\min(\sqrt{|\Lambda|},1/\epsilon^{\frac{1-\alpha}{2}}))\) for any \(\alpha>0\) \cite{arxiv:2210.06796}.'
+  #make one that you feel is applicable to a large and interesting class of codes
 
   transversal_gates: |
     Transversal Pauli gates exist and are based on non-trivial loops on surface.
@@ -99,13 +110,7 @@ features:
     - 'Non-geometrically local connectivity can reduce overhead cost \cite{arxiv:2211.15465}.'
     - 'Fault-tolerant post-selection framework yields magic states with low overhead \cite{arxiv:2212.00813}.'
     - 'Framework of fault tolerance utilizing ZX-calculus that is applicable to MBQC, FBQC, and conventional computation versions of the surface code \cite{arxiv:2303.08829}.'
-
-  encoders:
-    - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arXiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arXiv:0712.0348,arXiv:1207.0253} (matching a lower bound in Ref. \cite{arXiv:1810.03912}).'
-    - 'Lindbladian-based dissipative encoding for the toric code \cite{arXiv:1310.1036} that does not give a speedup relative to circuit-based encoders \cite{arxiv:1310.1037}.'
-    - 'Stabilizer measurement-based circuit of linear depth \cite{arXiv:quant-ph/0110143,arXiv:1404.2495}.'
-    - 'Any geometrically local unitary circuit on a lattice \(\Lambda\) that prepares a state whose energy density with respect to the surface code Hamiltonian is \(\epsilon\) must have depth of order \(\Omega(\min(\sqrt{|\Lambda|},1/\epsilon^{\frac{1-\alpha}{2}}))\) for any \(\alpha>0\) \cite{arxiv:2210.06796}.'
-  #make one that you feel is applicable to a large and interesting class of codes
+    - 'MWPM can be adapted into a fault-tolerant single-shot decoder \cite{arxiv:2209.09774}.'
 
   decoders:
     - 'Degenerate maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}, which takes time of order \(O(n^2)\) under independent \(X,Z\) noise for the surface code \cite{arxiv:1405.4883}.'
@@ -125,7 +130,9 @@ features:
     - 'Generalized belief propagation (GBP) \cite{arxiv:2212.03214} based on a classical version \cite{manual:{J. S. Yedidia, W. T. Freeman, and Y. Weiss, Generalized belief propagation, in NIPS, Vol. 13 (2000) pp. 689–695.}}.'
 
   code_capacity_threshold:
-    - 'Independent \(X,Z\) noise: \(p_X = 10.31\%\) under MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}), \(9.9\%\) under BP-OSD decoding \cite{arxiv:2005.07016}, and \(8.9\%\) under GBP decoding \cite{arxiv:2212.03214}. The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143} (see also \cite{arxiv:2301.05689}), calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arXiv:cond-mat/0010143}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}. Above values are for one type of noise only, and ML threshold for combined \(X\) and \(Z\) noise is \(2p_X - p_X^2 \approx 20.6\%\).'
+    - 'Independent \(X,Z\) noise: \(p_X = 10.31\%\) under MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}), \(9.9\%\) under BP-OSD decoding \cite{arxiv:2005.07016}, and \(8.9\%\) under GBP decoding \cite{arxiv:2212.03214}.
+    The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143} (see also \cite{arxiv:2301.05689}), calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arXiv:cond-mat/0010143}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}.
+    Above values are for one type of noise only, and ML threshold for combined \(X\) and \(Z\) noise is \(2p_X - p_X^2 \approx 20.6\%\).'
     - 'Depolarizing noise: between \(17\%\) and \(18.5\%\) under tensor-network decoding \cite{arxiv:1405.4883}, \(14\%\) under GBP decoding \cite{arxiv:2212.03214}, \(16.5\%\) under recursive MWPM \cite{arxiv:2212.11632}, and between \(15\%\) and \(16\%\) under RG \cite{arXiv:0911.0581}, Markov-chain \cite{arXiv:1302.2669}, or MWPM \cite{arXiv:0905.0531} decoding. The threshold under ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arXiv:1202.1852} (see also APS Physics viewpoint \cite{doi:10.1103/Physics.5.50}).'
     - 'Erasure noise: \(50\%\) for square tiling \cite{arXiv:0904.3556}. There is an inverse relationship between coordination number of the syndrome graph, with the threshold corresponding to a percolation transition \cite{arxiv:1810.09621}.'
     #The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
