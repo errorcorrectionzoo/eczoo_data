@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: julin12
+physical: bits
+logical: bits
+
+name: 'Julin \((12,144,4)\) code'
+short_name: 'Julin'
+introduced: '\cite{doi:10.1109/TIT.1954.1057463,doi:10.1109/TIT.1965.1053779,doi:10.1007/BF01388558}'
+
+description: |
+  One of several binary nonlinear \((12,144,4)\) codes based on the Steiner system \(S(5,6,12)\) \cite{manual:{J. A. Barrau, On the combinatory problem of Steiner, Proc. Section of Sciences, Koninklijke Akademie van Wetenschappen te Amsterdam 11 (1908), 352–360.},doi:10.4153/CJM-1964-065-1}\cite[Sec. 2.7]{preset:MacSlo}\cite[Sec. 4]{doi:10.1007/BF01388558}.
+  Using Construction \(A\), some codes can be used to obtain 12-dimensional non-lattice sphere packings, collectively called \(P_{12a}\), with kissing number 840 \cite{10.4153/CJM-1971-081-3}\cite[pg. 139]{doi:10.1007/978-1-4757-6568-7}.
+  This is the highest known kissing number in that dimension.
+
+  The codewords are 132 distinct mod-two pairwise row sums of an \(11\)-dimensional matrix derived from the \(12\)-dimensional Hadamard matrix \(H\) along with their negations, 6 mutually disjoint codewords of weight two, and 6 codewords of weight 10 whose complements are mutually disjoint.
+
+  Shortened versions of this code include the Golay-Julin \((11,72,4)\), \((10,38,4)\), and \((9,20,4)\) codes.
+  The first and third also yield notable lattice packings (see children below).
+  This code is not to be confused with the Best \((12,144,4)\) code \cite{manual:{Best, M.R. 1978. Binary codes with minimum distance four. Report ZW 112/78, Math Centrum, Amsterdam.}}, which is not based on a Steiner system \cite[Sec. 3]{doi:10.1007/BF01388558}.
+
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+  cousins:
+    - code_id: analog
+      detail: 'Using Construction \(A\), some Julin \((12,144,4)\) codes can be used to obtain 12-dimensional non-lattice sphere packings, collectively called \(P_{12a}\), with kissing number 840 \cite{10.4153/CJM-1971-081-3}\cite[pg. 139]{doi:10.1007/978-1-4757-6568-7}. This is the highest known kissing number in that dimension.'
+    - code_id: q-ary_over_zq
+      detail: 'Julin codes are images of nonlinear codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 4]{doi:10.1007/BF01388558}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-31'
