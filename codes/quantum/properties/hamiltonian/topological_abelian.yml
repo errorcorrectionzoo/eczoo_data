@@ -9,8 +9,11 @@ name: 'Abelian topological code'
 #introduced: ''
 
 description: |
-  Code whose codewords realize topological order associated with an Abelian anyon theory, equivalently, a braided fusion category which is an Abelian group under fusion \cite{arxiv:2004.12048}.
-  Any theory is defined by an Abelian group and, for each anyon type \(a\), the phases \(\theta(a)\) obtained by exchanging two anyons of said type.
+  Code whose codewords realize topological order associated with an Abelian anyon theory, equivalently, a unitary braided fusion category which is an Abelian group under fusion \cite{arxiv:2004.12048}.
+  Any theory is defined by a set of anyon types, an Abelian group that defines the fusion rules, and a set of exchange statistics \(\theta(a)\) obtained by exchanging two anyons of type \(a\).
+
+  The exchange statistics in turn define the \textit{braiding relations} \(B(a,b) = \frac{\theta(ab)}{\theta(a)\theta(b)}\) between all pairs of anyons types \(a,b\).
+  An anyon theory is called \textit{non-modular} if there exists an anyon \(a\) braids trivially with all anyons, i.e., \(B(a,b)=1\) for all \(b\).
 
   All 2D abelian topological orders can be understood within the stabilizer formalism \cite{arxiv:2211.03798}.
   As such, many of the operations one can perform on such codes have both a stabilizer and a topological-phase interpretation.
