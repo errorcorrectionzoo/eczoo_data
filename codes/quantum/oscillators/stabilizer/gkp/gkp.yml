@@ -10,7 +10,18 @@ logical: qudits
 name: 'Square-lattice GKP code'
 introduced: '\cite{arXiv:quant-ph/0008040}'
 
-description: 'Single-mode GKP qudit-into-oscillator code based on the rectangular lattice. Its stabilizers are oscillator displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{x}}\). To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group that is Abelian, there is another constraint that \(\alpha\beta=2k\pi\) where \(k\) is an integer. Codewords can be expressed as equal weight superpositions of coherent states on a rectangular lattice in phase space with spatial period \(2\sqrt{\pi}\). The exact GKP state is non-normalizable, so approximate constructs have to be considered.'
+description: |
+  Single-mode GKP qudit-into-oscillator code based on the rectangular lattice.
+  Its stabilizer generators are oscillator displacement operators \(\hat{S}_q(2\alpha)=e^{-2i\alpha \hat{p}}\) and \(\hat{S}_p(2\beta)=e^{2i\beta \hat{x}}\).
+  To ensure \(\hat{S}_q(2\alpha)\) and \(\hat{S}_p(2\beta)\) generate a stabilizer group that is Abelian, there is a constraint that \(\alpha\beta=2q\pi\) where \(q\) is an integer denoting the logical dimension.
+
+  Codewords can be expressed as equal weight superpositions of coherent states on a rectangular lattice in phase space with spatial period \(2\sqrt{\pi}\). The exact GKP state is non-normalizable, so approximate constructs have to be considered.
+
+  The \(q=1\) trivial encoding is spanned by the \textit{canonical GKP state} or \textit{grid state},
+  \begin{align}
+    |\textsc{gkp}\rangle=\sum_{n\in\mathbb{Z}}|x=n\sqrt{2\pi}\rangle~,
+  \end{align}
+  where \(|x\rangle\) are single-mode position states.
 
 protection: 'For stabilizer \(\hat{S}_q(2\alpha),\hat{S}_p(2\beta)\), code can correct displacement errors up to \(\alpha/2\) in the \(q\)-direction and \(\beta/2\) at \(p\)-direction. Approximately protects against photon loss errors \cite{arxiv:1506.05033,arxiv:1708.05010}, outperforming most other codes designed to explicitly protect against loss \cite{arxiv:1708.05010}. Very sensitive to dephasing errors \cite{arxiv:2106.12989}. A biased-noise GKP error correcting code can be prepared by choosing \(\alpha\neq \beta\).'
 
