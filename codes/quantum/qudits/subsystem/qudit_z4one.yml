@@ -8,23 +8,20 @@ physical: qudits
 logical: qudits
 
 name: '\(\mathbb{Z}_4^{(1)}\) subsystem code'
-introduced: '\cite{arXiv:2211.03798}'
+introduced: '\cite{arxiv:1405.1780,arXiv:2211.03798}'
 
 description:
   Modular-qudit \(q=4\) subsystem stabilizer code, based on a generalized Kitaev honeycomb model \cite{arxiv:1405.1780}, that realizes abelian non-modular \(\mathbb{Z}_4^{(1)}\) topological order \cite{doi:10.7907/5NDZ-W890}.
   Its anyonic exchange statistics resemble those of the double semion code, but its fusion rules realize the \(\mathbb{Z}_4\) group.
+  Encodes a single qubit when put on a torus.
   This code can be constructed using geometrically local gauge generators, but does not admit geometrically local stabilizer generators.
 
 relations:
   parents:
-    - code_id: topological_abelian
-      detail: 'When treated as ground states of the code Hamiltonian, the code states realize \(\mathbb{Z}_4^{(1)}\) topological order \cite{doi:10.7907/5NDZ-W890}, which is non-chiral and non-modular.'
+    - code_id: qudit_znone
   cousins:
-    - code_id: qudit_surface
-      detail: 'The \(\mathbb{Z}_4^{(1)}\) subsystem code can be obtained from the \(\mathbb{Z}_4\) square-lattice surface code by gauging out the anyon \(e m^3\) and applying single-qubit Clifford gates \cite[Fig. 15]{arxiv:2211.03798}.
-      During this process, the square lattice is effectively expanded to a hexagonal lattice \cite[Fig. 12]{arxiv:2211.03798}.'
-    - code_id: kitaev_honeycomb
-      detail: 'The \(\mathbb{Z}_4^{(1)}\) subsystem code is a reformulation of a generalized Kitaev honeycomb model \cite{arxiv:1405.1780} as a subsystem code.'
+    - code_id: double_semion
+      detail: 'The anyonic exchange statistics of \(\mathbb{Z}_4^{(1)}\) subsystem code resemble those of the double semion code, but its fusion rules realize the \(\mathbb{Z}_4\) group.'
 
 
 # Begin Entry Meta Information
