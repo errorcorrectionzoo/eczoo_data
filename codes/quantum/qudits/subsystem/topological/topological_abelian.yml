@@ -12,19 +12,23 @@ name: 'Abelian topological code'
 
 description: |
   Code whose codewords realize topological order associated with an Abelian anyon theory, equivalently, a unitary braided fusion category which is an Abelian group under fusion \cite{arxiv:2004.12048}.
-  Any theory is defined by an Abelian group \(A\) of anyon types whose multiplication relations define the fusion rules, and a set of exchange statistics \(\theta(a)\in U(1)\) obtained by exchanging two anyons of type \(a\in A\).
 
-  The exchange statistics in turn define the \textit{braiding relations} \(B(a,b) = \frac{\theta(ab)}{\theta(a)\theta(b)}\) between all pairs of anyons types \(a,b\).
-  An anyon theory is called \textit{non-modular} or \textit{pre-modular} if there exists an anyon \(a\) braids trivially with all anyons, i.e., \(B(a,b)=1\) for all \(b\).
+  A theory is defined by an Abelian group \(A\) of anyon types whose multiplication relations define the fusion rules, and a set of exchange statistics \(\theta(a)\in U(1)\) obtained by exchanging two anyons of type \(a\in A\).
+  The exchange statistics in turn define braiding relations,
+  \begin{align}
+    B(a,b) = \frac{\theta(ab)}{\theta(a)\theta(b)}~,
+  \end{align}
+  between all anyon pairs \(a,b\).
 
   All 2D abelian topological orders can be understood within the subsystem stabilizer formalism \cite{arxiv:2211.03798}.
   As such, many of the operations one can perform on such codes have both a stabilizer and a topological-phase interpretation.
-  Stabilizer generators of 2D topological codes acting on 1D loops of qubit can be interpreted as one-form symmetries of the underlying phase realized by the code.
+  Stabilizer generators of 2D topological codes acting on 1D loops of qubits can be interpreted as one-form symmetries of the underlying phase realized by the code.
   Identification of an anyon \(a\) with the vacuum is equivalent to adding string excitation operators corresponding to \(a\) to the stabilizer group and taking the center to get another stabilizer group.
   Code states of this new stabilizer code correspond to a \textit{condensed phase} of the parent topological phase.
   The remaining unidentified parent-phase anyons behave differently with respect to the new condensed-phase state.
   Some become \textit{confined} while the remaining ones pick up new braiding relations.
 
+protection: 'Topological order cannot be stabilized via weight-two or weight-three stabilizer generators on nearly Euclidean geometries of qubits or qutrits \cite{arxiv:quant-ph/0308021,arXiv:1102.0770}.'
 
 features:
   encoders:
@@ -41,9 +45,9 @@ features:
 relations:
   parents:
     - code_id: qudit_subsystem_stabilizer
-      detail: 'All Abelian topological orders can be realized as modular-qudit subsystem stabilizer codes by starting with an abelian quantum double model (slightly different from that of Ref. \cite{arxiv:2112.11394}) and a family of Abelian TQDs that generalize the double semion anyon theory and gauging out certain bosonic anyons \cite{arxiv:2211.03798}. The stabilizer generators of the new subsystem code may no longer be geometrically local.'
+      detail: 'All Abelian topological orders can be realized as modular-qudit subsystem stabilizer codes by starting with an abelian quantum double model (slightly different from that of Ref. \cite{arxiv:2112.11394}) along with a family of Abelian TQDs that generalize the double semion anyon theory and gauging out certain bosonic anyons \cite{arxiv:2211.03798}. The stabilizer generators of the new subsystem code may no longer be geometrically local.'
     - code_id: topological
-      detail: 'All Abelian topological orders can be realized as modular-qudit subsystem stabilizer codes \cite{arxiv:2211.03798}. Non-abelian topological orders are purported not to be realizable with Pauli stabilizer codes \cite{arxiv:1605.03601}.'
+      detail: 'All Abelian topological orders can be realized as modular-qudit subsystem stabilizer codes \cite{arxiv:2211.03798}. nonabelian topological orders are purported not to be realizable with Pauli stabilizer codes \cite{arxiv:1605.03601}.'
   cousins:
     - code_id: walker_wang
       detail: 'Any abelian anyon theory \(A\) can be realized at one of the surfaces of a 3D Walker-Wang model whose underlying theory is a TQD containing \(A\) as a subtheory \cite{arxiv:1907.02075,arxiv:2202.05442}\cite[Appx. H]{arxiv:2211.03798}.'

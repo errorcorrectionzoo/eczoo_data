@@ -10,33 +10,46 @@ introduced: '\cite{arxiv:quant-ph/9707021}'
 
 description: |
   A code whose codewords form the ground-state or low-energy subspace of a code Hamiltonian realizing a topological phase.
+  A topological phase may be \textit{bosonic} or \textit{fermionic}, i.e., constructed out of underlying subsystems whose operators commute or anti-commute with each other, respectively.
+  Unless otherwise noted, the phases discussed are bosonic.
 
   For 2D lattice systems with finite local dimension, topological phases are defined by their \textit{anyons} \cite{doi:10.1007/BF02727953,doi:10.1063/1.524510,doi:10.1103/PhysRevLett.49.957,doi:10.1063/1.2810672}, which are local bulk excitations of the code Hamiltonian defined on a lattice; see Ref. \cite[Appx. F]{arxiv:cond-mat/0506438} for an introduction and Refs. \cite{doi:10.1007/BF01877742,doi:10.1007/BF01646454,arxiv:1804.03203} for more rigorous formulations.
 
   Anyons are created in pairs by local operators, and two anyons lie in the same \textit{superselection sector} if a  local operator can convert one anyon into the other.
   Each superselection sector is assumed to be labeled by one anyon type, and local operators cannot change superselection sectors.
 
-  Anyons can braid with each other, with their \textit{exchange statistics} (a.k.a. \textit{topological spin}) defined by phases \(\theta(a)\) obtained by exchanging two anyons of each type \(a\).
+  Anyons can braid with themselves, with their \textit{exchange statistics} (a.k.a. \textit{topological spin}) defined by phases \(\theta(a)\in U(1)\) obtained by exchanging two anyons of each type \(a\).
+  They can also braid with each other, a process defined by \textit{braiding relations} \(B(a,b)\) for an anyon pair \(a,b\).
+  An anyon theory is called \textit{non-modular} or \textit{pre-modular} if there exists an anyon \(a\) that braids trivially with all anyons.
 
   Anyons \(a\) and \(b\) can also fuse with each other, meaning that one considers both anyons as one anyon \(ab\) and decomposes \(ab\) into the anyons representing each superselection sector according to the anyons' \textit{fusion rules}.
   For example, two anyons \(a,b\) may fuse to the trivial (i.e., vacuum) anyon \(1\), \(ab=1\), meaning that the composite excitation \(ab\) is indistinguishable from the case of no excitation.
 
   The exchange statistics and fusion rules of anyons cannot be arbitrary and have to satisfy certain consistency relations.
-  Admissible exchange and fusion data is characterized by a \textit{unitary braided fusion category}.
+  Admissible exchange and fusion data are characterized by a \textit{unitary braided fusion category}.
 
-  An anyon theory is called \textit{non-modular} or \textit{pre-modular} if there exists an anyon \(a\) that braids trivially with all anyons.
+  Each anyon \(a\) has a \textit{quantum dimension} \(d_a\) associated with it.
+  The quantum dimensions add up to the \textit{total quantum dimension} \(D\),
+  \begin{align}
+    \sum_{a}d_{a}^{2}=D^{2}~.
+  \end{align}
+  These "dimensions" do not correspond to dimensions of vector spaces and may not be integer-valued.
+
   An anyon theory that does not admit gapped boundaries (when put on a manifold with boundaries) is called \textit{chiral}; otherwise, it is \textit{non-chiral} or \textit{gapped}.
-
+  Chiral topological phases admit a nonzero value of the \textit{chiral central charge} \(c_{-}\).
+  A generalization \cite{arxiv:quant-ph/9707021} of the Gauss-Milgram sum rule for an anyon theory \(A\) admitting \(|A|\) anyon types,
+  \begin{align}
+    \frac{1}{\sqrt{|A|}}\sum_{a\in A}d_{a}^{2}\theta_{a}=De^{i\frac{2\pi}{8}c_{-}}~,
+  \end{align}
+  relates the chiral central charge (modulo 8) to the exchange statistics and quantum dimensions.
 
 # Frohlich braiding anyons doi:10.1142/S0129055X90000107,
 # Mention [39-41] in arxiv:2211.03798
-#   An anyon theory which has degenerate braiding relations is called \textit{non-modular}, while
 
-protection: 'Topological order cannot be stabilized via weight-two or weight-three stabilizer generators on nearly Euclidean geometries of qubits or qutrits \cite{arxiv:quant-ph/0308021,arXiv:1102.0770}.'
 
 features:
   encoders:
-    - 'The unitary circuit depth required to initialize in a general topologically ordered state using geometrically local gates on an \(L\times L\) lattice is \(\Omega(L)\) \cite{arXiv:quant-ph/0603121}, irrespective of whether the ground state admits Abelian or non-Abelian anyonic excitations.
+    - 'The unitary circuit depth required to initialize in a general topologically ordered state using geometrically local gates on an \(L\times L\) lattice is \(\Omega(L)\) \cite{arXiv:quant-ph/0603121}, irrespective of whether the ground state admits Abelian or nonabelian anyonic excitations.
     However, only a finite-depth circuit and one round of measurements is required for nonabelian topological orders with a Lagrangian subgroup \cite{arxiv:2209.03964}.'
 
 relations:
