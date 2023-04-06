@@ -11,7 +11,8 @@ name: 'Quantum-double code'
 introduced: '\cite{arXiv:quant-ph/9707021}'
 
 description: |
-  A family of topological codes, defined by a finite group \( G \),  whose generators are few-body operators associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qudit of dimension \( |G| \) located at each edge of the tesselation).
+  Group-GKP stabilizer code whose codewords realize 2D modular gapped topological order defined by a finite group \(G\).
+  The code's generators are few-body operators associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qudit of dimension \( |G| \) located at each edge of the tesselation).
 
   The physical Hilbert space has dimension \( |G|^E  \), where \( E \) is the number of  edges in the tessellation. The dimension of the code space is the number of orbits of the conjugation action of \( G \) on \( \text{Hom}(\pi_1(\Sigma),G) \), the set of group homomorphisms from the fundamental group of the surface \( \Sigma \) into the finite group \( G \) \cite{arXiv:1908.02829}. When \( G \) is abelian, the formula for the dimension simplifies to \( |G|^{2g} \), where \( g \) is the genus of the surface \( \Sigma \).
 
@@ -20,7 +21,7 @@ description: |
   The fusion space of such nonabelian anyons has dimension greater than one, allowing for topological quantum computation of logical information stored in the fusion outcomes.
 
 protection: |
-  Error-correcting properties established in Ref. \cite{arxiv:1908.02829} for general quantum doubles and, using operator algebra theory, in Ref. \cite{arxiv:1804.03203} for abelian quantum doubles.
+  Error-correcting properties established in Ref. \cite{arxiv:1908.02829}.
   The code distance is the number of edges in the shortest non contractible cycle in the tesselation or dual tesselation  \cite{arXiv:quant-ph/0110143}.
 
 features:
@@ -41,10 +42,10 @@ relations:
   parents:
     - code_id: group_gkp
       detail: 'Quantum-double Hamiltonians can be expressed in terms of \(X\)- and \(Z\)-type operators of group-GKP codes; see \cite[Sec. 3.3]{arxiv:2111.12096}.'
+    - code_id: tqd
+      detail: 'The anyon theory corresponding to quantum-double codes is defined by a finite group and trivial cocycle.'
     - code_id: string_net
       detail: 'String-net model reduces to the quantum-double model for group categories.'
-    - code_id: topological
-      detail: 'Quantum-double code Hamiltonians admit topological phases associated with finite groups \(G\).'
 
 
 # Begin Entry Meta Information
