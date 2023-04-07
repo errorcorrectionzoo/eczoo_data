@@ -10,7 +10,21 @@ logical: qubits
 name: 'Rotated surface code'
 introduced: '\cite{arxiv:quant-ph/0703272,arXiv:1107.3502,arXiv:1202.0928,arXiv:1404.3747}'
 
-description: 'Also called a \textit{checkerboard code}. CSS variant of the surface code defined on a square lattice that has been rotated 45 degrees such that qubits are on vertices, and both \(X\)- and \(Z\)-type check operators occupy plaquettes in an alternating checkerboard pattern.'
+description: |
+  Also called a \textit{checkerboard code}. CSS variant of the surface code
+  defined on a square lattice that has been rotated 45 degrees such that qubits
+  are on vertices, and both \(X\)- and \(Z\)-type check operators occupy
+  plaquettes in an alternating checkerboard pattern.
+  These check operators are shown in \ref{figure:rotated-surface-operators}.
+
+  \begin{figure}
+    \includegraphics{rotated-surface-operators}
+    \caption{Stabilizer generators and logical operators of the 2D surface
+      code on a torus.  The star operators \(A_v\) and the plaquette operators
+      \(B_p\) generate the stabilizer group of the toric code.  The logical
+      operators are strings that wrap around the torus.}
+    \label{figure:rotated-surface-operators}
+  \end{figure}
 
 protection: 'The \([[L^2,1,L]]\) variant \cite{arXiv:quant-ph/0703272} includes the \([[9,1,3]]\) \hyperref[code:surface-17]{surface-17} code, named as such because 8 ancilla qubits are used for check operator measurements alongside the 9 physical qubits.'
 
