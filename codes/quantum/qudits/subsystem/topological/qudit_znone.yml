@@ -11,7 +11,7 @@ name: '\(\mathbb{Z}_q^{(1)}\) subsystem code'
 introduced: '\cite{arxiv:1405.1780,arXiv:2211.03798}'
 
 description:
-  Modular-qudit subsystem stabilizer code, based on the Kitaev honeycomb model \cite{arxiv:cond-mat/0506438} and its generalization \cite{arxiv:1405.1780}, that realizes \(\mathbb{Z}_q^{(1)}\) topological order \cite{doi:10.7907/5NDZ-W890}, which is chiral and non-modular.
+  Modular-qudit subsystem stabilizer code, based on the Kitaev honeycomb model \cite{arxiv:cond-mat/0506438} and its generalization \cite{arxiv:1405.1780}, that is characterized by \(\mathbb{Z}_q^{(1)}\) topological order \cite{doi:10.7907/5NDZ-W890}, which is modular for odd prime \(q\) and non-modular otherwise.
   Encodes a single \(q\)-dimensional qudit when put on a torus for odd \(q\), and a \(q/2\)-dimensional qudit for even \(q\).
   This code can be constructed using geometrically local gauge generators, but does not admit geometrically local stabilizer generators.
   For \(q=2\), the code reduces to the subsystem code underlying the Kitaev honeycomb model code as well as the honeycomb Floquet code.
@@ -19,7 +19,7 @@ description:
 relations:
   parents:
     - code_id: topological_abelian
-      detail: 'When treated as ground states of the code Hamiltonian, the code states realize \(\mathbb{Z}_q^{(1)}\) topological order \cite{doi:10.7907/5NDZ-W890}, which is chiral and non-modular.'
+      detail: 'The \(\mathbb{Z}_q^{(1)}\) subsystem code is characterized by \(\mathbb{Z}_q^{(1)}\) topological order \cite{doi:10.7907/5NDZ-W890}, which is modular for odd prime \(q\) and non-modular otherwise.'
   cousins:
     - code_id: qudit_surface
       detail: 'The \(\mathbb{Z}_q^{(1)}\) subsystem code can be obtained from the \(\mathbb{Z}_q\) square-lattice surface code by \hyperref[topic:gauging-out]{gauging out} the anyon \(e^{-1} m\) and applying single-qubit Clifford gates \cite[Sec. 7.3]{arxiv:2211.03798}.
@@ -32,5 +32,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: nathanan
+      date: '2023-04-08'
+    - user_id: VictorVAlbert
+      date: '2023-04-08'
     - user_id: VictorVAlbert
       date: '2023-02-07'
