@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_grs
+physical: galois
+logical: galois
+
+name: 'Galois-qudit GRS code'
+short_name: 'Galois GRS'
+introduced: '\cite{arxiv:quant-ph/9906129,arxiv:1311.3009}'
+
+description: |
+  True \(q\)-Galois-qudit stabilizer code constructed from generalized Reed-Solomon (GRS) codes via either the Hermitian construction \cite{arxiv:1311.3009,doi:10.1142/S0219749919500060,doi:10.1109/TIT.2010.2054174} or the Galois-qudit CSS construction \cite{arxiv:quant-ph/9906129,arxiv:0812.4514}.
+
+relations:
+  parents:
+    - code_id: galois_true_stabilizer
+      detail: 'Galois-qudit GRS codes constructed via the CSS construction are Galois-qudit CSS codes, and the rest are true stabilizer codes.'
+  cousins:
+    - code_id: generalized_reed_solomon
+      detail: 'Hermitian self-orthogonal GRS codes are used to construct Galois-qudit GRS codes in the Hermitian construction.'
+    - code_id: quantum_mds
+      detail: 'Some Galois-qudit GRS codes are quantum MDS \cite{arxiv:1311.3009}.'
+    - code_id: galois_css
+      detail: 'Some Galois-qudit GRS codes are CSS.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'

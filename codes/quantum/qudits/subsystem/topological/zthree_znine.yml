@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: zthree_znine
+physical: qudits
+logical: qudits
+
+name: '\(\mathbb{Z}_3\times\mathbb{Z}_9\)-fusion subsystem code'
+introduced: '\cite{arXiv:2211.03798}'
+
+description: |
+  Modular-qudit 2D subsystem stabilizer code whose low-energy excitations realize a non-modular anyon theory with \(\mathbb{Z}_3\times\mathbb{Z}_9\) fusion rules.
+  Encodes two qutrits when put on a torus.
+
+
+relations:
+  parents:
+    - code_id: topological_abelian
+      detail: 'The \(\mathbb{Z}_q^{(1)}\) subsystem code is characterized by a non-modular anyon theory with \(\mathbb{Z}_3\times\mathbb{Z}_9\) fusion rules.'
+  cousins:
+    - code_id: quantum_double_abelian
+      detail: 'The \(\mathbb{Z}_3\times\mathbb{Z}_9\)-fusion subsystem code can be obtained from a stack of \(q=3\) and \(q=9\) square-lattice qudit surface codes by \hyperref[topic:gauging-out]{gauging out} the anyons \(m_1^{-1}e_2^3\) and \(m_2^{-1}\) \cite[Sec. 7.5]{arxiv:2211.03798}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: nathanan
+      date: '2023-04-08'
+    - user_id: VictorVAlbert
+      date: '2023-04-08'
+    - user_id: VictorVAlbert
+      date: '2021-12-29'

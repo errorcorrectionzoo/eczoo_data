@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rbh
+physical: qubits
+logical: qubits
+
+name: 'Raussendorf-Bravyi-Harrington (RBH) cluster-state code'
+short_name: 'RBH'
+introduced: '\cite{arxiv:quant-ph/0407255,arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}'
+
+description: |
+  Also called an \textit{RHG (Raussendorf-Harrington-Goyal) cluster-state code}.
+  A three-dimensional cluster-state code defined on the bcc lattice (equivalently, a cubic lattice with qubits on edges and faces).
+
+  The MBQC version of the code is defined as the unique ground state of a certain code Hamiltonian. This state is the resource state used in the first MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}.
+  It encodes the temporal gate operations on the surface code into a third spatial dimension.
+
+  Addition of certain boundary Hamiltonians yields a degenerate ground-state space that serves as an example of a symmetry-protected self-correcting memory \cite{arXiv:1805.01474}.
+
+protection: |
+  Exhibits symmetry-protected self-correction \cite{arXiv:1805.01474}. The energy barrier for symmetry-preserving excitations outside of the code space grows linearly with the lattice width. When the system is coupled locally to a thermal bath respecting the symmetry and below a critical temperature, the memory time grows exponentially with the lattice width.
+
+features:
+  general_gates:
+    - 'The computation encoded in pre-determined fashion via topological features of the lattice, such as boundaries, defects, or twists.
+    For example, qubits may be encoded in 2D defects along slices of the surface code, and Clifford gates are encoded by spatially braiding the defects along the 3rd dimension.
+    Non-Clifford gates are performed by inserting non-Clifford states into particular \textit{singular} qubits.
+
+    To perform the computation, qubits along the extra dimension are measured, e.g., along one two-dimensional slice per time step.
+    This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.'
+
+  decoders:
+    - 'MBQC syndrome extraction consists of single-qubit measurements and classical post-processing.
+    The six \(X\)-measurements of qubits on the faces of a cube of the bcc lattice multiply to the product of the six cluster-state stabilizers whose vertices are on the faces of the cube. Such measurements, if done on a 2D slice, also yield \(Z\)-type syndromes on the next slice.'
+    - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}).'
+
+
+relations:
+  parents:
+    - code_id: cluster_state
+    - code_id: walker_wang
+      detail: 'The Walker-Wang model code reduces to the RBH cluster-state code when the input category \(\mathcal{C}\) is that of the surface code \cite[Sec. V.A]{arxiv:2011.04693}.'
+  cousins:
+    - code_id: symmetry_protected_self_correct
+      detail: 'The RBH code can exhibit self-correction protected by a certain symmetry.'
+    - code_id: subsystem_color
+      detail: 'The RBH code for a certain boundary Hamiltonian is dual to the gauge color code \cite[Sec. IV.C.1]{arxiv:1805.01474}.'
+    - code_id: surface
+      detail: 'The RBH state encodes the temporal gate operations on the surface code into a third spatial dimension \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082}. In addition, one of possible 2D boundaries of the RBH code is effectively a 2D toric code.'
+    - code_id: bcc
+      detail: 'The RBH code is defined on the bcc lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-18'
+    - user_id: YiTingRickTu
+      date: '2022-04-23'

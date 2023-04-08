@@ -4,6 +4,8 @@
 #######################################################
 
 code_id: quantum_mds
+# includes both Galois and modular
+
 
 name: 'Quantum maximum-distance-separable (MDS) code'
 short_name: 'Quantum MDS'
@@ -21,16 +23,12 @@ protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible
 
 relations:
   parents:
-    - code_id: qecc_finite
     - code_id: block_quantum
+    - code_id: qecc_finite
   cousins:
     - code_id: mds
-      detail: ''
     - code_id: q-ary_cyclic
       detail: 'Quantum MDS codes can be constructed from \(q\)-ary cyclic codes using the Hermitian construction \cite{doi:10.1109/TIT.2011.2159039}.'
-# Not needed since galois_grs is an entry
-#    - code_id: generalized_reed_solomon
-#      detail: 'Quantum MDS codes can be constructed from GRS codes using the Hermitian construction \cite{arXiv:2002.06040}.'
 
 
 # Begin Entry Meta Information

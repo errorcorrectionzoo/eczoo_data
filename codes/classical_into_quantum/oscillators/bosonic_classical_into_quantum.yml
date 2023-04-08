@@ -11,16 +11,34 @@ name: 'Bosonic c-q code'
 
 description: |
   Bosonic code designed for transmission of classical information through non-classical channels.
-  Typically, such codes encode real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced receiver.
+  Encodes real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced \textit{receiver}.
+
+  The codes consists of \(K\) coherent states on \(n\) modes, where each state is uniquely defined through the amplitude vectors \(\boldsymbol{\alpha}^j=(\alpha_1^j, \alpha_2^j, …, \alpha_n^j)\} for \{j = {1, 2, \cdots, K}\) known as the codeword.
+  The \textit{codebook},
+  \begin{align}
+  C=\left(\begin{array}{c}
+  \boldsymbol{\alpha}^{1}\\
+  \vdots\\
+  \boldsymbol{\alpha}^{K}
+  \end{array}\right)=\left(\begin{array}{cccc}
+  \alpha_{1}^{1} & \alpha_{2}^{1} & \dots & \alpha_{n}^{1}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  \alpha_{1}^{K} & \alpha_{2}^{K} & \dots & \alpha_{n}^{K}
+  \end{array}\right)~,
+  \end{align}
+  collects each codeword into the matrix \(C\) that characterizes the system of states to discriminate.
+
+  From the properties of \(C\), we can assess whether it is possible to optimally discriminate the codebook unambiguously.
+  Optimal unambiguous state discrimination requires each vector to be linearly independent, which corresponds to a full-rank codebook.
+  This is possible only if \(K \leq n\).
+  See review \cite{doi:10.1116/5.0036959} for details on receivers used for bosonic c-q codes.
 
 features:
   rate: 'The Holevo (also known as Gordon) capacity has been calculated for various bosonic quantum channels such as AGWN \cite{arxiv:1312.6225} (see Ref. \cite{arxiv:2002.05766} for a review).'
 
   decoders:
     - 'Joint-detection receiver that can attain channel capacity \cite{arxiv:1101.1550}.'
-    - 'Near-optimal receiver for coherent-state c-q codes utilizing passive linear optics and photon counting \cite{arxiv:2109.00008}.'
-    - 'See review \cite{doi:10.1116/5.0036959} for details on receivers used for bosonic c-q codes.'
-
+    - 'Various near-optimal receiver designs that can handle arbitrary constellations of coherent states with possible degeneracies \cite{arxiv:2109.00008}.'
 
 relations:
   parents:
@@ -38,5 +56,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: JasSidhu
+      date: '2023-03-21'
+    - user_id: VictorVAlbert
+      date: '2023-03-21'
     - user_id: VictorVAlbert
       date: '2022-12-04'

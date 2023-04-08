@@ -30,6 +30,7 @@ features:
     - 'Integer-program-based decoder \cite{arXiv:1402.3037}.'
     - 'Restriction decoder \cite{doi:10.1088/1367-2630/ab68fd}.'
     - 'Cellular-automaton decoder for the \(XYZ\) color code \cite{arxiv:2203.16534}.'
+    - 'MaxSAT-based decoder \cite{arxiv:2303.14237}.'
 #    - 'Flag fault-tolerant protocols for distance-nine 2D color codes \cite{}.'
 
   fault_tolerance:
@@ -59,14 +60,18 @@ features:
 relations:
   parents:
     - code_id: css
-      detail: 'See Ref. \cite{doi:10.7907/059V-MG69} for the chain complexes associated with the color code.'
-    - code_id: topological_abelian
-      detail: 'When treated as ground states of the code Hamiltonian, 2D color code states on realize \(\mathbb{Z}_2\times\mathbb{Z}_2\) topological order \cite{arxiv:0906.4127}, equivalent to the phase realized by two copies of the surface code \cite{arxiv:1503.02065}.'
-#    - code_id: qldpc
-#      detail: 'Stabilizer generator weights and qubit degrees are given by the properties of the tessellation, and many tesselations yield QLDPC codes.'
+    - code_id: generalized_color
+      detail: 'The generalized color code for \(G=\mathbb{Z}_2\) reduces to the color code.'
+    - code_id: quantum_double_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, color code states on realize \(\mathbb{Z}_2\times\mathbb{Z}_2\) topological order \cite{arxiv:0906.4127}, equivalent to the phase realized by two copies of the surface code \cite{arxiv:1503.02065}.'
   cousins:
+    - code_id: galois_topological
+      detail: 'The 2D color code has been extended to Galois qudits.'
     - code_id: surface
-      detail: 'The color code on a \(D\)-dimensional closed manifold is equivalent to multiple decoupled copies of the \(D-1\)-dimensional surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}. The 2D color code can condense to form the 2D surface code in nine different ways by adding two body hopping terms along one of its three hexagonal directions to the stabilizer group and then taking the center of the resulting non-Abelian group \cite{arxiv:2212.00042}.'
+      detail: 'The 3D color code is equivalent to multiple decoupled copies of the 2D surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.
+      Conversely, the 2D color code can \hyperref[topic:condensation]{condense} to form the 2D surface code in nine different ways, i.e., by adding two body hopping terms along one of its three hexagonal directions to the stabilizer group and then taking the center of the resulting nonabelian group \cite{arxiv:2212.00042}.'
+    - code_id: higher_dimensional_surface
+      detail: 'The color code on a \(D\)-dimensional closed manifold is equivalent to multiple decoupled copies of the \(D-1\)-dimensional surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.'
     - code_id: quantum_triorthogonal
       detail: 'The 3D color code is triorthogonal.'
     - code_id: hexagonal

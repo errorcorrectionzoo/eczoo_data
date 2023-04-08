@@ -11,7 +11,18 @@ name: 'Five-qubit perfect code'
 short_name: '\([[5,1,3]]\)'
 introduced: '\cite{arXiv:quant-ph/9602019}'
 
-description: 'Five-qubit stabilizer code with generators that are symmetric under cyclic permutation of qubits, \begin{align} \begin{split} S_1 &= IXZZX \\ S_2 &= XZZXI \\ S_3 &= ZZXIX \\ S_4 &= ZXIXZ~. \end{split} \end{align}'
+description: |
+  Five-qubit stabilizer code with generators that are symmetric under cyclic permutation of qubits, \begin{align}
+    \begin{split}
+    S_1 &= IXZZX \\
+    S_2 &= XZZXI \\
+    S_3 &= ZZXIX \\
+    S_4 &= ZXIXZ~.
+    \end{split}
+  \end{align}
+
+  The five-qubit code is the smallest known example of quantum cyclic code.
+  Its automorphism group is the dihedral group of order 10 \cite{arxiv:2109.12735}.
 
 protection: 'Smallest stabilizer code that protects against a single error on any one qubit. Detects two-qubit errors.'
 
@@ -38,17 +49,18 @@ realizations:
 
 relations:
   parents:
+    - code_id: xzzx
+      detail: 'The five-qubit code is the smallest XZZX surface code \cite[Ex. 11]{arxiv:1108.5490}\cite[Ex. 3]{arxiv:1212.6703}.'
+    - code_id: quantum_perfect
+      detail: 'The five-qubit code is the smallest perfect code.'
     - code_id: stabilizer_over_gf4
       detail: 'The five-qubit code is derived from the \([5,3,3]_4\) Hamming code.'
     - code_id: quantum_mds
       detail: 'The five-qubit code is one of the two qubit quantum MDS codes.'
-    - code_id: xzzx
-      detail: 'The five-qubit code is the smallest XZZX surface code \cite[Ex. 11]{arxiv:1108.5490}\cite[Ex. 3]{arxiv:1212.6703}.'
-    - code_id: quantum_cyclic
-      detail: 'The five-qubit code is the smallest known example of quantum cyclic code. The full automorphism group of the code is the dihedral group of order 10 \cite{arxiv:2109.12735}.'
-    - code_id: quantum_perfect
-      detail: 'The five-qubit codes is the smallest perfect code.'
-    - code_id: small_distance
+    - code_id: qudit_5_1_3
+      detail: 'The \([[5,1,3]]_{\mathbb{Z}_q}\) modular-qudit code for \(q=2\) reduces to the five-qubit perfect code.'
+    - code_id: galois_5_1_3
+      detail: 'The \([[5,1,3]]_q\) Galois-qudit code for \(q=2\) reduces to the five-qubit perfect code.'
   cousins:
     - code_id: hamiltonian
       detail: 'The five-qubit code Hamiltonian is local when expressed in terms of mutually commuting Majorana operators \cite{manual:{Aleksander Kubica, private communication, 2019}}.'

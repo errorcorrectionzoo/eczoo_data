@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: three_fermion
+physical: qubits
+logical: qubits
+
+name: 'Three-fermion (3F) model code'
+short_name: '3F model'
+introduced: '\cite{arxiv:2011.04693}'
+
+description: |
+  A 3D topological code whose low-energy excitations realize the three-fermion anyon theory \cite{arxiv:0712.1377,arxiv:0811.0911,arxiv:1103.4606} and that can be used as a resource state for fault-tolerant MBQC \cite{arxiv:2011.04693}.
+
+features:
+  general_gates:
+    - 'Clifford gates can be performed by braiding and fusing symmetry defects in the MBQC model.'
+  fault_tolerance:
+    - 'Fault-tolerant MBQC protocol by encoding in, braiding, and fusing symmetry defects.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: walker_wang
+      detail: 'The Walker-Wang model code reduces to the 3F model code when the input category \(\mathcal{C}=3F\) \cite{arxiv:2011.04693}.'
+    - code_id: topological_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, 3F model code states realize 3F topological order, which is chiral and modular.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-28'

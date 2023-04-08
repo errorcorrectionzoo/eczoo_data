@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_topological
+physical: galois
+logical: galois
+
+name: 'Galois-qudit topological code'
+introduced: '\cite{arxiv:quant-ph/0609070,doi:10.1109/CIG.2010.5592860,arxiv:1202.3338}'
+
+description: |
+  Abelian topological code, such as a surface \cite{arxiv:quant-ph/0609070,arxiv:1202.3338} or color \cite{doi:10.1109/CIG.2010.5592860} code, constructed on lattices of Galois qudits.
+
+relations:
+  parents:
+    - code_id: galois_css
+    - code_id: topological
+# topological_abelian is modular qudit based, so cousin
+  cousins:
+    - code_id: quantum_double_abelian
+      detail: 'A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits \cite{doi:10.1109/18.959288}; see Sec. 5.3 of Ref. \cite{arxiv:quant-ph/0501074}.
+      Galois-qudit topological surface and color codes yield abelian quantum-double codes via this decomposition.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'

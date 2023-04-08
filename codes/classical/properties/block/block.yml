@@ -8,10 +8,17 @@ code_id: block
 name: 'Block code'
 
 description: |
-  A code defined on a \textit{block} of \(n\) symbols, with each symbol taken from some fixed possibly infinite alphabet \(\Sigma\) \cite[Ch. 3]{doi:10.1007/978-3-642-58575-3}. Such alphabets include bits, Galois fields, rings, or real numbers, and the overall alphabet of the code is \(\Sigma^n\). In this context, \(n\) is called the length of the code.
-  In some cases, there are conditions on which length-\(n\) strings are available to the codes. For example, in the case of spherical codes, one is constrained to \(n\)-dimensional real vectors on the unit sphere.
+  A code intended to encode a piece, or block, of a data stream on a \textit{block} of \(n\) symbols.
+  Each symbol is taken from some fixed possibly infinite alphabet \(\Sigma\) \cite[Ch. 3]{doi:10.1007/978-3-642-58575-3}, which can include bits, Galois fields, rings, or real numbers.
+
+  The overall alphabet of the code is \(\Sigma^n\), and \(n\) is called the \textit{length} of the code.
+  In some cases, only a subset of \(\Sigma^n\) is available to use for constructing the code.
+  For example, in the case of spherical codes, one is constrained to \(n\)-dimensional real vectors on the unit sphere.
 
   An alternative more stringent definition (not used here) is in terms of a map encoding logical information from \(\Sigma^k\) into \(\Sigma^n\), yielding an \((n,k,d)_{\Sigma}\) block code, where \(d\) is the code distance.
+
+# A common family of codes are the \textit{block codes}, intended to encode a piece, or block, of a data stream.
+# A block code encodes strings of length \(k\), where each character in the string an element of some fixed alphabet \(\Sigma\), into strings of length \(n\). In other words, a block code encoding is a map from \(\Sigma^k\) to \(\Sigma^n\), where \(N = |\Sigma|^n\), \(K=|\Sigma|^k\), and \(|\Sigma|\) is the number of elements in the alphabet.
 
 protection: |
   Block codes protect from errors acting on a few of the \(n\) symbols. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) symbols, and corrects erasure errors on up to \(d-1\) symbols.

@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_double_abelian
+physical: qudits
+logical: qudits
+
+name: 'Abelian quantum double stabilizer code'
+introduced: '\cite{arXiv:quant-ph/9707021}'
+
+description: |
+  Modular-qudit stabilizer code whose codewords realize 2D modular gapped Abelian topological order with trivial cocycle.
+  The corresponding anyon theory is defined by an abelian group.
+  All such codes can be realized by a stack of modular-qudit surface codes because all abelian groups are Kronecker products of cyclic groups.
+
+
+protection:
+  Error-correcting properties established in Ref. \cite{arxiv:1804.03203} using operator algebra theory.
+
+
+# not css because Clifford-deformed is there
+relations:
+  parents:
+    - code_id: tqd_abelian
+      detail: 'The anyon theory corresponding to abelian quantum double codes is defined by an abelian group and trivial cocycle.'
+    - code_id: quantum_double
+      detail: 'The anyon theory corresponding to (abelian) quantum double codes is defined by an (abelian) group.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-06'

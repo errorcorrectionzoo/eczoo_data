@@ -84,28 +84,59 @@ jobs:
 
       # --------------------------------
 
-      - name: 'Move generated site to base dir'
-        run: 'mv ./eczoo_sitegen/site/_site .'
+      # - name: 'Move generated site to base dir'
+      #   run: 'mv ./eczoo_sitegen/site/_site .'
 
       # --------------------------------
 
+      # - name: 'Deploy site to S3/Cloudfront'
+      #   uses: reggionick/s3-deploy@v3
+      #   with:
+      #     folder: _site
+      #     bucket: '${{ secrets.S3_BUCKET }}'
+      #     bucket-region: '${{ secrets.S3_BUCKET_REGION }}'
+      #     dist-id: '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'
+      #     invalidation: /
+      #     delete-removed: true
+      #     private: true
+      #     #no-cache: true
+      #     cache: 86400
+
+      - name: 'Deploy versioned assets to S3 with durable cache'
+        working-directory: ./eczoo_sitegen/
+        run: |-
+          yarn s3-deploy  \
+              "./site/_site/vv/**"  \
+              --bucket '${{ secrets.S3_BUCKET }}'  \
+              --region '${{ secrets.S3_BUCKET_REGION }}'  \
+              --cwd "./site/_site/"  \
+              --etag  \
+              --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
+              --cacheControl 'max-age=31536000, s-max-age=31536000'  \
+              --private
+
       - name: 'Deploy site to S3/Cloudfront'
-        uses: reggionick/s3-deploy@v3
-        with:
-          folder: _site
-          bucket: '${{ secrets.S3_BUCKET }}'
-          bucket-region: '${{ secrets.S3_BUCKET_REGION }}'
-          dist-id: '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'
-          invalidation: /
-          delete-removed: true
-          no-cache: true
-          private: true
+        working-directory: ./eczoo_sitegen/
+        run: |-
+          yarn s3-deploy  \
+              "./site/_site/**"  \
+              --bucket '${{ secrets.S3_BUCKET }}'  \
+              --region '${{ secrets.S3_BUCKET_REGION }}'  \
+              --cwd ./site/_site  \
+              --distId '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'  \
+              --etag  \
+              --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
+              --cacheControl 'max-age=7200, s-max-age=31536000'  \
+              --invalidate "/*"  \
+              --private
+
+
 
       # --------------------------------
 
       - name: Make archive of zoo files
-        run: 'zip -r ../eczoo_website_files.zip ./'
-        working-directory: ./_site/
+        run: 'zip -r ../../../eczoo_website_files.zip ./'
+        working-directory: ./eczoo_sitegen/site/_site/
 
       - uses: actions/upload-artifact@v3
         with:

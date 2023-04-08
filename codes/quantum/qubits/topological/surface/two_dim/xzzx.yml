@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xzzx
+physical: qubits
+logical: qubits
+
+name: 'XZZX surface code'
+introduced: \cite{arxiv:quant-ph/0205004,arXiv:2009.07851,arxiv:1108.5490}
+
+description: 'Non-CSS variant of the rotated surface code whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).'
+
+protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
+
+features:
+  threshold:
+    - '\(\sim 4.5\%\) using minimum-weight perfect matching decoder for depolarizing noise (bias \(\eta=0.5\)); \(\sim 10\%\) for infinite \(Z\) bias.'
+  code_capacity_threshold:
+    - '\(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.'
+    - 'For large but finite \(X\)- or \(Z\)-biased noise, the code''s thresholds exceed the zero-rate hashing bound.  The difference of the threshold from the hashing bound exceeds \(2.9\%\) at a \(Z\) or \(X\) bias of 300.'
+    - '\(18.7\%\) for standard depolarising noise with maximum-likelihood decoder.'
+    - '\(0.817\%\) and \(0.940\%\) with minimum-weight perfect matching and belief-matching decoder, respectively, for biased circuit-level noise \cite{arxiv:2203.04948}.'
+    - '\(4.15\%\) when \(98\%\) of depolarizing errors are coverted into erasure errors with union-find decoder on a planar code, vs. \(0.937\%\) for pure depolarizing noise. In Rydberg atomic devices, erasure conversion during gates is promising because the dominant source of noise is spontaneous decay into detectable energy levels outside of the computational subspace \cite{arxiv:2201.03540}.'
+  decoders:
+    - 'Minimum-weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the XY code in Ref. \cite{arXiv:1907.02554}.'
+
+realizations:
+  - 'Distance-five 25-qubit code implemented on a superconducting quantum processor by Google Quantum AI \cite{arxiv:2207.06431}. This code outperformed the average of several instances of the smaller distance-three 9-qubit \(XZZX\) variant of the \hyperref[code:surface-17]{surface-17} code realized on the same device, both in terms of logical error probability over 25 cycles and in terms of logical error per cycle. This increase in error-correcting capabilities while using more physical qubits supports the notion of an error threshold. Braiding of defects has been demonstrated for the distance-five code \cite{arxiv:2210.10255}. Leakage errors have been handled in a separate work in a distance-three code \cite{arxiv:2211.04728}.'
+
+notes:
+  - 'A single \(X\) or \(Z\) error gives rise to two nearby defects, which can be viewed as endpoints of a string. That way, multiple \(Z\) errors can be decomposed into a combination of diagonal strings.'
+  - Originally formulated as an example of \(\mathbb{Z}_2\) topological order in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.
+
+relations:
+  parents:
+    - code_id: clifford-deformed_surface
+      detail: XZZX code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZXZ\).
+  cousins:
+    - code_id: rotated_surface
+      detail: 'XZZX code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZXZ\).'
+    - code_id: fracton
+      detail: Subsystem symmetries play a role in finite-bias decoders for both codes \cite{arXiv:1901.08061}.
+    - code_id: quantum_double_abelian
+      detail: 'Example of \(\mathbb{Z}_2\) topological order as manifest in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.'
+    - code_id: heavy_hex
+      detail: 'XZZX surface code can be adapted for a heavy-hexagonal lattice \cite{arxiv:2211.14038}.'
+    - code_id: cluster_state
+      detail: 'XZZX surface code can be foliated for a noise-bias preserving MBQC \cite{arxiv:2201.10566} or FBQC \cite{arxiv:2303.16122} protocol.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-15'
+    - user_id: VictorVAlbert
+      date: '2022-03-24'
+    - user_id: ArpitDua
+      date: '2022-01-19'
+    - user_id: MariannaPodzorova
+      date: '2021-12-13'

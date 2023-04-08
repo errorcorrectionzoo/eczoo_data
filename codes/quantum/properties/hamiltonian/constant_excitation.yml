@@ -4,12 +4,15 @@
 #######################################################
 
 code_id: constant_excitation
+# includes Galois, modular, oscillators, and groups
 
 name: 'Constant-excitation (CE) code'
 introduced: '\cite{arXiv:quant-ph/9603022,arXiv:quant-ph/9705044,arxiv:quant-ph/9809081}'
 
 description: |
-  Code whose codewords lie in an excited-state eigenspace of a Hamiltonian governing the total energy or total number of excitations of the underlying quantum system. For qubit codes, such a Hamiltonian is often the \textit{total spin Hamiltonian}, \(H=\sum_i Z_i\). For spin-\(S\) codes, this generalizes to \(H=\sum_i J_z^{(i)}\), where \(J_z\) is the spin-\(S\) \(Z\)-operator. For bosonic codes, such as Fock-state codes, codewords are often in an eigenspace with eigenvalue \(N>0\) of the \textit{total excitation} or \textit{energy Hamiltonian}, \(H=\sum_i \hat{n}_i\).
+  Code whose codewords lie in an excited-state eigenspace of a Hamiltonian governing the total energy or total number of excitations of the underlying quantum system.
+  For qubit codes, such a Hamiltonian is often the \textit{total spin Hamiltonian}, \(H=\sum_i Z_i\). For spin-\(S\) codes, this generalizes to \(H=\sum_i J_z^{(i)}\), where \(J_z\) is the spin-\(S\) \(Z\)-operator.
+  For bosonic codes, such as Fock-state codes, codewords are often in an eigenspace with eigenvalue \(N>0\) of the \textit{total excitation} or \textit{energy Hamiltonian}, \(H=\sum_i \hat{n}_i\).
 
   One of the first such codes \cite{arXiv:quant-ph/9603022} is a \(((8,1,3))\) qubit code, with codewords
   \begin{align}
@@ -21,8 +24,6 @@ description: |
   \end{align}
   Each logical state is a superposition of computational basis states with four excitations.
 
-protection: ''
-
 features:
   rate: 'Fock-state CE codes can be used in a protocol that achieves the two-way quantum capacity of the pure-loss Gaussian channel \cite{arxiv:2203.13924}.'
 
@@ -30,7 +31,6 @@ relations:
   parents:
     - code_id: hamiltonian
       detail: 'Constant-excitation codes are associated with a Hamiltonian governing the total excitations of the system.'
-  #cousins:
 
 
 # Begin Entry Meta Information
