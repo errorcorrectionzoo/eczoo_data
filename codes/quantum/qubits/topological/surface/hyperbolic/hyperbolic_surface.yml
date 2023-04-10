@@ -10,13 +10,14 @@ logical: qubits
 name: 'Hyperbolic surface code'
 
 description: |
-  An extension of the Kitaev surface code construction to hyperbolic manifolds in dimension two or greater. Given a cellulation of a manifold, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \(i+1\)-faces.
+  An extension of the Kitaev surface code construction to hyperbolic manifolds.
+  Given a cellulation of a manifold, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \(i+1\)-faces.
 
 protection: 'Constructions (see code children below) have yielded distances scaling favorably with the number of qubits. The use of hyperbolic surfaces allows one to circumvent bounds on surface code parameters that are valid for surfaces with bounded geometry.'
 
 relations:
   parents:
-    - code_id: surface
+    - code_id: higher_dimensional_surface
   cousins:
     - code_id: holographic
       detail: 'Both holographic and hyperbolic surface codes utilize tesselations of hyperbolic surfaces. Encodings for the former are hyperbolically tiled tensor networks, while the latter is defined on hyperbolically tiled physical-qubit lattices.'

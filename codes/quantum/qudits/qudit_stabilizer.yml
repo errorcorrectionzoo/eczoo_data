@@ -17,6 +17,17 @@ description: |
 
   Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
+  One can switch between stabilizer codes by appending another abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
+  \begin{defterm}{Condensation}
+  \label{topic:condensation}
+  Condensation is a map between stabilizer codes that is done using an abelian subgroup \(\mathsf{F}\) of the \(n\)-qudit Pauli group,
+  \begin{align}
+  \mathsf{S}\to\mathsf{Z}\left(\left\langle \mathsf{S},\mathsf{F}\right\rangle \right)~,
+  \end{align}
+  where \(\mathsf{Z}\) denotes taking the center of a group.
+  \end{defterm}
+
+
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
 
 features:

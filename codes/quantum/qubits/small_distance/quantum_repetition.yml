@@ -27,10 +27,14 @@ description: |
 protection: |
   Bit-flip code detects bit-flip errors \(X\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any phase-flip errors \(Z\).
   Phase-flip code detects phase-flip errors \(Z\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any bit-flip errors \(X\).
-  Because they protect against only one type of noise, both codes can be thought of as a classical \([n,1,d]\) repetition code with classical distance \(d=\left\lfloor (n-1)/2\right\rfloor\) embedded in a quantum system.'
+
+  Because they protect against only one type of noise, both codes can be thought of as a classical \([n,1,d]\) repetition code with classical distance \(d=\left\lfloor (n-1)/2\right\rfloor\) embedded in a quantum system.
+  Nevertheless, the phase-flip code can offer some degree of protection in particular physical systems based on superconducting circuits \cite{arxiv:1205.1836,arxiv:2303.17810}.
 
 features:
   encoders:
+    - 'Unitary circuit of depth logarithmic in \(n\) \cite{arxiv:1807.05572}. Any circuit has to have range \(n\) because Ghz states are locally indistinguishable \cite{arxiv:1910.08980}.'
+    - 'Adaptive constant-depth circuit with geometrically local gates and measurements throughout \cite{arxiv:1906.08890,arXiv:2112.03061}.'
     - 'Lindbladian-based dissipative encoding passively protecting against bit flips \cite{arxiv:quant-ph/0110111,arxiv:1702.08673}.'
   general_gates:
     - 'Toffoli magic-state preparation protocol \cite{arXiv:2012.04108}.'
