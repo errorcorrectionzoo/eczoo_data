@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fiber_bundle
+physical: qubits
+logical: qubits
+
+name: 'Fiber-bundle code'
+introduced: '\cite{arxiv:2009.03921}'
+
+description: 'Also called a \textit{twisted product code}. CSS code constructed by combining a random LDPC code as the base and a cyclic repetition code as the fiber of a fiber bundle. After applying distance balancing, a QLDPC code with distance \(\Omega(n^{3/5}\text{polylog}(n))\) and rate \(\Omega(n^{-2/5}\text{polylog}(n))\) is obtained.'
+#In addition, weight reduction can be used to make this an \([[n,\Omega(n^{3/5}/\text{polylog}(n),\Omega(n^{3/5}/\text{polylog}(n))]]\) QLDPC code family.'
+
+#protection: 'Pauli errors up to weight \(\Omega(n^{3/5}\text{polylog}(n))\).'
+features:
+
+  rate: 'Rate \(k/n = \Omega(n^{-2/5}/\text{polylog}(n))\), distance \(d=\Omega(n^{3/5}/\text{polylog}(n))\). This is the first QLDPC code to achieve a distance scaling better than \(\sqrt{n}~\text{polylog}(n)\).'
+
+  decoders:
+    - 'Greedy algorithm can be used to efficiently decode \(X\) errors, but no known efficient decoding of \(Z\) errors yet \cite{arxiv:2009.03921}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: balanced_product
+      detail: 'Fiber-bundle codes can be formulated in terms of a balanced product \cite{arXiv:2012.09271}.'
+  cousins:
+    - code_id: distance_balanced
+      detail: 'Fiber-bundle code constructions use distance balancing to increase distance.'
+    - code_id: quantum_random
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-04'
+    - user_id: JonNelson
+      date: '2021-12-15'

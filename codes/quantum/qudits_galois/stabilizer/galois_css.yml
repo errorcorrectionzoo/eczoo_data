@@ -1,0 +1,69 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_css
+physical: galois
+logical: galois
+
+name: 'Galois-qudit CSS code'
+introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029,arxiv:quant-ph/9608049,arxiv:quant-ph/0312164,doi:10.1016/j.disc.2007.08.038}'
+
+description: |
+  An \([[n,k,d]]_q \) Galois-qudit true stabilizer code admitting a set of stabilizer generators that
+  are either \(Z\)-type or \(X\)-type Galois-qudit Pauli strings.
+  Codes can be defined from chain complexes over \(GF(q)\) via an extension of \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to Galois qudits.
+
+  The stabilizer generator matrix, taking values from \(GF(q)\), is of the form
+  \begin{align}
+  H=\begin{pmatrix}0 & H_{Z}\\
+  H_{X} & 0
+  \end{pmatrix}
+  \label{eq:parityg}
+  \end{align}
+  such that the rows of the two blocks must be orthogonal
+  \begin{align}
+  H_X H_Z^T=0~.
+  \label{eq:commG}
+  \end{align}
+  The above condition guarantees that the \(X\)-stabilizer generators, defined in the symplectic representation as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
+
+  Encoding is based on two related \hyperref[code:q-ary_linear]{\(q\)-ary linear codes},
+  an \([n,k_X,d_X]_q \) code \(C_X\) and \([n,k_Z,d_Z]_q \) code \(C_Z\),
+  satisfying \(C_X^\perp \subseteq C_Z\).
+  The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
+  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parityg} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:commG}.
+  Basis states for the code are, for \(\gamma \in C_X\),
+  \begin{align}
+  |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
+  \end{align}
+
+protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+
+relations:
+  parents:
+    - code_id: galois_true_stabilizer
+      detail: 'Galois-qudit CSS codes are true stabilizer codes \cite{preset:GottesmanBook}.'
+    - code_id: css
+  cousins:
+    - code_id: q-ary_linear
+      detail: 'Construction uses two related \(q\)-ary linear codes \(C_X\) and \(C_Z\).'
+    - code_id: q-ary_cyclic
+      detail: 'Galois CSS codes can be constructed using self-orthogonal \(q\)-ary cyclic codes \cite{arxiv:1608.06674}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-28'
+    - user_id: LeonidPryadko
+      date: '2022-02-16'
+    - user_id: DanielGottesman
+      date: '2022-02-16'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'
+    - user_id: QingfengKeeWang
+      date: '2022-01-07'
