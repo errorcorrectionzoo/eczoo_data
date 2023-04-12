@@ -11,11 +11,14 @@ name: 'Homological rotor code'
 introduced: '\cite{arXiv:2303.13723}'
 
 description: |
-  A homological quantum rotor code is stabilized by a set of rotor X-type and Z-type generalized Pauli operators.
+  A homological quantum rotor code is an extension of \hyperref[code_id:analog_stabilizer]{analog stabilizer} codes to rotors.
+  The code is stabilized by a continuous group of rotor X-type and Z-type generalized Pauli operators.
   Codes are formulated using an extension of the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to rotors.
-  The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension.
+  The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension, i.e., encoding logical qudits instead of only logical rotors.
+  By contrast, such finite-dimensional encodings are not possible with \hyperref[code_id:analog_stabilizer]{analog stabilizer} codes.
 
-  \subsection{Stabilizer group}
+  A homological rotor code encoding \(k\) logical rotors and a \(q\)-dimensional logical qudit is denoted as \([[n,(k,q)]]_{\mathbb{Z}}\) or \([[n,(k,q),(d_X,\delta_Z)]]_{\mathbb{Z}}\), where \(d_X\) and \(\delta_Z\) are the code's \(X\) and \(Z\) distances, respectively.
+
   The stabilizer group is defined using two integer matrices \(H_X\in\mathbb{Z}^{r_X\times n}\) and \(H_Z\in\mathbb{Z}^{r_Z\times n}\) which are such that
   \begin{align}
         H_XH_Z^T = 0.\label{eq:commutation}
@@ -26,7 +29,6 @@ description: |
   \end{align}
   The condition \eqref{eq:commutation} ensures that \(\mathcal{S}\) has a common +1 eigenspace.
 
-  \subsection{Link with homology of a chain complex}
   As with \hyperref[code:css]{CSS} codes, there is a natural connection to a length-3 integer chain complexes
   \begin{align}
   \mathcal{C}:~ \mathbb{Z}^{r_X} \xrightarrow{H_X} \mathbb{Z}^n \xrightarrow{H_Z^T} \mathbb{Z}^{r_Z}
@@ -37,15 +39,20 @@ description: |
     \mathcal{C}^*:~ \mathbb{T}^{r_X} \xleftarrow{H_X^T} \mathbb{T}^n \xleftarrow{H_Z} \mathbb{T}^{r_Z}.
   \end{align}
 
-  \subsection{Logical subspace}
   The logical subspace can contain logical rotors as well as logical qudits.
   The former correspond to the so called free part of the homology group while the latter correspond to the torsion part
   \begin{align}
     H_1(\mathcal{C},\mathbb{Z}) = \mathbb{Z}^{k^\prime}\oplus\mathbb{Z}_{d_1}\oplus\cdots\oplus\mathbb{Z}_{d_{k^{\prime\prime}}}.
   \end{align}
 
+# \subsection{Stabilizer group}
+#  \subsection{Link with homology of a chain complex}
+#  \subsection{Logical subspace}
+
 protection: |
-  One can extend the idea of disjointness \cite{arxiv:1710.07256} to rotors to obtain bounds on the \(X,Z\) distances \cite{arxiv:2303.13723}.
+  The \(X\) distance \(d_X\) of a code is the (slightly generalized notion of) weight of the smallest logical operator constructed out of angular position shifts.
+  The \(Z\) distance \(\delta_Z\) depends on whether or not the code encodes logical rotors, but a similar notion exists in the case of only a logical qudit encoding.
+  One can extend the idea of disjointness \cite{arxiv:1710.07256} to rotors to obtain distance bounds \cite{arxiv:2303.13723}.
 
 features:
   transversal_gates: 'All generalized Pauli gates are realized transversally.'
@@ -63,7 +70,7 @@ notes:
 
 relations:
   parents:
-    - code_id: rotor
+    - code_id: rotor_stabilizer
     - code_id: generalized_homological_product_css
       detail: 'Homological rotor codes are formulated using an extension of the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to rotors.
       The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension.
