@@ -20,6 +20,7 @@ description: |
     0 & 0 & 0 & 1 & 1 & 1 & 1
   \end{array}\right)~.
   \end{align}
+  Up to equivalence, this is the only nontrivial length-seven perfect binary code containing the zero vector.
 
   This code can be extended by a parity-check bit to yield the \([8,4,4]\) \textit{extended Hamming code}, the smallest doubly-even self-dual code.
   It can be shortened to yield the \([6,3,3]\) \textit{shortened Hamming code}.
@@ -35,10 +36,9 @@ relations:
     - code_id: binary_quad_residue
       detail: '\([7,4,3]\) Hamming code is a quadratic-residue code with generator polynomial \(1+x+x^3\) \cite{preset:MacSlo}.'
   cousins:
+    - code_id: hamming844
     - code_id: steane
       detail: 'The Steane code is constructed from the \([7,4,3]\) classical Hamming code.'
-    - code_id: divisible
-      detail: 'The extended Hamming code code is the smallest double-even self-dual code.'
     - code_id: griesmer
       detail: 'Starting with the \([6,3,3]\) shortened Hamming code and applying the \((u|u+v)\) construction recursively using the repetition code yields a family of \([2^m,m+1,2^{m-1}]\) codes for \(m\geq1\) that saturate the Griesmer bound \cite[pg. 90]{doi:10.1201/9781315371993}.'
 
