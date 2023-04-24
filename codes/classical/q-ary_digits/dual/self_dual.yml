@@ -10,19 +10,23 @@ logical: q-ary_digits
 name: 'Self-dual linear code'
 
 description: |
-  A code that is equal to its dual, \(C^\perp = C\), where the dual is defined with respect to an inner product, most commonly either Euclidean or Hermitian.
+  An \([n,n/2]_q\) code that is equal to its dual, \(C^\perp = C\), where the dual is defined with respect to an inner product, most commonly either Euclidean or Hermitian.
+  Self-dual codes exist only for even lengths and have dimension \(k=n/2\).
+
+  An even (doubly-even) self-dual code is called Type I (Type II) \cite{arxiv:2112.11763,doi:10.1007/978-1-4757-6568-7}.
+  Ternary (quaternary) self-dual codes are called \textit{Type III} (\textit{Type IV}), and each of their codewords has weight three (two).
 
 protection: |
   The generator matrix of the Hermitian dual of a code with generator matrix \(G = [I_k~~A]\) is \([-\bar{A}^T~~I_{n-k}]\), where \(\bar{A}\) contains matrix elements of \(A\) raised to the \(p\)th power.
   A code is Hermitian self-dual if and only if \(A \bar{A}^{T} = -I_{n/2}\).
 
-  The minimum distance of a Hermitian self-dual \([n,n/2]\) self-dual code satisfies
+  The minimum distance of a Hermitian self-dual \([n,n/2]\) code satisfies
   \begin{align}
     d\leq\begin{cases}
-    2\left[\frac{n}{8}\right]+2 & q=2\text{ and code is singly-even}\\
-    4\left[\frac{n}{24}\right]+4 & q=2\text{ and code is doubly-even}\\
-    3\left[\frac{n}{12}\right]+3 & q=3\\
-    2\left[\frac{n}{6}\right]+2 & q=4\text{ and code is even}
+      2\left\lfloor \frac{n}{8}\right\rfloor +2 & q=2\text{ and code is singly-even}\\
+      4\left\lfloor \frac{n}{24}\right\rfloor +4 & q=2\text{ and code is doubly-even}\\
+      3\left\lfloor \frac{n}{12}\right\rfloor +3 & q=3\\
+      2\left\lfloor \frac{n}{6}\right\rfloor +2 & q=4\text{ and code is even}
     \end{cases}~,
   \end{align}
   except for \(n = 22\) modulo four for the second case, where the bound is increased by four \cite{doi:10.1109/18.651000}.
@@ -37,11 +41,13 @@ notes:
 relations:
   parents:
     - code_id: dual
-    - code_id: dual_additive
-      detail: 'Self-dual linear codes are also self-dual additive codes.'
+    - code_id: self_dual_additive
+      detail: 'Self-dual linear codes with respect to some inner product are automatically self-dual additive under the same inner product since linear codes are additive.
+      In addition, quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (CITE Thm. 9.10.3 HuffmanPless).'
   cousins:
     - code_id: divisible
-      detail: 'Binary self-dual codes are singly-even. The minimum distance of doubly-even binary self-dual codes asymptotically satisfies \(d\leq0.1664n+o(n)\) \cite{doi:10.1109/18.605587}.'
+      detail: 'Binary self-dual codes are singly-even and binary self-orthogonal codes that are not doubly-even are singly-even \cite[Def. 4.1.6]{preset:HKSselfdual}.
+      The minimum distance of doubly-even binary self-dual codes asymptotically satisfies \(d\leq0.1664n+o(n)\) \cite{doi:10.1109/18.605587}.'
 
 
 # Begin Entry Meta Information

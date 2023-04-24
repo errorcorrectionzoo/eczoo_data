@@ -18,7 +18,9 @@ description: |
 
   Stabilizer codes over \(GF(4)\) can be constructed as follows. Let \(\phi\) be a bijection from a linear binary subspace to \(GF(4)^n\). Let \(C\) be a trace-Hermitian self-orthogonal additive subcode over \(GF(4)\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(GF(4)\).
 
-#  The quaternary code needs to only be additive (its codewords are closed under addition). It need not be a linear code, which would require the set of codewords to be closed under multiplication as well.
+  Quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (CITE Thm. 9.10.3 HuffmanPless).
+  In other words, if the underlying quaternary code is linear, then the extra trace operation can be removed from the definition of inner product.
+
 
 features:
   fault_tolerance:
@@ -36,10 +38,9 @@ relations:
       detail: 'Stabilizer codes over \(GF(q^2)\) for \(q=2\) are stabilizer codes over \(GF(4)\).'
   cousins:
     - code_id: dual_additive
-      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(4)\) can equivalently be stated in the representation of stabilizers as quaternary vectors. A pair of \(n\)-qubit stabilizers commute iff the trace-Hermitian inner product of their corresponding vectors is zero. Stabilizer codes over \(GF(4)\) can thus be constructed from trace-Hermitian self-orthogonal additive quaternary codes.'
-    - code_id: dual
-      detail: 'If the classical additive code of quaternary vectors corresponding a stabilizer code over \(GF(4)\) is linear, then the code is self-orthogonal with respect to both the trace-Hermitian and Hermitian inner products \cite[Thm. 27.4.1]{preset:HKSquantum}.
-      In other words, the extra trace operation can be removed from the definition of inner product.'
+      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(4)\) can equivalently be stated in the representation of stabilizers as quaternary vectors.
+      A pair of \(n\)-qubit stabilizers commute iff the trace-Hermitian inner product of their corresponding vectors is zero.
+      Stabilizer codes over \(GF(4)\) can thus be constructed from trace-Hermitian self-orthogonal additive quaternary codes.'
 
 
 # Begin Entry Meta Information
