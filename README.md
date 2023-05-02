@@ -62,7 +62,7 @@ In most text fields, you can make use of LaTeX-inspired
 command syntax.  You can insert math expressions, add citations,
 format text, add figures and tables, etc., using a precise
 syntax with commands that is described here:
-https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/llm_howto.md
+https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/flm_howto.md
 
 Example:
 
