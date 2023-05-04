@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: array_ldpc
+physical: bits
+logical: bits
+
+name: 'Array LDPC code'
+introduced: '\cite{manual:{Fan, John L. "Array codes as low-density parity-check codes." Proc. 2nd Int. Symp. on Turbo Codes & Related Topics, Brest, France, Sept. 2000. 2000.},doi:10.1007/978-1-4615-1525-8_7}'
+
+description: |
+  QC-LDPC code constructed deterministically from an array code.
+  The parity-check matrix admit a compact representation \cite{doi:10.1109/ISIT.2002.1023554} and is related to RS codes.
+
+realizations:
+  - 'Certain array LDPC codes have been proposed to be used for DSL transmission \cite{doi:10.1109/ICC.2002.997149}.'
+
+
+relations:
+  parents:
+    - code_id: qc_ldpc
+  cousins:
+    - code_id: b_array
+      detail: 'Array LDPC codes are constructed from certain classes of B-codes. B-codes can be viewed as binary codes by mapping (i.e., \text{lifting}) their ring elements to permutation matrices. The resulting codes turn out to be LDPC \cite{doi:10.1007/978-1-4615-1525-8_7}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: pg_ldpc
+physical: bits
+logical: bits
+
+name: 'Finite-geometry LDPC (FG-LDPC) code'
+short_name: 'FG-LDPC'
+introduced: '\cite{doi:10.1109/18.959255}'
+
+description: |
+  LDPC code whose parity-check matrix is the incidence matrix of points and hyperplanes in either a Euclidean and projective geometry.
+  Such codes are called EG-LDPC and PG-LDPC codes for the two respective cases.
+
+
+relations:
+  parents:
+    - code_id: ldpc
+    - code_id: qc_ldpc
+      detail: 'Many FG-LDPC codes can be put into quasi-cyclic form \cite{doi:10.1109/18.959255}\cite[pg. 286]{doi:10.1016/C2014-0-03412-0}.'
+  cousins:
+    - code_id: incidence_matrix
+      detail: 'The parity-check matrix of a PG-LDPC code is the incidence matrix of points and hyperplanes of a projective space.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

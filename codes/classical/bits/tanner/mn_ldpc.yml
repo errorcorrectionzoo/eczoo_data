@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: mn_ldpc
+physical: bits
+logical: bits
+
+name: 'MacKay-Neal LDPC (MN-LDPC) code'
+short_name: 'MN-LDPC'
+introduced: '\cite{doi:10.1007/3-540-60693-9_13,doi:10.1109/18.748992}'
+
+description: |
+  LDPC codes whose parity-check matrix is constructed one column at a time.
+
+features:
+  rate: 'Cetain sequences of optimally decoded codes can nearly achieve the Shannon capacity \cite{doi:10.1007/3-540-60693-9_13,doi:10.1109/18.748992}.'
+  decoders:
+    - 'Free-energy minimization and a BP decoder \cite{doi:10.1007/3-540-60693-9_13}.'
+
+
+
+relations:
+  parents:
+    - code_id: ldpc
+      detail: 'MN-LDPC codes, along with the original Gallager LDPC codes, re-invigorated the study of LDPC codes.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

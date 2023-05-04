@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_tanner
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Tanner code'
+introduced: '\cite{doi:10.1109/TIT.1981.1056404}'
+
+alternative_names:
+  - 'GLDPC code'
+
+description: |
+  A linear \(q\)-ary code defined on a sparse bipartite graph similar to a Tanner graph.
+  This \textit{generalized Tanner graph} consists of variable nodes and constraint nodes, with the generalization being that the constraint nodes of degree \(r\) now represent a linear codes of length \(r\).
+  A string is in the Tanner code if all substrings satisfy their corresponding constraints, i.e., all substrings are members of the linear codes represented on the constraint nodes.
+  A code is called \textit{regular} if the corresponding bipartite graph is regular.
+
+features:
+  decoders:
+    - 'Min-sum and sum-product iterative decoders \cite{doi:10.1002/ett.4460060507,manual:{Niclas Wiberg, \emph{Codes and decoding on general graphs}. 1996. PhD thesis, Linköping University, Linköping, Sweden}}; see also \cite{manual:{Brendan J. Frey. Graphical models for machine learning and digital communication. MIT press, 1998.},doi:10.1017/CBO9780511606267}. These can be improved using a probabilistic message-passing schedule \cite{doi:10.1109/PACRIM.2001.953537}.'
+    - 'Any code can be put into normal form without significantly altering the underlying graph or the decoding complexity \cite{doi:10.1109/ISIT.2000.866299}. For an algebraic viewpoint on decoding, see \cite{doi:10.1016/S1571-0653(04)00166-0}.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: parallel_concatenated
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'
