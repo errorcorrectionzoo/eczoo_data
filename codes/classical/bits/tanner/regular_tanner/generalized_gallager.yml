@@ -4,22 +4,21 @@
 #######################################################
 
 
-code_id: ara
+code_id: generalized_gallager
 physical: bits
 logical: bits
 
-name: 'Acumulate-repeat-acumulate ARA code'
-short_name: 'ARA'
-introduced: '\cite{doi:10.1109/TCOMM.2007.894109}'
+name: 'Generalized Gallager code'
+introduced: '\cite{doi:10.1109/ICC.1999.767979}'
 
 description: |
-  A generalization of the RA code in which the outer repetition code encoding step is augmented with an acumulator acting on a fraction of the incoming bits.
-  In addition, the code may be punctured after the final acumulating step.
+  A LDPC code that generalizes the Gallager codes using the Tanner construction.
+  While Gallager code parity-check matrices consists of repetition code submatrices that are randomly permuted, generalized Gallager code matrices substitute general binary linear codes.
 
 
 relations:
   parents:
-    - code_id: irregular_ldpc
+    - code_id: regular_binary_tanner
 
 
 # Begin Entry Meta Information

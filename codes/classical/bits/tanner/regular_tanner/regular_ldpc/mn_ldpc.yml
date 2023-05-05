@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: mn_ldpc
+physical: bits
+logical: bits
+
+name: 'MacKay-Neal LDPC (MN-LDPC) code'
+short_name: 'MN-LDPC'
+introduced: '\cite{doi:10.1007/3-540-60693-9_13,doi:10.1109/18.748992}'
+
+description: |
+  Codes whose parity-check matrix is constructed non-deterministically via the MacKay-Neal prescription.
+  The parity-check matrix of an \((l,r,g\))-MN-LDPC code is of the form \((H_1~H_2)\), where \(H_1\) is a random binary matrix of column weight \(l\) and row weight \(r\), and \(H_2\) is a random binary matrix of column and row weight \(g\) \cite{arxiv:1102.4612}.
+
+features:
+  rate: 'Certain sequences of optimally decoded codes can nearly achieve the Shannon capacity \cite{doi:10.1007/3-540-60693-9_13,doi:10.1109/18.748992}. A sequence of codes achieves the capacity of memoryless binary-input symmetric-output channels under MAP decoding \cite{arXiv:1102.4612}.'
+  decoders:
+    - 'Free-energy minimization and a BP decoder \cite{doi:10.1007/3-540-60693-9_13}.'
+
+
+
+relations:
+  parents:
+    - code_id: regular_ldpc
+      detail: 'MN-LDPC codes re-invigorated the study of LDPC codes about 30 years after their discovery.'
+    - code_id: multi_edge_ldpc
+      detail: 'MN-LDPC codes can be formulated as multi-edge LDPC codes \cite{arxiv:1102.4612}.'
+  cousins:
+    - code_id: ldgm
+      detail: '\((l,r,1\))-MN-LDPC codes are LDGM \cite{arxiv:1102.4612}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

@@ -4,26 +4,21 @@
 #######################################################
 
 
-code_id: margulis_ldpc
+code_id: regular_ldpc
 physical: bits
 logical: bits
 
-name: 'Margulis LDPC code'
-introduced: '\cite{doi:10.1007/BF02579283}'
+name: 'Regular LDPC code'
 
 description: |
-  Member of a class of LDPC codes deterministically constructed using particular graphs with no short cycles.
-  Related explicit LDPC constructions utilize Ramanujan graphs \cite{doi:10.1109/ISIT.2001.935867}.
-
-
-features:
-  encoders:
-    - 'Efficient encoder improving over the original Gallager encoder \cite{doi:10.1007/BF02579283}.'
+  An LDPC code whose parity-check matrix has a fixed number of entries for each row or column.
 
 
 relations:
   parents:
     - code_id: ldpc
+    - code_id: regular_binary_tanner
+      detail: 'Regular LDPC codes are regular binary Tanner codes defined on sparse graphs whose constraint nodes represent parity-check codes.'
 
 
 # Begin Entry Meta Information
