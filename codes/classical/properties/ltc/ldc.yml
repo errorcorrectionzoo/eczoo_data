@@ -9,6 +9,8 @@ name: 'Locally decodable code (LDC)'
 short_name: 'LDC'
 introduced: '\cite{doi:10.1145/335305.335315}'
 
+# LDCs are similar in nature to LRC, but work in another regime. Namely, given a heavily corrupted codeword within the decoding radius, you need to recover any given bit of the message using a small number of queries
+
 description: |
   BLock code for which one can efficiently correct a given string.
   Efficiency of the correction is quantified by the code's \textit{query complexity} \(u\), and correction is performed by sampling subsets of \(u\) bits.
@@ -22,8 +24,6 @@ features:
   decoders:
     - 'LDCs admit \textit{local decoders}, i.e., decoders whose runtime scales polylogarithmically with \(n\).'
 
-notes:
-  - 'LTCs first appeared implicitly in works on probabilistically checkable proofs (PCPs) \cite{doi:10.1016/0022-0000(93)90044-W,doi:10.1007/BF01200056,doi:10.1145/146585.146605,doi:10.1145/103418.103428,doi:10.1145/273865.273901,doi:10.1145/278298.278306}; see Ref. \cite{doi:10.1007/978-3-642-16367-8_6} for a review.'
 
 relations:
   parents:
