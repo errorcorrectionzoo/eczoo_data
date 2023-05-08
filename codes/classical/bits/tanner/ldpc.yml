@@ -23,6 +23,7 @@ description: |
   A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel.
   A parity check yields either zero (no error) or one (error).
 
+  In alternative conventions (not used here), LDPC codes are referred to as \textit{simple LDPC} codes, as opposed to generalized LDPC codes, alternatively named as Tanner codes.
 
 features:
   rate: 'Some LDPC codes achieve the Shannon capacity of the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/18.748992,doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}.
@@ -31,7 +32,7 @@ features:
   encoders:
     - 'Almost linear-time encoder based on transforming the parity-check matrix into upper triangular form \cite{doi:10.1109/18.910579}.'
   decoders:
-    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910577,preset:LinCostello}.'
+    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910577,preset:LinCostello,doi:10.1109/ISCAS.2006.1693779}.'
     - 'Linear programming \cite{doi:10.1007/978-1-4939-2864-4_216}.'
     - 'Reinforcement learning \cite{arxiv:2112.13934}.'
 
