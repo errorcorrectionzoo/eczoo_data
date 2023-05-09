@@ -25,6 +25,7 @@ description: |
 
   In alternative conventions (not used here), LDPC codes are referred to as \textit{simple LDPC} codes, as opposed to generalized LDPC codes, alternatively named as Tanner codes.
 
+
 features:
   rate: 'Some LDPC codes achieve the Shannon capacity of the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/18.748992,doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}.
   Other LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}.
@@ -35,7 +36,9 @@ features:
     - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910577,preset:LinCostello,doi:10.1109/ISCAS.2006.1693779}.'
     - 'Soft-decision Sum-Product Algorithm (SPA) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910572,doi:10.1109/18.910577} and its simplification the Min-Sum Algorithm (MSA) \cite{doi:10.1109/TCOMM.2005.852852}.'
     - 'Linear programming \cite{manual:{J. Feldman. Decoding Error-Correcting Codes via Linear Programming. PhD thesis, Massachusetts Institute of Technology, 2003.},doi:10.1109/TIT.2004.842696,doi:10.1007/978-1-4939-2864-4_216}.'
-    - 'Iterative LDPC decoders can get stuck at \textit{stopping sets} of their Tanner graphs \cite{doi:10.1109/TIT.2002.1003839}, with decoder performance improving with the size of the smallest stopping set; see \cite[Sec. 21.3.1]{preset:HKSgraphs} for more details. The smallest stopping set size can reach the minimum distance of the code \cite{doi:10.1109/TIT.2005.864441}.'
+    - 'Iterative LDPC decoders can get stuck at \textit{stopping sets} of their Tanner graphs \cite{doi:10.1109/TIT.2002.1003839}, with decoder performance improving with the size of the smallest stopping set; see \cite[Sec. 21.3.1]{preset:HKSgraphs} for more details.
+    The smallest stopping set size can reach the minimum distance of the code \cite{doi:10.1109/TIT.2005.864441}.'
+    - 'Ensembles of random LDPC codes under iterative decoders are subject to the \textit{concentration theorem} \cite{doi:10.1109/18.910577,doi:10.1109/18.910578}; see \cite[Thm. 21.7.1]{preset:HKSgraphs} for the case of the BEC.'
     - 'Reinforcement learning \cite{arxiv:2112.13934}.'
 
 notes:

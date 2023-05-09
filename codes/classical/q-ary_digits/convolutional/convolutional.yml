@@ -10,7 +10,7 @@ logical: q-ary_digits
 name: 'Convolutional code'
 introduced: '\cite{manual:{Peter Elias. Coding for noisy channels. IRE Convention Records, 3(4):37–46, 1955.}}'
 
-description: 'Classical codes that are formed using generator polynomials over the finite field with two elements. The encoder slides across contiguous subsets of the input bit-string (like a convolutional neural network) evaluating the polynomials on that window to obtain a number of parity bits. These parity bits are the encoded information. There are many ways to formulate these codes'
+description: 'Infinite-block code that is formed using generator polynomials over the finite field with two elements. The encoder slides across contiguous subsets of the input bit-string (like a convolutional neural network) evaluating the polynomials on that window to obtain a number of parity bits. These parity bits are the encoded information.'
 
 features:
 
@@ -29,9 +29,12 @@ realizations:
 
 relations:
   parents:
+    - code_id: block
+      detail: 'Convolutional codes for infinite block size are block codes consisting of infinite blocks.'
+  cousins:
+    - code
     - code_id: q-ary_digits_into_q-ary_digits
       detail: 'Convolutional codes for finite block size are \(q\)-ary codes.'
-  cousins:
     - code_id: quantum_convolutional
     - code_id: reed_solomon
       detail: 'Convolutional codes are often used in concatenation with Reed-Solomon codes for communication \cite{doi:10.1002/0470866969}.'

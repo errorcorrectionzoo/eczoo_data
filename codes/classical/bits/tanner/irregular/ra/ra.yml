@@ -15,7 +15,11 @@ introduced: '\cite{manual:{Divsalar, Dariush, Hui Jin, and Robert J. McEliece. "
 description: |
   An LDPC code whose parity-check matrix has weight-two columns arranged in a step-like pattern for its last columns \cite{manual:{Johnson, Sarah J. "Introducing low-density parity-check codes." University of Newcastle, Australia 1 (2006): 2006.}}.
 
+protection: |
+  Minimum-distance upper bounds \cite{doi:10.1109/TIT.2007.892805,manual:{Tanner, R. Michael. "On quasi-cyclic repeat-accumulate codes." Proc. 37th Allerton Conf., Monticello, IL, Sept. 1999. 1999.}}.
+
 features:
+  rate: 'RA codes are not asymptotically good \cite{doi:10.1109/TIT.2008.2008114}.'
   encoders:
     - 'An encoder for an RA code acting on a string \((c_1c_2\cdots c_K)\) of logical bits begins by repeating each bit three times to obtain the length-\(3K\) bitstring \((c_1 c_1 c_1 c_2 c_2 c_2 \cdots c_K c_K c_K)\), permuting using a random permutation to obtain a bitstring \(u\), and applying the mod-two accumulated sum (or \textit{accumulator}) to obtain \cite[Ch. 49]{preset:MacKay}
     \begin{align}

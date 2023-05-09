@@ -15,7 +15,12 @@ introduced: '\cite[Appx. C]{manual:{R. Gallagher, \emph{Low-density parity check
 description: |
   LDPC code that can be put into quasi-cyclic form.
   Its parity check matrix can be put into the form of a block matrix consisting of either circulant permutation sub-matrices or the zero sub-matrix.
-  QC LDPC codes can be obtained by \textit{lifting} binary matrices often called \textit{protographs}, a process in which nonzero entries are replaced by a cyclic permutation matrix of some dimension while zeroes are replaced by a zero matrix of the same dimension.
+  Such codes are often constructed by \hyperref[topic:lifting]{lifting} certain protographs into such block matrices \cite{arXiv:1108.0840}.
+  Their simple structure makes them useful for several wireless communication standards.
+
+protection: |
+  Minimum-distance upper bounds exist \cite{doi:10.1007/978-1-4613-0165-3_6,doi:10.1109/TIT.2011.2173244}.
+
 
 realizations:
   - '5G NR cellular communication for the traffic channel \cite{doi:10.1109/MCOM.2018.1700839,doi:10.1109/CSCITA47329.2020.9137797}.'
@@ -24,11 +29,12 @@ realizations:
 
 relations:
   parents:
-    - code_id: ldpc
+    - code_id: protograph_ldpc
     - code_id: quasi_cyclic
   cousins:
-    - code_id: multi_edge_ldpc
-      detail: 'QC-LDPC codes based on protographs can be formulated as multi-edge LDPC codes \cite{doi:10.1109/ITW.2011.6089477}.'
+    - code_id: ld_convolutional
+      detail: 'QC-LDPC codes can be \textit{unwrapped} to obtain LDPC-CCs by expressing each circulant matrix block as a power of some generating circulant matrix and replacing that generating matrix by the shift operator of the convolutional code \cite{doi:10.1109/TIT.2004.838370}.'
+
 
 # Begin Entry Meta Information
 _meta:
