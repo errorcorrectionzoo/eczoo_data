@@ -16,24 +16,22 @@ alternative_names:
 
 description: |
   A \(q\)-ary LDPC code whose parity-check matrix has weight-two columns.
-  Non-binary cycle LDPC codes for \(q\geq 32\) exihibit good performance \cite{doi:10.1109/ICC.2004.1312545,doi:10.1109/ITW.2007.4313042,doi:10.1109/TCOMM.2008.060527} and have been proposed to be used for MIMO channels \cite{doi:10.1109/TWC.2008.070057}.
+  Non-binary cycle LDPC codes for \(q\geq 32\) exihibit good performance \cite{doi:10.1109/ICC.2004.1312545,doi:10.1109/ITW.2007.4313042,doi:10.1109/TCOMM.2008.060527}.
 
 protection: |
   The minimum distance of a binary cycle LDPC code is \(d\geq g/2\), where \(g\) is the girth of the code's Tanner graph \cite{preset:HKSgraphs}.
 
 features:
-  rate: 'Binary cycle LDPC codes are known to be bad \cite{doi:10.1109/ISIT.1994.394711}.'
+  rate: 'Binary cycle LDPC codes are not asymptotically good \cite{doi:10.1109/ISIT.1994.394711}.'
   encoders:
     - 'Linear-time encoder \cite{doi:10.1109/LCOMM.2006.1633326}.'
 
+realizations:
+  - 'Cycle LDPC codes have been proposed to be used for MIMO channels \cite{doi:10.1109/TWC.2008.070057}.'
 
 relations:
   parents:
-    - code_id: tanner
-      detail: '\(q\)-ary LDPC codes are \(q\)-ary Tanner codes on sparse bipartite graphs whose constraint nodes represent \(q\)-ary parity-check codes.'
-  cousins:
-    - code_id: q-ary_ldgm
-      detail: 'The dual of a \(q\)-ary LDPC code has a sparse generator matrix and is called a \(q\)-ary LDGM code.'
+    - code_id: q-ary_ldpc
 
 
 # Begin Entry Meta Information
@@ -41,4 +39,4 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2023-05-04'
+      date: '2023-05-09'
