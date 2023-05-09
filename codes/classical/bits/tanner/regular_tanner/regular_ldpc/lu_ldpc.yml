@@ -4,25 +4,21 @@
 #######################################################
 
 
-code_id: b_ldpc
+code_id: lu_ldpc
 physical: bits
 logical: bits
 
-name: 'Block LDPC (B-LDPC) code'
-short_name: 'B-LDPC'
-introduced: '\cite{doi:10.1109/TIT.2005.851753}'
+name: 'Lazebnik-Ustimenko (LU) code'
+short_name: 'LU'
+introduced: '\cite{doi:10.1016/0166-218X(94)00058-L,doi:10.1109/TIT.2004.834760}'
 
 description: |
-  Member of a particular class of irregular QC-LDPC codes with efficient encoders.
+  LDPC code whose Tanner graph comes from a particular family of \(q\)-regular graphs \cite{doi:10.1016/0166-218X(94)00058-L} of known girth and relatively large stopping sets.
 
-features:
-  encoders:
-    - 'Efficient encoder \cite{doi:10.1109/TIT.2005.851753}.'
 
 relations:
   parents:
-    - code_id: qc_ldpc
-    - code_id: irregular_ldpc
+    - code_id: regular_ldpc
     - code_id: algebraic_ldpc
 
 
@@ -31,4 +27,4 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2023-05-04'
+      date: '2023-05-09'

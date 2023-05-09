@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: expander
+physical: bits
+logical: bits
+
+name: 'Expander code'
+introduced: '\cite{doi:10.1109/18.556667}'
+
+description: |
+  LDPC code whose parity-check matrix is derived from the adjacency matrix of bipartite expander graph \cite{doi:10.1090/S0273-0979-06-01126-8} such as a Ramanujan graph or a Cayley graph of a projective special linear group over a finite field \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}.
+  Expander codes admit efficient encoding and decoding algorithms and yield an explicit (i.e., non-random) asymptotically good LDPC code family.
+
+  The rate and distance of the expander code depend on specific parameters of the corresponding graph.
+  A (\(n, m, D, \gamma, \alpha\)) bipartite expander graph is defined as a \(D\)-left-regular graph with \(n\) left nodes, and \(m\) right nodes such that for any subset of left nodes \(S\) of size at most \(\gamma n\) the neighborhood \(N(S)\) is at least of size \(\alpha|S|\). Given a (\(n, m, D, \gamma, (1-\epsilon)D\)) expander graph, the corresponding expander code has rate of \(1 - m/n\) and a distance of at least \(2(1-\epsilon)\gamma n\) for any \(\epsilon < 1/2\).
+  Explicit constructions for expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8} with any ratio \(n/m\) are known where \(D = \text{polylog}(n/m)\), \(\gamma = \Omega(1/D)\) and arbitrary \(\epsilon\) \cite{doi:10.1145/509907.510003}.
+
+protection: |
+  There exist minimum distance bounds in terms of features of the expander graph \cite{doi:10.1109/18.556667,arxiv:cs/0406048}.
+
+features:
+  rate: 'The rate is \(1 - m/n\) where \(n\) is the number of left nodes and \(m\) is the number of right nodes in the bipartite expander graph.'
+
+  encoders:
+    - 'Multiplication by generator matrix with runtime \(O(n^2)\)'
+
+  decoders:
+    - 'Decoding can be done in \(O(n)\) runtime using a greedy \textit{flip decoder} \cite{doi:10.1109/18.556667}. The algorithm consists of flipping a bit of the received word if it will result in a greater number of satisfied parity checks. This is repeated until a codeword is reached.'
+
+  fault_tolerance:
+    - 'The flip decoding algorithm is fault tolerant against parity check errors \cite{doi:10.1109/18.556668}; see also \href{http://courses.csail.mit.edu/6.440/spring08/index.html}{course notes} by M. Sudan.'
+
+relations:
+  parents:
+    - code_id: regular_ldpc
+      detail: 'Expander codes yield an explicit (i.e., non-random) asymptotically good LDPC code family.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-12'
+    - user_id: JonNelson
+      date: '2021-12-15'

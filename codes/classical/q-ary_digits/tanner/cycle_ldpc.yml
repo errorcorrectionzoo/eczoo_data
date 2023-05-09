@@ -4,23 +4,27 @@
 #######################################################
 
 
-code_id: q-ary_ldpc
+code_id: cycle_ldpc
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: '\(q\)-ary LDPC code'
-introduced: '\cite{doi:10.1109/ITW.1998.706440}'
+name: 'Cycle LDPC code'
+introduced: '\cite{doi:10.1109/TIT.1968.1054190}'
 
 alternative_names:
   - 'Non-binary LDPC (NBDPC) code'
 
 description: |
-  A \(q\)-ary linear code with a sparse parity-check matrix.
-  Alternatively, a member of an infinite family of \([n,k,d]_q\) codes for which the number of nonzero entries in each row and column of the parity-check matrix are both bounded above by a constant as \(n\to\infty\).
+  A \(q\)-ary LDPC code whose parity-check matrix has weight-two columns.
+  Non-binary cycle LDPC codes for \(q\geq 32\) exihibit good performance \cite{doi:10.1109/ICC.2004.1312545,doi:10.1109/ITW.2007.4313042,doi:10.1109/TCOMM.2008.060527} and have been proposed to be used for MIMO channels \cite{doi:10.1109/TWC.2008.070057}.
 
-  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel.
-  A parity check yields either zero (no error) or a nonzero field element (error).
-  Despite the fact that there is more than one nonzero outcome, \(q>2g\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
+protection: |
+  The minimum distance of a binary cycle LDPC code is \(d\geq g/2\), where \(g\) is the girth of the code's Tanner graph \cite{preset:HKSgraphs}.
+
+features:
+  rate: 'Binary cycle LDPC codes are known to be bad \cite{doi:10.1109/ISIT.1994.394711}.'
+  encoders:
+    - 'Linear-time encoder \cite{doi:10.1109/LCOMM.2006.1633326}.'
 
 
 relations:
