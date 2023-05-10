@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lossless_expander
+physical: qubits
+logical: qubits
+
+name: 'Lossless expander balanced-product code'
+introduced: '\cite{arXiv:2201.11369,arxiv:2203.03581}'
+
+description: |
+  QLDPC code constructed by taking the balanced product of lossless expander graphs.
+  Using one part of a quantum-code chain complex constructed with one-sided loss expanders \cite{doi:10.1145/509907.510003} yields a \(c^3\)-LTC \cite{arxiv:2201.11369}.
+  Using two-sided expanders, which are only conjectured to exist, yields an asymptotically good QLDPC code family \cite{arxiv:2203.03581}.
+
+features:
+  rate: 'Asymptotically good QLDPC codes \cite{arxiv:2203.03581}, assuming the existence of two-sided lossless expanders.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: balanced_product
+  cousins:
+    - code_id: ltc
+      detail: 'Using one part of a quantum-code chain complex constructed with one-sided loss expanders yields a \(c^3\)-LTC \cite{arxiv:2201.11369}.'
+    - code_id: good_qldpc
+      detail: 'Taking a balanced product of two-sided expanders, which are only conjectured to exist, yields an asymptotically good QLDPC code family \cite{arxiv:2203.03581}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-10'
