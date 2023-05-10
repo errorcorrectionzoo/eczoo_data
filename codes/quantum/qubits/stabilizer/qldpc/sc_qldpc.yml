@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: sc_qldpc
+physical: bits
+logical: bits
+
+name: 'Quantum spatially coupled (SC-QLDPC) code'
+short_name: 'SC-QLDPC'
+introduced: '\cite{arxiv:2305.00137}'
+
+description: |
+  QLDPC code whose stabilizer generator matrix resembles the parity-check matrix of SC-LDPC codes.
+  The stabilizer generator matrix is constructed by "spatially" coupling sub-matrix blocks in chain-like fashion (or, more generally, in grid-like fashion) to yield a band matrix.
+  The sub-matrix blocks have to satisfy certain conditions amongst themselves so that the resulting band matrix is a stabilizer generator matrix.
+  A finite-length chain is then capped by imposing either open boundary conditions (yielding \textit{non-tail-biting} SC-QLDPC codes) or open boundary conditions (yielding \textit{tail-biting} SC-QLDPC codes).
+  The structure of the band matrix allows codes to be concisely defined in terms of \textit{characteristic polynomials}, whose coefficients are the sub-matrix blocks and which resemble the \hyperref[code:xyz_product]{Pauli-to-polynomial mapping} associated with translationally invariant stabilizer codes.
+  Some CSS code constructions can used to define sub-matrix blocks, yielding spatially coupled (i.e., translationally invariant) extensions of such codes.
+
+
+relations:
+  parents:
+    - code_id: translationally_invariant_stabilizer
+      detail: 'Stabilizer generator matrices of SC-QLDPC codes on infinite-length chains or grids define a class of translationally-invariant stabilizer codes.'
+  cousins:
+    - code_id: sc_ldpc
+      detail: 'SC-QLDPC code stabilizer-generator matrices have similar block form as the parity-check matrices of SC-LDPC codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-10'
