@@ -22,142 +22,142 @@ description: |
   The structure of the band matrix allows codes to be concisely defined in terms of \textit{characteristic polynomials}, whose coefficients are the sub-matrix blocks and which resemble the \hyperref[topic:quantum-polynomial-mapping]{Pauli-to-polynomial mapping} associated with translationally invariant stabilizer codes.
   Some CSS code constructions can used to define sub-matrix blocks, yielding spatially coupled (i.e., translationally invariant) extensions of such codes.
 
-  For example, the \(3\times 3\) toric code can be expressed as an SC-QLDPC code with stabilizer generator matrix
-  \begin{align}
-  \ensuremath{\left[\begin{array}{c|c|c}
-  \begin{array}{c|c|c}
-  \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array} & \\
-  \hline \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array} & \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array}\\
-  \hline  & \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array}
-  \end{array} &  & \begin{array}{c|c|c}
-  \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array} &  & \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array}\\
-  \hline \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array} & \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array}\\
-  \hline  & \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array} & \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array}
-  \end{array}\\
-  \hline %%%%
-  \begin{array}{c|c|c}
-  \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array} &  & \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array}\\
-  \hline \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array} & \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array}\\
-  \hline  & \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array} & \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array}
-  \end{array} & \begin{array}{c|c|c}
-  \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array} &  & \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array}\\
-  \hline \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array} & \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array}\\
-  \hline  & \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array} & \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array}
-  \end{array}\\
-  \hline %%%%%
-   & \begin{array}{c|c|c}
-  \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array} &  & \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array}\\
-  \hline \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array} & \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array}\\
-  \hline  & \begin{array}{cc}
-  I & I\\
-  I & Z
-  \end{array} & \begin{array}{cc}
-  I & X\\
-  Z & Z
-  \end{array}
-  \end{array} & \begin{array}{c|c|c}
-  \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array} &  & \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array}\\
-  \hline \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array} & \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array}\\
-  \hline  & \begin{array}{cc}
-  X & X\\
-  Z & I
-  \end{array} & \begin{array}{cc}
-  X & I\\
-  I & I
-  \end{array}
-  \end{array}
-  \end{array}\right]}~.g
-  \end{align}
+# For example, the \(3\times 3\) toric code can be expressed as an SC-QLDPC code with stabilizer generator matrix
+# \begin{align}
+# \ensuremath{\left(\begin{array}{c|c|c}
+# \begin{array}{c|c|c}
+# \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array} & \\
+# \hline \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array} & \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array}\\
+# \hline  & \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array}
+# \end{array} &  & \begin{array}{c|c|c}
+# \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array} &  & \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array}\\
+# \hline \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array} & \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array}\\
+# \hline  & \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array} & \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array}
+# \end{array}\\
+# \hline %%%%
+# \begin{array}{c|c|c}
+# \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array} &  & \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array}\\
+# \hline \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array} & \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array}\\
+# \hline  & \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array} & \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array}
+# \end{array} & \begin{array}{c|c|c}
+# \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array} &  & \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array}\\
+# \hline \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array} & \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array}\\
+# \hline  & \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array} & \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array}
+# \end{array}\\
+# \hline %%%%%
+#  & \begin{array}{c|c|c}
+# \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array} &  & \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array}\\
+# \hline \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array} & \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array}\\
+# \hline  & \begin{array}{cc}
+# I & I\\
+# I & Z
+# \end{array} & \begin{array}{cc}
+# I & X\\
+# Z & Z
+# \end{array}
+# \end{array} & \begin{array}{c|c|c}
+# \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array} &  & \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array}\\
+# \hline \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array} & \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array}\\
+# \hline  & \begin{array}{cc}
+# X & X\\
+# Z & I
+# \end{array} & \begin{array}{cc}
+# X & I\\
+# I & I
+# \end{array}
+# \end{array}
+# \end{array}\right)}~.
+# \end{align}
 
 relations:
   parents:
