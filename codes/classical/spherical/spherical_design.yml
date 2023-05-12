@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: spherical_design
+physical: spheres
+logical: reals
+
+name: 'Spherical design code'
+introduced: '\cite{doi:10.1007/BF03187604}'
+
+description: |
+  Spherical code whose codewords are uniformly distributed in a way that is useful for determining averages of polynomials over the sphere.
+  A spherical code is a spherical design of \textit{strength} \(t\), i.e., a \(t\)-design, if the average of any polynomial of degree up to \(t\) over its codewords is equal to the average over the entire sphere.
+
+  Spherical designs can be defined for real or complex spheres, and there are ways to convert between the two \cite[Lemma 3.6]{arxiv:1104.4692}.
+
+notes:
+  - 'See Refs. \cite{doi:10.1016/j.ejc.2008.11.007,preset:EricZin}\cite[pg. 89]{doi:10.1007/978-1-4757-6568-7} for reviews on spherical designs.'
+
+
+relations:
+  parents:
+    - code_id: points_into_spheres
+  cousins:
+    - code_id: combinatorial_design
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-12'

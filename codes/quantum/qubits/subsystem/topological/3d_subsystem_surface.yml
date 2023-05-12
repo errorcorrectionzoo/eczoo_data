@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 3d_subsystem_surface
+physical: qubits
+logical: qubits
+
+name: '3D subsystem surface code'
+introduced: '\cite{arxiv:2106.02621}'
+
+description: |
+  Subsystem generalization of the surface code on a 3D cubic lattice with stabilizer generators of weight at most three.
+
+
+relations:
+  parents:
+    - code_id: subsystem_stabilizer
+    - code_id: single_shot
+      detail: 'The 3D subsystem surface code is a single-shot code \cite{arxiv:2106.02621}.'
+  cousins:
+    - code_id: 3d_surface
+    - code_id: self_correct
+      detail: 'The 3D subsystem surface code is not a self-correcting quantum memory despite being a single-shot code \cite{arxiv:2305.06389}.'
+    - code_id: quantum_double_abelian
+      detail: 'The 3D subsystem surface code Hamiltonian phase diagram exhibits \(\mathbb{Z}_2\) topological order \cite{arxiv:2305.06389}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-12'
