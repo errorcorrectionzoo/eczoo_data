@@ -34,7 +34,7 @@ description: |
   (4)	\(a'(x)=\delta a(x), b'(x)=b(x)\), for some \(0\neq\delta\in GF(q)\);
   (5)	\(a'(x)=f(x)a(x), b'(x)=f(x)b(x)\), for some polynomial \(f(x)\in GF(q)[x]\) such that gcd\((f,x^{\ell}-1)=1\).
 
-  The following modified construction yields \textit{asymmetric bicycle (AB) codes}: \(\mathcall{Q}'=\text{CSS}(H'_{X},H_{Z})\) has \(H'_{X}=(A_{1}|B_{1}),A_{1}=a_{1}(P),B_{1}=b{1}(P)\), where \(a_{1}=\frac{a(x)}{\text{gcd}(a,b)},b_{1}=\frac{b(x)}{\text{gcd}(a,b)}\).
+  The following modified construction yields \textit{asymmetric bicycle (AB) codes}: \(\mathcal{Q}'=\text{CSS}(H'_{X},H_{Z})\) has \(H'_{X}=(A_{1}|B_{1}),A_{1}=a_{1}(P),B_{1}=b{1}(P)\), where \(a_{1}=\frac{a(x)}{\text{gcd}(a,b)},b_{1}=\frac{b(x)}{\text{gcd}(a,b)}\).
 
 protection: |
   Given the parameters \([[n_{0}=2\ell,k_{0},d_{0}]]_q\) of the classical linear quasi-cyclic code QC\((a,b)\), the quantum CSS code GB\((a,b)\) has parameters \([[ 2\ell,2k_{0}-2\ell,d]]_q\)  where \(d\geq d_{0}\).
@@ -58,10 +58,10 @@ protection: |
   This ensures that \(x^{\ell}-1\) has only two irreducible factors in \(GF(q)[x]\), \(h(x)=1-x\), and \(g(x)=1+x+\cdots+x^{\ell-1}\).
   Then, there is a GB code with parameters \([[ 2\ell,2,d\geq d_{GV}]]_q\) \cite{arxiv:2203.17216}.
 
-  An incommensurate GB code with row weight \(w\) and parameters \([[ n=2\ell,k,d]]_p\) is equivalent to a CSS code local in \(D\leqw-1\) dimensions (\(D\leqw-1\) if \(\ell\) is prime). Its parameters satisfy the inequalities \(d\leq\mathcall{O}(n^{1-1/D})\) and \(kd^{2/(D-1)}\leq\mathcall{O}(n)\) \cite{arxiv:2203.17216}.
+  An incommensurate GB code with row weight \(w\) and parameters \([[ n=2\ell,k,d]]_p\) is equivalent to a CSS code local in \(D\leq w-1\) dimensions (\(D\leq w-1\) if \(\ell\) is prime). Its parameters satisfy the inequalities \(d\leq\mathcal{O}(n^{1-1/D})\) and \(kd^{2/(D-1)}\leq\mathcal{O}(n)\) \cite{arxiv:2203.17216}.
 
   A weight-four GB code of an odd distance \(d=2r+1\) must have length \(n\geq 1+d^{2}\).
-  For an even distance \(d=2r\), the length \(n\geqd^{2}\) \cite{arxiv:2203.17216}.
+  For an even distance \(d=2r\), the length \(n\geq d^{2}\) \cite{arxiv:2203.17216}.
 
 
 features:
@@ -92,7 +92,7 @@ relations:
       - code_id: quantum_cyclic
         detail: 'Given a canonical generating polynomial \(g(x)\) of a cyclic quantum code \([[n,k,d]]\), its generator matrix is a cyclic matrix \(G=g(P)\). Here \(P\) is the permutation matrix of one-step length-\(n\) cyclic shift.'
       - code_id: hypergraph_product
-        detail: 'An arbitrary GB code of length \(2\ell\) is equivalent to a rotated quantum hypergraph-product code with periodicity vectors \(\vec{L}_{1}\) and \(\vec{L}_{2}\) such that \(\abs{\vec{L}_{1}\times\vec{L}_{2}=\ell}\).'
+        detail: 'An arbitrary GB code of length \(2\ell\) is equivalent to a rotated quantum hypergraph-product code with periodicity vectors \(\vec{L}_{1}\) and \(\vec{L}_{2}\) such that \(\lvert{\vec{L}_{1}\times\vec{L}_{2}=\ell}\rvert\).'
 
 
 # Begin Entry Meta Information
