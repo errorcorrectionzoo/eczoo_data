@@ -13,9 +13,11 @@ description: |
   A topological phase may be \textit{bosonic} or \textit{fermionic}, i.e., constructed out of underlying subsystems whose operators commute or anti-commute with each other, respectively.
   Unless otherwise noted, the phases discussed are bosonic.
 
-  \subsection{Anyon theories}
+  \subsection{2D topological codes}
 
-  For 2D lattice systems with finite local dimension, topological phases are defined by their \textit{anyons} \cite{doi:10.1007/BF02727953,doi:10.1063/1.524510,doi:10.1103/PhysRevLett.49.957,doi:10.1063/1.2810672}, which are local bulk excitations of the code Hamiltonian defined on a lattice; see Refs. \cite{doi:10.1007/BF01877742,doi:10.1007/BF01646454,arxiv:1804.03203} for more rigorous formulations.
+  The physical Hilbert space of 2D topological codes consists of \(n\) subsystems which lie on edges, vertices, or faces of a tesselation of a 2D surface \(\Sigma^2\).
+
+  For subsystems with finite local dimension, topological phases are defined by their \textit{anyons} \cite{doi:10.1007/BF02727953,doi:10.1063/1.524510,doi:10.1103/PhysRevLett.49.957,doi:10.1063/1.2810672}, which are local bulk excitations of the code Hamiltonian defined on a lattice; see Refs. \cite{doi:10.1007/BF01877742,doi:10.1007/BF01646454,arxiv:1804.03203} for more rigorous formulations.
 
   Anyons are created in pairs by local operators, and two anyons lie in the same \textit{superselection sector} if a  local operator can convert one anyon into the other.
   Each superselection sector is assumed to be labeled by one anyon type, and local operators cannot change superselection sectors.
@@ -48,8 +50,13 @@ description: |
 # Frohlich braiding anyons doi:10.1142/S0129055X90000107,
 # Mention [39-41] in arxiv:2211.03798
 
-
 features:
+  rate: 'The logical dimension \(K\) of 2D topological codes described by unitary modular fusion categories depends on the type of manifold \(\Sigma^2\) that is tesselated to form the many-body system.
+  For closed orientable manifolds \cite{doi:10.1007/bf01217730,doi:10.1007/BF01238857},
+  \begin{align}
+    K=\sum_{a\in A}\left(d_{a}/D\right)^{\chi(\Sigma^{2})}~,
+  \end{align}
+  and a generalization of the formula to the non-orientable case can be found in Ref. \cite{arxiv:1612.07792}.'
   encoders:
     - 'The unitary circuit depth required to initialize in a general topologically ordered state using geometrically local gates on an \(L\times L\) lattice is \(\Omega(L)\) \cite{arXiv:quant-ph/0603121}, irrespective of whether the ground state admits Abelian or nonabelian anyonic excitations.
     However, only a finite-depth circuit and one round of measurements is required for nonabelian topological orders with a Lagrangian subgroup \cite{arxiv:2209.03964}.'
