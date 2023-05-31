@@ -10,9 +10,12 @@ logical: reals
 name: 'BPSK c-q code'
 #introduced: '\cite{doi:10.1038/nphoton.2014.280}'
 
-description: 'Bosonic c-q binary code encoding into two coherent states \(|\pm\alpha\rangle\) for complex \(\alpha\). The three-state subcode \(\{|\alpha,\alpha\rangle,|-\alpha,\alpha\rangle,|\alpha,-\alpha\rangle\}\) of two-mode BPSK is called the \textit{single-degeneracy code} \cite{arxiv:1101.1550}.'
+description: 'Coherent-state c-q binary code encoding into two coherent states \(|\pm\alpha\rangle\) for complex \(\alpha\).
+The three-state subcode \(\{|\alpha,\alpha\rangle,|-\alpha,\alpha\rangle,|\alpha,-\alpha\rangle\}\) of two-mode BPSK is called the \textit{single-degeneracy code} \cite{arxiv:1101.1550}.'
 
 features:
+  rate: 'The single-degeneracy code yields an improved PIE by \(2.8\%\) over BPSK \cite{doi:10.1103/PhysRevA.61.032309} (see \cite{arxiv:1101.1550}).'
+
   decoders:
     - 'Linear-optical quantum receiver \cite{arxiv:1103.5592}.'
     - 'Kennedy receiver \cite{manual:{Kennedy, Robert S. "A near-optimum receiver for the binary coherent state quantum channel." Quarterly Progress Report 108 (1973): 219-225.},arxiv:0706.1038}.'
@@ -32,6 +35,7 @@ realizations:
 relations:
   parents:
     - code_id: quantum_psk
+    - code_id: quantum_hadamard_bpsk
   cousins:
     - code_id: bpsk
       detail: 'BPSK (BPSK c-q) codes are used to transmit classical information using antipodal coherent states over classical (quantum) channels.'
