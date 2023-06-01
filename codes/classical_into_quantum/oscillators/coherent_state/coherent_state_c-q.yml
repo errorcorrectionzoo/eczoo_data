@@ -13,7 +13,7 @@ description: |
   Bosonic c-q code whose codewords form a constellation of coherent states.
   Encodes real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced \textit{receiver}.
 
-  The codes consists of \(K\) coherent states on \(n\) modes, where the \(j\)th state, or codeword, is uniquely defined through the amplitude vector \( \boldsymbol{\alpha}^j=(\alpha_1^j, \alpha_2^j, …, \alpha_n^j)\}\).
+  The codes consists of \(K\) coherent states on \(n\) modes, where the \(j\)th state, or codeword, is uniquely defined through the amplitude vector \(\boldsymbol\{\alpha}^j=(\alpha_1^j, \alpha_2^j, …, \alpha_n^j)\}\).
   The \textit{codebook},
   \begin{align}
   C=\left(\begin{array}{c}
@@ -31,11 +31,12 @@ description: |
   From the properties of \(C\), we can assess whether it is possible to optimally discriminate the codebook unambiguously.
   Optimal unambiguous state discrimination requires each vector to be linearly independent, which corresponds to a full-rank codebook.
   This is possible only if \(K \leq n\).
+
   Optimal receiver performance in ambiguous state discrimination is determined using the \textit{Yuen-Kennedy-Lax (YKL) conditions} \cite{doi:10.1109/TIT.1975.1055351}.
   See review \cite{doi:10.1116/5.0036959} for details on receivers used for coherent-state c-q codes.
 
 features:
-  rate: 'Coherent-state c-q codes achieve the capacity of the lossy bosonic channel \cite{arxiv:quant-ph/0308012}.'
+  rate: 'Random Gaussian-distributed coherent-state c-q codes achieve the capacity of the lossy bosonic channel \cite{arxiv:quant-ph/0308012}.'
   decoders:
     - 'Joint-detection receiver that can attain channel capacity \cite{arxiv:1101.1550}.'
     - 'Various near-optimal receiver designs that can handle arbitrary constellations of coherent states with possible degeneracies \cite{arxiv:2109.00008}.'
@@ -50,8 +51,8 @@ relations:
   cousins:
     - code_id: coherent_constellation
       detail: 'Coherent-state c-q codes encode classical alphabets into constellations of coherent states, while coherent-state constellation codes encode quantum information into superpositions of coherent states.'
-    - code_id: analog
-      detail: 'Coherent-state c-q codes are extensions of sphere packings to transmission of classical information over quantum analog channels.'
+    - code_id: modulation
+      detail: 'Coherent-state c-q codes are modulation schemes to transmission of classical information over quantum analog channels.'
 
 
 # Begin Entry Meta Information

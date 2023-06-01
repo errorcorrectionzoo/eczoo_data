@@ -13,13 +13,21 @@ introduced: '\cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}'
 description: |
   Also called a \textit{Pauli stabilizer code}. An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\). The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
-  Each stabilizer code can be represented by a \((n-k) \times 2n\) \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the binary symplectic representation of an element from a set of generating elements of the stabilizer group. The check matrix can be brought into standard form via Gaussian elimination \cite{doi:10.1017/CBO9780511976667}.
+  \begin{defterm}{Binary symplectic representation}
+  \label{topic:binary-symplectic-representation}
+  Each stabilizer code can be represented by a \((n-k) \times 2n\) \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the binary symplectic representation of an element from a set of generating elements of the stabilizer group.
+  In the symplectic representation, the single-qubit identity, \(X\), \(Y\), or \(Z\) Pauli matrices represented using two bits as \((0|0)\), \((1|0)\), \((1|1)\), and \((0|1)\), respectively.
+  The check matrix can be brought into standard form via Gaussian elimination \cite{doi:10.1017/CBO9780511976667}.
+  \end{defterm}
 
   The stabilizer commutation condition can equivalently be stated in the symplectic representation. A pair of \(n\)-qubit stabilizers with symplectic representations \((a|b)\) and \((a^{\prime}|b^{\prime})\) commute iff their symplectic inner product is zero,
   \begin{align}
     a \cdot b^{\prime} + a^{\prime}\cdot b = \sum_{j=1}^{n} a_j b^{\prime}_j + a^{\prime}_i b_i = 0~.
   \end{align}
-  Symplectic representations of stabilizer group elements thus form a self-orthogonal subspace of \(GF(2)^{2n}\) with respect to the symplectic inner product.
+  Binary symplectic representations of stabilizer group elements thus form a self-orthogonal subspace of \(GF(2)^{2n}\) with respect to the symplectic inner product.
+
+  Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(GF(2)\) using three bits \cite{arxiv:2305.17505}, or the representation over \(GF(4)\) (see stabilizer codes over \(GF(4)\)).
+
 
 protection: |
   Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
@@ -84,7 +92,7 @@ relations:
     - code_id: binary_linear
       detail: 'Qubit stabilizer codes are the closest quantum analogues of binary linear codes because addition modulo two corresponds to multiplication of stabilizers in the quantum case.'
     - code_id: dual
-      detail: 'Symplectic representations of stabilizer group elements form a linear code over \(GF(2)\) that is self-orthogonal with respect to the symplectic inner product \cite[Thm. 27.3.6]{preset:HKSquantum}.'
+      detail: 'Binary symplectic representations of stabilizer group elements form a linear code over \(GF(2)\) that is self-orthogonal with respect to the symplectic inner product \cite[Thm. 27.3.6]{preset:HKSquantum}.'
 
 
 # Begin Entry Meta Information
