@@ -1,6 +1,8 @@
 # bash script to find ancestor(s) of a given file
 # Usage: ./ancestor.sh <code_id>
 
+# code_id and its parameters are printed as on lines 54 and 106
+
 # Check if the code_id is provided
 if [ $# -ne 1 ]
 then
@@ -10,49 +12,108 @@ fi
 
 mkdir -p metadata
 
-echo "Ancestor Code,Phyical Parameters,Logical Parameters" > metadata/anctab.csv
+echo "Ancestor Code,Physical,Logical" > metadata/prim_anctab.csv
+echo "Ancestor Code,Physical,Logical " > metadata/sec_anctab.csv
 
+# function to find all ancestors of a given code_id and store them in metadata/sec_anctab.csv file
+# Usage: ancestors <code_id>
+# code_id and its parameters are printed as on line 53
 function ancestors(){
-    # check if code_id_table file exists
-    if [[ ! -s ./metadata/code_id_tab ]]
+
+    if [[ $# -eq 1 ]]
     then
-        grep -rH -F 'code_id' | grep -Fv -- '- code_id' | grep -F ':code_id: ' > metadata/code_id_tab
-        sed 's|metadata/code_id_tab:||g' metadata/code_id_tab > metadata/backup
-        mv metadata/backup metadata/code_id_tab
+        # check if code_id_table file exists
+        if [[ ! -s ./metadata/code_id_tab ]]
+        then
+            grep -rH -F 'code_id' | grep -Fv -- '- code_id' | grep -F ':code_id: ' > metadata/code_id_tab
+            sed 's|metadata/code_id_tab:||g' metadata/code_id_tab > metadata/backup
+            mv metadata/backup metadata/code_id_tab
+        fi
+
+        # store the name of the file corresponding to the code_id
+        file_name=$(grep -F ":code_id: $1" metadata/code_id_tab | grep -m1 "$1\$" | cut -d ':' -f 1)
+
+        #check if the file exists
+        if [[ ! -s $file_name ]]
+        then
+            echo "File with code_id $1 does not exist"
+            exit 1
+        fi
+
+        # get physical parameters of the file
+        physical_prm=$(awk '/physical:/,/logical/||/^$/' $file_name| grep -Fv "logical:" | grep -Fv "#" | sed -e 's/physical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
+
+        #store the physical parameters with semi-colon as delimiter
+        logical_prm=$(awk '/logical:/,/^$/' $file_name| grep -Fv "parents:" | grep -Fv "#" |  sed -e 's/logical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
+        
+        # check if a code_id and it's ancestors are already printed and exit if yes
+        if ! grep -Fxq "$1,$physical_prm,$logical_prm" metadata/sec_anctab.csv
+        then
+
+            # print the code_id and its physical and logical parameters
+            echo $1,$physical_prm,$logical_prm >> metadata/sec_anctab.csv
+
+            # get the ancestors of the code_id
+            ancestors=$(awk '/parents:/,/cousins/' $file_name| grep -F -- "- code_id: " | grep -Fv "#" | cut -d ':' -f 2 )
+
+            # make a list of ancestors from the string by separating them by space
+            ancestors_list=($ancestors)
+
+            # iterate through the list of ancestors
+            for ancestor in "${ancestors_list[@]}"
+            do
+                ancestors $ancestor
+            done
+        fi
+
     fi
+}
 
-    # store the name of the file corresponding to the code_id
-    file_name=$(grep -F ":code_id: $1" metadata/code_id_tab | grep -m1 "$1\$" | cut -d ':' -f 1)
+# function to find primary ancestor of a given code_id and store them in metadata/prim_anctab.csv file
+# Usage: prim_ancestors <code_id>
+# code_id and its parameters are printed as on line 104
+function prim_ancestors(){
+    if [[ $# -eq 1 ]]
+    then 
 
-    #check if the file exists
-    if [[ ! -s $file_name ]]
-    then
-        echo "File with code_id $1 does not exist"
-        exit 1
+        if [[ ! -s ./metadata/code_id_tab ]]
+        then
+            grep -rH -F 'code_id' | grep -Fv -- '- code_id' | grep -F ':code_id: ' > metadata/code_id_tab
+            sed 's|metadata/code_id_tab:||g' metadata/code_id_tab > metadata/backup
+            mv metadata/backup metadata/code_id_tab
+        fi
+
+        # store the name of the file corresponding to the code_id
+        file_name=$(grep -F ":code_id: $1" metadata/code_id_tab | grep -m1 "$1\$" | cut -d ':' -f 1)
+
+        #check if the file exists
+        if [[ ! -s $file_name ]]
+        then
+            echo "File with code_id $1 does not exist"
+            exit 1
+        fi
+
+        # get physical parameters of the file
+        physical_prm=$(awk '/physical:/,/logical/||/^$/' $file_name| grep -Fv "logical:" | grep -Fv "#" | sed -e 's/physical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
+
+        #store the physical parameters with semi-colon as delimiter
+        logical_prm=$(awk '/logical:/,/^$/' $file_name| grep -Fv "parents:" | grep -Fv "#" |  sed -e 's/logical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
+        
+        # check if a code_id and it's ancestors are already printed and exit if yes
+        if ! grep -Fxq "$1,$physical_prm,$logical_prm" metadata/prim_anctab.csv
+        then
+            # print the code_id and its physical and logical parameters
+            echo $1,$physical_prm,$logical_prm >> metadata/prim_anctab.csv
+            
+            # get the ancestors of the code_id
+            ancestors=$(awk '/parents:/,/cousins/' $file_name| grep -F -- "- code_id: " | grep -Fv "#" | cut -d ':' -f 2 )
+
+            # make a list of ancestors from the string by separating them by space
+            ancestors_list=($ancestors)
+            # consider only the primary ancestor and recursively call the function
+            prim_ancestors ${ancestors_list[0]}
+        fi
     fi
-
-    # get physical parameters of the file
-    physical_prm=$(awk '/physical:/,/logical/||/^$/' $file_name| grep -Fv "logical:" | grep -Fv "#" | sed -e 's/physical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
-
-    #store the physical parameters with semi-colon as delimiter
-    logical_prm=$(awk '/logical:/,/^$/' $file_name| grep -Fv "parents:" | grep -Fv "#" |  sed -e 's/logical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
-    
-    # print the code_id, physical parameters and logical parameters
-    echo $1, $physical_prm, $logical_prm >> metadata/anctab.csv
-
-    # find the name of ancestors of the file
-    ancestors=$(awk '/parents:/,/cousins/' $file_name| grep -F -- "- code_id: " | grep -Fv "#" | cut -d ':' -f 2 )
-
-    # make a list of ancestors from the string by separating them by space
-    ancestors_list=($ancestors)
-
-    # iterate through the list of ancestors
-    for ancestor in "${ancestors_list[@]}"
-    do
-        # recursively call the ancestors function for each ancestor
-        ancestors $ancestor
-    done
-
 
 }
 
@@ -155,7 +216,15 @@ function trimString()
     sed 's,^[[:blank:]]*,,' <<< "${string}" | sed 's,[[:blank:]]*$,,'
 }
 
-# call the ancestors function
-
+# call the prim_ancestors function with the given code_id for storing the primary ancestors
+prim_ancestors $1
+# call the ancestors function with the given code_id for storing all the ancestors
 ancestors $1
-printTable ',' "$(cat metadata/anctab.csv)"
+# command to remove the primary ancestors from ancestors to get the secondary ancestors
+awk 'NR == FNR { list[tolower($0)]=1; next } { if (! list[tolower($0)]) print }' metadata/prim_anctab.csv metadata/sec_anctab.csv > metadata/sec_anctab2.csv
+mv metadata/sec_anctab2.csv metadata/sec_anctab.csv
+# print the primary and secondary ancestors
+echo "Primary Ancestors"
+printTable ',' "$(cat metadata/prim_anctab.csv)"
+echo "Secondary Ancestors"
+printTable ',' "$(cat metadata/sec_anctab.csv)"
