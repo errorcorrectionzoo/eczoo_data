@@ -23,12 +23,13 @@ description: |
   Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).
 
 features:
+  rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829}, the binary memoryless symmetric (BMS) channel under bitwise maximum-a-posteriori decoding \cite{arxiv:2110.14631} (see also Ref. \cite{arxiv:1411.4590}), and the binary symmetric channel (BSC), solving a long-standing conjecture \cite{arxiv:2304.02509}.'
+
   decoders:
     - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).'
     - 'Sequential code-reduction decoding \cite{doi:10.1109/TIT.1973.1055023}.'
     - 'First-order (\(r=1\)) RM codes admit specialized decoders \cite{manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
 
-  rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829} and the binary memoryless symmetric (BMS) channel under bitwise maximum-a-posteriori decoding \cite{arxiv:2110.14631}; see also Ref. \cite{arxiv:1411.4590}.'
 
 realizations:
   - 'Deep-space communication \cite{doi:10.1007/bfb0036046,manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}. For example, the \((32, 6, 16)\) RM code was used for the Mariner 9 spacecraft.'
