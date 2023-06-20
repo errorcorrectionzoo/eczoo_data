@@ -132,6 +132,7 @@ def main(args) -> int:
     should occur. If so, the file is updated.
 
     """
+    # Check for valid codes path
     if (not os.path.isdir(args.codes_path)):
         print_error('Error: ' + args.codes_path + ' not a valid directory!')
         return 1
@@ -169,7 +170,8 @@ def main(args) -> int:
                     code_mp[short_name] = yml_dat['code_id']
                     cached_short_names.add(short_name)
                 else:
-                    short_name = yml_dat['name'].removesuffix(' code').lower()
+                    orig_str = yml_dat['name'].lower()
+                    short_name = orig_str[:-5] if orig_str.endswith(' code') else orig_str
                     code_mp[short_name] = yml_dat['code_id']
                     cached_short_names.add(short_name)
     print('Done!')
@@ -194,7 +196,7 @@ def main(args) -> int:
 
                 # Save our code names to avoid self-replacement!
                 code_name = yml_dat['name'].lower()
-                code_short_name = yml_dat['name'].removesuffix(' code').lower()
+                code_short_name = code_name[:-5] if code_name.endswith(' code') else code_name
                 if 'short_name' in yml_dat:
                     code_short_name = yml_dat['short_name'].lower()
 
