@@ -13,6 +13,99 @@ def print_error(msg: str) -> None:
     color_code_END = '\033[0m'
     print(color_code_ERROR + msg + color_code_END)
 
+def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool):
+    """Search for `code_name` in `msg`, and prompt the user for replacement.
+
+    Searches `msg` for `code_name`. If such a substring exists, prompts the user
+    for replacement. Returns the updated string, and a boolean indicating if a replacement
+    occurred.
+
+    Args:
+        code_name: The string to look for in `code_id`. Despite the name, corresponds to
+    the value of yaml mapping with key `name` or `short_name`.
+        code_id: The id for this `code_name`.
+        msg: The string to search for replacements.
+        file_path: The file we're modifying
+
+    Returns:
+        A tuple whose second element indicates if replacement took place. `True` if 
+    replacement; else, `False`. 
+        If a replacement didn't take place, then the first element is simply the unmodified
+    `msg`. Else, the modified `msg` is returned.
+
+    E.g.
+    ```python
+    # No match!
+    search_and_replace("gb", "generalized_bicycle", "Testing")  ->  ("Testing", False)
+
+    # The user replaced
+    search_and_replace("gb", "generalized_bicycle", "As in a gb code")  ->  ("As in a \hyperref[code:generalized_bicycle]{gb} code", True)
+
+    # The user decided not to replace
+    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False) 
+    ```
+    """
+    # codes for printing in color
+    color_code_YELLOW = '\033[93m'
+    color_code_CYAN = '\033[96m'
+    color_code_END = '\033[0m'
+    # Any matches? (not case sensitive)
+    if code_name not in msg.lower():
+        return (msg, False)
+    n_matches = msg.lower().count(code_name)
+
+    # For each possible substring, prompt the user
+    last_match_idx = 0
+    updated_data = False
+    for _ in range(n_matches):
+        match_idx = msg.lower().index(code_name, last_match_idx)
+        last_match_idx = match_idx + 1
+
+        # Let's first check if we're double-replacing
+        hyperref_str = '\hyperref[code:' + code_id + ']{'
+        if (match_idx > len(hyperref_str)) and (msg[:match_idx][-len(hyperref_str):] == hyperref_str):
+            continue
+        hyperref_str += code_name + '}'
+
+        # Prompt the user
+        prompt_str = file_path + ':\n'
+        prompt_str += 'Replace \"' + color_code_YELLOW + code_name + color_code_END + '\" in \"' + \
+            color_code_YELLOW + msg[max(match_idx - 5, 0):(match_idx + len(code_name) + 5)] + color_code_END + \
+            '\" using id ' + color_code_CYAN + code_id + color_code_END + '? [Y/n]\n'
+        user_response = input(prompt_str).lower()
+    
+        if user_response != 'y' and user_response != 'yes':
+            continue
+
+        # Remove the code name first, replace, and adjust index
+        updated_data = True
+        msg = msg[:match_idx] + msg[(match_idx + len(code_name)):]
+        msg = msg[:match_idx] + hyperref_str + msg[match_idx:]
+        last_match_idx += len(hyperref_str) - 1
+    return (msg, updated_data)
+
+def search_and_replace_short_name(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool):
+    """Search for the short name `code_name` in `msg`, and prompt the user for replacement.
+
+    In the special case where we replace a `short_name`, to decrease the amount of false 
+    positives, only prompt the user if the code name is surrounded by either a dash or space.
+
+    See:
+        - `search_and_replace(str, str, str) -> (str, bool)` above
+    """
+    replaced_short_name = False
+
+    msg, replaced_short_name = search_and_replace(' ' + code_name + ' ', code_id, msg, file_path)
+    msg, replacement_made = search_and_replace('-' + code_name + ' ', code_id, msg, file_path)
+    replaced_short_name |= replacement_made
+    msg, replacement_made = search_and_replace(' ' + code_name + '-', code_id, msg, file_path)
+    replaced_short_name |= replacement_made
+    msg, replacement_made = search_and_replace('-' + code_name + '-', code_id, msg, file_path)
+    replaced_short_name |= replacement_made
+
+    return (msg, replaced_short_name)
+    
+
 def main(args) -> int:
     """Attaches links to codes upon prompt.
 
@@ -50,6 +143,16 @@ def main(args) -> int:
     # Map of `name` and `short_name` yaml keys to `code_id`
     # Keys are in lower-case since replacement isn't case-sensitive
     code_mp = {}
+    # A hash set of `short_name` mappings. When iterating through `code_mp` to 
+    # check for substring matches in a yaml file, if a `code_mp` entry is a `short_name`
+    # (as indicated by `cached_short_names` membership), then only replace a `short_name`
+    # if surrounded by either a dash or space. E.g.
+    # ```txt
+    # Looking for "rm" in " information"?           ->  Don't ask user
+    # Looking for "shor" in "Shor's algorithm"?     ->  Don't ask user
+    # Looking for "gb" in "such a GB code"?         ->  Ask user for replacement
+    # ```
+    cached_short_names = set()
     print("Collecting yaml code data...", end='', flush=True)
     for root, dirs, files in os.walk(args.codes_path):
         for file_name in files:
@@ -62,10 +165,13 @@ def main(args) -> int:
                 code_mp[yml_dat['name'].lower()] = yml_dat['code_id']
 
                 if 'short_name' in yml_dat:
-                    code_mp[yml_dat['short_name'].lower()] = yml_dat['code_id']
+                    short_name = yml_dat['short_name'].lower()
+                    code_mp[short_name] = yml_dat['code_id']
+                    cached_short_names.add(short_name)
                 else:
                     short_name = yml_dat['name'].removesuffix(' code').lower()
                     code_mp[short_name] = yml_dat['code_id']
+                    cached_short_names.add(short_name)
     print('Done!')
 
     #
@@ -123,7 +229,7 @@ def main(args) -> int:
                     
                     # If a string, convert our key to a list so we can append further keys
                     if type(key) is not list:
-                        if key == 'code_id':
+                        if key == 'code_id' or key == 'name' or key == 'short_name':
                             continue
                         key = [key,]
 
@@ -145,36 +251,16 @@ def main(args) -> int:
                             # We don't want to self-replace!
                             if cached_code_name == code_name or cached_code_name == code_short_name:
                                 continue
-                            # Any matches? (not case sensitive)
-                            if cached_code_name not in val.lower():
+                            # We don't want to replace any `code_id` keys!
+                            if type(key) is list and key[-1] == 'code_id':
                                 continue
-                            n_matches = val.lower().count(cached_code_name)
-
-                            # For each possible substring, prompt the user
-                            last_match_idx = 0
-                            for _ in range(n_matches):
-                                match_idx = val.lower().index(cached_code_name, last_match_idx)
-                                last_match_idx = match_idx + 1
-
-                                # Let's first check if we're double-replacing
-                                hyperref_str = '\hyperref[code:' + cached_code_id + ']{'
-                                if (match_idx > len(hyperref_str)) and (val[:match_idx][-len(hyperref_str):] == hyperref_str):
-                                    continue
-                                hyperref_str += cached_code_name + '}'
-
-                                # Prompt the user
-                                prompt_str = file_path + ':\n'
-                                prompt_str += 'Replace \"' + cached_code_name + '\" in \"' + val[max(match_idx - 5, 0):(match_idx + len(cached_code_name) + 5)] + '\"? [Y/n]\n'
-                                user_response = input(prompt_str).lower()
-                            
-                                if user_response != 'y' and user_response != 'yes':
-                                    continue
-                                need_to_update_data = True
-
-                                # Remove the code name first, replace, and adjust index
-                                val = val[:match_idx] + val[(match_idx + len(cached_code_name)):]
-                                val = val[:match_idx] + hyperref_str + val[match_idx:]
-                                last_match_idx += len(hyperref_str) - 1
+                            # Are looking for a `short_name`?
+                            if cached_code_name in cached_short_names:
+                                val, updated_data = search_and_replace_short_name(cached_code_name, cached_code_id, val, file_path)
+                                need_to_update_data |= updated_data
+                            else:
+                                val, updated_data = search_and_replace(cached_code_name, cached_code_id, val, file_path)
+                                need_to_update_data |= updated_data
                         if need_to_update_data:
                             need_to_update_file = True
                             if len(key) == 1:
