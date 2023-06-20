@@ -12,33 +12,35 @@ introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1070/RM1997v052n06ABEH002155,ar
 description: 'Encodes quantum information so that it is possible to approximately recover that information from noise up to an error bound in recovery.'
 
 protection: |
-  Given some encoding map $\cal{E}$ and some noise channel $\cal{N}$,
-  the code described by $\cal{E}$ is $\epsilon$-correctable iff there exists
-  some quantum channel $\cal{R}$ such that 
+  Given some encoding map \(\cal{E}\) and some noise channel \(\cal{N}\),
+  the code described by \(\cal{E}\) is \(\epsilon\)-correctable iff there exists
+  some quantum channel \(\cal{R}\) such that 
   \begin{align}d(\cal{R}\cal{N}\cal{E},\mathrm{id})\leq \epsilon\end{align}
-  for Bures distance $d$~\cite{arXiv:0907.5391}.
+  for Bures distance \(d\)~\cite{arXiv:0907.5391}.
 
   \subsection{Necessary and sufficient approximate error correction conditions}
   Analogously to the Knill-Laflamme conditions, there exist necessary and sufficient conditions for
-  approximate error correction to determine if some code is $\epsilon$-correctable under a noise channel.
+  approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
 
-  Given some code defined by projector $P$, $P$ is $\epsilon$-correctable
-  with respect to some noise channel $\cal{N}$ iff
+  Given some code defined by projector \(P\), \(P\) is \(\epsilon\)-correctable
+  with respect to some noise channel \(\cal{N}\) iff
   \begin{align}PE_i^{\dagger}E_j P=\lambda_{ij}P+PB_{ij}P\end{align}
-  where $\Lambda(\rho)=\mathrm{Tr}(\rho)\sum_{ij} \lambda_{ij}|i\rangle\langle j|$ 
-  is a density operator, $(\Lambda+B)(\rho)=\Lambda(\rho)+\sum_{ij}\mathrm{Tr}(\rho B_{ij})|i\rangle\langle j|$, 
-  and $d(\Lambda+B,\Lambda)\le\epsilon$~\cite{arXiv:0907.5391}.
+  where \(\Lambda(\rho)=\mathrm{Tr}(\rho)\sum_{ij} \lambda_{ij}|i\rangle\langle j|\) 
+  is a density operator, \((\Lambda+B)(\rho)=\Lambda(\rho)+\sum_{ij}\mathrm{Tr}(\rho B_{ij})|i\rangle\langle j|\), 
+  and \(d(\Lambda+B,\Lambda)\le\epsilon\)~\cite{arXiv:0907.5391}.
 
   \subsection{Sufficient approximate error correction conditions}
   In addition to the necessary and sufficient error correction conditions, 
   there exist sufficient conditions for approximate error correction that can also be useful.
 
-  Given $\mathcal{E}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}$.
-  Suppose that for projector $P$ onto the code, $A_n P=U_n \sqrt{PA_n^{\dagger}A_n P}$ as a polar decomposition and $p_n$ and $p_n\lambda_n$ are the largest and smallest eigenvalues for $PA_n^{\dagger}A_n P$. 
+  Given \(\mathcal{E}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}\).
+  Suppose that for projector \(P\) onto the code, \(A_n P=U_n \sqrt{PA_n^{\dagger}A_n P}\) 
+  as a polar decomposition and \(p_n\) and \(p_n\lambda_n\) are the 
+  largest and smallest eigenvalues for \(PA_n^{\dagger}A_n P\). 
 
   Then, we are guaranteed that if 
   \begin{align}PU_m^{\dagger}U_n P=\delta_{mn} P \land p_n(1-\lambda_n)\le O(f(\epsilon))\end{align}
-  we have a fidelity $F \geq 1-O(f(\epsilon))$ after recovery~\cite{arXiv:quant-ph/9704002}.
+  we have a fidelity \(F \geq 1-O(f(\epsilon))\) after recovery~\cite{arXiv:quant-ph/9704002}.
 
   See Ref. \cite{arxiv:1610.06169} for bounds on approximate code length, size, and distance.
 
