@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 """Script for attaching links to code, found in `main()` below.
 
+Intended usage:
+```bash
+> ./link_codes.py                                       # load yaml files from `../codes/`
+> ./link_codes.py --codes_path /home/feynman/codes/     # load yaml files from custom path
+```
 
 """
 
