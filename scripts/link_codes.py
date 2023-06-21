@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.11
 """Script for attaching links to code, found in `main()` below.
 
 Intended usage:
@@ -25,7 +25,7 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
     """Search for `code_name` in `msg`, and prompt the user for replacement.
 
     Searches `msg` for `code_name`. If such a substring exists, prompts the user
-    for replacement. Returns the updated string, and two booleans: the first for if a 
+    for replacement. Returns the updated string, and two booleans: the first for if a
     replaacement was made, and the second for if to terminate searching.
 
     Args:
@@ -36,8 +36,8 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
         file_path: The file we're modifying
 
     Returns:
-        A tuple whose second element indicates if replacement took place. `True` if 
-    replacement; else, `False`. 
+        A tuple whose second element indicates if replacement took place. `True` if
+    replacement; else, `False`.
         The third element indicates if searching should terminate. `True` if to stop;
     else, `False`.
         If a replacement didn't take place, then the first element is simply the unmodified
@@ -52,10 +52,10 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
     search_and_replace("gb", "generalized_bicycle", "As in a gb code")  ->  ("As in a \hyperref[code:generalized_bicycle]{gb} code", True, False)
 
     # The user decided not to replace, and continue
-    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False, False) 
+    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False, False)
 
     # The user decided not to replace and quit
-    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False, True) 
+    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False, True)
     ```
     """
     # codes for printing in color
@@ -86,7 +86,7 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
             color_code_YELLOW + msg[max(match_idx - 5, 0):(match_idx + len(code_name) + 5)] + color_code_END + \
             '\" using id ' + color_code_CYAN + code_id + color_code_END + '? [Y/n/q]\n'
         user_response = input(prompt_str).lower()
-    
+
         if user_response != 'y' and user_response != 'yes' and user_response != 'q':
             continue
         elif user_response == 'q':
@@ -103,7 +103,7 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
 def search_and_replace_short_name(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool, bool):
     """Search for the short name `code_name` in `msg`, and prompt the user for replacement.
 
-    In the special case where we replace a `short_name`, to decrease the amount of false 
+    In the special case where we replace a `short_name`, to decrease the amount of false
     positives, only prompt the user if the code name is surrounded by either a dash or space.
 
     See:
@@ -130,7 +130,7 @@ def search_and_replace_short_name(code_name: str, code_id: str, msg: str, file_p
     replaced_short_name |= replacement_made
 
     return (msg, replaced_short_name, need_to_terminate)
-    
+
 
 def main(args) -> int:
     """Attaches links to codes upon prompt.
@@ -138,15 +138,15 @@ def main(args) -> int:
     For users:
 
     This script accepts a path to a directory containing error correcting codes
-    as either '.yml' or '.yaml' files. Non-yaml files in the directory are ignored. 
+    as either '.yml' or '.yaml' files. Non-yaml files in the directory are ignored.
     This argument defaults to "../codes/". Possible usage:
     ```bash
-    > ./link_codes.py 
+    > ./link_codes.py
     > ./link_codes.py --codes_path=/home/feynman/codes/
     ```
 
     For developers:
-    
+
     This script first populates a dictionary of error correcting code names to
     code ids (respectively the `name` and `code_id` keys in each yaml file).
     Short names are also added if present. Else, the short name is set to
@@ -166,11 +166,11 @@ def main(args) -> int:
     #
     #   Populating our map of names to `code_id`
     #
-    
+
     # Map of `name` and `short_name` yaml keys to `code_id`
     # Keys are in lower-case since replacement isn't case-sensitive
     code_mp = {}
-    # A hash set of `short_name` mappings. When iterating through `code_mp` to 
+    # A hash set of `short_name` mappings. When iterating through `code_mp` to
     # check for substring matches in a yaml file, if a `code_mp` entry is a `short_name`
     # (as indicated by `cached_short_names` membership), then only replace a `short_name`
     # if surrounded by either a dash or space. E.g.
@@ -227,8 +227,8 @@ def main(args) -> int:
                 if 'short_name' in yml_dat:
                     code_short_name = yml_dat['short_name'].lower()
 
-                # `pairs` is treated as a stack. Although initially a list of 
-                # elements that are key, value pairs for `yml_dat`, the elements 
+                # `pairs` is treated as a stack. Although initially a list of
+                # elements that are key, value pairs for `yml_dat`, the elements
                 # are updated until `element[0]` is a list of keys in `yml_dat`
                 # that map to a string `element[1]`. That string is then checked
                 # for a substring.
@@ -251,11 +251,11 @@ def main(args) -> int:
                 # yml_dat["relations"]["parents"][0]["code_id"] = "\hyperref[code:quantum_bpsk]{quantum bpsk}"
                 # ```
                 # If changed by the user, this `yml_dat` is written back.
-                # 
+                #
                 pairs = list(yml_dat.items())
                 while len(pairs) != 0:
                     key, val = pairs.pop()
-                    
+
                     # If a string, convert our key to a list so we can append further keys
                     if type(key) is not list:
                         if key == 'code_id' or key == 'name' or key == 'short_name':
