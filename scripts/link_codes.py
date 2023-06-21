@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-"""Script for attaching links to code. Found in `main()` below"""
+"""Script for attaching links to code, found in `main()` below.
+
+
+"""
 
 import sys
 import os
@@ -13,12 +16,12 @@ def print_error(msg: str) -> None:
     color_code_END = '\033[0m'
     print(color_code_ERROR + msg + color_code_END)
 
-def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool):
+def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool, bool):
     """Search for `code_name` in `msg`, and prompt the user for replacement.
 
     Searches `msg` for `code_name`. If such a substring exists, prompts the user
-    for replacement. Returns the updated string, and a boolean indicating if a replacement
-    occurred.
+    for replacement. Returns the updated string, and two booleans: the first for if a 
+    replaacement was made, and the second for if to terminate searching.
 
     Args:
         code_name: The string to look for in `code_id`. Despite the name, corresponds to
@@ -30,19 +33,24 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
     Returns:
         A tuple whose second element indicates if replacement took place. `True` if 
     replacement; else, `False`. 
+        The third element indicates if searching should terminate. `True` if to stop;
+    else, `False`.
         If a replacement didn't take place, then the first element is simply the unmodified
     `msg`. Else, the modified `msg` is returned.
 
     E.g.
     ```python
     # No match!
-    search_and_replace("gb", "generalized_bicycle", "Testing")  ->  ("Testing", False)
+    search_and_replace("gb", "generalized_bicycle", "Testing")  ->  ("Testing", False, False)
 
-    # The user replaced
-    search_and_replace("gb", "generalized_bicycle", "As in a gb code")  ->  ("As in a \hyperref[code:generalized_bicycle]{gb} code", True)
+    # The user replaced, but wants to continue
+    search_and_replace("gb", "generalized_bicycle", "As in a gb code")  ->  ("As in a \hyperref[code:generalized_bicycle]{gb} code", True, False)
 
-    # The user decided not to replace
-    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False) 
+    # The user decided not to replace, and continue
+    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False, False) 
+
+    # The user decided not to replace and quit
+    search_and_replace("gb", "generalized_bicycle", "user_id: over_9000_gb")  ->  ("user_id: over_9000_gb", False, True) 
     ```
     """
     # codes for printing in color
@@ -51,7 +59,7 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
     color_code_END = '\033[0m'
     # Any matches? (not case sensitive)
     if code_name not in msg.lower():
-        return (msg, False)
+        return (msg, False, False)
     n_matches = msg.lower().count(code_name)
 
     # For each possible substring, prompt the user
@@ -71,39 +79,52 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
         prompt_str = file_path + ':\n'
         prompt_str += 'Replace \"' + color_code_YELLOW + code_name + color_code_END + '\" in \"' + \
             color_code_YELLOW + msg[max(match_idx - 5, 0):(match_idx + len(code_name) + 5)] + color_code_END + \
-            '\" using id ' + color_code_CYAN + code_id + color_code_END + '? [Y/n]\n'
+            '\" using id ' + color_code_CYAN + code_id + color_code_END + '? [Y/n/q]\n'
         user_response = input(prompt_str).lower()
     
-        if user_response != 'y' and user_response != 'yes':
+        if user_response != 'y' and user_response != 'yes' and user_response != 'q':
             continue
+        elif user_response == 'q':
+            return (msg, updated_data, True)
 
         # Remove the code name first, replace, and adjust index
         updated_data = True
         msg = msg[:match_idx] + msg[(match_idx + len(code_name)):]
         msg = msg[:match_idx] + hyperref_str + msg[match_idx:]
         last_match_idx += len(hyperref_str) - 1
-    return (msg, updated_data)
 
-def search_and_replace_short_name(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool):
+    return (msg, updated_data, False)
+
+def search_and_replace_short_name(code_name: str, code_id: str, msg: str, file_path: str) -> (str, bool, bool):
     """Search for the short name `code_name` in `msg`, and prompt the user for replacement.
 
     In the special case where we replace a `short_name`, to decrease the amount of false 
     positives, only prompt the user if the code name is surrounded by either a dash or space.
 
     See:
-        - `search_and_replace(str, str, str) -> (str, bool)` above
+        - `search_and_replace(str, str, str) -> (str, bool, bool)` above
     """
     replaced_short_name = False
+    need_to_terminate = False
 
-    msg, replaced_short_name = search_and_replace(' ' + code_name + ' ', code_id, msg, file_path)
-    msg, replacement_made = search_and_replace('-' + code_name + ' ', code_id, msg, file_path)
+    msg, replaced_short_name, need_to_terminate = search_and_replace(' ' + code_name + ' ', code_id, msg, file_path)
+    if need_to_terminate:
+        return (msg, replaced_short_name, True)
+
+    msg, replacement_made, need_to_terminate = search_and_replace('-' + code_name + ' ', code_id, msg, file_path)
     replaced_short_name |= replacement_made
-    msg, replacement_made = search_and_replace(' ' + code_name + '-', code_id, msg, file_path)
+    if need_to_terminate:
+        return (msg, replaced_short_name, True)
+
+    msg, replacement_made, need_to_terminate = search_and_replace(' ' + code_name + '-', code_id, msg, file_path)
     replaced_short_name |= replacement_made
-    msg, replacement_made = search_and_replace('-' + code_name + '-', code_id, msg, file_path)
+    if need_to_terminate:
+        return (msg, replaced_short_name, True)
+
+    msg, replacement_made, need_to_terminate = search_and_replace('-' + code_name + '-', code_id, msg, file_path)
     replaced_short_name |= replacement_made
 
-    return (msg, replaced_short_name)
+    return (msg, replaced_short_name, need_to_terminate)
     
 
 def main(args) -> int:
@@ -189,6 +210,7 @@ def main(args) -> int:
             # since we populate on file read, update it on file read, and dump
             # it on file write
             need_to_update_file = False
+            need_to_terminate = False
             yml_dat = {}
             file_path = os.path.join(root, file_name)
             with open(file_path, 'r') as f:
@@ -258,11 +280,14 @@ def main(args) -> int:
                                 continue
                             # Are looking for a `short_name`?
                             if cached_code_name in cached_short_names:
-                                val, updated_data = search_and_replace_short_name(cached_code_name, cached_code_id, val, file_path)
+                                val, updated_data, need_to_terminate = search_and_replace_short_name(cached_code_name, cached_code_id, val, file_path)
                                 need_to_update_data |= updated_data
                             else:
-                                val, updated_data = search_and_replace(cached_code_name, cached_code_id, val, file_path)
+                                val, updated_data, need_to_terminate = search_and_replace(cached_code_name, cached_code_id, val, file_path)
                                 need_to_update_data |= updated_data
+
+                            if need_to_terminate:
+                                break
                         if need_to_update_data:
                             need_to_update_file = True
                             if len(key) == 1:
@@ -274,9 +299,14 @@ def main(args) -> int:
                                 for i in range(n_keys):
                                     yml_dat_copy = yml_dat_copy[key[i]]
                                 yml_dat_copy[key[n_keys]] = val
+                        if need_to_terminate:
+                            break
             if need_to_update_file:
                 with open(file_path, 'w') as f:
                     ruamel.yaml.dump(yml_dat, f, Dumper=ruamel.yaml.RoundTripDumper)
+            if need_to_terminate:
+                print('Terminating Early.')
+                return 0
     return 0
 
 def parse_arguments(argv):
