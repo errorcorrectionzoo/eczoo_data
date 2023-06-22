@@ -33,7 +33,7 @@ protection: |
   In addition to the necessary and sufficient error correction conditions, 
   there exist sufficient conditions for approximate error correction that can also be useful.
 
-  Given \(\mathcal{E}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}\).
+  Given \(\mathcal{E}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}\) where \(\forall{n}\), \(A_n\) is a density operator.
   Suppose that for projector \(P\) onto the code, \(A_n P=U_n \sqrt{PA_n^{\dagger}A_n P}\) 
   as a polar decomposition and \(p_n\) and \(p_n\lambda_n\) are the 
   largest and smallest eigenvalues for \(PA_n^{\dagger}A_n P\). 
@@ -41,6 +41,20 @@ protection: |
   Then, we are guaranteed that if 
   \begin{align}PU_m^{\dagger}U_n P=\delta_{mn} P \land p_n(1-\lambda_n)\le O(f(\epsilon))\end{align}
   we have a fidelity \(F \geq 1-O(f(\epsilon))\) after recovery~\cite{arXiv:quant-ph/9704002}.
+
+  \subsection{Universal subspace approximate error correction}
+  Universal subspace approximate error correction is a type of approximate error correction
+  where up to a fixed subspace size, given the information that a quantum state is in a subspace of that size,
+  it is approximately recoverable after being transmitted through a noisy quantum channel.
+
+  Given some qudit in Hilbert space \(S\) of dimension \(d\). 
+  Given noise channel \(\mathcal{N}\).
+  Given encoding \(\mathcal{E}\).
+  Then, we define this qudit as an \(\alpha\)-dit with error \(\epsilon\)
+  iff forall subspaces \(\tilde{S}\) of dimension less than or equal to \(d^{\alpha}+1\),
+  there exists some channel \(\tilde{\mathcal{D}}\) such that
+  \begin{align}||(\tilde{\mathcal{D}}\circ \mathcal{N}\circ \mathcal{E})|\psi\rangle-|\psi\rangle||_1\leq \epsilon\end{align}
+  forall \(|\psi\rangle\in \tilde{S}\)~\cite{arXiv:1706.09434}.
 
   See Ref. \cite{arxiv:1610.06169} for bounds on approximate code length, size, and distance.
 
@@ -64,6 +78,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: M10T
+      date: '2023-06-22'
     - user_id: M10T
       date: '2023-06-20'
     - user_id: VictorVAlbert
