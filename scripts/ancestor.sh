@@ -45,7 +45,7 @@ function ancestors(){
 
         #store the physical parameters with semi-colon as delimiter
         logical_prm=$(awk '/logical:/,/^$/' $file_name| grep -Fv "parents:" | grep -Fv "#" |  sed -e 's/logical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
-        
+
         # check if a code_id and it's ancestors are already printed and exit if yes
         if ! grep -Fxq "$1,$physical_prm,$logical_prm" metadata/sec_anctab.csv
         then
@@ -74,7 +74,7 @@ function ancestors(){
 # code_id and its parameters are printed as on line 104
 function prim_ancestors(){
     if [[ $# -eq 1 ]]
-    then 
+    then
 
         if [[ ! -s ./metadata/code_id_tab ]]
         then
@@ -98,13 +98,13 @@ function prim_ancestors(){
 
         #store the physical parameters with semi-colon as delimiter
         logical_prm=$(awk '/logical:/,/^$/' $file_name| grep -Fv "parents:" | grep -Fv "#" |  sed -e 's/logical: //'| tr -d '\n' | tr -s '[:blank:]' ';')
-        
+
         # check if a code_id and it's ancestors are already printed and exit if yes
         if ! grep -Fxq "$1,$physical_prm,$logical_prm" metadata/prim_anctab.csv
         then
             # print the code_id and its physical and logical parameters
             echo $1,$physical_prm,$logical_prm >> metadata/prim_anctab.csv
-            
+
             # get the ancestors of the code_id
             ancestors=$(awk '/parents:/,/cousins/' $file_name| grep -F -- "- code_id: " | grep -Fv "#" | cut -d ':' -f 2 )
 
