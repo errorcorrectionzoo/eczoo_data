@@ -76,14 +76,15 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
 
         # Let's first check if we're double-replacing
         hyperref_str = '\hyperref[code:' + code_id + ']{'
-        if (match_idx > len(hyperref_str)) and (msg[:match_idx][-len(hyperref_str):] == hyperref_str):
+        if (match_idx >= len(hyperref_str)) and (msg[:match_idx][-len(hyperref_str):] == hyperref_str):
             continue
-        hyperref_str += code_name + '}'
+        # in our possible replacement, honor case
+        hyperref_str += msg[match_idx:(match_idx + len(code_name))] + '}'
 
         # Prompt the user
         prompt_str = file_path + ':\n'
         prompt_str += 'Replace \"' + color_code_YELLOW + code_name + color_code_END + '\" in \"' + \
-            color_code_YELLOW + msg[max(match_idx - 5, 0):(match_idx + len(code_name) + 5)] + color_code_END + \
+            color_code_YELLOW + msg[max(match_idx - 20, 0):(match_idx + len(code_name) + 20)] + color_code_END + \
             '\" using id ' + color_code_CYAN + code_id + color_code_END + '? [Y/n/q]\n'
         user_response = input(prompt_str).lower()
 
