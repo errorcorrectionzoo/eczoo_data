@@ -3,8 +3,11 @@
 
 Intended usage:
 ```bash
-> ./link_codes.py                                       # load yaml files from `../codes/`
-> ./link_codes.py --codes_path /home/feynman/codes/     # load yaml files from custom path
+> ./link_codes.py                                       # load yaml files from `../codes/`, and search `../codes/`
+> ./link_codes.py --codes_path /home/feynman/codes/     # load yaml files from custom path, and search there
+
+# load yaml files from custom path, and search a separate custom path
+> ./link_codes.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
 ```
 
 """
@@ -138,12 +141,22 @@ def main(args) -> int:
 
     For users:
 
-    This script accepts a path to a directory containing error correcting codes
-    as either '.yml' or '.yaml' files. Non-yaml files in the directory are ignored.
+    This script accepts a path to a directory containing error correcting codes (`--codes_path`)
+    as either '.yml' or '.yaml' files. The dictionary of `code_name` and `code_id` values
+    is populated from these files.
+
+    Non-yaml files in the directory are ignored.
     This argument defaults to "../codes/". Possible usage:
     ```bash
     > ./link_codes.py
     > ./link_codes.py --codes_path=/home/feynman/codes/
+    ```
+
+    It also accepts a path to a directory of yaml files to update (`--search_path`).
+    If not included, this argument defaults to the value of `--codes_path`, which
+    itself defaults to `../codes/`. Possible usage:
+    ```bash
+    > ./link_codes.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
     ```
 
     For developers:
@@ -159,8 +172,10 @@ def main(args) -> int:
     should occur. If so, the file is updated.
 
     """
-    # Check for valid codes path
-    if (not os.path.isdir(args.codes_path)):
+    # Check valid pathing
+    if not args.search_path:
+        args.search_path = args.codes_path
+    if not os.path.isdir(args.codes_path) or not os.path.isdir(args.search_path):
         print_error('Error: ' + args.codes_path + ' not a valid directory!')
         return 1
 
@@ -207,7 +222,7 @@ def main(args) -> int:
     #   Updating codes
     #
     print('Updating codes...', flush=True)
-    for root, dirs, files in os.walk(args.codes_path):
+    for root, dirs, files in os.walk(args.search_path):
         for file_name in files:
             if (file_name[-3:] != 'yml' and file_name[-4:] != 'yaml'):
                 continue
@@ -317,7 +332,10 @@ def main(args) -> int:
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
+    # dir path to populate codes from
     parser.add_argument('--codes_path', type=str, default='../codes/')
+    # dir path to update codes from 
+    parser.add_argument('--search_path', type=str, default=None)
     return parser.parse_args()
 
 if __name__ == '__main__':
