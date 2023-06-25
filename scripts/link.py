@@ -71,6 +71,14 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
     n_matches = msg.lower().count(code_name)
 
     # For each possible substring, prompt the user
+    # If there are spaces, as in a `short_name`, then we need to consider an offset.
+    # E.g. we want to replace ` quantum ` in `I love quantum comp` with `I love \hyperref[code:quantum_code]{quantum} comp`,
+    # not `I love\hyperref[code:quantum_code]{ quantum }comp`.
+    has_leading_space = True if code_name[0] == ' ' else False
+    has_trailing_space = True if code_name[len(code_name) - 1] == ' ' else False
+    left_offset = 0 if not has_leading_space else 1
+    right_offset = 0 if not has_trailing_space else -1
+
     last_match_idx = 0
     updated_data = False
     for _ in range(n_matches):
@@ -81,8 +89,8 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
         hyperref_str = '\hyperref[code:' + code_id + ']{'
         if (match_idx >= len(hyperref_str)) and (msg[:match_idx][-len(hyperref_str):] == hyperref_str):
             continue
-        # in our possible replacement, honor case
-        hyperref_str += msg[match_idx:(match_idx + len(code_name))] + '}'
+        # in our possible replacement, honor case and spacing
+        hyperref_str += msg[(match_idx + left_offset):(match_idx + len(code_name) + right_offset)] + '}'
 
         # Prompt the user
         prompt_str = file_path + ':\n'
@@ -98,9 +106,9 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
 
         # Remove the code name first, replace, and adjust index
         updated_data = True
-        msg = msg[:match_idx] + msg[(match_idx + len(code_name)):]
-        msg = msg[:match_idx] + hyperref_str + msg[match_idx:]
-        last_match_idx += len(hyperref_str) - 1
+        msg = msg[:(match_idx + left_offset)] + msg[(match_idx + len(code_name) + right_offset):]
+        msg = msg[:(match_idx + left_offset)] + hyperref_str + msg[(match_idx + left_offset):]
+        last_match_idx += len(hyperref_str) - 1 - (left_offset + right_offset)
 
     return (msg, updated_data, False)
 
