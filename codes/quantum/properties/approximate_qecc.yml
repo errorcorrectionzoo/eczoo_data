@@ -29,6 +29,17 @@ protection: |
   is a density operator, \((\Lambda+B)(\rho)=\Lambda(\rho)+\sum_{ij}\mathrm{Tr}(\rho B_{ij})|i\rangle\langle j|\), 
   and \(d(\Lambda+B,\Lambda)\le\epsilon\)~\cite{arXiv:0907.5391}.
 
+  Necessary and sufficient conditions for approximate error correction can also be expressed in terms of
+  complementary channels.
+
+  Given some noise channel $\mathcal{N}$, there exists some recovery channel $\mathcal{R}$ such that
+  $F(\mathcal{R}\mathcal{N},\mathcal{M})=1-\epsilon$ iff there exists some $\mathcal{R}'$ such that
+  for complementary channels $\mathcal{N}^C$ and $\mathcal{M}^C$, $F(\mathcal{N}^C,R'\mathcal{M}^C)$. 
+  Note that $F$ denotes worst case entaglement fidelity between channels.
+  
+  One example is that if $\mathcal{M}$ is the projector onto some algebra $\mathcal{A}$, 
+  we can derive correctability conditions for that algebra under $\mathcal{N}$~\cite{arXiv:0907.5391}.
+
   \subsection{Sufficient approximate error correction conditions}
   In addition to the necessary and sufficient error correction conditions, 
   there exist sufficient conditions for approximate error correction that can also be useful.
@@ -78,6 +89,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: M10T
+      date: '2023-06-28'
     - user_id: M10T
       date: '2023-06-22'
     - user_id: M10T
