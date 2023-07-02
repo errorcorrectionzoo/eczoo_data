@@ -37,19 +37,18 @@ protection: |
   where \(c_{ij}\) can be arbitrary numbers.
   \end{defterm}
 
+  A code is \textit{degenerate} with respect to a noise model if different errors map code states to the same error subspace. For a linearly independent error set \(\cal{E}\), degeneracy is equivalent to \(\text{rank}(c_{ij}) < |\cal{E}|\).
 
-  \subsection{Quantum channels}
+  Determining protection and bounds on code parameters can also be done using Shor-Laflamme \textit{quantum weight enumerators} \cite{arxiv:quant-ph/9610040} and Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
+
+  \subsection{Correctability of quantum channels}
 
   We define that some quantum channel \(\mathcal{N}\) is exactly correctable if
   there exists some recovery channel \(\mathcal{R}\) such that \(\mathcal{R}\mathcal{N}=\mathrm{id}\).
 
   Given some noise channel \(\mathcal{N}\), a necessary and sufficient condition for exact correctibility
-  is that complementary channel \(\mathcal{N}^C(\rho)=\rho_0\mathrm{Tr}(\rho)\). This can be used
-  to derive the Knill-Laflamme conditions~\cite{arXiv:0907.5391}.  
+  is that complementary channel \(\mathcal{N}^C(\rho)=\rho_0\mathrm{Tr}(\rho)\). This can be used to derive the Knill-Laflamme conditions~\cite{arXiv:0907.5391}.
 
-  A code is \textit{degenerate} with respect to a noise model if different errors map code states to the same error subspace. For a linearly independent error set \(\cal{E}\), degeneracy is equivalent to \(\text{rank}(c_{ij}) < |\cal{E}|\).
-
-  Determining protection and bounds on code parameters can also be done using Shor-Laflamme \textit{quantum weight enumerators} \cite{arxiv:quant-ph/9610040} and Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
 # Include other often used defs
 # Include complementary channel + approximate defs; approx should be a separate property or not?
 
