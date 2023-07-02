@@ -3,8 +3,11 @@
 
 Intended usage:
 ```bash
-> ./link_codes.py                                       # load yaml files from `../codes/`
-> ./link_codes.py --codes_path /home/feynman/codes/     # load yaml files from custom path
+> ./link_codes.py                                       # load yaml files from `../codes/`, and search `../codes/`
+> ./link_codes.py --codes_path /home/feynman/codes/     # load yaml files from custom path, and search there
+
+# load yaml files from custom path, and search a separate custom path
+> ./link_codes.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
 ```
 
 """
@@ -68,6 +71,14 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
     n_matches = msg.lower().count(code_name)
 
     # For each possible substring, prompt the user
+    # If there are spaces, as in a `short_name`, then we need to consider an offset.
+    # E.g. we want to replace ` quantum ` in `I love quantum comp` with `I love \hyperref[code:quantum_code]{quantum} comp`,
+    # not `I love\hyperref[code:quantum_code]{ quantum }comp`.
+    has_leading_space = True if code_name[0] == ' ' else False
+    has_trailing_space = True if code_name[len(code_name) - 1] == ' ' else False
+    left_offset = 0 if not has_leading_space else 1
+    right_offset = 0 if not has_trailing_space else -1
+
     last_match_idx = 0
     updated_data = False
     for _ in range(n_matches):
@@ -76,14 +87,15 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
 
         # Let's first check if we're double-replacing
         hyperref_str = '\hyperref[code:' + code_id + ']{'
-        if (match_idx > len(hyperref_str)) and (msg[:match_idx][-len(hyperref_str):] == hyperref_str):
+        if (match_idx >= len(hyperref_str)) and (msg[:match_idx][-len(hyperref_str):] == hyperref_str):
             continue
-        hyperref_str += code_name + '}'
+        # in our possible replacement, honor case and spacing
+        hyperref_str += msg[(match_idx + left_offset):(match_idx + len(code_name) + right_offset)] + '}'
 
         # Prompt the user
         prompt_str = file_path + ':\n'
         prompt_str += 'Replace \"' + color_code_YELLOW + code_name + color_code_END + '\" in \"' + \
-            color_code_YELLOW + msg[max(match_idx - 5, 0):(match_idx + len(code_name) + 5)] + color_code_END + \
+            color_code_YELLOW + msg[max(match_idx - 20, 0):(match_idx + len(code_name) + 20)] + color_code_END + \
             '\" using id ' + color_code_CYAN + code_id + color_code_END + '? [Y/n/q]\n'
         user_response = input(prompt_str).lower()
 
@@ -94,9 +106,9 @@ def search_and_replace(code_name: str, code_id: str, msg: str, file_path: str) -
 
         # Remove the code name first, replace, and adjust index
         updated_data = True
-        msg = msg[:match_idx] + msg[(match_idx + len(code_name)):]
-        msg = msg[:match_idx] + hyperref_str + msg[match_idx:]
-        last_match_idx += len(hyperref_str) - 1
+        msg = msg[:(match_idx + left_offset)] + msg[(match_idx + len(code_name) + right_offset):]
+        msg = msg[:(match_idx + left_offset)] + hyperref_str + msg[(match_idx + left_offset):]
+        last_match_idx += len(hyperref_str) - 1 - (left_offset + right_offset)
 
     return (msg, updated_data, False)
 
@@ -137,12 +149,22 @@ def main(args) -> int:
 
     For users:
 
-    This script accepts a path to a directory containing error correcting codes
-    as either '.yml' or '.yaml' files. Non-yaml files in the directory are ignored.
+    This script accepts a path to a directory containing error correcting codes (`--codes_path`)
+    as either '.yml' or '.yaml' files. The dictionary of `code_name` and `code_id` values
+    is populated from these files.
+
+    Non-yaml files in the directory are ignored.
     This argument defaults to "../codes/". Possible usage:
     ```bash
     > ./link_codes.py
     > ./link_codes.py --codes_path=/home/feynman/codes/
+    ```
+
+    It also accepts a path to a directory of yaml files to update (`--search_path`).
+    If not included, this argument defaults to the value of `--codes_path`, which
+    itself defaults to `../codes/`. Possible usage:
+    ```bash
+    > ./link_codes.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
     ```
 
     For developers:
@@ -158,8 +180,10 @@ def main(args) -> int:
     should occur. If so, the file is updated.
 
     """
-    # Check for valid codes path
-    if (not os.path.isdir(args.codes_path)):
+    # Check valid pathing
+    if not args.search_path:
+        args.search_path = args.codes_path
+    if not os.path.isdir(args.codes_path) or not os.path.isdir(args.search_path):
         print_error('Error: ' + args.codes_path + ' not a valid directory!')
         return 1
 
@@ -206,7 +230,7 @@ def main(args) -> int:
     #   Updating codes
     #
     print('Updating codes...', flush=True)
-    for root, dirs, files in os.walk(args.codes_path):
+    for root, dirs, files in os.walk(args.search_path):
         for file_name in files:
             if (file_name[-3:] != 'yml' and file_name[-4:] != 'yaml'):
                 continue
@@ -316,7 +340,10 @@ def main(args) -> int:
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
+    # dir path to populate codes from
     parser.add_argument('--codes_path', type=str, default='../codes/')
+    # dir path to update codes from 
+    parser.add_argument('--search_path', type=str, default=None)
     return parser.parse_args()
 
 if __name__ == '__main__':

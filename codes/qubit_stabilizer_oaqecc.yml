@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_stabilizer_oaqecc
+physical: qubits
+logical: qubits
+
+name: 'Qubit stabilizer operator-algebra quantum error-correcting code'
+short_name: 'Qubit stabilizer OAQECC'
+introduced: \cite{arxiv:2304.11442}
+
+description: |-
+ Operator-algebra QECC in which the commutant \(\mathcal{A}'\) of the logical algebra \(\mathcal{A}\) arises as the group algebra of a subgroup \(\mathsf{G}\) of the \(n\)-qubit Pauli group \(\mathsf{P}_n\).
+ The stabilizer \(\mathsf{S}\) is the center of \(\mathsf{G}\) modulo factors of \(i I\). The quotient \(\mathsf{P}_n / \mathsf{N(S)}\), where \(\mathsf{N(S)}\) is the normalizer of \(\mathsf{S}\), is in bijective correspondence with the factors of the logical algebra \(\mathcal{A}\).
+
+protection: |-
+ Specialized conditions for the correctability of \(\mathcal{A}\) with respect to an error operation \(\mathcal{E}\) with operation elements \(\{E_j\}_j\) can be given in group theoretic terms.
+ Indeed, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if, for all \(j,k\),
+ \[E_j^\dagger E_k \notin (\mathsf{N(S)} - \mathsf{G}) \bigcup \big(\bigcup_{\tau, \sigma: \tau \mathsf{N(S)} \neq \sigma \mathsf{N(S)}} \tau \mathsf{N(S)} \sigma\big)~.\]
+
+relations:
+  parents:
+    - code_id: oaecc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: MichaelLiu
+      date: '2023-17-06'
