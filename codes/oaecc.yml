@@ -12,19 +12,21 @@ introduced: '\cite{arXiv:quant-ph/0203105,arxiv:quant-ph/0608071,arXiv:0705.1574
 description: |-
  Encodes quantum and/or classical information into a collection of subsystems of a Hilbert space \(\mathsf{H}\) that is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
  This \textit{logical algebra} induces a decomposition of the Hilbert space as
- \[\mathsf{H} = \bigoplus_\gamma A_\gamma \otimes B_\gamma,\]
+ \begin{align}\mathsf{H} = \bigoplus_\gamma A_\gamma \otimes B_\gamma,\end{align}
  with respect to which \(\mathcal{A}\) takes the form
- \[\mathcal{A} = \bigoplus_\gamma I_\gamma \otimes \mathcal{L}(B_\gamma),\]
+ \begin{align}\mathcal{A} = \bigoplus_\gamma I_\gamma \otimes \mathcal{L}(B_\gamma),\end{align}
  where \(\mathcal{L}(B_\gamma)\) denotes the full set of linear maps on \(B_\gamma\).
 
 protection: |
-  Given an error operation \(\mathcal{E}: \mathcal{D}(\mathsf{H}) \to \mathcal{D}(\mathsf{H})\), one says that \(\mathcal{A}\) is \textit{correctable} for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}: \mathcal{D}(\mathsf{H}) \to \mathcal{D}(\mathsf{H})\) such that
-  \[Q (\mathcal{R} \circ \mathcal{E})^\dagger(X) Q = X\] for all \(X \in \mathcal{A}\), where \(Q\) is the unit projection onto \(\mathcal{A}\).
-  Equivalently, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that for any \(\gamma\) and density operators \(\rho_\gamma \in \mathcal{D}(\mathcal{A_\gamma})\), \(\sigma_\gamma \in \mathcal{D}(\mathcal{B_\gamma})\), there exists \(\tau_\gamma \in \mathcal{D}(\mathcal{A_\gamma})\) such that
-  \[(\mathcal{R} \circ \mathcal{E})(\rho_\gamma \otimes \sigma_\gamma) = \tau_\gamma \otimes \sigma_\gamma.\]
+  Given an error operation \(\mathcal{E}\), one says that \(\mathcal{A}\) is \textit{correctable} for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that
+  \begin{align}P_{\mathcal{A}} (\mathcal{R} \circ \mathcal{E})^\dagger(X) P_{\mathcal{A}} = X\end{align} for all \(X \in \mathcal{A}\), where \(P_{\mathcal{A}}\) is the unit projection onto \(\mathcal{A}\).
 
-  An algebraic condition for correctability can be given in terms of the operation elements \(\{E_j\}_j\) of \(\mathcal{E}\).
-  Indeed, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if \[Q E_j^\dagger E_k Q \in \mathcal{A}'\]  for all \(j,k\), where \(\mathcal{A}'\) is the commutant of \(\mathcal{A}\).
+  Equivalently, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that for any \(\gamma\) and density operators \(\rho_\gamma,\sigma_\gamma\) supported on \(A_\gamma\) and \(B_\gamma\), respectively, there exists a state \(\tau_\gamma\) supported on \(A_\gamma\) such that
+  \begin{align}(\mathcal{R} \circ \mathcal{E})(\rho_\gamma \otimes \sigma_\gamma) = \tau_\gamma \otimes \sigma_\gamma.\end{align}
+
+  An algebraic condition for correctability can be given in terms of the Kraus operators \(E_j\) of \(\mathcal{E}\).
+  Indeed, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if \begin{align}P_{\mathcal{A}} E_j^\dagger E_k P_{\mathcal{A}} \in \mathcal{A}'\end{align}
+  for all \(j,k\), where \(\mathcal{A}'\) is the commutant of \(\mathcal{A}\).
 
 # Begin Entry Meta Information
 _meta:

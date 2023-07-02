@@ -11,51 +11,51 @@ introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1070/RM1997v052n06ABEH002155,ar
 
 description: 'Encodes quantum information so that it is possible to approximately recover that information from noise up to an error bound in recovery.'
 
+# protection: |
+# Given some encoding map \(\cal{E}\) and some noise channel \(\cal{N}\),
+# the code described by \(\cal{E}\) is \textit{\(\epsilon\)-correctable} if there exists
+# some quantum channel \(\cal{R}\) such that
+# \begin{align}
+#   d(\cal{R}\cal{N}\cal{E}(\rho),\rho)\leq \epsilon
+# \end{align}
+# for Bures distance \(d\) and for all logical states \(\rho\).
+#
+# \subsection{Necessary and sufficient approximate error-correction conditions}
+# Analogously to the \term{Knill-Laflamme conditions} for (exact) QECCs, there exist various formulations of necessary and sufficient conditions for
+# approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
+#
+# Necessary and sufficient conditions for approximate error correction can also be expressed in terms of
+# complementary channels.
+# Given some code defined by projector \(P\), \(P\) is \textit{\(\epsilon\)-correctable}
+# with respect to some noise channel \(\cal{N}\) if
+# \begin{align}
+#   PE_i^{\dagger}E_j P=\lambda_{ij}P+PB_{ij}P~,
+# \end{align}
+# where \(\Lambda(\rho)=\mathrm{Tr}(\rho)\sum_{ij} \lambda_{ij}|i\rangle\langle j|\)
+# is a density operator,
+# \begin{align}
+#   (\Lambda+B)(\rho)=\Lambda(\rho)+\sum_{ij}\mathrm{Tr}(\rho B_{ij})|i\rangle\langle j|
+# \end{align}
+# is the output state of the complementary noise channel \(\mathcal{N}^C = \Lambda+B\), and the Bures distance \(d(\Lambda+B,\Lambda)\le\epsilon\)~\cite{arXiv:0907.5391}.
+#
+# Given some noise channel \(\mathcal{N}\), there exists some recovery channel \(\mathcal{R}\) such that
+# \(F(\mathcal{R}\mathcal{N},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{R}'\) such that
+# for complementary channels \(\mathcal{N}^C\) and \(\mathcal{M}^C\), \(F(\mathcal{N}^C,R'\mathcal{M}^C)=1-\epsilon\).
+# Note that \(F\) denotes worst case entaglement fidelity between channels.
+#
+# One example is that if \(\mathcal{M}\) is the projector onto some algebra \(\mathcal{A}\),
+# we can derive correctability conditions for that algebra under \(\mathcal{N}\)~\cite{arXiv:0907.5391}.
+
+# \subsection{Sufficient approximate error-correction conditions}
+# In addition to the necessary and sufficient error correction conditions,
+# there exist sufficient conditions for AQECCs.
+#
+# Given a noise channel \(\mathcal{E}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}\) where \(\forall{n}\), \(A_n\) is a Kraus operator, and code projector \(P\), express the following using polar decomposition, \(A_n P=U_n \sqrt{PA_n^{\dagger}A_n P}\), and let \(p_n\) and \(p_n\lambda_n\) be the largest and smallest eigenvalues for \(PA_n^{\dagger}A_n P\).
+# Then, we are guaranteed that if
+# \begin{align}PU_m^{\dagger}U_n P=\delta_{mn} P \land p_n(1-\lambda_n)\le O(f(\epsilon))\end{align}
+# we have a fidelity \(F \geq 1-O(f(\epsilon))\) after recovery~\cite{arXiv:quant-ph/9704002}.
+
 protection: |
-  Given some encoding map \(\cal{E}\) and some noise channel \(\cal{N}\),
-  the code described by \(\cal{E}\) is \textit{\(\epsilon\)-correctable} if there exists
-  some quantum channel \(\cal{R}\) such that
-  \begin{align}
-    d(\cal{R}\cal{N}\cal{E},\mathrm{id})\leq \epsilon
-  \end{align}
-  for Bures distance \(d\)~\cite{arXiv:0907.5391}.
-
-  \subsection{Necessary and sufficient approximate error-correction conditions}
-  Analogously to the \term{Knill-Laflamme conditions} for (exact) QECCs, there exist various formulations of necessary and sufficient conditions for
-  approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
-
-  Given some code defined by projector \(P\), \(P\) is \(\epsilon\)-correctable
-  with respect to some noise channel \(\cal{N}\) iff
-  \begin{align}
-    PE_i^{\dagger}E_j P=\lambda_{ij}P+PB_{ij}P~,
-  \end{align}
-  where \(\Lambda(\rho)=\mathrm{Tr}(\rho)\sum_{ij} \lambda_{ij}|i\rangle\langle j|\)
-  is a density operator, \((\Lambda+B)(\rho)=\Lambda(\rho)+\sum_{ij}\mathrm{Tr}(\rho B_{ij})|i\rangle\langle j|\),
-  and \(d(\Lambda+B,\Lambda)\le\epsilon\)~\cite{arXiv:0907.5391}.
-
-  Necessary and sufficient conditions for approximate error correction can also be expressed in terms of
-  complementary channels.
-  Given some noise channel \(\mathcal{N}\), there exists some recovery channel \(\mathcal{R}\) such that
-  \(F(\mathcal{R}\mathcal{N},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{R}'\) such that
-  for complementary channels \(\mathcal{N}^C\) and \(\mathcal{M}^C\), \(F(\mathcal{N}^C,R'\mathcal{M}^C)=1-\epsilon\).
-  Note that \(F\) denotes worst case entaglement fidelity between channels.
-
-  One example is that if \(\mathcal{M}\) is the projector onto some algebra \(\mathcal{A}\),
-  we can derive correctability conditions for that algebra under \(\mathcal{N}\)~\cite{arXiv:0907.5391}.
-
-  \subsection{Sufficient approximate error-correction conditions}
-  In addition to the necessary and sufficient error correction conditions,
-  there exist sufficient conditions for AQECCs.
-
-  Given \(\mathcal{E}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}\) where \(\forall{n}\), \(A_n\) is a Kraus operator.
-  Suppose that for projector \(P\) onto the code, \(A_n P=U_n \sqrt{PA_n^{\dagger}A_n P}\)
-  as a polar decomposition and \(p_n\) and \(p_n\lambda_n\) are the
-  largest and smallest eigenvalues for \(PA_n^{\dagger}A_n P\).
-
-  Then, we are guaranteed that if
-  \begin{align}PU_m^{\dagger}U_n P=\delta_{mn} P \land p_n(1-\lambda_n)\le O(f(\epsilon))\end{align}
-  we have a fidelity \(F \geq 1-O(f(\epsilon))\) after recovery~\cite{arXiv:quant-ph/9704002}.
-
   \subsection{Universal subspace approximate error correction}
   Universal subspace approximate error correction is a type of approximate error correction that quantifies protection of information stored in subspaces of a logical space.
 
