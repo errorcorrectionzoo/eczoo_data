@@ -15,10 +15,10 @@ description: |
 A planar color code with the geometry of a triangle, usually defined on a honeycomb or 4-8-8 lattice. Each boundary of the triangle intersects the lattice such that it only touches faces of two colors. The color of the boundary is then the other third color. There are three types of boundaries corresponding to the three colors of the faces.\cite{arXiv:1311.0879}
 
 There are three types of string operators, one for each color. A string of one color must end in a boundary of that same color. The string-net for the triangular color code has a special geometry such that the X and Z logical qubits have the same geometry in a string-net. \(\{X_\mu, Z_\mu\} = 0\), where \(\mu\) denotes the string-net. Let \(\bar{X} = X_\mu\) and \(\bar{Z} = Z_\mu\), then \(\bar{X}\) and \(\bar{Z}\) have the same geometry.\cite{arXiv:1311.0879} 
-protection:
 
-- 'Triangular color codes defined on the 4-8-8 lattice exist for any odd code distance \(d\). For any \(d\), \(\llbracket\frac{d^2-1}{2}+d, 1, d\rrbracket\).\cite{arXiv:1407.5103}''
-- 'Triangular color codes defined on the honeycomb or 6-6-6 lattice for any odd code distance \(d\), for code distance \(d \geq 5\), the number of data qubits is \(\fraq{(3d-1)^2}{4}\).\cite{doi:10.1088/1367-2630/ab68fd}. For \(d = 3\), the number of data qubits is 7, and this is equivalent to the Steane Code.''
+protection: 
+  - 'Triangular color codes defined on the 4-8-8 lattice exist for any odd code distance \(d\). For any \(d\), \(\llbracket\frac{d^2-1}{2}+d, 1, d\rrbracket\).\cite{arXiv:1407.5103}''
+  - 'Triangular color codes defined on the honeycomb or 6-6-6 lattice for any odd code distance \(d\), for code distance \(d \geq 5\), the number of data qubits is \(\fraq{(3d-1)^2}{4}\).\cite{doi:10.1088/1367-2630/ab68fd}. For \(d = 3\), the number of data qubits is 7, and this is equivalent to the Steane Code.''
 
 features:
 
@@ -31,16 +31,16 @@ features:
   In general, the definition \(\widehat{P} = P^{\otimes V}\) doesn’t guarantee transversality, because though \(\widehat{P}Z_f\widehat{P}Z_f = Z_f\), \(\widehat{P}X_f\widehat{P} = (-1)^{\frac{t}{2}}X_fZ_f\), where \(t\) is the number of vertices of \(f\). Therefore, \(t\) must be a multiple of 4. This is only true for the triangular color code defined on the 4-8-8 lattice.\cite{arXiv:1311.0879}
 
   fault_tolerance:
-      - 'Clifford gates can be performed fault-tolerantly on a suitable 2D lattice \cite{arxiv:quant-ph/0605138}.'
-      - 'Steane''s ancilla-coupled measurement method \cite{arXiv:1407.5103}'
+    - 'Clifford gates can be performed fault-tolerantly on a suitable 2D lattice \cite{arxiv:quant-ph/0605138}.'
+    - 'Steane''s ancilla-coupled measurement method \cite{arXiv:1407.5103}'
 
   code capacity threshold: 
-  - \(12.6%\) threshold for triangular color code with the restriction decoder\cite{arXiv:1911.00355}
-  - \(12.6%\) threshold for triangular color code with the projection decoder\cite{arXiv:1308.6207, arXiv:1802.08680}
+    - \(12.6%\) threshold for triangular color code with the restriction decoder\cite{arXiv:1911.00355}
+    - \(12.6%\) threshold for triangular color code with the projection decoder\cite{arXiv:1308.6207, arXiv:1802.08680}
 
   threshold: |
 
-  - \(\geq 6.25%\) threshold for 2D color codes with error-free syndrome extraction, and with faulty syndrome extraction.\cite{arXiv:0907.1708}
+    - \(\geq 6.25%\) threshold for 2D color codes with error-free syndrome extraction, and with faulty syndrome extraction.\cite{arXiv:0907.1708}
 
 relations:
   parents:
