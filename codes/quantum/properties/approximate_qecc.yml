@@ -81,7 +81,24 @@ protection: |
   there exists some channel \(\tilde{\mathcal{D}}\) such that
   \begin{align}||(\tilde{\mathcal{D}}\circ \mathcal{N}\circ \mathcal{E})|\psi\rangle-|\psi\rangle||_1\leq \epsilon\end{align}
   forall \(|\psi\rangle\in \tilde{\mathsf{S}}\)~\cite{arXiv:1706.09434}.
-  
+
+  \subsection{Channel capacities}
+  For some quantum channel \(\mathcal{N}\), \(\mathcal{N}\) can achieve transmission rate
+  \(r\) iff for sufficiently large \(n\), \(m=\lfloor r n \rfloor\),
+  and forall \(\epsilon>0\),
+  \begin{align}||R\mathcal{N}\mathcal{E}-1^{\otimes m}||_1\leq \epsilon\end{align}
+  for some encoding channel \(\mathcal{E}\) and some recovery channel \(R\). 
+  Quantum capacity \(Q\) of \(\mathcal{N}\) is defined as the supremum of achievable transmission rates~\cite{doi:10.1017/9781316848142}.
+ 
+  Some quantum channel \(\mathcal{N}\) can achieve \(\alpha\)-bit transmission rate \(r\) iff
+  for sufficiently large \(d\) and \(n\), and forall \(\epsilon>0\), the channel \(\mathcal{N}^{\otimes n}\)
+  is able to transmit
+  \begin{align}\lceil \frac{n r}{\log(d)} \rceil \mathrm{\(\alpha\)-dits}\end{align}
+  with total error \(\epsilon\) across those \(\alpha\)-dits.
+  The \(\alpha\)-bit capacity \(Q\) of \(\mathcal{N}\) 
+  is defined as the supremum of achievable transmission rates~\cite{arXiv:1706.09434}.
+
+
   See Ref. \cite{arxiv:1610.06169} for bounds on approximate code length, size, and distance.
 
 features:
