@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: regular_binary_tanner
+physical: bits
+logical: bits
+
+name: 'Regular binary Tanner code'
+introduced: '\cite{doi:10.1109/TIT.1981.1056404}'
+
+alternative_names:
+  - 'Regular binary GLDPC code'
+
+description: |
+  A binary Tanner code defined on a regular bipartite graph, with the inner code being the same for all vertices.
+
+  An alternative definition maps the variable nodes of the generalized Tanner graph to edges of a regular graph \(G\) and the constraint nodes to vertices of \(G\).
+  Bits are placed on edges of \(G\) such that each subsequence of bits corresponding to edges in the neighborhood any vertex belong to some \textit{short} binary linear code \(C_0\).
+
+  More technically, let \(G(V,E)\) be a \(\Delta\)-regular (not necessarily bipartite) graph with number of vertices \(|V| = n \) and number of edges \(|E| = N = n\Delta/2\). Let \(C_0\) be a linear binary code of length \(\Delta\) and rate \(R_0\). The Tanner code \(T(G,C_0)\), whose bits are placed on edges of the graph, consists of the following codewords:
+  \begin{align}
+  \left\{ c \in GF(2)^{n}\,\text{s.t. }\forall v\in V,\left.c\right|_{N(v)}\in C_{0}\right\} ~,
+  \end{align}
+  where \(\left.c\right|_{N(v)}\) is the subsequence formed by the \(\Delta\) bits located on the neighbors \(N(v)\) of the vertex \(v\). The dimension of \(T\) is at least \(N -n(\Delta -\Delta R_0) = N(2R_0-1)\geq 0\) whenever \(R_0 \geq \frac{1}{2}\).
+
+#protection: 'Tanner Codes protect against noise on classical bit strings. If \(C_0\) is an \([d, d-t,d''> d(\gamma_0 +\frac{\lambda}{d})]_2\) code and G is an \((N, M, 2, d, \rho,\alpha)\)- expander where \(\rho = \gamma_0 (\gamma_0 +\frac{\lambda}{d})\), then the Tanner Code \(T(G, C_0)\) has rate \(1-\frac{M}{N}t\) and relative distance \(\geq \gamma_0(\gamma_0+\frac{\lambda}{d})\).'
+# G here means Tanner graph, while above G is graph of code
+
+protection: |
+  Minimum-distance bounds in terms of graph and short-code parameters include the bit-oriented or parity-oriented bounds \cite{doi:10.1109/18.910591} along with others \cite{doi:10.1109/18.910591,doi:10.1504/IJICoT.2010.032546,arXiv:0708.2462}.
+
+features:
+  rate: 'For a short code \(C_0\) with rate \(R_0\), the Tanner code has rate \(R \geq 2R_0-1\). If \(C_0\) satisfies the Gilbert-Varshamov bound, the rate \(R \geq \delta = 1-2h(\delta_0)\), where \(\delta\) (\(\delta_0\)) is the relative distance of the Tanner code (\(C_0\)), and \(h\) is the binary entropy function.'
+
+  encoders:
+    - 'Quadratic algorithm: This technique works for all linear block codes and encodes using matrix multiplication \cite{doi:10.1145/258533.258575}.'
+    - 'Using the nonabelian Fast Fourier Transform and exploiting the symmetry of the underlying graph, an encoding algorithm that requires \(O(n^{4/3})\) has been devised in \cite{doi:10.1145/258533.258575}.'
+    - 'A modified construction yields codes that may be encoded in linear time yet maintain similar performance \cite{doi:10.1109/18.556668}.'
+
+  decoders:
+    - 'Parallel decoding algorithm corrects a fraction \(\delta_0^2/48\) of errors for Tanner codes \cite{doi:10.1109/18.556667}. A modification of said algorithm improves the fraction to \(\delta_0^2/4\) with no extra cost to complexity \cite{doi:10.1109/18.910593}.'
+
+realizations:
+  - 'First hardware implementation was done using a semi-systolic decoding architecture \cite{doi:10.1016/0166-218X(91)90111-9}.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: tanner
+      detail: 'Regular binary Tanner codes are binary Tanner codes defined on regular sparse bipartite graphs, with the inner code being the same for all vertices.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-21'
+    - user_id: XiaozhenFu
+      date: '2022-03-30'
+    - user_id: VictorVAlbert
+      date: '2021-11-29'

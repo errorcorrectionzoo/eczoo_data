@@ -1,0 +1,94 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_tanner
+physical: qubits
+logical: qubits
+
+name: 'Quantum Tanner code'
+introduced: '\cite{arXiv:2202.13641}'
+
+description: |
+  Member of a family of QLDPC codes based on two compatible classical Tanner codes defined on a two-dimensional Cayley complex.
+  For certain choices of codes and complex, the resulting codes have asymptotically good parameters.
+
+  The underlying geometric complex of the code is a left-right Cayley complex \(\operatorname{Cay}_2(A,G,B)\), where \(G\) is a finite group and \(A=A^{-1}\), \(B=B^{-1}\) are two symmetric generating sets satisfying the total no-conjugacy condition: \(ag\ne gb\) for any \(g\in G\), \(a\in A\), and \(b\in B\).
+  The vertices of the complex are group elements, i.e., \(V=G\). If necessary, the double cover of the graph should be taken so that the graph is bipartite, \(V=V_0\sqcup V_1\).
+
+  There are two types of edges in the resulting complex,
+    \begin{align}
+    \begin{split}
+      E_A &= \{(g,ag): g\in G, a\in A\}\\
+      E_B &= \{(g,gb): g\in G, b\in B\}~.
+    \end{split}
+    \end{align}
+  The faces are squares defined by quadruples,
+    \begin{align}
+      Q = \{(g,ag,gb,agb): g\in G, a\in A, b\in B\}~.
+    \end{align}
+  Two additional graphs can be obtained from \(\operatorname{Cay}_2(A,G,B)\) by taking the diagonals of the squares as edges, \(\mathcal G_0^\square = (V_0, Q)\) and \(\mathcal G_1^\square = (V_1, Q)\).
+
+  In the quantum Tanner construction, qubits are placed on the squares of the left-right Cayley complex.
+  Two classical codes \(C_A\) and \(C_B\) of blocklengths \(|A|\) and \(|B|\), respectively, are chosen, yielding local codes \(C_0 = C_A\otimes C_B\) and \(C_1 = C_A^\perp\otimes C_B^\perp\).
+  The quantum Tanner code is a CSS code defined by the classical Tanner codes \(C_Z = T(\mathcal G_0^\square, C_0^\perp)\) and \(C_X = T(\mathcal G_1^\square, C_1^\perp)\).
+  The figure below depicts an example of a stabilizer generator.
+
+  \begin{figure}
+    \includegraphics{local-view-stabilizer.png}
+    \caption{An example of a \(Z\) generator on a \(V_0\) local view when \(C_A = \{000\}\) and \(C_B=\{110, 011\}\). The faces incident to a \(V_0\) vertex are in bijection with the set \(A\times B\), and a codeword of \(C_0 = C_A\otimes C_B\) can be described using this set.}
+    \label{figure:local-view-stabilizer}
+  \end{figure}
+
+  To achieve asymptotically good parameters, fixed classical local codes are chosen so that their dual tensor codes are sufficiently robust, and the left-right Cayley complexes are chosen to be sufficiently expanding. The family is defined using a family of groups \(G\) of increasing size but constant-size generating sets \(A\), \(B\).
+
+
+protection: 'For correctly chosen complexes and local codes, the distance scales as \(d=\Theta(n)\). Minimum distance bound obtained using robustness of dual \hyperref[code:tensor]{tensor-product} codes \cite{arxiv:2208.05537}.'
+
+features:
+  rate: 'Asymptotically good QLDPC codes. When \(C_A\) and \(C_B\) are chosen to have rates not equal to a half, the number of encoded qubits scales as \(k=\Theta(n)\).'
+
+#transversal_gates: 'Hadamard because quantum Tanner codes are self-dual.'
+
+  decoders:
+    - 'Linear-time decoder similar to the small-set-flip decoder for quantum expander codes \cite{arxiv:2206.06557}.'
+    - 'Linear-time decoder \cite{arxiv:2206.07571}.'
+    - 'Logarithmic-time decoder \cite{arxiv:2208.05537}.'
+
+realizations:
+  - 'Used to obtain explicit lower bounds in the sum-of-squares game \cite{arXiv:2204.11469}.'
+  - 'States that, on average, achieve small violations of check operators for quantum Tanner codes require a circuit of non-constant depth to make. They are used in the proof \cite{arxiv:2206.13228} of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363}.'
+
+notes:
+  - 'For details, see talk by \href{https://www.youtube.com/watch?v=5GO3BtJuo3I}{A. Leverrier}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: generalized_homological_product_css
+    - code_id: single_shot
+      detail: 'Quantum Tanner codes facilitate single-shot decoding \cite{arxiv:2306.12470}.'
+  cousins:
+    - code_id: good_qldpc
+      detail: 'Quantum Tanner code construction yields asymptotically good QLDPC codes.'
+    - code_id: regular_binary_tanner
+      detail: 'Regular binary Tanner codes are used in constructing quantum Tanner codes.'
+    - code_id: tensor
+      detail: 'Tensor codes are used in constructing quantum Tanner codes.'
+    - code_id: expander_lifted_product
+      detail: 'Quantum Tanner codes are an attempt to construct asymptotically good QLDPC codes that are similar to but simpler than expander lifted-product codes; see Ref. \cite{arxiv:2206.07571} for connection between the codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: BaileyGu
+      date: '2023-02-21'
+    - user_id: VictorVAlbert
+      date: '2023-02-21'
+    - user_id: VictorVAlbert
+      date: '2022-08-12'
+    - user_id: VictorVAlbert
+      date: '2022-04-26'

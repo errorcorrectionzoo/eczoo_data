@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dhlv
+physical: qubits
+logical: qubits
+
+name: 'Dinur-Hsieh-Lin-Vidick (DHLV) code'
+short_name: 'DHLV'
+introduced: '\cite{arxiv:2206.07750}'
+
+description: 'Stub.'
+
+features:
+  rate: 'Asymptotically good QLDPC codes.'
+
+  decoders:
+    - 'Linear-time decoder utilizing the small set-flip decoder \cite{arxiv:2206.06557} for \(Z\) errors and a reconstruction procedure for \(X\) errors \cite{arxiv:2206.07750}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: balanced_product
+  cousins:
+    - code_id: good_qldpc
+      detail: 'DHLV code construction yields asymptotically good QLDPC codes.'
+    - code_id: regular_binary_tanner
+      detail: 'Regular binary Tanner codes are used in constructing quantum DHLV codes.'
+    - code_id: tensor
+      detail: 'Tensor codes are used in constructing quantum DHLV codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-06-17'

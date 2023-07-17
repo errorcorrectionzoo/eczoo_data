@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: current_mirror
+physical: groups
+logical: qudits
+
+name: 'Kitaev current-mirror qubit code'
+introduced: '\cite{arXiv:cond-mat/0609441,manual:{Kitaev, Alexei Yu. "Protected qubit based on superconducting current mirror." United States Patent Number 7858966B2 (2006).},arxiv:2303.13723}'
+
+description: |
+  Member of the family of \([[2n,(0,2),(2,n)]]_{\mathbb{Z}}\) homological rotor codes on a thin Möbius strip.
+  The ideal code can be obtained from a Josephson-junction \cite{doi:10.1093/acprof:oso/9780199681181.003.0003} system \cite{arxiv:2303.13723}.
+
+  Logical codewords can be expressed in the basis of angular momentum states as
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle&=\sum_{\overset{\ell_{1},\dots,\ell_{n}\in\mathbb{Z}}{\sum_{k=1}^{n}\ell_{k}=\mathrm{even}}}\left|\ell_{1},\dots,\ell_{n},-\ell_{1},\dots,-\ell_{n}\right\rangle \\|\overline{1}\rangle&=\sum_{\overset{\ell_{1},\dots,\ell_{n}\in\mathbb{Z}}{\sum_{k=1}^{n}\ell_{k}=\mathrm{odd}}}\left|\ell_{1},\dots,\ell_{n},-\ell_{1},\dots,-\ell_{n}\right\rangle~.
+  \end{split}
+  \end{align}
+
+
+protection: |
+  Protection in the context of superconducting circuits investigated in Refs. \cite{arxiv:1908.04615}.
+
+features:
+  general_gates:
+    - 'One- and two-qubit phase gates utilizing ancillary osillators in GKP states \cite{arXiv:cond-mat/0609441}.'
+
+
+relations:
+  parents:
+    - code_id: homological_rotor
+    - code_id: small_distance
+  cousins:
+    - code_id: gkp
+      detail: 'Current-mirror code phase gates utilize ancillary osillators in square-lattice GKP states \cite{arXiv:cond-mat/0609441,arxiv:1302.4122}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-12'

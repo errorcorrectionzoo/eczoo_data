@@ -1,0 +1,87 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: topological
+
+name: 'Topological code'
+introduced: '\cite{arxiv:quant-ph/9707021}'
+
+description: |
+  A code whose codewords form the ground-state or low-energy subspace of a code Hamiltonian realizing a topological phase.
+  A topological phase may be \textit{bosonic} or \textit{fermionic}, i.e., constructed out of underlying subsystems whose operators commute or anti-commute with each other, respectively.
+  Unless otherwise noted, the phases discussed are bosonic.
+
+  \subsection{2D topological codes}
+
+  The physical Hilbert space of 2D topological codes consists of \(n\) subsystems which lie on edges, vertices, or faces of a tesselation of a 2D surface \(\Sigma^2\).
+
+  For subsystems with finite local dimension, topological phases are defined by their \textit{anyons} \cite{doi:10.1007/BF02727953,doi:10.1063/1.524510,doi:10.1103/PhysRevLett.49.957,doi:10.1063/1.2810672}, which are local bulk excitations of the code Hamiltonian defined on a lattice; see Refs. \cite{doi:10.1007/BF01877742,doi:10.1007/BF01646454,arxiv:1804.03203} for more rigorous formulations.
+
+  Anyons are created in pairs by local operators, and two anyons lie in the same \textit{superselection sector} if a  local operator can convert one anyon into the other.
+  Each superselection sector is assumed to be labeled by one anyon type, and local operators cannot change superselection sectors.
+
+  Anyons can braid with themselves, with their \textit{exchange statistics} (a.k.a. \textit{topological spin}) defined by phases \(\theta(a)\in U(1)\) obtained by exchanging two anyons of each type \(a\).
+  They can also braid with each other, a process defined by \textit{braiding relations} \(B(a,b)\) for an anyon pair \(a,b\).
+  An anyon theory is called \textit{non-modular} or \textit{pre-modular} if there exists an anyon \(a\) that braids trivially with all anyons.
+
+  Anyons \(a\) and \(b\) can also fuse with each other, meaning that one considers both anyons as one anyon \(ab\) and decomposes \(ab\) into the anyons representing each superselection sector according to the anyons' \textit{fusion rules}.
+  For example, two anyons \(a,b\) may fuse to the trivial (i.e., vacuum) anyon \(1\), \(ab=1\), meaning that the composite excitation \(ab\) is indistinguishable from the case of no excitation.
+
+  The exchange statistics and fusion rules of anyons cannot be arbitrary and have to satisfy certain consistency relations.
+  Admissible exchange and fusion data are characterized by a \textit{unitary braided fusion category}.
+
+  Each anyon \(a\) has a \textit{quantum dimension} \(d_a\) associated with it.
+  The quantum dimensions add up to the \textit{total quantum dimension} \(D\),
+  \begin{align}
+    \sum_{a}d_{a}^{2}=D^{2}~.
+  \end{align}
+  These "dimensions" do not correspond to dimensions of vector spaces and may not be integer-valued.
+
+  An anyon theory that does not admit gapped boundaries (when put on a manifold with boundaries) is called \textit{chiral}; otherwise, it is \textit{non-chiral} or \textit{gapped}.
+  Chiral topological phases admit a nonzero value of the \textit{chiral central charge} \(c_{-}\).
+  A generalization \cite{arxiv:quant-ph/9707021} of the Gauss-Milgram sum rule for an anyon theory \(A\) admitting \(|A|\) anyon types,
+  \begin{align}
+    \frac{1}{\sqrt{|A|}}\sum_{a\in A}d_{a}^{2}\theta_{a}=De^{i\frac{2\pi}{8}c_{-}}~,
+  \end{align}
+  relates the chiral central charge (modulo 8) to the exchange statistics and quantum dimensions.
+
+# Frohlich braiding anyons doi:10.1142/S0129055X90000107,
+# Mention [39-41] in arxiv:2211.03798
+
+features:
+  rate: 'The logical dimension \(K\) of 2D topological codes described by unitary modular fusion categories depends on the type of manifold \(\Sigma^2\) that is tesselated to form the many-body system.
+  For closed orientable manifolds \cite{doi:10.1007/bf01217730,doi:10.1007/BF01238857},
+  \begin{align}
+    K=\sum_{a\in A}\left(d_{a}/D\right)^{\chi(\Sigma^{2})}~,
+  \end{align}
+  and a generalization of the formula to the non-orientable case can be found in Ref. \cite{arxiv:1612.07792}.'
+  encoders:
+    - 'The unitary circuit depth required to initialize in a general topologically ordered state using geometrically local gates on an \(L\times L\) lattice is \(\Omega(L)\) \cite{arXiv:quant-ph/0603121}, irrespective of whether the ground state admits Abelian or nonabelian anyonic excitations.
+    However, only a finite-depth circuit and one round of measurements is required for nonabelian topological orders with a Lagrangian subgroup \cite{arxiv:2209.03964}.'
+
+
+notes:
+  - 'Ref. \cite[Appx. F]{arxiv:cond-mat/0506438}\cite{doi:10.7907/5NDZ-W890,arxiv:0707.1889,doi:10.1017/9781009212717} for introductions to topological phases.'
+
+relations:
+  parents:
+    - code_id: block_quantum
+      detail: 'Topological codes are block codes because an infinite family of tensor-product Hilbert spaces is required to formally define a phase of matter.'
+  cousins:
+    - code_id: hamiltonian
+      detail: 'Codespace if a topological code is typically the ground-state or low-energy subspace of a geometrically local Hamiltonian admitting a topological phase.
+      Logical qubits can also be created via lattice defects or by appropriately scheduling measurements of gauge generators (see Floquet codes).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-15'
+    - user_id: VictorVAlbert
+      date: '2022-06-05'
+    - user_id: VictorVAlbert
+      date: '2022-01-05'

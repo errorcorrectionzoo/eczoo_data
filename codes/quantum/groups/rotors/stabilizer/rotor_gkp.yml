@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor_gkp
+physical: groups
+logical: qudits
+
+name: 'Rotor GKP code'
+introduced: '\cite{arxiv:quant-ph/0008040,arxiv:1911.00099}'
+
+description: 'GKP code protecting against small angular position and momentum shifts of a planar rotor.'
+
+relations:
+  parents:
+    - code_id: rotor_stabilizer
+    - code_id: group_gkp
+      detail: 'Rotor GKP codes correspond to the \(\mathbb{Z}_{k_1} \subseteq \mathbb{Z}_{k_2} \subset U(1)\) group construction, where \(k=k_2/k_1\).'
+  cousins:
+    - code_id: gkp
+      detail: 'GKP (rotor GKP) codes protect against shifts in linear (angular) degrees of freedom.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-30'

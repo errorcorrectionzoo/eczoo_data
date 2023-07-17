@@ -1,0 +1,58 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_true_stabilizer
+physical: galois
+logical: galois
+
+name: 'True Galois-qudit stabilizer code'
+short_name: 'True stabilizer'
+introduced: '\cite{doi:10.1109/18.959288,arxiv:quant-ph/0508070,preset:GottesmanBook}'
+
+description: |
+  Also called a \textit{linear stabilizer code}. A \([[n,k,d]]_q\) stabilizer code whose stabilizer's symplectic representation forms a linear subspace. In other words, the set of \(q\)-ary vectors representing the stabilizer group is closed under both addition and multiplication by elements of \(GF(q)\). In contrast, Galois-qudit stabilizer codes admit sets of vectors that are closed under addition only.
+
+  The number of generators \(r\) for a true stabilizer code is a multiple of \(m\) (recall that \(q=p^m\) for Galois qudits). As a result, the number \(k=n-r/m\) of logical qudits is an integer.
+
+  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(GF(q)\)-valued symplectic representation of a stabilizer generator.
+
+  A Hermitian self-orthogonal linear \([n,k,d]_{q^2}\) code can be used to construct an \([[n,n-2k]]_q\) true stabilizer code with distance no less than \(d\).
+  This \textit{Hermitian construction} was first proven via the symplectic representation (showing self-orthogonality under the trace-symplectic inner product; see Ref. \cite{doi:10.1109/18.959288}, Corr. 1), and later proven via the \hyperref[code:stabilizer_over_gfqsq]{stabilizer-over-\(GF(q^2)\)} construction (showing self-orthogonality under the trace-alternating inner product; see Ref. \cite{arxiv:quant-ph/0508070}, Corr. 19). There is an isomorphism between the symplectic and stabilizer-over-\(GF(q^2)\) representations \cite[Thm. 27.3.8]{preset:HKSquantum}. The Hermitian construction has been extended to \(q^{2m}\)-ary Hermitian self-orthogonal linear codes \cite{arxiv:2012.11998} and similar constructions exist \cite{arxiv:1002.4088}.
+
+# Many quantum codes have been constructed this way (e.g., see Refs. \cite{doi:10.1142/S0219749919500060,doi:10.26421/QIC13.1-2-3,doi:10.1007/s11128-020-02921-0,arxiv:1507.08355,arxiv:1604.05823,arXiv:2007.13309}).
+#  Since classical length-\(n\) Hermitian self-orthogonal linear codes over \(GF(q^2)\) can be converted into length-\(2n\) symplectic self-orthogonal linear codes over \(GF(q)\) (\cite{doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}, Thm. 1), and since symplectic self-orthogonal codes are also trace-symplectic self-orthogonal,
+
+protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1017/CBO9781139034807.014}\cite{preset:HKSquantum} for introductions to various stabilizer code constructions.'
+
+
+relations:
+  parents:
+    - code_id: galois_stabilizer
+  cousins:
+    - code_id: q-ary_linear
+      detail: 'A true Galois-qudit stabilizer code is the closest quantum analogue of a linear code over \(GF(q)\) because the \(q\)-ary vectors corresponding to the symplectic representation of the stabilizers form a linear subspace.'
+    - code_id: dual
+      detail: 'Hermitian self-orthogonal linear codes over \(GF(q^2)\) yield true stabilizer codes via either the symplectic representation (showing self-orthogonality under the trace-symplectic inner product; see Ref. \cite{doi:10.1109/18.959288}, Corr. 1) or the \hyperref[code:stabilizer_over_gfqsq]{stabilizer-over-\(GF(q^2)\)} construction (showing self-orthogonality under the trace-alternating inner product; see \cite[Corr. 19]{arxiv:quant-ph/0508070}\cite[Thm. 27.3.8]{preset:HKSquantum}.'
+    - code_id: quantum_mds
+      detail: 'Many MDS codes are constructed from Hermitian self-orthogonal codes over \(GF(q^2)\) using the Hermitian construction \cite{arxiv:quant-ph/0312164,arxiv:0906.2509,arxiv:1507.08355,arxiv:1803.07927}, in particular from cyclic \cite{doi:10.1109/TIT.2011.2159039}, constacyclic \cite{doi:10.1109/TIT.2014.2308180,doi:10.1109/TIT.2015.2388576} and negacyclic \cite{doi:10.1109/TIT.2012.2220519} codes.'
+    - code_id: matrix_product
+      detail: 'Hermitian self-orthogonal matrix-product codes over \(GF(q^2)\) can be used to construct true stabilizer codes \cite{doi:10.1007/s11128-020-02921-0,arxiv:1604.05823}.'
+#    - code_id: constacyclic
+#      detail: 'The stabilizer-over-\(GF(q^2)\) can yield quantum MDS codes from Hermitian self-orthogonal constacyclic codes \cite{arxiv:1803.07927}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'
+    - user_id: DanielGottesman
+      date: '2022-02-17'
+    - user_id: VictorVAlbert
+      date: '2022-02-17'

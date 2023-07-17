@@ -19,9 +19,9 @@ description: |
   The algebraic curve \(\cal X\) used for this construction is the set of zeroes of a nontrivial polynomial that is both smooth and irreducible over any field extension of \(GF(q)\). The curve can be defined over affine space or projective space, which contains the affine coordinates as a subset and which can yield an increase in length.
   If evaluations are made over projective coordinates, then the codewords are evaluations of homogeneous polynomials, and there are relations between such polynomials with polynomials over affine space. See Refs. \cite{preset:HPAlgCodes,doi:10.1007/978-3-319-51103-0} for more details.
 
-  In the case of polynomial functions \(f\), evaluation AG codes reduce to \hyperref[code:evaluation_polynomial]{polynomial evaluation} codes on algebraic curves. In the general case of rational functions, which are ratios of two polynomials, one can select such features for both the numerator and denominator polynomials. Zeroes of the denominator polynomial are called poles of the rational function, and their multiplicities correspond to orders of the poles. A bookkeeping device for this data is the divisor \(D\), and the corresponding vector space of functions defined using the curve \(\cal X\) and the divisor is the \textit{Riemann-Roch space} \(L=L(D)\) (\cite{doi:10.1201/9781315147901}, pg. 313).
+  In the case of polynomial functions \(f\), evaluation AG codes reduce to \hyperref[code:evaluation_polynomial]{polynomial evaluation} codes on algebraic curves. In the general case of rational functions, which are ratios of two polynomials, one can select such features for both the numerator and denominator polynomials. Zeroes of the denominator polynomial are called poles of the rational function, and their multiplicities correspond to orders of the poles. A bookkeeping device for this data is the divisor \(D\), and the corresponding vector space of functions defined using the curve \(\cal X\) and the divisor is the \textit{Riemann-Roch space} \(L=L(D)\) \cite[pg. 313]{preset:HKSag}.
 
-protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) and genus of the curve \(\cal X\) (\cite{doi:10.1201/9781315147901}, Thm. 15.3.12). The order or Feng-Rao bound, a generalization of the shift bound for cyclic codes, gives a lower bound on the distance of evaluation AG codes \cite{doi:10.1109/18.179340,doi:10.1515/9783110811056.155,doi:10.1016/j.ffa.2006.09.006}. Connection to semigroups yields another bound \cite{doi:10.1109/18.333893,preset:HPAlgCodes}.'
+protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) and genus of the curve \(\cal X\) \cite[Thm. 15.3.12]{preset:HKSag}. The order or Feng-Rao bound, a generalization of the shift bound for cyclic codes, gives a lower bound on the distance of evaluation AG codes \cite{doi:10.1109/18.179340,doi:10.1515/9783110811056.155,doi:10.1016/j.ffa.2006.09.006}. Connection to semigroups yields another bound \cite{doi:10.1109/18.333893,preset:HPAlgCodes}.'
 
 features:
   decoders:
@@ -30,7 +30,7 @@ features:
     - 'List decoders generalizing Sudan''s RS decoder by Shokrollahi-Wasserman \cite{doi:10.1109/18.748993} and Guruswami-Sudan \cite{doi:10.1109/SFCS.1998.743426}.'
 
 notes:
-  - 'See Refs. \cite{preset:HPAlgCodes,doi:10.1109/18.476214,doi:10.1142/9789812794017_0002,doi:10.1201/9781315147901,doi:10.1017/CBO9780511543401} for surveys and overviews of decoders.'
+  - 'See Refs. \cite{preset:HPAlgCodes,doi:10.1109/18.476214,doi:10.1142/9789812794017_0002,preset:HKSag,doi:10.1017/CBO9780511543401} for surveys and overviews of decoders.'
 
 # All children q-ary except RM
 relations:

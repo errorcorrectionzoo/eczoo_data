@@ -1,0 +1,89 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: homological_rotor
+physical: groups
+logical: groups
+
+name: 'Homological rotor code'
+introduced: '\cite{arXiv:2303.13723}'
+
+description: |
+  A homological quantum rotor code is an extension of \hyperref[code:analog_stabilizer]{analog stabilizer} codes to rotors.
+  The code is stabilized by a continuous group of rotor X-type and Z-type generalized Pauli operators.
+  Codes are formulated using an extension of the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to rotors.
+  The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension, i.e., encoding logical qudits instead of only logical rotors.
+  Such finite-dimensional encodings are not possible with \hyperref[code:analog_stabilizer]{analog stabilizer} codes.
+
+  A homological rotor code encoding \(k\) logical rotors and a \(q\)-dimensional logical qudit is denoted as \([[n,(k,q)]]_{\mathbb{Z}}\) or \([[n,(k,q),(d_X,\delta_Z)]]_{\mathbb{Z}}\), where \(d_X\) and \(\delta_Z\) are the code's \(X\) and \(Z\) distances, respectively.
+  The subscript \(\mathbb{Z}\) refers to the label used for the rotor's angular momentum, but shifts in the dual angular position degree of freedom are also used to construct stabilizers.
+
+  The stabilizer group is defined using two integer matrices \(H_X\in\mathbb{Z}^{r_X\times n}\) and \(H_Z\in\mathbb{Z}^{r_Z\times n}\) which are such that
+  \begin{align}
+        H_XH_Z^T = 0.\label{eq:commutation}
+  \end{align}
+  The stabilizer is then defined as
+  \begin{align}
+    \mathsf{S}=\left\langle e^{-i\boldsymbol{s}H_{X}\cdot\hat{\boldsymbol{L}}}e^{i\boldsymbol{\varphi}H_{Z}\cdot\hat{\boldsymbol{\phi}}}\middle\vert\forall\boldsymbol{s}\in\mathbb{Z}^{r_{X}},\forall\boldsymbol{\varphi}\in U(1)^{r_{Z}}\right\rangle .\label{eq:stabilizer}
+  \end{align}
+  The condition \eqref{eq:commutation} ensures that \(\mathsf{S}\) has a common +1 eigenspace.
+
+  As with \hyperref[code:css]{CSS} codes, there is a natural connection to a length-3 integer chain complexes,
+  \begin{align}
+    \mathcal{A}:~\mathbb{Z}^{r_X} \xrightarrow{H_X} \mathbb{Z}^n \xrightarrow{H_Z^T} \mathbb{Z}^{r_Z}~,
+  \end{align}
+  whose middle homology group describes the logical \(X\) operators fo the code.
+  The logical \(Z\) operators are defined by the middle cohomology group where the cohomology is taken with phase coefficients, \(\mathbb{T} = \mathbb{R}/2\pi\mathbb{Z}\),
+  \begin{align}
+    \mathcal{A}^*:~\mathbb{T}^{r_X} \xleftarrow{H_X^T} \mathbb{T}^n \xleftarrow{H_Z} \mathbb{T}^{r_Z}.
+  \end{align}
+
+  The logical subspace can contain logical rotors as well as logical qudits.
+  The former correspond to the so called free part of the homology group while the latter correspond to the torsion part,
+  \begin{align}
+    H_1(\mathcal{A},\mathbb{Z}) = \mathbb{Z}^{k^\prime}\oplus\mathbb{Z}_{d_1}\oplus\cdots\oplus\mathbb{Z}_{d_{k^{\prime\prime}}}.
+  \end{align}
+
+# \subsection{Stabilizer group}
+#  \subsection{Link with homology of a chain complex}
+#  \subsection{Logical subspace}
+
+protection: |
+  The \(X\) distance \(d_X\) of a code is the (slightly generalized notion of) weight of the smallest logical operator constructed out of angular position shifts.
+  The \(Z\) distance \(\delta_Z\) depends on whether or not the code encodes logical rotors, but a similar notion exists in the case of only a logical qudit encoding.
+  One can extend the idea of disjointness \cite{arxiv:1710.07256} to rotors to obtain distance bounds \cite{arxiv:2303.13723}.
+
+features:
+  transversal_gates: 'All generalized Pauli gates are realized transversally.'
+
+notes:
+  - 'A Sage notebook to look at small examples can be found in \url{https://github.com/cianibegood/quantum-rotor-codes}.'
+
+# rotor_9_1_3 encodes a logical qubit? qubit and oscillator doesn't do this? or is projective plane example different from 913?
+#
+# 0-π qubit Hamiltonian in [11–13, 49, 50] can be seen as the smallest example of a quantum rotor code obtained by tessellating RP2
+#
+# s Current-Mirror Qubit [14-15] as thin Möbius-strip Rotor Code
+#
+# Send Ido email with zoo links
+
+relations:
+  parents:
+    - code_id: rotor_stabilizer
+    - code_id: generalized_homological_product_css
+      detail: 'Homological rotor codes are formulated using an extension of the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to rotors.
+      The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension.
+      Products of chain complexes can also yield rotor codes.'
+# cousins:
+#   - code_id: group_gkp
+
+
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-12'
+    - user_id: ChristopheVuillot
+      date: '2023-03-28'

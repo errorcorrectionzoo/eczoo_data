@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: icosahedral_permutation_invariant
+physical: qubits
+logical: qubits
+
+name: '\(((7,2,3))\) permutation-invariant code'
+introduced: '\cite{arxiv:quant-ph/0304153,arXiv:2005.10910,arxiv:2305.07023}'
+
+description: |
+  Seven-qubit code designed to realize gates from the binary icosahedral group transversally.
+  Can also be interpreted as a spin-\(7/2\) spin code.
+  The codespace projection is a projection onto an irrep of the binary icosahedral group \(2I\).
+
+  In terms of Dicke states, the unnormalized logical states of one version \cite{arxiv:2305.07023} of this code are
+  \begin{align}
+    \begin{split}
+      |0_{L}\rangle&\propto15|D_{0}^{7}\rangle+3\sqrt{35}|D_{4}^{7}\rangle\\&\quad+\sqrt{105}\;|D_{2}^{7}\rangle-3\sqrt{35}|D_{6}^{7}\rangle\,,\\|1_{L}\rangle&\propto X^{\otimes7}|0_{L}\rangle\,.
+    \end{split}
+  \end{align}
+
+features:
+  transversal_gates: 'Binary icosahedral group \(2I\) gates can be realized transversally \cite{arxiv:2305.07023}.'
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: j_gross
+      detail: 'The \(((7,2,3))\) permutation-invariant code can be interpreted as a spin-\(7/2\) Clifford code \cite{arXiv:2005.10910}.'
+    - code_id: small_distance
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-12'

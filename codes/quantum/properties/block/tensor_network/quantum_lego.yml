@@ -13,10 +13,13 @@ introduced: '\cite{arxiv:2109.08158}'
 description: |
   Block quantum code constructed using a tensor-network-based graphical framework from \textit{quantum lego blocks}, which are smaller quantum codes over qubits or qudits. The class of codes constructed using the framework depends on the choice of atomic lego blocks.
 
+  The individual lego blocks and resulting quantum lego codes can be stabilizer or non-stabilizer. However, both the logical and physical degrees of freedom must have the same local dimension.
+
   For example, any stabilizer code can be built out of atomic blocks like the 2-site repetition code, single-site trivial stabilizer codes, and tensor products of the \(|0\rangle\) state.
   Specifically, the \hyperref[code:happy]{HaPPY} holographic code is a quantum Lego code whose atomic Lego block is the \hyperref[code:stab_5_1_3]{five-qubit perfect} qubit code.
 
-  The individual lego blocks and resulting quantum lego codes can be stabilizer or non-stabilizer. However, both the logical and physical degrees of freedom must have the same local dimension.
+  Many known codes can be created using this code''s methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code. For example, a simple \( [[4,2,2]] \) stabilizer code can be written as a rank 6 tensor. Attaching two of these via gluing together one logical leg from each can produce a \( [[6,4,2]] \) stabilizer code.
+  Code optimization in this framework can be done using reinforcement learning \cite{arxiv:2305.06378}.
 
   To construct a Lego code, the encoding map \(V\) for each code that is to be used in the construction is converted to a tensor by decomposing it using the formula
   \begin{align}
@@ -34,10 +37,6 @@ features:
     - 'Tensor-network decoder when the tensor network is contractible via stabilizer isometries \cite{arxiv:2009.10329}.'
     - 'Tensor-network-based decoder when the encoding unitary is known \cite{arxiv:1312.4578}.'
 
-notes:
-  - 'Many known codes can be created using this code''s methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code.'
-  - 'For example, a simple \( [[4,2,2]] \) stabilizer code can be written as a rank 6 tensor. Attaching two of these via gluing together one logical leg from each can produce a \( [[6,4,2]] \) stabilizer code.'
-  - 'Tensor-network codes are types of LEGO codes made from stabilizer codes where logical and physical legs are pre-assigned and logical legs are not contracted. In other words, logical legs resulting from the conversion of codes to tensors must remain logical in the final tensor network, and the same for physical. Contracting logical legs is another word for gluing two logical legs together.'
 
 relations:
   parents:

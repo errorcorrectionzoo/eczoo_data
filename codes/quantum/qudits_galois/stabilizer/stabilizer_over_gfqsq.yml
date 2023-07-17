@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stabilizer_over_gfqsq
+physical: galois
+logical: galois
+
+name: 'Stabilizer code over \(GF(q^2)\)'
+introduced: '\cite{arXiv:quant-ph/0508070}'
+
+description: |
+  An \([[n,k,d]]_q\) Galois-qudit stabilizer code constructed from a classical code over \(GF(q^2)\) using the one-to-one correspondence between the Galois-qudit Pauli matrices and elements of the Galois field \(GF(q^2)\).
+
+  An \(n\) Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(GF(q^2)\). The stabilizer commutation condition corresponds to a zero trace-alternating inner product between the corresponding vectors. Stabilizer codes over \(GF(q^2)\) can thus be constructed from classical trace-alternating self-orthogonal additive codes over \(GF(q^2)\) \cite{arXiv:quant-ph/0508070}.
+  Hermitian self-orthogonal linear codes over \(GF(q^2)\) are automatically trace-alternating self-orthogonal, and applying this construction to such codes yields a class of true stabilizer codes.
+
+#  The classical code corresponds to the stabilizer group \(\mathsf{S}\) while \(C^{\perp}\) corresponds to the normalizer \(\mathsf{N(S)}\).
+
+relations:
+  parents:
+    - code_id: galois_true_stabilizer
+      detail: 'Trace-alternating self-orthogonal linear codes over \(GF(q^2)\) are equivalent to a class of true stabilizer codes \cite{preset:GottesmanBook}. Hermitian self-orthogonal linear codes over \(GF(q^2)\) are automatically trace-alternating self-orthogonal and can be used to construct true stabilizer codes via the \hyperref[code:stabilizer_over_gfqsq]{stabilizer-over-\(GF(q^2)\)} construction (\cite{arxiv:quant-ph/0508070}, Corr. 19).'
+  cousins:
+    - code_id: dual_additive
+      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(q^2)\) can equivalently be stated in the representation of stabilizers as vectors over \(GF(q^2)\).
+      A pair of \(n\) Galois-qudit stabilizers commute iff the trace-alternating inner product of their their corresponding vectors is zero.
+      Stabilizer codes over \(GF(q^2)\) can thus be constructed from trace-alternating self-orthogonal additive codes over \(GF(q^2)\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'

@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: higher_dimensional_surface
+physical: qubits
+logical: qubits
+
+name: 'Generalized surface code'
+introduced: '\cite{arxiv:quant-ph/0110143,doi:10.1201/9781420035377-13,doi:10.1007/978-3-642-01877-0_21}'
+
+description: |
+  Also called the \(D\)\textit{-dimensional surface} or \(D\)\textit{-dimensional toric} code.
+  CSS-type extenstion of the Kitaev surface code to arbitrary \(D\)-dimensional manifolds.
+  The 4D surface code serves as a self-correcting quantum memory, while surface codes in higher dimensions can have distances not possible in lower dimensions.
+
+  Given a cellulation of a manifold, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers
+  are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \((i+1)\)-faces.
+
+
+features:
+  rate: |
+    Rate depends on the underlying cellulation and manifold \cite{arXiv:quant-ph/0110143,arXiv:1606.07116}.
+    For general 2D
+    manifolds, \(kd^2\leq c(\log k)^2 n\) for some constant \(c\)
+    \cite{arXiv:1301.6588}, meaning that (1) 2D surface codes with bounded
+    geometry have distance scaling at most as \(O(\sqrt{n})\)
+    \cite{arXiv:0909.5200,doi:10.1063/1.4726034}, and (2) surface codes with
+    finite rate can only achieve an asymptotic minimum distance that is
+    logarithmic in \(n\).
+    Higher-dimensional manifolds yield distances scaling more favorably.
+    Loewner's theorem
+    provides an upper bound for any bounded-geometry surface code
+    \cite{doi:10.1201/9781420035377-13}.
+
+  decoders:
+    - 'Improved BP-OSD decoder \cite{arxiv:2206.03122}.'
+  threshold:
+    - 'Phenomenological noise model for the 4D toric code: \(4.3\%\) under improved BP-OSD decoder \cite{arxiv:2206.03122}.'
+
+notes:
+  - |
+    2D and 3D surface code \href{http://gui.quantumcodes.io/}{visualization
+    tool}.
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: generalized_homological_product_css
+      detail: 'The generalized surface code is constructed from chain complexes arising from cell complexes of the underlying manifold. Such complexes are not necessarily products of two non-trivial complexes, but the manifolds are picked so that their homology ensures favorable code properties.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-12'

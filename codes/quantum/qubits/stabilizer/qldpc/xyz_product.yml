@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xyz_product
+physical: qubits
+logical: qubits
+
+name: 'XYZ product code'
+introduced: \cite{arxiv:2011.09746}
+
+description: >
+  A non-CSS QLDPC code constructed from three classical codes.
+  The construction of an XYZ product code is similar to that of a hypergraph product code and related codes.
+  The idea is that rather than taking a product of only two classical codes to produce a CSS code, a third classical code is considered, acting with Pauli-\(Y\) operators.
+
+features:
+
+  rate: >
+    Not much has been proven about the relationship between XYZ-product codes and other codes.
+    The logical dimension depends on properties of the input classical codes, specifically \textit{similarity invariants} from abstract algebra. It is conjectured that specific instances of XYZ-product codes have a constant encoding rate and a minimum distance of \(d \in \Theta(n^{2/3})\) \cite{arxiv:2011.09746}.
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: generalized_homological_product
+      detail: 'XYZ product codes result from a tensor product of three classical-code chain complexes.'
+    - code_id: sc_qldpc
+      detail: 'XYZ-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
+  cousins:
+    - code_id: hypergraph_product
+      detail: 'The XYZ product code is based on a hypergraph product of three classical codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: FinneganVoichick
+      date: '2021-12-01'

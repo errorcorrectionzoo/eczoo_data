@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor_5_1_3
+physical: groups
+logical: groups
+
+name: 'Five-rotor code'
+introduced: '\cite{arxiv:1902.07714}'
+
+description: |
+  Extension of the five-qubit stabilizer code to the integer alphabet, i.e., the angular momentum states of a planar rotor. The code is \(U(1)\)-covariant and ideal codewords are not normalizable.
+
+protection: |
+  Normalized codewords approximately protect against erasure while maintaining covariance \cite{arxiv:1902.07714}.
+
+relations:
+  parents:
+    - code_id: rotor_stabilizer
+    - code_id: covariant
+      detail: 'The five-rotor code is \(U(1)\)-covariant.'
+    - code_id: quantum_cyclic
+    - code_id: small_distance
+  cousins:
+    - code_id: qudit_5_1_3
+      detail: 'The five-rotor code is a bosonic analogue of the five-qudit code.'
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'

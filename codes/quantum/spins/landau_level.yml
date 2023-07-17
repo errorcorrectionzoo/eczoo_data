@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: landau_level
+physical: spins
+
+name: 'Landau-level spin code'
+introduced: '\cite{arXiv:2210.16957}'
+
+description: |
+  Approximate quantum code that encodes a qudit in the finite-dimensional Hilbert space of a single spin, i.e., a spherical Landau level.
+  Codewords are approximately orthogonal Landau-level spin coherent states whose orientations are spaced maximally far apart along a great circle (equator) of the sphere.
+  The larger the spin, the better the performance.
+
+protection: |
+  Protects against equatorial rotational errors acting on the overall spin.
+
+
+relations:
+  parents:
+    - code_id: spins_into_spins
+    - code_id: approximate_qecc
+      detail: 'The Landau-level spin code approximately protects against rotational errors.'
+  cousins:
+    - code_id: spin_gkp
+      detail: 'The spin-GKP (Landau-level) code is a GKP-like encoding in (Landau-level) spin coherent states.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-12'
+    - user_id: YaleFan
+      date: '2023-05-12'

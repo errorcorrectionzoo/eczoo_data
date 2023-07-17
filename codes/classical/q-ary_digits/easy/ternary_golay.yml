@@ -11,7 +11,7 @@ name: 'Ternary Golay code'
 introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
 
 description: |
-  A \([11,6,5]_{GF(3)}\) perfect ternary linear code with connections to various areas of mathematics, e.g., lattices \cite{doi:10.1007/978-1-4757-6568-7} and sporadic simple groups \cite{preset:MacSlo}. Adding a parity bit to the code results in the \([12, 6, 6]\) \textit{extended ternary Golay code}. Up to equivalence, both codes are unique for their respective parameters.
+  A \([11,6,5]_3\) perfect ternary linear code with connections to various areas of mathematics, e.g., lattices \cite{doi:10.1007/978-1-4757-6568-7} and sporadic simple groups \cite{preset:MacSlo}. Adding a parity bit to the code results in the \([12, 6, 6]\) \textit{extended ternary Golay code}. Up to equivalence, both codes are unique for their respective parameters.
 
   A generator matrix for the ternary Golay code is
   \begin{align}
@@ -54,10 +54,10 @@ relations:
     - code_id: perfect
       detail: 'The ternary Golay code is perfect.'
     - code_id: delsarte_optimal_q-ary
-      detail: 'The ternary Golay code and one of its shortened versions are \(q\)-ary sharp configurations \cite[Table 12.1]{doi:10.1201/9781315147901}.'
+      detail: 'The ternary Golay code and one of its shortened versions are \(q\)-ary sharp configurations \cite[Table 12.1]{preset:HKSbounds}.'
   cousins:
     - code_id: golay
-    - code_id: dual
+    - code_id: self_dual
       detail: 'The extended ternary Golay code is self-dual.'
     - code_id: projective
       detail: 'The extended ternary Golay code admits a projective geometric construction (\cite{doi:10.1201/9781315371993}, pg. 296).'
@@ -65,6 +65,8 @@ relations:
       detail: 'Extended ternary Golay code is 3-divisible (\cite{doi:10.1201/9781315371993}, pg. 296).'
     - code_id: univ_opt_q-ary
       detail: 'The ternary Golay code and several of its extended, shortened, and punctured versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
+    - code_id: projective_two_weight
+      detail: 'The dual of the ternary Golay code is a projective two-weight code \cite[Ex. 19.3.2]{preset:HKStwoweight}.'
 
 
 # Begin Entry Meta Information

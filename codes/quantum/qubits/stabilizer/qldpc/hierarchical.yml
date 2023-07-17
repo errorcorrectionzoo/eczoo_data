@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 'hierarchical'
+physical: 'qubits'
+logical: 'qubits'
+
+name: 'Hierarchical code'
+introduced: '\cite{arxiv:2303.04798}'
+
+description: |-
+  Member of a family of \([[n,k,d]]\) qubit stabilizer codes resulting from a concatenation of a constant-rate \hyperref[code:qldpc]{QLDPC code} with a \hyperref[code:rotated_surface]{rotated surface code}.
+  Concatenation allows for syndrome extraction to be performed on a 2D geometry while maintining a threshold at the expense of a logarithmically vanishing rate.
+  The growing syndrome extraction circuit depth allows known bounds in the literature to be weakened \cite{arxiv:2109.14599,arxiv:2302.04317}.
+
+features:
+  rate: 'Rate vanishes as \(\Omega(1/\log(n)^2)\).'
+
+  decoders:
+    - 'Decoding is performed as in a standard \hyperref[code:quantum_concatenated]{concatenated code} using a decoder for the inner code and outer code.'
+
+  threshold:
+    - 'Threshold exists for the locally decaying error model; see \cite[Thm. 1.3]{arxiv:2303.04798}.
+    However, the logical error rate below threshold falls super-polynomially (as opposed to exponentially) with the code distance.
+    The code family possesses a threshold equal to that of surface codes given by tuning the inner code size for any fixed physical error rate.'
+
+  fault_tolerance:
+    - '2D geometrically local syndrome extraction circuits of depth \(O(\sqrt{n}/R)\) that utilize Clifford and SWAP gates of range \(R\) and that require order \(O(n)\) data and ancilla qubits.
+    Such parameters (including a range of one) are possible while maintaining a threshold because of the concatenation step.
+    This reduces the noise that would otherwise accumulate within a growing-depth syndrome extraction circuit.
+    A key idea is that constant-depth syndrome extraction is not a necessary condition for fault-tolerance.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: qldpc
+    - code_id: quantum_concatenated
+      detail: 'Hierarchical code is a concatenation of a constant-rate QLDPC code (outer code) with a rotated surface code (inner code). The block length of the inner code is picked to grow logarithmically with the block length of the outer code.'
+
+
+_meta:
+  changelog:
+    - user_id: 'ChrisPattison'
+      date: '2023-06-02'
+    - user_id: 'VictorVAlbert'
+      date: '2023-03-12'

@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hypergraph_product
+physical: qubits
+logical: qubits
+
+name: 'Hypergraph product (HGP) code'
+short_name: 'HGP'
+introduced: '\cite{arXiv:0903.0566,arxiv:1202.0928}'
+
+description: 'A family of \([[n,k,d]]\) CSS codes whose construction is based on two binary linear \textit{seed} codes \(C_1\) and \(C_2\).'
+# Could be expanded to include Tanner graphs
+# Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
+
+protection: 'The hypergraph product has distance \(d=O(\sqrt{n})\). The number of encoded logical qubits is \(k=O(k_1k_2)\) where \(k_1\) and \(k_2\) are the dimensions of the classical seed codes \(C_1\) and \(C_2\).'
+
+#notes:
+# VVA: Added already as cousin entry. - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
+
+features:
+  transversal_gates: 'Hadamard (up to logical SWAP gates) and control-\(Z\) on all logical qubits \cite{arXiv:2204.10812}.'
+  decoders:
+    - 'ReShape decoder that uses minimum weight decoders for the classical codes used in the hypergraph construction \cite{arxiv:2105.02370}.'
+    - '2D geometrically local syndrome extraction circuits with depth order \(O(\sqrt{n})\) using order \(O(n)\) ancilla qubits \cite{arxiv:2109.14599}.'
+    - 'Improved BP-OSD decoder \cite{arxiv:2206.03122}.'
+    - 'Erasure-correction can be implemented approximately with \(O(n^2)\) operations with quantum generalizations \cite{arxiv:2208.01002} of the peeling and pruned peeling decoders \cite{doi:10.1109/18.910575}, with a probabilistic version running in \(O(n^{1.5})\) operations.'
+  general_gates:
+    - 'Code deformation techniques yield Clifford gates \cite{arXiv:1909.07424}.'
+  code_capacity_threshold:
+    - 'The threshold under ML decoding corresponds to the value of critical point of a two-dimensional random-bond Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143,arxiv:1804.01950} (see also \cite{arxiv:2301.05689}).'
+  threshold:
+    - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599}.
+    No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
+# realizations:
+  # -
+
+relations:
+  parents:
+    - code_id: homological_product
+      detail: 'A homological product of chain complexes corresponding to two classical codes is a hypergraph product code \cite{arxiv:2009.03921}.'
+    - code_id: lifted_product
+      detail: 'Lifted-product codes for trivial group \(G\) are hypergraph-product codes.'
+    - code_id: sc_qldpc
+      detail: 'Hypergraph-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-02'
+    - user_id: VictorVAlbert
+      date: '2022-01-20'
+    - user_id: JoschkaRoffe
+      date: '2021-11-04'

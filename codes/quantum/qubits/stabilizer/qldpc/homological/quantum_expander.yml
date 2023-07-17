@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_expander
+physical: qubits
+logical: qubits
+
+name: 'Quantum expander code'
+introduced: '\cite{arXiv:1504.00822}'
+
+description: 'CSS codes constructed from a hypergraph product of bipartite expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8} with bounded left and right vertex degrees. For every bipartite graph there is an associated matrix (the parity check matrix) with columns indexed by the left vertices, rows indexed by the right vertices, and 1 entries whenever a left and right vertex are connected. This matrix can serve as the parity check matrix of a classical code. Two bipartite expander graphs can be used to construct a quantum CSS code (the quantum expander code) by using the parity check matrix of one as \(X\) checks, and the parity check matrix of the other as \(Z\) checks.'
+
+protection: 'Pauli errors of weight \(\leq t\), distance scales as \(\Omega(n^{1/2})\).'
+
+features:
+  rate: '\([[n,k=\Theta(n),d=O(\sqrt{n})]]\) code with asymptotically constant rate.'
+
+  decoders:
+    - 'Small set-flip linear-time decoder, which corrects \(\Omega(n^{1/2})\) adversarial errors \cite{arXiv:1504.00822}.'
+    - 'Log-time decoder \cite{arxiv:1808.03821}.'
+    - 'Constant-time decoder \cite{manual:{A. Grospellier. Constant time decoding of quantum expander codes and application to fault-tolerant quantum computation. PhD thesis, Inria Paris (2019).}}.'
+    - '2D geometrically local syndrome extraction circuits acting on a patch of \(N\) physical qubits have to be of depth at least \(\Omega(n/\sqrt{N})\) \cite{arxiv:2109.14599}.'
+  fault_tolerance:
+    - 'Fault-tolerance with constant overhead can be achieved \cite{arXiv:1808.03821}.'
+
+  threshold:
+    - 'Locally stochastic noise: \(2.7 \cdot 10^{-16}\) \cite{arXiv:1711.08351}.'
+
+
+relations:
+  parents:
+    - code_id: hypergraph_product
+  cousins:
+    - code_id: expander
+#      detail: 'Quantum expander codes are constructed from classical expander codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-23'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: NolanCoble
+      date: '2021-12-03'

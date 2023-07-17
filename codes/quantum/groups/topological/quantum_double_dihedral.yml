@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_double_dihedral
+physical: groups
+logical: groups
+
+name: 'Dihedral \(G=D_m\) quantum-double code'
+introduced: '\cite{arXiv:quant-ph/9707021}'
+
+description: |
+  Quantum-double code whose codewords realize \(G=D_m\) topological order associated with a \(2m\)-element dihedral group \(D_m\).
+  Includes the simplest non-Abelian order \(D_3 = S_3\) associated with the permutation group of three objects.
+
+features:
+  general_gates:
+    - 'Universal topological quantum computation possible for certain groups such as \(G=D_3=S_3\) \cite{arxiv:quant-ph/0306063,arxiv:0901.1345}.'
+
+realizations:
+  - 'Signatures of a phase equivalent to the \(G=D_4\) quantum double detected in a 27-qubit trapped-ion device by Quantinuum \cite{arxiv:2305.03766}.
+  Preparation of ground states and braiding of anyons has also been performed.
+  The phase was realized as a gauged \(G=\mathbb{Z}_3^2\) twisted quantum double  \cite{arxiv:1508.03468}, which is the same topological order as the \(G=D_4\) quantum double \cite{arxiv:hep-th/9511195,arxiv:2112.12757}.'
+
+notes:
+  - 'See \cite[Sec. 5.4]{doi:10.1017/CBO9780511792908} for an introduction to this code.'
+  - 'The \( \Phi, \Lambda \)  \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the quantum double model for the group \(D_3=S_3\) of permutations on three letters.'
+  - 'Popular summary of realization of non-Abelian topological order in \href{https://www.quantamagazine.org/physicists-create-elusive-particles-that-remember-their-pasts-20230509/}{Quanta Magazine}.'
+
+relations:
+  parents:
+    - code_id: quantum_double
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-09'

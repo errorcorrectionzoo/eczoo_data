@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: biorthogonal
+physical: spheres
+logical: reals
+
+name: 'Biorthogonal spherical code'
+
+description: |
+  Spherical \((n,2n,2)\) code whose codewords are all permutations of the \(n\)-dimensional vectors \((0,0,\cdots,0,\pm1)\), up to normalization.
+
+  For \(n=3\), biorthogonal spherical codewords make up the vertices of an octahedron.
+  For \(n=4\), codewords make up the vertices of a 16-cell, or, equivalently, the Möbius-Kantor complex polygon.
+  A quaternion realization of the vertices yields the quaternion group \(Q\).
+  In general, the code makes up the vertices of an \(n\)-orthoplex.
+
+  The set of permutations of \((0,0,\cdots,0,1)\) forms an orthogonal set and yields the biorthogonal code when combined with the set of permutations of \((0,0,\cdots,0,-1)\).
+
+protection: |
+  Biorthogonal spherical codes saturate the absolute bound for antipodal codes and the third Rankin bound \cite{preset:EricZin}.
+  Biorthogonal codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}, which follows from saturating the Boroczky bound \cite{manual:{K. Boroczky, Packing of spheres in spaces of constant curvature, Acta Math. Acad. Sci. Hung. 32 (1978), 243–261.}}.
+
+relations:
+  parents:
+    - code_id: polytope
+      detail: 'Biorthogonal spherical codewords in 2 (3, 4, \(n\)) dimensions form the vertices of a square (octahedron, 16-cell, \(n\)-orthoplex).'
+    - code_id: sharp_config
+    - code_id: spherical_design
+      detail: 'Biorthogonal spherical codes are the only tight spherical 3-designs \cite[Tab. 9.3]{preset:EricZin}.'
+    - code_id: lattice_shell
+      detail: 'Biorthogonal codewords form the minimal shell of the \(\mathbb{Z}^n\) hypercubic lattice.'
+    - code_id: permutation_spherical
+  cousins:
+    - code_id: binary_antipodal
+      detail: 'An RM\((1,m)\) code maps to a \((2^m,2^{m+1})\) biorthogonal signal set under the antipodal mapping \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}. This set is equivalent to the  biorthogonal code since all such codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}.'
+    - code_id: 24cell
+      detail: 'Vertices of a 24-cell can be split up into vertices of three 16-cells, which are biorthogonal spherical codes for \(n=4\) \cite{preset:coxeter}.'
+    - code_id: hypercubic
+      detail: 'Biorthogonal codewords form the minimal shell of the \(\mathbb{Z}^n\) hypercubic lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-15'

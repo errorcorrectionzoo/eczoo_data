@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: convolutional
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Convolutional code'
+introduced: '\cite{manual:{Peter Elias. Coding for noisy channels. IRE Convention Records, 3(4):37–46, 1955.}}'
+
+description: 'Infinite-block code that is formed using generator polynomials over the finite field with two elements. The encoder slides across contiguous subsets of the input bit-string (like a convolutional neural network) evaluating the polynomials on that window to obtain a number of parity bits. These parity bits are the encoded information.'
+
+features:
+
+  rate: 'Depends on the polynomials used. Using puncturing removal \cite{doi:10.12928/telkomnika.v10i4.171} the rate for the code can be increased from \(\frac{1}{t}\) to \(\frac{s}{t}\), where \(t\) is the number of output bits, and \(s\) depends on the puncturing done. This is done by deleting some pieces of the encoder output such that the most-likely decoders remain effective'
+
+  encoders:
+    - 'Evaluation on the generator polynomials. Can be implemented with a small number of XOR gates'
+
+  decoders:
+    - 'Decoders based on the Viterbi algorithm (trellis decoding) were developed first, which result in the most-likely codeword for the encoded bits \cite{doi:10.1109/TIT.1967.1054010}. Following, other trellis decoders such as the BCJR decoding algorithm \cite{doi:10.1109/TIT.1974.1055186} were developed later.'
+
+realizations:
+  - 'A type of convolutional code used in Real-time Application networks \cite{doi:10.5815/ijcnis.2014.07.03}.'
+  - 'Mobile and radio communications (3G networks) use convolutional codes concatenated with Reed-Solomon codes to obtain suitable performance \cite{doi:10.1002/0470866969}.'
+  - 'A convolutional code with rate 1/2 was used for deep-space and satellite communication \cite{manual:{Butman, Deutsch, and Miller. Performance of concatenated codes for deep space missions. 1981.}}'
+
+relations:
+  parents:
+    - code_id: block
+      detail: 'Convolutional codes for infinite block size are block codes consisting of infinite blocks.'
+  cousins:
+    - code_id: q-ary_digits_into_q-ary_digits
+      detail: 'Convolutional codes for finite block size are \(q\)-ary codes.'
+    - code_id: quantum_convolutional
+    - code_id: reed_solomon
+      detail: 'Convolutional codes are often used in concatenation with Reed-Solomon codes for communication \cite{doi:10.1002/0470866969}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: BenjaminQuiring
+      date: '2021-12-16'

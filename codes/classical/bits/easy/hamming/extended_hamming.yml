@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: extended_hamming
+physical: bits
+logical: bits
+
+name: 'Extended Hamming code'
+introduced: '\cite{doi:10.1002/j.1538-7305.1948.tb01338.x,doi:10.1002/j.1538-7305.1950.tb00463.x,manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
+
+description: |
+  Member of an infinite family of binary linear codes with parameters \([2^r,2^r-r-1, 4]\) for \(r \geq 2\) that are extensions of the Hamming codes by a parity-check bit.
+
+relations:
+  parents:
+    - code_id: binary_linear
+  cousins:
+    - code_id: univ_opt_q-ary
+      detail: 'Several extended Hamming codes are LP universally optimal codes \cite{arxiv:1212.1913}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-12'
+    - user_id: VictorVAlbert
+      date: '2022-03-22'
+    - user_id: DhruvDevulapalli
+      date: '2021-12-17'

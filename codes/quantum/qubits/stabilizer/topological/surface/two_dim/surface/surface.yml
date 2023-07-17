@@ -1,0 +1,206 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: surface
+physical: qubits
+logical: qubits
+
+name: 'Kitaev surface code'
+introduced: |
+  \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1007/978-1-4615-5923-8_19,arXiv:quant-ph/9707021}
+
+alternative_names:
+  - 'Kitaev toric code'
+
+description: |
+  A family of abelian topological \hyperref[code:css]{CSS stabilizer} codes
+  whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings
+  associated to the stars and plaquettes, respectively, of a cellulation of a
+  two-dimensional surface (with a qubit located at each edge of the
+  cellulation).
+  \textit{Toric code} often either refers to the construction on
+  the two-dimensional torus or is an alternative name for the general
+  construction.
+  The construction on surfaces with boundaries is often called the
+  \textit{planar code} \cite{arXiv:quant-ph/9810055,arXiv:quant-ph/9811052,arXiv:1606.07116}.
+  Codewords correspond to ground states of the surface code Hamiltonian, and error operators create or annihilate pairs of anyonic charges or vortices.
+
+  The stabilizers of the surface code on the 2-dimensional torus are generated
+  by star operators \(A_v\) and plaquette operators \(B_p\).  Each star operator
+  is a product of four Pauli-\(X\) operators on the edges adjacent to a vertex
+  \(v\) of the lattice; each plaquette operator is a product of four Pauli-\(Z\)
+  operators applied to the edges adjacent to a face, or plaquette, \(p\) of the
+  lattice (\ref{figure:toric-code-operators}).
+
+  \begin{figure}
+    \includegraphics{toric-code-operators}
+    \caption{Stabilizer generators and logical operators of the 2D surface
+      code on a torus.  The star operators \(A_v\) and the plaquette operators
+      \(B_p\) generate the stabilizer group of the toric code.  The logical
+      operators are strings that wrap around the torus.}
+    \label{figure:toric-code-operators}
+  \end{figure}
+
+  The two-dimensional toric code encodes two logical qubits.  We denote by
+  \(\overline{X}_i,\overline{Z}_i\) the logical Pauli-\(X\) and Pauli-\(Z\)
+  operator of the \(i\)-th logical qubit.  They can are represented by strings
+  of Pauli-\(X\) operators or Pauli-\(Z\) operators that wrap around the torus
+  as shown in \ref{figure:toric-code-operators}.
+
+protection: |
+  Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code.
+  The original planar code on a square-lattice patch with different boundary conditions on the vertical and horizontal edges is a \([[L^2+(L-1)^2,1,L]]\) CSS code \cite{arXiv:quant-ph/9810055}.
+  Code size \(k = 2^{2g}\) for a torus of genus \(g\), and such higher genus surfaces have been investigated \cite{arxiv:2307.04418}.
+
+  Coherent physical errors are expected to become incoherent logical errors under syndrome measurement; see corroborating numerical studies performed via the Majorana mapping \cite{arxiv:1710.02270} as well as analytical bounds \cite{arxiv:1912.04319}.
+
+features:
+  rate: |
+    Both the planar and toric codes saturate the BPT bound, which states that \(k d^2 = O(L^2)\) for codes on a 2D lattice of length \(O(L)\).
+
+  encoders:
+    - 'A depth-\(L^2\) circuit that grows the code out of a small patch on an \(L\times L\) square lattice using CNOT gates (i.e., "local moves") \cite{arxiv:quant-ph/0110143,arxiv:0712.0348}.'
+    - 'Graph-state based adaptive circuit \cite{arxiv:quant-ph/0703143,arxiv:1105.2111}.'
+    - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arXiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arXiv:0712.0348,arxiv:0806.4583,arXiv:1207.0253} (matching lower bounds \cite{arxiv:quant-ph/0603121,arXiv:1810.03912}).'
+    - 'Lindbladian-based dissipative encoding for the toric code \cite{arXiv:1310.1036} that does not give a speedup relative to circuit-based encoders \cite{arxiv:1310.1037}.'
+    - 'Stabilizer measurement-based circuit of linear depth \cite{arXiv:quant-ph/0110143,arXiv:1404.2495}.'
+    - 'Any geometrically local unitary circuit on a lattice \(\Lambda\) that prepares a state whose energy density with respect to the surface code Hamiltonian is \(\epsilon\) must have depth of order \(\Omega(\min(\sqrt{|\Lambda|},1/\epsilon^{\frac{1-\alpha}{2}}))\) for any \(\alpha>0\) \cite{arxiv:2210.06796}.'
+    - 'Single-shot state preparation \cite{arxiv:1904.01502}.'
+  #make one that you feel is applicable to a large and interesting class of codes
+
+  transversal_gates: |
+    Transversal Pauli gates exist and are based on non-trivial loops on surface.
+    Transversal Clifford gates can be done on folded surface codes \cite{arxiv:1603.02286}.
+
+  general_gates:
+    - |
+      Clifford gates can be implemented via lattice surgery
+      \cite{arXiv:1111.4022,arXiv:1709.02318,arXiv:1808.02892,arXiv:2109.02746},
+      twist-based lattice surgery \cite{arxiv:2201.05678}, or braiding defects
+      \cite{arxiv:0704.2540,arxiv:1004.1838,arXiv:1104.5047,arXiv:1208.0928,arXiv:1508.04166,arXiv:1609.04673,arXiv:2103.08381}.
+    - |
+      Non-Clifford gates require magic state distillation
+      \cite{arXiv:1905.06903}, Dehn twists \cite{arxiv:1806.06078}, or
+      just-in-time decoding \cite{arXiv:1903.11634}.
+    - |
+      Non-stabilizer surface-code states can be prepared by augmenting the code with a quantum double model \cite{arxiv:1811.06738}.
+    - |
+      ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725} can be used to reduce the complexity of surface-code lattice surgery diagrams \cite{arxiv:1704.08670} and
+      to reduce T-gate counts in magic-state distillation protocols \cite{arxiv:1812.01238,arxiv:1905.08916}.
+  # Last sentence valid for more general codes; possibly upgrade
+
+  fault_tolerance:
+    - 'Transversal (non-Clifford) CCZ gate by bringing 2D surface codes together and using just-in-time decoding \cite{arxiv:1903.11634}. Gate can be simulated by taking 2D slices out of 3D surface codes \cite{arXiv:2012.08536}.'
+    - 'Homomorphic measurement protocols for arbitrary surface codes \cite{arxiv:2211.03625}.'
+    - 'Non-geometrically local connectivity can reduce overhead cost \cite{arxiv:2211.15465}.'
+    - 'Fault-tolerant post-selection framework yields magic states with low overhead \cite{arxiv:2212.00813}.'
+    - 'Framework of fault tolerance utilizing ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725} that is applicable to MBQC, FBQC, and conventional computation versions of the surface code \cite{arxiv:2303.08829}.'
+    - 'Single-shot state preparation \cite{arxiv:1904.01502} and MWPM decoding \cite{arxiv:2209.09774}.'
+    - 'Syndrome extraction circuits consisting of CNOT gates and ancillary measurements \cite{arxiv:1208.0928}, two-body measurements based on the Majorana mapping \cite{arxiv:2007.00307,arxiv:2206.12780}.
+    Circuits can be optimized to specific architectures \cite{arxiv:2302.02192} using spacetime circuit codes and ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}.'
+
+  decoders:
+    - 'Degenerate maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}, which takes time of order \(O(n^2)\) under independent \(X,Z\) noise for the surface code \cite{arxiv:1405.4883}.'
+    - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}), which takes time up to polynomial in \(n\) for the surface code.
+    For the case of the surface code, minimum-weight decoding reduces to MWPM \cite{arxiv:quant-ph/0110143,doi:10.4153/CJM-1965-045-4,doi:10.1088/0305-4470/15/2/033}.'
+    - 'Modified MWPM decoders: pipeline MWPM (accounting for correlations between events) \cite{arXiv:1310.0863,arXiv:2205.09828}, parity blossom MWPM and fusion blossom MWPM \cite{arxiv:2305.08307}, and a modification utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}.'
+    - 'Belief perfect matching is a combination of belief-propagation and MWPM \cite{arxiv:2203.04948}.'
+    - 'Renormalization group (RG) \cite{arXiv:0911.0581,arXiv:1304.6100,arXiv:1411.3028}.'
+    - 'Markov-chain Monte Carlo \cite{arXiv:1302.2669}.'
+    - 'Tensor network \cite{arXiv:1405.4883}.'
+    - 'Cellular automaton \cite{doi:10.7907/AHMQ-EG82,arXiv:1511.05579}.'
+    - 'Neural network \cite{arXiv:1610.04238,arXiv:1802.06441,arXiv:1810.07207,arxiv:2208.05758} and reinforcement learning \cite{arxiv:2212.11890}.'
+    - 'Union-find \cite{arXiv:1709.06218}. A subsequent modification utilizes the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}. Belief union find is a combination of belief-propagation and union-find \cite{arxiv:2203.04948}.
+    Strictly local (as opposed to partially local) union find \cite{arxiv:2305.18534} has a worst-case runtime of order \(O(d^3)\) in the distance \(d\).'
+    - 'Decoders can be augmented with a pre-decoder \cite{arXiv:2001.11427,arXiv:2208.04660}, which can allow for some processing to be done inside the cryogenic environment of the quantum system \cite{arxiv:2208.08547}.'
+    - 'Sliding-window \cite{arxiv:2209.09219,arxiv:2209.08552} and parallel-window \cite{arxiv:2209.09219} parallelizable decoders can be combined with many inner decoders, such as MWPM or union-find.'
+    - 'Generalized belief propagation (GBP) \cite{arxiv:2212.03214} based on a classical version \cite{manual:{J. S. Yedidia, W. T. Freeman, and Y. Weiss, Generalized belief propagation, in NIPS, Vol. 13 (2000) pp. 689–695.}}.
+    See Ref. \cite{doi:10.1109/MBITS.2023.3285848} for a review of BP decodes.'
+    - 'Color-code decoder \cite{arxiv:2306.16476}.'
+
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(p_X = 10.31\%\) under MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}), \(9.9\%\) under BP-OSD decoding \cite{arxiv:2005.07016}, and \(8.9\%\) under GBP decoding \cite{arxiv:2212.03214}.
+    The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143} (see also \cite{arxiv:2301.05689}), calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arXiv:cond-mat/0010143}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}.
+    Above values are for one type of noise only, and ML threshold for combined \(X\) and \(Z\) noise is \(2p_X - p_X^2 \approx 20.6\%\).'
+    - 'Depolarizing noise: between \(17\%\) and \(18.5\%\) under tensor-network decoding \cite{arxiv:1405.4883}, \(14\%\) under GBP decoding \cite{arxiv:2212.03214}, \(16.5\%\) under recursive MWPM \cite{arxiv:2212.11632}, and between \(15\%\) and \(16\%\) under RG \cite{arXiv:0911.0581}, Markov-chain \cite{arXiv:1302.2669}, or MWPM \cite{arXiv:0905.0531} decoding.
+    The threshold under ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arXiv:1202.1852} (see also APS Physics viewpoint \cite{doi:10.1103/Physics.5.50}).'
+    - 'Erasure noise: \(50\%\) for square tiling \cite{arXiv:0904.3556}. There is an inverse relationship between coordination number of the syndrome graph, with the threshold corresponding to a percolation transition \cite{arxiv:1810.09621}.'
+    # The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
+  threshold:
+    - '\(1.8\%\) for circuit-level depolarizing noise under optimal decoder \cite{arxiv:1609.06373}. \(0.57\%\) for depolarizing noise on data and syndrome qubits as well initialization, gate, and measurement errors under MPWM decoding \cite{arxiv:1208.0928}. For this model, a logical qubit with a \(10^{-14}\) logical error rate requires between \(10^3\) to \(10^4\) physical qubits and a target gate fidelity above \(99.9\%\). Later work showed that arbitrarily large computations are possible for a physical error rate of approximately \(10^{-4}\) \cite{arxiv:1206.0800}.'
+    - '\(0.35\%\) for circuit-level independent \(X,Z\) noise under optimal decoder \cite{arxiv:1609.06373}.'
+    - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arXiv:quant-ph/0401101}.'
+    - 'Phenomenological noise model for the 2D toric code: \(2.93(2)\%\) using several rounds of syndrome measurement \cite{arxiv:quant-ph/0207088}.'
+    - '\(0.5-2.9\%\) for various noise models \cite{arxiv:0811.0464} (see also Refs. \cite{arXiv:quant-ph/0207088,arXiv:1311.5003}).'
+
+
+
+notes:
+  - |
+    Hardware requirements for implementing surface code QEC can be reduced by utilizing structure in the time slices of the QEC circuits \cite{arxiv:2209.06673}.
+
+  - '\textit{Surfmap} framework provides a way to stitch the surface code to various superconducting-circuit geometries by assigning each superconducting qubit to be either a physical or ancilla qubit, designing stabilizer measurement circuits, and scheduling stabilizer measurements \cite{arxiv:2111.13729}.'
+
+  - |
+    Tutorials from error-correction perspective by
+    \href{https://boulderschool.yale.edu/2018/boulder-school-2018-lecture-notes}{J. Haah}
+    and condensed-matter perspective by
+    \href{https://boulderschool.yale.edu/2016/boulder-school-2016-lecture-notes}{M. Levin
+    and C. Nayak}.
+
+realizations:
+  - |
+    One cycle of syndrome readout on 19-qubit planar and 24-qubit toric codes realized in two-dimensional Rydberg atomic arrays \cite{arxiv:2112.03923}.
+  - |
+    Signatures of corresponding topological phase of matter detected in superconducting circuits \cite{arxiv:2104.01180} and two-dimensional Rydberg atomic arrays \cite{arXiv:2104.04119}.
+  - |
+    Ground state of the toric code has been implemented with and without twists, and the non-Abelian braiding behavior of the twists, which realize Ising anyons, has been demonstrated \cite{arxiv:2211.09802}.
+
+relations:
+  parents:
+    - code_id: higher_dimensional_surface
+      detail: 'The surface-code CSS stabilizer generator prescription is extendable to higher-dimensional manifolds.'
+    - code_id: clifford-deformed_surface
+      detail: 'CDSC codes are deformations of the surface code via constant-depth Clifford circuits that may not be CSS.'
+    - code_id: hypergraph_product
+      detail: 'Planar (toric) code can be obtained from hypergraph product of two repetition (cyclic) codes \cite[Ex. 6]{arxiv:1202.0928}.'
+    - code_id: lifted_product
+      detail: 'A lifted-product code for the ring \(R=\mathbb{F}_2[x,y]/(x^L-1,y^L-1)\) is the toric code \cite[Appx. B]{arXiv:2111.03654}.'
+    - code_id: qudit_surface
+      detail: 'The modular-qudit surface code for \(q=2\) reduces to the surface code.'
+    - code_id: galois_topological
+      detail: 'The surface code has been extended to Galois qudits.'
+  cousins:
+    - code_id: majorana_stab
+      detail: 'The Majorana mapping can be used to construct efficient algorithms for simulating rounds of error correction for the surface code \cite{arxiv:1710.02270}.'
+    - code_id: quantum_double
+      detail: 'A quantum-double model with \(G=\mathbb{Z}_2\) is the surface code. Non-stabilizer surface-code states can be prepared by augmenting the surface code with a quantum double model \cite{arxiv:1811.06738}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-29'
+    - user_id: MarcusPS
+      date: '2023-03-20'
+    - user_id: VictorVAlbert
+      date: '2022-09-20'
+    - user_id: VictorVAlbert
+      date: '2022-06-15'
+    - user_id: TonyLau
+      date: '2022-04-02'
+    - user_id: HassanShapourian
+      date: '2022-04-01'
+    - user_id: VictorVAlbert
+      date: '2022-02-15'
+    - user_id: PhilippeFaist
+      date: '2022-02-11'
+    - user_id: VictorVAlbert
+      date: '2021-11-05'
+    - user_id: PhilippeFaist
+      date: '2021-11-03'
+    - user_id: MichaelVasmer
+      date: '2021-11-02'

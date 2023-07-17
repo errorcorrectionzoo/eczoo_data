@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pless_symmetry
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Pless symmetry code'
+introduced: '\cite{manual:{V. Pless, On a new family of symmetry codes and related new five-designs, BAMS 75 (1969), 1339-1342},doi:10.1016/0097-3165(72)90088-X}'
+
+description: |
+  Also called a \textit{Pless double circulant code}.
+  A member of a family of self-dual ternary \([2p+2,p+1]_3\) codes for any prime \(p \equiv -1\) modulo 6.
+  See \cite[Sec. 10.5]{doi:10.1017/CBO9780511807077}\cite[pg. 87]{doi:10.1007/978-1-4757-6568-7} for explicit constructions.
+
+
+relations:
+  parents:
+    - code_id: self_dual
+  cousins:
+    - code_id: ternary_golay
+      detail: 'The Pless symmetry code for \(p=5\) is the extended ternary Golay code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-14'

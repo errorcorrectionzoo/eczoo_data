@@ -10,7 +10,7 @@ name: 'Single-spin code'
 
 description: |
   Permutation invariant qubit code encoding a \(K\)-dimensional Hilbert space into the maximally symmetric subspace or \textit{collective spin} of \(2\ell\) spin-half systems.
-  This \(2\ell+1\)-dimensional Hilbert space can be thought of as a spin-\(\ell\) quantum system.
+  This \(2\ell+1\)-dimensional Hilbert space can be thought of as a standalone spin-\(\ell\) quantum system.
 
 protection: |
   Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not. The former include single-spin errors akin to qubit Pauli noise. The latter include collective rotations or decays.
@@ -23,6 +23,7 @@ relations:
   parents:
     - code_id: spins_into_spins
     - code_id: permutation_invariant
+      detail: 'Single-spin codes are subspaces of a single large spin, which can be either standalone or correspond to the permutation-invariant subspace of a set of spins.'
 
 
 # Begin Entry Meta Information

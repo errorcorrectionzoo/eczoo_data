@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: array
+physical: matrices
+
+name: 'Disk array code'
+
+description: |
+  Matrix code designed for use in an RAID-type array of hard-drives such that information is protected against erasure of one or more hard drives.
+
+notes:
+  - 'See \cite[Ch. 14]{doi:10.1002/0471792748}\cite{preset:BlaumArray} for introductions.'
+
+
+relations:
+  parents:
+    - code_id: matrices_into_matrices
+    - code_id: distributed_storage
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hessian_polyhedron
+physical: spheres
+logical: reals
+
+name: 'Hessian polyhedron code'
+introduced: '\cite{manual:{Gosset, Thorold. "On the regular and semi-regular figures in space of n dimensions." Messenger of Mathematics 29 (1900): 43-48.},manual:{Schoute, P. H. "On the relation between the vertices of a definite six-dimensional polytope and the lines of a cubic surface." Proc. Roy. Acad. Amsterdam. Vol. 13. 1910.}}'
+
+description: |
+  Also known as the \textit{Schlafli configuration}. Spherical \((6,27,3/2)\) code whose codewords are the vertices of the Hessian complex polyhedron and the \(2_{21}\) real polytope.
+  Two copies of the code yield the \((6,54,1)\) \textit{double Hessian polyhedron} code.
+
+  The code can be obtained from the Schlafli graph \cite[Ch. 9]{preset:EricZin}. The points correspond to the 27 lines on a smooth cubic surface in the complex projective plane \cite{arxiv:math/0607446}.
+  See \cite[Exam. 1.2.5]{preset:EricZin} (\cite[pg. 119]{preset:coxeterComplex}) for a real (complex) realization of the 27 codewords.
+  \begin{figure}
+    \includegraphics{hessian_polyhedron.svg}
+    \caption{Projection of the coordinates of the Hessian polytope.}
+    \label{figure:hessian}
+  \end{figure}
+
+
+# 4-design checked manually in spherical_002
+
+protection: 'The Hessian polytope code has degree \(d=2\) and saturates the absolute bound \cite{preset:EricZin}.'
+
+realizations:
+  - 'Quantum mechanical SIC-POVMs \cite{arxiv:1911.05809}.'
+
+relations:
+  parents:
+    - code_id: polytope
+    - code_id: cgs_spherical
+      detail: 'The CGS isotropic subspace code for \(q=2\) reduces to the Hessian polytope.'
+    - code_id: spherical_design
+      detail: 'The Hessian polytope code forms a tight spherical 4-design \cite[Exam. 7.3]{arxiv:1104.4692}.'
+  cousins:
+    - code_id: esix
+      detail: 'The 27 Hessian polyhedron codewords are intimately related to the \(E_6\) Lie group \cite{arxiv:math/0507118}.'
+    - code_id: lattice_shell
+      detail: 'Double Hessian polyhedron codewords form the minimal lattice-shell code of the \(E_6^{\perp}\) lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'

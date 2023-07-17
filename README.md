@@ -1,6 +1,21 @@
 # Code data for the EC zoo
 
-Code meta-information is stored in YAML format, one file per code.
+This repository contains the data, in a semi-structured form, which forms the
+contents of the [Error Correction Zoo](https://errorcorrectionzoo.org/).
+
+If you find the Error Correction Zoo useful, we'd be very grateful if you cite
+it!  Here's a BibTeX blurb you could use:
+
+```bibtex
+@book{ErrorCorrectionZoo,
+  title={The Error Correction Zoo},
+  year={2023},
+  editor={Victor V. Albert and Philippe Faist},
+  url={https://errorcorrectionzoo.org/}
+}
+```
+
+The code meta-information is stored in YAML format, with one file per code.
 
 ## The YAML language
 
@@ -21,7 +36,7 @@ See the `template.yml` file to get started.
 (@VVA: feel free to fill in more info about folder structure etc. here)
 
 
-## Text content in the YaML file
+## Text content in the YAML file
 
 By convention, we store short pieces of text as single-quoted strings, e.g.:
 
@@ -62,7 +77,7 @@ In most text fields, you can make use of LaTeX-inspired
 command syntax.  You can insert math expressions, add citations,
 format text, add figures and tables, etc., using a precise
 syntax with commands that is described here:
-https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/llm_howto.md
+https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/flm_howto.md
 
 Example:
 

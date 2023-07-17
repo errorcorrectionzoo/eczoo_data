@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: j_gross
+physical: spins
+logical: spins
+
+name: 'Clifford code'
+introduced: '\cite{arXiv:2005.10910,arxiv:2304.08611}'
+
+description: |
+  A spin code designed to realize a discrete group of gates using \(SU(2)\) rotations, which are realized transversally if the single spin is treated as a collective spin of several spin-half subsystems.
+  Codewords are subspaces of a spin's Hilbert space that house irreducible representations (irreps) of a discrete subgroup of \(SU(2)\).
+
+  The first realization \cite{arXiv:2005.10910} used the single-qubit Clifford group (i.e., the binary octahedral (\(2O\)) subgroup of \(SU(2)\)).
+  Code construction is done by restricting the \(SU(2)\) irrep to \(2O\), and determining the carrier spaces of any nontrivial irreps of \(2O\). Since irreps of \(2O\) do not appear in integer spins, half-integer spins are used.
+
+  A simple example of a codespace is a projection onto an instance of a particular irrep of \(2O\), referred to as either \( \varrho_4 \) or \( \varrho_5 \).
+  In the case of only one instance of the desired irrep present in the spin, the projection is created as follows:
+  \begin{align}
+    P_\varrho = \frac{\text{dim} \varrho}{|2O|} \sum_{g \in 2O} \chi_\varrho (g)^* D(g)~,
+  \end{align}
+  where \(D(g)\) is the \(SU(2)\) Wigner matrix corresponding to group element \(g\), and the character \(\chi_\varrho (g) = \text{tr}(\varrho(g))\) is the trace of the desired irrep evaluated at a group element.
+
+  Logical Pauli matrices \(\overline{\sigma}_w\) are defined using the above projection and the angular momentum operators:
+  \begin{align}
+    \overline{\sigma}_w = i P_\varrho e^{-i \pi J_w} P_\varrho~.
+  \end{align}
+  Finally, \(|\overline{0} \rangle\) is defined as the \(+1\) eigenvalue of \(\overline{\sigma}_z\) and \(|\overline{1} \rangle = \overline{\sigma}_x |\overline{0} \rangle \).
+
+features:
+  transversal_gates: 'Discrete subgroups of \(SU(2)\) can be realized transversally.'
+  general_gates:
+    - 'Universal computation results from being able to prepare a single logical state, perform one measurement, and the following logical gates: the phase gate (\( \overline{S} \)), the Hadamard gate (\(\overline{H}\)), the conditional phase gate (\(\overline{CZ}\)), and the square root of the phase gate (\(\overline{T}\)). Single-qubit Cliffords can be generated using \(\overline{S}\) and \(\overline{H}\), the extension to multiple-qubit Cliffords is done using \(\overline{CZ}\), and \(\overline{T}\) is to transform to non-Clifford states. Together these gates can be used to create all logical unitaries, while preparation and measurement complete universal quantum computation.'
+
+relations:
+  parents:
+    - code_id: single_spin
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'Certain Clifford codes yield qubit codes with non-trivial distance when the single spin is treated as a collective spin of several qubits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-25'
+    - user_id: ThomasWrona
+      date: '2022-05-18'

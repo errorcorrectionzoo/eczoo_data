@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stabilizer_over_gf4
+physical: qubits
+logical: qubits
+
+name: 'Stabilizer code over \(GF(4)\)'
+introduced: '\cite{arXiv:quant-ph/9608006}'
+
+description: |
+  An \([[n,k,d]]\) stabilizer code constructed from a quaternary classical code using the one-to-one correspondence between the four Pauli matrices \(\{I,X,Y,Z\}\) and the four elements \(\{0,1,\alpha^2,\alpha\}\) of the quaternary field \(GF(4)\).
+
+  An \(n\)-qubit Pauli stabilizer can be represented as a length-\(n\) quaternary vector. The stabilizer commutation condition corresponds to a zero trace-Hermitian inner product between the corresponding vectors. Stabilizer codes over \(GF(4)\) can thus be constructed from classical trace-Hermitian self-orthogonal additive quaternary codes and Hermitian self-orthogonal linear quaternary codes (since the latter are automatically trace-Hermitian self-orthogonal).
+  The classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
+
+  Stabilizer codes over \(GF(4)\) can be constructed as follows. Let \(\phi\) be a bijection from a linear binary subspace to \(GF(4)^n\). Let \(C\) be a trace-Hermitian self-orthogonal additive subcode over \(GF(4)\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(GF(4)\).
+
+  Quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (\cite[Thm. 9.10.3]{doi:10.1017/CBO9780511807077}).
+  In other words, if the underlying quaternary code is linear, then the extra trace operation can be removed from the definition of inner product.
+
+
+features:
+  fault_tolerance:
+    - 'Characterizing fault-tolerant multi-qubit gates may involve characterizing all global automorphisms of some number of copies of a code that preserve the symplectic inner product \cite[pg. 9]{arxiv:quant-ph/9703048}.'
+
+protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+
+notes:
+  - 'Tables of \([[n,0,d]]\) codes, corresponding to a self-dual \(GF(4)\) representation, at \href{http://www.ii.uib.no/~larsed/vncorbits/}{this website}.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: stabilizer_over_gfqsq
+      detail: 'Stabilizer codes over \(GF(q^2)\) for \(q=2\) are stabilizer codes over \(GF(4)\).'
+  cousins:
+    - code_id: dual_additive
+      detail: 'The stabilizer commutation condition for stabilizer codes over \(GF(4)\) can equivalently be stated in the representation of stabilizers as quaternary vectors.
+      A pair of \(n\)-qubit stabilizers commute iff the trace-Hermitian inner product of their corresponding vectors is zero.
+      Stabilizer codes over \(GF(4)\) can thus be constructed from trace-Hermitian self-orthogonal additive quaternary codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-21'
+    - user_id: MariannaPodzorova
+      date: '2021-12-13'

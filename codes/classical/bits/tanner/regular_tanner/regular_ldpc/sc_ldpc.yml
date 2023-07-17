@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: sc_ldpc
+physical: bits
+logical: bits
+
+name: 'Spatially coupled LDPC (SC-LDPC) code'
+short_name: 'SC-LDPC'
+introduced: '\cite{doi:10.1109/18.782171,manual:{K. Engdahl, K. Sh. Zigangirov, “To the Theory of Low-Density Convolutional Codes. I”, Probl. Peredachi Inf., 35:4 (1999), 12–28; Problems Inform. Transmission, 35:4 (1999), 295–310},doi:10.1023/A:1013815115684,doi:10.1109/18.782171,doi:10.1109/TIT.2010.2095072,doi:10.1109/TIT.2013.2280915}'
+
+description: |
+  LDPC code whose parity-check matrix is constructed by "spatially" coupling several copies of a regular LDPC parity-check matrix in chain-like fashion (or, more generally, in grid-like fashion) to yield a band matrix.
+  A finite-length chain is then capped by imposing either open boundary conditions (yielding \textit{non-tail-biting} SC-LDPC codes) or open boundary conditions (yielding \textit{tail-biting} SC-LDPC codes); sometimes extra \textit{terminating vertices} are added to the ends of the chain.
+  Matrices corresponding to translationally invariant chains are called \textit{time-variant}, and otherwise are called \textit{time-invariant}.
+  These codes can be constructed, e.g., using the \hyperref[topic:lifting]{lifting} procedure or using edge-cutting vectors \cite{doi:10.1109/TCOMM.2018.2867493}.
+
+protection: |
+  SC-LDPCs sometimes outperform other LDPC constructions \cite{doi:10.1109/ISTC.2012.6325232,doi:10.1109/ITA.2007.4357569}.
+
+features:
+  rate: 'Spatial coupling of LDPC codes can increase the achievable rate against BEC, coming close to the capacity \cite{doi:10.1109/18.782171,doi:10.1109/TIT.2010.2095072,arXiv:cs/0508030}. SC-LDPC codes achieve capacity of the binary memoryless symmetric (BMS) channel \cite{arxiv:1201.2999,arxiv:1309.7543}.'
+
+relations:
+  parents:
+    - code_id: protograph_ldpc
+      detail: 'SC-LDPC codes can be interpreted as protograph LDPC codes \cite{arxiv:1710.03619}.'
+  cousins:
+    - code_id: ld_convolutional
+      detail: 'Infinite-block versions of SC-LDPC are LDPC-CCs.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

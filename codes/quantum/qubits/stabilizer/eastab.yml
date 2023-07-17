@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eastab
+physical: qubits
+logical: qubits
+
+name: 'EA qubit stabilizer code'
+introduced: '\cite{arxiv:quant-ph/0608027,arxiv:quant-ph/0610092}'
+
+description: |
+  Constructed using a variation of the stabilizer formalism designed to utilize pre-shared entanglement between sender and receiver.
+  A code is typically denoted as \([[n,k;c]]\) or \([[n,k,d;c]]\), where \(d\) is the distance of the underlying non-EA \([[n,k,d]]\) code, and \(c\) is the number of required pre-shared maximally entangled Bell states.
+  While other entangled states can be used, there is always a choice a generators such that the Bell state suffices while still using the fewest ebits.
+
+  An \([[n,k+c;c]]\) EA stabilizer code can be constructed from an ordinary \([[n,k]]\) stabilizer code with check matrix \(H=(A|B)\), where the required number of ebits is \(c = \text{rank}(AB^T+BA^T)\) \cite{arxiv:0804.1404}.
+
+features:
+  decoders:
+    - 'Optical implementation of a minimal code using hyper-entangled states \cite{arxiv:0807.4906}.'
+
+notes:
+  - 'See Ref. \cite{arxiv:2207.05647} for code tables and bounds on performance.'
+  - 'See Ref. \cite{arxiv:quant-ph/9604024} for related notions.'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: 'EA qubit stabilizer codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to qubit stabilizer codes when said qubits are interpreted as noiseless physical qubits.'
+    - code_id: eaqecc
+  cousins:
+    - code_id: binary_linear
+      detail: 'Any linear binary code can be used to construct an EA qubit stabilizer code.'
+    - code_id: q-ary_linear
+      detail: 'Any linear quaternary (\(q=4\)) code can be used to construct an EA qubit stabilizer code.'
+    - code_id: qubit_css
+      detail: 'As opposed to CSS codes, EA qubit stabilizer codes can be constructed from any linear binary code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-01-12'
+    - user_id: LaneGGunderman
+      date: '2023-01-12'
+    - user_id: VictorVAlbert
+      date: '2022-07-14'

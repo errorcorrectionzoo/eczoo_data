@@ -16,7 +16,14 @@ description: |
   Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 + \cdots + c_n g_n\).
   A lattice-based code can also be defined using the Gram matrix \(GG^T\).
 
-
+  The \textit{automorphism group} of a lattice is the group of all isometries that preserve the origin and map the lattice into itself.
+  This group is a subgroup of the orthogonal group \(O(n)\), which is the group of isometries in Euclidean space.
+  An orthogonal matrix \(U\) leaves the lattice invariant if there exists an integer matrix \(A\) of determinant \(\pm 1\) such that
+  \begin{align}
+  \label{eq:lattice-auto}
+    AG=GU~.
+  \end{align}
+  The \textit{affine automorphism group} is the group obtained from adding lattice translations to the automorphism group.
 
 protection: |
   Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=\det G\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
@@ -46,7 +53,7 @@ protection: |
 
 features:
   rate: |
-    Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, Ph.D Thesis, McMaster Univ., Hamilton, Ontario, 1981}}.
+    Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, Ph.D Thesis, McMaster Univ., Hamilton, Ontario, 1981,doi:10.1109/18.651040}}.
 
 
 notes:
@@ -61,8 +68,11 @@ relations:
   parents:
     - code_id: analog
     - code_id: group_linear
-      detail: 'Lattice-based codes are linear codes over \(G=\mathbb{R}^n\).'
+      detail: 'Lattice-based codes are linear codes over \(G=\mathbb{R}^n\).
+      Because any orthogonal matrix leaving the lattice invariant has a corresponding integer matrix (see lattice code description), integer representations of groups can be used to obtain lattices \cite[Ch. 3, Sec. 4.2]{doi:10.1007/978-1-4757-6568-7}.'
 
+
+# The construction of lattices from integral representations
 
 # Begin Entry Meta Information
 _meta:

@@ -7,19 +7,24 @@ code_id: floquet
 physical: qubits
 logical: qubits
 
-name: 'Floquet code'
+name: 'Hasting-Haah Floquet code'
+short_name: 'Floquet'
 introduced: '\cite{arXiv:2107.02194}'
 
 description: |
-  Also called a \textit{Hastings-Haah code}. Dynamically-generated stabilizer-based code whose logical qubits are generated through a particular sequence of check-operator measurements such that the number of logical qubits is larger than when the code is viewed as a static subsystem stabilizer code.
+  Dynamically-generated stabilizer-based code whose logical qubits are generated through a particular sequence of check-operator measurements such that the number of logical qubits is larger than when the code is viewed as a static subsystem stabilizer code.
 
   After each measurement in the sequence, the codespace is a joint \(+1\) eigenspace of an \textit{instantaneous stabilizer group (ISG)}, i.e., a particular stabilizer group corresponding to the measurement. The ISG specifies the state of the system as a Pauli stabilizer state at a particular round of measurement, and it evolves into a (potentially) different ISG depending on the check operators measured in the next step in the sequence.
   As opposed to subsystem codes, only specific measurement sequences maintain the codespace.
 
-  A measurement can be interpreted as causing anyon condensation, thereby mapping the topoligical phase of a given code state into another condensed phase.
-  In this way, measurements cycle logical quantum information between various condensed phases of a parent topological phase \cite{arxiv:2212.00042}.
+  A measurement can be interpreted as causing anyon \hyperref[topic:code-switching]{condensation}, thereby mapping the topoligical phase of a given code state into another condensed phase.
+  In this way, measurements cycle logical quantum information between various \hyperref[topic:code-switching]{condensed phases} of a parent topological phase \cite{arxiv:2212.00042}.
 
 protection: 'Protects against single-qubit Pauli noise and check operator measurement errors.'
+
+features:
+  fault_tolerance:
+    - 'Floquet codes on tri-colorable lattices can be made fault-tolerant in the presence of dead qubits \cite{arxiv:2307.03715}.'
 
 relations:
   parents:

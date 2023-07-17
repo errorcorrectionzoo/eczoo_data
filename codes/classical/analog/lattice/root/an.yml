@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: an
+physical: reals
+logical: reals
+
+name: '\(A_n\) lattice code'
+short_name: '\(A_n\)'
+
+description: |
+  Lattice-based \(n\)-dimensional code that can be simply defined in \(n+1\) dimensions as the set of integer vectors \(x\) lying in the hyperplane \(x_0+x_1+\cdots+x_{n} = 0\).
+  Its generator matrix can be represented by
+  \begin{align}
+    G=\begin{pmatrix}-1 & \phantom{-}1 & 0 & 0 & \cdots & 0 & 0\\
+    0 & -1 & \phantom{-}1 & 0 & \cdots & 0 & 0\\
+    0 & 0 & -1 & \phantom{-}1 & \cdots & 0 & 0\\
+    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+    0 & 0 & 0 & 0 & \cdots & -1 & \phantom{-}1
+    \end{pmatrix}~.
+  \end{align}
+
+protection: |
+  The lattice has determinant \(n+1\), kissing number \(n(n+1)\), packing radius \(1/\sqrt{2}\), covering radius \(\sqrt{\frac{a\left(n+1-a\right)}{n+1}}\) (with \(a\lfloor (n+1)/2 \rfloor\)), and density \(V_n/2^n\) (with \(V_n\) the volume of the unit \(n\)-sphere).
+
+relations:
+  parents:
+    - code_id: root
+  cousins:
+    - code_id: an_dual
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-15'
