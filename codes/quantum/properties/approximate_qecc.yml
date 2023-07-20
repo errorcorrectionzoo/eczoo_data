@@ -18,13 +18,14 @@ protection: |
   \begin{align}\mathcal{D}\mathcal{N}\mathcal{E}\ket{\psi}\bra{\psi}=\ket{\psi}\bra{\psi}\end{align}
   forall \(\ket{\psi}\).
 
-  However, to generalize to approximate error correction, we use entanglement fidelity. In the exact case,
-  the entanglement fidelity is always 1, and we can use a lower bound on entanglement fidelity as a measurement of 
-  error in approximate error correction.
-  In the \hyperref[code:qecc_finite]{exact case}, this means that forall \(\rho\) where \(\ket{\psi}\) is a purification of \(\rho\),
+  This can be interpreted as pure-state fidelity forall pure states being equal to 1. This is true
+  iff entanglement fidelity, another measure of error, is also always equal to 1~\cite{arxiv:quant-ph/9604022}.
+  In the \hyperref[code:qecc_finite]{exact case}, 
+  this means that forall \(\rho\) where \(\ket{\psi}\) is a purification of \(\rho\),
   \begin{align}(\mathcal{D}\mathcal{N}\mathcal{E}\otimes\mathrm{id})(\ket{\psi}\bra{\psi})=\ket{\psi}\bra{\psi}.\end{align}
 
-  Let \(f(\rho_1,\rho_2)\) be fidelity between quantum states.
+  We can also generalize this lower bound on entanglement fidelity to approximate quantum error correction.
+  Let \(f(\rho_1,\rho_2)\) be fidelity between quantum states. 
   Let entanglement fidelity between channels \(\mathcal{N}\) and \(\mathcal{M}\) be defined as
   \begin{align}
     F_{\rho}(\mathcal{N},\mathcal{M})
