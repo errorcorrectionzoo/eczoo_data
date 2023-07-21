@@ -10,8 +10,17 @@ logical: qubits
 name: 'Homological product code'
 introduced: '\cite{arXiv:1301.1363,arXiv:1311.0885}'
 
+alternative_names:
+  - 'Tensor product code'
+
 description: |
-  CSS code formulated using the homological product of two chain complexes (see \ref{topic:CSS-to-homology-correspondence}). Stub.
+  CSS code formulated using the homological product of two chain complexes (see \ref{topic:CSS-to-homology-correspondence}).
+  Given a classical code with parity-check matrix \(H\), the homological product yields two classical codes \(C_{1,2}\) with parity-check matrices
+  \begin{align}
+    H_{1}=\begin{pmatrix}I\ot H\\
+    H\ot I
+    \end{pmatrix}\quad\quad\text{and}\quad\quad H_{2}=\begin{pmatrix}H\ot I & I\ot H\end{pmatrix}~.
+  \end{align}
 
 #  In the single-sector homological product code, each base code is associated with the chain complex \( C_a \longrightarrow C_a\longrightarrow C_a\) such that the boundary operator satisfies \(\partial_{a}^{2}=0\). The image \(im\partial\) form the parity check space and any set of basis for this space can be viewed as Z-type stabilizer group generators. The same rule holds for \(im\partial^{T}\), which gives X-type stabilizer generators. Conversely, \(ker\partial\setminus im\partial\) (or \(\partial^{T}\)) correspond to all undetectable errors of Z-type(X-type). Finally, the Z-type logical operators are just elements in the homological group \(ker\partial/im\partial\) and X-type logical operators are just elements in the cohomological group \(ker\partial^{T}/im\partial^{T}\).
 
