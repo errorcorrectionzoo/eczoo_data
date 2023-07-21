@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: da_floquet
+physical: qubits
+logical: qubits
+
+name: 'Dynamical automorphism (DA) Floquet code'
+short_name: 'DA Floquet code'
+introduced: '\cite{arXiv:2307.10353}'
+
+description: |
+  Floquet code whose sequence of measurements implements logical gates in addition to performing error detection.
+  Clifford gates can come from the automorphism group of the stabilizer group of the parent stabilizer code, but non-Clifford gates outside of the automoprhism group can also be realized.
+  DA codes include the 2D (3D) DA color codes, whose parent stabilizer codes are two (three) copies of the 2D (3D) color code.
+
+features:
+  transversal_gates: 'The 2D DA color code can be used to implement all multi-qubit Clifford-group gates via a sequence of stabilizer measurements.'
+  general_gates:
+    - 'The 3D DA color code allows for a non-transversal two-qubit gate via adaptive measurements.'
+
+
+relations:
+  parents:
+    - code_id: floquet
+  cousins:
+    - code_id: color
+      detail: 'The parent topological phase of the 2D (3D) DA color code is realized by two (three) copies of the 2D (3D) color code.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-07-21'
