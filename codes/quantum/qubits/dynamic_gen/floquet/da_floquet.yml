@@ -7,29 +7,29 @@ code_id: da_floquet
 physical: qubits
 logical: qubits
 
-name: 'Dynamical automorphism (DA) Floquet code'
-short_name: 'DA Floquet code'
-introduced: '\cite{arXiv:2307.10353}'
+name: ‘Dynamical automorphism (DA) code’
+short_name: ‘DA code’
+introduced: ‘\cite{arXiv:2307.10353}’
 
 description: |
-  Floquet code whose sequence of measurements implements logical gates in addition to performing error detection.
-  Clifford gates can come from the automorphism group of the stabilizer group of the parent stabilizer code, but non-Clifford gates outside of the automoprhism group can also be realized.
-  DA codes include the 2D (3D) DA color codes, whose parent stabilizer codes are two (three) copies of the 2D (3D) color code.
+  A class of quantum error-correcting codes that generalize Floquet codes (in a sense that periodicity is not needed),  whose sequence of measurements implements logical gates in addition to performing error detection. Floquet codes are periodic examples of DA codes.
+  However, aperiodic measurement sequences provide a way to implement logical gates, which come from the automorphism group of the instantaneous stabilizer group (ISG) at some rounds, i.e. of the effective code at those rounds.
+  Known examples of DA codes include all known Floquet codes, but also the 2D (3D) DA color codes, which at certain measurement rounds realize the ISG of 2D (3D) color codes, and can implement Clifford (non-Clifford) gates during their evolution by measurements, respectively.
 
 features:
-  transversal_gates: 'The 2D DA color code on a \(N\) layers of triangular patches can be used to implement all multi-qubit Clifford-group gates via a sequence of stabilizer measurements.'
-  general_gates:
-    - 'The 3D DA color code allows for a non-transversal two-qubit gate via adaptive measurements.'
+general_gates:
+   -  ‘The measurement sequences of the 2D DA color code on a \(N\) layers of triangular patches (which encodes \(N\) logical qubits) can be used to implement all Clifford logical gates via a sequence of two- and more rarely three-qubit measurements.’
+    - ‘The 3D DA color code allows for a non-Clifford logical gate via adaptive two-qubit measurements.’
 
 
 relations:
-  parents:
-    - code_id: floquet
   cousins:
     - code_id: color
-      detail: 'The parent topological phase of the 2D (3D) DA color code is realized by two (three) copies of the 2D (3D) color code.'
+      detail: ‘The parent topological phase of the 2D (3D) DA color code is realized by two (three) copies of the 2D (3D) color code.’
+    - code_id: surface
+      detail: ‘One of the instantaneous stabilizer codes of the 2D DA color code are stacks of toric/surface codes’
     - code_id: topological_abelian
-      detail: 'DA Floquet codes can be understood in terms of topological quantum field theory \cite{arXiv:2307.10353}.'
+      detail: ‘DA Floquet codes can be understood in terms of topological quantum field theory \cite{arXiv:2307.10353}.’
 
 
 # Begin Entry Meta Information
@@ -37,8 +37,8 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2023-07-21'
+      date: ‘2023-07-21’
     - user_id: ShankarBalasubramanian
-      date: '2023-07-21'
+      date: ‘2023-07-21’
     - user_id: nathanan
-      date: '2023-07-21'
+      date: ‘2023-07-21’
