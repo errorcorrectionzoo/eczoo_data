@@ -70,7 +70,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: eczoo_sitegen/_zoodb_citations_cache_LOCAL
-          key: zoodb-citations-cache-LOCAL-${{ GITHUB_SHA }}-${{ hashFiles('**/yarn.lock') }}
+          key: zoodb-citations-cache-LOCAL-${{ github.sha }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             zoodb-citations-cache-LOCAL-
 
