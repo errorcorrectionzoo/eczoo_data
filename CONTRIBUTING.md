@@ -22,13 +22,13 @@ to avoid YAML syntax errors (such as [Atom][atomurl]).
 
 ## Please take note:
 
-- Use [LaTeX-like formatting minilanguage][eczoollm] features to write math,
+- Use [LaTeX-like formatting minilanguage][eczooflm] features to write math,
   links, enumeration lists, headers, etc. Use markup sparingly, when it will
   help the reader understand the content; don't abuse it.
 
 - Content should be thoroughly cross-referenced with citations and links to
   codes that you might mention. Check the [LaTeX-like formatting minilanguage
-  howto][eczoollm] for details.
+  howto][eczooflm] for details.
 
 - All Zoo content is distributed under the [CC-BY-SA License][cc-by-sa-license].
 
@@ -45,7 +45,7 @@ Ask us! And thanks again for your interest in contributing.
 
 [eczooemail]: mailto:errorcorrectionzoo@XXXXXX?subject=code%20data&body=Please%20replace%20'@XXXXXX'%20in%20the%20email%20address%20by%20'@gmail.com'.%20Thanks%20for%20your%20message!
 
-[eczoollm]: https://github.com/errorcorrectionzoo/eczoo_generator/blob/main/latexlike_minilang_howto.md
+[eczooflm]: https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/flm_howto.md
 
 [eczooedit]: https://errorcorrectionzoo.org/edit_code
 
