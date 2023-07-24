@@ -44,10 +44,17 @@ protection: |
   \subsection{Correctability of quantum channels}
 
   We define that some quantum channel \(\mathcal{N}\) is exactly correctable if
-  there exists some recovery channel \(\mathcal{R}\) such that \(\mathcal{R}\mathcal{N}=\mathrm{id}\).
+  there exists some recovery channel \(\mathcal{D}\) such that \(\mathcal{D}\mathcal{N}=\mathrm{id}\).
 
-  Given some noise channel \(\mathcal{N}\), a necessary and sufficient condition for exact correctibility
-  is that complementary channel \(\mathcal{N}^C(\rho)=\rho_0\mathrm{Tr}(\rho)\). This can be used to derive the Knill-Laflamme conditions~\cite{arXiv:0907.5391}.
+  This is equivalent to the worst case entanglement fidelity between \(\mathcal{D}\mathcal{N}\) and id being 1.
+  So, some quantum channel \(\mathcal{N}\) is exactly correctable iff there exists some quantum channel \(\mathcal{D}\)
+  such that forall states \(\rho\), where \(\ket{\psi}\) is a purification of \(\rho\),
+  \begin{align}(\mathcal{D}\mathcal{N}\otimes\mathrm{id})(\ket{\psi}\bra{\psi})=\ket{\psi}\bra{\psi}.\end{align}
+
+  It additionally follows that given some noise channel \(\mathcal{N}\), 
+  a necessary and sufficient condition for exact correctibility
+  is that complementary channel \(\mathcal{N}^C(\rho)=\rho_0\mathrm{Tr}(\rho)\) for some constant state \(\rho_0\). 
+  This can be used to derive the Knill-Laflamme conditions~\cite{arXiv:0907.5391}.
 
 # Include other often used defs
 # Include complementary channel + approximate defs; approx should be a separate property or not?
@@ -81,6 +88,12 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: M10T
+      date: '2023-07-17'
+    - user_id: M10T
+      date: '2023-07-07'
+    - user_id: M10T
+      date: '2023-07-03'
     - user_id: M10T
       date: '2023-06-28'
     - user_id: VictorVAlbert
