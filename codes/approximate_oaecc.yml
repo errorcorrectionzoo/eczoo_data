@@ -28,6 +28,21 @@ protection: |
     \delta_{\mathcal{A}}^2/4\leq \epsilon_{\mathcal{A}}\leq 2\delta_{\mathcal{A}}^{1/2}~.
   \end{align}
 
+  \subsection{Complementary channel formulation}
+
+  Given projector \(\mathcal{P}_{\mathcal{A}}\) onto algebra \(\mathcal{A}\) and noise channel \(\mathcal{N}\).
+  Using worst-case entanglement fidelity \(F\), we can quantify approximate operator algebra error correction as
+  \begin{align}F(R\mathcal{N},\mathcal{P}_{\mathcal{A}})\geq 1-\epsilon\end{align}
+  for some small \(\epsilon\) and recovery channel \(R\).
+
+  This is equivalent to considering the complementary channel \(\mathcal{N}^C\) 
+  with projector \(\mathcal{P}_{\mathcal{A}'}\) onto the commutant \(\mathcal{A}'\) of \(\mathcal{A}\)such that
+  \begin{align}F(\mathcal{N},R'\mathcal{P}_{\mathcal{A}'})\geq 1-\epsilon\end{align}
+  for that same value of \(\epsilon\) and some channel \(R'\).
+
+  This formulation acts as a necessary and sufficient condition for Approximate operator-algebra QECC. 
+  When \(\epsilon=0\) we can derive the standard correctability conditions for operator algebras~\cite{arXiv:0907.5391}.
+
 
 relations:
   parents:
@@ -38,6 +53,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: M10T
+      date: '2023-07-25'
+    - user_id: M10T
+      date: '2023-06-26'
     - user_id: M10T
       date: '2023-06-26'
     - user_id: M10T
