@@ -1,0 +1,67 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_product
+physical: qubits
+logical: qubits
+
+name: 'Subsystem Product Code'
+introduced: '\cite{arXiv:quant-ph/2007.12152}'
+# https://arxiv.org/pdf/2007.12152.pdf
+
+
+description: |
+SP codes are subsystem codes constructed from a product of two arbitrary CSS codes. 
+Denote the parity-check generating matrices for code A, B as \(H_X^i, H_Z^i\), and codeword generating matrices 
+as \(L_X^i, L_Z^i\), \(\forall i \in \{A, B\}\), then the SP codes can be constructed by the following gauge generating matrices
+\begin{equation}\label{sub:gauge}
+    G_X=\left(\begin{array}{c}H_X^A \otimes I \\ I \otimes
+              H_X^B \end{array}\right),
+G_Z=\left(\begin{array}{c}H_Z^A \otimes I \\ I \otimes
+              H_Z^B \end{array}\right)
+\end{equation}
+where \(I\) is identity matrix with proper size to match the dimensions. Its commuting subset gives generating matrices for stabilizers
+\begin{equation}\label{sub:stabilizer}
+    H_X=\left(\begin{array}{c}H_X^A \otimes H_X^B \\
+              H_X^A \otimes L_X^B \\
+              L_X^A \otimes H_X^B \end{array}\right),
+H_Z=\left(\begin{array}{c}H_Z^A \otimes H_Z^B \\
+              H_Z^A \otimes L_Z^B \\
+              L_Z^A \otimes H_Z^B \end{array}\right)
+\end{equation}
+The null space of $G$ excluding $H$ gives logical generating matrices in canonical pairs
+\begin{equation}
+    L_X=\left( L_X^A \otimes L_X^B \right),
+L_Z=\left(L_Z^A \otimes L_Z^B
+              \right),
+              L_XL_Z^T=I
+\end{equation}
+If the two CSS codes have parameters \([[n_i,k_i,d_{i},d_{i}]]\) and sparsity \(\{r_i,c_i\}\), for \(i=a,b\) respectively, 
+the SP code have parameters \([[n_an_b,k_ak_b,d\leq d_ad_b]]\) and sparsity \(\{\max (r_a,r_b), c_a+c_b\}\). 
+Note the distance relation holds for both \(X\) and \(Z\), hence we omit the \(X/Z\) subscript.
+
+
+relations:
+  parents:
+    - code_id: subsystem_stabilizer
+      detail: 'The subsystem product code is a CSS subsystem stabilizer code.'
+  cousins:
+    - code_id: subsystem_quantum_parity
+      detail: 'When constructed from two classical codes instead of quantum CSS codes, the SP codes reduce to subsystem quantum parity codes, which are identical to subsystem QHP codes'
+# DOI: 10.1109/QCE49297.2020.00024
+    - code_id: hypergraph_product
+      detail: 'The subsystem product code are projected higher-dimensional QHP codes.'
+     - code_id: quantum_concatenated
+      detail: 'The quantum concatenated codes are gauge-fixed subsystem product codes.'
+    - code_id: homological_product
+      detail: 'The homological product codes are gauge-fixed subsystem product codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: WeileiZeng
+      date: '2023-08-14'
