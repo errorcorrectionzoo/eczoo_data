@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: qc_bicycle
-physical: galois
-logical: galois
+physical: qubits
+logical: qubits
 
 name: 'High-rate GB code'
 introduced: '\cite{arxiv:2308.07915}'
@@ -13,13 +13,13 @@ introduced: '\cite{arxiv:2308.07915}'
 description: |
   One of several specific GB QLDPC qubit codes with high encoding rate but with minimal non-geometrically local qubit connectivity.
 
-  The qubit connectivity graph is not quite a 2D grid, instead decomposable into two planar subgraphs of degree three.
+  The qubit connectivity graph is not quite a 2D grid and is instead decomposable into two planar subgraphs of degree three.
   There are \(n\) \(X\) and \(Z\) check operators, with each one of weight six.
 
 features:
-  rate: 'When ancilla qubit overhead is included, the encdoing rate surpasses that of the surface code.
+  rate: 'When ancilla qubit overhead is included, the encoding rate surpasses that of the surface code.
   A general \([[n,k,d]]\) high-rate GB code requires \(n\) ancilla qubits for encoding, meaning that its \textit{ancilla-added encoding rate} is \(k/2n\).
-  For example, the \([[144,12,12]]\) code has ancilla-added rate \(1/24\).
+  For example, the \([[144,12,12]]\) high-rate GB code has ancilla-added rate \(1/24\).
   In contrast, the distance-13 surface code has ancilla-added rate \(1/338\).'
 
   fault_tolerance:
