@@ -3,33 +3,37 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-
-
-code_id: 'hyperbolic_floquet'
+code_id: hyperbolic_floquet
+physical: qubits
+logical: qubits
 
 name: 'Hyperbolic Floquet code'
+introduced: '\cite{arXiv:2308.03750,arXiv:2309.10033}'
 
 description: 'Floquet code whose check-operators correspond to edges of a hyperbolic lattice of degree 3.'
 
-introduced: '\cite{arXiv:2309.10033, arXiv:2308.03750}'
+protection: 'Code distance is at most \(O(\log\(n\))\) due to the hyperbolic qubit geometry.'
 
 features:
-  
-  rate: 'Finite encoding rate whose value depends on the hyperbolic lattice. The asymptotic rate is 1/8 for a lattice of octagons.'
-
+  rate: 'Finite encoding rate whose value depends on the hyperbolic lattice. The asymptotic rate is 1/8 for a lattice of octagons \cite{arXiv:2309.10033}.'
+  decoders:
+    - 'Syndrome structure allows for MWPM decoding.'
   threshold:
-    - '10^-3 in a phenomenological error model including depolarizing and measurement errors for the octagonal codes~\cite{arXiv:2309.10033}.'
+    - '\(0.1\%\) under standard circuit-level depolarising noise \cite{arXiv:2308.03750}.'
+    - '\(0.1\%\) under phenomenological error model including depolarizing and measurement errors for the octagonal codes \cite{arXiv:2309.10033}.'
 
 relations:
-  
   parents:
-    - code_id: 'floquet'
+    - code_id: floquet
+# cousins:
+#   - code_id: hyperbolic_surface
 
-  cousins:
-    - code_id: 'hyperbolic_surface'
 
+# Begin Entry Meta Information
 _meta:
-  
+  # Change log - most recent first
   changelog:
-    - user_id: 'AliFahimniya'
-      date: '2023-09'
+    - user_id: VictorVAlbert
+      date: '2023-10-12'
+    - user_id: AliFahimniya
+      date: '2023-09-25'
