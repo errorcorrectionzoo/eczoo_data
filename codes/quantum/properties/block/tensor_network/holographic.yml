@@ -9,8 +9,9 @@ name: 'Holographic code'
 introduced: '\cite{arxiv:1503.06237}'
 
 description: |
-  Block quantum code whose encoding isometry serves to model aspects of the AdS/CFT holographic duality.
-  Encoding map models radial time evolution for a fixed time slice in Anti de Sitter (AdS) space, mapping operators in the bulk of AdS, represented by logical qudits, onto operators on the boundary of the corresponding Conformal Field Theory (CFT), represented by physical qudits.
+  Block quantum code whose features (typically, the encoding isometry) serve to model aspects of the AdS/CFT holographic duality.
+
+  The encoding map often models radial time evolution for a fixed time slice in Anti de Sitter (AdS) space, mapping operators in the bulk of AdS, represented by logical qudits, onto operators on the boundary of the corresponding Conformal Field Theory (CFT), represented by physical qudits.
   Encoding can often be represented by a tensor network associated with a tiling of hyperbolic space. See Defn 4.3 of Ref. \cite{arxiv:2108.11402} for a technical formulation.
 
   Typically, the encoding isometry \(U\) obeys the \textit{entanglement-wedge reconstruction condition}, which states that for any boundary region \(R\), any bulk operator \(O\) localized to the entanglement wedge of \(R\) must be implementable by some boundary operator \(\tilde{O}\) localized to \(R\). Formally, \(UO = \tilde{O}U\) and \([\tilde{O},UU^\dagger] = 0\). The entanglement wedge is the space enclosed within the Ryu–Takayanagi surface in the bulk (minimal surface) with boundary \(R\).
@@ -30,13 +31,15 @@ features:
 notes:
   - 'All Boundary global symmetries must be dual to bulk gauge symmetries, and vice versa \cite{arxiv:1810.05338}.'
 
+# SYK codes do not seem to be related to Lego, so parent is block quantum
 relations:
   parents:
+    - code_id: block_quantum
+  cousins:
     - code_id: quantum_lego
       detail: 'Quantum Lego codes codes whose encoders are tensor networks discretizing hyperbolic space can be thought of as holographic codes.
       More generally, tensor-network codes are types of LEGO codes made from stabilizer codes where logical and physical legs are pre-assigned and logical legs are not contracted.
       In other words, logical legs resulting from the conversion of codes to tensors must remain logical in the final tensor network, and the same for physical. Contracting logical legs is another word for gluing two logical legs together.'
-  cousins:
     - code_id: approximate_qecc
       detail: 'Universal subspace approximate error correction is used to model black holes \cite{arxiv:1807.06041}.'
     - code_id: approximate_oaecc
