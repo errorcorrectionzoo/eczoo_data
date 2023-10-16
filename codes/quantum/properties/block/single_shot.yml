@@ -9,7 +9,14 @@ name: 'Single-shot code'
 introduced: \cite{arxiv:1404.5504}
 
 description: |
-  A block quantum code admitting a fault-tolerant error-correcting protocol against noisy syndrome measurements that requires a number of error-correcting rounds that is independent of the number of subsystems \(n\).
+  Measurement errors during decoding can yield the wrong syndrome outcome, which can cause error correction to fail even against correctable data errors.
+  A single-shot code is a block quantum code admitting a fault-tolerant error-correcting protocol that does not ``fail too badly'' when faced with noisy syndrome measurements.
+
+  In the loosest form of the single-shot property for qubit, modular qudit, or Galois qudit codes, given some data error \(e\), ideal data error syndrome \(s\), and measurement error \(m\), there exists an error-correction protocol that outputs a correction \(f\) such that the Hamming weight of the residual error  after correction, \(e+f\), is \textit{polynomial} in the weight of \(m\).
+
+  The single-shot property usually implies that a sufficiently large number of error-correction rounds will keep both data and measurement errors bounded, as opposed to causing to eventually become uncorrectable.
+
+# In other words, the single-shot property implies that the number of error-correcting rounds necessary for successful error correction is independent of the number of subsystems \(n\).
 
 
 relations:
