@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: two_block_quantum
+physical: galois
+logical: galois
+
+name: 'Two-block quantum code'
+introduced: \cite{arXiv:1212.6703}
+
+alternative_names:
+  - 'Two-square-block code'
+
+description: |
+  Galois-qudit CSS code whose stabilizer generator matrices \(H_X=(A,B)\) and \(H_Z=(B^T,-A^T)\), are constructed from a pair of square \(\ell \times \ell\) commuting matrices \(A\) and \(B\).
+
+protection: |
+  Code parameters are generally unknown.  Some upper and lower bounds on parameters are given in \cite{arXiv:2306.16400}.
+
+relations:
+  parents:
+    - code_id: galois_css
+  cousins:
+    - code_id: qldpc
+      detail: 'When matrices \(A\) and \(B\) have row and column weights bounded by \(W\), a two-block quantum code is a quantum LDPC code with stabilizer generators bounded by \(2W\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-16'
+    - user_id: LeonidPryadko
+      date: '2023-10-10'

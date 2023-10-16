@@ -11,15 +11,23 @@ name: 'Lifted-product (LP) code'
 short_name: 'LP'
 introduced: \cite{arxiv:1904.02703,arXiv:2111.03654}
 
-description: |
-  Also called a \textit{Panteleev-Kalachev (PK)} code. Code that utilizes the notion of a lifted product in its construction. Lifted products of certain classical Tanner codes are the first (asymptotically) \textit{good QLDPC codes}.
+alternative_names:
+  - 'Panteleev-Kalachev (PK) code'
 
-  A \textit{lifted product over} a ring \(R\) is a product of two chain complexes whose chains are free modules over \(R\). An interesting case is when \(R=\mathbb{F}_q G\), the group-\(G\) algebra over the finite field \({\mathbb{F}}_q = GF(q)\); in this case, the product can be called a \(G\)-\textit{lifted product}. Just like its further generalization the balanced product, a lifted product code generalizes a hypergraph product code in that a reduction of symmetry is exploited to decrease the number of physical qubits required.
+description: |
+  Code that utilizes the notion of a lifted product in its construction. Lifted products of certain classical Tanner codes are the first (asymptotically) \textit{good QLDPC codes}.
+
+  A code can be defined by \(LP(A,B)\), where \(A\) and \(B\) are a pair of matrices with elements from a group algebra.
+  Heuristically, the code is constructed as a hypergraph product code over the group algebra, with each entry subsequently extended into a matrix.
+
+  More technically, a \textit{lifted product over} a ring \(R\) is a product of two chain complexes whose chains are free modules over \(R\). An interesting case is when \(R=\mathbb{F}_q G\), the group-\(G\) algebra over the finite field \({\mathbb{F}}_q = GF(q)\); in this case, the product can be called a \(G\)-\textit{lifted product}. Just like its further generalization the balanced product, a lifted product code generalizes a hypergraph product code in that a reduction of symmetry is exploited to decrease the number of physical qubits required.
 
   The key operation behind the \(G\)-lifted product is the \(G\)-\textit{lift}, a group-algebraic version of the \hyperref[topic:lifting]{lifting} procedure of protograph LDPC codes.
   A \(G\)-lift of a \(\mathbb{F}_q\)-valued matrix \(A\) substitutes matrix elements of \(A\) with matrices forming the regular representation of the group algebra \({\mathbb{F}}_q G\) according to some rule.
   A combination of the lift and the usual hypergraph product yields lifted-product codes.
   The two operations commute: one can first take the usual hypergraph product of two chain complexes, and then lift the resulting product complex; equivalently, one can take the hypergraph product of the two lifted complexes.
+
+
 
 protection: 'Code performance strongly depends on the group \(G\) used in the product \cite{arxiv:2012.04068}.'
 

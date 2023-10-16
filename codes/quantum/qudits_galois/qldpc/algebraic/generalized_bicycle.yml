@@ -76,14 +76,12 @@ features:
 
 relations:
     parents:
-      - code_id: galois_css
-        detail: 'A GB code is a Galois-qudit CSS code constructed from a pair of equivalent index-two quasi-cyclic linear codes.'
-      - code_id: quantum_quasi_cyclic
-        detail: 'An index-\(m\) quasi-cyclic (QC) code of length \(n=m\ell\) is usually defined as a linear-code invariant under the \(m\)-step shift permutation \(T_{n}^{m}\).'
-      - code_id: lifted_product
-        detail: 'A code GB\((a,b)\) with circulants of size \(\ell\) is a special (degenerate) case of a lifted-product code LP\((A,B)\) code over the abelian group algebra \(GF(q)[C_\ell]\) associated with the cyclic group \(C_\ell\equiv \langle x|x^\ell=1\rangle\), with \(1\times 1\) matrices \(A=a(x)\), \(B=b(b)\) given by the corresponding polynomials.'
       - code_id: 2bga
-        detail: 'A code  GB\((a,b)\) with circulants of size \(\ell\) is a special case of an (abelian) two-block group-algebra code LP\((a,b)\) over the cyclic permutation group \(C_\ell\).'
+        detail: 'A code GB\((a,b)\) with circulants of size \(\ell\) is a special case of a 2BGA code over the cyclic group \(\mathbb{Z}_{\ell}\).'
+      - code_id: lifted_product
+        detail: 'A code GB\((a,b)\) with circulants of size \(\ell\) is a special (degenerate) case of a lifted-product code LP\((A,B)\) code over the abelian group algebra \(GF(q)[\mathbb{Z}_{\ell}]\) associated with the cyclic group \(\mathbb{Z}_{\ell}\equiv \langle x|x^\ell=1\rangle\), with \(1\times 1\) matrices \(A=a(x)\), \(B=b(b)\) given by the corresponding polynomials.'
+      - code_id: quantum_quasi_cyclic
+        detail: 'An index-\(m\) quasi-cyclic (QC) code of length \(n=m\ell\) is usually defined as a linear code invariant under the \(m\)-step shift permutation \(T_{n}^{m}\).'
     cousins:
       - code_id: sc_qldpc
         detail: 'Qubit GB stabilizer generator matrices is equivalent to a 1D SC-QLDPC code, see Remark 7 in \cite{arxiv:2305.00137}.'
@@ -91,7 +89,7 @@ relations:
         detail: 'Stabilizer generators of the code GB\((a,b)\) have weights given by the sum of weights of polynomials \(a(x)\) and \(b(x)\).
         The GB code ansatz is convenient for designing quantum LDPC codes.'
       - code_id: single_shot
-        detail: 'A qubit GB code \([[n,k,d]]_2\) has \(k\) non-trivial relations between the syndrome bits, which is expected to help with operation in a fault-tolerant regime (in the presence of syndrome measurement errors).  See \cite{arXiv:2306.16400} for many examples of such codes.'
+        detail: 'A qubit GB code \([[n,k,d]]_2\) has \(k\) non-trivial relations between the syndrome bits, which is expected to help with operation in a fault-tolerant regime (in the presence of syndrome measurement errors). See \cite{arXiv:2306.16400} for many examples of such codes.'
       - code_id: quantum_cyclic
         detail: 'Given a canonical generating polynomial \(g(x)\) of a cyclic quantum code \([[n,k,d]]\), its generator matrix is a cyclic matrix \(G=g(P)\). Here \(P\) is the permutation matrix of one-step length-\(n\) cyclic shift.'
       - code_id: hypergraph_product
@@ -102,6 +100,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-16'
+    - user_id: LeonidPryadko
+      date: '2023-10-10'
     - user_id: VictorVAlbert
       date: '2023-05-02'
     - user_id: LeonidPryadko

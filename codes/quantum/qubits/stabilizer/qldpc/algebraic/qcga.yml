@@ -3,23 +3,23 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: qc_bicycle
+code_id: qcga
 physical: qubits
 logical: qubits
 
-name: 'High-rate GB code'
+name: 'High-rate group-algebra code'
 introduced: '\cite{arxiv:2308.07915}'
 
 description: |
-  One of several specific GB QLDPC qubit codes with high encoding rate but with minimal non-geometrically local qubit connectivity.
+  One of several specific 2BGA QLDPC qubit codes over Abelian groups with high encoding rate but with minimal non-geometrically local qubit connectivity.
 
   The qubit connectivity graph is not quite a 2D grid and is instead decomposable into two planar subgraphs of degree three.
   There are \(n\) \(X\) and \(Z\) check operators, with each one of weight six.
 
 features:
   rate: 'When ancilla qubit overhead is included, the encoding rate surpasses that of the surface code.
-  A general \([[n,k,d]]\) high-rate GB code requires \(n\) ancilla qubits for encoding, meaning that its \textit{ancilla-added encoding rate} is \(k/2n\).
-  For example, the \([[144,12,12]]\) high-rate GB code has ancilla-added rate \(1/24\).
+  A general \([[n,k,d]]\) high-rate group-algebra code requires \(n\) ancilla qubits for encoding, meaning that its \textit{ancilla-added encoding rate} is \(k/2n\).
+  For example, the \([[144,12,12]]\) code has ancilla-added rate \(1/24\).
   In contrast, the distance-13 surface code has ancilla-added rate \(1/338\).'
 
   fault_tolerance:
@@ -31,17 +31,25 @@ features:
   threshold:
     - '\(0.8\%\) for circuit-level noise under BP-OSD decoder \cite{arxiv:2308.07915} (cf. \cite{arxiv:0803.0272}).'
 
+# Parent is qubit_css because primary parent needs to be qubit
 relations:
     parents:
-      - code_id: generalized_bicycle
+      - code_id: qubit_css
+      - code_id: 2bga
+        detail: 'A high-rate group-algebra code is a special case of a 2BGA code over an Abelian group \(G\).'
+      - code_id: qldpc
     cousins:
       - code_id: surface
-        detail: 'High-rate GB codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators.'
+        detail: 'High-rate group-algebra codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-16'
+    - user_id: LeonidPryadko
+      date: '2023-10-10'
     - user_id: VictorVAlbert
       date: '2023-10-04'
