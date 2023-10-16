@@ -9,13 +9,32 @@ logical: q-ary_digits
 
 name: 'Group-algebra code'
 #introduced: ''
+alternative_names:
+  - 'Group code'
 
 description: |
-  Also known as a \textit{group code}.
   An \( [n,k]_q \) code based on a finite group \( G \) of size \(n \).
   A group-algebra code for an abelian group is called an \textit{abelian group-algebra code}.
 
-  The code is a \( k \)-dimensional linear subspace of the group algebra of \( G\) with coefficients in the field \(GF(q) = \mathbb{F}_q\) with \(q\) elements. To be precise, the code must be closed under permutations corresponding to the elements of the group \( G \); therefore, \( G \) must be a subgroup of the permutation automorphism group of the code, which is defined as the group of permutations of the physical bits that preserve the code space. This leads us to the formal definition of a group-algebra code: a group-algebra code is an ideal in the group algebra \( \mathbb{F}_q G \).
+  \subsection{Group algebra}
+  \label{topic:group-algebra}
+  For a given field \(\mathbb{F}_q\) and a finite group \(G\) of order
+  \(|G|=\ell\), the \textit{group algebra} (a ring) \(\mathbb{F}_q[G]\) is defined as an
+  \(\mathbb{F}_q\)-linear space of all formal sums
+  \begin{align}
+    \label{eq:algebra-element}
+    x\equiv \sum_{g\in G}x_g g,\quad x_g\in \mathbb{F}_q,
+  \end{align}
+  where group elements \(g\in G\) serve as basis vectors,
+  equipped with the product naturally associated with the group
+  operation,
+  \begin{align}
+    \label{eq:FG-product}
+    ab=\sum_{g\in G}\biggl(\sum_{h\in G} a_h b_{h^{-1}g}\biggr) g, \quad a,b\in \mathbb{F}_q[G].
+  \end{align}
+
+  \subsection{Group-algebra code}
+  A group-algebra code is a \( k \)-dimensional linear subspace of the \hyperref[topic:group-algebra]{group algebra} of \( G\) with coefficients in the field \(GF(q) = \mathbb{F}_q\) with \(q\) elements. To be precise, the code must be closed under permutations corresponding to the elements of the group \( G \); therefore, \( G \) must be a subgroup of the permutation automorphism group of the code, which is defined as the group of permutations of the physical bits that preserve the code space. This leads us to the formal definition of a group-algebra code: a group-algebra code is an ideal in the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_q G \).
 
 #protection: 'The class of abelian group-algebra codes is very general, for example including all group-algebra codes of size \(n \leq 23 \). As such it is very difficult to say anything about the distance of abelian groups codes without specializing to a particular family'
 
