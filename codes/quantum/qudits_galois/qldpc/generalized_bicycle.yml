@@ -14,11 +14,11 @@ introduced: \cite{arxiv:1212.6703,arxiv:2203.17216}
 description: |
   A quasi-cyclic Galois-qudit CSS code constructed using a generalized version of the bicycle ansatz \cite{arXiv:quant-ph/0304161} from a pair of equivalent index-two quasi-cyclic linear codes.
 
-  The stabilizer generator matrix of a \([[ n=2\ell,k,d]]\) GB\((a,b)\) code over \(GF(q)\), constructed from polynomials \(a(x)\) and \(b(x)\), can be refined to the form
+  The stabilizer generator matrix of a \([[ n=2\ell,k,d]]\) denoted GB\((a,b)\) code over \(GF(q)\), constructed from polynomials \(a(x)\) and \(b(x)\), can be refined to the form
   \begin{align}
     H_{X}=(A|B), H_{Z}^{T}=\begin{pmatrix}A\\-B\end{pmatrix}~,
   \end{align}
-  where \(\ell\times\ell\) are circulant matrices \(A=a(P)\) and \(B=b(P)\), and \(P\) is the permutation matrix of a one-step length-\(\ell\) cyclic shift.
+  where \(A=a(P)\) and \(B=b(P)\) are  \(\ell\times\ell\) circulant matrices, and \(P\) is the permutation matrix of a one-step length-\(\ell\) cyclic shift.
 
   With any GB\((a,b)\) code, there is an associated \(q\)-ary cyclic classical code \(C_{h(x)}^{perp}=C_{g(x)}\) of length \(\ell\), with the check and generating polynomials
   \begin{align}
@@ -27,7 +27,7 @@ description: |
   respectively.
   The number of qudits encoded in such a GB code is \(k=2\text{deg}h(x)\), twice the dimension of the underlying classical code \cite{arxiv:1904.02703}.
 
-  Two codes GB\((a,b)\) and GB\((a',b')\) of the same size \(n=2\ell\) are equivalent if the following five conditions are satisfied \cite{arxiv:2203.17216}:
+  Two codes GB\((a,b)\) and GB\((a',b')\) of the same size \(n=2\ell\) are equivalent if one of the following conditions is satisfied \cite{arxiv:2203.17216}:
   (1)	\(a'(x)=a(x^{m})\) mod \(x^{\ell}-1\), \(b'(x)=b(x^{m})\) mod \(x^{\ell}-1\) for some \(m\) mutually prime with \(\ell\), gcd\((m,\ell)=1\);
   (2)	\(a'(x)=b(x), b'(x)=a(x)\);
   (3)	\(a'(x)\) and \(b'(x)\) are the reciprocal polynomials of \(a(x)\) and \(b(x)\), respectively;
@@ -73,6 +73,8 @@ features:
   decoders:
     - 'BP-OSD decoder \cite{arXiv:1904.02703}.'
 
+realizations: 
+  Many instances of binary (qubit-based) GB codes are constructed in \cite{arXiv:2203.17216} (only codes with \(k=2\)) and in \cite{arXiv:2306.16400}.
 
 relations:
     parents:
@@ -80,20 +82,18 @@ relations:
         detail: 'A GB code is a Galois-qudit CSS code constructed from a pair of equivalent index-two quasi-cyclic linear codes.'
       - code_id: quantum_quasi_cyclic
         detail: 'An index-\(m\) quasi-cyclic (QC) code of length \(n=m\ell\) is usually defined as a linear-code invariant under the \(m\)-step shift permutation \(T_{n}^{m}\).'
+      - code_id: lifted_product
+        detail: 'A code GB\((a,b)\) with circulants of size \(\ell\) is a special (degenerate) case of a lifted-product code LP\((A,B)\) code over the abelian group algebra \(GF(q)[C_\ell]\) associated with the cyclic group \(C_\ell\equiv \langle x|x^\ell=1\rangle\), with \(1\times 1\) matrices \(A=a(x)\), \(B=b(b)\) given by the corresponding polynomials.'
+      - code_id: 2bga
+        detail: 'A code  GB\((a,b)\) with circulants of size \(\ell\) is a special case of an (abelian) two-block group-algebra code LP\((a,b)\) over the cyclic permutation group \(C_\ell\).'
     cousins:
       - code_id: sc_qldpc
-        detail: 'Qubit GB stabilizer generator matrices can be used as sub-matrices to define a 1D SC-QLDPC code \cite{arxiv:2305.00137}.'
+        detail: 'Qubit GB stabilizer generator matrices is equivalent to a 1D SC-QLDPC code, see Remark 7 in \cite{arxiv:2305.00137}.'
       - code_id: qldpc
-        detail: |
-          A code GB\((a,b)\) is given by the sum of weights of polynomials
-          \(a(x)\) and \(b(x)\). The GB code ansatz is convenient for designing
-          quantum LDPC codes.
+        detail: 'Stabilizer generators of the code GB\((a,b)\) have weights given by the sum of weights of polynomials \(a(x)\) and \(b(x)\).
+        The GB code ansatz is convenient for designing quantum LDPC codes.'
       - code_id: single_shot
-        detail: |
-          In some GB error-correcting schemes, localized syndrome measurement
-          errors only give rise to localized errors in the correction stage.
-          Then, a single round of measurements is enough, and fault-tolerant
-          error correction is quantum-local \cite{arxiv:1404.5504}.
+        detail: 'A qubit GB code \([[n,k,d]]_2\) has \(k\) non-trivial relations between the syndrome bits, which is expected to help with operation in a fault-tolerant regime (in the presence of syndrome measurement errors).  See \cite{arXiv:2306.16400} for many examples of such codes.'
       - code_id: quantum_cyclic
         detail: 'Given a canonical generating polynomial \(g(x)\) of a cyclic quantum code \([[n,k,d]]\), its generator matrix is a cyclic matrix \(G=g(P)\). Here \(P\) is the permutation matrix of one-step length-\(n\) cyclic shift.'
       - code_id: hypergraph_product
