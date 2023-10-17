@@ -73,7 +73,7 @@ features:
   rate: |
     GB codes can achieve an asymptotic rate of  1/4 \cite{arxiv:2203.17216}.
     For an odd prime \(\ell\), let a prime \(p\) be a quadratic residue modulo \(\ell\), i.e. \(p=m^{2}\text{mod}\ell\) for some integer \(m\).
-    Then, \(x^{\ell}-1\) has only three irreducible factors in \(\mathbb{F}_q(x)\), and there is a quadratic-residue cyclic code \([\ell,(\ell+1)/2, d]_p\) with \(d\geq\sqrt{\ell}\) and an irreducible generator polynomial CITE BibID: 2487773.
+    Then, \(x^{\ell}-1\) has only three irreducible factors in \(\mathbb{F}_q(x)\), and there is a quadratic-residue cyclic code \([\ell,(\ell+1)/2, d]_p\) with \(d\geq\sqrt{\ell}\) and an irreducible generator polynomial.
     Using the GV distance \(d_{GV}\), a prime-field GB code with parameters \([[ 2\ell,(\ell-1)/2,d\geq \ell^{1/2}]]_p\) exists.
   decoders:
     - 'BP-OSD decoder \cite{arXiv:1904.02703}.'
@@ -100,10 +100,11 @@ relations:
           The GB code ansatz is convenient for designing quantum LDPC codes.
       - code_id: single_shot
         detail: 'A qubit GB code \([[n,k,d]]_2\) has \(k\) non-trivial relations between the syndrome bits, which is expected to help with operation in a fault-tolerant regime (in the presence of syndrome measurement errors). See Ref. \cite{arXiv:2306.16400} for many examples of such codes.'
-      - code_id: quantum_cyclic
-        detail: 'Given a canonical generating polynomial \(g(x)\) of a cyclic quantum code \([[n,k,d]]\), its generator matrix is a cyclic matrix \(G=g(P)\). Here \(P\) is the permutation matrix of one-step length-\(n\) cyclic shift.'
       - code_id: hypergraph_product
         detail: 'An arbitrary GB code of length \(2\ell\) is equivalent \cite{arxiv:2203.17216} to a rotated quantum hypergraph-product code with periodicity vectors \(\vec{L}_{1}\) and \(\vec{L}_{2}\) such that \(\lvert{\vec{L}_{1}\times\vec{L}_{2}\rvert=\ell}\).'
+
+# - code_id: quantum_cyclic
+#   detail: 'Given a canonical generating polynomial \(g(x)\) of a cyclic quantum code \([[n,k,d]]\), its generator matrix is a cyclic matrix \(G=g(P)\). Here \(P\) is the permutation matrix of one-step length-\(n\) cyclic shift.'
 
 
 # Begin Entry Meta Information
