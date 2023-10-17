@@ -34,6 +34,8 @@ protection: |
 
 
 features:
+  general_gates:
+    - 'Universal computing can be achieved using Clifford gates and a single type of non-Clifford gate, such as the \(T\) gate. Non-Clifford gates are typically more difficult to implement than Clifford gates and so are treated as a resource. Optimizing T-gate count is NP-hard \cite{arxiv:2310.05958}.'
   decoders:
     - 'The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}. For few-qubit codes (\(n\) is small), maximum-likelihood decoding can be based by creating a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used.'
   fault_tolerance:
@@ -41,6 +43,7 @@ features:
 
 notes:
   - 'There is a relation between one-way entanglement distillation protocols and QECCs \cite{arXiv:quant-ph/9604024}.'
+  - 'See \href{https://github.com/qiskit-community/qiskit-qec}{Qiskit QEC framework} for realizing protocols on IBM machines.'
 
 relations:
   parents:

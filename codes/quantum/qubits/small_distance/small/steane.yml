@@ -18,9 +18,9 @@ description: |
   The parity-check matrix for the \([7,4,3]\) Hamming code is
   \begin{align}
     H = \left(\begin{matrix}
-      1&0&0&1&0&1&1\\
-      0&1&0&1&1&0&1\\
-      0&0&1&0&1&1&1
+      0&0&0&1&1&1&1\\
+      0&1&1&0&0&1&1\\
+      1&0&1&0&1&0&1
     \end{matrix}\right),
   \end{align}
   and the check matrix for the Steane code is therefore
@@ -42,7 +42,7 @@ description: |
 protection: 'The Steane code is a distance 3 code. It detects errors on 2 qubits, corrects errors on 1 qubit.'
 
 realizations:
-  - 'Trapped-ion qubits: seven-qubit device in Blatt group \cite{arXiv:1403.5426}, ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} (see APS Physics Synopsys \cite{doi:10.1103/Physics.14.184}). Fault-tolerant universal two-qubit gate set by Monz group \cite{arxiv:2111.12654}. Logical CNOT gate between two logical qubits, including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.'
+  - 'Trapped-ion qubits: seven-qubit device in Blatt group \cite{arXiv:1403.5426}, ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} (see APS Physics Synopsis \cite{doi:10.1103/Physics.14.184}). Fault-tolerant universal two-qubit gate set by Monz group \cite{arxiv:2111.12654}. Logical CNOT gate between two logical qubits, including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.'
   - 'Rydberg atom arrays: Lukin group \cite{arXiv:2112.03923}.'
 
 features:

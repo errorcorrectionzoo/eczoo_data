@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: da
+physical: qubits
+logical: qubits
+
+name: 'Dynamical automorphism (DA) code'
+short_name: 'DA code'
+introduced: \cite{arXiv:2307.10353}
+
+description: |
+  Dynamically-generated stabilizer-based code whose (not necessarily periodic) sequence of few-body measurements implements state initialization, logical gates and error detection.
+
+  After each measurement in the sequence, the codespace is a joint \(+1\) eigenspace of an \textit{instantaneous stabilizer group (ISG)}, i.e., a particular stabilizer group corresponding to the measurement.
+  The ISG specifies the state of the system as a Pauli stabilizer state at a particular round of measurement, and it evolves into a (potentially) different ISG via \hyperref[topic:code-switching]{code switching} using the group \(\mathsf{F}\) of check operators measured in the next step in the sequence.
+
+  As opposed to subsystem codes, only specific measurement sequences maintain the codespace, and not all sequences implement error detection.
+  Aperiodic measurement sequences provide a way to implement logical gates \cite{arXiv:2307.10353}.
+
+  For DA codes based on topological phases, the phase associated with each ISG of the code can be obtained from a single \textit{parent topological phase} associated with the DA code \cite{arxiv:2212.00042} via as \hyperref[topic:code-switching]{anyon condensation}.
+  In this way, measurements cycle logical quantum information between the various condensed phases.
+
+# Known examples of DA codes include Floquet codes, whose measurement sequences are periodic.
+# DA codes with useful aperiodic sequences include the 2D (3D) DA color codes, which realize the ISG of 2D (3D) color codes at certain measurement rounds, and which can implement Clifford (non-Clifford) gates during their evolution by measurements \cite{arXiv:2307.10353}.
+
+features:
+  general_gates:
+  -  'The measurement sequences of the 2D DA color code on a \(N\) layers of triangular patches (which encodes \(N\) logical qubits) can be used to implement all Clifford logical gates via a sequence of two- and three-qubit measurements \cite{arXiv:2307.10353}.'
+  - 'The 3D DA color code allows for a non-Clifford logical gate via adaptive two-qubit measurements \cite{arXiv:2307.10353}.'
+
+
+relations:
+  parents:
+    - code_id: dynamic_gen
+      detail: 'DA code state initialization, logical gates, and error correction are done by a sequence of different (usually weight-two) stabilizer measurements.'
+  cousins:
+    - code_id: color
+      detail: 'The parent topological phase of the 2D (3D) DA color code is realized by two (three) copies of the 2D (3D) color code.'
+    - code_id: surface
+      detail: 'One of the instantaneous stabilizer codes of the 2D DA color code are stacks of toric/surface codes'
+    - code_id: topological_abelian
+      detail: 'Useful measurement sequences of DA Floquet codes can be extracted from topological quantum field theory \cite{arXiv:2307.10353}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-07-21'
+    - user_id: ShankarBalasubramanian
+      date: '2023-07-21'
+    - user_id: nathanan
+      date: '2023-07-21'

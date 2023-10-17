@@ -69,6 +69,13 @@ description: |
 
   Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. Higher-dimensional manifolds allow for longer chain complexes, and one can use the three largest non-trivial vector spaces in its chain.
 
+  CSS codes saturate a type of \textit{error correction uncertainty relation} \cite[Thm. 3]{doi:10.1103/PhysRevLett.77.793}, which is a special case of an entropic uncertainty relation between a pair of bases \cite{doi:10.1007/BF01608825,doi:10.1103/PhysRevLett.50.631,doi:10.1103/PhysRevLett.60.1103}.
+  The code state \(\sum_{c\in C_{X}}|c\rangle\) can be expressed in terms of either basis states labeled by the code \(C_{X}\) or its dual, satisfying, with equality, the relation
+  \begin{align}
+    |C_{X}||C_{X}^{\perp}| \geq 2^{n}\,.
+  \end{align}
+
+
 #  The reverse mapping is as follows \cite{arXiv:1311.0885,arXiv:1807.09783}. Given a CSS code with parity check matrices \(H_X\) and \(H_Z\), let both boundary operators be \(\partial = H_Z^TUH_X\) for an arbitrary invertible matrix \(U\). The fact that the stabilizer generators commute ensures that the boundary operator satisfies \(\partial^2=0\), yielding a chain complex.
 #  Then, the normalizer of the stabilizers \({\mathsf{N}}(C_X)\) and \({\mathsf{N}}(C_Z)\) is \(\text{Ker}(\partial_2^T)\) and \(\text{Ker}(\partial_1)\), respectively.
 # Insert table linking manifold properties to QEC
@@ -86,7 +93,9 @@ features:
   encoders:
     - 'Stabilizer measurement \cite{arxiv:1404.2495}.'
     - 'Clusterization, i.e., measurement of a particular cluster state \cite{arxiv:1607.02579}.'
-  transversal_gates: 'All CSS codes admit transversal Pauli and CNOT gates. Self-dual CSS codes admit a transversal Hadamard, completing the Clifford group. A CSS code is \textit{doubly-even} (\textit{triply-even}) if all \(X\)-type stabilizer generators have weight divisible by two (three); such codes yield a transversal \(S\) (\(T\)) gate \cite{arxiv:1509.03239}.'
+  transversal_gates: 'All CSS codes admit transversal Pauli and CNOT gates \cite{arXiv:quant-ph/9605011}.
+  Self-dual CSS codes admit a transversal Hadamard, completing the Clifford group.
+  A CSS code is \textit{doubly-even} (\textit{triply-even}) if all \(X\)-type stabilizer generators have weight divisible by four (eight); such codes yield a transversal \(S\) (\(T\)) gate \cite{arxiv:1509.03239}.'
   general_gates:
     - 'LDPC CSS code symmetries called \(XZ\)-dualities allow for fold-transversal gates, i.e., transversal gates followed by qubit permutations \cite{arxiv:2202.06647}.'
     - 'Generalized lattice surgery \cite{arxiv:2301.13738}.'
@@ -139,6 +148,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: ChrisPattison
+      date: '2023-08-12'
     - user_id: balopat
       date: '2023-02-28'
     - user_id: balopat

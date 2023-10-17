@@ -40,13 +40,14 @@ features:
   A transversal \(CZ\) gate is realized by the rotation \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\).'
 
   fault_tolerance:
-    - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.'
+    - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.
+    Magic states can be injected into surface and color codes since the code is a small instance of both \cite{arxiv:2305.13581}.'
 
 
 realizations:
   - '\([[4,1,2]]\) subcode implemented using four-qubit graph state of photons \cite{arXiv:1404.5498}.'
   - 'Trapped-ion device by IonQ \cite{arXiv:1611.06946}.'
-  - 'Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices by IBM \cite{arXiv:1705.09259,arXiv:2110.04285}.'
+  - 'Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices by IBM \cite{arXiv:1705.09259,arXiv:1705.08957,arxiv:1806.02359,arXiv:2110.04285}.'
   - 'The subcode \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arXiv:1912.09410} and \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arXiv:2102.06132}, treated as a planar surface code, has been realized in superconducting-circuit devices.'
   - 'Logical gates between two copies of the subcode \(\{|\overline{10}\rangle,|\overline{11}\rangle\}\), interpreted as lattice surgery between planar surface codes, realized in superconducting circuits \cite{arXiv:2006.03071}.'
   - 'Logical gates for the \(\{|\overline{00}\rangle,|\overline{11}\rangle\}\) subcode, treated as a planar code, realized in superconducting circuits \cite{arXiv:2102.13071}.'
@@ -59,6 +60,8 @@ relations:
   parents:
     - code_id: surface
       detail: '\([[4,2,2]]\) code is the smallest toric code.'
+    - code_id: color
+      detail: '\([[4,2,2]]\) code can be interpreted as a small rectangular color code on a trapezoidal patch of four qubits that makes up two-thirds of a hexagon \cite{arxiv:2212.00042,arxiv:2305.13581}.'
     - code_id: iceberg
   cousins:
     - code_id: rotated_surface
@@ -75,7 +78,8 @@ relations:
       detail: '\([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arXiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single amplitude damping error.'
     - code_id: binomial
       detail: '\([[4,1,2]]\) subcode consisting of \(\{|\overline{00}\rangle\) and any other codeword reduces to the \(0,2,4\) binomial code when the basis labels in each codeword are written as in base-ten. Such a mapping can be generalized \cite{manual:{Linshu Li, private communication, 2018}}.'
-
+    - code_id: heavy_hex
+      detail: 'Magic states prepared using the \([[4,1,2]]\) subcode can be injected into a largest heavy-hex code \cite{arxiv:2110.04285,arxiv:2305.13581}.'
 
 # Begin Entry Meta Information
 _meta:

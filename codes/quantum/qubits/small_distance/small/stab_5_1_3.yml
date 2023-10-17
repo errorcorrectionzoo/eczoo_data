@@ -31,7 +31,10 @@ features:
   encoders:
     - 'Four CCZ, four Hadamard, and one \(Z\) gate (\cite{doi:10.1201/9781420012293}, Fig. 10.16).'
     - 'Four CNOT and five CPHASE gates \cite{arxiv:1509.01239}.'
-  transversal_gates: 'Pauli gates are transversal, along with a non-Pauli Hadamard-phase gate \(SH\) and three-qubit Clifford operation \(M_3\) \cite{arxiv:quant-ph/9705052}. These realize the \(2T\) binary tetrahedral subgroup of \(SU(2)\).'
+  transversal_gates: 'Pauli gates are transversal, along with a non-Pauli Hadamard-phase gate \(SH\) and three-qubit Clifford operation \(M_3\) \cite{arxiv:quant-ph/9702029,arxiv:quant-ph/9705052}.
+  These realize the \(2T\) binary tetrahedral subgroup of \(SU(2)\).
+  The code does not admit any non-Clifford transversal gates \cite{arXiv:quant-ph/9704043}.
+  All such gates can be interpreted as monodromies under a particular notion of parallel transport \cite[Exam. 6.4.2]{arxiv:1309.7062}.'
 
   general_gates:
     - 'Pieceable fault-tolerant CZ, CNOT, and CCZ gates \cite{arxiv:1603.03948}.'
@@ -44,7 +47,7 @@ features:
     The depth of syndrome extraction circuits can be lowered by using past syndrome values \cite{arxiv:2305.00784}.'
 
 realizations:
-  - 'NMR: Implementation of perfect error correcting code on 5 spin subsystem of labeled crotonic acid for quantum network benchmarking \cite{arXiv:quant-ph/0101034}. Single-qubit logical gates \cite{arXiv:1208.4797}.'
+  - 'NMR: Implementation of perfect error correcting code on 5 spin subsystem of labeled crotonic acid for quantum network benchmarking \cite{arXiv:quant-ph/0101034}. Single-qubit logical gates \cite{arXiv:1208.4797}. Magic-state distillation using 7-qubit device \cite{arxiv:1103.2178}.'
   - 'Superconducting qubits \cite{arXiv:1907.04507}.'
   - 'Trapped-ion qubits: non-transversal CNOT gate between two logical qubits, including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 12-qubit device by Quantinuum \cite{arxiv:2208.01863}.'
   - 'Nitrogen-vacancy centers in diamond: fault-tolerant single-qubit Clifford operations \cite{arxiv:2108.01646}.'
