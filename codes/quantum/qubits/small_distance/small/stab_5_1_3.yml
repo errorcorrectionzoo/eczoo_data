@@ -29,8 +29,83 @@ protection: 'Smallest stabilizer code that protects against a single error on an
 
 features:
   encoders:
-    - 'Four CCZ, four Hadamard, and one \(Z\) gate (\cite{doi:10.1201/9781420012293}, Fig. 10.16).'
-    - 'Four CNOT and five CPHASE gates \cite{arxiv:1509.01239}.'
+    - '4 CCZ, four Hadamard, and one \(Z\) gate (\cite{doi:10.1201/9781420012293}, Fig. 10.16).'
+    - '9 symmetrical two-qubit gates: \cite{arxiv:1509.01239}.
+        stim circuit: stim.Circuit(""" 
+            # Stabilizer Flows:
+            # X____ -> XXXXX
+            # Z____ -> ZZZZZ
+            # _____ -> XZZX_
+            # _____ -> _XZZX
+            # _____ -> X_XZZ
+            # _____ -> ZX_XZ
+
+            R 1 2 3 4
+            
+            Z 0
+            H 1 2 3 4
+        
+            CX 1 0 2 0 3 0 4 0
+            CZ 0 1 1 2 2 3 3 4 4 0
+        """),
+        
+        text diagram:
+            q0: ---Z-X-X-X-X-@-------@-
+                     | | | | |       |
+            q1: -R-H-@-|-|-|-@-@-----|-
+                       | | |   |     |
+            q2: -R-H---@-|-|---@-@---|-
+                         | |     |   |
+            q3: -R-H-----@-|-----@-@-|-
+                           |       | |
+            q4: -R-H-------@-------@-@-
+            
+        quirk url:
+            https://algassert.com/quirk#circuit=%7B%22cols%22%3A%5B%5B%22Z%22%2C%22H%22%2C%22H%22%2C%22H%22%2C%22H%22%5D%2C%5B%22X%22%2C%22%E2%80%A2%22%5D%2C%5B%22X%22%2C1%2C%22%E2%80%A2%22%5D%2C%5B%22X%22%2C1%2C1%2C%22%E2%80%A2%22%5D%2C%5B%22X%22%2C1%2C1%2C1%2C%22%E2%80%A2%22%5D%2C%5B%22%E2%80%A2%22%2C%22Z%22%5D%2C%5B1%2C%22%E2%80%A2%22%2C%22Z%22%5D%2C%5B1%2C1%2C%22%E2%80%A2%22%2C%22Z%22%5D%2C%5B1%2C1%2C1%2C%22%E2%80%A2%22%2C%22Z%22%5D%2C%5B%22Z%22%2C1%2C1%2C1%2C%22%E2%80%A2%22%5D%5D%7D
+    '
+    - '6 two-qubit gates.
+    
+        stim circuit: stim.Circuit(""" 
+            # Stabilizer Flows:
+            # X____ -> XXXXX
+            # Z____ -> ZZZZZ
+            # _____ -> XZZX_
+            # _____ -> _XZZX
+            # _____ -> X_XZZ
+            # _____ -> ZX_XZ
+            
+            R 1 2 3 4
+
+            YCX 0 3
+            XCX 0 4
+            ZCX 0 2
+            XCX 1 2
+            YCX 1 3
+            XCX 1 4
+
+            SQRT_X 0
+            H
+            S 3
+            C_XYZ 2
+            C_ZYX 4
+            X 2
+            Y 1 3
+        """)
+
+        text diagram:
+            q0: ---Y-X-@-------SQRT_X---
+                   | | |
+            q1: -R-|-|-|-X-Y-X--------Y-
+                   | | | | | |
+            q2: -R-|-|-X-X-|-|-C_XYZ--X-
+                   | |     | |
+            q3: -R-X-|-----X-|-S------Y-
+                     |       |
+            q4: -R---X-------X-C_ZYX----
+
+        quirk URL:
+            https://algassert.com/quirk#circuit=%7B%22cols%22%3A%5B%5B%22Y%22%2C1%2C1%2C%22%E2%8A%96%22%5D%2C%5B%22X%22%2C1%2C1%2C1%2C%22%E2%8A%96%22%5D%2C%5B%22Z%22%2C1%2C%22%E2%8A%96%22%5D%2C%5B1%2C%22X%22%2C%22%E2%8A%96%22%5D%2C%5B1%2C%22Y%22%2C1%2C%22%E2%8A%96%22%5D%2C%5B1%2C%22X%22%2C1%2C1%2C%22%E2%8A%96%22%5D%2C%5B%22X%5E%C2%BD%22%2C1%2C%22Z%5E-%C2%BD%22%2C%22Z%5E%C2%BD%22%2C%22H%22%5D%2C%5B1%2C1%2C%22H%22%2C1%2C%22Z%5E%C2%BD%22%5D%2C%5B1%2C%22Y%22%2C%22X%22%2C%22Y%22%5D%5D%7D
+    '
   transversal_gates: 'Pauli gates are transversal, along with a non-Pauli Hadamard-phase gate \(SH\) and three-qubit Clifford operation \(M_3\) \cite{arxiv:quant-ph/9702029,arxiv:quant-ph/9705052}.
   These realize the \(2T\) binary tetrahedral subgroup of \(SU(2)\).
   The code does not admit any non-Clifford transversal gates \cite{arXiv:quant-ph/9704043}.
