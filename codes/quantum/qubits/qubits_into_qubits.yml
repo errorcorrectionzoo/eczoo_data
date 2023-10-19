@@ -38,6 +38,7 @@ features:
     - 'Universal computing can be achieved using Clifford gates and a single type of non-Clifford gate, such as the \(T\) gate. Non-Clifford gates are typically more difficult to implement than Clifford gates and so are treated as a resource. Optimizing T-gate count is NP-hard \cite{arxiv:2310.05958}.'
   decoders:
     - 'The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}. For few-qubit codes (\(n\) is small), maximum-likelihood decoding can be based by creating a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used.'
+    - 'Decoders are characterized by an \textit{effective distance} or \textit{circuit-level distance}, the minimum number of faulty operations during syndrome measurement that is required to make an undetectable error. A code is \textit{distance-preserving} if it admits a decoder whose circuit-level distance is equal to the code distance.'
   fault_tolerance:
     - 'There are lower bounds on the overhead of fault-tolerant QEC in terms of the capacity of the noise channel \cite{arxiv:2202.00119}. A more stringent bound applies to geometrically local QEC due to the fact that locality constrains the growth of the entanglement that is needed for protection \cite{arxiv:2302.04317}.'
 
