@@ -12,20 +12,22 @@ short_name: 'HGP'
 introduced: '\cite{arXiv:0903.0566,arxiv:1202.0928}'
 
 description: |
-  A family of \([[n,k,d]]\) CSS codes whose construction is based on two binary linear \textit{seed} codes, \(C_i=[n_i,k_i,d_i]\) with \(i\in\{1,2\}\).
-  Given the two seed parity-check matrices \(H_{1,2}\), the hypergraph product yields two classical codes \(C_{X,Z}\) with parity-check matrices
+  A family of \([[n,k,d]]\) CSS codes whose construction is based on two binary linear \textit{seed} codes, \(i\in\{1,2\}\) \(C_i\) with parameters \([n_i, k_i, d_i]\) defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
+  The hypergraph product yields two classical codes \(C_{X,Z}\) with parity-check matrices
   \begin{align}
-    H_{X}&=\begin{pmatrix}H_{1}\otimes I_{n_{2}} & \,\,I_{n_{1}-k_{1}}\otimes H_{2}^{T}\end{pmatrix}\\
-    H_{Z}&=\begin{pmatrix}I_{n_{1}}\otimes H_{2} & \,\,H_{1}^{T}\otimes I_{n_{2}-k_{2}}\end{pmatrix}~,
+    H_{X}&=\begin{pmatrix}H_{1}\otimes I_{n_{2}} & \,\,I_{r_{1}}\otimes H_{2}^{T}\end{pmatrix}\\
+    H_{Z}&=\begin{pmatrix}I_{n_{1}}\otimes H_{2} & \,\,H_{1}^{T}\otimes I_{r_{2}}\end{pmatrix}~,
   \end{align}
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
+
+  
 
 
 # Could be expanded to include Tanner graphs
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
 
-protection: 'The hypergraph product has distance \(d=O(\sqrt{n})\). The number of encoded logical qubits is \(k=O(k_1k_2)\) where \(k_1\) and \(k_2\) are the dimensions of the classical seed codes \(C_1\) and \(C_2\).'
+protection: 'If \([n_i, k_i, d_i]\) (\([r_i, k^T_i, d^T_i]\)) are the parameters of the codes \(\mathrm{ker}H_i\) (\(\mathrm{ker}H_i^T\), taking (\(d=\infty\) if \(k=0\)), the hypergraph product has parameters \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, \mathrm{min}(d_1, d_2, d_1^T, d_2^T)]]\)'
 
 #notes:
 # VVA: Added already as cousin entry. - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
@@ -41,7 +43,7 @@ features:
   general_gates:
     - 'Code deformation techniques yield Clifford gates \cite{arXiv:1909.07424}.'
   code_capacity_threshold:
-    - 'The threshold under ML decoding corresponds to the value of critical point of a two-dimensional random-bond Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143,arxiv:1804.01950} (see also \cite{arxiv:2301.05689}).'
+    - '\cite{doi:10.1103/PhysRevA.87.020304,doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143,arxiv:1804.01950} (see also \cite{arxiv:2301.05689}).'
   threshold:
     - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599}.
     No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
@@ -62,6 +64,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: ChrisPattison
+      date: '2023-10-25'
     - user_id: VictorVAlbert
       date: '2022-08-02'
     - user_id: VictorVAlbert
