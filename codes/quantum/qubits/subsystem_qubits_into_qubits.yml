@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_qubits_into_qubits
+physical: qubits
+logical: qubits
+
+name: 'Subsystem qubit code'
+
+alternative_names:
+  - 'Gauge qubit code'
+
+description: |
+  Subsystem QECC encoding into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space.
+
+
+relations:
+  parents:
+    - code_id: subsystem_qudits_into_qudits
+      detail: 'Subsystem modular-qudit codes reduce to subsystem qubit codes for qudit dimension \(q=2\).'
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'Subsystem qubit codes reduce to (subspace) qubit codes when there are no gauge qubits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-25'
