@@ -8,9 +8,9 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Group-algebra code'
-#introduced: ''
+introduced: '\cite{doi:10.1007/BF01072842}'
 alternative_names:
-  - 'Group code'
+  - '\(G\) code'
 
 description: |
   An \( [n,k]_q \) code based on a finite group \( G \) of size \(n \).
@@ -36,6 +36,8 @@ description: |
   \subsection{Group-algebra code}
   A group-algebra code is a \( k \)-dimensional linear subspace of the \hyperref[topic:group-algebra]{group algebra} of \( G\) with coefficients in the field \(GF(q) = \mathbb{F}_q\) with \(q\) elements. To be precise, the code must be closed under permutations corresponding to the elements of the group \( G \); therefore, \( G \) must be a subgroup of the permutation automorphism group of the code, which is defined as the group of permutations of the physical bits that preserve the code space. This leads us to the formal definition of a group-algebra code: a group-algebra code is an ideal in the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_q G \).
 
+  A linear code is a group-algebra code for a group \(G\) if and only if \(G\) is isomorphic to a regular subgroup of the code''s permutation automorphism group \cite{doi:10.1007/s10623-008-9261-z}\cite[Thm. 16.4.7]{preset:HKSalgebra}.
+
 #protection: 'The class of Abelian group-algebra codes is very general, for example including all group-algebra codes of size \(n \leq 23 \). As such it is very difficult to say anything about the distance of Abelian groups codes without specializing to a particular family'
 
 notes:
@@ -44,8 +46,14 @@ notes:
 
 relations:
   parents:
-    - code_id: q-ary_linear
-      detail: 'A linear code is a group-algebra code for a group \(G\) if and only if \(G\) is isomorphic to a regular subgroup of the code''s permutation automorphism group \cite{doi:10.1007/s10623-008-9261-z}\cite[Thm. 16.4.7]{preset:HKSalgebra}.'
+    - code_id: quasi_group
+      detail: 'A quasi group-algebra code of index \(\ell=1\) is a group-algebra code.'
+    - code_id: group_orbit
+      detail: 'A \(q\)-ary group-orbit code hosts a transitive group action. If the action is also free, then the code is a group-algebra code.'
+
+
+#    - code_id: q-ary_linear
+#      detail: 'A linear code is a group-algebra code for a group \(G\) if and only if \(G\) is isomorphic to a regular subgroup of the code''s permutation automorphism group \cite{doi:10.1007/s10623-008-9261-z}\cite[Thm. 16.4.7]{preset:HKSalgebra}.'
 #Note that we have an isomorphism of \( \mathbb{F} \) algebras \( \mathbb{F}\mathbb{Z}_n \cong \mathbb{F}[x]/\langle x^n-1\rangle \) by taking  \( x \) to be the generator of the cyclic group. Thus we can see how cyclic codes are an example of an Abelian group-algebra code.'
 
 

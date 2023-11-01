@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quasi_group
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Quasi group-algebra code'
+introduced: '\cite{doi:10.1007/BF01072842}'
+alternative_names:
+  - 'Quasi-\(G\) code'
+
+description: |
+  A \(q\)-ary linear code based on a finite group \( G \) of order \(n/\ell\) for some \textit{index} \(\ell\).
+  The code is a right submodule of the direct sum of \(\ell\) copies of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q G\).
+  A quasi group-algebra code for an Abelian group is called an \textit{Abelian quasi group-algebra code}.
+
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: 'A linear code is a quasi group-algebra code for a group \(G\) and index \(\ell\) if and only if \(G\) is isomorphic to a regular subgroup of the code''s permutation automorphism group which acts freely of index \(\ell\) on the coordinates \cite[Thm. 3.5]{arxiv:1912.09167}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-01'
