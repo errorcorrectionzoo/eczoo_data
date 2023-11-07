@@ -103,7 +103,9 @@ features:
 
   decoders:
     - 'Syndrome measurements are distance-preserving because syndrome extraction circuits can be designed to avoid hook errors \cite{arxiv:quant-ph/0110143}.'
-    - 'Degenerate maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}, which takes time of order \(O(n^2)\) under independent \(X,Z\) noise for the surface code \cite{arxiv:1405.4883}.'
+    - 'Expanding diamonds decoder correcting errors of some maximum fractal dimension \cite{manual:{Andrew Landahl, private communication, 2023}}. The sub-threshold failure probability scales as \((p/p_{\text{th}})^{d^\beta}\), where \(p_{\text{th}}\) is the threshold and \(\beta = \log_3 2\).'
+    - 'MPE decoding is \(NP\)-hard in general \cite{arxiv:2309.10331}.'
+    - 'ML decoding \cite{arxiv:quant-ph/0110143} is \(\#P\)-hard in general \cite{arxiv:2309.10331}, but an approximate version takes time of order \(O(n^2)\) under independent \(X,Z\) noise for the surface code \cite{arxiv:1405.4883}.'
     - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}), which takes time up to polynomial in \(n\) for the surface code.
     For the case of the surface code, minimum-weight decoding reduces to MWPM \cite{arxiv:quant-ph/0110143,doi:10.4153/CJM-1965-045-4,doi:10.1088/0305-4470/15/2/033}.'
     - 'Modified MWPM decoders: pipeline MWPM (accounting for correlations between events) \cite{arXiv:1310.0863,arXiv:2205.09828}, parity blossom MWPM and fusion blossom MWPM \cite{arxiv:2305.08307}, and a modification utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}.'
