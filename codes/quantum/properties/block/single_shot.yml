@@ -38,7 +38,14 @@ description: |
 features:
   threshold:
     - 'Residual errors do not become unwieldy after some system-size-independent number cycles of faulty syndrome measurements, and a perfect decoder would be able to recover the information if the final residual error is correctable.
-    The physical error rate below which the infidelity after perfect decoding decreases superpolynomially with system size is called the \textit{sustainable threshold} \cite{arxiv:2009.11790}.'
+    Consider acting on a state \(\rho\) with a noise channel \(\mathcal N\) with noise rate \(p\), followed by \(t\) rounds of noisy syndrome measurements \(\mathcal R\) with noise rate \(\eta\) and one perfect recovery (which can be substituted with destructive physical-qubit measurements in practice).
+    The failure probability of a single-shot code should decrease exponentially with the distance of the code,
+    \begin{align}
+      fp_{\text{fail}}	=1-F\left(\mathcal{R}[\mathcal{R}_{\eta}\mathcal{N}_{p}]^{t}(\rho),\rho\right)
+	    =t\left(p/p_{\star}\right)^{d}For p<p_{\star}~,
+    \end{align}
+    where \(F\) is a state fidelity, and where \(p_{\star} is called the \textit{sustainable threshold} \cite{arxiv:2009.11790}.
+    For any \(p\) below this threshold, there exists some maximum measurement noise \eta_{\star} that can be tolerated.'
 
 relations:
   parents:
