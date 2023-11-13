@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: triang_color
+physical: qubits
+logical: qubits
+
+name: 'Triangular Color code'
+introduced: '\cite{arxiv:quant-ph/0605138}'
+
+description: |
+
+  A planar color code with the geometry of a triangle, usually defined on a honeycomb or 4-8-8 lattice. Each boundary of the triangle intersects the lattice such that it only touches faces of two colors. The color of the boundary is then the other third color. There are three types of boundaries corresponding to the three colors of the faces.\cite{arXiv:1311.0879}
+
+  There are three types of string operators, one for each color. A string of one color must end in a boundary of that same color. The string-net for the triangular color code has a special geometry such that the X and Z logical qubits have the same geometry in a string-net. \(\{X_\mu, Z_\mu\} = 0\), where \(\mu\) denotes the string-net. Let \(\bar{X} = X_\mu\) and \(\bar{Z} = Z_\mu\), then \(\bar{X}\) and \(\bar{Z}\) have the same geometry.\cite{arXiv:1311.0879} 
+protection: 'Triangular color codes can be defined on the 4-8-8 lattice exist for any odd code distance \(d\). For any \(d\), \(\llbracket\frac{d^2-1}{2}+d, 1, d\rrbracket\).\cite{arXiv:1407.5103}  Triangular color codes can be defined on the honeycomb or 6-6-6 lattice for any odd code distance \(d\). For code distance \(d \geq 5\), the number of data qubits is \(\fraq{(3d-1)^2}{4}\).\cite{doi:10.1088/1367-2630/ab68fd}. For \(d = 3\), the number of data qubits is 7, and this is equivalent to the Steane Code.'
+
+features:
+
+  transversal_gates: 'Color codes are invariant to a transversal Hadamard gate, \(\widehat{W}= W^{\otimes V}\) where \(V\) is the number of qubits (vertices) because \(\widehat{W}X_f\widehat{W} = Z_f\) and \(\widehat{W}Z_f\widehat{W} = X_f\). Triangular color codes have the additional property that \(\widehat{W}\bar{X}\widehat{W} = \bar{Z}\) and \(\widehat{W}\bar{Z}\widehat{W} = \bar{X}\) because of the property mentioned above that \(\bar{X}\) and \(\bar{Z}\) have the same geometry.\cite{arXiv:1311.0879} CNOTs are automatically transversal in triangular color codes because color codes are CSS codes.\cite{arXiv:1311.0879} In general, the definition \(\widehat{P} = P^{\otimes V}\) doesn’t guarantee transversality, because though \(\widehat{P}Z_f\widehat{P}Z_f = Z_f\), \(\widehat{P}X_f\widehat{P} = (-1)^{\frac{t}{2}}X_fZ_f\), where \(t\) is the number of vertices of \(f\). Therefore, \(t\) must be a multiple of 4. This is only true for the triangular color code defined on the 4-8-8 lattice.\cite{arXiv:1311.0879}'
+  
+  fault_tolerance:
+    - 'Clifford gates can be performed fault-tolerantly on a suitable 2D lattice \cite{arxiv:quant-ph/0605138}.'
+    - 'Steane''s ancilla-coupled measurement method \cite{arXiv:1407.5103}'
+
+  code_capacity_threshold: 
+    - \(12.6\%\) threshold for triangular color code with the restriction decoder\cite{arXiv:1911.00355}
+    - \(12.6\%\) threshold for triangular color code with the projection decoder\cite{arXiv:1308.6207, arXiv:1802.08680}
+
+  threshold:
+    - \(\geq 6.25\%\) threshold for 2D color codes with error-free syndrome extraction, and with faulty syndrome extraction.\cite{arXiv:0907.1708}
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: generalized_color
+      detail: 'The generalized color code for \(G=\mathbb{Z}_2\) reduces to the color code.'
+    - code_id: quantum_double_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, color code states on realize \(\mathbb{Z}_2\times\mathbb{Z}_2\) topological order \cite{arxiv:0906.4127}, equivalent to the phase realized by two copies of the surface code \cite{arxiv:1503.02065}.'
+    - code_id: 2dcolor
+  cousins:
+    - code_id: galois_topological
+      detail: 'The 2D color code has been extended to Galois qudits.'
+    - code_id: surface
+      detail: 'The 3D color code is equivalent to multiple decoupled copies of the 2D surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.
+      Conversely, the 2D color code can \hyperref[topic:code-switching]{condense} to form the 2D surface code in nine different ways, i.e., by adding two body hopping terms along one of its three hexagonal directions to the stabilizer group and then taking the center of the resulting nonabelian group \cite{arxiv:2212.00042}.'
+    - code_id: hexagonal
+      detail: 'The 2D color code is defined on a trivalent lattice such as the honeycomb lattice.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: CellaKove
+      date: '2023-07-24'
