@@ -10,9 +10,18 @@ logical: qubits
 name: 'Color code'
 introduced: '\cite{arxiv:quant-ph/0605138}'
 
-description: 'A family of abelian topological \hyperref[code:css]{CSS stabilizer} codes defined on a \(D\)-dimensional lattice which satisfies two properties: The lattice is (1) a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex and (2) is \(D+1\)-colorable. Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{doi:10.7907/059V-MG69}. For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice. The qubits are placed on the vertices and two stabilizer generators are placed on each face \cite{arXiv:1311.0277}.'
+description: |
+  A family of Abelian topological \hyperref[code:css]{CSS stabilizer} codes defined on a \(D\)-dimensional lattice which satisfies two properties: The lattice is (1) a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex and (2) is \(D+1\)-colorable.
 
-protection: 'As with the surface code, the code distance depends on the specific kind of lattice used to define the code. More precisely, the distance depends on the homology of logical string operators \cite{arXiv:1311.0277}.'
+  Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{doi:10.7907/059V-MG69}. For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice. The qubits are placed on the vertices and two stabilizer generators are placed on each face \cite{arXiv:1311.0277}.
+
+  As CSS codes, variants of the 2D color code are constructed out of self-dual codes on cubic planar graphs \cite{doi:10.1016/0095-8956(91)90066-S}.
+
+protection: |
+  As with the surface code, the code distance depends on the specific kind of lattice used to define the code. More precisely, the distance depends on the homology of logical string operators \cite{arXiv:1311.0277}.
+
+  In contrast to the surface code, the color code can suffer from unremovable hook errors due to the specifics of its syndrome extraction circuits. Fault-tolerant decoders thus have to utilize additional flag qubits.
+
 
 features:
   rate: 'For general 2D manifolds, \(kd^2 \leq c(\log k)^2 n\) for some constant \(c\) \cite{arXiv:1301.6588}, meaning that color codes with finite rate can only achieve an asymptotic minimum distance that is logarithmic in \(n\).'
@@ -33,6 +42,7 @@ features:
     - 'MaxSAT-based decoder \cite{arxiv:2303.14237}.'
 #    - 'Flag fault-tolerant protocols for distance-nine 2D color codes \cite{}.'
 
+
   fault_tolerance:
     - 'Clifford gates can be performed fault-tolerantly on a suitable 2D lattice \cite{arxiv:quant-ph/0605138}.'
     - 'Steane''s ancilla-coupled measurement method \cite{arXiv:1407.5103}'
@@ -49,7 +59,6 @@ features:
     - '\(\geq 6.25\%\) threshold for 2D color codes with error-free syndrome extraction, and \(0.1\%\) with faulty syndrome extraction \cite{arXiv:0907.1708}.'
     - '\(0.46\%\) for 3D codes with clustering decoder \cite{arXiv:1708.07131}.'
     - '\(1.9\%\) for 1D string-like logical operators and \(27.6\%\) for 2D sheet-like operators for 3D codes with noise models using optimal decoding and perfect measurements \cite{arXiv:1708.07131}.'
-    - '\(0.31\%\) noise threshold error rate for gauge code using clustering decoder \cite{arXiv:1503.08217}.'
     - '\(0.2\%\) with depolarizing circuit-level noise using two flag-qubits per stabilizer generator and the restriction decoder \cite{arXiv:1911.00355}.'
     - '\(0.143\%\) with depolarizing circuit-level noise using perfect-matching decoder \cite{arXiv:1407.5103}.'
     - '\(>0\%\) threshold with sweep decoder \cite{doi:10.7907/059V-MG69}.'
@@ -69,7 +78,7 @@ relations:
       detail: 'The 2D color code has been extended to Galois qudits.'
     - code_id: surface
       detail: 'The 3D color code is equivalent to multiple decoupled copies of the 2D surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.
-      Conversely, the 2D color code can \hyperref[topic:code-switching]{condense} to form the 2D surface code in nine different ways, i.e., by adding two body hopping terms along one of its three hexagonal directions to the stabilizer group and then taking the center of the resulting nonabelian group \cite{arxiv:2212.00042}.'
+      Conversely, the 2D color code can \hyperref[topic:code-switching]{condense} to form the 2D surface code in nine different ways, i.e., by adding two body hopping terms along one of its three hexagonal directions to the stabilizer group and then taking the center of the resulting non-Abelian group \cite{arxiv:2212.00042}.'
     - code_id: higher_dimensional_surface
       detail: 'The color code on a \(D\)-dimensional closed manifold is equivalent to multiple decoupled copies of the \(D-1\)-dimensional surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.'
     - code_id: quantum_triorthogonal

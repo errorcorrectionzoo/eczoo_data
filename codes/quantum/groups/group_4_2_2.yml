@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: group_4_2_2
+physical: groups
+logical: groups
+
+name: 'Four group-qudit code'
+introduced: '\cite{arXiv:quant-ph/9707021}\cite[Sec. VIII]{arxiv:1902.07714}'
+
+description: |
+  \([[4,2,2]]_{G}\) group quantum code that is an extension of the four-qubit code to group-valued qudits. Ideal codewords are, for \(g_1 ,g_2 \in G\),
+  \begin{align}
+    |\overline{g_{1},g_{2}}\rangle=\frac{1}{\sqrt{|G|}}\sum_{g\in G}|g,gg_{1},gg_{2},gg_{1}g_{2}\rangle~.
+  \end{align}
+
+relations:
+  parents:
+    - code_id: quantum_double
+      detail: 'The four group-qudit code is the smallest quantum double code.'
+    - code_id: covariant
+      detail: 'The four group-qudit code is \(G\)-covariant.'
+    - code_id: small_distance
+  cousins:
+    - code_id: iceberg
+      detail: 'The four group-qudit code can be extended to the \([[2m,2m-2,2]]_{G}\) group-qudit code \cite[Sec. VIII]{arxiv:1902.07714}. The latter reduces to the \([[2m,2m-2,2]]\) error-detecting code for \(G=\mathbb{Z}_2\).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-05'

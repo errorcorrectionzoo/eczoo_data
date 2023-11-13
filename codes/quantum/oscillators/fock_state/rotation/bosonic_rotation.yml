@@ -10,6 +10,7 @@ logical: qudits
 name: 'Bosonic rotation code'
 introduced: '\cite{arXiv:1901.08071}'
 
+
 description: |
   A single-mode Fock-state bosonic code whose codespace is preserved by a phase-space rotation by a multiple of \(2\pi/N\) for some \(N\). The rotation symmetry ensures that encoded states have support only on every \(N^{\textrm{th}}\) Fock state. For example, single-mode Fock-state codes for \(N=2\) encoding a qubit admit basis states that are, respectively, supported on Fock state sets \(\{|0\rangle,|4\rangle,|8\rangle,\cdots\}\) and \(\{|2\rangle,|6\rangle,|10\rangle,\cdots\}\).
 
@@ -25,7 +26,7 @@ protection: 'Losses or gains less than \(N\) are detectable. Dephasing rotations
 features:
 
   general_gates:
-    - 'The logical Pauli-\(Z\) gate can be the discrete rotation operator \(\mathrm{e}^{\mathrm{i} \pi \hat n /N}\), and the logical Pauli-\(X\) gate can be the (note: non-unitary) number-translation operator \(\sum_{n=0}^\infty |n\rangle\bra{n+N}\).'
+    - 'The logical Pauli-\(Z\) gate can be the discrete rotation operator \(\mathrm{e}^{\mathrm{i} \pi \hat n /N}\), and the logical Pauli-\(X\) gate can be the Susskind–Glogower phase operator \(\sum_{n=0}^\infty |n\rangle\bra{n+N}\).'
     - 'For qubit codes, a logical phase gate is \(S = \mathrm{e}^{\pi \mathrm{i} \hat n^2 / 2N^2}\).'
     - 'The \(T = \mathrm{diag}(1,\exp(\mathrm{i}\pi/4))\) gate can be done via gate teleportation and a resource state \(\vert 0_N\rangle + \exp(\mathrm{i}\pi/4) \vert 1_N \rangle\).'
     - 'A controlled-rotation gate between an order \(N\) rotation code and an order \(M\) rotation code is \(\mathrm{CROT}_{NM} = \mathrm{e}^{(2\pi\mathrm{i} / qNM) \hat n \otimes \hat n}\).'

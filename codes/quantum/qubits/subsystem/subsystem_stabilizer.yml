@@ -10,8 +10,10 @@ logical: qubits
 name: 'Subsystem qubit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/0508131}'
 
+alternative_names:
+  - 'Gauge qubit stabilizer code'
+
 description: |
-  Also called a \textit{gauge stabilizer code}.
   A stabilizer code with some of its logical qubits denoted as \textit{gauge} qubits and not used for storage of logical information.
   Note that this doesnt lead to new codes but does lead to new error correction and fault tolerance procedures. Subsystem codes are denoted by \([[n,k,r,d]]\), similar to stabilizer codes, but with an extra parameter \(r\) denoting the number of gauge qubits.
 
@@ -40,15 +42,17 @@ features:
 
 
 notes:
-  - 'When the gauge group \( \mathsf{G} \) is abelian, the above is reduced to the standard stabilizer formalism.'
+  - 'See Ref. \cite{arxiv:1009.2203} for algorithms and lists of possible tilings of particular subsystem codes.'
 
 relations:
   parents:
-    - code_id: qubit_stabilizer
-      detail: 'Subsystem stabilizer codes reduce to stabilizer codes when there are no gauge qubits.'
+    - code_id: subsystem_qubits_into_qubits
     - code_id: qudit_subsystem_stabilizer
       detail: 'Subsystem modular-qudit stabilizer codes reduce to subsystem qubit stabilizer codes for qudit dimension \(q=2\).'
-# Need another root code of subsystem type for qubit and qudit kingdom so that subsystem is separate from subspace.
+  cousins:
+    - code_id: qubit_stabilizer
+      detail: 'Subsystem stabilizer codes reduce to stabilizer codes when there are no gauge qubits.'
+
 
 # Begin Entry Meta Information
 _meta:

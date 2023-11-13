@@ -15,7 +15,7 @@ alternative_names:
   - 'Kitaev toric code'
 
 description: |
-  A family of abelian topological \hyperref[code:css]{CSS stabilizer} codes
+  A family of Abelian topological \hyperref[code:css]{CSS stabilizer} codes
   whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings
   associated to the stars and plaquettes, respectively, of a cellulation of a
   two-dimensional surface (with a qubit located at each edge of the
@@ -52,6 +52,7 @@ description: |
 protection: |
   Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code.
   The original planar code on a square-lattice patch with different boundary conditions on the vertical and horizontal edges is a \([[L^2+(L-1)^2,1,L]]\) CSS code \cite{arXiv:quant-ph/9810055}.
+  Code size \(k = 2^{2g}\) for a torus of genus \(g\), and such higher genus surfaces have been investigated \cite{arxiv:2307.04418}.
 
   Coherent physical errors are expected to become incoherent logical errors under syndrome measurement; see corroborating numerical studies performed via the Majorana mapping \cite{arxiv:1710.02270} as well as analytical bounds \cite{arxiv:1912.04319}.
 
@@ -101,7 +102,10 @@ features:
     Circuits can be optimized to specific architectures \cite{arxiv:2302.02192} using spacetime circuit codes and ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}.'
 
   decoders:
-    - 'Degenerate maximum-likelihood (ML) \cite{arxiv:quant-ph/0110143}, which takes time of order \(O(n^2)\) under independent \(X,Z\) noise for the surface code \cite{arxiv:1405.4883}.'
+    - 'Using data from multiple syndrome measurements prior to decoding allows for correcting syndrome measurement errors. Syndrome measurements are distance-preserving because syndrome extraction circuits can be designed to avoid hook errors \cite{arxiv:quant-ph/0110143}.'
+    - 'Expanding diamonds decoder correcting errors of some maximum fractal dimension \cite{manual:{Andrew Landahl, private communication, 2023}}. The sub-threshold failure probability scales as \((p/p_{\text{th}})^{d^\beta}\), where \(p_{\text{th}}\) is the threshold and \(\beta = \log_3 2\).'
+    - 'MPE decoding is \(NP\)-hard in general \cite{arxiv:2309.10331}.'
+    - 'ML decoding \cite{arxiv:quant-ph/0110143} is \(\#P\)-hard in general \cite{arxiv:2309.10331}, but an approximate version takes time of order \(O(n^2)\) under independent \(X,Z\) noise for the surface code \cite{arxiv:1405.4883}.'
     - 'Minimum weight perfect-matching (MWPM) \cite{arXiv:quant-ph/0110143,arXiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}), which takes time up to polynomial in \(n\) for the surface code.
     For the case of the surface code, minimum-weight decoding reduces to MWPM \cite{arxiv:quant-ph/0110143,doi:10.4153/CJM-1965-045-4,doi:10.1088/0305-4470/15/2/033}.'
     - 'Modified MWPM decoders: pipeline MWPM (accounting for correlations between events) \cite{arXiv:1310.0863,arXiv:2205.09828}, parity blossom MWPM and fusion blossom MWPM \cite{arxiv:2305.08307}, and a modification utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}.'
@@ -114,8 +118,10 @@ features:
     - 'Union-find \cite{arXiv:1709.06218}. A subsequent modification utilizes the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}. Belief union find is a combination of belief-propagation and union-find \cite{arxiv:2203.04948}.
     Strictly local (as opposed to partially local) union find \cite{arxiv:2305.18534} has a worst-case runtime of order \(O(d^3)\) in the distance \(d\).'
     - 'Decoders can be augmented with a pre-decoder \cite{arXiv:2001.11427,arXiv:2208.04660}, which can allow for some processing to be done inside the cryogenic environment of the quantum system \cite{arxiv:2208.08547}.'
-    - 'Sliding-window \cite{arxiv:2209.09219,arxiv:2209.08552} and parallel-window \cite{arxiv:2209.09219} parallelizable decoders can be combined with many inner decoders, such as MWPM or union-find.'
-    - 'Generalized belief propagation (GBP) \cite{arxiv:2212.03214} based on a classical version \cite{manual:{J. S. Yedidia, W. T. Freeman, and Y. Weiss, Generalized belief propagation, in NIPS, Vol. 13 (2000) pp. 689–695.}}. See Ref. \cite{doi:10.1109/MBITS.2023.328584} for a review of BP decodes.g'
+    - 'Sliding-window \cite{arxiv:2209.09219,arxiv:2209.08552} and parallel-window \cite{arxiv:2209.09219} parallelizable decoders, designed to overcome the backlog problem, can be combined with many inner decoders, such as MWPM or union-find.'
+    - 'Generalized belief propagation (GBP) \cite{arxiv:2212.03214} based on a classical version \cite{manual:{J. S. Yedidia, W. T. Freeman, and Y. Weiss, Generalized belief propagation, in NIPS, Vol. 13 (2000) pp. 689–695.}}.
+    See Ref. \cite{doi:10.1109/MBITS.2023.3285848} for a review of BP decodes.'
+    - 'Color-code decoder \cite{arxiv:2306.16476}.'
 
   code_capacity_threshold:
     - 'Independent \(X,Z\) noise: \(p_X = 10.31\%\) under MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}), \(9.9\%\) under BP-OSD decoding \cite{arxiv:2005.07016}, and \(8.9\%\) under GBP decoding \cite{arxiv:2212.03214}.
@@ -124,13 +130,14 @@ features:
     - 'Depolarizing noise: between \(17\%\) and \(18.5\%\) under tensor-network decoding \cite{arxiv:1405.4883}, \(14\%\) under GBP decoding \cite{arxiv:2212.03214}, \(16.5\%\) under recursive MWPM \cite{arxiv:2212.11632}, and between \(15\%\) and \(16\%\) under RG \cite{arXiv:0911.0581}, Markov-chain \cite{arXiv:1302.2669}, or MWPM \cite{arXiv:0905.0531} decoding.
     The threshold under ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arXiv:1202.1852} (see also APS Physics viewpoint \cite{doi:10.1103/Physics.5.50}).'
     - 'Erasure noise: \(50\%\) for square tiling \cite{arXiv:0904.3556}. There is an inverse relationship between coordination number of the syndrome graph, with the threshold corresponding to a percolation transition \cite{arxiv:1810.09621}.'
-    #The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
+    # The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
   threshold:
     - '\(1.8\%\) for circuit-level depolarizing noise under optimal decoder \cite{arxiv:1609.06373}. \(0.57\%\) for depolarizing noise on data and syndrome qubits as well initialization, gate, and measurement errors under MPWM decoding \cite{arxiv:1208.0928}. For this model, a logical qubit with a \(10^{-14}\) logical error rate requires between \(10^3\) to \(10^4\) physical qubits and a target gate fidelity above \(99.9\%\). Later work showed that arbitrarily large computations are possible for a physical error rate of approximately \(10^{-4}\) \cite{arxiv:1206.0800}.'
     - '\(0.35\%\) for circuit-level independent \(X,Z\) noise under optimal decoder \cite{arxiv:1609.06373}.'
     - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arXiv:quant-ph/0401101}.'
     - 'Phenomenological noise model for the 2D toric code: \(2.93(2)\%\) using several rounds of syndrome measurement \cite{arxiv:quant-ph/0207088}.'
-    - '\(0.5-2.9\%\) for various noise models \cite{arxiv:0811.0464} (see also Refs. \cite{arXiv:quant-ph/0207088,arXiv:1311.5003}).'
+    - '\(0.5-2.9\%\) for various noise circuit-level noise models \cite{arxiv:0803.0272,arxiv:0811.0464} (see also Refs. \cite{arXiv:quant-ph/0207088,arXiv:1311.5003}).'
+
 
 
 notes:
@@ -141,10 +148,13 @@ notes:
 
   - |
     Tutorials from error-correction perspective by
-    \href{https://boulderschool.yale.edu/2018/boulder-school-2018-lecture-notes}{J. Haah}
+    \href{https://boulderschool.yale.edu/2023/boulder-school-2023-lecture-notes}{M. Levin
+    and A. Kubica} and \href{https://boulderschool.yale.edu/2018/boulder-school-2018-lecture-notes}{J. Haah}
     and condensed-matter perspective by
     \href{https://boulderschool.yale.edu/2016/boulder-school-2016-lecture-notes}{M. Levin
     and C. Nayak}.
+
+  - 'Review of surface code decoders \cite{arxiv:2307.14989}.'
 
 realizations:
   - |
@@ -173,6 +183,8 @@ relations:
       detail: 'The Majorana mapping can be used to construct efficient algorithms for simulating rounds of error correction for the surface code \cite{arxiv:1710.02270}.'
     - code_id: quantum_double
       detail: 'A quantum-double model with \(G=\mathbb{Z}_2\) is the surface code. Non-stabilizer surface-code states can be prepared by augmenting the surface code with a quantum double model \cite{arxiv:1811.06738}.'
+    - code_id: hamiltonian
+      detail: 'While codewords of the surface code form ground states of the code''s stabilizer Hamiltonian, they can also be ground states of other gapless Hamiltonians \cite{arXiv:1111.5817}.'
 
 
 # Begin Entry Meta Information

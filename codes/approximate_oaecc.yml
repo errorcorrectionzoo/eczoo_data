@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id : approximate_oaecc
+
+name: 'Approximate operator-algebra error-correcting code'
+short_name: 'Approximate operator-algebra QECC'
+introduced: '\cite{arXiv:0907.4207,arXiv:0907.5391}'
+
+description: 'Code encoding quantum and/or classical information that approximately corrects against noise affecting operators forming an algebra.'
+
+protection: |
+  Given some algebra \(\mathcal{A}\), \(\mathcal{A}\) is \textit{\(\epsilon\)-correctable} under noise channel \(\mathcal{N}\) if there exists some quantum channel \(\mathcal{R}\) such that
+  \begin{align}
+    ||(\mathcal{R}\circ\mathcal{N})-P_{\mathcal{A}}||_{\diamond}\leq\epsilon~,
+  \end{align}
+  where \(P_{\mathcal{A}}\) is the projector onto algebra \(A\) and we use the diamond norm \(\diamond\) \cite{arxiv:quant-ph/9806029}.
+
+  Let the minimal error for some algebra \(\mathcal{A}\) under noise channel \(\mathcal{N}\) be
+  \begin{align}
+    \epsilon_{\mathcal{A}}=\min_{\mathcal{R}} ||\mathcal{R}\circ\mathcal{N}-P_{\mathcal{A}}||_{\diamond}~.
+  \end{align}
+  Let \(\delta_{\mathcal{A}}=||\mathcal{N}^C-\mathcal{N}^C\circ P_{\mathcal{A}'}||_{\diamond}\)
+  for commutant \(\mathcal{A}'\) of algebra \(\mathcal{A}\) and complementary channel \(\mathcal{N}^C\) of noise channel \(\mathcal{N}\). Then \cite{arXiv:0907.4207},
+  \begin{align}
+    \delta_{\mathcal{A}}^2/4\leq \epsilon_{\mathcal{A}}\leq 2\delta_{\mathcal{A}}^{1/2}~.
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: oaecc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: M10T
+      date: '2023-06-26'
+    - user_id: M10T
+      date: '2023-06-22'
