@@ -1,0 +1,77 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2d_color
+physical: qubits
+logical: qubits
+
+name: 'Two-dimensional color code'
+short_name: '2D color code'
+introduced: '\cite{arxiv:quant-ph/0605138}'
+
+description: |
+  Two-dimensional version of the color code, defined on a two-dimensional trivalent planar graph with 3-colorable faces.
+  Each face hosts two stabilizer generators, a Pauli-\(X\) and a Pauli-\(Z\) string acting on all the qubits of the face.
+
+  \begin{figure}
+    \includegraphics{colorCodeHoneycombHighlightedChecksAdjColor.svg}
+    \caption{Stabilizer generators and string operators of a 2D color code defined on a honeycomb lattice on a torus.
+    The plaquette operators generate the stabilizer group of the toric code where each face corresponds to an X or Z plaquette operator.  The string operators
+    are pairs of X and Z logical operators that wrap around the torus. There are only four independent string operators, so there are two independent colors for the string operators \cite{arXiv:1311.0277}.}
+    \label{figure:toric-code-operators}
+  \end{figure}
+
+  String operators are defined on the paths along the edges of the qubit.
+  These paths can have branching points. Each path has two string operators, one corresponding to the \(X\) basis and one corresponding to the \(Z\) basis.
+  In correspondence with the coloring of the lattice faces, string operators also come in three colors.
+  String operators commute or anti-commute. They anti-commute when they cross an odd number of times and have a different color and type. String operators correspond to encoded \(X\) or \(Z\) operators when they are closed and not boundaries.
+
+  As CSS codes, variants of the 2D color code are constructed out of self-dual codes on cubic planar graphs \cite{doi:10.1016/0095-8956(91)90066-S}.
+
+
+features:
+  rate: 'For general 2D manifolds, \(kd^2 \leq c(\log k)^2 n\) for some constant \(c\) \cite{arXiv:1301.6588}, meaning that color codes with finite rate can only achieve an asymptotic minimum distance that is logarithmic in \(n\).'
+
+  transversal_gates: 'Transversal CNOT can be implemented via braiding \cite{arXiv:0806.4827}.'
+
+  general_gates:
+    - 'Lattice surgery scheme for 2D layout yields lower resource overhead when compared to analogous surface code scheme \cite{arXiv:2201.07806}.'
+
+
+  fault_tolerance:
+    - 'Clifford gates can be performed fault-tolerantly on a suitable 2D lattice \cite{arxiv:quant-ph/0605138}.'
+
+  threshold:
+    - '\(\geq 6.25\%\) threshold for 2D color codes with error-free syndrome extraction, and \(0.1\%\) with faulty syndrome extraction \cite{arXiv:0907.1708}.'
+    - '\(0.2\%\) with depolarizing circuit-level noise using two flag-qubits per stabilizer generator and the restriction decoder \cite{arXiv:1911.00355}.'
+    - '\(0.143\%\) with depolarizing circuit-level noise using perfect-matching decoder \cite{arXiv:1407.5103}.'
+    - '\(>0\%\) threshold with sweep decoder \cite{doi:10.7907/059V-MG69}.'
+
+
+relations:
+  parents:
+    - code_id: color
+    - code_id: generalized_color
+      detail: 'The generalized color code for \(G=\mathbb{Z}_2\) reduces to the 2D color code.'
+    - code_id: quantum_double_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, states of the color code on a torus geometry on realize \(\mathbb{Z}_2\times\mathbb{Z}_2\) topological order \cite{arxiv:0906.4127}, equivalent to the phase realized by two copies of the surface code \cite{arxiv:1503.02065}.'
+  cousins:
+    - code_id: galois_topological
+      detail: 'The 2D color code has been extended to Galois qudits.'
+    - code_id: surface
+      detail: 'The 2D color code is equivalent to multiple decoupled copies of the 2D surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.
+      Conversely, the 2D color code can \hyperref[topic:code-switching]{condense} to form the 2D surface code in nine different ways, i.e., by adding two body hopping terms along one of its three hexagonal directions to the stabilizer group and then taking the center of the resulting nonabelian group \cite{arxiv:2212.00042}.'
+    - code_id: 3d_color
+      detail: 'Gauge fixing can be used to switch between 2D and 3D color codes, thereby yielding fault-tolerant with constant time overhead using only local quantum operations \cite{arxiv:1412.5079}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-13'
+    - user_id: CellaKove
+      date: '2023-06-20'
