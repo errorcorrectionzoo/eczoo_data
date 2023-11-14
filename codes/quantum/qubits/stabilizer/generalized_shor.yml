@@ -3,22 +3,29 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: quantum_parity
+code_id: generalized_shor
 physical: qubits
 logical: qubits
 
-name: 'Quantum parity code (QPC)'
-short_name: 'QPC'
-introduced: '\cite{doi:10.1103/PhysRevA.52.R2493,arxiv:quant-ph/0006088,arxiv:quant-ph/0501184}'
+name: 'Generalized Shor code'
+introduced: '\cite{arxiv:quant-ph/0506023,arxiv:quant-ph/0610088}'
 
 description: |
-A \([[m_1 m_2,1,\min(m_1,m_2)]]\) CSS code family obtained from concatenating an \(m_1\)-qubit phase-flip repetition code with an \(m_2\)-qubit bit-flip repetition code. Logical codewords are
+  Code constructed by concatenating two classical codes in a way the generalizes the Shor and quantum parity codes.
+
+  This \([[n_1n_2,k_1k_2,\min(d_1,d_2)]]\) code can be defined \cite{arxiv:0903.0566} via the CSS construction applied to two binary linear codes, \(C_X\) and \(C_Z\), satisfying \(C_X^{\perp}\subset C_Z\).
+  These codes are in turn constructed from two more binary linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\), with parity-check matrices \(H_{1,2}\) and generator matrices \(G_{1,2}\), respectively.
+  The parity-check matrices of \(C_X\) and \(C_Z\) are then
   \begin{align}
   \begin{split}
-  |\overline{0}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}+|1\rangle^{\otimes m_1}\right)^{\otimes m_2}\\
-  |\overline{1}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}-|1\rangle^{\otimes m_1}\right)^{\otimes m_2}~.
+  H_X &= H_1 \otimes I_{n_2}\\
+  H_Z &= G_1 \otimes H_2~.
   \end{split}
   \end{align}
+
+  Based on the above construction, the Hilbert space on \(n_1n_2\) qubits can be decomposed into a multiple direct sums of multiple tensor products of Hilbert spaces of lower dimensions, as outlined in \cite{arXiv:quant-ph/0506023}.
+
+
 
 protection: 'Has distance \(d=\min(m_1,m_2)\).'
 
@@ -35,15 +42,7 @@ notes:
 
 relations:
   parents:
-    - code_id: generalized_shor
-    - code_id: translationally_invariant_stabilizer
-    - code_id: quantum_concatenated
-      detail: 'A QPC is a concatenation of a phase-flip repetition code with a bit-flip repetition code.'
-  cousins:
-    - code_id: bacon_shor
-      detail: 'Bacon-Shor codes reduce to QPCs for particular gauge configurations.'
-    - code_id: majorana_stab
-      detail: 'QPCs for \(m_1=m_2\) can be conveniantly expressed in terms of mutually commuting Majorana operators \cite{arxiv:quant-ph/0003137}.'
+    - code_id: qubit_css
 
 
 # Begin Entry Meta Information
@@ -52,7 +51,3 @@ _meta:
   changelog:
     - user_id: VictorVAlbert
       date: '2023-11-14'
-    - user_id: VictorVAlbert
-      date: '2021-12-31'
-    - user_id: XinyuanZheng
-      date: '2021-12-20'
