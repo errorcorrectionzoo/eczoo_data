@@ -126,8 +126,8 @@ notes:
 
 relations:
   parents:
-    - code_id: qubit_stabilizer
-      detail: 'Stabilizer generators can be expressed as either only \(X\)-type or only \(Z\)-type. However, any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[4n,2k,2d]]\) self-orthogonal CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arXiv:1004.3791}.'
+    - code_id: cpc
+      detail: 'CSS codes are a subset of CPC codes \cite{arXiv:1611.08012}, with the latter not requiring the two classical codes to be related.'
     - code_id: movassagh_ouyang
       detail: 'Movassagh-Ouyang codes stem from a prescription that converts an \textit{arbitrary} classical code into a quantum code.'
     - code_id: qudit_css
@@ -135,8 +135,10 @@ relations:
     - code_id: galois_css
       detail: 'Galois-qudit CSS codes for \(q=2\) are (qubit) CSS codes.'
   cousins:
+    - code_id: qubit_stabilizer
+      detail: 'Stabilizer generators can be expressed as either only \(X\)-type or only \(Z\)-type. However, any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[4n,2k,2d]]\) self-orthogonal CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arXiv:1004.3791}.'
     - code_id: binary_linear
-      detail: 'Construction uses two related binary linear codes \(C_X\) and \(C_Z\).'
+      detail: 'The CSS construction uses two related binary linear codes \(C_X\) and \(C_Z\).'
     - code_id: dual
       detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{self-orthogonal} since \(C^{\perp} \subseteq C\). The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'
     - code_id: alternant
