@@ -16,6 +16,9 @@ alternative_names:
 description: |
   A variant of the Kitaev surface code on a 3D lattice. The closely related \textit{solid code} \cite{arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
 
+protection: |
+  The planar 3D surface code family on a cubic lattice of length \(L\) has parameters \([[2L(L-1)^2+L^3,1,d_X=L^2,d_Z=L]]\), while the 3D toric code has parameters \([[3L^3,3,d_X=L^2,d_Z=L]]\).
+
 #  The \textit{Kirigami code} \cite{} consists of three copies of the 3D surface code.
 
 #protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
@@ -33,6 +36,9 @@ relations:
   parents:
     - code_id: higher_dimensional_surface
     - code_id: quantum_double_abelian
+  cousins:
+    - code_id: hypergraph_product
+      detail: 'The 3D surface code is a hypergraph product of three repetition codes \cite[Exam. A.1]{arxiv:2311.01328}.'
 
 
 # Begin Entry Meta Information
