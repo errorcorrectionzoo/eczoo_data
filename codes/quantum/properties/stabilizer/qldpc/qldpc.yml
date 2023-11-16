@@ -9,8 +9,10 @@ name: 'Quantum low-density parity-check (QLDPC) code'
 short_name: 'QLDPC'
 introduced: '\cite{arXiv:quant-ph/0304161}'
 
+alternative_names:
+  - 'Sparse quantum code'
+
 description: |
-  Also called a \textit{sparse quantum code}.
   Member of a family of \([[n,k,d]]\) modular-qudit or Galois-qudit stabilizer codes for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\).
   A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\).
   As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
@@ -91,7 +93,7 @@ notes:
 relations:
   parents:
     - code_id: stabilizer
-    - code_id: block_quantum
+    - code_id: qlwc
   cousins:
     - code_id: ldpc
     - code_id: topological
