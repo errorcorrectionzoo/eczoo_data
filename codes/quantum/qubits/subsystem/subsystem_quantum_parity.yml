@@ -7,10 +7,11 @@ code_id: subsystem_quantum_parity
 physical: qubits
 logical: qubits
 
-name: 'Subsystem generalized Shor code'
+name: 'Bacon-Casaccino subsystem code'
 introduced: '\cite{arXiv:quant-ph/0610088}'
 
 alternative_names:
+  - 'Subsystem generalized Shor code'
   - 'Subsystem hypergraph product (SHP) code'
 # 2002.06257
 
@@ -26,6 +27,11 @@ description: |
   \end{align}
   where \(H_{1,2}\) are the parity-check matrices of two binary linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\)
   \cite{arxiv:2002.06257}.
+
+features:
+  decoders:
+    - 'Efficient decoder \cite{doi:10.1109/ISIT.2009.5205650}.'
+
 
 # Following the construction outlined in \cite{arXiv:quant-ph/0506023}, this \([[n_1n_2,k_1k_2,\min(d_1,d_2)]]\) code is constructed as follows from two classical linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\).
 # Let \(G_1\) and \(G_2\) (\(H_1\) and \(H_2\)) be the generator (parity-check) matrices for \(C_1\) and \(C_2\), respectively.
@@ -54,14 +60,15 @@ description: |
 relations:
   parents:
     - code_id: subsystem_css
+      detail: 'Bacon-Casaccino subsystem codes are CSS subsystem codes \cite{arxiv:quant-ph/0703213}.'
   cousins:
     - code_id: hypergraph_product
-      detail: 'The subsystem generalized Shor code and hypergraph-product code constructions yield the same dimension and minimum distance, but the former does not yield QLDPC codes; see \cite[pg. 18]{arxiv:0903.0566}.
+      detail: 'The Bacon-Casaccino subsystem and hypergraph-product code constructions yield the same dimension and minimum distance, but the former does not yield QLDPC codes; see \cite[pg. 18]{arxiv:0903.0566}.
       Two generalized Shor codes can be gauge-fixed to yield a hypergraph product code \cite[Sec. III]{arxiv:2002.06257}.'
     - code_id: generalized_shor
-      detail: 'In a \([[n_1n_2, k_1k_2, min(d_1, d_2)]]\) generalized Shor code, error correction is achieved by measuring \((n_1−k_1)n_2+(n_2−k_2)\) stabilizer generators \cite{arXiv:quant-ph/0508131}. The subsystem generalized Shor code achieves the same degree of correctability, but requires only \((n_1−k_1)k_2+k_1(n_2−k_2)\) stabilizer measurements.'
+      detail: 'In a \([[n_1n_2, k_1k_2, min(d_1, d_2)]]\) generalized Shor code, error correction is achieved by measuring \((n_1−k_1)n_2+(n_2−k_2)\) stabilizer generators \cite{arXiv:quant-ph/0508131}. The Bacon-Casaccino subsystem code achieves the same degree of correctability, but requires only \((n_1−k_1)k_2+k_1(n_2−k_2)\) stabilizer measurements.'
     - code_id: bravyi_bacon_shor
-      detail: 'Subsystem generalized Shor and BBS codes have been numerically compared \cite{arxiv:2002.06257}.'
+      detail: 'Bacon-Casaccino subsystem and BBS codes have been numerically compared \cite{arxiv:2002.06257}.'
 
 
 # Begin Entry Meta Information
