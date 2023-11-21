@@ -13,7 +13,7 @@ introduced: '\cite{arxiv:2310.17652}'
 description: |
   Multi-qubit code designed to realize gates from the binary dihedral group transversally.
   Can also be interpreted as a single-spin code.
-  The codespace projection is a projection onto an irrep of the \textit{binary dihedral group} \( \mathsf{BD}_{2N} = \{\omega I, X, P\} \) of order \(8N\), where \( \omega \) is a \( 2N \) root of unity, and \( P = \text{diag} ( 1, \omega^2) \).
+  The codespace projection is a projection onto an irrep of the \textit{binary dihedral group} \( \mathsf{BD}_{2N} = \{\omega I, X, P\} \) of order \(8N\), where \( \omega \) is a \( 2N \)th root of unity, and \( P = \text{diag} ( 1, \omega^2) \).
 
   The construction includes three families.
   The first family has parameters \(((2m+3,2,3))\) for \(m\) not a power of two, realizing binary dihedral transversal gates that are not possible to realize in any qubit stabilizer code \cite[Prop. 1]{arxiv:2310.17652}.
@@ -21,7 +21,7 @@ description: |
   The third family consists of \(((n,2,d))\) codes with \(n = \frac{1}{4}(3d^2+6d-7+2(d\text{ mod }8))\), realizing \(S\) and \(T\) gates transversally.
 
 features:
-  transversal_gates: 'Binary dihedral group gates can be realized transversally, which include subsgroups of any level of the Clifford hierarchy.'
+  transversal_gates: 'Binary dihedral group gates can be realized transversally, which include subsgroups of any level of the Clifford hierarchy and subgroups which cannot be realized by any qubit stabilizer code.'
 
 
 relations:
@@ -38,6 +38,8 @@ relations:
       detail: 'The \(((2^{r-1}+3,2,3))\) family of binary dihedral permutation-invariant codes realizes the same transversal gates as the \([[2^r-1, 1, 3]]\) quantum Reed-Muller codes, but require fewer qubits in almost all cases.'
     - code_id: quantum_triorthogonal
       detail: 'The \(((27,2,5))\) binary dihedral permutation-invariant code realizes the \(T\) gate transversally, but requires fewer qubits than the \([[49,1,5]]\) triorthogonal code.'
+    - code_id: stab_15_1_3
+      detail: 'The \(((11,2,3))\) binary dihedral permutation-invariant code realizes the \(T\) gate transversally, but requires fewer qubits than the \([[15,1,3]]\) quantum Reed-Muller code.'
 
 
 # Begin Entry Meta Information
