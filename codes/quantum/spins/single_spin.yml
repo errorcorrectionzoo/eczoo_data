@@ -14,6 +14,7 @@ description: |
 
 protection: |
   Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not. The former include single-spin errors akin to qubit Pauli noise. The latter include collective rotations or decays.
+  A particular error basis of interest consists of the spherical tensors \cite{arixv:2304.08611}.
 
 features:
   transversal_gates: 'When the physical Hilbert space is thought of a collective spin, logical gates for spin codes have the form \(U^{\otimes N}\), where \(U\) is a local rotation on the physical system.'
@@ -23,7 +24,8 @@ relations:
   parents:
     - code_id: spins_into_spins
     - code_id: permutation_invariant
-      detail: 'Single-spin codes are subspaces of a single large spin, which can be either standalone or correspond to the permutation-invariant subspace of a set of spins.'
+      detail: 'Single-spin codes are subspaces of a single large spin, which can be either standalone or correspond to the permutation-invariant subspace of a set of spins.
+      A single-spin code correcting spherical tensors can be mapped into a permutation-invariant code with an analogous distance \cite[Thm. 1]{arxiv:2310.17652}.'
     - code_id: single_subsystem
     - code_id: qecc_finite
 
