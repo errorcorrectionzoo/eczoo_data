@@ -12,18 +12,16 @@ name: 'Kerdock code'
 introduced: '\cite{doi:10.1016/S0019-9958(72)90376-2}'
 
 description: |
-  Binary nonlinear \((2^m, 2^{2m}, 2^{m-1} - 2^{frac{m}{2}-1})\) code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\), where \(R(1,m)\) is the corresponding first order Reed Muller code.
+  Binary nonlinear \((2^m, 2^{2m}, 2^{m-1} - 2^{(m-2)/2})\) code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\), where \(R(1,m)\) is the corresponding first order Reed Muller code.
   This is twice the size of the largest possible linear code with the same length and distance.
   The relative minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large.
 
-  Let the matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\), i.e., a set of symmetric binary matrices with zero diagonal entries with the property that difference of distinct matrices in the set have full rank.
-  Boolean functions are of the form \(Q(X) + l(X) + b\) where \(Q(X) is \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), \(l(X)\) is linear in \(m\) variables and \(b\) is in
-  \(GF(2)\).
-  Codewords are  formed as evaluations of these functions over \(GF(2)^{m}\). The variable \(X\) represents vectors constituting
-  \(GF(2)^{m}\).
+  Let the matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\), i.e., a set of symmetric binary matrices with zero diagonal entries with the property that differences of distinct matrices in the set have full rank.
+  Define Boolean functions of the form \(Q(X) + l(X) + b\), where \(Q(X) = \sum_{1 \leq i < j \leq m} a_{ij}X_{i}X_{j}\), the function \(l(X)\) is linear in \(m\) variables, and \(b\) is a bit.
+  Codewords are formed as evaluations of these functions over \(GF(2)^{m}\) in the variable \(X \in GF(2)^{m}\).
 
 features:
-  rate: 'The transmission rate is \(\frac{2m}{2^m}\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
+  rate: 'The transmission rate is \(2m/2^m\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
 
   decoders:
     - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the binary first-order Reed-Muller code to Kerdock code \cite{doi:10.1109/18.312154}.'
@@ -33,6 +31,9 @@ features:
 realizations:
   - 'Digital fingerprinting: \(t\)-collision secure schemes can be designed to detect a pirated copy once \(t\) users have colluded \cite{doi:10.1109/TIT.2004.838106}.'
 
+notes:
+  - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Kerdock Codes.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CKerdock.html}}.'
+
 
 relations:
   parents:
@@ -41,14 +42,14 @@ relations:
     - code_id: quaternary_over_z4
       detail: 'Kerdock codes can be seen, via the Gray map, as extended linear cyclic codes over \(\mathbb{Z}_4\), where the appended bit is a zero sum check \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
     - code_id: reed_muller
-      detail: 'Kerdock code is a subcode of second order RM Code \cite[pg. 457]{preset:MacSlo}.
-      It consists of a number of cosets of \(RM(2,m)\) created by quotienting with \(RM(1,m)\).'
+      detail: 'Kerdock code is a subcode of a second-order RM Code \cite[pg. 457]{preset:MacSlo}.
+      It consists of a number of cosets of RM\((2,m)\) created by quotienting with RM\((1,m)\).'
     - code_id: preparata
-      detail: 'Preparata codes are dual to Kerdock codes in the sense of McWilliams weight distribution. These well-known codes are in fact equivalent to a pair of mutually dual linear codes over \(\mathbb{Z}_4\).'
+      detail: 'Preparata codes are dual to Kerdock codes in the sense of the MacWilliams weight distribution \cite{doi:10.1109/TIT.1983.1056676}. However, the two codes are images of a pair of mutually dual linear codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{doi:10.1201/9781315147901}.'
     - code_id: hamming
       detail: 'Kerdock codes can be obtained by Hensel-lifting Hamming codes to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}.'
     - code_id: qubit_stabilizer
-      detail: 'Kerdock codes can be used to form a subset of stabilizer states, and the corresponding Clifford-group automorphisms of this set form a particular group \cite{doi:10.1112/S0024611597000403} that is also a unitary two-design \cite{arxiv:1904.07842}.'
+      detail: 'Kerdock codes can be used to form a subset of stabilizer states, and the corresponding Clifford-group automorphisms of this set form a particular group \cite{doi:10.1112/S0024611597000403} that is a unitary two-design \cite{arxiv:1904.07842}.'
     - code_id: univ_opt_q-ary
       detail: 'Kerdock codes are asymptotically universally optimal \cite[Exam. 12.3.25]{doi:10.1201/9781315147901}.'
     - code_id: 24cell

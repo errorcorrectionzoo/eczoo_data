@@ -13,29 +13,30 @@ short_name: 'QRM'
 introduced: '\cite{arXiv:quant-ph/0502001}'
 
 description: |
-  True \(q\)-Galois-qudit stabilizer code constructed from generalized Reed-Solomon (GRS) codes via either the Hermitian construction or the Galois-qudit CSS construction.
+  True \(q\)-Galois-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes via either the Hermitian construction or the Galois-qudit CSS construction.
 
   The CSS construction yields a
-  \([[q^m,k(v_2)-k(v_1),min{d(v_1^{\perp}),d(v_2)}]]_q\) code, constructed from the generalized Reed Muller Codes
+  \([[q^m,k(v_2)-k(v_1),\min\{d(v_1^{\perp}),d(v_2)\}]]_q\) code, constructed from the generalized Reed Muller Codes
   RM\(_q(v_1,m)\) and RM\(_q(v_2,m)\), with \(0\leq v_1 \leq v_2 \leq q(m-1)-1\).
   The parameters are \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and
   \(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq q-1\).
-  Here \(0\leq v_1,v_2 leq m(q-1)-1\), \(q\) is prime, and \(m\) is a positive integer.
+  Here \(0\leq v_1,v_2 \leq m(q-1)-1\), \(q\) is prime, and \(m\) is a positive integer.
 
-  Using the code GRM\(_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\), the Hermitian construction yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp}]]_q\) quantum code where
+  Using the code GRM\(_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\), the Hermitian construction yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp})]]_q\) quantum code where
   \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).
 
-  For a CSS code constructed from classical codes \(C_1\) and \(C_2\) the punctured code is defined as the classical code
+  For a CSS code constructed from classical codes \(C_1\) and \(C_2\), the punctured code is defined as the classical code
   \(P(C) = \{(a_ib_i)_{i=1}^{n}|a \in C_1, b \in C_2^{\perp}\}^{\perp}\). Quantum RM codes can be punctured to any length \(r\), provided
   \(P(C) = \mathcal{R}_q(v_2-v_1,m)\) has a codeword of this weight.
-#   A linear code \([n,k]_{q^{2}}\) contained in its Hermitian dual implies the existence of \([[n,n-2k,d]]_q\) quantum code where \(d = min(wt(C^{\perp_{h}}\C))\).
+#   A linear code \([n,k]_{q^{2}}\) contained in its Hermitian dual implies the existence of \([[n,n-2k,d]]_q\) quantum code where \(d = \min(wt(C^{\perp_{h}}\C))\).
 
 protection: |
-  QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\). We define a \(\mathcal{M}_{d}^{m}\) distillation code as any \(n\) Galois-qudit stabilizer code \(C\) having the following properties: (a) All \(M \in \mathcal{M}_{d}^{m}\) are transversal so that \(M^{\otimes n}C(M^{\otimes n})^{\dag} = M_{L}^{\dag}CM_{L}\), (b) the code has distance \(D \geq 2\), and (c) the code has logical pauli operators \(X_{L} = X[\mathbf{1}]\) and \(Z_{L} = Z[(d-1)\mathbf{1}]\). \(\mathbf{1}\) is a shorthabd for the vector \((1,1, \hdots, 1)\).
+  QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\). We define a \(\mathcal{M}_{d}^{m}\) distillation code as any \(n\) Galois-qudit stabilizer code \(C\) having the following properties: (a) All \(M \in \mathcal{M}_{d}^{m}\) are transversal so that \(M^{\otimes n}C(M^{\otimes n})^{\dagger} = M_{L}^{\dagger}CM_{L}\), (b) the code has distance \(D \geq 2\), and (c) the code has logical pauli operators \(X_{L} = X[\mathbf{1}]\) and \(Z_{L} = Z[(d-1)\mathbf{1}]\). Here, \(\mathbf{1}\) is a shorthand for the vector \((1,1, \dots, 1)\).
+
+# rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
+
 
 features:
-  rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
-
   transversal_gates: 'QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\).'
 
 
