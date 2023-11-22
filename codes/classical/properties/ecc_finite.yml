@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ecc_finite
+
+name: 'Finite-dimensional error-correcting code (ECC)'
+short_name: 'Finite ECC'
+introduced: '\cite{doi:10.1002/j.1538-7305.1948.tb01338.x}'
+
+description: |
+  A \textit{code} is a subset of a set or \textit{alphabet}, with each element called a \textit{codeword}. An \textit{error-correcting code} consists of \(K\) codewords over an alphabet with \(N\) elements such that it is possible to recover the codewords from errors \(E\) from some error set \(\mathcal{E}\).
+
+protection: 'A code corrects errors associated with a noise channel if it is possible to recover any codeword after its coordinates have been changed after going through the channel. More technically, an error-correcting code \((u,\mathcal{E})\) is an \textit{encoder} function \(u:[1\cdots K]\to[1\cdots N]\) with a set of correctable errors \(E:[1\cdots N]\to [1\cdots M]\) with the following property: there exists a \textit{decoder} function \(d:[1\cdots M]\to [1\cdots K]\) such that for all \(E\in\cal{E}\) and states \(x\in[1\cdots K]\), \(d(E(e(x)))=x\) \cite{preset:GottesmanBook}.'
+
+features:
+  decoders:
+    - 'Capacity-achieving Guessing Random Additive Noise Decoding (GRAND) \cite{arxiv:1802.07010} (see also \cite{doi:10.1109/ISIT.2018.8437648}).'
+#Consider a transmitted binary code-word $X_n \in C$ drawn from an arbitrary rate R code-book C, i.e. a set of $2^{nR} = 2^K$ strings in $\{0, 1\}^n$, where (n, K) is a core pair of parameters of a codebook. Assume independent post-hard-detection channel noise, $N^n$, which also takes values from ${0, 1}^n$, additively alters $X^n$ between transmission and reception. The resulting sequence is $Y^n = X^n \bigoplus N^n$, where $\bigoplus$ represents addition modulo 2.
+#From $Y^n$ GRAND attempts to determine $X^n$ indirectly by identifying $N^n$ through sequentially taking putative noise sequences, $z^n$, which is sometimes refered to as patterns, subtracting them from the received signal and querying if what remains, $Y^n \bigoplus z^n$, is in the code-book C. If transmitted code-words are all equally likely and $z^n$ are queried in order from most likely to least likely based on the true channel statistics, the first instance where a code-book element is found is an optimally accurate maximum likelihood decoding in the hard detection setting.
+
+notes:
+  - 'The modern theory of error-correcting codes is rooted in the foundational work of C. Shannon \cite{doi:10.1002/j.1538-7305.1948.tb01338.x}, but error-correcting codes have been used prior to that work \cite{doi:10.1007/bf03025254}.'
+  - 'Boolean networks, designed to model gene regulatory networks, generically develop error-correcting codes when they are evolved to perform computations \cite{arxiv:2303.14448}.'
+
+relations:
+  parents:
+    - code_id: ecc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-03-22'
+    - user_id: VictorVAlbert
+      date: '2021-11-24'

@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: array_ldpc
+physical: bits
+logical: bits
+
+name: 'Array-based LDPC (AB-LDPC) code'
+short_name: 'AB-LDPC'
+introduced: '\cite{manual:{Fan, John L. "Array codes as low-density parity-check codes." Proc. 2nd Int. Symp. on Turbo Codes & Related Topics, Brest, France, Sept. 2000.},doi:10.1007/978-1-4615-1525-8_7}'
+
+description: |
+  QC-LDPC code constructed deterministically from a disk array code known as a B-code.
+  Its parity-check matrix admits a compact representation \cite{doi:10.1109/ISIT.2002.1023554} and is related to RS codes.
+
+
+realizations:
+  - 'Certain AB-LDPC codes have been proposed to be used for DSL transmission \cite{doi:10.1109/ICC.2002.997149}.'
+
+
+relations:
+  parents:
+    - code_id: qc_ldpc
+    - code_id: algebraic_ldpc
+  cousins:
+    - code_id: b_array
+      detail: 'AB-LDPC codes are constructed from certain classes of B-codes. B-codes can be viewed as binary codes by mapping their ring elements to permutation matrices (cf. \hyperref[topic:lifting]{lifting}). The resulting codes turn out to be LDPC \cite{doi:10.1007/978-1-4615-1525-8_7}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

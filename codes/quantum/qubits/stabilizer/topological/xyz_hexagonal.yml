@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xyz_hexagonal
+physical: qubits
+logical: qubits
+
+name: 'XYZ\(^2\) hexagonal stabilizer code'
+introduced: '\cite{arxiv:2109.13308,arXiv:2112.06036}'
+
+description: 'An instance of the matching code based on the Kitaev honeycomb model. It is described on a hexagonal lattice with \(XYZXYZ\) stabilizers on each hexagonal plaquette. Each vertical pair of qubits has an \(XX\), \(YY\), or \(ZZ\) link stabilizer depending on the orientation of the plaquette stabilizers.'
+
+protection: 'As a stabilizer code with boundaries, protects a single qubit with parameters \([[2 d^2, 1, d]]\).'
+
+features:
+  decoders:
+    - 'Maximum-likelihood decoding using the EWD decoder \cite{arxiv:2112.01977}.'
+  code_capacity_threshold:
+    - '\(50\%\) for pure \(Z\), \(Y\), or \(Z\) noise under maximum-likelihood decoding.'
+    - 'Threshold matches that of the \(XZZX\) code for various bias levels of \(X\), \(Y\), or \(Z\) biased noise  under maximum-likelihood decoding.'
+    - '\(\sim 18\%\) for depolarizing noise under maximum-likelihood decoding.'
+
+notes:
+  - 'Isolated \(X\), \(Y\), and \(Z\) errors lead to unidirectional pairs of plaquette defects along the three directions of the triangular lattice.'
+
+relations:
+  parents:
+    - code_id: matching
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: BasudhaSrivastava
+      date: '2022-03-16'
+    - user_id: VictorVAlbert
+      date: '2022-03-16'

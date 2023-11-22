@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: delsarte_optimal
+
+name: 'Sharp configuration'
+introduced: '\cite{doi:10.1007/BF00053379,preset:LevBounds,arxiv:math/0607446}'
+
+description: |
+  Also called a \textit{Delsarte code}.
+  A code \(C\) that attains a universal bound expressed in terms of the minimal distance, the number of distances between codewords, and the strength of the design formed by the codewords.
+  For codes on the sphere or on the real, complex, quaternionic, or octonionic projective space,
+  \(C\) is a design of strength \(M\) and admits \(m\) different distances between its points such that \(M \geq 2m - 1 - \delta\), where \(\delta\) is one if there are two antipodal points in \(C\) and zero otherwise \cite{arxiv:math/0607446}.
+
+  Sharp configurations attain the the Levenshtein bound \cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},doi:10.1007/BF00053379,preset:LevBounds}.
+  However, not all codes that attain the Levenshtein bound are sharp configurations.
+  See \cite[Table 9.2]{doi:10.1007/BF00053379} for Levenshtein-bound achieving codes on various projective spaces.
+
+#a compact connected two-point homogeneous space
+
+relations:
+  parents:
+    - code_id: univ_opt
+      detail: 'All sharp configurations are universally optimal \cite{arxiv:math/0607446,arxiv:1212.1913}, but not all universally optimal codes are sharp configurations.'
+  cousins:
+    - code_id: 24cell
+      detail: 'The 12 sets of antipodal pairs of the 24-cell code form a sharp configuration in the projective space \(\mathbb{R}P^3\) \cite{arxiv:math/0607446}.'
+    - code_id: esix_shell
+      detail: 'The 36 sets of antipodal pairs of the smallest \(E_6\) lattice shell form a sharp configuration in the projective space \(\mathbb{R}P^5\) \cite{arxiv:math/0607446}.'
+    - code_id: eseven_shell
+      detail: 'The 63 sets of antipodal pairs of the smallest \(E_7\) lattice shell form a sharp configuration in the projective space \(\mathbb{R}P^6\) \cite{arxiv:math/0607446}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-05'
+    - user_id: AlexanderBarg
+      date: '2023-03-05'
+    - user_id: VictorVAlbert
+      date: '2023-02-24'

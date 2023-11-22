@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_parity_check
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary parity-check code'
+
+description: 'Also known as a \textit{sum-zero} or \textit{zero-sum} code. An \([n,n-1,2]_q\) linear \(q\)-ary code whose codewords consist of the message string appended with a \textit{parity-check} or \textit{zero-sum check digit} such that the sum over all coordinates of each codeword is zero.'
+
+relations:
+  parents:
+    - code_id: reed_solomon
+      detail: 'RS codes for \(k=n-1\) are parity-check codes \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Extended Reed–Solomon Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CReedSolomon-extended.html}}.'
+    - code_id: q-ary_cyclic
+      detail: 'Since permutations coordinate sums, the cyclic permutation of an SPC codeword is another codeword. The generator polynomial of the code is \(x-1\).'
+    - code_id: mds
+  cousins:
+    - code_id: q-ary_ldgm
+      detail: 'Concatenated \(q\)-ary parity-check codes are LDGM \cite{doi:10.1109/20.917609}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'

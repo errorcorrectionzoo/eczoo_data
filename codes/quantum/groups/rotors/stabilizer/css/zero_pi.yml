@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: zero_pi
+physical: groups
+logical: qudits
+
+name: 'Zero-pi qubit code'
+introduced: '\cite{arxiv:1302.4122,arxiv:1402.7310,arxiv:2303.13723}'
+
+description: |
+  A \([[2,(0,2),(2,1)]]_{\mathbb{Z}}\) homological rotor code on the smallest tiling of the projective plane \(\mathbb{R}P^2\).
+  The ideal code can be obtained from a four-rotor Josephson-junction \cite{doi:10.1093/acprof:oso/9780199681181.003.0003} system after a choice of grounding \cite{arxiv:2303.13723}.
+
+  Logical codewords can be expressed in the basis of angular momentum states as
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle&=\sum_{\ell\in\mathbb{Z}}\left|2\ell,-2\ell\right\rangle \\|\overline{1}\rangle&=\sum_{\ell\in\mathbb{Z}}\left|2\ell+1,-2\ell-1\right\rangle~.
+  \end{split}
+  \end{align}
+  An alternative codeword basis in terms of angular position states is
+  \begin{align}
+  \begin{split}
+    |\overline{+}\rangle&=\intop_{U(1)}d\phi\left|\phi,\phi\right\rangle \\|\overline{-}\rangle&=\intop_{U(1)}d\phi\left|\phi,\phi+\pi\right\rangle~.
+  \end{split}
+  \end{align}
+
+
+protection: |
+  Protection in the context of superconducting circuits investigated in Refs. \cite{arxiv:1708.02886}.
+
+features:
+  general_gates:
+    - 'One- and two-qubit phase gates utilizing ancillary osillators in GKP states \cite{arXiv:cond-mat/0609441,arxiv:1302.4122}.'
+  fault_tolerance:
+    - 'One- and two-qubit phase gate errors can be suppressed \cite{arxiv:1302.4122}.'
+
+
+realizations:
+  - 'A related superconducting circuit has been realized by the Houck group \cite{arxiv:1910.07542}.'
+
+notes:
+  - 'The zero-pi qubit is based on earlier blueprints for protected subspaces using superconducting circuits \cite{arXiv:cond-mat/0202115,arXiv:cond-mat/0205186}.'
+
+relations:
+  parents:
+    - code_id: homological_rotor
+    - code_id: small_distance
+  cousins:
+    - code_id: gkp
+      detail: 'Zero-pi code phase gates utilize ancillary osillators in square-lattice GKP states \cite{arXiv:cond-mat/0609441,arxiv:1302.4122}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-12'

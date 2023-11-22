@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pentacode
+physical: rings
+logical: rings
+
+name: 'Pentacode'
+introduced: '\cite{doi:10.1007/bf01388558}'
+
+description: |
+  Nonlinear code over \(\mathbb{Z}_4\) whose codewords are all cyclic permutations and negations of the strings \(01112\), \(03110\), \(21310\), and \(21132\).
+
+
+relations:
+  parents:
+    - code_id: rings_into_rings
+  cousins:
+    - code_id: best
+      detail: 'Codewords of the Best code can be obtained by applying the Gray map to the pentacode \cite[Sec. 2]{doi:10.1007/BF01388558}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-22'

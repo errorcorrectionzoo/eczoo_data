@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: perfect
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Perfect code'
+
+description: |
+  An \((n,K,2t+1)_q\) code is perfect if parameters \(n\), \(K\), \(t\), and \(q\) are such that the Hamming (a.k.a. sphere-packing) bound
+  \begin{align}
+  \sum_{j=0}^{t}(q-1)^{j}{n \choose j}\leq q^{n}/K
+  \end{align}
+  becomes an equality.
+  In other words, the code's packing radius matches its covering radius.
+
+  For example, for a binary \(q=2\) code with one logical bit (\(K=2\)) and \(t=1\), the bound becomes \(n+1 \leq 2^{n-1}\).
+  Perfect codes are those for which balls of Hamming radius \(t\) exactly fill the space of all \(n\) \(q\)-ary strings.
+
+  Any perfect linear code is either a repetition code, a Hamming code, or a binary or ternary Golay code \cite{doi:10.1016/S0019-9958(77)90519-8}. If \(q\) is a prime power, any distance-three code is either a Hamming code or a nonlinear code with the same parameters; see \cite[pg. 100]{preset:HKSdesigns} for more details.
+
+relations:
+  parents:
+    - code_id: covering
+      detail: 'Perfect codes are covering codes with minimum number of codewords'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'
+    - user_id: MustafaDoger
+      date: '2022-04-01'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'
+    - user_id: VictorVAlbert
+      date: '2021-12-01'

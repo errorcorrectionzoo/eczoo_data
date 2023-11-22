@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tornado
+physical: bits
+logical: bits
+
+name: 'Tornado code'
+introduced: '\cite{doi:10.1145/285243.285258,doi:10.1145/258533.258573,doi:10.1109/18.910575}'
+
+description: 'Stub.'
+#Huffman Kim Sole 30.2
+
+features:
+  rate: 'Come arbitrarily close to the capacity of the binary erasure channel.'
+  encoders:
+    - 'Linear-time encoder.'
+  decoders:
+    - 'Linear-time peeling decoder \cite{doi:10.1109/18.910575}. This decoder either terminates when it has removed a given erasure pattern or when it is stuch in a \textit{stopping set}.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: ldpc
+  cousins:
+    - code_id: fountain
+      detail: 'Tornado codes, the precursor to fountain codes, are much slower to encode and decode in the low-rate regime applicable to scalable data transmission \cite{manual:{Joshi, G., Rhim, J. B., Sun, J., & Wang, D. (2010). Fountain codes. In Global telecommunications conference (GLOBECOM 2010) (pp. 7–12). IEEE.},doi:10.1109/TIT.2006.874390}.'
+    - code_id: ldpc
+      detail: 'Tornado codes are similar to LDPC codes, but they use a highly irregular weight distribution for the underlying graphs \cite{doi:10.1109/TIT.2006.874390}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-26'
+    - user_id: ThomasWrona
+      date: '2022-05-02'

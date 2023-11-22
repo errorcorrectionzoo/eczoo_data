@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: folded_reed_solomon
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Folded RS (FRS) code'
+short_name: 'FRS'
+introduced: '\cite{doi:10.1109/TIT.2003.819333}'
+
+description: |
+  A linear \([n/m,k]_{q^m}\) code that is a modification of an \([n,k]_q\) RS code such that evaluations are grouped to yield a code with smaller length. In this case, the evaluation points are all powers of a generating field element \(\gamma\), \(\alpha_i=\gamma^i\). Each codeword \(\mu\) of an \(m\)-folded RS code is a string of \(n/m\) symbols, with each symbol being a string of values of a polynomial \(f_\mu\) at consecutive powers of \(\gamma\),
+  \begin{align}
+  \begin{split}
+    \mu\to&\Big(\left(f_{\mu}(\alpha^{0}),\cdots,f_{\mu}(\alpha^{m-1})\right),\left(f_{\mu}(\alpha^{m}),\cdots,f_{\mu}(\alpha^{2m-1})\right)\cdots\\&\cdots,\left(f_{\mu}(\alpha^{n-m}),\cdots,f_{\mu}(\alpha^{n-1})\right)\Big)~.
+  \end{split}
+  \end{align}
+
+features:
+  decoders:
+    - 'Guruswami and Rudra \cite{arXiv:cs/0511072,manual:{Atri Rudra. List Decoding and Property Testing of Error Correcting Codes. PhD thesis, University of Washington, 8 2007.}} achieved list-decoding up to \(1-\frac{k}{n}-\epsilon\) fraction of errors using the Parvaresh-Vardy algorithm \cite{doi:10.1109/SFCS.2005.29}; see Ref. \cite{arXiv:1106.0436} for a randomized construction.'
+    - 'Folded RS codes, concatenated with suitable inner codes, can be efficiently list-decoded up to the Blokh-Zyablov bound \cite{arXiv:cs/0511072,doi:10.1109/TIT.2008.2008124}.'
+
+notes:
+  - 'See the book \cite{preset:GRS} for an introduction to FRS codes.'
+  - 'A class of FRS codes can be used in the Yamakawa-Zhandry quantum algorithm \cite{arxiv:2204.02063}.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: 'Folding an RS code yields a code that is no longer linear over \(GF(q)\) but is linear over \(GF(q^m)\).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-16'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'

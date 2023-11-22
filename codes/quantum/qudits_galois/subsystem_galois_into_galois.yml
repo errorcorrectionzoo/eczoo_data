@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_galois_into_galois
+physical: galois
+logical: galois
+
+name: 'Subsystem Galois-qudit code'
+
+alternative_names:
+  - 'Gauge Galois-qudit code'
+
+description: |
+  Subsystem QECC encoding into a \(q^n\)-dimensional Hilbert space consisting of \(n\) Galois qudits.
+
+
+relations:
+  parents:
+    - code_id: oecc
+  cousins:
+    - code_id: galois_into_galois
+      detail: 'Subsystem Galois-qudit codes reduce to (subspace) Galois-qudit codes when there is no gauge subsystem.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-25'

@@ -1,0 +1,68 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: combinatorial_design
+physical: bits
+logical: bits
+
+name: 'Combinatorial design code'
+
+description: |
+  A constant-weight binary code that is mapped into a combinatorial \(t\)-design.
+  The mapping proceeds as follows for a length-\(n\) code with codewords of constant weight \(w\).
+  A \(c\) corresponds to a \textit{block} of the design, with the codeword's \(j\)th coordinate labeling whether or not element \(j\) is contained in the block.
+  There are a total of \(n\) \textit{elements}, and the constant weight of the code implies that each block contains a fixed number \(w\) of elements.
+  The code supports an \(S(t,w,n)\) \textit{Steiner system} if each subset of \(t\leq w\) elements is contained in exactly one block.
+  More generally, the code supports a \textit{combinatorial \(t\)-design}, or, more precisely, a \(t-(n,w,\lambda)\)-design, if each such \(t\)-subset is contained in exactly \(\lambda \geq 1\) blocks.
+
+  For example, the eight codewords of weight \(w=3\) of the \([7,4,3]\) Hamming code support a \(2-(7,3,1)\)-design a.k.a. an \(S(2,3,7)\) Steiner system.
+  The codeword \(1000110\) corresponds to a block containing elements 1, 5, and 6.
+  Similarly, the other seven codewords correspond to blocks 257, 367, 147, 246, 345, and 123.
+  Each pair of elements is contained in exactly one block.
+
+  Combinatorial \(t\)-designs exist for all \(t\) \cite{doi:10.1016/0012-365X(87)90061-6}.
+
+notes:
+  - 'See \cite{preset:HKSdesigns} for more on combinatorial designs.'
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+    - code_id: constant_weight
+  cousins:
+    - code_id: q-ary_digits_into_q-ary_digits
+      detail: 'Designs can be constructed from \(q\)-ary codes by taking the supports of a subset of codewords of constant weight.'
+    - code_id: q-ary_cyclic
+      detail: 'The supports of all fixed-weight codewords of a \(q\)-ary cyclic code support a combinatorial \(1\)-design \cite[Corr. 5.2.4]{preset:HKSdesigns}.'
+    - code_id: reed_muller
+      detail: 'Fixed-weight RM codewords of weight less than \(2^m\) support combinatorial 3-designs \cite[Ex. 5.2.7]{preset:HKSdesigns}.'
+    - code_id: hamming743
+      detail: 'Weight-three and weight-four codewords of the \([7,4,3]\) Hamming code support combinatorial \(2-(7,3,1)\) and \(2-(7,4,2)\) designs, respectively \cite[Ex. 5.2.5]{preset:HKSdesigns}.'
+    - code_id: hamming
+      detail: 'Weight-three codewords of the \([2^r-1,2^r-r-1, 3]\) Hamming code support the Steiner system \(S(2,3,2^r-1)\) \cite[pg. 89]{preset:splag}.'
+    - code_id: extended_hamming
+      detail: 'Weight-four codewords of the \([2^r,2^r-r-1, 4]\) extended Hamming code support the Steiner system \(S(3,4,2^r)\) \cite[pg. 89]{preset:splag}.'
+    - code_id: golay
+      detail: 'The supports of the weight-seven (weight-eight) codewords of the (extended) Golay code support the Steiner system \(S(4,7,23)\) (\(S(5,6,12)\)) \cite[pg. 89]{preset:splag}. Its blocks are called octads.'
+    - code_id: ternary_golay
+      detail: 'The supports of the weight-five (weight-six) codewords of the (extended) ternary Golay code support the Steiner system \(S(4,5,11)\) (\(S(5,6,12)\)) \cite[pg. 89]{preset:splag}. Its blocks are called hexads.'
+    - code_id: perfect
+      detail: 'Perfect codes and combinatorial designs are related \cite{doi:10.1137/1016056}.'
+    - code_id: dual
+      detail: 'Linear codes and their duals are related to combinatorial designs via the Assmus-Mattson theorem \cite{doi:10.1016/S0021-9800(69)80115-8} (see \cite[Sec. 5.4]{preset:HKSdesigns}).'
+    - code_id: self_dual
+      detail: 'Self-dual extremal codes yield combinatorial \(\leq 5\)-designs using the Assmus-Mattson theorem \cite{doi:10.1016/S0021-9800(69)80115-8} (see \cite[Sec. 5.4]{preset:HKSdesigns}). See \cite[Table 1.61, pg. 683]{doi:10.1201/9781003040897} for a table of combinatorial designs obtained from self-dual codes.'
+    - code_id: gallager
+      detail: 'Some Steiner systems can be used to construct Gallager codes \cite{doi:10.1007/978-1-4613-0165-3_6}.'
+    - code_id: algebraic_ldpc
+      detail: 'Combinatorial designs can be used to construct explicit LDPC codes \cite{doi:10.1109/ITW.2001.955146,doi:10.1109/GLOCOM.2001.965562,doi:10.1109/TCOMM.2003.816946}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-24'

@@ -1,0 +1,55 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_polar
+physical: qubits
+logical: qubits
+
+name: 'Quantum polar code'
+introduced: '\cite{arxiv:1109.3195}'
+
+description: |
+  Entanglement-assisted CSS code utilized in a quantum polar coding scheme producing entangled pairs of qubits between sender and receiver. In such a scheme, the amplitude and phase information of a quantum state is handled in complementary fashion \cite{arxiv:0803.3096} using an encoding based on classical polar codes. Variants of the initial scheme have been developed for degradable channels \cite{arxiv:1201.2906} and extended to arbitrary channels \cite{arxiv:1109.5346}.
+
+  The scheme requires some a-priori quantum side information in the general case, making the associated code entanglement assisted \cite{arxiv:1109.3195}. The requirement of having quantum side information vanishes when the sum of the amplitude channel fidelity and the phase channel fidelity is not greater than 1. It is shown to vanish for the case of degradable noise channels \cite{arxiv:1109.5346}. A more complicated quantum polar-coding scheme that does not require pre-shared entanglement has also been derived \cite{arxiv:1307.1136}.
+
+#  The channel transformation is the unitary operator \(V=\sum_{z\in\{0,1\}^n}|G_kz\rangle\langle z|\), where \(G_k=G^{\otimes k}\) and \(G=\left(\begin{matrix}1&1\\0&1\end{matrix}\right)\). To \(V\) and then the channels are input halves of maximally entangled qubit pairs in the Bell state \(\frac{1}{\sqrt{2}}\sum_{z\in\{0,1\}}|z,z\rangle\). Let \(B\) be the input qubits and \(A\) be the other halves of \(B\). There is also an auxiliary system, making these codes generically entanglement-assisted. There are two induced channels corresponding to measuring the amplitude and phase of \(A\). These channels are essentially classical and polarize as such. 
+# The output of the \(j\)th amplitude channel is \(Z_1\dots Z_{j-1}B\) and the output of the corresponding phase channel is \(X_{j+1}\dots X_nB\).
+# By using the inputs that are good for both the amplitude and phase channels and freezing the remaining inputs, quantum information can be transmitted.
+# This is possible through the essentially classical channels because both amplitude and phase information can be recovered.
+
+protection: 'Protects against Pauli noise and erasures.'
+
+features:
+  rate: 'The rate approaches the symmetric coherent information of arbitrary quantum channels \cite{arxiv:1201.2906}.'
+
+  decoders:
+    - 'Quantum successive-cancellation list decoder (SCL-E) for quantum polar codes that do not need entanglement assistance \cite{arxiv:2304.04743}.'
+
+  fault_tolerance:
+    - 'State preparation of a single logical qubit \cite{arxiv:2209.06673}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: eastab
+      detail: 'Quantum polar codes are CSS codes used in an entanglement generation scheme that generally requires entanglement assistance. They require assistance only to determine positions to store information which optimally protect against both bit and phase noise. Without this assistance, they are just CSS codes constructed out of polar codes. A variant of quantum polar codes exists that does not require entanglement assistance \cite{arxiv:1307.1136}.'
+  cousins:
+    - code_id: polar
+      detail: 'Without entanglement assistance, quantum polar codes are just CSS codes constructed out of polar codes.'
+    # - code_id: qubit_css
+    #   detail: 'Quantum polar codes are CSS codes used in an entanglement generation scheme.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-06'
+    - user_id: RichardBarney
+      date: '2022-05-18'
+    - user_id: VictorVAlbert
+      date: '2021-12-03'

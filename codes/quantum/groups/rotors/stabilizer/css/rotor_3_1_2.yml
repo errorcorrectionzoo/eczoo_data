@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor_3_1_2
+physical: groups
+logical: groups
+
+name: 'Three-rotor code'
+introduced: '\cite{arxiv:1709.04471}'
+
+description: |
+  \([[3,1,2]]_{\mathbb Z}\) rotor code that is an extension of the \([[3,1,2]]_3\) qutrit CSS code to the integer alphabet, i.e., the angular momentum states of a planar rotor. The code is \(U(1)\)-covariant and its ideal codewords,
+  \begin{align}
+    |\overline{x}\rangle = \sum_{y\in\mathbb{Z}} \left| -3y,y-x,2(y+x) \right\rangle~,
+  \end{align}
+  where \(x\in\mathbb{Z}\), are not normalizable.
+
+protection: |
+  Normalized codewords approximately protect against erasure while maintaining covariance \cite{arxiv:1902.07714}.
+
+relations:
+  parents:
+    - code_id: homological_rotor
+      detail: 'Taking \(H_X=\begin{pmatrix}-3 & 1 & 2\end{pmatrix}\) and \(H_Z=\begin{pmatrix}4&6&3\end{pmatrix}\) yields the three-rotor code.'
+    - code_id: covariant
+      detail: 'The three-rotor code is \(U(1)\)-covariant.'
+    - code_id: small_distance
+  cousins:
+    - code_id: stab_3_1_2
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'

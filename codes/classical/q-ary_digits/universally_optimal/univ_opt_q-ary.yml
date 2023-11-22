@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: univ_opt_q-ary
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Universally optimal \(q\)-ary code'
+introduced: '\cite{manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.},doi:10.1109/18.412678,doi:10.1007/BF00053379,preset:LevBounds,doi:10.1007/s10623-016-0286-4,doi:10.1109/18.915662,arxiv:1212.1913}'
+
+description: |
+  A binary or \(q\)-ary code that (weakly) minimizes all completely monotonic potentials on binary space \cite{arxiv:1212.1913}.
+
+  All codes that obtain a linear programming (LP) bound by Delsarte \cite{manual:{P. Delsarte, “Bounds for unrestricted codes, by linear programming,” Philips Research Reports, vol. 27, pp. 272–289, 1972}} are universally optimal \cite{arxiv:1212.1913}.
+  Such codes are called \textit{LP universally optimal} or \textit{extremal}.
+  However, not all universally optimal codes attain the Delsarte LP bound.
+  See \cite[Table 12.1]{preset:HKSbounds} (\cite[Table 1]{arxiv:1212.1913}) for a list of (LP) universally optimal codes.
+  See \cite[Sec. 12.4]{preset:HKSbounds} for further discussion.
+
+  All codes that attain the Levenshtein bound \cite{manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.},doi:10.1109/18.412678,doi:10.1007/BF00053379,preset:LevBounds}, which estimates the solution to Delsarte's linear program, are universally optimal \cite{doi:10.1007/s10623-016-0286-4}; see \cite[Thm. 12.3.23]{preset:HKSbounds}.
+  However, not all universally optimal codes attain the Levenshtein bound.
+
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: univ_opt
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-05'
+    - user_id: AlexanderBarg
+      date: '2023-03-05'
+    - user_id: VictorVAlbert
+      date: '2023-02-24'

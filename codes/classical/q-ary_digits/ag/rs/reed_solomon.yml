@@ -1,0 +1,102 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: reed_solomon
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Reed-Solomon (RS) code'
+short_name: 'RS'
+introduced: '\cite{doi:10.1214/aoms/1177729387,doi:10.1137/0108018}'
+
+description: |
+  An \([n,k,n-k+1]_q\) linear code based on polynomials over \(GF(q)\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct points in \(GF(q)\). An RS code encodes a message \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(\alpha_1),\cdots,f_\mu(\alpha_n)\}\) using a message-dependent polynomial
+  \begin{align}
+  f_\mu(x)=\mu_0+\mu_1 x + \cdots + \mu_{k-1}x^{k-1}.
+  \end{align}
+  In other words, each message \(\mu\) is encoded into a string of values of the corresponding polynomial \(f_\mu\) at the points \(\alpha_i\),
+  \begin{align}
+    \mu\to\left( f_{\mu}\left(\alpha_{1}\right),f_{\mu}\left(\alpha_{2}\right),\cdots,f_{\mu}\left(\alpha_{n}\right)\right) \,.
+  \end{align}
+
+  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is a \textit{narrow-sense RS code}.
+  In an alternative convention (not used here), the primitive-root case is called an RS code, and the general-root case is a generalized RS code.
+
+protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it can be determined from its values at \(k\) points. This means that RS codes can correct erasures on up to \(n-k\) registers. The resulting distance, \(d=n-k+1\), saturates the Singleton bound.'
+
+features:
+  encoders:
+    - 'Bit-serial encoder \cite{doi:10.1109/TIT.1982.1056591}.'
+    - '\([n,k,n-k+1]\) RS code requires an order \(O(n^2)\) operations while encoding if a straightforward matrix multiplication is employed and \(k=O(n)\). Using the FFT algorithm, complexity of evaluating a polynomial at \(n\) roots of unity becomes \(O(n\log n)\). The FFT can be generalized to finite fields and rings, which is referred as Number-theoretic Transform (NTT). However, for some values of \(n\), which can not be factorized into small primes or do not have \(n\) roots of unity, the FFT algorithm fails. Independently developed by \cite{doi:10.1109/49.1926,doi:10.1016/0097-3165(89)90020-4} and generalized in Ref. \cite{doi:10.1017/CBO9781139856065}, the additive FFT solves this problem by evaluating the polynomial at \(n-1\) roots of unity when \(n\) is power of 2.'
+
+  rate: 'Generic Reed-Solomon codes achieve list-decoding capacity \cite{arxiv:2206.05256}.'
+  decoders:
+    - 'Although using iFFT has its counterpart iNNT for finite fields, the decoding is usually standard polynomial interpolation in \(k=O(n\log^2 n)\). However, in erasure decoding, encoded values are only erased in \(r\) points, which is a specific case of polynomial interpolation and can be done in \(O(n\log n)\) by computing product of the received polynomial and an erasure locator polynomial and using long division to find an original polynomial. The long division step can be omitted to increase speed further by only dividing the derivative of the product polynomial, and derivative of erasure locator polynomial evaluated at erasure locations.'
+    - 'Berlekamp-Massey decoder with runtime of order \(O(n^2)\) \cite{doi:10.1109/TIT.1969.1054260,preset:Berlekamp}.'
+    - 'Gorenstein-Peterson-Zierler decoder with runtime of order \(O(n^3)\) \cite{doi:10.1109/TIT.1960.1057586,doi:10.1137/0109020} (see exposition in Ref. \cite{preset:Blahut}).'
+    - 'Berlekamp-Welch decoder with runtime of order \(O(n^3)\) \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S. Patent, Number 4,633,470 1986.}} (see exposition in Ref. \cite{doi:10.1016/0020-0190(92)90195-2}), assuming that \(t \geq (n+k)/2\).'
+    - 'Gao decoder using extended Euclidean algorithm \cite{doi:10.1007/978-1-4757-3789-9_5}.'
+    - 'Fast-Fourier-transform decoder with runtime of order \(O(n \text{polylog}n)\) \cite{doi:10.1109/TIT.1978.1055816}.'
+    - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaluation of \(Q(\alpha_i,y_i)\) and solving a homogenous linear equation (interpolation). Once this is done, one lists roots of \(y\) that agree at \(\geq t\) points. The breakthrough Sudan list-decoding algorithm corrects up to \(1-\sqrt{2R}\) fraction of errors \cite{doi:10.1006/JCOM.1997.0439}. Roth and Ruckenstein proposed a modified key equation that allows for correction of more than \(\left\lfloor (n-k)/2 \right\rfloor\) errors \cite{doi:10.1109/18.817522}. The Guruswami-Sudan algorithm improved the Sudan algorithm to \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}; see Ref. \cite{doi:10.1109/TIT.2006.878164} for bounds. A further modification by Koetter and Vardy is used for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332} (see also Ref. \cite{doi:10.1109/26.79287}).'
+
+#    - 'Error locator polynomial \(E(y_i) = E(f(\alpha_i))\).'
+#    - 'This problem is linearized to \(E(y_i) = N(\alpha_i)\). Using the known degrees of these polynomials \(deg_q f \leq k-1, deg_q E \leq t\), this problem becomes a set of linear equations which can be solved for \(E\) and \(f\).'
+#    - 'Finally we perform \(E(y_i - f_i(\alpha_i)) = 0\) to solve for the error vector.'
+
+realizations:
+  - 'RS Product Code (RSPC) was used in DVDs (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 4).'
+  - 'DSL technologies and their variants against impluse noise \cite{doi:10.1109/ICC.2012.6364040}.'
+  - 'Cryptographic primitives based on the hardness of decoding RS codes for more than \(1-\sqrt{k/n}+\epsilon\) errors. This is equivalent to the polynomial reconstruction problem \cite{doi:10.1007/3-540-45465-9_21}.'
+  - 'RS codes as outer codes concatenated with convolutional codes are used indirectly in space exploration programs such as Voyager and Galileo. RS codes were part of a temetry channel coding standard issued by the Consultative Committee for Space Data Systems (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 3).'
+  - 'The ubiquity of RS codes has yielded off-the-shelf VLSI intergrated-circuit decoding hardware \cite{doi:10.1109/92.953498} (see also Ref. \cite{doi:10.1109/9780470546345}, Ch. 5 and 10).'
+  - 'Automatic repeat request (ARQ) data transmission protocols (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 7).'
+  - 'Slow-frequency-hop spread-spectrum transmission (see Ref. \cite{doi:10.1109/9780470546345}, Chs. 8-9).'
+  - 'Coded sharding designs in blockchains to increase efficiency \cite{arXiv:1809.10361}.'
+  - 'Private Information Retrieval \cite{doi:10.1109/ISIT45174.2021.9517900}.'
+  - 'Used in QR-Codes to retrieve damaged barcodes \cite{manual:{International Organization for Standardization, Information Technology: Automatic Identification and Data Capture Techniques-QR Code 2005 Bar Code Symbology Specification, 2nd ed., IEC18004 (ISO, 2006).}}.'
+  - 'Wireless communication systems such as 3G, DVB, and WiMAX \cite{doi:10.1109/PIMRC.2010.5672091}.'
+  - 'Correcting pooled testing results for SARS-CoV-2 \cite{doi:10.1126/sciadv.abc5961}.'
+
+notes:
+  - 'See Kaiserslautern database \cite{preset:KLdatabase} for explicit codes.'
+  - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Reed–Solomon Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CReedSolomon.html}}.'
+  - 'Popular summary in \href{https://www.quantamagazine.org/how-mathematical-curves-power-cryptography-20220919/}{Quanta Magazine}.'
+
+
+relations:
+  parents:
+    - code_id: generalized_reed_solomon
+      detail: 'A GRS code for which all multipliers \(v_i\) are unity reduces to an RS code.'
+    - code_id: interleaved_reed_solomon
+      detail: 'An IRS code utilizing one polynomial \(f\) reduces to an RS code.'
+    - code_id: folded_reed_solomon
+      detail: 'An FRS code with no extra grouping (\(m=1\)) reduces to an RS code.'
+  cousins:
+    - code_id: mds
+      detail: 'RS codes have distance \(n-k+1\), saturating the Singleton bound.
+      If \(k \leq p\), then all linear MDS codes \( [n,k,n-k+1]_{p^m} \) are RS codes \cite{doi:10.4171/JEMS/316}.'
+    - code_id: q-ary_bch
+      detail: 'Narrow-sense RS codes are BCH codes \cite[Remark 15.3.21]{preset:HKSag}\cite[Thms. 5.2.1 and 5.2.3]{doi:10.1017/CBO9780511807077}.
+      Their minimal distance is equal to their designed distance \cite[pg. 81]{doi:doi:10.1007/978-1-4757-6568-7}.
+      Moreover, an RS code can be represented as a union of cosets, with each coset being an interleaver of several binary BCH codes \cite{doi:10.1109/26.79287}.'
+    - code_id: q-ary_cyclic
+      detail: 'If the length divides \(q-1\), then it is possible to construct a cyclic RS code.'
+    - code_id: tensor
+      detail: 'Tensor codes constructed from RS codes are robustly testable \cite{doi:10.1145/195058.195132}.'
+    - code_id: q-ary_ltc
+      detail: 'RS codes can be used to construct LTCs encoding \(k\) bits with length \(k \text{polylog}(k)\) and query complexity \(\text{polylog}(k)\) \cite{doi:10.1137/050646445}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-12'
+    - user_id: VictorVAlbert
+      date: '2022-04-28'
+    - user_id: MustafaDoger
+      date: '2022-04-03'
+    - user_id: VictorVAlbert
+      date: '2021-10-29'

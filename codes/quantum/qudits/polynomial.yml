@@ -7,30 +7,44 @@ code_id: polynomial
 physical: qudits
 logical: qudits
 
-name: 'Prime-qudit polynomial code (QPyC)'
-short_name: 'Prime QPyc'
+name: 'Quantum Reed-Solomon code'
+short_name: 'Quantum RS'
 introduced: '\cite{arxiv:quant-ph/9910059}'
 # doi:10.1103/PhysRevA.77.012308?
 
 description: |
-  Also called \textit{quantum Reed-Solomon code}. An \([[n,k,n-k+1]]_p\) (with prime \(p>n\)) prime-qudit CSS code constructed using two Reed-Solomon codes over \(GF(p)=\mathbb{Z}_p\). Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(\mathbb{Z}_p\), and let \(g\) be a number satisfying \(0\leq k \leq g < n\). Then, define degree-\(g\) polynomials
+  Also called \textit{prime-qudit polynomial code (QPyC)}. Prime-qudit CSS code constructed using two Reed-Solomon codes.
+
+  The original construction \cite{arxiv:quant-ph/9910059} was for a qubit code (\(p=2\)) by using a basis for a larger Galois field over \(GF(2)\), yielding an \([[kN,k(N-2K),K+1]]\) qubit code from a \([N,K,\delta]_{GF(2^k)}\) RS code with \(N=2^k-1\) and \(K=N-\delta+1\).
+
+  An alternative construction \cite{preset:GottesmanBook} yields an \([[n,k,d]]_{p>n}\) prime-qudit CSS code with \(d=\min(n-g,g+2-k)\) that is constructed using two Reed-Solomon codes over \(GF(p)=\mathbb{Z}_p\).
+  Let \(\{\alpha_1,\cdots,\alpha_n\}\) be \(n\) distinct nonzero elements of \(\mathbb{Z}_p\), and let \(g\) be a number satisfying \(0\leq k \leq g < n\). Then, define degree-\(g\) polynomials
   \begin{align}
     f_{\mu\cup c}\left(x\right)=\mu_{0}+\mu_{1}x+\cdots+\mu_{k-1}x^{k-1}+c_{k}x^{k}+\cdots+c_{g}x^{g}\,,
   \end{align}
-  where the first \(k\) coefficients are indexed by the coefficient vector \(\mu\in\mathbb{Z}_p^{\times k}\), and the remaining coefficients are indexed by the vector \(c\in\mathbb{Z}_p^{\times (g+1-k)}\). Logical states, labeled by \(\mu\), are superpositions of canonical basis states whose \(i\)th bit is \(f_{\mu\cup c}\), evaluated at \(\alpha_i\) and summed over all possible vectors \(c\),
+  where the first \(k\) coefficients are indexed by the coefficient vector \(\mu\in\mathbb{Z}_p^{ k}\), and the remaining coefficients are indexed by the vector \(c\in\mathbb{Z}_p^{ (g+1-k)}\).
+  Logical states, labeled by \(\mu\), are superpositions of canonical basis states whose \(i\)th bit is \(f_{\mu\cup c}\), evaluated at \(\alpha_i\) and summed over all possible vectors \(c\),
   \begin{align}
-    |\overline{\mu}\rangle=\sum_{c\in\mathbb{Z}_{p}^{\times(g+1-k)}}|f_{\mu\cup c}(\alpha_{1}),|f_{\mu\cup c}(\alpha_{2}),\cdots,|f_{\mu\cup c}(\alpha_{n})\rangle.
+    |\overline{\mu}\rangle=\sum_{c\in\mathbb{Z}_{p}^{(g+1-k)}}|f_{\mu\cup c}(\alpha_{1}),|f_{\mu\cup c}(\alpha_{2}),\cdots,|f_{\mu\cup c}(\alpha_{n})\rangle.
   \end{align}
 
-protection: ''
 
 relations:
   parents:
     - code_id: qudit_css
-  cousins:
-    - code_id: reed_solomon
-      detail: 'Polynomial codes are CSS codes constructed from Reed-Solomon codes.'
-    - code_id: cyclic
-      detail: ''
-    - code_id: quantum_mds
-      detail: 'A polynomial code is a quantum MDS code when \(n-k_1=k_1-k_2\).'
+    - code_id: galois_polynomial
+      detail: 'Galois-qudit RS codes for prime-dimensional qudits are quantum RS codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-23'
+    - user_id: VictorVAlbert
+      date: '2022-01-12'
+    - user_id: QingfengKeeWang
+      date: '2021-12-20'
+    - user_id: ManasiShingane
+      date: '2021-12-05'

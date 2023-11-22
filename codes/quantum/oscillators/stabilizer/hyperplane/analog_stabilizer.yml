@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: analog_stabilizer
+physical: oscillators
+logical: oscillators
+
+name: 'Analog stabilizer code'
+#introduced: '\cite{arxiv:quant-ph/0405064}'
+
+description: |
+  Also known as a \textit{linear}, \textit{symplectic}, or \textit{Gaussian stabilizer code}.
+  Oscillator-into-oscillator stabilizer code encoding \(k\) logical modes into \(n\) physical modes. An \(((n,k,d))_{\mathbb{R}}\) analog stabilizer code is denoted as \([[n,k,d]]_{\mathbb{R}}\), where \(d\) is the code's distance.
+
+  Analog stabilizer codes admit continuous stabilizer group of displacements.  This group can equivalently be defined in terms of its Lie algebra. The codespace is equivalently the common \(0\)-eigenvalue eigenspace of the Lie algebra generators, which are mutually commuting linear combinations of oscillator position and momentum operators called \textit{nullifiers} \cite{arxiv:0903.3233} or \textit{annihilators}.
+  An analog stabilizer code admitting a set a set of nullifiers such that each nullifier consists of either position or momentum operators is called an \textit{analog CSS code}.
+
+protection: 'Protect against erasures of at most \(d-1\) modes, or arbitrarily large dispalcements on those modes. If an error operator does not commute with a nullifier, then that error is detectable. Protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:0811.3128,arxiv:1810.00047} (see also \cite{arxiv:quant-ph/0204052,arxiv:quant-ph/0204085}). There are no such restrictions for non-Gaussian noise \cite{arxiv:0811.3616}.'
+
+features:
+  encoders:
+    - 'Gaussian circuit applied to \(k\) modes storing logical information and \(n-k\) modes initialized in a position state.'
+  decoders:
+    - 'Homodyne measurement of nullifiers yields real-valued syndromes, and recovery can be performed by displacements conditional on the syndromes.'
+
+realizations:
+  - 'One-sided device-independent QKD \cite{arxiv:2212.03935}.'
+
+relations:
+  parents:
+    - code_id: oscillator_stabilizer
+      detail: 'Analog stabilizer codes are bosonic stabilizer codes with a continuous stabilizer group, corresponding to linear constraints on positions and momenta.'
+    - code_id: oscillators_into_oscillators
+  cousins:
+    - code_id: gkp-stabilizer
+      detail: 'Analog stabilizer codes protect logical modes against arbitrarily large displacements on a few modes, while GKP-stabilizer codes protect a finite-dimensional logical space against sufficiently small displacements in any number of modes. Encoding in analog-stabilizer (GKP-stabilizer) codes can be done by a Gaussian operation acting on a tensor product of an arbitrary state in the first mode and position states (GKP states) on the remaining modes. Protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:1810.00047,arxiv:quant-ph/0204052,arxiv:0811.3128}, so GKP-stabilizer codes can be thought of as analog stabilizer encodings utilizing non-Gaussian GKP resource states.'
+    - code_id: qudit_stabilizer
+      detail: 'Prime-qudit stabilizer codes can be converted into analog stabilizer codes whose distance is at least as large as that of the original code \cite{arxiv:2303.17000}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-05'

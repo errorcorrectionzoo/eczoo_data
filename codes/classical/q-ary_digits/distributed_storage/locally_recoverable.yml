@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: locally_recoverable
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Locally recoverable code (LRC)'
+short_name: 'LRC'
+#introduced: '\cite{arxiv:1311.3284}'
+
+description: |
+  Any code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from (at most \(r\)) other coordinates of \(x\). An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC code.
+
+  More technically, a \(q\)-ary code \(C\) with length \(n\) is \(r\)-locally recoverable, or \textit{has locality} \(r\), if \(\forall i \in [n]\), there exists \(I_i \subset [n]\setminus i\) such that \(|I_i|\leq r\), and the projection of the set \(\mathcal{C}(i,a)=\{x\in C : x_i=a\}\) on to the coordinates in \(I_i\), i.e., \(\mathcal{C}_{I_i}(i,a)\) is disjoint from \(\mathcal{C}_{I_i}(i,a^\prime)\) where \(a\neq a^\prime\).
+
+  The definition can be generalized to \(t\)-LRC code, if every coordinate is recoverable from \(t\) disjoint subsets of coordinates. A study on the parameters of \(t\)-LRC codes, together with known bounds, can be found in Ref. \cite{doi:10.1109/TIT.2016.2518663}.
+
+protection: 'The distance, \(d\), of an \((n,k,r)\) LRC code satisfies \begin{align} d\leq n-k-\left \lceil\frac{k}{r}\right \rceil+2~,\label{eq:gen-singleton} \end{align} where \(r\leq k\). When \(k=r\), the bound on the distance gives the Singleton bound. The generalized Singleton bound \eqref{eq:gen-singleton} does not account for \(q\)-ary alphabet size. A more generalized bound (including the non-linear case) is given in Ref. \cite{doi:10.1109/TIT.2015.2477406}.'
+
+features:
+  rate: 'The rate \(r\) of an \((n,k,r)\) LRC code satisfies \begin{align} \frac{k}{n}\leq\frac{r}{r+1}~. \end{align}'
+
+realizations:
+  - 'An \((18,14,7)\) LRC code has beed used in the Windows Azure cloud storage system \cite{manual:{C. Huang, H. Simitci, Y. Xu, A. Ogus, B. Calder, P. Gopalan, J. Li, and S. Yekhanin. \emph{Erasure coding in Windows Azure Storage}. In Proc. USENIX Annual Technical Conference (ATC), pgs. 15-26, Boston, Massachusetts, June 2012.}}; see also \cite[31.3.1.2]{preset:HKSdist}.'
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+      detail: 'Locally recoverable codes protect against coordinate erasure.'
+    - code_id: distributed_storage
+#    - code_id: codes_with_availability
+#      detail: ''
+#     - code_id: regenerating_code
+#       detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-28'
+    - user_id: MustafaDoger
+      date: '2022-04-03'

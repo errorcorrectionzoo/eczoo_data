@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: doubled_color
+physical: qubits
+logical: qubits
+
+name: 'Doubled color code'
+introduced: '\cite{arxiv:1509.03239}'
+
+description: |
+  Family of \([[2t^3+8t^2+6t-1,1,2t+1]]\) subsystem color codes (with \(t\geq 1\)), constructed using a generalization of the doubling transformation \cite{arxiv:1012.4134}, that admit a Clifford + \(T\) transversal gate set using gauge fixing.
+
+features:
+  transversal_gates: 'Doubled color codes are triply-even, so they yield a transversal \(T\) gate \cite{arxiv:1509.03239}. Using gauge fixing, the codes admit a Clifford + \(T\) transversal gate set.'
+
+relations:
+  parents:
+    - code_id: subsystem_color
+  cousins:
+    - code_id: divisible
+      detail: 'Doubled color codes are constructed using a generalization of the doubling transformation \cite{arxiv:1012.4134} that combine doubly-even codes to make triply-even codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-01-24'

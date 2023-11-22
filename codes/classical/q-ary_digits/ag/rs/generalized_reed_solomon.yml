@@ -1,0 +1,62 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_reed_solomon
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Generalized RS (GRS) code'
+short_name: 'GRS'
+#introduced: \cite{preset:MacSlo}
+
+description: |
+  An \([n,k,n-k+1]_q\) linear code that is a modification of the RS code where codeword polynomials are multiplied by additional prefactors. Each message \(\mu\) is encoded into a string of values of the corresponding polynomial \(f_\mu\) at the points \(\alpha_i\), multiplied by a corresponding nonzero factor \(v_i \in GF(q)\),
+  \begin{align}
+    \mu\to\left( v_{1}f_{\mu}\left(\alpha_{1}\right),v_{2}f_{\mu}\left(\alpha_{2}\right),\cdots,v_{n}f_{\mu}\left(\alpha_{n}\right)\right)~.
+  \end{align}
+
+#  The algebraic code exploits the bijective correspondence between \( F^k \), the \( k \)-dimensional vector space over \( F \), and \( F_k[x] \), the polynomial ring over \( F \) consisting of univariate polynomials of degree at most \( k  - 1 \). Let \( (\alpha_1, \cdots, \alpha_n) \) be \( n \) distinct non-zero elements of \( F \), and let \( (v_1, \cdots, \v_n) \) be define similarly. The message \( (c_0, \cdots, c_{k-1}) \), which can be represented as the polynomial \( p(x) = c_0 + c_1 x + \cdots + c_{k-1} x^{k-1} \), is encoded as the codeword \( ( v_1 f(\alpha_1), \cdots, v_n f(\alpha_n) ) \).'
+
+protection: 'The code can detect \(n-k\) errors, and can correct  errors \( \left\lfloor (n-k)/2\right\rfloor  \) errors.'
+
+features:
+  decoders:
+    - 'The decoding process of GRS codes reduces to the solution of a polynomial congruence equation, usually referred to as the key equation. Decoding schemes are based on applications of the Euclid algorithm to solve the key equation.'
+    - 'Berlekamp-Massey decoder with runtime of order \(O(n^2)\) \cite{doi:10.1109/TIT.1968.1054109,doi:10.1109/TIT.1969.1054260,preset:Berlekamp}.'
+    - 'Guruswami-Sudan list decoder \cite{doi:10.1109/SFCS.1998.743426} and modification by Koetter-Vardy for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332}.'
+
+realizations:
+  - 'Commonly used in mass storage systems such as CDs, DVDs, QR codes etc.'
+  - 'Various cloud storage systems \cite{arxiv:1612.01361}.'
+  - 'Public-key cryptosystems generalizing those that used Goppa codes \cite{manual:{R. J. McEliece, A public-key cryptosystem based on algebraic coding theory, Technical report, Jet Propulsion Lab. DSN Progress Report (1978).},doi:10.1007/BF00173300,manual:{H. Niederreiter (1986). \emph{Knapsack-type cryptosystems and algebraic coding theory}. Problems of Control and Information Theory. Problemy Upravlenija I Teorii Informacii. 15: 159–166.}}, some of which were proven to be insecure \cite{doi:10.1515/dma.1992.2.4.439}. More recent works focus on methods to mask the algebraic structure using subcodes of GRS codes \cite{doi:10.1007/s10623-003-6151-2}. For example, a key-recovery attack was developed in Ref. \cite{arXiv:1307.6458} for a variant of masking method proposed in Ref. \cite{arXiv:1108.2462}.'
+
+  #  - 'Generalized Reed Solomon codes contain the special case of conventiontal Reed Solomon codes. These are cyclic codes, and can also be defined by using the discrete Fourier transform.'
+
+
+relations:
+  parents:
+    - code_id: evaluation
+      detail: 'GRS (RS) codes are in one-to-one correspondence with evaluation AG codes of univariate polynomials \(f\) with \(\cal X\) being the projective (affine) line  \cite[Thm. 15.3.24]{preset:HKSag}\cite[Ch. 3.2]{doi:10.1007/978-94-011-3810-9}\cite{preset:HPAlgCodes}.'
+    - code_id: evaluation_polynomial
+      detail: 'GRS (RS) codes are in one-to-one correspondence with univariate polynomial evaluation codes with \(\cal X\) being the projective (affine) line \cite[Thm. 15.3.24]{preset:HKSag}\cite[Ch. 3.2]{doi:10.1007/978-94-011-3810-9}\cite{preset:HPAlgCodes}).'
+  cousins:
+    - code_id: mds
+      detail: 'GRS codes have distance \(n-k+1\), saturating the Singleton bound.'
+    - code_id: distributed_storage
+      detail: 'GRS codes are used in various cloud storage systems \cite{arxiv:1612.01361}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-16'
+    - user_id: VictorVAlbert
+      date: '2022-05-17'
+    - user_id: MuhammadJunaidAftab
+      date: '2022-04-21'
+    - user_id: QingfengKeeWang
+      date: '2021-12-20'

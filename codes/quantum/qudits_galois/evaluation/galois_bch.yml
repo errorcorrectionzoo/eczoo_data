@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_bch
+physical: galois
+logical: galois
+
+name: 'Galois-qudit BCH code'
+short_name: 'Galois-qudit BCH'
+introduced: '\cite{arxiv:quant-ph/0501126,arxiv:quant-ph/0604102,doi:10.1109/TIT.2006.890730,doi:10.26421/QIC13.1-2-3,doi:10.1103/PhysRevA.80.042331,arxiv:2007.13309}'
+
+description: |
+  True Galois-qudit stabilizer code constructed from BCH codes via either the Hermitian construction or the Galois-qudit CSS construction.
+
+notes:
+  - 'See Ref. \cite{doi:10.1017/CBO9781139034807.014} for an overview of quantum BCH codes.'
+
+
+relations:
+  parents:
+    - code_id: galois_true_stabilizer
+      detail: 'Galois-qudit BCH codes constructed via the CSS construction are Galois-qudit CSS codes, and those constructed via the Hermitian construction are stabilizer codes over \(GF(q^2)\).'
+  cousins:
+    - code_id: q-ary_bch
+    - code_id: galois_css
+      detail: 'Galois-qudit BCH codes constructed via the CSS construction are Galois-qudit CSS codes.'
+    - code_id: stabilizer_over_gfqsq
+      detail: 'Galois-qudit BCH codes constructed via the Hermitian construction are stabilizer codes over \(GF(q^2)\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'

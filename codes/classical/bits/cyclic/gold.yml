@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gold
+physical: bits
+logical: bits
+
+name: 'Gold code'
+introduced: '\cite{doi:10.1109/TIT.1967.1054048}'
+
+description: 'Member of the family of \([2^r-1, 2r ]\) cyclic binary linear code characterized by the generator polynomial of degree \(r\) of two maximum-period sequences of period \(2^r-1\) with absolute cross-correlation \( \leq 2^{(r+2)/2}\). Gold codewords are generated using \(m\)-sequences \(x\) and \(y\), which are codewords of simplex codes with check polynomials of degree \(r\) \cite{doi:10.1109/TIT.1967.1054048}.'
+
+features:
+  encoders:
+    - 'Information bits are initialized in the shift registers of the two \(m\)-sequences \(x\) and \(y\).'
+  decoders:
+    - 'General decoding is done by building a sparse parity check matrix, followed by applying an iterative message passing alogirithm. \cite{doi:10.1007/s11265-006-7278-y}.'
+
+
+realizations:
+  - 'Used in for synchronization purposes in telecommunication \cite{manual:{Mujtaba Hamid and Andy Miller, \emph{Gold Code Generators in Virtex Devices}, (2000)}}'
+  - 'GPS C/A for satellite navigation \cite{doi:10.1002/j.2161-4296.1978.tb01325.x}.'
+
+relations:
+  parents:
+    - code_id: binary_cyclic
+  cousins:
+    - code_id: simplex
+      detail: 'Simplex codes are used to make gold codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-02'
+    - user_id: khalilguy
+      date: '2022-01-02'

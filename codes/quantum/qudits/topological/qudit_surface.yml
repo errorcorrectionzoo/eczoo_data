@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_surface
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit surface code'
+introduced: '\cite{arXiv:quant-ph/9707021,arxiv:quant-ph/0609070,arxiv:2211.00299}'
+
+description:
+  Also known as the \(\mathbb{Z}_q\) \textit{surface code}. Extension of the surface code to prime-dimensional \cite{arXiv:quant-ph/9707021,arxiv:quant-ph/0609070} and more general modular qudits \cite{arxiv:2211.00299}.
+  Stabilizer generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface.
+  Since qudits have more than one \(X\) and \(Z\)-type operator, various sets of stabilizer generators can be defined.
+  Ground-state degeneracy and the associated phase depends on the qudit dimension and the stabilizer generators.
+
+#  A family of stabilizer codes whose generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qudit located at each edge of the tesselation). The code has \( n=E \) many physical qudits, where \( E \) is the number of edges of the tesselation, and \( k=2g \) many logical qudits, where \( g \) is the genus of the surface.'
+
+#protection: 'When defined on an \(L\times L\) square tiling of the torus, protects against \(L\) errors. More generally, the code distance is the number of edges in the shortest non contractible cycle in the tesselation or dual tesselation  \cite{arXiv:quant-ph/0110143}.'
+
+features:
+  decoders:
+    - 'Renormalization-group decoder \cite{arxiv:1311.4895}.'
+
+notes:
+  - 'The simplest \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the qudit surface code with \( q=10\). See related \href{https://github.com/quantumjim/qec_lectures}{Qiskit tutorial}.'
+
+relations:
+  parents:
+    - code_id: quantum_double_abelian
+      detail: 'Modular-qudit surface code Hamiltonians admit topological phases associated with \(\mathbb{Z}_q\) \cite{arXiv:quant-ph/0609070}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-02'
+    - user_id: VictorVAlbert
+      date: '2022-01-05'
+    - user_id: IanTeixeira
+      date: '2021-12-19'

@@ -1,0 +1,70 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hermitian
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Hermitian code'
+introduced: '\cite{doi:10.1007/BF01228251,doi:10.1109/TIT.1987.1057327}'
+#doi:10.1109/18.21267,doi:10.6100/IR381307,doi:10.1109/18.476234}'
+
+description: |
+  Evaluation AG code of rational functions evaluated on points lying on a Hermitian curve \(H(x,y) = x^{q+1}  + y^{q+1} - 1\) over \(\mathbb{F}_q = GF(q)\) in either affine or projective space. Hermitian codes directly improve over RS codes in the sense that RS codes have length at most \(q\) while Hermitian codes have length \(q^3 + 1\).
+
+  Hermitian codes of polynomials of total degree at most \(D\) can come in affine and epicyclic flavours, depending on whether the evaluations are over the affine plane or the bicyclic plane. The affine codes have length \(q^3 - q\) while epicyclic codes have length \((q-2)(q+1)^2\). More precisely, fix \(r, D\) and let
+  \begin{align}
+    M_D = \left\{f(x,y,z) = \sum_{i+j \leq D = D}a_{i,j}x^{i}y^{j}z^{D - (i+j)}\right\}
+  \end{align}
+  be the message space of degree-\(D\) polynomials and
+  \begin{align}
+    S = \{(x:y:z) \in PG(2,q) \mid H(x:y:z) = 0 \}~,
+  \end{align}
+  where \(H(x:y:z) = x^{q+1} + y^{q+1} - z^{q+1}\) is the homogenized Hermitian curve over the projective plane. The Hermitian code \( C \) over is
+  \begin{align}
+  C = \{(f(\alpha_i))_{\alpha_i \in S}, \: f \in M_D \}~.
+  \end{align}
+
+  The form \(H(u,v,w) = u^{q+1} + v^{q+1} - w^{q+1}\) is the \textit{Fermat} version of the Hermitian curve.
+  Substituting \(u = x+z\), \(v = x+y\), and \(w = x+y+z \) yields \(H(x,y,z) = x^{q+1} - y^{q}z - yz^{q} \), the \textit{Stichtenoth} version of the curve.
+  In affine coordinates, the Stichtenoth form of the curve is \begin{align}
+    f(x,y) = x^{q+1} - y^{q} - y = N(x) - \text{tr}(y)~,
+  \end{align}
+  where \(N(x) := x^{(q^{n}-1)/(q-1)}\) and \(\text{tr} := 1 + x^{q} + \ldots + x^{q^n}\) are the field norm and trace of \(GF(F_{q^n}\), respectively.
+  The Fermat
+  version can be written as \(H(u,v,w) = u\overline{u} + v\overline{v} - w\overline{w}\), where the conjugation map
+  \(\overline{u} = u^{q}\) is an isomorphism of \(\mathbb{F}_q \). In fact, when the field of evaluations \(\mathbb{F}_{q^2}\) is viewed as a quadratic extension of
+  \(\mathbb{F}_q\) then the conjugation map is an \(\mathbb{F}_q\)-isomorphism that permutes the roots of the quadratic irreducible polynomial
+  used to generate \(\mathbb{F}_{q^2}\) from \( \mathbb{F}_q[x]\).
+
+protection: 'Distance determined by properties of the Hermitian curve, the underlying field, and the functions used \cite{doi:10.1007/BFb0087995}; see Ref. \cite{preset:HPAlgCodes}, Sec. 5.3, for an example. For evaluations of polynomials up to degree \(D\), the Hermitian code protects against at least \(n - (q+1)D\) errors whenever \(D < q + 1 \). If \(D \geq q+1 \), the Hermitian code protects against at least \(n-k - \frac{q(q-1)}{2} + 1\) errors.'
+
+features:
+
+  rate: |
+    For polynomial evaluations up to degree \(D\): if \(D < q + 1 \), \(k = \frac{(D+1)(D+2)}{2}\), and if \(D \geq q + 1 \), \(k = (q+1)D - \frac{q(q-1)}{2} + 1 \).
+
+  decoders:
+    - 'Unique decoding using syndromes and error locator ideals for polynomial evaluations. Note that Hermitian codes are linear codes so we can compute the syndrome of a received vector. Moreover, akin to the error-locator ideals found in decoding Reed-Solomon codes, for the multivariate case we must define an error locator ideal \(\Lambda \) such that the variety of this ideal over \(\mathbb{F}^{2}_{q}\) is exactly the set of errors. The Sakata algorithm uses these two ingredients to get a unique decoding procedure \cite{doi:10.1016/S0747-7171(88)80033-6}.'
+
+relations:
+  parents:
+    - code_id: generalized_reed_solomon
+      detail: 'Hermitian codes are concatenated GRS codes \cite{doi:10.1007/BF00124208}.'
+    - code_id: evaluation
+      detail: 'Hermitian codes are evaluation AG codes with \(\cal X\) being a Hermitian curve (\cite{preset:HPAlgCodes}, Ex. 2.74). This curve is maximal, meaning that Hermitian codes are evaluation AG codes with maximum possible length given a fixed genus.'
+  cousins:
+    - code_id: group
+      detail: 'Some Hermitian codes are group-algebra codes \cite{manual:{Hansen, Johan P. Group codes on algebraic curves. Universität zu Göttingen. SFB Geometrie und Analysis, 1987.}}\cite[Remark 16.4.14]{preset:HKSalgebra}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-09'
+    - user_id: ShashankSule
+      date: '2022-04-03'

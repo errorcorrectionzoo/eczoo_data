@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_triorthogonal
+physical: qubits
+logical: qubits
+
+name: 'Triorthogonal code'
+introduced: '\cite{arXiv:1209.2426}'
+
+description: 'A triorthogonal \(m \times n\) binary matrix is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\), where addition and multiplication are done on \(\mathbb{Z}_2\). The triorthogonal code associated with the matrix is constructed by mapping non-zero entries in even-weight rows to \(X\) operators, and \(Z\) operators for each row in the orthogonal complement.'
+
+protection: 'Weight \(t\) Pauli errors, where \(t\) depends on the family. For example, Ref. \cite{arXiv:1209.2426} provides a family of distance \(2\) codes. It also presents a \([[49, 1, 5]]\) code.'
+
+features:
+  magic_scaling_exponent: 'Depends on the matrix. Reference \cite{arXiv:1209.2426} gave a family of \(\frac{k}{3k+8}\) codes with magic-state distillation scaling exponent \(\gamma = \log_2 \frac{3k+8}{k}\).'
+
+  encoders:
+    - 'Encoder for magic states for the code constructed in \cite{arXiv:1209.2426}.'
+
+  transversal_gates: 'Admits transversal \(T\) gates \cite{arXiv:1209.2426} and the controlled-controlled-\(Z\) gate \cite{arxiv:1304.3709}.'
+
+  general_gates:
+    - 'Triorthogonal codes can be used for high-quality magic-state distillation \cite{arXiv:1209.2426}.'
+
+  threshold:
+    - 'Approximately \(\frac{1}{3k + 1}\) \cite{arXiv:1209.2426}.'
+
+  fault_tolerance:
+    - 'Universal fault-tolerant gates can be performed without magic-state distillation \cite{arxiv:1304.3709,arxiv:2210.14074}.'
+
+notes:
+  - 'Reference \cite{arXiv:2107.09684} presents a classification of triorthogonal codes up to \(n + k \leq 38\) by associating each triorthogonal code with a Reed-Muller polynomial.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+  cousins:
+    - code_id: quantum_reed_muller
+      detail: 'Classification of triorthongonal codes yields a connection to Reed-Muller polynomials \cite{arXiv:2107.09684}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: BenjaminQuiring
+      date: '2021-12-16'

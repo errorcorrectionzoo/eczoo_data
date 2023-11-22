@@ -1,0 +1,66 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: heavy_hex
+physical: qubits
+logical: qubits
+
+name: 'Heavy-hexagon code'
+introduced: '\cite{arXiv:1907.09528}'
+
+description: |
+  Subsystem stabilizer code on the heavy-hexagonal lattice that combines Bacon-Shor and surface-code stabilizers. Encodes one logical qubit into \(n=(5d^2-2d-1)/2\) physical qubits with distance \(d\). The heavy-hexagonal lattice allows for low degree (at most 3) connectivity between all the data and ancilla qubits, which is suitable for fixed-frequency transom qubits subject to frequency collision errors.
+
+  Data qubits and ancillas of the code are placed on a heavy-hexagonal lattice (vertices and edges of a tilling of hexagons). A subset of the ancilla qubits are flag qubits used for detecting high-weight errors arising from fewer faults. The code stabilizers for detecting \(X\)-type errors are measured by measuring weight-two \(Z\)-type gauge operators whose product produces stabilizers of the surface code. \(X\)-type stabilizers are column operators corresponding to stabilizers of the Bacon-Shor code, which are measured by taking products of weight-four and weight-two \(X\)-type gauge operators.
+
+protection: 'Protects against Pauli noise. The code has no threshold for \(Z\)-type Pauli errors since they are detected by Bacon-Shor-type stabilizers.'
+
+features:
+  rate: '\(1/n\) for a distance-\(d\) heavy-hexagon code on \(n = (5d^2-2d-1)/2\) qubits.'
+
+  encoders:
+    - 'For a logical-zero state, prepare all data qubits in the physical-zero state and then measure the \(X\)-type Bacon-Shor stabilizers. For logical-plus state, prepare all data qubits in the physical-plus state and then measure \(Z\)-type surface code stabilizers.'
+    - 'Stabilizer measurement encoding circuits have a constant depth of 10 time steps (excluding ancilla state preparation and measurement).'
+
+  transversal_gates: 'CNOT gates are transveral for this code. However, for most architectures, all logical gates would be implemented using lattice surgery methods.'
+
+  general_gates:
+    - 'Universal gate set achieved with magic state injection and lattice surgery.'
+
+  decoders:
+    - 'Any graph-based decoder can be used, such as MWPM and Union Find. However, edge weights must be dynamically renormalized using flag-qubit measurement outcomes after each syndrome measurement round.'
+    - 'Machine-learning decoder \cite{arxiv:2210.09730}.'
+
+  fault_tolerance:
+    - 'All logical gates can be fault-tolerantly implemented using lattice surgery and magic state injection.'
+    - 'Stabilizer measurements are measured fault-tolerantly using one-flag circuits since some single-fault events can result in weight-two data qubit errors which are parallel to the code''s logical operators. Hence, using information from the flag-qubit measurements is crucial to fault-tolerantly measure the code stabilizers.'
+
+  threshold:
+    - '\(0.45\%\) for \(X\) errors under a full circuit-level depolarizing noise model (obtained from Monte Carlo simulations).'
+    - '\(Z\)-errors have no threshold given the \(X\)-type Bacon-Shor stabilizers.'
+
+realizations:
+  - 'Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices (specifically, fixed-frequency transmon qubit architectures) by IBM for \(d=2\) \cite{arXiv:1705.09259,arXiv:2110.04285} and \(d=3\) \cite{arxiv:2203.07205}.'
+
+relations:
+  parents:
+    - code_id: subsystem_css
+  cousins:
+    - code_id: surface
+      detail: 'Surface code stabilizers are used to measure the Z-type stabilizers of the code.'
+    - code_id: bacon_shor
+      detail: 'Bacon-Shor stabilizers are used to measure the X-type stabilizers of the code.'
+    - code_id: stab_4_2_2
+      detail: 'The \(d=2\) heavy-hexagonal code is closely related to the \([[4,1,2]]\) subcode.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ChristopherChamberland
+      date: '2022-03-17'
+    - user_id: VictorVAlbert
+      date: '2022-03-17'

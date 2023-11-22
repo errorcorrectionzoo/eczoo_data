@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nonlocal_lowdepth
+physical: qubits
+logical: qubits
+
+name: 'Low-depth random Clifford-circuit qubit code'
+introduced: '\cite{arXiv:1312.7646}'
+
+description: 'An \([[n,k]]\) qubit stabilizer code whose encoder is an \(n\)-qubit unitary transformation that takes a \(k\)-qubit state as input (with \(k\leq n\), and the remaining \(n-k\) qubits initialized to \(|0\rangle^{\otimes n-k}\) ) to give a corresponding state in the codespace as the output. An \(n\)-qubit quantum circuit with random two-qubit Clifford gates can act as an encoder into a code with distance \(d\) with high probability, with a size (i.e. number of gates in the circuit) at most \(O(n^2 log n)\)). Noting that two gates acting on disjoint qubits could in fact be executed simultaneously, this is equivalent to the depth (number of time steps in the circuit) being at most \(O(log^3 n)\).'
+
+protection: 'Creates a random \([[n,k,d]]\) stabilizer code that detects errors on \(d-1\) qubits, and corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: random_circuit
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-20'
+    - user_id: SrilekhaGandhari
+      date: '2021-12-14'

@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_perfect
+# includes both Galois and modular
+
+name: 'Perfect quantum code'
+#introduced: ''
+
+description: |
+  A non-degenerate code constructed out of \(q\)-dimensional qudits and having parameters \(((n,K,2t+1))\) is perfect if \(n\), \(K\), \(t\), and \(q\) are such that the quantum Hamming bound
+  \begin{align}
+  \sum_{j=0}^{t}(q^2-1)^{j}{n \choose j}\leq q^{n}/K
+  \end{align}
+  becomes an equality.
+  For example, for a qubit \(q=2\) code with one logical qubit (\(K=2\)) and \(t=1\), the bound becomes \(3n+1 \leq 2^{n-1}\).
+  The bound can be saturated only at certain \(n\).
+
+  For qubit codes with \(K=2^k\), one can work out an asymptotic Hamming bound in the large-\(n,k,t\) limit,
+  \begin{align}
+  \frac{k}{n}\leq 1-\frac{t}{n}\log_{2}3-h(t/n),
+  \end{align}
+  where \(h\) is the binary entropy function.
+
+  A quantum Hamming-like bound exists for degenerate qubit stabilizer codes \cite{arxiv:2306.00048}.
+
+protection: |
+  Perfect codes have been classified. For qubits (\(q=2\)), the only codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\) \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. For qudits, the family is parameterized by \(K=q^{n-2r}\) for \(n=\frac{q^{2r}-1}{q^{2}-1}\) and \(r \geq 2\); all codes correct a single error (\(t=1\)) \cite{arxiv:0907.0049,doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}. The trivial code (\(k=n\)) is also perfect.
+
+features:
+  rate: '\(k/n\to 1\) asymptotically with \(n\).'
+
+notes:
+  - 'Codes that are not non-degenerate can in principle violate the quantum Hamming bound. It was shown that qubit stabilizer codes up to distance \(d\leq 85\) must obey the bound \cite{arxiv:2208.11800}.'
+#In general, impure not the same as non-degenerate for general codes
+
+relations:
+  parents:
+    - code_id: block_quantum
+    - code_id: qecc_finite
+  cousins:
+    - code_id: perfect
+      detail: 'A classical (quantum) perfect code saturates the classical (quantum) Hamming bound.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-26'
+    - user_id: MazinKarjikar
+      date: '2022-06-03'
+    - user_id: VictorVAlbert
+      date: '2021-12-03'

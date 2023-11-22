@@ -1,0 +1,63 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: color
+physical: qubits
+logical: qubits
+
+name: 'Color code'
+introduced: '\cite{arxiv:quant-ph/0605138}'
+
+description: |
+  A family of Abelian topological \hyperref[code:css]{CSS stabilizer} codes defined on a \(D\)-dimensional graph which satisfies two properties: The graph is (1) a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex and (2) is \(D+1\)-colorable.
+
+  Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{doi:10.7907/059V-MG69}. For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice. The qubits are placed on the vertices and two stabilizer generators are placed on each face \cite{arXiv:1311.0277}.
+
+
+protection: |
+  As with the surface code, the code distance depends on the specific kind of lattice used to define the code. More precisely, the distance depends on the homology of logical string operators \cite{arXiv:1311.0277}.
+
+  In contrast to the surface code, the color code can suffer from unremovable hook errors due to the specifics of its syndrome extraction circuits. Fault-tolerant decoders thus have to utilize additional flag qubits.
+
+
+features:
+  general_gates:
+    - 'Magic-state distillation protocols \cite{doi:10.7907/059V-MG69}.'
+    - 'Non-clifford gates can be implemented via code switching \cite{doi:10.7907/059V-MG69}.'
+
+  decoders:
+    - 'Projection decoder \cite{doi:10.7907/059V-MG69}.'
+    - 'Matching decoder gives low logical failure rate \cite{arXiv:2108.11395}.'
+    - 'Integer-program-based decoder \cite{arXiv:1402.3037}.'
+    - 'Restriction decoder \cite{arxiv:1911.00355}.'
+    - 'Cellular-automaton decoder for the \(XYZ\) color code \cite{arxiv:2203.16534}.'
+    - 'MaxSAT-based decoder \cite{arxiv:2303.14237}.'
+#    - 'Flag fault-tolerant protocols for distance-nine 2D color codes \cite{}.'
+
+
+  fault_tolerance:
+    - 'Steane''s ancilla-coupled measurement method \cite{arXiv:1407.5103}'
+
+
+relations:
+  parents:
+    - code_id: qubit_generalized_homological_product_css
+  cousins:
+    - code_id: higher_dimensional_surface
+      detail: 'The color code on a \(D\)-dimensional closed manifold is equivalent to multiple decoupled copies of the \(D\)-dimensional surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-13'
+    - user_id: balopat
+      date: '2023-01-11'
+    - user_id: VictorVAlbert
+      date: '2022-01-05'
+    - user_id: XiaozhenFu
+      date: '2021-12-12'

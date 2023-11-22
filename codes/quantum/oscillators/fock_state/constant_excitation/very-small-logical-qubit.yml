@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: very-small-logical-qubit
+physical: oscillators
+logical: qubits
+
+name: 'Very small logical qubit (VSLQ) code'
+short_name: 'VSLQ'
+introduced: '\cite{arxiv:1510.06117,arxiv:2302.06707}'
+
+description: |
+  The two logical codewords are \(|\pm\rangle \propto (|0\rangle\pm|2\rangle)(|0\rangle\pm|2\rangle)\), where the total Hilbert space is the tensor product of two transmon qudits (whose ground states \(|0\rangle\) and second excited states \(|2\rangle\) are used in the codewords).
+  Since the code is intended to protect against losses, the qutrits can equivalently be thought of as oscillator Fock-state subspaces.
+
+  In the original proposal for autonomous stabilization \cite{arxiv:1510.06117}, the single logical qubit is given by the two lowest energy states of a time-dependent Hamiltonian acting on two transmon qutrits and two lossy oscillators.
+
+protection: 'Protects against a single photon loss.'
+
+features:
+  #rate:
+
+  encoders:
+    - 'Engineering a circuit made of two transmons and two oscillators coupled through three driven superconducting quantum interference devices (SQUIDs) results in passive stabilization of the logical states.'
+
+  #transversal_gates:
+  general_gates:
+    - 'Single logical qubit operations implemented by resonant physical qubit driving and phase shifting the SQUID drives.'
+    - 'A CZ gate between two logical qubits implemented by coupling devices through another driven SQUID and applying a pulse to the coupling squid simultaneously with a single qubit operation on one of the logical qubits.'
+
+  decoders:
+    - 'Logical qubit can be measured with physical qubit measurements along \(X\). Can be implemented by engineering a coupling of one of the qubits to a readout cavity via the interaction \(\sigma_x (a+a^\dagger)\) \cite{doi:10.1103/PhysRevLett.115.203601}. This results in an \(X\)-dependent shift of the readout cavity resonance which can be measured.'
+    - 'Star-code autonomous correction scheme \cite{arxiv:2302.06707}.'
+
+realizations:
+  - 'Star-code autonomous correction scheme realized using superconducting circuits \cite{arxiv:2302.06707}.'
+
+relations:
+  parents:
+    - code_id: fock_state
+    - code_id: constant_excitation
+    - code_id: permutation_invariant
+  cousins:
+    - code_id: hybrid_qudit_oscillator
+      detail: 'VSLQ decoder utilizes two ancillary oscillators.'
+    - code_id: quantum_repetition
+      detail: 'Parts of the VSLQ codewords resemble the two-qubit phase-flip repetition code, though the code cannot correct phase errors. Unlike the phase-flip code, the VSLQ code can correct for single photon loss because it uses the second excited state in the construction, which remains distinct from the vacuum even after photon loss.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-09'
+    - user_id: JonathanKunjummen
+      date: '2021-12-07'

@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_hamming
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary Hamming code'
+introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
+
+description: 'Member of an infinite family of perfect linear \(q\)-ary codes with parameters \([(q^r-1)/(q-1),(q^r-1)/(q-1)-r, 3]_q\) for \(r \geq 2\).'
+
+protection: 'Can detect 1-bit and 2-bit errors, and can correct 1-dit errors.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: perfect
+    - code_id: univ_opt_q-ary
+      detail: 'Hamming codes and their punctured and shortened versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
+  cousins:
+    - code_id: incidence_matrix
+      detail: 'Columns of a Hamming parity-check matrix correspond to one-dimensional subspaces of \(GF(q)^n\).'
+    - code_id: q-ary_cyclic
+      detail: 'Hamming codes are equivalent to cyclic codes when \(q\) and \(r\) are relatively prime (\cite{preset:MacSlo}, pg. 194).'
+    - code_id: bch
+      detail: 'Some narrow sense BCH codes of length \(n=(q^r-1)/(q-1)\) such that \(\text{gcd}(r,q-1)=1\) are \(q\)-ary Hamming codes (\cite{doi:10.1017/CBO9780511807077}, Thm. 5.1.4).'
+    - code_id: generalized_reed_muller
+      detail: 'Hamming codes are dual to first-order GRM codes (\cite{doi:10.1007/978-94-011-3810-9}, pg. 45).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-12'

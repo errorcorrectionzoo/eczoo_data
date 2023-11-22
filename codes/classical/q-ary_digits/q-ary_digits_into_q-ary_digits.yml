@@ -8,14 +8,16 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Galois-field \(q\)-ary code'
+short_name: '\(q\)-ary'
 #introduced: ''
 
 description: 'Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)=\mathbb{F}_q\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.'
 #the minimum Hamming distance between a pair of distinct codewords.
 
-protection: 'Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.'
+protection: 'The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}. Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.'
 
 features:
+  rate: The rate of a \(q\)-ary code is usually defined as \(R=\frac{1}{n}\log_{q}K\) dits per symbol.
   decoders:
     - 'For small \(n\), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
     - 'Given a received string \(x\) and an error bound \(e\), a \textit{list decoder} returns a list of all codewords that are at most \(e\) from \(x\). The number of codewords in a neighborhood of \(x\) has to be polynomial in \(n\) in order for this decoder to run in time polynomial in \(n\).'
@@ -25,5 +27,15 @@ notes:
 
 relations:
   parents:
-    - code_id: ecc
-      detail: ''
+    - code_id: rings_into_rings
+      detail: 'Galois fields are rings under addition.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-16'
+    - user_id: VictorVAlbert
+      date: '2021-10-29'

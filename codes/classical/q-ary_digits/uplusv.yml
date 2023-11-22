@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: uplusv
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\((u|u+v)\)-construction code'
+introduced: '\cite{doi:10.1109/TIT.1960.1057584,doi:10.1109/TIT.1970.1054540}'
+
+description: |
+  Code constructed using a concatenation procedure that takes in two \(q\)-ary codes \(C_1,C_2\) and produces a new code whose codewords are \((u|u+v)\) for all \(u\in C_1\) and \(v\in C_2\).
+  If the two codes have parameters \((n,K_1,d_1)\) and \((n,K_2,d_2)\), then the output code is a \((2n,K_1 K_2, \min\{2d_1,d_2\})\) code \cite[Thm. 5.10]{doi:10.1201/9781315371993}\cite[pg. 76]{preset:MacSlo}.
+
+
+relations:
+  parents:
+    - code_id: matrix_product
+  cousins:
+    - code_id: hamming743
+      detail: 'Starting with the \([6,3,3]\) shortened Hamming code and applying the \((u|u+v)\) construction recursively using the repetition code yields a family of \([2^m,m+1,2^{m-1}]\) codes for \(m\geq1\) that saturate the Griesmer bound \cite[pg. 90]{doi:10.1201/9781315371993}.'
+    - code_id: binary_quad_residue
+      detail: 'The \((u|u+v)\) construction can be used to obtain nonlinear binary quadratic residue codes \cite{doi:10.1109/TIT.1970.1054540}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-31'

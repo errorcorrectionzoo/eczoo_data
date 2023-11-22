@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: sharp_config
+physical: spheres
+logical: reals
+
+name: 'Spherical sharp configuration'
+introduced: '\cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},doi:10.1007/BF00053379,arxiv:math/0607446}'
+
+description: |
+  A spherical code that is a spherical design of strength \(2m-1\) for some \(m\) and that has \(m\) distances between distinct points.
+  All known spherical sharp configrations are either obtained from the Leech or \(E_8\) lattice, certain regular polytopes, or are CGS isotropic subspace spherical codes.
+
+
+relations:
+  parents:
+    - code_id: univ_opt_spherical
+      detail: 'All sharp configurations are universally optimal \cite{arxiv:math/0607446}, but not all universally optimal spherical codes are sharp configurations. The one known exception is the 600-cell.'
+    - code_id: delsarte_optimal
+    - code_id: spherical_design
+      detail: 'Spherical sharp configurations are spherical designs of strength \(2m-1\) for some \(m\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-05'
+    - user_id: AlexanderBarg
+      date: '2023-03-05'
+    - user_id: VictorVAlbert
+      date: '2023-02-23'

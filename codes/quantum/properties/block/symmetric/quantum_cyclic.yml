@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_cyclic
+
+name: 'Cyclic quantum code'
+introduced: '\cite{arXiv:1007.1697}'
+
+description: 'A block quantum code such that cyclic permutations of the subsystems leave the codespace invariant. In other words, the automorphism group of the code contains the cyclic group \(\mathbb{Z}_n\).'
+#'Define a shift operator, \(\mathcal{N}\), such that \(\mathcal{N}\ket{x_1 x_2 \dots x_n}=\ket{x_n x_1 \dots x_{n-1}}\). A quantum code \(C\) on \(n\) subsystems is a quantum cyclic code if for every codeword \(\ket{\psi}\in C\), the cyclically shifted vector \(\mathcal{N}\ket{\psi}\in C\).'
+
+protection: 'Cyclic symmetry guarantees that if a single subsystem is protected against some noise, then all other subsystems are also.'
+
+features:
+  decoders:
+    - 'Adapted from the Berlekamp decoding algorithm for classical BCH codes \cite{arXiv:1007.1697}.'
+
+notes:
+  - 'Many examples have been found by computer algebra programs. Ref. \cite{arXiv:1007.1697} give examples of \([[17,1,7]]\) and \([[17,9,3]]\) quantum cyclic codes.'
+
+relations:
+  parents:
+    - code_id: quantum_quasi_cyclic
+  cousins:
+    - code_id: cyclic
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: NolanCoble
+      date: '2021-12-15'

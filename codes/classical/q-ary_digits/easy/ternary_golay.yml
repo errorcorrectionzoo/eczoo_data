@@ -1,0 +1,83 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ternary_golay
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Ternary Golay code'
+introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
+
+description: |
+  A \([11,6,5]_3\) perfect ternary linear code with connections to various areas of mathematics, e.g., lattices \cite{doi:10.1007/978-1-4757-6568-7} and sporadic simple groups \cite{preset:MacSlo}. Adding a parity bit to the code results in the \([12, 6, 6]\) \textit{extended ternary Golay code}. Up to equivalence, both codes are unique for their respective parameters.
+
+  A generator matrix for the ternary Golay code is
+  \begin{align}
+  \left(\begin{array}{cccccccccccc}
+    1 & 0 & 0 & 0 & 0 & | & 1 & 1 & 1 & 2 & 2 & 0 \\
+    0 & 1 & 0 & 0 & 0 & | & 1 & 1 & 2 & 1 & 0 & 2 \\
+    0 & 0 & 1 & 0 & 0 & | & 1 & 2 & 1 & 0 & 1 & 2 \\
+    0 & 0 & 0 & 1 & 0 & | & 1 & 2 & 0 & 1 & 2 & 1 \\
+    0 & 0 & 0 & 0 & 1 & | & 1 & 0 & 2 & 2 & 1 & 1 \\
+  \end{array}\right)~.
+  \end{align}
+
+#  The ternary golay code is a perfect code because with $\(d = 5\)$, \(\mathcal{G}_11\) can correct at most up to 2 errors so the Hamming bound
+#  is \( 3^11/\sum_{k=0}^{2}{n\choose k}2^k = 729\) which is exactly the number of codewords in \(\mathcal{G}_{11}\). In fact it can be shown that any non-trivial linear
+#  perfect code is either a Hamming code or a ternary or binary Golay code. A Golay code is also a quadratic residue code with residue set \(Q = \{1, 3, 4, 5, 9\} \) with
+#  generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) over \(\mathbf{F}_3\).
+
+#protection: 'Corrects up to 2 errors and detects up to 4 errors'
+#features:
+#  rate: '6/11'
+#  encoders:
+#    - 'Codewords are generated from the generator matrix with 5 information trits and 6 parity check trits'
+
+features:
+#  rate: 'The perfect binary Golay code has a rate of \(12/23 = 0.522\). The extended binary Golay code has a rate of \(12/24 = 0.5\).'
+  decoders:
+    - 'Decoder for the extended ternary Golay code using the tetracode \cite{doi:10.1109/TIT.1986.1057197}.'
+
+realizations:
+  - 'Code used in football pools with at least one good bet \cite{doi:10.1016/0097-3165(91)90024-B,doi:10.1007/BF03025254}. In fact, the code was originally constructed by Juhani Virtakallio and published in the Finnish football pool magazine Veikkaaja \cite{doi:10.1007/BF03025254,manual:{T. M. Thompson, \emph{From Error-Correcting Codes Through Sphere Packings To Simple Groups}, Mathematical Association of America, 1983.}}.'
+  - 'Proofs of the quantum mechanical Kochen-Specker theorem \cite{arxiv:2206.04209}.'
+
+notes:
+  - 'The automorphism group of the ternary Golay code is the Mathieu group \(\mathcal{M}_{11}\), and the automorphism group of the extended ternary Golay code is the Mathieu group \(\mathcal{M}_{12}\), two of the sporadic simple groups.'
+
+relations:
+  parents:
+    - code_id: q-ary_quad_residue
+      detail: 'The ternary Golay code is a quadratic residue code over \(GF(3)\) with residue set \(Q = \{1, 3, 4, 5, 9\} \) and generator polynomial \(x^5 + x^4 - x^3 + x^2 - 1\) (\cite{preset:MacSlo}, Ch. 16).'
+    - code_id: perfect
+      detail: 'The ternary Golay code is perfect.'
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The ternary Golay code and one of its shortened versions are \(q\)-ary sharp configurations \cite[Table 12.1]{preset:HKSbounds}.'
+  cousins:
+    - code_id: golay
+    - code_id: self_dual
+      detail: 'The extended ternary Golay code is self-dual.'
+    - code_id: projective
+      detail: 'The extended ternary Golay code admits a projective geometric construction (\cite{doi:10.1201/9781315371993}, pg. 296).'
+    - code_id: divisible
+      detail: 'Extended ternary Golay code is 3-divisible (\cite{doi:10.1201/9781315371993}, pg. 296).'
+    - code_id: univ_opt_q-ary
+      detail: 'The ternary Golay code and several of its extended, shortened, and punctured versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
+    - code_id: projective_two_weight
+      detail: 'The dual of the ternary Golay code is a projective two-weight code \cite[Ex. 19.3.2]{preset:HKStwoweight}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VikramAmin
+      date: '2023-01-21'
+    - user_id: VictorVAlbert
+      date: '2022-01-21'
+    - user_id: VictorVAlbert
+      date: '2022-08-12'
+    - user_id: ShashankSule
+      date: '2022-03-02'

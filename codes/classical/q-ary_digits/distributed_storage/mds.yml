@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mds
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Maximum distance separable (MDS) code'
+short_name: 'MDS'
+introduced: '\cite{doi:10.1109/TIT.1964.1053661}'
+
+description: |
+  A \([n,k,d]_q\) binary or \(q\)-ary linear code is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the Singleton bound
+  \begin{align}
+  d \leq n-k+1
+  \end{align}
+  becomes an equality. A code is called \textit{almost MDS} (AMDS) when \(d=n-k\). A bound for general \(q\)-ary codes can also be formulated; see \cite[Thm. 1.9.10]{preset:HKSbasics}. A code is \textit{near MDS} (NMDS) if the code and its dual are mode AMDS.
+
+  The codes \( [n,1,n]_q, [n,n-1,2]_q, [n,n,1]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes. The only binary MDS codes are the trivial ones.
+
+protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error-correction properties.'
+
+realizations:
+  - 'The McEliece Public Key Cryptosystem \cite{manual:{McEliece, R.J.: A public-key cryptosystem based on algebraic coding theory. DSN Progress Report pp. 114–116 (1978).}} uses algebraic coding theory to secure communications against eavesdropping attack, in which private keys are generator matrices of linear codes, i.e., \(G\). Public Keys shared to outside world are scrambled and permutated versions of \(G\), i.e., \(G^\prime=SGP\). Data to be encrypted, \(u\), is multiplied by public key and added intentional errors \(e\), i.e., \(x=uG^\prime+e\). Upon receiving encrypted data, private key owner can apply inverse permutation \(P^{-1}\) to \(x\), decode the scrambled message given the presence of \(e\) errors, and finally unscramble to obtain \(u\). Security parameters of the system are \(n\) and \(e\), hence MDS codes, such as GRS codes may provide the same security level for shorter key sizes, and the private key owner can decode arguably fast enough using known decoding algorithms.'
+  - 'Automatic repeat request (ARQ) data transmission protocols (\cite{doi:10.1109/9780470546345}, Ch. 7).'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: locally_recoverable
+      detail: 'MDS codes are most efficient in terms of minimizing storage overhead for handling erasures. They are locally recoverable with locality \(k\).'
+    - code_id: univ_opt_q-ary
+      detail: 'MDS codes are LP universally optimal codes \cite{arxiv:1212.1913}.'
+  cousins:
+    - code_id: dual
+      detail: 'A linear binary or \(q\)-ary \([n,k,n-k+1]\) code is MDS if and only if its dual \([n,n-k,k+1]\) is MDS \cite[Thm. 1.9.13]{preset:HKSbasics}.'
+    - code_id: projective
+      detail: 'A linear code is MDS (almost MDS) if and only if columns of its parity-check matrix form an \(n\)-arc (\(n\)-track) in projective space \cite{doi:10.1109/ISIT.1994.395042,doi:10.1007/978-1-4613-0283-4_13}. The dual of a MDS code is an MDS code, so MDS codes are projective.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-09'
+    - user_id: VictorVAlbert
+      date: '2022-04-28'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: EricKubischta
+      date: '2021-12-15'

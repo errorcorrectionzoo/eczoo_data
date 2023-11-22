@@ -12,22 +12,53 @@ name: 'Linear \(q\)-ary code'
 
 description: |
   An \((n,K,d)_q\) linear code is denoted as \([n,k,d]_q\), where \(k=\log_{q}K\) need not be an integer. Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(\alpha x+ \beta y\) is also a codeword for any \(q\)-ary digits \(\alpha,\beta\).
+  This extra structure yields much information about their properties, making them a large and well-studied subset of codes.
 
-  Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) \(q\)-ary matrix.
+  Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a message \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k~~A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) \(q\)-ary matrix.
 
-protection: 'Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.'
+  The two extreme cases are the \([n,0,n]\) \textit{zero code} and its dual the \([n,n,1]\) \textit{universe code}.
+
+protection: |
+  Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.
+
+  Geometrically local \(q\)-ary codes are limited by the \textit{classical Bravyi-Poulin-Terhal (BPT) bound} \cite{arxiv:0909.5200}, known to be tight in any Euclidean dimension \cite{arxiv:2309.16411}.
 
 features:
   decoders:
+    - 'Maximum likelihood (ML) decoding. This algorithm decodes a received word to the most likely sent codeword based on the received word. ML decoding of reduced complexity is possible for virtually all \(q\)-ary linear codes \cite{doi:10.1109/ISIT.1997.613333}.'
+    - 'Optimal symbol-by-symbol decoding rule \cite{doi:10.1109/TIT.1976.1055617}.'
+    - 'Information set decoding (ISD) \cite{doi:10.1007/978-3-642-12929-2_7}, a probabilistic decoding strategy that essentially tries to guess \(k\) correct positions in the received word, where \(k\) is the size of the code. Then, an error vector is constructed to map the received word onto the nearest codeword, assuming the \(k\) positions are error free. When the Hamming weight of the error vector is low enough, that codeword is assumed to be the intended transmission.'
+    - 'Generalized minimum-distance decoder \cite{doi:10.1109/TIT.1966.1053873}.'
+    - 'Soft-decision maximum-likelihood trellis-based decoder \cite{doi:10.1109/TIT.1978.1055821}.'
     - 'Random linear codes over large fields are list-recoverable and list-decodable up to near-optimal rates \cite{arXiv:1704.02420}.'
+    - 'Extensions of algebraic-geometry decoders to linear codes \cite{manual:{R. Kotter. A unified description of an error locating procedure for linear codes. In D. Yorgov, editor, Proc. 3rd International Workshop on Algebraic and Combinatorial Coding Theory, pages 113–117, Voneshta Voda, Bulgaria, June 1992. Hermes.},doi:10.1016/0012-365X(92)90567-Y}.'
 
+# The best information set decoding algorithms have an average time complexity of exponential time - approximately \(n^{3}2^{n}\).
 
 notes:
   - 'Admits a parity check matrix \(H\), whose columns make up a maximal linearly independent set of vectors that are in the kernel of \(G\).'
-
-
+  - 'University of Salzburg''s \href{http://mint.sbg.ac.at/table.php?i=c}{MinT application} generates an optimal parameter table for a linear code \([n,k,d]_q\), contingent on an optional fluctuation of maximal Hamming code distance, rank, and length, along with other specifications.'
 
 relations:
   parents:
-    - code_id: q-ary_digits_into_q-ary_digits
-      detail: ''
+    - code_id: q-ary_additive
+      detail: 'For \(q>2\), additive codes need not be linear since linearity also requires closure under multiplication.'
+    - code_id: rings_linear
+      detail: 'Linear \(q\)-ary codes are \(GF(q)\)-linear.'
+  cousins:
+    - code_id: q-ary_ltc
+      detail: 'Linear \(q\)-ary codes with distances \(\frac{1}{2}n-\sqrt{t n}\) for some \(t\) are called almost-orthogonal and are locally testable with query complexity of order \(O(t)\) \cite{doi:10.1109/SFCS.2005.16}. This was later improved to codes with distance \(\frac{1}{2}n-O(n^{1-\gamma})\) for any positive \(\gamma\) \cite{doi:10.1109/FOCS.2007.8}, provided that the number of codewords is polynomial in \(n\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-04'
+    - user_id: MicahShaw
+      date: '2022-06-08'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'
+    - user_id: VictorVAlbert
+      date: '2021-10-30'

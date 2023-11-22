@@ -1,0 +1,70 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_3_1_2
+physical: qudits
+logical: qudits
+
+name: 'Three-qutrit code'
+short_name: '\([[3,1,2]]_3\)'
+introduced: '\cite{arXiv:quant-ph/9901025}'
+
+description: |
+  A \([[3,1,2]]_3\) prime-qudit CSS code that is the smallest qutrit stabilizer code to detect a single-qutrit error.
+  with stabilizer generators \(ZZZ\) and \(XXX\). The code defines a quantum secret-sharing scheme and serves as a minimal model for the AdS/CFT holographic duality. It is also the smallest non-trivial instance of a quantum maximum distance separable code (QMDS), saturating the quantum Singleton bound. The codewords are
+  \begin{align}
+    \begin{split}
+      | \overline{0} \rangle &= \frac{1}{\sqrt{3}} (| 000 \rangle + | 111 \rangle + | 222 \rangle) \\
+      | \overline{1} \rangle &= \frac{1}{\sqrt{3}} (| 012 \rangle + | 120 \rangle + | 201 \rangle) \\
+      | \overline{2} \rangle &= \frac{1}{\sqrt{3}} (| 021 \rangle + | 102 \rangle + | 210 \rangle)~.
+    \end{split}
+  \end{align}
+  The elements in the superposition of each logical codeword are related to each other via cyclic permutations.
+
+protection: |
+  Detects single qutrit errors and protects against a single-qutrit erasure. It is the smallest single-erasure correcting qudit code for \(q>2\), and there does not exist a three-qubit code with analogous properties.
+
+  The code is an example of a \( ((n = 3, k = 2)) \) threshold scheme where a secret (the quantum information) is split into \( n \) shares and can be reconstructed by \( k \) pieces.
+
+  They key property of this code is that the reduced density matrix of any single qutrit is maximally mixed, meaning no information can be extracted from that qutrit. Therefore, a single qutrit tells you nothing about the encoded message, but access to any two pairs of qutrits will reveal the secret.
+
+features:
+
+  encoders:
+    - 'In addition to thinking about the encoding of states, it is also interesting to look at the trasformation of operators from the physical space into the logical space. Due to the unique structure and recovery protocol of the three qutrit code, the representation of a logical operator \( \overline{O} \) is not unique. Instead, \( \overline{O} \) can be constructed from unitary matricies with support on only two out of the three qutrits. Therefore, the logical operator has valid representations constructed from support on different sets of two qutrits. This operator construction is directly analogous to the construction of operators in the bulk (at the center) of the AdS\(_3\)-Rindler reconstruction. The three-qutrit code can then be used to describe how these local bulk operators are protected against localized boundary errors \cite{arXiv:1411.7041}.'
+
+    - 'This construction is related to the cleaning lemma \cite{arXiv:0810.1983}, which was introduced in the context of constructing self-correcting quantum memories from stabilizer codes with geometrically-local generators. In this lemma, subspaces can be \textit{cleaned out} by removing operators with support on a subset of qutrits.'
+
+  decoders:
+    - 'The quantum information (the secret) can be recovered from a unitary transformation acting on only two qutrits, \( U_{ij} \otimes I \), where \(U_{ij}\) acts on qutrits \(i,j\) and \(I\) is the identity on the remaining qutrit. By the cyclic structure of the codewords, this unitary transformation performs a permutation that recovers the information and stores it in one of the two qutrits involved in recovery.'
+
+notes:
+  - 'Connections to Ads/CFT from the perspetive of how arbitrary operators are encoded into the logical space. This encoding is analagous and helps explain why operators acting on the bulk are protected against localized boundary errors \cite{arXiv:1411.7041}.'
+
+relations:
+
+  parents:
+    - code_id: polynomial
+      detail: 'The three-qutrit code is the smallest member of a family of \([[2m-1,1,m]]_{p}\) prime-qudit quantum Reed-Solomon codes for \(p=3\) and \(m=2\) \cite{arxiv:quant-ph/9901025}.'
+    - code_id: holographic
+      detail: 'Three-qutrit code is a minimal model for holography \cite{arxiv:1411.7041,arXiv:1607.03901}.'
+    - code_id: quantum_mds
+      detail: 'The three-qutrit code is the smallest nontrivial quantum MDS code.'
+    - code_id: small_distance
+  cousins:
+    - code_id: quantum_secret_sharing
+      detail: 'Three-qutrit code defines a minimal secret-sharing scheme \cite{arXiv:quant-ph/9901025} that is substantially generalized by approximate secret-sharing codes.'
+
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-12'
+    - user_id: FelixHuber
+      date: '2022-08-12'
+    - user_id: VictorVAlbert
+      date: '2021-12-29'
+    - user_id: ElizabethRBennewitz
+      date: '2021-12-03'

@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nearly_perfect
+physical: bits
+logical: bits
+
+name: 'Nearly perfect code'
+introduced: '\cite{doi:10.1016/0012-365X(72)90025-8,manual:{N. V. Semakov, V. A. Zinov''ev, G. V. Zaitsev, “Uniformly Packed Codes”, Probl. Peredachi Inf., 7:1 (1971), 38–50; Problems Inform. Transmission, 7:1 (1971), 30–39}}'
+
+description: |
+  An \((n,K,2t+1)\) binary code is nearly perfect if parameters \(n\), \(K\), and \(t\) are such that the Johnson bound
+  \begin{align}
+    \frac{{n \choose t}\left(\frac{n-t}{t+1}-\left\lfloor \frac{n-t}{t+1}\right\rfloor \right)}{\left\lfloor \frac{n}{t+1}\right\rfloor }+\sum_{j=0}^{t}{n \choose j}\leq2^{n}/K
+  \end{align}
+  becomes an equality (\cite{doi:10.1017/CBO9780511807077}, Sec. 2.3.5; see also Ref. \cite{preset:MacSlo}, Ch. 17).
+  All nearly perfect binary codes are either perfect, or correspond to either punctured Preparata codes or one of the \(2^{2^r-2-r},2^r-2,3)\) codes for \(r\geq 3\) \cite{manual:{Kauko Lindström. "The nonexistence of unknown nearly perfect binary codes." PhD diss., Turun yliopisto, 1975.}}.
+
+  Similar definitions can be made for \(q\)-ary codes, but all nearly perfect \(q\)-ary codes must be perfect \cite{manual:{K. Lindstrom and M. J. Aaltonen, "The nonexistence of nearly perfect nonbinary codes for 1 =< e =< 10", Ann. Univ. Turku, Ser. A I, No. 172, 1976.},doi:10.1016/S0019-9958(77)90519-8}.
+
+#  A nearly perfect \((n,K,2t+1)_q\) binary or \(q\)-ary code has the property that any \(q\)-ary string is at most \(t\) bit flips away from a codeword (see also Ref. \cite{preset:MacSlo}, Ch. 17, or the definition from Ref. \cite{manual:{Terr, David. "Nearly Perfect Code." From MathWorld--A Wolfram Web Resource, created by Eric W. Weisstein. https://mathworld.wolfram.com/NearlyPerfectCode.html}}).
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+    - code_id: quasi_perfect
+      detail: 'Nearly perfect codes are quasi-perfect (\cite{preset:MacSlo}, pg. 533).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'

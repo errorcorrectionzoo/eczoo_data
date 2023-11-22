@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: paircat
+physical: oscillators
+logical: qubits
+
+name: 'Pair-cat code'
+introduced: '\cite{arxiv:1801.05897}'
+
+description: |
+  Two- or higher-mode extension of cat codes whose codewords are right eigenstates of powers of products of the modes' lowering operators. Many gadgets for cat codes have two-mode pair-cat analogues, with the advantage being that such gates can be done in parallel with a dissipative error-correction process.
+
+  Two-mode codewords are supported by Fock states with occupation number \(\hat{n}_2-\hat{n}_1\) fixed to some integer \(\Delta\). In the \textit{two-component} case, \(|\overline{0}_{\gamma,\Delta}\rangle \sim |\gamma_\Delta \rangle + (-1)^\Delta |i\gamma_\Delta\rangle\) and \(|\overline{1}_{\gamma,\Delta}\rangle \sim |\gamma_\Delta\rangle - (-1)^\Delta |i \gamma\rangle\), where
+  \begin{align}
+  |\alpha_\Delta \rangle \propto \sum_{n=0}^\infty \frac{\alpha^{2n+\Delta}}{\sqrt{n! (n+\Delta)!}} |n,n+\Delta\rangle
+  \end{align}
+  is the corresponding pair-coherent state \cite{doi:10.1007/BF01646483,doi:10.1103/PhysRevLett.57.827,doi:10.1364/JOSAB.5.001940} with complex amplitude \(\alpha\), up to normalization.
+
+protection: 'The occupation-number differences form the syndromes, as opposed to the photon number parity for the single-mode cat code. Any loss even combination that changes the relative differences of photons between modes is a detectable error. The two-mode two-component paircat code can detect arbitrary single-mode losses, but cannot detect simultaneous photon loss in both modes. An \(n\)-mode code can detect any loss errors of at most \(n-1\) weight. Higher numbers of legs correspond to more pair-coherent state present in the codewords, and allow for protection against simulataneous losses.'
+
+features:
+  decoders:
+    - 'Lindbladian-based dissipative encoding utilizing two-mode two-photon absorption \cite{doi:10.1103/PhysRevLett.57.827}. Encoding passively protects against cavity dephasing, suppressing dephasing noise exponentially with \(\gamma^2\).'
+  general_gates:
+    - 'Hamiltonian \(X\), \(XX\), \(Z\) gates, holonomic \(Z\) gate, control-phase gate.'
+    - 'Bias-preserving gates \cite{arxiv:2208.06913}.'
+
+realizations:
+  - 'Microwave cavities coupled to superconducting circuits by the Wang group \cite{arxiv:2209.11643}.'
+
+relations:
+  parents:
+    - code_id: fock_state
+  cousins:
+    - code_id: cat
+      detail: 'Cat (pair-cat) codewords are superpositions of coherent (pair-coherent) states. Many cat-code protocols have analogues for the two-mode pair-cat codes.'
+    - code_id: hamiltonian
+      detail: 'Two-legged pair-cat codewords form ground-state subspace of a multimode Kerr Hamiltonian.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-16'
+    - user_id: YijiaXu
+      date: '2022-05-03'

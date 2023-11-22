@@ -1,0 +1,69 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: self_correct
+
+name: 'Self-correcting quantum code'
+introduced: '\cite{arXiv:quant-ph/0110143,arXiv:0811.0033}'
+
+description: |
+  Also called a \textit{self-correcting quantum memory} or \textit{thermally stable encoding}. A block quantum code that forms the ground-state subspace of an \(n\)-body geometrically local Hamiltonian whose logical information is recoverable for arbitrary long times in the \(n\to\infty\) limit after interaction with a sufficiently cold thermal environment.
+  Typically, one also requires a decoder whose decoding time scales polynomially with \(n\) and a finite energy density.
+  The original criteria for a self-correcting quantum memory, informally known as the \textit{Caltech rules} \cite{arxiv:1411.7046,arxiv:1501.04112}, also required finite-spin Hamiltonians.
+
+  The effect of a Markovian thermal environment consists of a Lindbladian in Davies form admitting a Gibbs steady state at some temperature \(T\) \cite{arxiv:1411.6643}.
+  To test whether a system is self-correcting, an initial codeword \(\rho(0)\) is evolved under the Davies Lindbladian and the code Hamiltonian (or, if we are to allow extra passive protection, the code Lindbladian) to the state \(\rho(t)\) at time \(t\), after which it is decoded via decoding map \(\cal{D}\).
+  The memory time \(\tau\) is defined to be
+  \begin{align}
+    \tau=\sup\left\{ t>0\,|\left\Vert {\cal D}(\rho(t))-\rho(0)\right\Vert _{1}<\epsilon\right\}
+  \end{align}
+  for some fixed \(\epsilon\).
+  For a self-correcting memory, there exists a critical temperature \(T_\star>0\) such that \(\tau\to\infty\) (typically, exponentially with \(n\)) as \(n\to\infty\) for any temperature \(T<T_{\star}\) and any codeword \(\rho(0)\).
+  A memory is \textit{partially self-correcting} if \(\tau\) scales polynomially with \(n\) up to some cutoff \(n_{max}\).
+  A self-correcting memory is typically associated with a (stable) phase of quantum matter.
+
+protection: |
+  Self-correcting classical memories exist in two and higher dimensions, with the canonical example being the classical Ising model. In that model, a classical bit is stored in the overall magnetization. The magnetization is thermally stable due to the fact that there is an \(n\)-dependent (i.e., \textit{macroscopic}) energy cost of flipping a contiguous region of physical bits \cite{doi:10.1017/S0305004100019174,arxiv:1411.6643}. This cost scales with the surface area of the region, and the surface area is \(n\)-dependent for dimensions greater than one.
+
+  Self-correcting quantum memories currently exist in four and higher dimensions, with their existence in three dimensions being an open question. For similar reasons as the classical Ising model, the four-dimensional toric code is a self-correcting quantum memory due to an order \(O(n)\) energy cost of creating a logical error \cite{arXiv:quant-ph/0110143,arXiv:0811.0033}. On the other hand, the 2D toric code is not thermally stable \cite{arxiv:quant-ph/0702102,arxiv:0709.2717,arxiv:0810.4584,arxiv:0911.3843} because its string-like logical operators anti-commite with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation.
+  There is a general upper bound on the relaxation rate of a qubit stabilizer or qubit subsystem stabilizer quantum memory interacting with a Markovian environment \cite{arxiv:0907.2807}.
+
+  An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arXiv:1412.2858,arXiv:1601.01324,arxiv:2107.01628}. Two-dimensional stabilizer codes \cite{arXiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arXiv:1209.5750} admit only constant-energy excitations, and so do not have admit such a barrier. No-go theorems for 3D models are much more restrictive, and there exist several candidates for self-correction as well as several partially self-correcting memories (see cousins below).
+
+relations:
+  parents:
+    - code_id: symmetry_protected_self_correct
+      detail: 'A self-correcting quantum memory does not require symmetry for self correction.'
+  cousins:
+    - code_id: translationally_invariant_stabilizer
+      detail: '3D translationally-invariant qubit stabilizer code families with constant \(k\) support logical string operators and thus cannot be self-correcting \cite{arXiv:1103.1885}. For non-constant \(k\), such families can support at most a logarithmic energy barrier \cite{arXiv:1101.1962}.'
+    - code_id: higher_dimensional_surface
+      detail: 'The 4D toric code is a self-correcting quantum memory \cite{arXiv:quant-ph/0110143,arXiv:0811.0033}.'
+    - code_id: 3d_surface
+      detail: 'The 3D welded solid code is partially self-correcting with a power-law energy barrier \cite{arxiv:1406.4227}. The 3D toric code is a classical self-correcting memory, whose protected bit admits a membrane-like logical operator \cite{arxiv:1501.04112}, but it is not a quantum self-correcting memory \cite{arxiv:2305.06389}.'
+    - code_id: color
+      detail: 'The 6D color code is a self-correcting quantum memory \cite{arXiv:0907.5228}.'
+    - code_id: haah_cubic
+      detail: 'Cubic code 1 is partially self-correcting with a logarithmic energy barrier \cite{arXiv:1112.3252}.'
+    - code_id: quantum_repetition
+      detail: 'The bit-flip repetition code associated with the 2D classical Ising model is a self-correcting classical memory \cite[Sec. V.A]{arxiv:1411.6643}.'
+    - code_id: repetition
+      detail: 'The repetition code associated with the 2D classical Ising model is a self-correcting classical memory \cite[Sec. V.A]{arxiv:1411.6643}.'
+    - code_id: bacon_shor
+      detail: '3D Bacon-Shor codes were conjectured to be self-correcting \cite{arxiv:quant-ph/0506023}, but there remain issues to be resolved in order to validate this conjecture (see \cite[Sec. IX.B]{arxiv:1411.6643}).'
+
+#Cubic codes were discovered during a search for 3D encodings with no logical string operators, a likely necessary condition for a self-correcting quantum memory.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-28'
+    - user_id: VictorVAlbert
+      date: '2022-05-18'
+    - user_id: YiTingRickTu
+      date: '2022-05-02'

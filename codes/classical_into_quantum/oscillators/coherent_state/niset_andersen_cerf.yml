@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: niset_andersen_cerf
+physical: oscillators
+logical: reals
+
+name: 'Niset-Andersen-Cerf code'
+introduced: '\cite{arXiv:0710.4858}'
+
+description: 'Coherent-state c-q code encoding two-mode coherent states \(\{|\alpha\rangle, |\beta\rangle\}\) into four modes such that the complex values \((\alpha,\beta)\) are recoverable after a single-mode erasure. There are two variations of the storage procedure: a deterministic protocol that offers recovery against a single mode erasure, and a probabalistic that can protect against multiple errors with post selection. This code is effectively protecting classical information stored in \((\alpha,\beta)\) using quantum operations.'
+
+protection: 'The deterministic protocol protects against a single erasure error on a known mode. This recovers one state perfectly and the other state with fidelity \(F = \frac{1}{1 + e^{-2 r}}\) for an initial EPR pair squeezed with variance \(e^{-2r}\). The probabalistic protocol utilizes post-selection to protect against multiple erasures with state-dependent fidelity.'
+
+features:
+
+  encoders:
+    - 'After an EPR pair preparation, use 2 continuous CNOT and 2 continuous inverse CNOT gates to entangle a bosonic EPR pair with initial states \(|\alpha \rangle\) and \(|\beta \rangle\).'
+    - 'Alternate optical encoder using a two-mode squeezed vacuum state and two balanced beam splitters to mix the input coherent states with the EPR pair.'
+
+  decoders:
+    - 'Optical decoder using three beam splitters, electronic gain detectors, and two phase-insensitive amplifiers as described in Ref. \cite{arXiv:0710.4858}.'
+
+realizations:
+  - 'Realized in Ref. \cite{arxiv:1006.3941} in an optical system with 3 beam-splitters. The fidelity peaked around \(0.6\) for deterministic approach, and around \(0.77\) for the probabilistic approach (with a 25\% chance of error).'
+
+relations:
+  parents:
+    - code_id: coherent_state_c-q
+  cousins:
+    - code_id: qam
+      detail: 'The Niset-Andersen-Cerf code encodes two coherent states at a time with arbitrary complex values, making it analogous to a two-point QAM code. The code does not encode any quantum information since superpositions of the coherent states are not stored. However, analysis of the code is done via a quantum treatment.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
+    - user_id: VictorVAlbert
+      date: '2022-07-06'
+    - user_id: VictorVAlbert
+      date: '2022-01-04'
+    - user_id: SiddharthTaneja
+      date: '2021-12-19'

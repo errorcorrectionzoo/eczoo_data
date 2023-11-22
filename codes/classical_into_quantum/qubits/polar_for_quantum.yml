@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: polar_for_quantum
+physical: qubits
+logical: bits
+
+name: 'Polar c-q code'
+introduced: '\cite{arxiv:1109.2591,arxiv:1701.03397}'
+
+description: |
+  Polar code adapted to transmit classical information over channels with classical inputs and quantum outputs.
+
+features:
+  rate: 'Codes achieve the symmetric Holevo information for sending classical information over any quantum channel.'
+
+  decoders:
+    - 'Quantum-limited successive-cancellation (SC) joint-detection receiver \cite{arxiv:1109.2591}.'
+
+relations:
+  parents:
+    - code_id: qubit_classical_into_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
+    - user_id: VictorVAlbert
+      date: '2022-10-31'

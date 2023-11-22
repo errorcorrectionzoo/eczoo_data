@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: gallager
+physical: bits
+logical: bits
+
+name: 'Gallager (GL) code'
+short_name: 'GL'
+introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}'
+
+description: |
+  The first LDPC code construction.
+  The rows of the parity check matrix of this regular code are divided into equal subsets, and columns in the first subset are randomly permuted to yield the corresponding rows in subsequent subsets.
+  For example, the parity-check matrix
+  \begin{align}
+  \begin{pmatrix}
+  1 & 1 & 0 & 0\\
+  0 & 0 & 1 & 1\\
+  1 & 0 & 1 & 0\\
+  0 & 1 & 0 & 1
+  \end{pmatrix}
+  \end{align}
+  contains two subsets, each consisting of two rows, and the last two rows are obtained from the first two by exchanging the second and third columns.
+
+protection: 'With high probability, random GL codes have constant distance \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}. There exist GL codes that are able to correct errors of weight less than \(c n\) for some constant \(c\) in order \(O(n\log n)\) decoding operations \cite{manual:{V. V. Zyablov, M. S. Pinsker, “Estimation of the error-correction complexity for Gallager low-density codes”, Probl. Peredachi Inf., 11:1 (1975), 23–36; Problems Inform. Transmission, 11:1 (1975), 18–28}}.'
+
+features:
+  rate: 'GL codes nearly achieve Shannon capacity against binary-input additive Gaussian white noise using iterative decoding \cite{doi:10.1049/el:19970362,doi:10.1109/18.748992}.
+  GL codes can outperform RS codes at short block length \cite{doi:10.1007/978-1-4613-0165-3_6}.'
+
+
+relations:
+  parents:
+    - code_id: regular_ldpc
+      detail: 'GL codes are the first LDPC codes.'
+    - code_id: generalized_gallager
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

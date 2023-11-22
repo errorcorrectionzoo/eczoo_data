@@ -1,0 +1,28 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: meir
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Meir code'
+introduced: '\cite{doi:10.1145/1374376.1374419}'
+
+description: |
+  Locally testable \([n,k,d]_q\) code with query complexity \(\text{poly}(\log k)\) and rejection ratio \(R/n = 1/\text{poly}(\log k)\). Code construction is probabilistic and combinatorial.
+
+relations:
+  parents:
+    - code_id: q-ary_ltc
+      detail: 'Meir codes stand out in that they are based on a combinatorial construction, while other LTCs often use algebraic tools.'
+  cousins:
+    - code_id: random
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-30'

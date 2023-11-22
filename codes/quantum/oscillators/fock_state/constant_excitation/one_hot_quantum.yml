@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: one_hot_quantum
+physical: oscillators
+logical: qudits
+
+name: 'One-hot quantum code'
+introduced: \cite{arxiv:2302.07357}
+
+description: |
+  Encoding of a \(q\)-dimensional qudit into the single-excitation subspace of \(q\) modes. The \(j\)th logical state is the multi-mode Fock state with one photon in mode \(j\) and zero photons in the other modes.
+
+protection: |
+  This is an error-detecting code against one photon loss event.
+
+features:
+  general_gates:
+    - 'Non-deterministic gates using linear optics and photon-number resolving detectors \cite{arxiv:2302.07357}.'
+
+
+relations:
+  parents:
+    - code_id: chuang-leung-yamamoto
+    - code_id: constant_excitation
+    - code_id: permutation_invariant
+  cousins:
+    - code_id: one_hot
+      detail: 'The one-hot quantum code is the quantum version of the one-hot code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-06'
