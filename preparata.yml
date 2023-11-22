@@ -8,39 +8,54 @@ code_id: preparata
 physical: bits
 logical: bits
 
-name: 'preparata'
+name: 'Preparata code'
 introduced: '\cite{doi:10.1007/0-387-34799-2_39}'
 
-description: 'Preparata code is a \((2^{m+1}-1, 2^{m+1}-2m-2, 5)\) binary code where \(m\) is odd. The code is nonlinear, and its size is twice the size of the largest possible linear code with the same length and distance. Codewords of extended preparata codes can be thought of as characteristic function of the tuple (X,Y) where X, Y belongs to \(\mathbb{F}_{2^m}\) along with the following properties:- (i) \(|X| = |Y| = 2^{m}\) (ii) \(\sum_{x \in X} x = \sum_{y \in Y} y \) (iii) \(\sum_{x \in X} x^{3} + (\sum_{x \in X} x)^{3}  = \sum_{y \in Y} y^{3} \). 
-Preparata codes are then obtained by leaving out the coordinate in the zeroeth positions in the first half. Preparate codes are uniformly packed and nearly perfect. For any word \(textbf{u}\) and (preparata) codebook C with \(d(\textbf{u}, C) > 2\), we have that \(u\) has a distance 2 or 3 to exactly floor((2^{m+1}-1)/3) codewords.'
+description: |
+  A nonlinear binary \((2^{m+1}-1, 2^{m+1}-2m-2, 5)\) code where \(m\) is odd.
+  The size of this code is twice the size of the largest possible linear code with the same length and distance.
 
-protection: 'Preparata codes are a class of non linear double error correcting codes. Since the minimum distance is 5, preparata codes can correct \(\frac{5-1}{2} = 4\) errors.'
+  Codewords of extended Preparata codes can be thought of as characteristic functions of the tuple \((X,Y)\), where \(X, Y\) belong to \(\mathbb{F}_{2^m}\), along with the following properties: (i) \(|X| = |Y| = 2^{m}\), (ii) \(\sum_{x \in X} x = \sum_{y \in Y} y \), and (iii) \(\sum_{x \in X} x^{3} + (\sum_{x \in X} x)^{3}  = \sum_{y \in Y} y^{3} \).
+  Preparata codes are obtained by leaving out the coordinate in the zeroth positions in the first half.
+
+protection: 'Preparata codes are a class of non linear double error correcting codes. Since the minimum distance is \(5\), preparata codes can correct \(\frac{5-1}{2} = 4\) errors.'
+
 
 features:
-
-  rate: 'The transmission rate is \(\frac{2^{m+1}-2m-2}{2^{m+1}-1}\).'
+  rate: 'The rate is \(\frac{2^{m+1}-2m-2}{2^{m+1}-1}\).'
 
   decoders:
-    - 'Preparata Codes can be decoded using a syndrome calculation based algorithm to correct all error patterns of Lee weight atmost 2 and detect all/ some error patterns 
-    of Lee weight 3/ 4 \cite{doi:10.1109/18.312154}.'
+    - 'Preparata Codes can be decoded using a syndrome calculation based algorithm to correct all error patterns of Lee weight atmost 2 and detect all/ some error patterns
+    of Lee weight 3/ 4 \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
 
-notes:
-  - 'Preparata codes contain twice as many code words as the double-error-correcting BCH codes of the same length, which is the largest number of code words possible for given length and distance. Thus, they are optimal\cite{doi:10.1016/S0019-9958(68)90874-7}.'    
 
 relations:
   parents:
-    - code_id: quaternary_over_z4
-    - detail: 'Preparata codes are linear over Z4 with the Lee distance.'
-  
+    - code_id: nearly_perfect
+      detail: 'Preparata codes are uniformly packed, quasi-perfect \cite[pg. 475]{preset:MacSlo}, and nearly perfect.
+      For any word \(textbf{u}\) and Preparata codebook \(C\) with \(d(\textbf{u}, C) > 2\), we have that \(u\) has a distance 2 or 3 to exactly floor((2^{m+1}-1)/3) codewords.'
   cousins:
-    - code_id: goethals
-    - detail: 'Goethals codes satisfy all the properties of the preparata codes and additionally (i) \(\sum_{x \in X} x^{r} + (\sum_{x \in X} x)^{r}  = \sum_{y \in Y} y^{r} \) (ii) \(\sum_{x \in X} x^{s} + (\sum_{x \in X} x)^{s}  = \sum_{y \in Y} y^{s} \), where \(r \neq s\) and r-1 and s-1 are comprime to \(2^{m}-1\).'
+    - code_id: quatenary_over_z4
+      detail: 'Preparata codes can be seen, via the Gray map, as linear codes over \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
     - code_id: kerdock
-    - detail: 'Weight enumerator of Kerdock and Preparata codes are McWilliams Dual of each other. This is regarded as a coincidence \cite{doi:10.1109/TIT.1983.1056676}.'
-    
+      detail: 'Weight enumerator of Kerdock and Preparata codes are McWilliams Dual of each other. This has been regarded as a coincidence \cite{doi:10.1109/TIT.1983.1056676}.'
     - code_id: reed_muller
-    - detail: 'Preparata code can be written as union of a linear subcode \(\mathcal{C}\) of \(\mathcal{R}(m-2,m)\) and the \(2^{m-1}-1\) representatives of coset formed by \(\mathcal{C}\) in \(\mathcal{R}(m-2,m)\). The coset representatives are given by \(|1|x^j|0|x^{j}\theta_{1}|\) where \(1\leq j \leq 2^{m-1}-1\). \(\mathcal{C}\) comprises of codewords of the form \(|g(1)|g(x)(1+\theta_{1})|f(1)+g(1)|g(x)(1+\theta_{1})+f(x)(1+\theta_{1}+\theta_{3})|\), where \(f(x)\) and \(g(x)\) are arbitrary and \(\theta_{1}\) and \(theta_{3}\) denote the primitive idempotents corresponding to cyclotomic cosets \(C_1\) and \(C_3\) respectively.' 
-   
-  relatives:
+      detail: 'A Preparata code can be written as a union of a linear subcode \(\mathcal{C}\) of RM\((m-2,m)\) and the \(2^{m-1}-1\) representatives of coset formed by \(\mathcal{C}\) in RM\((m-2,m)\). The coset representatives are given by \(|1|x^j|0|x^{j}\theta_{1}|\), where \(1\leq j \leq 2^{m-1}-1\). \(\mathcal{C}\) comprises of codewords of the form \(|g(1)|g(x)(1+\theta_{1})|f(1)+g(1)|g(x)(1+\theta_{1})+f(x)(1+\theta_{1}+\theta_{3})|\), where \(f(x)\) and \(g(x)\) are arbitrary, and where \(\theta_{1}\) and \(theta_{3}\) denote the primitive idempotents corresponding to cyclotomic cosets \(C_1\) and \(C_3\) respectively.'
     - code_id: bch
-    - detail: 'Preparata codes contain twice as many codewords as the corresponding extended primitive double-error-correcting BCH codes.'
+      detail: 'Preparata codes contain twice as many code words as the double-error-correcting BCH codes of the same length, which is the largest number of code words possible for given length and distance \cite{doi:10.1016/S0019-9958(68)90874-7}.'
+    - code_id: hamming
+      detail: 'Preparata codes can be obtained by Hensel-lifting Hamming codes to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}.
+      The union of the dual a Preparata code and some of its translates forms a Hamming code \cite[pg. 475]{preset:MacSlo}.'
+
+
+# - code_id: goethals
+# - detail: 'Goethals codes satisfy all the properties of the Preparata codes and additionally (i) \(\sum_{x \in X} x^{r} + (\sum_{x \in X} x)^{r}  = \sum_{y \in Y} y^{r} \) and (ii) \(\sum_{x \in X} x^{s} + (\sum_{x \in X} x)^{s}  = \sum_{y \in Y} y^{s} \), where \(r \neq s\) and r-1 and s-1 are comprime to \(2^{m}-1\).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-22'
+    - user_id: ShuubhamOjha
+      date: '2023-11-22'
