@@ -34,7 +34,7 @@ description: |
 
   Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\).
   The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
-  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)).
+  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
   Basis states for the code are, for \(\gamma \in C_X\),
   \begin{align}
@@ -46,7 +46,7 @@ description: |
   The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}.
 
   To find the minimum distance of degenerate CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
-  Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,dZ)]]\) \(CSS(C_X, C_Z)\) code are:
+  Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:
   \begin{align}
   d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
   d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
@@ -74,9 +74,9 @@ description: |
   Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. Higher-dimensional manifolds allow for longer chain complexes, and one can use the three largest non-trivial vector spaces in its chain.
 
   CSS codes saturate a type of \textit{error correction uncertainty relation} \cite[Thm. 3]{doi:10.1103/PhysRevLett.77.793}, which is a special case of an entropic uncertainty relation between a pair of bases \cite{doi:10.1007/BF01608825,doi:10.1103/PhysRevLett.50.631,doi:10.1103/PhysRevLett.60.1103}.
-  The code state \(\sum_{c\in C_{X}}|c\rangle\) can be expressed in terms of either basis states labeled by the code \(C_{X}\) or its dual, satisfying, with equality, the relation
+  The code state \(\sum_{c\in C_{Z}}|c\rangle\) can be expressed in terms of either basis states labeled by the code \(C_{Z}\) or its dual, satisfying, with equality, the relation
   \begin{align}
-    |C_{X}||C_{X}^{\perp}| \geq 2^{n}\,.
+    |C_{Z}||C_{Z}^{\perp}| \geq 2^{n}\,.
   \end{align}
 
 
