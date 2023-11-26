@@ -12,8 +12,9 @@ short_name: '\([[5,1,3]]\)'
 introduced: '\cite{arXiv:quant-ph/9602019,arxiv:quant-ph/9604024}'
 
 description: |
-  Five-qubit stabilizer code that is the smallest qubit stabilizer code to correct a single-qubit error.
-  Its generators that are symmetric under cyclic permutation of qubits, \begin{align}
+  Five-qubit cyclic stabilizer code that is the smallest qubit stabilizer code to correct a single-qubit error.
+
+  Its generators are symmetric under cyclic permutation of qubits, \begin{align}
     \begin{split}
     S_1 &= IXZZX \\
     S_2 &= XZZXI \\
@@ -21,9 +22,7 @@ description: |
     S_4 &= ZXIXZ~.
     \end{split}
   \end{align}
-
-  The five-qubit code is the smallest known example of quantum cyclic code.
-  Its automorphism group is the dihedral group of order 10 \cite{arxiv:2109.12735}.
+  The code's automorphism group is the dihedral group of order 10 \cite{arxiv:2109.12735}.
 
 protection: 'Smallest stabilizer code that protects against a single error on any one qubit. Detects two-qubit errors.'
 
@@ -68,11 +67,15 @@ relations:
       detail: 'The \([[5,1,3]]_{\mathbb{Z}_q}\) modular-qudit code for \(q=2\) reduces to the five-qubit perfect code.'
     - code_id: galois_5_1_3
       detail: 'The \([[5,1,3]]_q\) Galois-qudit code for \(q=2\) reduces to the five-qubit perfect code.'
+    - code_id: quantum_cyclic
+      detail: 'The five-qubit code is the smallest known example of quantum cyclic code.'
   cousins:
     - code_id: hamiltonian
       detail: 'The five-qubit code Hamiltonian is local when expressed in terms of mutually commuting Majorana operators \cite{manual:{Aleksander Kubica, private communication, 2019}}.'
     - code_id: majorana_stab
       detail: 'The five-qubit code Hamiltonian is local when expressed in terms of mutually commuting Majorana operators \cite{manual:{Aleksander Kubica, private communication, 2019}}.'
+    - code_id: qubits_into_qubits
+      detail: 'Every \(((5,2,3))\) code is equivalent to the five-qubit code \cite[Corr. 10]{arxiv:quant-ph/9704043}.'
 
 
 # Begin Entry Meta Information
