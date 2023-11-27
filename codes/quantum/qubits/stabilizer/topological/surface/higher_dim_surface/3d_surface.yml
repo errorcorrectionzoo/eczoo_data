@@ -16,6 +16,13 @@ alternative_names:
 description: |
   A variant of the Kitaev surface code on a 3D lattice. The closely related \textit{solid code} \cite{arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
 
+  \textit{3D toric code} often either refers to the construction on
+  the three-dimensional torus or is an alternative name for the general
+  construction.
+  The construction on surfaces with boundaries is often called the
+  \textit{3D surface code}.
+
+
 protection: |
   The planar 3D surface code family on a cubic lattice of length \(L\) has parameters \([[2L(L-1)^2+L^3,1,d_X=L^2,d_Z=L]]\), while the 3D toric code has parameters \([[3L^3,3,d_X=L^2,d_Z=L]]\).
 
@@ -24,7 +31,6 @@ protection: |
 #protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
 features:
-  transversal_gates: 'CCZ and CS gates can be obtained for the fermionic 3D surface code on certain manifolds \cite{arxiv:2311.05674}.'
   decoders:
     - 'Flip decoder and its modification p-flip \cite{arxiv:2212.06985}.'
     - 'Tensor-network decoder \cite{arxiv:2310.10722}.'
@@ -35,7 +41,8 @@ features:
 relations:
   parents:
     - code_id: higher_dimensional_surface
-    - code_id: quantum_double_abelian
+    - code_id: topological_abelian
+      detail: 'The 3D Kitaev surface code realizes 3D \(\mathbb{Z}_2\) gauge theory.'
   cousins:
     - code_id: hypergraph_product
       detail: 'The 3D surface code is a hypergraph product of three repetition codes \cite[Exam. A.1]{arxiv:2311.01328}.'
