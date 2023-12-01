@@ -12,11 +12,29 @@ name: 'Subsystem modular-qudit CSS code'
 
 description: |
   Modular-qudit subsystem stabilizer code which admits a set of gauge-group generators which consist of either all-\(Z\) or all-\(X\) modular-qudit Pauli strings.
+  This ensures that the code's stabilizer group is also CSS.
+
+  The gauge group generators can be expressed as a matrix using the symplectic reprensetation. This matrix is of the form
+  \begin{align}
+  H=\begin{pmatrix}0 & H_{Z}\\
+  H_{X} & 0
+  \end{pmatrix}~.
+  \label{eq:parity}
+  \end{align}
+  The two matrix blocks, \(H_{Z}\) and \(H_X\), correspond to the parity-check matrices of two \hyperref[code:q-ary_linear]{\(q\)-ary linear codes}, an \([n,k_X,d_X]_q\) code \(C_X\) and \([n,k_Z,d_Z]_q\) code \(C_Z\), respectively.
+  For prime-dimensional qudits, code parameters and code basis states have been expressed in terms of only data associated with these two classical codes \cite{arxiv:quant-ph/0610153,arxiv:2311.18003}.
+
+features:
+  decoders:
+    - 'Steane-type decoder utilizing data from the underlying classical codes \cite{arxiv:2311.18003}.'
 
 
 relations:
   parents:
     - code_id: qudit_subsystem_stabilizer
+      detail: 'Subsystem modular-qudit CSS codes are subsystem modular-qudit stabilizer codes whose gauge groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
+      Additionally, any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,\geq d]]_{\mathbb{Z}_q}\) subsystem CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003}.
+      Every subsystem prime-qudit stabilizer code can be constructed from two nested subsystem prime-qudit CSS codes satisfying certain constraints \cite{arxiv:2311.18003}.'
   cousins:
     - code_id: qudit_css
       detail: 'Subsystem modular-qudit CSS codes reduce to (subspace) modular-qudit CSS codes when there is no gauge subsystem.'
