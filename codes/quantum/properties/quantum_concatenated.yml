@@ -6,22 +6,33 @@
 code_id: quantum_concatenated
 
 name: 'Concatenated quantum code'
-#introduced: ''
 
-description: 'A concatenated quantum code is a combination of two codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the outer code consists of the logical subspace of the inner code. In other words, first one encodes in the outer code \(C^\prime\), and then one encodes each of the physical registers of \(C^\prime\) in an inner code \(C\).'
+description: 'A combination of two codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the outer code consists of the logical subspace of the inner code. In other words, first one encodes in the outer code \(C^\prime\), and then one encodes each of the physical registers of \(C^\prime\) in an inner code \(C\).'
 
 #protection: ''
 
 features:
+  decoders:
+    - 'The effective channel for a concatenation of codes is the composition of the codes'' effective channels \cite{arxiv:quant-ph/0206061}.'
   threshold:
-    - 'The first method to achieve a fault-tolerant computational threshold uses concatenated stabilizer codes \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9906129,arXiv:quant-ph/9705031,arXiv:quant-ph/0504218}.'
+    - 'The first method to achieve a fault-tolerant computational threshold uses concatenated stabilizer codes \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9906129,arXiv:quant-ph/9705031,arXiv:quant-ph/0504218}. Such methods require constant-space and polylogarithmic time overhead, but concatentions using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826}.'
 
-#notes:
-#  - ''
+notes:
+  - 'Concatenated codes can achieve the Gilbert-Varshamov bound \cite{arxiv:1004.1127}.'
 
 relations:
   parents:
     - code_id: qecc
-      detail: ''
+  cousins:
+    - code_id: quantum_lego
+      detail: 'Concatenations of block quantum codes can be expressed as quantum Lego codes.'
+    - code_id: holographic
+      detail: 'A holographic code whose encoding circuit is arranged in a tree geometry reduces to a concatenated code.'
 
-#  cousins:
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-15'

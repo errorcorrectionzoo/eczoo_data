@@ -4,20 +4,149 @@
 #######################################################
 
 code_id: approximate_qecc
-#physical: bits
-#logical: qubits
 
-name: 'Approximate quantum code'
-introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0307138,arXiv:quant-ph/0503139,arXiv:0907.4207,arXiv:0907.5391}'
+name: 'Approximate quantum error-correcting code (AQECC)'
+short_name: 'AQECC'
+introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1070/RM1997v052n06ABEH002155,arXiv:quant-ph/0307138,arXiv:quant-ph/0503139,arXiv:0907.4207,arXiv:0907.5391,arxiv:1706.09434}'
 
-description: 'Stub.'
+description: 'Encodes quantum information so that it is possible to approximately recover that information from noise up to an error bound in recovery.'
+
+# In exact quantum error correction, we say that encoding \(\mathcal{E}\) is correctable
+# under noise channel \(\mathcal{N}\) iff there exists some channel \(\mathcal{D}\) such that
+# \begin{align}\mathcal{D}\mathcal{N}\mathcal{E}\ket{\psi}\bra{\psi}=\ket{\psi}\bra{\psi}\end{align}
+# for all \(\ket{\psi}\).
+#
+# This can be interpreted as pure state fidelity being equal to 1 for all pure states \(\ket{\psi}\). This is true
+# iff entanglement fidelity, another measure of error, is also equal to 1 for all
+# quantum states \(\rho\)~\cite{arxiv:quant-ph/9604022}.
+# In the \hyperref[code:qecc_finite]{exact case},
+# this means that for all \(\rho\) where \(\ket{\psi}\) is a purification of \(\rho\),
+# \begin{align}(\mathcal{D}\mathcal{N}\mathcal{E}\otimes\mathrm{id})(\ket{\psi}\bra{\psi})=\ket{\psi}\bra{\psi}.\end{align}
+
+protection: |
+  Many of the state fidelity conditions that hold exactly for \hyperref[code:qecc_finite]{(exact) QECCs} can be shown to hold up to some error \(\epsilon\) for approximate QECCs.
+
+  \subsection{Entanglement fidelity}
+
+  Let \(f(\rho_1,\rho_2)\) be the fidelity between quantum states.
+  Let entanglement fidelity between channels \(\mathcal{N}\) and \(\mathcal{M}\) be defined as
+  \begin{align}
+    F_{\rho}(\mathcal{N},\mathcal{M})
+    =f((\mathcal{N}\otimes\mathrm{id})\ket{\psi}\bra{\psi},(\mathcal{M}\otimes\mathrm{id})\ket{\psi}\bra{\psi})~,
+  \end{align}
+  where \(\ket{\psi}\) is a purification of the mixed state \(\rho\).
+  The worst-case entaglement fidelity is then defined as
+  \begin{align}
+    F(\mathcal{N},\mathcal{M})=\min_{\rho} F_{\rho}(\mathcal{N},\mathcal{M})~.
+  \end{align}
+
+  Now, based on the Bures distance and worst case entaglement fidelity, we define
+  \begin{align}
+    d(\mathcal{N},\mathcal{M})=\sqrt{1-F(\mathcal{N},\mathcal{M})}
+  \end{align}
+  as a measure of distance between quantum channels~\cite{arXiv:0907.5391}.
+
+  Given some encoding map \(\mathcal{U}\) and some noise channel \(\mathcal{E}\),
+  the code described by \(\mathcal{U}\) is \textit{\(\epsilon\)-correctable} if there exists
+  some quantum channel \(\mathcal{D}\) such that
+  \begin{align}
+    d(\mathcal{D}\mathcal{E}\mathcal{U}(\rho),\rho)\leq \epsilon
+  \end{align}
+  for all logical states \(\rho\)~\cite{arXiv:0907.5391}.
+
+  \subsection{Complementary channel formulation}
+
+  \subsection{Necessary and sufficient approximate error-correction conditions}
+  Analogously to the \term{Knill-Laflamme conditions} for (exact) QECCs, there exist various formulations of necessary and sufficient conditions for approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
+
+  Necessary and sufficient conditions for approximate error correction can also be expressed in terms of
+  complementary channels.
+  Given some code defined by projector \(\Pi = U U^\dagger\), \(\Pi\) is \textit{\(\epsilon\)-correctable}
+  with respect to some noise channel \(\mathcal{E}\) if
+  \begin{align}
+    \Pi E_i^{\dagger}E_j \Pi =\lambda_{ij}\Pi +\Pi B_{ij}\Pi ~,
+  \end{align}
+  where \(\Lambda(\rho)=\mathrm{Tr}(\rho)\sum_{ij} \lambda_{ij}|i\rangle\langle j|\)
+  is a density operator,
+  \begin{align}
+    (\Lambda+B)(\rho)=\Lambda(\rho)+\sum_{ij}\mathrm{Tr}(\rho B_{ij})|i\rangle\langle j|
+  \end{align}
+  is the output state of the complementary noise channel \(\mathcal{E}^C = \Lambda+B\), and the Bures distance \(d(\Lambda+B,\Lambda)\le\epsilon\)~\cite{arXiv:0907.5391}.
+
+  In addition to the necessary and sufficient error correction conditions,
+  there exist sufficient conditions for AQECCs.
+  Given a noise channel \(\mathcal{U}(\rho)=\sum_{n} A_n \rho A_n^{\dagger}\) where \(\forall{n}\), \(A_n\) is a Kraus operator, and code projector \(\Pi \), express the following using polar decomposition, \(A_n \Pi =U_n \sqrt{\Pi A_n^{\dagger}A_n \Pi }\), and let \(p_n\) and \(p_n\lambda_n\) be the largest and smallest eigenvalues for \(\Pi A_n^{\dagger}A_n \Pi \).
+  Then, we are guaranteed that if
+  \begin{align}\Pi U_m^{\dagger}U_n \Pi =\delta_{mn} \Pi  \land p_n(1-\lambda_n)\le O(f(\epsilon))\end{align}
+  we have a fidelity \(F \geq 1-O(f(\epsilon))\) after recovery~\cite{arXiv:quant-ph/9704002}.
+
+  \subsection{Universal subspace AQECCs and alpha-bits}
+  Universal subspace approximate error correction is a type of approximate error correction that quantifies protection of information stored in (strict) subspaces of a logical space.
+
+  Given a subspace of a Hilbert space \(\mathsf{S}\) of dimension \(d\), noise channel \(\mathcal{E}\), and encoding \(\mathcal{U}\), we define the subspace as an \textit{\(\alpha\)-dit} with error \(\epsilon\) if, for all subspaces \(\tilde{\mathsf{S}}\) of dimension less than or equal to \(d^{\alpha}+1\),
+  there exists some channel \(\tilde{\mathcal{D}}\) such that
+  \begin{align}||(\tilde{\mathcal{D}}\circ \mathcal{E}\circ \mathcal{U})|\psi\rangle-|\psi\rangle||_1\leq \epsilon\end{align}
+  for all \(|\psi\rangle\in \tilde{\mathsf{S}}\)~\cite{arXiv:1706.09434}.
+
+  Generalizing the notion of quantum information transmission and capacity of \hyperref[code:qecc_finite]{(exact) QECCs}, one can achieve an \(\alpha\)-bit transmission rate \(r\) quantum channel \(\mathcal{E}\) iff,
+  for sufficiently large \(d\) and \(n\), and for all \(\epsilon>0\), the channel \(\mathcal{E}^{\otimes n}\)
+  is able to transmit
+  \begin{align}\lceil \frac{n r}{\log(d)} \rceil\quad \textup{\(\alpha\)-dits}\end{align}
+  with total error \(\epsilon\) across those \(\alpha\)-dits.
+  The \(\alpha\)-bit capacity \(Q\) of \(\mathcal{E}\)
+  is defined as the supremum of achievable transmission rates~\cite{arXiv:1706.09434}.
+
+# Please remove calM from, first discussing the codespace case and then opening up to algebras.
+
+# Given a noise channel \(\mathcal{E}\), there exists a recovery channel \(\mathcal{D}\) such that
+# \(F(\mathcal{D}\mathcal{E},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
+# for complementary channels \(\mathcal{E}^C\) and \(\mathcal{M}^C\), \(F(\mathcal{E}^C,\mathcal{D}'\mathcal{M}^C)=1-\epsilon\).
+# Note that \(F\) denotes worst case entaglement fidelity between channels.
+#
+# One example is that if \(\mathcal{M}\) is the projector onto some algebra \(\mathcal{A}\),
+# we can derive correctability conditions for that algebra under \(\mathcal{E}\)~\cite{arXiv:0907.5391}.
+
+
+features:
+  encoders:
+    - 'Given a decoder, an encoding that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
+    - 'Variational quantum circuit encoder \cite{arxiv:2204.03560}.'
+  decoders:
+    - 'Given an encoding, a decoder that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}).'
+    - 'The \textit{Petz recovery map} (a.k.a. the \textit{transpose map}) \cite{doi:10.1007/BF01212345,doi:10.1093/qmath/39.1.97}, a quantum channel determined by the codespace and noise channel, recovers information perfectly for strictly correctable noise and yields an infidelity of recovery that is at most twice away from the infidelity of the best possible recovery \cite{arXiv:quant-ph/0004088}. The infidelity of a modified Petz recovery map under erasure can be bounded using the conditional mutual information \cite{arxiv:1410.0664,arxiv:1509.07127,arxiv:1610.06169}.'
+
+notes:
+  - 'See review \cite{arxiv:2208.00365}.'
 
 relations:
   parents:
     - code_id: qecc
-      detail: ''
-# Add all children
+    - code_id: approximate_oaecc
 
-#  cousins:
-#    - code_id: ecc
-#      detail: ''
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-07-24'
+    - user_id: M10T
+      date: '2023-07-19'
+    - user_id: M10T
+      date: '2023-07-11'
+    - user_id: M10T
+      date: '2023-07-03'
+    - user_id: M10T
+      date: '2023-06-28'
+    - user_id: M10T
+      date: '2023-06-22'
+    - user_id: M10T
+      date: '2023-06-20'
+    - user_id: VictorVAlbert
+      date: '2022-08-12'
+    - user_id: PhilippeFaist
+      date: '2022-07-15'
+    - user_id: VictorVAlbert
+      date: '2021-12-05'
+    - user_id: ManasiShingane
+      date: '2021-12-05'

@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: extended_reed_solomon
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Extended GRS code'
+
+description: |
+  A GRS code with an additional parity-check coordinate with corresponding evaluation point of zero. In other words, an \([n+1,k,n-k+2]_q\) GRS code whose polynomials are evaluated at the points \((\alpha_1,\cdots,\alpha_n,0)\). The case when \(n=q-1\), multipliers \(v_i=1\), and \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is an \textit{extended narrow-sense RS code}.
+
+  An \([q-1,k,q-k]_q\) narrow-sense RS code can be extended twice by adding two evaluation points (of which one can be zero) to yield a \([q+1,k,q-k+2]_q\) \textit{doubly extended narrow-sense RS code}.
+
+notes:
+  - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Extended Reed–Solomon Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CReedSolomon-extended.html}}.'
+
+relations:
+  parents:
+    - code_id: generalized_reed_solomon
+      detail: 'Extended GRS codes can be thought of as GRS codes that include an evaluation point of zero.'
+    - code_id: generalized_reed_muller
+      detail: 'GRM codes for univariate polynomials (\(m=1\)) reduce to extended RS codes \cite{arxiv:0802.2349}.'
+  cousins:
+    - code_id: hyperoval
+      detail: 'Columns of parity-check matrices of triply extended RS codes consist of points of a hyperoval \cite[Prop. 17.5]{doi:10.1201/9781315371993}.'
+    - code_id: mds
+      detail: 'A GRS code can be extended to an MDS code (\cite{doi:10.1017/CBO9780511807077}, Thm. 5.3.4).
+      Extended and doubly extended narrow-sense RS codes are MDS (\cite{doi:10.1017/CBO9780511807077}, Thms. 5.3.2 and 5.3.4), and there is an equivalence between the two for odd prime \(q\) \cite{doi:10.4171/JEMS/316}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'

@@ -1,0 +1,70 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: w_state
+logical: qudits
+physical: qudits
+
+name: 'W-state code'
+introduced: '\cite{arXiv:1902.07714}'
+
+description: |-
+  Encodes a quantum state of a \(d_L\)-dimensional Hilbert space into
+  \(n\) physical quantum systems, each associated with a Hilbert space
+  of dimension \(d_L+1\).  The encoding resembles the structure of the
+  W state~\cite{arXiv:quant-ph/0005115}:
+  \begin{align}
+    \ket\psi
+    \to \frac{1}{\sqrt{n}}\bigl(\ket{\psi\perp\perp\ldots}
+    + \ket{\perp\psi\perp\ldots} + \cdots
+    + \ket{\perp\perp\ldots\psi}\bigr)\ ,
+  \end{align}
+  where on each physical system, \(\ket\perp\) denotes the \((d_L+1)\)-th basis state
+  and \(\ket\psi\) is encoded using the first \(d_L\) basis states.
+
+  This code enables universal quantum computation with transversal gates.  Indeed,
+  to apply any logical unitary \(U\) it suffices to apply \(U\) on each physical system,
+  where the unitary is taken to act nontrivially only on the \(d_L\) first basis states
+  of each system.  Universal computation with transversal gates does not violate the
+  Eastin-Knill theorem because this code is an approximate error-correcting
+  code~\cite{arXiv:1709.04471,arXiv:1902.07714} rather than an exact error-correcting
+  code.
+
+protection: |-
+  The W state code is an approximate error-correcting code.  Intuitively, if a
+  subsystem is lost to the environment, the environment only gains access to
+  \(\ket\psi\) with probability of order \(1/n\).  Under a single located erasure,
+  the worst-cast entanglement infidelity of the W state code can be upper bound as
+  \begin{align}
+    \epsilon_{\mathrm{worst}} \leq \frac{\sqrt{2} + d_L}{\sqrt{n}}\ .
+  \end{align}
+
+  In contrast to the \ref{code:eth}, the W state code does not saturate the scaling
+  \(1/n\) in worst-case entanglement infidelity which is known to be
+  optimal for covariant approximate error-correcting codes~\cite{arXiv:1902.07714}.
+
+features:
+
+  transversal_gates: |-
+    All logical gates can be implemented transversally. The logical unitary \(U_L\) can be
+    performed with the physical unitary \(U_L\otimes U_L\otimes\cdots\otimes U_L\), where on
+    the physical space \(U_L\) is taken to act trivially on \(\ket\perp\), i.e.,
+    \( U_L\ket\perp = \ket\perp\).
+
+relations:
+  parents:
+    - code_id: covariant
+      detail: 'The W-state code approximately protects against a single erasure while allowing for a universal transversal set of gates.'
+    - code_id: approximate_qecc
+      detail: 'The W-state code approximately protects against a single erasure while allowing for a universal transversal set of gates.'
+
+
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-18'
+    - user_id: PhilippeFaist
+      date: '2022-08-18'

@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: homological_classical
+physical: bits
+logical: bits
+
+name: 'Graph homology code'
+introduced: '\cite{arXiv:quant-ph/0605094}'
+
+description: |
+  This code's properties are derived from the size two chain complex associated with a particular graph. Given a connected simplicial (no self loops or muliedges) graph \(G = (V, E)\), which is not a tree, with incidence matrix \(\Gamma\) we can construct a code by choosing a parity check matrix which consists of all the linearly independent rows of \(\Gamma\). This is a \([n,k,d]\) code with \(n = |E|\), \(k = 1 - \mathcal{X}(G) = 1-|V|+|E|\), where \( \mathcal{X}(G)\) is the euler characteristic of the graph. The code distance is equal to the shortest size of a cycle, guaranteed to exist since \(G\) is not a tree.
+
+relations:
+  parents:
+    - code_id: binary_linear
+#      detail: 'Homology codes are linear codes, but not every linear code can be constructed homologically.'
+  cousins:
+    - code_id: perfect_binary
+      detail: 'A family of homology codes saturate the asymptotic Hamming bound \cite{arXiv:quant-ph/0605094}.'
+    - code_id: generalized_homological_product
+      detail: 'Graph homology (classical) codes were inspired by homology-based quantum code constructions.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: SeyedSajjadNezhadi
+      date: '2021-12-14'

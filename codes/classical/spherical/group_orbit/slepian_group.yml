@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: slepian_group
+physical: spheres
+logical: reals
+
+name: 'Slepian group-orbit code'
+introduced: '\cite{doi:10.1002/j.1538-7305.1968.tb02486.x,doi:10.1109/18.104333,doi:10.1109/18.485721}'
+
+description: |
+  Spherical code in \(n\) dimensions whose codewords correspond to points in an orbit of some \textit{initial vector} under a \textit{generating group} \(G\), which is a subgroup of the orthogonal group \(O(n)\) of rotations in \(n\) dimensions, i.e., the \textit{automorphism group} of spherical codes under the Euclidean distance.
+  Neither the vector nor the group are unique for a given code.
+
+# Lattice-shell not quite group-orbit because one can combine different shells, meaning that one needs more than one initial vector.
+# Polytopes too general to all be group-orbit codes?
+
+protection: |
+  Code properties depend on the relationship between the group and the initial vector, and the number of codewords is the number of cosets of an initial vector's symmetry subgroup in \(G\) per the orbit-stabilizer theorem.
+  See Refs. \cite{manual:{Biggs, Norman. Finite groups of automorphisms: course given at the University of Southampton, October-December 1969. Vol. 6. CUP Archive, 1971.},doi:10.1109/TIT.1977.1055744,doi:10.1137/0134060,doi:10.1007/s10623-008-9183-9} for allowed code parameters.
+
+
+notes:
+  - 'See \cite[Ch. 8]{preset:EricZin}\cite{doi:10.1007/BFb0042068} for more details and code tables.'
+
+relations:
+  parents:
+    - code_id: spherical
+    - code_id: group_orbit
+      detail: 'Slepian group-orbit codes are group-orbit codes on spheres.'
+  cousins:
+    - code_id: binary_linear
+      detail: 'Any length-\(n\) binary linear code can be used to define a diagonal subgroup of \(n\)-dimensional rotation matrices with \(\pm 1\) on the diagonals via the antipodal mapping \(0\to+1\) and \(1\to-1\). The orbit of this subgroup yields the corresponding Slepian group-orbit code; see \cite[Thm. 8.5.2]{preset:EricZin}.'
+    - code_id: binary_antipodal
+      detail: 'Any length-\(n\) binary linear code can be used to define a diagonal subgroup of \(n\)-dimensional rotation matrices with \(\pm 1\) on the diagonals via the antipodal mapping \(0\to+1\) and \(1\to-1\). The orbit of this subgroup yields the corresponding Slepian group-orbit code; see \cite[Thm. 8.5.2]{preset:EricZin}.'
+    - code_id: group_linear
+      detail: 'Any finite-group code can be mapped to a Slepian group-orbit code by representing the group using orthogonal matrices \cite{doi:10.1109/18.104333}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-18'

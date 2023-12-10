@@ -9,9 +9,14 @@ logical: qudits
 
 name: 'Qudit-into-oscillator code'
 
-description: 'Encodes \(K\)-dimensional Hilbert space into Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{R}^n\).'
+description: 'Encodes \(K\)-dimensional Hilbert space into \(n\) bosonic modes.'
+#Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{R}^n\)
 
 protection: ''
+
+features:
+  decoders:
+    - 'Given an encoding of a finite-dimensional code, a decoder that yields the optimal entanglement fidelity can be obtained by solving a semi-definite program \cite{arXiv:quant-ph/0109155,arXiv:quant-ph/0307138} (see also Ref. \cite{arXiv:0706.3400}). This approximate QEC technique can be adapted to bosonic codes as long as they are restricted to a finite-dimensional subspace of the oscillator Hilbert space \cite{arXiv:1708.05010}.'
 
 #notes:
 # - ''
@@ -19,4 +24,17 @@ protection: ''
 relations:
   parents:
     - code_id: oscillators
-      detail: 'Bosonic code with finite-dimensional logical subspace.'
+      detail: 'Qudit-into-oscillator codes are bosonic codes with a finite-dimensional logical subspace.'
+  cousins:
+    - code_id: approximate_qecc
+      detail: 'Approximate QEC techniques of finding the entanglement fidelity can be adapted to bosonic codes with a finite-dimensional codespace \cite{arXiv:1708.05010}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-17'
+    - user_id: VictorVAlbert
+      date: '2021-10-29'

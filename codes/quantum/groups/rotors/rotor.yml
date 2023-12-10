@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor
+physical: groups
+logical: groups
+
+name: 'Rotor code'
+
+description: |
+  Encodes a \textit{logical} Hilbert space, finite- or infinite-dimensional, into a \textit{physical} Hilbert space of \(\ell^2\)-normalizable functions on either the integers \(\mathbb Z\) or the circle group \(U(1)\).
+  Ideal codewords may not be normalizable because the space is infinite-dimensional, so approximate versions have to be constructed in practice.
+
+protection: |
+  A rotor analogue of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes consists of rotor generalized Pauli operators.
+  For a single rotor, its elements are products of exponentials of the rotor's angular position (\(\hat\phi\)) and angular momentum (\(\hat L\)) operators, acting on the rotor's angular position states \(|\phi\rangle\) for \(\phi\in U(1)\) as
+  \begin{align}
+    e^{-i\varphi\hat{L}}\left|\phi\right\rangle =\left|\phi+\varphi\right\rangle \,\,\text{ and }\,\,e^{i\ell\hat{\phi}}\left|\phi\right\rangle =e^{i\ell\phi}\left|\phi\right\rangle ~,
+  \end{align}
+  where \(\varphi\in U(1)\) and \(\ell\in\mathbb{Z}\).
+  For multiple rotors, error set elements are tensor products of elements of the single-rotor error set.
+  For multiple rotors, error set elements are tensor products of elements of the single-rotor error set, characterized by vectors of angle and integer coefficients multiplying vectors of angular momentum (\(\hat\boldsymbol{L}\)) and angular position (\(\hat\boldsymbol{\phi}\)) operators.
+
+
+notes:
+  - 'See Refs. \cite{arxiv:1709.04460}\cite[Sec. IV]{arXiv:1911.00099} for introductions to rotor Hilbert spaces.'
+
+relations:
+  parents:
+    - code_id: group_quantum
+      detail: 'Group quantum codes whose physical spaces are constructed using either the group of the integers \(\mathbb{Z}\) or the circle group \(U(1)\) are rotor codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'

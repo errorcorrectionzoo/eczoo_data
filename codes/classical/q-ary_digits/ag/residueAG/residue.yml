@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: residue
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Residue AG code'
+
+description: |
+  Also called a \textit{differential code}. Linear \(q\)-ary code defined using a set of points \({\cal P} = \left( P_1,P_2,\cdots,P_n \right)\) in \(GF(q)\) lying on an algebraic curve \(\cal X\) and a linear space \(\Omega\) of certain rational differential forms \(\omega\). Codewords are evaluations of residues of the differential forms in the specified points,
+  \begin{align}
+    \left(\text{Res}_{P_{1}}(\omega),\text{Res}_{P_{2}}(\omega),\cdots,\text{Res}_{P_{n}}(\omega)\right)\quad\quad\forall\omega\in\Omega~.
+  \end{align}
+  The code is denoted as \(C_{\Omega}({\cal X},{\cal P},D)\), where the \textit{divisor} \(D\) determines which rational rational differential forms to use.
+
+protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) and genus of the curve \(\cal X\) \cite[Corr. 15.3.13]{preset:HKSag}. Distance bounds can also be derived from how an algebraic curve \(\cal X\) is embedded in the ambient projective space \cite{arXiv:0905.2345}.'
+
+realizations:
+  - 'Improvements over the McEliece public-key cryptosystem to linear AG codes on curves of arbitrary genus \cite{doi:10.1023/A:1027351723034}.
+  Only the subfield subcode proposal remains resilient to attacks \cite[Sec. 15.7.5.3]{preset:HKSag}.'
+  - 'Algebraic secret-sharing schemes \cite{doi:10.1007/11818175_31}.'
+
+relations:
+  parents:
+    - code_id: evaluation
+      detail: 'Any residue AG code of differential forms can be equivalently stated as an evaluation AG code of functions \cite[Lemma 15.3.10]{preset:HKSag}\cite[Thm. 2.72]{preset:HPAlgCodes}. In addition, evaluation and residue AG codes are dual to each other \cite[pg. 313]{preset:HKSag}\cite{preset:HPAlgCodes}).'
+    - code_id: ag
+
+# The dual of a residue AG code is an evaluation AG code over a set of points \(\cal P\) lying on an algebraic curve \(\cal X\), where \(L\) is a Riemann-Roch space, i.e., vector space of rational functions with certain behavior of the functions''s zeroes and poles
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-11'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'

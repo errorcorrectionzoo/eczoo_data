@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_ltc
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary linear LTC'
+#introduced: '\cite{doi:10.1145/103418.103428,manual:{Sanjeev Arora. \emph{Probabilistic checking of proofs and hardness of approximation problems}. UC Berkeley, 1994.},doi:10.1137/S0097539793255151,arxiv:1307.3975}'
+
+description: |
+  A \(q\)-ary linear code \(C\) of length \(n\) that is a \((u,R)\)-LTC with query complexity \(u\) and soundness \(R>0\).
+  More technically, the code is a \((u,R)\)-LTC if the rows of its parity-check matrix \(H\in GF(q)^{r\times n}\) have weight at most \(u\) and if
+  \begin{align}
+    \frac{1}{r}|H x| \geq \frac{R}{n} D(x,C)
+  \end{align}
+  holds for any \(q\)-ary string \(x\), where \(D(x,C)\) is the \(q\)-ary Hamming distance between \(x\) and the closest codeword to \(x\) \cite[Def. 11]{arxiv:1911.03069}.
+  A code satisfying the above constraint without the weight-\(u\) restriction is called an \(R\)\textit{-testable code} \cite{arxiv:2311.04681}.
+
+notes:
+  - 'Testable binary codes admit weakly stable presentations of their correspoding groups; this property is relevant to the disproof of the Connes embedding conjecture \cite{arxiv:2311.04681}.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: ltc
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-30'

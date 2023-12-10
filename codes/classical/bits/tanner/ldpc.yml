@@ -1,0 +1,76 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: ldpc
+physical: bits
+logical: bits
+
+name: 'Low-density parity-check (LDPC) code'
+short_name: 'LDPC'
+introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}'
+# Separate from q-ary because of binary Tanner entry and because most LDPC codes are binary
+
+description: |
+  A binary linear code with a sparse parity-check matrix.
+  Alternatively, a member of an infinite family of \([n,k,d]\) codes for which the number of nonzero entries in each row and column of the parity-check matrix are both bounded above by a constant as \(n\to\infty\).
+
+  An LDPC code is \((j,k)\)-\textit{regular} if the parity-check matrix has a fixed number of \(j\) nonzero entries in each row and \(k\) entries in each column; otherwise, the LDPC code is \textit{irregular}.
+  Irregular LDPC codes are characterized by the fractions \(v_j\) of columns of weight \(j\) as well as likewise fractions \(h_j\) for rows of weight \(j\); these are collectively called the \textit{degree distribution}.
+
+  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel.
+  A parity check yields either zero (no error) or one (error).
+
+  In alternative conventions (not used here), LDPC codes are referred to as \textit{simple LDPC} codes, as opposed to generalized LDPC codes, alternatively named as Tanner codes.
+
+
+features:
+  rate: 'Some LDPC codes achieve the Shannon capacity of the binary symmetric channel under maximum-likelihood decoding \cite{doi:10.1109/18.748992,doi:10.1109/TIT.1962.1057683,arXiv:cs/0610022}.
+  Other LDPC codes achieve capacity for smaller block lengths under belief-propagation decoding \cite{arxiv:1201.2999}.
+  Random LDPC codes achieve list-decoding capacity \cite{arXiv:1909.06430}.'
+  encoders:
+    - 'Almost linear-time encoder based on transforming the parity-check matrix into upper triangular form \cite{doi:10.1109/18.910579}.'
+  decoders:
+    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910577,preset:LinCostello,doi:10.1109/ISCAS.2006.1693779}.'
+    - 'Soft-decision Sum-Product Algorithm (SPA) \cite{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910572,doi:10.1109/18.910577} and its simplification the Min-Sum Algorithm (MSA) \cite{doi:10.1109/TCOMM.2005.852852}.'
+    - 'Linear programming \cite{manual:{J. Feldman. Decoding Error-Correcting Codes via Linear Programming. PhD thesis, Massachusetts Institute of Technology, 2003.},doi:10.1109/TIT.2004.842696,doi:10.1007/978-1-4939-2864-4_216}.'
+    - 'Iterative LDPC decoders can get stuck at \textit{stopping sets} of their Tanner graphs \cite{doi:10.1109/TIT.2002.1003839}, with decoder performance improving with the size of the smallest stopping set; see \cite[Sec. 21.3.1]{preset:HKSgraphs} for more details.
+    The smallest stopping set size can reach the minimum distance of the code \cite{doi:10.1109/TIT.2005.864441}.'
+    - 'Ensembles of random LDPC codes under iterative decoders are subject to the \textit{concentration theorem} \cite{doi:10.1109/18.910577,doi:10.1109/18.910578}; see \cite[Thm. 21.7.1]{preset:HKSgraphs} for the case of the BEC.'
+    - 'Reinforcement learning \cite{arxiv:2112.13934}.'
+
+notes:
+  - 'The potential of LDPC codes was noted by Margulis \cite{doi:10.1007/BF02579283}, but realized by the broader community \cite{doi:10.1049/el:19970362,doi:10.1109/18.748992} much later after their discovery by Gallager \cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}.'
+  - 'See book \cite{doi:10.1093/acprof:oso/9780198570837.001.0001} and reviews \cite{doi:10.1088/0305-4470/37/6/R01,doi:10.1016/S0924-8099(07)80009-6} for an introduction to LDPC codes, belief-propagation decoding, and connections to statistical mechanics.
+  Other introductory references include Refs. \cite{doi:10.1109/MCOM.2003.1222728,manual:{Johnson, Sarah J. "Introducing low-density parity-check codes." University of Newcastle, Australia 1 (2006): 2006.},preset:MacKay,doi:10.1201/9780203490310} as well as a review of LDPC codes circa 2005 \cite{doi:10.1007/978-3-0348-7865-4_5}.'
+  - 'See Kaiserslautern database \cite{preset:KLdatabase} for explicit representatives of several classes of LDPC codes, including \(q\)-ary, WiMAX, multi-edge, and spatially-coupled.'
+  - 'See pretty-good-codes database \cite{preset:PGCdatabase} for explicit representatives and benchmarking.'
+  - 'LDPC codes have been considered for quantum key distribution \cite{arxiv:2212.01121}.'
+  - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
+
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: q-ary_ldpc
+  cousins:
+    - code_id: tensor
+      detail: 'Tensor products of random LDPC codes are robustly testable \cite{doi:10.1007/11830924_29,doi:10.1007/978-3-540-85363-3_24}.'
+    - code_id: ldgm
+      detail: 'The dual of an LDPC code has a sparse generator matrix and is called an LDGM code.'
+    - code_id: random
+      detail: 'LDPC codes are often constructed non-determinisitically.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-17'
+    - user_id: VictorVAlbert
+      date: '2022-04-25'
+    - user_id: ArminGerami
+      date: '2022-04-23'

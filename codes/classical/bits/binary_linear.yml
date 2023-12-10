@@ -11,9 +11,9 @@ name: 'Linear binary code'
 #introduced: ''
 
 description: |
-  An \((n,2^k,d)\) linear code is denoted as \([n,k,d]\). Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(x+y\) is also a codeword. A code that is not linear is called \textit{nonlinear}.
+  An \((n,2^k,d)\) linear code is denoted as \([n,k]\) or \([n,k,d]\), where \(d\) is the code's distance. Its codewords form a linear subspace, i.e., for any codewords \(x,y\), \(x+y\) is also a codeword. A code that is not linear is called \textit{nonlinear}.
 
-  Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a codeword \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) binary matrix.
+  Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a message \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard} or \textit{systematic form} \(G = [I_k~A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) binary matrix.
 
 protection: |
   Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set for which no two elements of the set add up to a codeword.
@@ -23,12 +23,38 @@ protection: |
     G H^{\text{T}} = 0 \mod 2~.
   \end{align}
 
+  The decision problem corresponding to finding the minimum distance is also \(NP\)-complete \cite{doi:10.1109/18.641542}, and approximating the weight enumerator is \(\#P\)-complete \cite{arXiv:cs/0304044}.
+
 features:
   rate: 'A family of linear codes \(C_i = [n_i,k_i,d_i]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive.'
+
+  decoders:
+    - 'Decoding an arbitary linear binary code is \(NP\)-complete \cite{doi:10.1109/TIT.1978.1055873}.'
+    - 'Slepian''s standard-array decoding \cite{doi:10.1002/j.1538-7305.1960.tb03958.x}.'
+    - 'Recursive maximum likelihood decoding \cite{arXiv:1408.1310}.'
+    - 'Transformer neural net for soft decoding \cite{arxiv:2203.14966}.'
+# Decoding being NP hard is discussed in Bruss Leuchs
 
 notes:
   - 'Tables of bounds and examples of linear codes for various \(n\) and \(k\), extending code tables by A. E. Brouwer \cite{manual:{Andries E. Brouwer, Bounds on linear codes, in: Vera S. Pless and W. Cary Huffman (Eds.), Handbook of Coding Theory, pp. 295-461, Elsevier, 1998.}}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'
 
 relations:
   parents:
-    - code_id: 'bits_into_bits'
+    - code_id: binary_group_orbit
+      detail: 'The set of codewords of a binary linear code can be thought of as an orbit of a particular codeword under the translation group formed by the code \cite[Thm. 8.4.2]{preset:EricZin}.
+      However, binary group-orbit codes do not have to be linear; see \cite[Remark 8.4.3]{preset:EricZin}.'
+    - code_id: q-ary_linear
+      detail: 'Linear binary codes are linear \(q\)-ary codes for \(q=2\).'
+  cousins:
+    - code_id: binary_ltc
+      detail: 'Linear binary codes with distances \(\frac{1}{2}n-\sqrt{t n}\) for some \(t\) are called almost-orthogonal and are locally testable with query complexity of order \(O(t)\) \cite{doi:10.1109/SFCS.2005.16}. This was later improved to codes with distance \(\frac{1}{2}n-O(n^{1-\gamma})\) for any positive \(\gamma\) \cite{doi:10.1109/FOCS.2007.8}, provided that the number of codewords is polynomial in \(n\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-16'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'

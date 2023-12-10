@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: alamouti
+physical: matrices
+logical: q-ary_digits
+
+name: 'Alamouti code'
+introduced: '\cite{doi:10.1109/49.730453}'
+
+description: |
+  The simplest OSTBC, with two time slots, two channels, and with unitary coding matrix
+  \begin{align}
+    \begin{pmatrix}c_{1} & c_{2}\\
+    -c_{2}^{\star} & c_{1}^{\star}
+    \end{pmatrix}~,
+  \end{align}
+  where \(c_i\) are complex numbers.
+
+features:
+  rate: 'The only OSTBC with unity rate.'
+
+realizations:
+  - 'Wireless standards since: 3G, LTE, LTE-Advanced, and 5G.'
+  - 'Wireless communication: IEEE 802.11n, IEEE 802.11ad, IEEE 802.11ay, etc.'
+# https://www.marconisociety.org/fellow-bio/siavash-alamouti-2022/
+# 3gpp.org
+
+relations:
+  parents:
+    - code_id: orth_spacetime_block
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-21'

@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: cycle_ldpc
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Cycle LDPC code'
+introduced: '\cite{doi:10.1109/TIT.1968.1054190}'
+
+alternative_names:
+  - 'Non-binary LDPC (NBDPC) code'
+
+description: |
+  A \(q\)-ary LDPC code whose parity-check matrix has weight-two columns.
+  Non-binary cycle LDPC codes for \(q\geq 32\) exihibit good performance \cite{doi:10.1109/ICC.2004.1312545,doi:10.1109/ITW.2007.4313042,doi:10.1109/TCOMM.2008.060527}.
+
+protection: |
+  The minimum distance of a binary cycle LDPC code is \(d\geq g/2\), where \(g\) is the girth of the code's Tanner graph \cite{preset:HKSgraphs}.
+
+features:
+  rate: 'Binary cycle LDPC codes are not asymptotically good \cite{doi:10.1109/ISIT.1994.394711}.'
+  encoders:
+    - 'Linear-time encoder \cite{doi:10.1109/LCOMM.2006.1633326}.'
+
+realizations:
+  - 'Cycle LDPC codes have been proposed to be used for MIMO channels \cite{doi:10.1109/TWC.2008.070057}.'
+
+relations:
+  parents:
+    - code_id: q-ary_ldpc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-09'

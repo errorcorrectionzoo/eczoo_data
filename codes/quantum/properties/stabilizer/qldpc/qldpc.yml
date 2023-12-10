@@ -1,0 +1,127 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+code_id: qldpc
+# includes both Galois and modular
+
+name: 'Quantum low-density parity-check (QLDPC) code'
+short_name: 'QLDPC'
+introduced: '\cite{arXiv:quant-ph/0304161}'
+
+alternative_names:
+  - 'Sparse quantum code'
+
+description: |
+  Member of a family of \([[n,k,d]]\) modular-qudit or Galois-qudit stabilizer codes for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\).
+  A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\).
+  As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
+
+  Notable \([[n,k,d]]\) QLDPC codes are summarized in \ref{table:qldpc-codes}, demonstrating the steady improvement in code parameters that culminated in the first asymptotically good QLDPC codes.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H>{\(k\) & \(d\) & Code}
+      \celldata<c, c, c>{
+      \(2\) & \(\sqrt{n}\) & \hyperref[code:surface]{Kitaev toric}
+          \\
+      \(2\) & \(\sqrt{n\sqrt{\log n}}\) & \hyperref[code:freedman_meyer_luo]{Freedman-Meyer-Luo}
+          \\
+      \(\Theta(n)\) & \(\sqrt{n}\) & \hyperref[code:hypergraph_product]{hypergraph product}
+          \\
+      \(\sqrt{n}/\log n\) & \(\sqrt{n} \log n\) & \hyperref[code:ramanujan_tensor_product]{high-dimensional expander (HDX)}
+          \\
+      \(\sqrt{n}\) & \(\sqrt{n} \log^c n\) & \hyperref[code:iterated_ramanujan]{tensor-product HDX}
+          \\
+      \(n^{3/5}/\text{polylog}(n)\) & \(n^{3/5}/\text{polylog}(n)\) & \hyperref[code:fiber_bundle]{fiber-bundle}
+          \\
+      \(\log n\) & \(n/\log n\) & \hyperref[code:lifted_product]{lifted-product (LP)}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:expander_lifted_product]{expander LP}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:quantum_tanner]{quantum Tanner}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick}
+      }
+      \end{cells}
+      \caption{Notable QLDPC codes; \(c\) is a positive integer.}
+      \label{table:qldpc-codes}
+    \end{table}
+
+  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit stabilizer codes satisfying the above criteria are also called QLDPC codes.
+
+protection: |
+  Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
+  Code distance may not be a reliable marker of code performance.
+  QLDPC codes with generator weights bounded by some constant can correct many stochastic errors far beyond the distance, which may not scale as favorably.
+  Together with more accurate, faster, and easier-to-parallelize measurements than those of general stabilizer codes, this property makes QLDPC codes interesting in practice.
+
+features:
+  rate: |
+    Asymptotic scaling of \(k\) and \(d\) with \(n\) depends heavily on the code construction.
+
+    Geometrically local qubit codes are limited by the \textit{Bravyi-Poulin-Terhal (BPT) bound} \cite{arxiv:0909.5200} (see also \cite{arxiv:0810.1983,arxiv:1008.1029,arxiv:1610.06169}), which states that \(d \leq O(n^{1-1/D})\) and \(k d^{2/D-1} = O(n)\) for \(D\)-dimensional lattice geometries.
+    Codes on a \(D\)-dimensional Riemannian manifold with diameter \(L\) satisfy \(k = O(L^{D-2})\) \cite{arxiv:2009.13551}.
+
+    For general graphs, distance is limited by graphs' connectivity, and a constant relative minimum distance can be achieved only for graphs that contain expanders \cite{arXiv:2106.00765}.
+    Conversely, a code with parameters \(k\) and \(d\) requires a graph with \(\Omega(d)\) edges of length \(\Omega(d/n^{1/D})\) \cite{arXiv:2109.10982}.
+
+  general_gates:
+    - 'Logical gates implemented via constant-depth quantum circuits of \(D\)-dimensional geometrically qubit stabilizer codes whose distance increases with \(n\) lie in the \(D\)th level of the Clifford hierarchy \cite{arxiv:1206.1609}.'
+  decoders:
+    - 'Belief-propagation (BP) decoder \cite{arxiv:0801.1241} and neural BP decoder \cite{arxiv:2212.10245} for qubit codes.
+    Partially and fully decoupled BP decoders, which uses the decoupling representation, yield improvements against depolarizing noise \cite{arxiv:2305.17505}.'
+    - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
+    - 'BP-OSD decoder adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.'
+    - '2D geometrically local syndrome extraction circuits with bounded depth using order \(O(n^2)\) ancilla qubits \cite{arxiv:2109.14599}.'
+    - 'Soft (i.e., analog) syndrome iterative belief propagation for CSS-type QLDPC codes, utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2205.02341}.'
+    - 'Message-passing decoder utilizing stabilizer inactivation (MP-SI) for CSS-type QLDPC qubit codes \cite{arxiv:2205.06125}.'
+    - 'Extension of the union-find decoder for qubit QLDPC codes, as well as a related heuristic decoder \cite{arxiv:2209.01180}.'
+    - 'Sliding-window decoding \cite{arxiv:2311.03307}.'
+  fault_tolerance:
+    - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794,arxiv:2308.08648}.'
+    - 'Fault-tolerance with constant overhead can be performed on certain QLDPC codes \cite{arXiv:1310.2984}, e.g., quantum expander codes \cite{arXiv:1808.03821}.'
+    - 'GHz state distillation for Steane error correction \cite{arxiv:2210.14143}.'
+  code_capacity_threshold:
+    - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688}.'
+    - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1412.6172}.'
+  threshold:
+    - 'QLDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant \cite{arXiv:1310.2984}.'
+notes:
+  - 'Links to code tables of notable QLDPC codes \cite{arXiv:2103.06309}.'
+  - 'Reviews of QLDPC codes provided in Refs. \cite{doi:10.1109/ACCESS.2015.2503267,arxiv:2103.06309}.'
+
+relations:
+  parents:
+    - code_id: stabilizer
+    - code_id: qlwc
+  cousins:
+    - code_id: ldpc
+    - code_id: topological
+      detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace is the ground-state subspace of a geometrically local Hamiltonian.
+      In this sense, topological codes are QLDPC codes.
+      On the other hand, chain complexes describing some QLDPC codes can be ''lifted'' into higher-dimensional manifolds admitting some notion of geometric locality \cite{arXiv:2012.02249}.
+      This opens up the possibility that some QLDPC codes, despite not being \textit{geometrically} local, can in fact be associated with a geometrically local theory described by a category.'
+    - code_id: dynamic_gen
+      detail: 'QLDPC codes can arise from a dynamical process \cite{arxiv:2004.09560}.'
+    - code_id: hamiltonian
+      detail: 'QLDPC code Hamiltonians can be simulated by two-dimensional Hamiltonians with non-commuting terms whose interactions scale with \(n\) \cite{arxiv:2308.13277}.'
+    - code_id: single_shot
+      detail: 'Qubit QLDPC codes satisfying linear confinement are single shot \cite{arxiv:2009.11790}. Any code that admits a local greedy decoder also satisfies linear confinement, and so is single shot \cite{arxiv:2308.08648}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-10-02'
+    - user_id: EugeneTang
+      date: '2022-10-02'
+    - user_id: VictorVAlbert
+      date: '2022-09-16'
+    - user_id: VictorVAlbert
+      date: '2022-05-13'
+    - user_id: VictorVAlbert
+      date: '2022-01-24'
+    - user_id: XiaozhenFu
+      date: '2021-12-12'

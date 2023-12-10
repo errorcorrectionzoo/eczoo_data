@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: balanced
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Balanced code'
+introduced: '\cite{doi:10.1109/TIT.1986.1057136}'
+
+description: |
+  An even-length-\(n\) \(q\)-ary code whose nonzero codewords all have a Hamming weight of \(n/2\).
+  A code is \(\epsilon\)\textit{-balanced} if the relative weight (i.e., weight divided by \(n\)) of all nonzero codewords lies in the interval \([\frac{1-\epsilon}{2},\frac{1+\epsilon}{2}]\).
+  A code is \(\gamma\)\textit{-unbiased} if the relative weight lies in the interval \((\frac{1}{2}-\frac{1}{n^{\gamma}},\frac{1}{2}+\frac{1}{n^{\gamma}})\).
+
+protection: Can detect unidirectional errors, such as a zero going to a one.
+
+features:
+  encoders:
+    - 'Efficient encoder \cite{doi:10.1109/TIT.1986.1057136}.'
+  decoders:
+    - 'Efficient decoder \cite{doi:10.1109/TIT.1986.1057136,doi:10.1109/18.52490,doi:10.1109/jsac.2010.100207}.'
+
+realizations:
+  - 'Balanced length-eight code, known as a 6b/8b encoding, used for balancing direct current in a communications system \cite{preset:Kees}'
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: constant_weight
+  cousins:
+    - code_id: ltc
+      detail: 'Random low-rate unbiased linear codes are LTCs \cite{doi:10.1145/1806689.1806748}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-14'

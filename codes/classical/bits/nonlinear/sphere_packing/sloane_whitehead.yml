@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: sloane_whitehead
+physical: bits
+logical: bits
+
+name: 'Sloane-Whitehead code'
+introduced: '\cite{doi:10.1109/TIT.1970.1054540}'
+
+description: |
+  Member of an infinite \((n,\lambda\cdot 2^{n-m-1},3)\) nonlinear code family for any \(n\) satisfying \(2^m \leq n < 3.2^{m-1}\) for some \(m\) and for \(\lambda\in\{20/16,19/16,18/16\}\).
+  Such a code has more codewords than any linear code with the same length and distance.
+  The code is constructed by applying the \((u|u+v)\) construction recursively to the Julin-Golay codes.
+
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+    - code_id: uplusv
+    - code_id: small_distance
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-31'

@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gabidulin
+physical: matrices
+logical: matrices
+
+name: 'Gabidulin code'
+introduced: '\cite{manual:{E. M. Gabidulin, \textit{Theory of Codes with Maximum Rank Distance}, Problemy Peredachi Informacii, Volume 21, Issue 1, \emph{3–16} (1985)},doi:10.1109/18.75248}'
+
+description: |
+  Also called a \textit{vector rank-metric code}. A linear code over \(GF(q^N)\) that corrects errors over rank metric instead of the traditional Hamming distance. Every element \(GF(q^N)\) can be written as an \(N\)-dimensional vector with coefficients in \(GF(q)\), and the rank of a set of elements is rank of the matrix formed by their coefficients.
+
+  Given \(X^n=\text{span}\{x_i\}\), an \(n\)-dimensional vector space over \(GF(q^N)\) (where \(q\) is a power of a prime number), the \textit{rank metric} \(d(x, y)\) is defined via the rank norm \(r(x, q) = \mathrm{rank}(A(x))\), where
+  \begin{align}
+  A(x) = \begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1n} \\ a_{21} & a_{22} & \ldots & a_{2n} \\  a_{N1} & a_{N2} & \ldots & a_{Nn}~, \end{pmatrix}
+  \end{align}
+  and \(x_i = a_{1i} u_1 + a_{2i} u_2 + \ldots + a_{Ni}u_N \) for some fixed basis \(\{u_i\}_{i=1}^N\).
+
+#  The code is called \([n,k]\)-linear if the vectors \(\{x_1, x_2, \ldots, x_M\}\) define a \(k\)-dimensional subspace.
+
+protection: 'Set of vectors \(\{x_1, x_2, \ldots, x_M\}\) determines a rank code with distance \(d=\min d(x_i, x_j)\). The code with distance \(d\) corrects all errors with rank of the error not greater than \(\lfloor (d-1)/2\rfloor\).'
+
+features:
+  decoders:
+    - 'Fast decoder based on a transform-domain approach \cite{arXiv:0901.2483}.'
+
+realizations:
+  - 'Public-key cryptosystems \cite{doi:10.1007/s10623-003-6151-2,doi:10.3390/cryptography2040032}.'
+  - 'Digital watermarking. The Gabidulin code provides efficient correction against luminance tampering and image-slicing distortion due to the consistency of the rank against alterations such as column swapping \cite{doi:10.1109/ICASSP.2018.8462647}.'
+
+relations:
+  parents:
+    - code_id: rank_metric
+      detail: 'Gabidulin codes over \(GF(q^N)\), when expressed as matrices over \(GF(q)\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(GF(q^N)\)-linear \cite[Rm. 16]{arxiv:1410.1333}.'
+  cousins:
+    - code_id: maximum_rank_distance
+      detail: 'Gabidulin codes over \(GF(q^N)\) with maximum rank-distance, when expressed as matrices over \(GF(q)\), are MRD codes.'
+    - code_id: q-ary_linear
+      detail: 'Gabidulin codes over \(GF(q^N)\), when expressed as vectors over \(GF(q^N)\), are linear \(q\)-ary codes.'
+
+
+#Each Gabidulin codeword will be an evaluation of a bounded-degree linearized polynomial with coefficients in \(GF(q^m)\) over a set of \(n\) elements in \(GF(q^m)\) that are independent over \(GF(q)\). These \(n\) elements can each be converted into rows of a rank metric code over \(GF(q)\) by taking a basis of \(GF(q^m)\) in \(GF(q)\) and using the coefficients of the linear expansion as a row vector.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: MicahShaw
+      date: '2022-08-09'
+    - user_id: VictorVAlbert
+      date: '2022-05-25'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: MariannaPodzorova
+      date: '2021-12-13'

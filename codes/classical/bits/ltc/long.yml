@@ -1,0 +1,26 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: long
+physical: bits
+logical: bits
+
+name: 'Long code'
+introduced: '\cite{doi:10.1145/502090.502098,doi:10.1137/S0097539796302531}'
+
+description: |
+  Locally testable \([2^{2^k},k,d]\) code. The encoder maps a \(k\)-bit string into a codeword that consists of the values of all Boolean functions on the \(k\)-bit string. The code is not practical, but is useful for certain probabilistically checkable proof (PCP) constructions \cite{arxiv:1002.3864}.
+
+relations:
+  parents:
+    - code_id: binary_ltc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-30'

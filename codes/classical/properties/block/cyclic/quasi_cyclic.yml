@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quasi_cyclic
+
+name: 'Quasi-cyclic code'
+introduced: '\cite{doi:10.1109/TIT.1967.1053974}'
+
+description: |
+  A block code of length \(n\) is quasi-cyclic if, for each codeword \(c_1 \cdots c_{\ell} c_{\ell+1} \cdots c_n\), the string \(c_{n-\ell+1} \cdots c_n c_1 \cdots c_{n-\ell}\) where each entry is cyclically shifted by \(\ell\) increments is also a codeword.
+
+  The generator of an \([mn_0,mk_0]\) quasi-cyclic linear code is representable as a block matrix of \(m \times m\) circulant matrices \cite{manual:{Thomas A. Gulliver, \href{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.143.3623}{Construction of quasi-cyclic codes}, Thesis, University of New Brunswick, 1989.}}.
+
+  Quasi-cyclic codes can also be understood in terms of the number of automorphism-group orbits required to generate all codewords.
+  All codewords of a cyclic code can be obtained from any codeword via cyclic shifts, meaning that the code consists of only one orbit.
+  On the other hand, quasi-cyclic codes consist of multiple disjoint orbits, meaning that not all of their codewords can be obtained from each other.
+
+notes:
+  - 'A database of quasi-cyclic codes with searchable parameters such as block length and dimension is constructed and displayed \href{http://www.tec.hkr.se/~chen/research/codes/qc.htm}{here}.'
+
+relations:
+  parents:
+    - code_id: block
+  cousins:
+    - code_id: quasi_group
+      detail: 'A quasi group-algebra code for \(G\) being the cyclic group is a quasi-cyclic \(q\)-ary linear code.'
+    - code_id: convolutional
+      detail: 'Quasi-cyclic codes can be \textit{unwrapped} to obtain convolutional codes \cite{manual:{G. D. Forney, Jr., “Why quasi cyclic codes are interesting,” unpublished note, 1970.},doi:10.1137/0137027,manual:{R. Michael Tanner, “Error-correcting coding system,” U.S. Patent 4295218, 1981.},manual:{R. Michael Tanner. Convolutional codes from quasi-cyclic codes: A link between the theories of block and convolutional codes. University of California, Santa Cruz, Computer Research Laboratory, 1987.},manual:{“Generalized tail-biting convolutional codes,” Ph.D. dissertation, Univ. of Massachusetts, Amherst, 1985.},manual:{Y. Levy and J. Costello, Jr., “An algebraic approach to constructing convolutional codes from quasi-cyclic codes,” DIMACS Ser. Discr. Math. and Theor. Comp. Sci., vol. 14, pp. 189–198, 1993.},doi:10.1109/18.651076}.'
+    - code_id: sc_qldpc
+      detail: 'Quasi-cyclic binary code parity-check matrices can be used as sub-matrices to define a 1D SC-QLDPC code \cite{arxiv:1102.3181}.'
+
+# quasi_group because there can be quasi-cyclic over rings
+#quasi_twisted
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-06-14'
+    - user_id: MicahShaw
+      date: '2022-06-13'
+    - user_id: NolanCoble
+      date: '2021-11-27'

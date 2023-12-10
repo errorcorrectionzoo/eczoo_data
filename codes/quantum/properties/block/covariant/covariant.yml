@@ -1,0 +1,77 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: covariant
+
+name: 'Covariant code'
+introduced: '\cite{arxiv:1709.04471}'
+
+description: |
+  A block code on \(n\) subsystems that admits a group \(G\) of transversal gates. The group has to be finite for finite-dimensional codes due to the Eastin-Knill theorem. Continuous-\(G\) covariant codes, necessarily infinite-dimensional, are relevant to error correction of quantum reference frames \cite{arxiv:1709.04471} and error-corrected parameter estimation.
+
+  Denoting the code's encoding map as \(U\), covariance is equivalent to
+  \begin{align}
+    \left(\bigotimes_{j=1}^{n}V_{j}\left(g\right)\right)U=UV_{L}\left(g\right)\quad\quad\forall g\in G\,,
+  \end{align}
+  where \(V_j(g)\) is a unitary representation of \(g\) acting on the \(j\) subsystem, and \(V_L\) is a unitary representation acting on the unencoded logical information.
+  In this way, covariant encoding maps are equivariant (i.e., commute) with group actions on the logical and physical spaces.
+
+  Almost always, the physical representation is defined to be the transversal one (with respect to some tensor-product decomposition), but can reduce to any representation when the code is a subspace of a larger space that is not expressed as a tensor product (\(n=1\)). More generally, a code is sometimes said to be \textit{time-covariant} if it admits a continuous-parameter \(U(1)\) family of gates, not necessarily transversal \cite{arxiv:2207.13707}.
+
+#The physical group action is the unitary tensor product representation, making physical group actions intrinsically transversal with respect to the \(n\)-subsystem decomposition.
+
+protection: |
+  Finite-dimensional codes correcting a single-subsystem erasure and admitting a continuous-parameter family of transversal gates (assuming \(n>1\)) cannot exist in finite
+  dimensions due to the Eastin-Knill theorem. As a result, there is generally a tradeoff between covariance and error correction.
+
+  Exact error-correcting \(G\)-covariant codes can exist in infinite dimensions, but their codewords are non-normalizable, meaning that approximate constructions have to be considered that are only approximately error correcting.
+  On the other hand, there exist exact error-correcting codes in finite dimensions that are approximately covariant \cite{arxiv:2111.06360,arxiv:2111.06355}.
+  Various bounds quantify the covariance-performance tradeoff \cite{arxiv:1902.07714,arxiv:2005.11918,arxiv:2004.11893,arxiv:2111.06360,arxiv:2111.06355}.
+
+#  The noise model is an erasure of a known subset of the physical subsystems.
+#  The ability to perfectly protect however depends on both the group and the
+#  physical space.  A partial classification result is the following:
+#  \begin{itemize}
+#  \item A: The group contains a continuous symmetry and the total physical space
+#  dimension is finite (i.e. a Lie group into qudits).  In this case, there cannot
+##  \item B: finite group + finite physical, or, finite group + infinite physical.
+#  In either case, perfect covariant codes exist \cite{arxiv:1709.04471}.
+#  \end{itemize}
+#  The above classification result may be thought of as a generalization of the
+#  Eastin-Knill theorem \cite{arxiv:0811.4262}.  In particular, set the logical
+#  space to be \(N\) qudits, the physical space to be a finite collection of
+#  qudits, and \(G=U(N)\).  The existence of covariant codes perfectly correcting
+#  against erasure in case B represents the in-principle ability to circumvent
+#  the Eastin-Knill theorem.  Approximate codes for case A have been considered
+#  in \cite{arxiv:1902.07714}.'
+
+features:
+  transversal_gates: '\(G\)-covariant codes defined on a tensor product space consisting of \(n\) subsystems are equivalent to codes with a transversal gate set realizing \(G\).'
+
+relations:
+  parents:
+    - code_id: block_quantum
+      detail: 'Covariant codes for \(n>1\) are block quantum codes.'
+  cousins:
+    - code_id: approximate_qecc
+      detail: 'Normalizable constructions of infinite-dimensional \(G\)-covariant codes for continuous \(G\) are approximately error-correcting.'
+    - code_id: quantum_reed_muller
+      detail: 'Quantum RM codes are approximately covariant and nearly saturate certain covariance-performance bounds \cite{arxiv:2111.06360}.'
+    - code_id: eth
+      detail: 'ETH codes consisting of Dicke states are approximately \(U(1)\)-covariant and nearly saturate certain covariance-performance bounds \cite{arxiv:1902.07714,arxiv:2111.06360}.'
+    - code_id: quantum_random
+      detail: 'Random \(U(d)\)-covariant almost exactly error-correcting codes exist \cite{arxiv:1902.07714,arxiv:2112.01498}.'
+    - code_id: group_gkp
+      detail: 'Group-GKP codes corresponding to the \(G^{k_1} \subseteq G^{k_2} \subset G^{n}\) group construction admit \(X\)-type transversal Pauli gates that represent the group \(G\), and are thus \(G\)-covariant \cite{arxiv:1902.07714}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-30'
+    - user_id: JackDavis
+      date: '2022-04-02'

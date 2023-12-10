@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ntru_gkp
+physical: oscillators
+logical: qudits
+
+name: 'NTRU-GKP code'
+introduced: '\cite{arxiv:2303.02432}'
+
+description: |
+  Multi-mode GKP code whose underlying lattice is utilized in variations of the NTRU cryptosystem \cite{doi:10.1007/BFb0054868}.
+  Randomized constructions yield asymptotically good GKP code families.
+
+  The integer-valued \(q\)-symplectic Gram matrix for an \(n\)-mode \(k\)-qubit good NTRU-GKP code is
+  \begin{align}
+    A = \sqrt{\frac{2}{q}}\begin{pmatrix}I & Q\\
+    0 & qI
+    \end{pmatrix}~,
+  \end{align}
+  where \(Q\) is a circulant matrix constructed from coefficients of a cyclic polynomial used in the NTRU cryptosystem, and \(I\) is the \(n\)-dimensional identity matrix \cite[Prop. 2]{arxiv:2303.02432}.
+
+features:
+  decoders:
+    - 'Efficient decoder against stochastic displacement noise because the decoding problem is equivalent to decrypting the NTRU cryptosystem.'
+
+realizations:
+  - 'Public-key quantum communication protocol \cite{arxiv:2303.02432}.'
+
+
+relations:
+  parents:
+    - code_id: multimodegkp
+    - code_id: qudits_into_oscillators
+  cousins:
+    - code_id: quantum_random
+      detail: 'Several NTRU lattices come from randomized constructions, yielding asymptotically good GKP code families.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-27'

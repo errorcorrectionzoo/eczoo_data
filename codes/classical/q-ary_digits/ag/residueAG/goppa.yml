@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: goppa
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Classical Goppa code'
+introduced: '\cite{manual:{V. D. Goppa, "A new class of linear error-correcting codes", Probl. Peredach. Inform., vol. 6, no. 3, pp. 24-30, Sept. 1970.},manual:{V. D. Goppa, "Rational representation of codes and (Lg) codes", Probl. Peredach. Inform., vol. 7, no. 3, pp. 41-49, Sept. 1971.},doi:10.1109/TIT.1973.1055088}'
+
+description: |
+  Let \( G(x) \)  be a polynomial describing a projective-plane curve with coefficients from \( GF(q^m) \) for some fixed integer \(m\). Let \( L \) be a finite subset of the extension field \( GF(q^m) \)  where \(q\) is prime, meaning \( L  = \{\alpha_1, \cdots, \alpha_n\} \) is a subset of nonzero elements of \( GF(q^m) \). A Goppa code \( \Gamma(L,G) \) is an \([n,k,d]_q\) linear code consisting of all vectors \(a = a_1, \cdots, a_n\) such that \( R_a(x) =0 \) modulo \(G(x)\), where \( R_a(x) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).
+
+  Goppa codes are residue AG codes \cite[Thm. 15.3.28]{preset:HKSag}. Their duals are evaluation codes that are sometimes called \textit{geometric Reed Solomon codes} \cite[Thm. 2.71]{preset:HPAlgCodes}.
+
+protection: 'The length \( n = |L| \) , dimension \( k \geq n-mr \) where \( r = \text{deg} G(x) \), and the minimum distance \( d \geq r +1 \).'
+
+features:
+  decoders:
+    - 'Algebraic decoding algorithms \cite{doi:10.1109/TIT.1975.1055350}. If \( \text{deg} G(x) = 2t \) , then there exists a \(t\)-correcting algebraic decoding algorithm for \( \Gamma(L,G) \).'
+    - 'Sugiyama et al. modification of the extended Euclidean algorithm \cite{doi:10.1016/S0019-9958(75)90090-X,doi:10.1017/CBO9780511606267}.'
+    - 'Guruswami-Sudan list decoder \cite{doi:10.1109/SFCS.1998.743426}.'
+    - 'Binary Goppa codes can be decoded using a RS-based decoder \cite{manual:{Daniel J. Bernstein, "Understanding binary-Goppa decoding." Cryptology ePrint Archive (2022).}}.'
+
+realizations:
+  - 'Initial version of the McEliece public-key cryptosystem \cite{manual:{R. J. McEliece, A public-key cryptosystem based on algebraic coding theory, Technical report, Jet Propulsion Lab. DSN Progress Report (1978).},doi:10.1007/BF00173300} and its variation by Niederreiter \cite{manual:{H. Niederreiter (1986). \emph{Knapsack-type cryptosystems and algebraic coding theory}. Problems of Control and Information Theory. Problemy Upravlenija I Teorii Informacii. 15: 159–166.}} where the generator matrix is replaced by the parity check matrix. Some of these were proven to be insecure since the public key exposes algebraic structure of code \cite{doi:10.1515/dma.1992.2.4.439}.'
+
+notes:
+  - 'GAP function \href{https://www.gap-system.org/Manuals/pkg/guava/doc/chap5.html#X7EE808BB7D1E487A}{GoppaCode(G,L)} takes in a polynomial \(G\) that satisfies the necessary conditions for a Goppa code and a list \(L\) that contains elements in \(GF(q)\) that are not roots of \(G\). It returns a Goppa code.'
+
+relations:
+  parents:
+    - code_id: generalized_reed_solomon
+      detail: 'Goppa codes are \(GF(q)\)-subfield subcode of the dual of the GRS code over \(GF(q^m)\) with evaluation points \(\alpha_i\) and factors \(v_i=G(\alpha_i)^{-1}\) (\cite{doi:10.1017/CBO9780511807077}, pg. 523; \cite{preset:HPAlgCodes}).' #alternant
+    - code_id: cartier
+      detail: 'Goppa codes are Cartier codes from a curve of genus zero \cite{arxiv:1206.4728}.'
+  cousins:
+    - code_id: q-ary_ltc
+      detail: 'Goppa codes are locally testable \cite{doi:10.1109/SFCS.2005.16}.'
+
+#  cousins:
+#    - code_id: q-ary_bch
+#      detail: 'Another special case of alternant codes. However, unlike certain forms of Goppa codes, they do not meet the GV bound.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-21'
+    - user_id: VictorVAlbert
+      date: '2021-12-15'
+    - user_id: ManasiShingane
+      date: '2021-12-14'

@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bose_qvist
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Ovoid code'
+introduced: '\cite{manual:{R. C. Bose (1947). Mathematical theory of the symmetrical factorial design. Sankhyā: The Indian Journal of Statistics, 107-166.},manual:{B. Qvist. Some remarks concerning curves of the second degree in a finite plane. Suomalainen tiedeakatemia, 1952.}}'
+
+description: |
+  Member of a \([q^2+1,4,q^2-q]_q\) projective code family that is universally optimal and that is constructed using ovoids in projective space.
+  See \cite[pg. 107]{doi:10.1112/blms/18.2.97}\cite[pg. 192]{doi:10.1201/9781315371993} for further details.
+
+relations:
+  parents:
+    - code_id: projective
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The ovoid code is a \(q\)-ary sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
+  cousins:
+    - code_id: univ_opt_q-ary
+      detail: 'Several shortened and punctured versions of the ovoid code are LP universally optimal codes \cite{arxiv:1212.1913}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-05'
+    - user_id: AlexanderBarg
+      date: '2023-03-05'
+    - user_id: VictorVAlbert
+      date: '2023-02-24'

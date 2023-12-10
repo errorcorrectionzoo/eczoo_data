@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: spacetime
+physical: matrices
+logical: q-ary_digits
+
+name: 'Spacetime code (STC)'
+short_name: 'STC'
+introduced: '\cite{doi:10.1109/18.661517}'
+
+description: |
+  Code designed for wireless transmission of information (via, e.g., radio waves) such that the sender can send multiple times from multiple locations. A spacetime code uses a modulation scheme to encode a message into signals that are sent at different times through different antennas, thereby utilizing both spatial and temporal (i.e., \textit{spacetime}) degrees of freedom.
+
+notes:
+  - 'See the chapter \cite{doi:10.1016/B978-0-12-385055-3.00002-X} or Ref. \cite{preset:HKSstc} for an introduction to spacetime coding.'
+
+features:
+  rate: 'Shannon capacity of various multiple-input multiple-output (MIMO) channels has been determined \cite{doi:10.1109/JSAC.2003.810294}.'
+
+
+relations:
+  parents:
+    - code_id: matrices_into_matrices
+      detail: ''
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-21'

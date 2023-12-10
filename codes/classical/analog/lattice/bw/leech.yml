@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: leech
+physical: reals
+logical: reals
+
+name: '\(\Lambda_{24}\) Leech lattice code'
+short_name: 'Leech'
+introduced: '\cite{doi:10.4153/CJM-1967-017-0}'
+
+description: |
+    Even unimodular lattice in 24 dimensions that exhibits optimal packing.
+
+protection: |
+  The \(\Lambda_{24}\) Leech lattice has a nominal coding gain of \(4\). It exhibits the densest packing \cite{arxiv:1603.06518} and highest kissing number of 196560 in 24 dimensions.
+
+notes:
+  - 'Popular summary of solution to the sphere-packing problem in \href{https://www.quantamagazine.org/sphere-packing-solved-in-higher-dimensions-20160330/}{Quanta Magazine}.'
+
+
+relations:
+  parents:
+    - code_id: niemeier
+    - code_id: univ_opt_analog
+      detail: 'The \(\Lambda_{24}\) Leech lattice code is universally optimal \cite{arxiv:1902.05438}.'
+  cousins:
+    - code_id: golay
+      detail: 'The \(\Lambda_{24}\) Leech lattice can be obtained by lifting the Golay code to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}, appending a parity check, and applying construction \(A_4\) \cite{doi:10.1007/3-540-57843-9_20} (see also \cite{doi:10.1007/978-1-4757-6568-7}). Half of the lattice can be obtained in a different construction \cite[Ex. 10.7.3]{preset:EricZin}.'
+    - code_id: sharp_config
+      detail: 'Several spherical sharp configrations are derived from the \(\Lambda_{24}\) Leech lattice \cite{arxiv:math/0607446}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
