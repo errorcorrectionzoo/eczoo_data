@@ -12,13 +12,13 @@ introduced: '\cite{arXiv:2303.13723}'
 
 description: |
   A homological quantum rotor code is an extension of \hyperref[code:analog_stabilizer]{analog stabilizer} codes to rotors.
-  The code is stabilized by a continuous group of rotor X-type and Z-type generalized Pauli operators.
+  The code is stabilized by a continuous group of rotor \(X\)-type and \(Z\)-type generalized Pauli operators.
   Codes are formulated using an extension of the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to rotors.
   The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension, i.e., encoding logical qudits instead of only logical rotors.
   Such finite-dimensional encodings are not possible with \hyperref[code:analog_stabilizer]{analog stabilizer} codes.
 
   A homological rotor code encoding \(k\) logical rotors and a \(q\)-dimensional logical qudit is denoted as \([[n,(k,q)]]_{\mathbb{Z}}\) or \([[n,(k,q),(d_X,\delta_Z)]]_{\mathbb{Z}}\), where \(d_X\) and \(\delta_Z\) are the code's \(X\) and \(Z\) distances, respectively.
-  The subscript \(\mathbb{Z}\) refers to the label used for the rotor's angular momentum, but shifts in the dual angular position degree of freedom are also used to construct stabilizers.
+  The subscript \(\mathbb{Z}\) refers to the label used for the rotor's angular momentum, but shifts in the dual angular position degree of freedom are also used to construct stabilizers (the altenative subscript \(U(1)\) is used in some cases).
 
   The stabilizer group is defined using two integer matrices \(H_X\in\mathbb{Z}^{r_X\times n}\) and \(H_Z\in\mathbb{Z}^{r_Z\times n}\) which are such that
   \begin{align}
@@ -57,6 +57,9 @@ protection: |
 
 features:
   transversal_gates: 'All generalized Pauli gates are realized transversally.'
+
+  general_gates:
+    - 'Some logical gates come from the rotor Clifford group \cite{arxiv:2311.07679}.'
 
 notes:
   - 'A Sage notebook to look at small examples can be found in \url{https://github.com/cianibegood/quantum-rotor-codes}.'

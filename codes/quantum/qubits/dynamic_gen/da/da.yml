@@ -28,7 +28,7 @@ description: |
 
 features:
   general_gates:
-  -  'The measurement sequences of the 2D DA color code on a \(N\) layers of triangular patches (which encodes \(N\) logical qubits) can be used to implement all Clifford logical gates via a sequence of two- and three-qubit measurements \cite{arXiv:2307.10353}.'
+  -  'The measurement sequences of the 2D DA color code on a \(N\) layers of triangular patches (which encodes \(N\) logical qubits) with a \textit{Pauli boundary} can be used to implement all Clifford logical gates via a sequence of two- and three-qubit measurements \cite{arXiv:2307.10353}.'
   - 'The 3D DA color code allows for a non-Clifford logical gate via adaptive two-qubit measurements \cite{arXiv:2307.10353}.'
 
 
@@ -37,8 +37,10 @@ relations:
     - code_id: dynamic_gen
       detail: 'DA code state initialization, logical gates, and error correction are done by a sequence of different (usually weight-two) stabilizer measurements.'
   cousins:
-    - code_id: color
-      detail: 'The parent topological phase of the 2D (3D) DA color code is realized by two (three) copies of the 2D (3D) color code.'
+    - code_id: 2d_color
+      detail: 'The parent topological phase of the 2D DA color code is realized by two copies of the 2D color code.'
+    - code_id: 3d_color
+      detail: 'The parent topological phase of the 3D DA color code is realized by two copies of the 3D color code.'
     - code_id: surface
       detail: 'One of the instantaneous stabilizer codes of the 2D DA color code are stacks of toric/surface codes'
     - code_id: topological_abelian

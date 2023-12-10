@@ -1,0 +1,56 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: triangular_color
+physical: qubits
+logical: qubits
+
+name: 'Triangular color code'
+introduced: '\cite{arxiv:quant-ph/0605138}'
+
+description: |
+  A planar color code defined on a trivalent lattice, typically the honeycomb or 4-8-8 (square octagon) lattice. Each boundary of the triangle intersects the lattice such that it only touches faces of two colors. The color of the boundary is then the other third color.
+
+  There are three types of boundaries corresponding to the three colors of the faces \cite{arXiv:1311.0879}.
+  There are also three types of string operators, one for each color. A string of one color must end in a boundary of that same color.
+
+#  The string-net for the triangular color code has a special geometry such that the \(X\) and Z logical qubits have the same geometry in a string-net. \(\{X_\mu, Z_\mu\} = 0\), where \(\mu\) denotes the string-net. Let \(\bar{X} = X_\mu\) and \(\bar{Z} = Z_\mu\), then \(\bar{X}\) and \(\bar{Z}\) have the same geometry.\cite{arXiv:1311.0879}
+
+
+protection: |
+  Triangular color codes can be defined on the 4-8-8 lattice exist for any odd code distance \(d\).
+  For any \(d\), \([[\frac{d^2-1}{2}+d, 1, d]]\) \cite{arXiv:1407.5103}.
+  Triangular color codes can be defined on the honeycomb or 6-6-6 lattice for any odd code distance \(d\).
+  For code distance \(d \geq 5\), the number of data qubits is \(\frac{(3d-1)^2}{4}\) \cite{arxiv:1911.00355}.
+
+
+#   transversal_gates: 'Color codes admit a logical Hadamard gate because logical Paulis have the same geometry \cite{arXiv:1311.0879}.
+# In general, the definition \(\widehat{P} = P^{\otimes V}\) doesn’t guarantee transversality, because though \(\widehat{P}Z_f\widehat{P}Z_f = Z_f\), \(\widehat{P}X_f\widehat{P} = (-1)^{\frac{t}{2}}X_fZ_f\), where \(t\) is the number of vertices of \(f\). Therefore, \(t\) must be a multiple of 4. This is only true for the triangular color code defined on the 4-8-8 lattice.\cite{arXiv:1311.0879}'
+
+features:
+
+  code_capacity_threshold:
+    - '\(12.6\%\) threshold for triangular color code with the restriction decoder \cite{arXiv:1911.00355} and the projection decoder \cite{arXiv:1308.6207,arXiv:1802.08680}.'
+    - '\(8.7\%\) threshold for phase errors for the honeycomb triangular color code with the projection decoder \cite{arXiv:1308.6207}.'
+    - '\(\geq 6\%\) threshold with rescaling-based decoder on the 4-8-8 triangular color code \cite{arXiv:2112.09584}.'
+    - '\(44\%\) threshold under erasure noise for the 4-8-8 triangular color code \cite{arXiv:2111.14594} (see also \cite{doi:10.1109/ITW46852.2021.9457583}).'
+
+
+relations:
+  parents:
+    - code_id: 2d_color
+  cousins:
+    - code_id: hexagonal
+      detail: 'The triangular color code is defined on a trivalent lattice such as the honeycomb lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-13'
+    - user_id: CellaKove
+      date: '2023-07-24'

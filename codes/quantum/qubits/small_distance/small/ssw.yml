@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ssw
+physical: qubits
+logical: qubits
+
+name: 'Smolin-Smith-Wehner code'
+introduced: '\cite{arXiv:quant-ph/0701065}'
+
+description: |
+  A family of \(((n=4k+2l+3,M_{k,l},2))\) CWS codes, where \(M_{k,l} \approx 2^{n-2}(1-\sqrt{2/(\pi(n-1))})\),  whose codewords are superpositions of particular bitstrings and their complements.
+  For \(n \geq 11\), these codes have a logical subspace whose dimension is larger than that of the largest stabilizer code for the same \(n\) and \(d\).
+
+
+relations:
+  parents:
+    - code_id: cws
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: iceberg
+      detail: 'Smolin-Smith-Wehner and iceberg codewords are superpositions of particular bitstrings and their complements.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-29'

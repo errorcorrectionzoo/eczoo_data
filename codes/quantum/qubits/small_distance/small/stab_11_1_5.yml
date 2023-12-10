@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_11_1_5
+physical: qubits
+logical: qubits
+
+name: '\([[11,1,5]]\) quantum dodecacode'
+short_name: '\([[11,1,5]]\)'
+introduced: '\cite{arXiv:quant-ph/9608006}'
+
+description: |
+  Eleven-qubit pure stabilizer code that is the smallest qubit stabilizer code to correct two-qubit errors.
+
+  See \cite[Table 8.5]{arxiv:quant-ph/9705052}\cite{arxiv:quant-ph/0406063} for its stabilizer generator matrix.
+
+protection: 'Smallest stabilizer code that protects against errors on any two qubits. Detects four-qubit errors.'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-26'

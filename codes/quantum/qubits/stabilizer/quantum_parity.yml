@@ -9,10 +9,10 @@ logical: qubits
 
 name: 'Quantum parity code (QPC)'
 short_name: 'QPC'
-introduced: '\cite{arxiv:quant-ph/0006088,arxiv:quant-ph/0501184,doi:10.1038/35051009}'
+introduced: '\cite{doi:10.1103/PhysRevA.52.R2493,arxiv:quant-ph/0006088,arxiv:quant-ph/0501184}'
 
 description: |
-  Also called a \textit{generalized Shor code} \cite{arxiv:quant-ph/0610088}. A \([[m_1 m_2,1,\min(m_1,m_2)]]\) CSS code family obtained from concatenating an \(m_1\)-qubit phase-flip repetition code with an \(m_2\)-qubit bit-flip repetition code. Logical codewords are
+  A \([[m_1 m_2,1,\min(m_1,m_2)]]\) CSS code family obtained from concatenating an \(m_1\)-qubit phase-flip repetition code with an \(m_2\)-qubit bit-flip repetition code. Logical codewords are
   \begin{align}
   \begin{split}
   |\overline{0}\rangle&=\frac{1}{2^{m_2/2}}\left(|0\rangle^{\otimes m_1}+|1\rangle^{\otimes m_1}\right)^{\otimes m_2}\\
@@ -35,7 +35,7 @@ notes:
 
 relations:
   parents:
-    - code_id: qubit_css
+    - code_id: generalized_shor
     - code_id: translationally_invariant_stabilizer
     - code_id: quantum_concatenated
       detail: 'A QPC is a concatenation of a phase-flip repetition code with a bit-flip repetition code.'
@@ -50,6 +50,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-14'
     - user_id: VictorVAlbert
       date: '2021-12-31'
     - user_id: XinyuanZheng

@@ -1,0 +1,65 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: galois_reed_muller
+physical: galois
+logical: galois
+
+name: 'Galois-qudit quantum RM code'
+short_name: 'QRM'
+introduced: '\cite{arXiv:quant-ph/0502001}'
+
+description: |
+  True \(q\)-Galois-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes via either the Hermitian construction or the Galois-qudit CSS construction.
+
+  The CSS construction yields a
+  \([[q^m,k(v_2)-k(v_1),\min\{d(v_1^{\perp}),d(v_2)\}]]_q\) code, constructed from the generalized Reed Muller Codes
+  RM\(_q(v_1,m)\) and RM\(_q(v_2,m)\), with \(0\leq v_1 \leq v_2 \leq q(m-1)-1\).
+  The parameters are \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and
+  \(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq q-1\).
+  Here \(0\leq v_1,v_2 \leq m(q-1)-1\), \(q\) is prime, and \(m\) is a positive integer.
+
+  Using the code GRM\(_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\), the Hermitian construction yields a pure \([[q^{2m},q^{2m}-k(v),d(v^{\perp})]]_q\) quantum code where
+  \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).
+
+  For a CSS code constructed from classical codes \(C_1\) and \(C_2\), the punctured code is defined as the classical code
+  \(P(C) = \{(a_ib_i)_{i=1}^{n}|a \in C_1, b \in C_2^{\perp}\}^{\perp}\). Quantum RM codes can be punctured to any length \(r\), provided
+  \(P(C) = \mathcal{R}_q(v_2-v_1,m)\) has a codeword of this weight.
+#   A linear code \([n,k]_{q^{2}}\) contained in its Hermitian dual implies the existence of \([[n,n-2k,d]]_q\) quantum code where \(d = \min(wt(C^{\perp_{h}}\C))\).
+
+protection: |
+  QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\). We define a \(\mathcal{M}_{d}^{m}\) distillation code as any \(n\) Galois-qudit stabilizer code \(C\) having the following properties: (a) All \(M \in \mathcal{M}_{d}^{m}\) are transversal so that \(M^{\otimes n}C(M^{\otimes n})^{\dagger} = M_{L}^{\dagger}CM_{L}\), (b) the code has distance \(D \geq 2\), and (c) the code has logical pauli operators \(X_{L} = X[\mathbf{1}]\) and \(Z_{L} = Z[(d-1)\mathbf{1}]\). Here, \(\mathbf{1}\) is a shorthand for the vector \((1,1, \dots, 1)\).
+
+# rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
+
+
+features:
+  transversal_gates: 'QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\).'
+
+
+relations:
+  parents:
+    - code_id: galois_true_stabilizer
+      detail: 'Galois-qudit RM codes can be constructed via the CSS construction or the Hermitian construction.'
+  cousins:
+    - code_id: generalized_reed_muller
+    - code_id: quantum_mds
+      detail: 'There exists a quantum RM code \([[q, q − 2ν − 2, ν + 2]]_q\) for \( 0\leq v \leq \frac{(q-2)}{2}\) and \([[q^2,q^2-2v-2,v+2]]_q\) for
+      \(0\leq v \leq q-2\). Both these codes satisfy the quantum Singleton bound.'
+    - code_id: galois_css
+      detail: 'Galois-qudit RM codes can be constructed via the CSS construction or the Hermitian construction.'
+    - code_id: stabilizer_over_gfqsq
+      detail: 'Galois-qudit RM codes can be constructed via the CSS construction or the Hermitian construction.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-22'
+    - user_id: ShuubhamOjha
+      date: '2023-11-22'

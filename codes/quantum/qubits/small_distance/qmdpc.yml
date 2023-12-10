@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qmdpc
+physical: qubits
+logical: qubits
+
+name: 'Quantum multi-dimensional parity-check (QMDPC) code'
+short_name: 'QMDPC'
+introduced: '\cite{arxiv:2312.04522}'
+
+description: |
+  High-rate low-distance CSS code whose qubits lie on a \(D\)-dimensional rectangle, with \(X\)-type stabilizer generators defined on each \(D-1\)-dimensional rectangle.
+  For example, the \(D=2\) square geometry corresponds to a \([[n^2,n^2-4n+2,4]]\) code, with \(X\)-type stabilizer generators defined on rows and columns.
+  The \(Z\)-type stabilizer generators are defined via permutations in order to commute with the \(X\)-type generators.
+
+protection: 'The general construction for a \(D\)-dimensional block with sides \(n_i\) yields a \([[[[\prod_{i=1}^{D}n_{i},2\prod_{i=1}^{D}(n_{i}-1)-\prod_{i=1}^{D}n_{i},2^{D}]]]]\) code family.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: small_distance_quantum
+    - code_id: yoked_surface
+      detail: 'Yoked surface codes are concatenations of QMDPC codes with rotated surface codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-12-08'

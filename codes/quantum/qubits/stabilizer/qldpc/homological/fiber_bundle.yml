@@ -10,7 +10,8 @@ logical: qubits
 name: 'Fiber-bundle code'
 introduced: '\cite{arxiv:2009.03921}'
 
-description: 'Also called a \textit{twisted product code}. CSS code constructed by combining a random LDPC code as the base and a cyclic repetition code as the fiber of a fiber bundle. After applying distance balancing, a QLDPC code with distance \(\Omega(n^{3/5}\text{polylog}(n))\) and rate \(\Omega(n^{-2/5}\text{polylog}(n))\) is obtained.'
+description: 'Also called a \textit{twisted product code}. CSS code constructed by combining one code as the base and another as the fiber of a fiber bundle.
+In particular, taking a random LDPC code as the base and a cyclic repetition code as the fiber yields, after distance balancing, a QLDPC code with distance \(\Omega(n^{3/5}\text{polylog}(n))\) and rate \(\Omega(n^{-2/5}\text{polylog}(n))\) is obtained.'
 #In addition, weight reduction can be used to make this an \([[n,\Omega(n^{3/5}/\text{polylog}(n),\Omega(n^{3/5}/\text{polylog}(n))]]\) QLDPC code family.'
 
 #protection: 'Pauli errors up to weight \(\Omega(n^{3/5}\text{polylog}(n))\).'
@@ -23,10 +24,12 @@ features:
 
 relations:
   parents:
-    - code_id: qubit_css
+    - code_id: qubit_generalized_homological_product_css
     - code_id: balanced_product
       detail: 'Fiber-bundle codes can be formulated in terms of a balanced product \cite{arXiv:2012.09271}.'
   cousins:
+    - code_id: lifted_product
+      detail: 'The specific fiber-bundle QLDPC code achieving a distance scaling better than \(\sqrt{n}~\text{polylog}(n)\) can also be formulated as an LP code (see published version \cite{doi:10.1145/3406325.3451005}).'
     - code_id: distance_balanced
       detail: 'Fiber-bundle code constructions use distance balancing to increase distance.'
     - code_id: quantum_random

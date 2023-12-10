@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: unary
+physical: bits
+logical: bits
+
+name: 'Unary code'
+
+alternative_names:
+  - 'Thermometer code'
+
+description: |
+    Trivial code that encodes integers \(1\) through \(n\) into binary strings of length \(n\).
+    The \(i\)th codeword is a string consisting of \(i\) ones followed by \(n-i\) zeroes.
+
+realizations:
+  - 'Neural networks \cite{arxiv:1009.4495}.'
+  - 'Birdsong production \cite{manual:{Fiete, I. R., & Seung, H. S. (2007). Neural network models of birdsong production, learning, and coding. New Encyclopedia of Neuroscience. Eds. L. Squire, T. Albright, F. Bloom, F. Gage, and N. Spitzer. Elsevier.}}.'
+
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-14'

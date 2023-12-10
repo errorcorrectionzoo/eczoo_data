@@ -10,9 +10,13 @@ logical: qubits
 name: 'Qubit CSS code'
 introduced: '\cite{arXiv:quant-ph/9512032,doi:10.1103/PhysRevLett.77.793,arXiv:quant-ph/9601029}'
 
+alternative_names:
+  - 'Euclidean-construction qubit code'
+
 description: |
   An \([[n,k,d]]\) stabilizer code admitting a set of stabilizer generators that are either \(Z\)-type or \(X\)-type Pauli strings.
   Codes can be defined from two classical codes and/or chain complexes over \(\mathbb{Z}_2\) per the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} below.
+  \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
 
   The stabilizer generator matrix is of the form
   \begin{align}
@@ -30,7 +34,7 @@ description: |
 
   Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\).
   The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
-  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_X\) (\(C_Z\)).
+  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
   Basis states for the code are, for \(\gamma \in C_X\),
   \begin{align}
@@ -42,7 +46,7 @@ description: |
   The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to degeneracy \cite{preset:GottesmanBook}.
 
   To find the minimum distance of degenerate CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
-  Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,dZ)]]\) \(CSS(C_X, C_Z)\) code are:
+  Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:
   \begin{align}
   d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
   d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
@@ -70,9 +74,9 @@ description: |
   Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used. Higher-dimensional manifolds allow for longer chain complexes, and one can use the three largest non-trivial vector spaces in its chain.
 
   CSS codes saturate a type of \textit{error correction uncertainty relation} \cite[Thm. 3]{doi:10.1103/PhysRevLett.77.793}, which is a special case of an entropic uncertainty relation between a pair of bases \cite{doi:10.1007/BF01608825,doi:10.1103/PhysRevLett.50.631,doi:10.1103/PhysRevLett.60.1103}.
-  The code state \(\sum_{c\in C_{X}}|c\rangle\) can be expressed in terms of either basis states labeled by the code \(C_{X}\) or its dual, satisfying, with equality, the relation
+  The code state \(\sum_{c\in C_{Z}}|c\rangle\) can be expressed in terms of either basis states labeled by the code \(C_{Z}\) or its dual, satisfying, with equality, the relation
   \begin{align}
-    |C_{X}||C_{X}^{\perp}| \geq 2^{n}\,.
+    |C_{Z}||C_{Z}^{\perp}| \geq 2^{n}\,.
   \end{align}
 
 
@@ -100,7 +104,7 @@ features:
     - 'LDPC CSS code symmetries called \(XZ\)-dualities allow for fold-transversal gates, i.e., transversal gates followed by qubit permutations \cite{arxiv:2202.06647}.'
     - 'Generalized lattice surgery \cite{arxiv:2301.13738}.'
   fault_tolerance:
-    - 'Steane error correction \cite{arXiv:quant-ph/9611027}.'
+    - 'Steane error correction, where fault-tolerance is ensured by preparing ancillary encoded states and extracting syndromes via \(CNOT\) gates \cite{arXiv:quant-ph/9611027}.'
     - 'Homomorphic gadgets fault-tolerant measurement unify Steane and Shor error correction \cite{arxiv:2211.03625}.'
     - 'Parallel syndrome extraction for distance-three codes can be done fault-tolerantly using one flag qubit \cite{arXiv:2208.00581}.'
     - 'Distance-preserving flag fault-tolerant error correction using lookup tables for small codes \cite{arxiv:2306.12862}.'
@@ -125,8 +129,8 @@ notes:
 
 relations:
   parents:
-    - code_id: qubit_stabilizer
-      detail: 'Stabilizer generators can be expressed as either only \(X\)-type or only \(Z\)-type. However, any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[4n,2k,2d]]\) self-orthogonal CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arXiv:1004.3791}.'
+    - code_id: cpc
+      detail: 'CSS codes are a subset of CPC codes \cite{arXiv:1611.08012}, with the latter not requiring the two classical codes to be related.'
     - code_id: movassagh_ouyang
       detail: 'Movassagh-Ouyang codes stem from a prescription that converts an \textit{arbitrary} classical code into a quantum code.'
     - code_id: qudit_css
@@ -134,8 +138,11 @@ relations:
     - code_id: galois_css
       detail: 'Galois-qudit CSS codes for \(q=2\) are (qubit) CSS codes.'
   cousins:
+    - code_id: qubit_stabilizer
+      detail: 'CSS codes are stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
+      Additionally, any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003} (see also \cite{arXiv:1004.3791}).'
     - code_id: binary_linear
-      detail: 'Construction uses two related binary linear codes \(C_X\) and \(C_Z\).'
+      detail: 'The CSS construction uses two related binary linear codes \(C_X\) and \(C_Z\).'
     - code_id: dual
       detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{self-orthogonal} since \(C^{\perp} \subseteq C\). The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'
     - code_id: alternant

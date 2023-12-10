@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor_4_2_2
+physical: groups
+logical: groups
+
+name: 'Four-rotor code'
+introduced: '\cite[Sec. VIII]{arxiv:1902.07714}'
+
+description: |
+  \([[4,2,2]]_{\mathbb Z}\) CSS rotor code that is an extension of the four-qubit code to the integer alphabet, i.e., the angular momentum states of a planar rotor. The code is \(U(1)\)-covariant and its ideal logical-rotor codewords,
+  \begin{align}
+    |\overline{x,y}\rangle = \sum_{j,k,l\in\mathbb{Z}} \delta_{a,j+k}\delta_{b,l} \left| j,k,j+l,k+l \right\rangle~,
+  \end{align}
+  where \(a,b\in\mathbb{Z}\), are not normalizable.
+
+
+relations:
+  parents:
+    - code_id: homological_rotor
+    - code_id: group_4_2_2
+      detail: 'The four group-qudit code reduces to the four-rotor code for \(G= \mathbb{Z}\).'
+  cousins:
+    - code_id: stab_4_2_2
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-05'

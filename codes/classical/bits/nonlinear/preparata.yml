@@ -1,0 +1,66 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+# code id, physical, logical are all lower case
+code_id: preparata
+physical: bits
+logical: bits
+
+name: 'Preparata code'
+introduced: '\cite{doi:10.1016/S0019-9958(68)90874-7}'
+
+description: |
+  A nonlinear binary \((2^{m+1}-1, 2^{m+1}-2m-2, 5)\) code where \(m\) is odd.
+  The size of this code is twice the size of the largest possible linear code with the same length and distance.
+
+  Codewords of extended Preparata codes can be thought of as characteristic functions of the tuple \((X,Y)\), where \(X, Y\) belong to \(GF(2)^m\), along with the following properties: (i) \(|X| = |Y| = 2^{m}\), (ii) \(\sum_{x \in X} x = \sum_{y \in Y} y \), and (iii) \(\sum_{x \in X} x^{3} + (\sum_{x \in X} x)^{3}  = \sum_{y \in Y} y^{3} \).
+  Preparata codes are obtained by leaving out the coordinate in the zeroth positions in the first half.
+
+# protection: 'Preparata codes are a class of non linear double error correcting codes. Since the minimum distance is \(5\), preparata codes can correct \(\frac{5-1}{2} = 4\) errors.'
+
+
+features:
+  rate: 'The rate is \(\frac{2^{m+1}-2m-2}{2^{m+1}-1}\).'
+
+  decoders:
+    - 'Preparata Codes can be decoded using a syndrome calculation based algorithm to correct all error patterns of Lee weight atmost 2 and detect all/ some error patterns
+    of Lee weight 3/ 4 \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
+
+notes:
+  - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Preparata Codes.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CPreparata.html}}.'
+
+
+relations:
+  parents:
+    - code_id: nearly_perfect
+      detail: 'Preparata codes are uniformly packed and nearly perfect \cite{doi:10.1016/0012-365X(72)90025-8}. For any word \(u\) and Preparata codebook \(C\) with \(d(u, C) > 2\), we have that \(u\) has a distance 2 or 3 to exactly floor((2^{m+1}-1)/3) codewords.'
+    - code_id: small_distance
+  cousins:
+    - code_id: quaternary_over_z4
+      detail: 'Preparata codes can be seen, via the Gray map, as linear codes over \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
+    - code_id: gray
+      detail: 'Preparata codes can be seen, via the Gray map, as linear codes over \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
+    - code_id: quasi_perfect
+      detail: 'Punctured Preparata codes are quasi-perfect \cite[pg. 475]{preset:MacSlo}.'
+    - code_id: reed_muller
+      detail: 'A Preparata code can be written as a union of a linear subcode \(\mathcal{C}\) of RM\((m-2,m)\) and the \(2^{m-1}-1\) representatives of coset formed by \(\mathcal{C}\) in RM\((m-2,m)\). The coset representatives are given by \(|1|x^j|0|x^{j}\theta_{1}|\), where \(1\leq j \leq 2^{m-1}-1\). \(\mathcal{C}\) comprises of codewords of the form \(|g(1)|g(x)(1+\theta_{1})|f(1)+g(1)|g(x)(1+\theta_{1})+f(x)(1+\theta_{1}+\theta_{3})|\), where \(f(x)\) and \(g(x)\) are arbitrary, and where \(\theta_{1}\) and \(\theta_{3}\) denote the primitive idempotents corresponding to cyclotomic cosets \(C_1\) and \(C_3\) respectively.'
+    - code_id: bch
+      detail: 'Preparata codes contain twice as many code words as the double-error-correcting BCH codes of the same length, which is the largest number of code words possible for given length and distance \cite{doi:10.1016/S0019-9958(68)90874-7}.'
+    - code_id: hamming
+      detail: 'Preparata codes can be obtained by Hensel-lifting Hamming codes to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}.
+      The union of the dual a Preparata code and some of its translates forms a Hamming code \cite[pg. 475]{preset:MacSlo}.'
+
+
+# - code_id: goethals
+# - detail: 'Goethals codes satisfy all the properties of the Preparata codes and additionally (i) \(\sum_{x \in X} x^{r} + (\sum_{x \in X} x)^{r}  = \sum_{y \in Y} y^{r} \) and (ii) \(\sum_{x \in X} x^{s} + (\sum_{x \in X} x)^{s}  = \sum_{y \in Y} y^{s} \), where \(r \neq s\) and r-1 and s-1 are comprime to \(2^{m}-1\).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-22'
+    - user_id: ShuubhamOjha
+      date: '2023-11-22'
