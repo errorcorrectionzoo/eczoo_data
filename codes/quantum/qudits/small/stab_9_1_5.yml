@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_9_1_5
+physical: qudits
+logical: qudits
+
+name: '\([[9,1,5]]_3\) quantum Glynn code'
+short_name: '\([[9,1,5]]_3\)'
+introduced: '\cite{arXiv:1502.05267}'
+
+description: |
+  Nine-qutrit pure stabilizer code that is the smallest qutrit stabilizer code to correct two-qutrit errors.
+
+  See \cite[Exam. 7]{arXiv:2108.08088} for its stabilizer generator matrix.
+
+protection: 'Smallest stabilizer code that protects against errors on any two qutrits. Detects four-qutrit errors.'
+
+
+relations:
+  parents:
+    - code_id: stabilizer_over_gfqsq
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-26'
