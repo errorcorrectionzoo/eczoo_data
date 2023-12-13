@@ -9,15 +9,23 @@ code_id: quantum_mds
 
 name: 'Quantum maximum-distance-separable (MDS) code'
 short_name: 'Quantum MDS'
-introduced: '\cite{arxiv:quant-ph/9702031}'
+introduced: '\cite{arxiv:quant-ph/9702031,arxiv:quant-ph/9703048}'
 
 description: |
-  An \(((n,q^k,d))\) code constructed out of \(q\)-dimensional qudits is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the quantum Singleton bound
+  An \(((n,K,d))\) code constructed out of \(q\)-dimensional qubits or Galois qudits is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the quantum Singleton bound
   \begin{align}
-  2(d-1) \leq n-k
+  K \leq q^{n-2(d-1)}
   \end{align}
   becomes an equality.
-  Such codes are pure \cite{arxiv:1907.07733}.
+  When \(K = q^k\) for some integer \(k\), the above reduces to \(2(d-1) \leq n-k\).
+  Such codes are pure \cite{arxiv:quant-ph/9703048}.
+
+# An \(((n,q^k,d))\) code constructed out of \(q\)-dimensional qudits is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the quantum Singleton bound
+# \begin{align}
+# 2(d-1) \leq n-k
+# \end{align}
+# becomes an equality.
+# Such codes are pure \cite{arxiv:quant-ph/9703048}.
 
 protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
 
