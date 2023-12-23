@@ -68,13 +68,15 @@ features:
   general_gates:
     - 'Logical gates implemented via constant-depth quantum circuits of \(D\)-dimensional geometrically qubit stabilizer codes whose distance increases with \(n\) lie in the \(D\)th level of the Clifford hierarchy \cite{arxiv:1206.1609}.'
   decoders:
-    - 'Belief-propagation (BP) decoder \cite{arxiv:0801.1241} and neural BP decoder \cite{arxiv:2212.10245} for qubit codes.
-    Partially and fully decoupled BP decoders, which uses the decoupling representation, yield improvements against depolarizing noise \cite{arxiv:2305.17505}.'
+    - 'Belief-propagation (BP) decoder \cite{arxiv:0801.1241} is a quantum version of the classical BP decoder, but performance suffers due to degeneracy \cite{arxiv:2012.15297}.'
+    - 'BP-OSD decoder, scaling as \(O(n^3)\), adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.'
+    - 'Neural BP decoder \cite{arxiv:2212.10245} for qubit codes.'
+    - 'Partially and fully decoupled BP decoders, which use the decoupling representation, yield improvements against depolarizing noise \cite{arxiv:2305.17505}'
+    - 'Message-passing decoder utilizing stabilizer inactivation (MP-SI a.k.a. BP-SI) for CSS-type QLDPC qubit codes \cite{arxiv:2205.06125}.'
+    - 'BP guided decimation (BPGD) decoder \cite{arxiv:2312.10950}.'
     - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
-    - 'BP-OSD decoder adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.'
     - '2D geometrically local syndrome extraction circuits with bounded depth using order \(O(n^2)\) ancilla qubits \cite{arxiv:2109.14599}.'
     - 'Soft (i.e., analog) syndrome iterative belief propagation for CSS-type QLDPC codes, utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2205.02341}.'
-    - 'Message-passing decoder utilizing stabilizer inactivation (MP-SI) for CSS-type QLDPC qubit codes \cite{arxiv:2205.06125}.'
     - 'Extension of the union-find decoder for qubit QLDPC codes, as well as a related heuristic decoder \cite{arxiv:2209.01180}.'
     - 'Sliding-window decoding \cite{arxiv:2311.03307}.'
   fault_tolerance:

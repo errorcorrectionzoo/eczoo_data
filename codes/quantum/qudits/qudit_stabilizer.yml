@@ -16,6 +16,7 @@ description: |
   A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{\mathbb{Z}_q}\) or \([[n,k,d]]_{\mathbb{Z}_q}\). For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\). \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
 
   Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
+  Stabilizer code states for odd qudit dimension have a specific form per the finite-dimensional version of Hudson's theorem \cite{arxiv:quant-ph/0602001}.
 
   One can switch between stabilizer codes by appending another Abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
   \begin{defterm}{Code switching}
@@ -39,7 +40,7 @@ features:
 
 notes:
   - 'A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.'
-  - 'The number of modular-qudit stabilizer codes was determined in Ref. \cite{arxiv:2209.01449}.'
+  - 'The number of modular-qudit stabilizer codes was determined in Refs. \cite{arxiv:quant-ph/0602001,arxiv:2209.01449}.'
 #   - 'For codes that do encode an integer number of \(q\)-dimensional qudits, i.e., \(K=q^k\), \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
 
 relations:
