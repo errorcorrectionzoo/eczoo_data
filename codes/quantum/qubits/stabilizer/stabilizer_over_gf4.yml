@@ -10,7 +10,8 @@ logical: qubits
 name: 'Hermitian qubit code'
 introduced: '\cite{arXiv:quant-ph/9608006}'
 
-# alternative_names:
+alternative_names:
+  - 'Calderbank-Rains-Shor-Sloane (CRSS) code'
 #   - 'Stabilizer code over \(GF(4)\)'
 
 description: |
@@ -23,6 +24,14 @@ description: |
 protection: |
   A Hermitian self-orthogonal linear \([n,k,d]_{4}\) code yields an \([[n,n-2k]]\) qubit stabilizer code with distance no less than \(d\); this is the \textit{qubit Hermitian construction}.
   A variant construction allows for the use of nearly self-orthogonal codes \cite{doi:10.1007/s10623-014-9934-8}.
+
+  The stabilizer generator matrix is of the form
+  \begin{align}
+  H=\begin{pmatrix}H\\
+  \alpha H
+  \end{pmatrix}~,
+  \end{align}
+  where \(H\) is the parity-check matrix of the classical code.
 
 notes:
   - 'Tables of \([[n,0,d]]\) codes, corresponding to a self-dual \(GF(4)\) representation, at \href{http://www.ii.uib.no/~larsed/vncorbits/}{this website}.'
