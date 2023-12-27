@@ -16,7 +16,6 @@ description: |
   A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{\mathbb{Z}_q}\) or \([[n,k,d]]_{\mathbb{Z}_q}\). For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\). \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
 
   Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
-  Stabilizer code states for odd qudit dimension have a specific form per the finite-dimensional version of Hudson's theorem \cite{arxiv:quant-ph/0602001}.
 
   One can switch between stabilizer codes by appending another Abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
   \begin{defterm}{Code switching}
@@ -29,6 +28,10 @@ description: |
   Code switching may not preserve the logical information and instead implement logical measurements; conditions on \(\mathsf{S}\) and \(\mathsf{F}\) such that qubit stabilizer code switching preserves logical information are derived in \cite[Prop. II.1]{arxiv:2304.01277}.
   In the context of Abelian topological stabilizer codes, code switching implements \textit{anyon condensation} of any anyons represented by operators in the group \(\mathsf{F}\).
   \end{defterm}
+
+  Stabilizer codewords for odd qudit dimension have a specific form per the finite-dimensional version of Hudson's theorem \cite{arxiv:quant-ph/0602001}.
+  General modular-qudit stabilizer codes can equivalently \cite{arxiv:quant-ph/0111080} be defined using graphs, yielding an analytical form for the codewords \cite{arxiv:quant-ph/0012111}.
+
 
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
