@@ -10,6 +10,9 @@ logical: qubits
 name: 'Cluster-state code'
 introduced: '\cite{arxiv:quant-ph/0004051}'
 
+alternative_names:
+  - 'Graph-state code'
+
 description: |
   Code consisting of cluster states \cite{arxiv:quant-ph/0004051}, which are stabilizer states defined on a graph. There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
   \begin{align}
@@ -73,12 +76,16 @@ features:
 
 # So information is effectively stored near the boundary of the 2D slice. Measuring slice by slice will teleport it to the next slice.
 
+notes:
+  - 'See Ref. \cite{arxiv:quant-ph/0602096} for a review of cluster states and their applications.'
+
+
 relations:
   parents:
     - code_id: qubit_stabilizer
       detail: 'Cluster states are particular qubit stabilizer states defined on a graph.
       Any qubit stabilizer code is locally equivalent to a graph code \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0703112}).
-      As a corollary, any qubit stabilizer state is locally equivalent to a cluster state \cite{arxiv:quant-ph/0308151}.
+      As a corollary, any qubit stabilizer state is locally equivalent to a cluster state \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
       Any fault-tolerant scheme based on qubit stabilizer codes can be mapped into a cluster-state based MBQC protocol \cite{arxiv:1811.11780}.'
   cousins:
     - code_id: fusion
