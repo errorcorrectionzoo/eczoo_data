@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_hadamard_bpsk
+physical: oscillators
+logical: reals
+
+name: 'Hadamard BPSK c-q code'
+introduced: '\cite{arxiv:1101.1550}'
+
+description: |
+  Multimode coherent-state c-q code \(n\)-mode coherent states whose components \(\pm\alpha\) are arranged according to rows of a Hadamard matrix.
+
+features:
+  rate: 'Using a joint-detection receiver, the code achieves the Holevo capacity of the lossy bosonic channel \cite{arxiv:1101.1550}.'
+
+
+relations:
+  parents:
+    - code_id: coherent_state_c-q
+    - code_id: concatenated_c-q
+      detail: 'The Hadamard BPSK c-q code can be thought of as a concatenation of the Hadamard binary linear code with BPSK for the purposes of transmission of classical information over quantum channels.'
+  cousins:
+    - code_id: hadamard
+      detail: 'The Hadamard BPSK c-q code can be thought of as a concatenation of the Hadamard binary linear code with BPSK for the purposes of transmission of classical information over quantum channels.'
+    - code_id: bpsk
+      detail: 'The Hadamard BPSK c-q code can be thought of as a concatenation of the Hadamard binary linear code with BPSK for the purposes of transmission of classical information over quantum channels.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-31'

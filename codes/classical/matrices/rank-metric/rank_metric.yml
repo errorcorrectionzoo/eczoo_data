@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rank_metric
+physical: matrices
+logical: matrices
+
+name: 'Rank-metric code'
+introduced: '\cite{doi:10.1016/0097-3165(78)90015-8}'
+
+description: |
+  Also called a \textit{Delsarte code}. Each codeword is a \textit{matrix} over \(GF(q)\), with codewords forming a \(GF(q)\)-linear subspace, and with the metric being the rank of the difference of matrices. The distance \(d\) is the minimum rank of all nonzero matrices in the code. Rank-metric codes on \(n\times m\) matrices are denoted as \([n\times m,k,d]_q\).
+
+  The number of codewords satisfies \(k \leq \max(n, m) M\), where \(M\) is the maximum rank of all matrices in the code. Codes that achieve this bound with equality are called \textit{Delsarte optimal anticodes}.
+
+protection: |
+  Protects against errors with rank \(\leq \lfloor \frac{d-1}2 \rfloor\).
+
+  The complexity of decoding rank-metric codes is unknown but expected to be harder than that of binary linear codes \cite{arxiv:1404.3482}.
+
+
+features:
+  decoders:
+    - 'Polynomial-reconstruction Berlekamp-Welch based decoder \cite{doi:10.1007/11779360_4}.'
+    - 'Berlekamp-Massey based decoder \cite{doi:10.1109/ISIT.2004.1365435}.'
+#    - 'The lower bound of the time complexity for the most efficient decoding algorithms for an m*n codeword representation code is approximately \(m\)^{3}*2^{\(n\)^{2}}, which is exponentially better than the Hamming Metric. For applications such as cryptography where the decoding algorithms having high time complexity is desired, Rank Metric offers promise for security in a post quantum era.'
+
+
+#  decoders:
+#    - 'The method of decoding is analogous to the Berlekamp-Welch algorithm.'
+#    - 'Error locator polynomial \(E(y_i) = E(f(\alpha_i))\).'
+#    - 'This problem is linearized to \(E(y_i) = N(\alpha_i)\). Using the known degrees of these polynomials \(deg_q f \leq k-1, deg_q E \leq t\), this problem becomes a set of linear equations which can be solved for \(E\) and \(f\).'
+#    - 'Finally we perform \(E(y_i - f_i(\alpha_i)) = 0\) to solve for the error vector.'
+
+realizations:
+  - 'Identity-Based Encryption \cite{doi:10.1007/978-3-319-63697-9_7}.'
+  - 'Digital watermarking \cite{doi:10.1016/j.image.2018.12.015}.'
+  - 'Network coding and streaming media broadcasting \cite{doi:10.1109/CWIT.2007.375706}.'
+
+
+notes:
+  - 'See Ref. \cite{arXiv:1410.1333} for a discussion of MacWilliams identities and the relationship between rank metric and Gabidulin codes.'
+
+relations:
+  parents:
+    - code_id: matrices_into_matrices
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: MazinKarjikar
+      date: '2023-01-16'
+    - user_id: VictorVAlbert
+      date: '2023-01-16'
+    - user_id: MazinKarjikar
+      date: '2022-12-30'
+    - user_id: VictorVAlbert
+      date: '2022-05-25'
+    - user_id: ThomasWrona
+      date: '2022-05-18'

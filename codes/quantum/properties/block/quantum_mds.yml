@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_mds
+# includes both Galois and modular
+
+
+name: 'Quantum maximum-distance-separable (MDS) code'
+short_name: 'Quantum MDS'
+introduced: '\cite{arxiv:quant-ph/9604034,arxiv:quant-ph/9702031,arxiv:quant-ph/9703048}'
+
+description: |
+  An \(((n,K,d))\) code constructed out of \(q\)-dimensional qubits or Galois qudits is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the quantum Singleton bound
+  \begin{align}
+  K \leq q^{n-2(d-1)}
+  \end{align}
+  becomes an equality.
+  When \(K = q^k\) for some integer \(k\), the above reduces to \(2(d-1) \leq n-k\).
+  Such codes are pure \cite{arxiv:quant-ph/9703048}.
+
+# An \(((n,q^k,d))\) code constructed out of \(q\)-dimensional qudits is an MDS code if parameters \(n\), \(k\), \(d\), and \(q\) are such that the quantum Singleton bound
+# \begin{align}
+# 2(d-1) \leq n-k
+# \end{align}
+# becomes an equality.
+# Such codes are pure \cite{arxiv:quant-ph/9703048}.
+
+protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error correction properties.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1017/CBO9781139034807.014} for an overview of quantum MDS codes.'
+
+
+relations:
+  parents:
+    - code_id: block_quantum
+    - code_id: qecc_finite
+  cousins:
+    - code_id: mds
+    - code_id: q-ary_cyclic
+      detail: 'Quantum MDS codes can be constructed from \(q\)-ary cyclic codes using the Hermitian construction \cite{doi:10.1109/TIT.2011.2159039}.'
+    - code_id: stabilizer_over_gfqsq
+      detail: 'Many MDS codes are constructed from Hermitian self-orthogonal codes over \(GF(q^2)\) using the Hermitian construction \cite{arxiv:quant-ph/0312164,arxiv:0906.2509,arxiv:1507.08355,arxiv:1803.07927}, in particular from cyclic \cite{doi:10.1109/TIT.2011.2159039}, constacyclic \cite{doi:10.1109/TIT.2014.2308180,doi:10.1109/TIT.2015.2388576,arxiv:1803.07927} and negacyclic \cite{doi:10.1109/TIT.2012.2220519} codes.'
+    - code_id: constacyclic
+      detail: 'Many MDS codes are constructed from Hermitian self-orthogonal codes over \(GF(q^2)\) using the Hermitian construction from constacyclic codes \cite{doi:10.1109/TIT.2014.2308180,doi:10.1109/TIT.2015.2388576,arxiv:1803.07927}.'
+    - code_id: cyclic
+      detail: 'Many MDS codes are constructed from Hermitian self-orthogonal codes over \(GF(q^2)\) using the Hermitian construction \cite{arxiv:quant-ph/0312164,arxiv:0906.2509,arxiv:1507.08355,arxiv:1803.07927}, in particular from cyclic codes \cite{doi:10.1109/TIT.2011.2159039}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'
+    - user_id: VictorVAlbert
+      date: '2022-01-10'
+    - user_id: QingfengKeeWang
+      date: '2021-12-20'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: raa
+physical: bits
+logical: bits
+
+name: 'Repeat-accumulate-accumulate (RAA) code'
+short_name: 'RAA'
+introduced: '\cite{doi:10.1109/TIT.2008.2008114}'
+
+description: |
+  Generalization of the RA code in which two accumulators and permutations are used.
+
+features:
+  rate: 'Some sequences of non-deterministic RAA codes are asymptotically good \cite{doi:10.1109/TIT.2008.2008114,doi:10.1109/ISIT.2008.4595333}.'
+  encoders:
+    - 'An encoder for an RAA code is the same as that for the RA code, followed by a second round of permutation and acumulation.'
+
+
+relations:
+  parents:
+    - code_id: protograph_ldpc
+      detail: 'RAA codes can be formulated as protograph LDPC codes \cite{doi:10.1109/ICC.2005.1494433}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-09'

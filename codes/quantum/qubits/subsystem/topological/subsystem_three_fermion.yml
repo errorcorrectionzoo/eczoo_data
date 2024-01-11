@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_three_fermion
+physical: qubits
+logical: qubits
+
+name: 'Three-fermion (3F) subsystem code'
+short_name: '3F subsystem'
+introduced: '\cite{arxiv:0811.0911,arXiv:2211.03798}'
+
+description: |
+  2D subsystem stabilizer code whose low-energy excitations realize the three-fermion anyon theory \cite{arxiv:0712.1377,arxiv:0811.0911,arxiv:1103.4606}.
+  One version uses two qubits at each site \cite{arXiv:2211.03798}, while other manifestations utilize a single qubit per site and only two-body interactions \cite{arxiv:0811.0911,arxiv:0908.4246}.
+  All are expected to be equivalent to each other under local Clifford transformations.
+
+
+relations:
+  parents:
+    - code_id: subsystem_stabilizer
+    - code_id: topological_abelian
+      detail: 'The 3F code is a subsystme code characterized by 3F topological order \cite{arxiv:2211.03798}, which is chiral and modular.'
+  cousins:
+    - code_id: surface
+      detail: 'One version of the 3F subsystem code can be obtained from two copies of the square-lattice surface code by \hyperref[topic:gauging-out]{gauging out} the anyons \(e_1m_1e_2\) and \(e_2m_2\) \cite[Sec. 7.4]{arxiv:2211.03798}.'
+    - code_id: three_fermion
+      detail: 'The 3F model cluster-like state encodes the temporal gate operations on the 3F subsystem code into a third spatial dimension \cite{arxiv:2011.04693}.
+      In addition, one of possible 2D boundaries of the 3F model code is effectively a 2D 3F subsystem code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-29'

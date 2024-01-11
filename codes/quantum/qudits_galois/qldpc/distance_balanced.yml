@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: distance_balanced
+physical: galois
+logical: galois
+
+name: 'Distance-balanced code'
+introduced: '\cite{arxiv:1611.03790,arxiv:2004.07935}'
+
+description: |
+  Galois-qudit CSS code constructed from a CSS code and a classical code using a distance-balancing procedure based on a generalized homological product.
+  The initial code is said to be \textit{unbalanced}, i.e., tailored to noise biased toward either bit- or phase-flip errors, and the procedure can result in a code that is treats both types of errors on a more equal footing.
+  The original distance-balancing procedure \cite{arxiv:1611.03790}, later generalized \cite[Thm. 4.2]{arxiv:2004.07935}, can yield QLDPC codes \cite[Thm. 1]{arxiv:1611.03790}.
+
+  A related procedure called \textit{weight reduction} \cite{arXiv:1611.03790} takes in a CSS stabilizer code and outputs another CSS code that admits a set of stabilizer generators whose weight is independent of the number of qubits \(n\).
+
+relations:
+  parents:
+    - code_id: galois_css
+    - code_id: generalized_homological_product_css
+  cousins:
+    - code_id: homological_product
+      detail: 'Distance balancing relies on taking a homological product of chain complexes corresponding to a classical and a quantum code.'
+    - code_id: subsystem_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-20'

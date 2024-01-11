@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ltc
+
+name: 'Locally testable code (LTC)'
+short_name: 'LTC'
+introduced: '\cite{doi:10.1145/103418.103428,manual:{Sanjeev Arora. \emph{Probabilistic checking of proofs and hardness of approximation problems}. UC Berkeley, 1994.},doi:10.1137/S0097539793255151,arxiv:1307.3975}'
+
+description: |
+  Code for which one can efficiently check whether a given string is a codeword or is far from a codeword. Efficiency of the verification is quantified by the code's \textit{query complexity} \(u\), while effectiveness is quantified by the code's \textit{soundness} \(R\).
+
+  Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining LTC families as those for which the soundness is asymptotically constant. Such LTC families with asymptotically constant distance, rate, and query complexity are called \(c^3\)\textit{-LTCs}. The first two such families are classical codes arising from the \hyperref[code:expander_lifted_product]{expander lifted-product} quantum code construction and \hyperref[code:lr-cayley-complex]{left-right Cayley complex} codes.
+
+  A technical definition for codes over binary alphabets is provided as follows; for general alphabets, see Ref. \cite{doi:10.1007/978-3-642-16367-8_6}.
+  The idea behind LTCs is to be able to reliably test whether a given bit-string \(x\) is in the code by only sampling subsets of \(u\) bits.
+  To have something to check against, we first have to define a collection of length-\(u\) subsets \(S\) of bit locations that are called \textit{allowed local views}.
+  A code is an LTC if the following two conditions are satisfied \cite[Thm. 1.1]{arxiv:2111.04808}.
+
+  First, if \(x\) is a codeword, then all of its restrictions \(x|_S\) to the subsets \(S\) are allowed local views,
+  \begin{align}
+    x\in C \Rightarrow x|_S \in \{\text{allowed local views}\}~.
+  \end{align}
+  This guarantees that codewords can indeed be determined from this limited sampling procedure.
+
+  Second, the probability that a given restriction is not an allowed local view is lower-bounded by the relative distance to the code,
+  \begin{align}
+    \text{Pr}_S (x|_S\text{ not allowed local view}) \geq \frac{R}{n} D(x,C)~,
+  \end{align}
+  where \(D(x,C)\) is the Hamming distance between \(x\) and the closest codeword to \(x\). This condition ensures that strings \(x\) can be deemed to be not in the codespace with high probability, i.e., with probability increasing as \(x\) gets farther from the code.
+
+notes:
+  - 'LTCs first appeared implicitly in works on probabilistically checkable proofs (PCPs) \cite{doi:10.1016/0022-0000(93)90044-W,doi:10.1007/BF01200056,doi:10.1145/146585.146605,doi:10.1145/103418.103428,doi:10.1145/273865.273901,doi:10.1145/278298.278306}; see Ref. \cite{doi:10.1007/978-3-642-16367-8_6} for a review.'
+
+relations:
+  parents:
+    - code_id: block
+  cousins:
+    - code_id: qltc
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-27'

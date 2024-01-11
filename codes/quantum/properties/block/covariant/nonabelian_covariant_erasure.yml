@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nonabelian_covariant_erasure
+
+name: '\(U(d)\)-covariant approximate erasure code'
+introduced: '\cite{arxiv:2007.09154}'
+
+description: |
+  Covariant code whose construction takes in an arbitrary erasure-correcting code to yield an approximate QECC that is also covariant with respect to the unitary group.
+
+# \(k\) out of \(n\) modes within each of the \(|A|\) copies of \(\mathcal{H}_{\text{physical}}\). Each copy may have a different set of \(k\) erased modes.
+
+relations:
+  parents:
+    - code_id: covariant
+    - code_id: approximate_qecc
+  cousins:
+    - code_id: stab_5_1_3
+      detail: 'The five-qubit code can be used to construct an approximate code that is also covariant with respect to the unitary group.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-26'

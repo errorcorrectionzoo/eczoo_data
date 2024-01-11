@@ -1,0 +1,69 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: happy
+physical: qubits
+logical: qubits
+
+name: 'Pastawski-Yoshida-Harlow-Preskill (HaPPY) code'
+short_name: 'HaPPY'
+introduced: '\cite{arxiv:1503.06237}'
+
+description: |
+  Also known as a \textit{hyperbolic pentagon code (HyPeC)}.
+  Holographic code constructed out of a network of perfect tensors that tesselates hyperbolic space. Physical qubits are associated with uncontracted tensor legs at the boundary of the tesselation, while logical qubits are associated with uncontracted legs in the bulk. The code serves as a minimal model for several aspects of the AdS/CFT holographic duality and potentially a dF/CFT duality \cite{arxiv:2201.11658}. The construction below is described for qubits, but straightforward generalizations exist to modular qudits, oscillators, and rotors \cite{arXiv:1902.07714}.
+
+  Encoding is accomplished using a tensor network of five-qubit encoding isometries, which are six-legged perfect tensors (with five legs corresponding to the physical qubits and one for the encoded logical qubit). A \(2n\)-legged \textit{perfect tensor} is proportional to an isometry for any bipartition of its indices into a set \(A\) and a complementary set \(A^{\perp}\) such that \(|A|\leq|A^{\perp}|\).
+
+  To construct the encoding, one first uniformly tiles the hyperbolic AdS/CFT disc using pentagons and hexagons. Then, one places a 6-legged five-qubit encoding tensor at each hexagon and pentagon, contracting legs between neighboring shapes and leaving one leg uncontracted at each pentagon. This construction forms an encoding isometry from the uncontracted legs in the bulk to the uncontracted legs at the boundary.
+
+#The bulk legs correspond to indices for logical input, while the boundary legs can be interpreted as the physical encoding.
+#In the Heisenberg picture, the code can be thought of as encoding operators in the bulk of Anti de Sitter (AdS) space (formed by logical qudits) into operators on the boundary of the corresponding Conformal Field Theory (CFT, formed by the physical qudits).
+#., with four pentagons/hexagons adjacent at each vertex (variants of the code can be created by choosing either a hexagon or pentagon at each location).
+
+protection: 'Protects against erasure errors and Pauli errors on the boundary qubits.'
+
+features:
+  rate: 'The pentagon HaPPY code has an asymptotic rate \(\frac{1}{\sqrt{5}} \approx 0.447\). The pentagon/hexagon HaPPY code, with alternating layers of pentagons and hexagons in the tiling, has a rate of \(0.299\) if the last layer is a pentagon layer and a rate of \(0.088\) if the last layer is a hexagon layer.'
+
+  encoders:
+    - 'Heisenberg-picture encoding is done through \textit{tensor pushing}. Each bulk operator (logical) is pushed to an operator supported on a portion of the boundary region (physical). Pushing all the bulk operators through results in reconstruction of the boundary.'
+
+  transversal_gates: 'For locality-preserving physical gates on the boundary, the set of transversally implementable logical operations in the bulk is strictly contained in the Clifford group \cite{arxiv:2103.13404}.'
+
+  decoders:
+    - 'Greedy algorithm for decoding specified in Ref. \cite{arxiv:1503.06237}.'
+
+  threshold:
+    - '\(26\%\) for boundary erasure errors on the the pentagon/hexagon HaPPY code, which has alternating layers of pentagons and hexagons in the tiling.'
+    - '\(\sim 50\%\) for boundary erasure errors on the single-qubit HaPPY code, which has a central pentagon encoding one bulk operator and hexagons tiling all other layers'
+    - '\(16.3\%\) for boundary Pauli errors on the single-qubit HaPPY code with 3 layers \cite{arxiv:2008.10206}.'
+    - 'There is no threshold for the pentagon HaPPY code as a constant number of errors (two) can make bulk recovery impossible.'
+
+notes:
+  - 'Ref. \cite{arXiv:2201.11658} discusses the HaPPY code for an AdS_3 space and its relation to a dS_2 \textit{braneworld} with a conformal boundary.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: 'The HaPPY code is a stabilizer code because it is defined by a contracted network of stabilizer tensors; see Thm. 6 in Ref. \cite{arxiv:1503.06237}.'
+    - code_id: holographic
+  cousins:
+    - code_id: stab_5_1_3
+      detail: 'The five-qubit encoding isometry tiles various holographic codes because its corresponding tensor is perfect \cite{arXiv:1503.06237}.'
+    - code_id: majorana_stab
+      detail: 'HaPPY code Hamiltonian can be expressed in terms of mutually commuting two-body Majorana operators \cite{arxiv:1905.03268}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-28'
+    - user_id: VictorVAlbert
+      date: '2021-12-29'
+    - user_id: JoelRajakumar
+      date: '2021-12-20'

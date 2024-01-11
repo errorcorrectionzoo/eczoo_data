@@ -12,7 +12,7 @@ description: |
 
   Typically, random codes are selected with uniform distribution from some ensemble of codes. For example, a random binary code is a set of \(2^{K}\) codewords with length \(N\) chosen uniformly from the ensemble of all \(2^N\) bit-strings. Each bit in the codeword is randomly chosen between 0 and 1 with equal probability. For another example, a random binary linear code is generated from a random chosen \(K\) generators of length \(N\), where each bit of the generators is randomly chosen between 0 and 1 with equal probability. Equivalently, a random binary linear code is defined by a randomly generated \(K\) by \(N\) generator matrix, where each entry is randomly chosen between 0 and 1 with equal probability.
 
-  In both of the above random code constructions, the ensemble size scales exponentially with \(N\). A common convention is to think of the resulting code constructions as effectively explicit (as opposed to random) in cases where the ensemble size is independent of \(N\) or even when the size scales polynomially with \(N\). 
+  In both of the above random code constructions, the ensemble size scales exponentially with \(N\). A common convention is to think of the resulting code constructions as effectively explicit (as opposed to random) in cases where the ensemble size is independent of \(N\) or even when the size scales polynomially with \(N\).
 
 #protection: 'Random codes can protect against random errors, e.g. from Binary Symmetry Channel (BSC), discrete memoryless channel.'
 
@@ -21,14 +21,25 @@ features:
 
   decoders:
     - 'Ball-collision decoding \cite{doi:10.1007/978-3-642-22792-9_42}.'
-    - 'Finiasz and Sendrier (FS-ISD) decoding \cite{doi:10.1007/978-3-642-10366-7_6}.'
+    - 'Information set decoding (ISD) \cite{doi:10.1007/978-3-642-29011-4_31} and Finiasz and Sendrier (FS-ISD) decoding \cite{doi:10.1007/978-3-642-10366-7_6}.'
 
 realizations:
-    - 'Distributed storage systems \cite{doi:10.1109/TPDS.2008.251}.'
+  - 'Distributed storage systems \cite{doi:10.1109/TPDS.2008.251}.'
+  - 'Classical and quantum cryptography based on the learning-with-errors problem, which is related to decoding a random linear code \cite{doi:10.1145/1568318.1568324}.'
 
 notes:
-    - 'Shannon''s pioneering work \cite{doi:10.1002/j.1538-7305.1948.tb01338.x} analyzes the distance distribution of the code given a rate. Given \(N\) and the rate \(R\), the minimum distance of a TRC is given by the GV bound \(d=N\delta_{GV}(2R)\), where \(\delta_{GV} = h^{-1}(1-R)\), \(0\le R \le 1\), and \(\delta_{GV}(x)=0\) for all other \(R\). For a TLC, the minimum distane is given by \(d=N\delta_{GV}(R)\).'
+  - 'Shannon''s pioneering work \cite{doi:10.1002/j.1538-7305.1948.tb01338.x} analyzes the distance distribution of the code given a rate. Given \(N\) and the rate \(R\), the minimum distance of a TRC is given by the GV bound \(d=N\delta_{GV}(2R)\), where \(\delta_{GV} = h^{-1}(1-R)\), \(0\le R \le 1\), and \(\delta_{GV}(x)=0\) for all other \(R\). For a TLC, the minimum distance is given by \(d=N\delta_{GV}(R)\).'
 
 relations:
   parents:
     - code_id: ecc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-26'
+    - user_id: XiaoXiao
+      date: '2022-03-26'

@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: q-ary_ldpc
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary LDPC code'
+introduced: '\cite{doi:10.1109/ITW.1998.706440}'
+
+alternative_names:
+  - 'Non-binary LDPC (NBDPC) code'
+
+description: |
+  A \(q\)-ary linear code with a sparse parity-check matrix.
+  Alternatively, a member of an infinite family of \([n,k,d]_q\) codes for which the number of nonzero entries in each row and column of the parity-check matrix are both bounded above by a constant as \(n\to\infty\).
+
+  A \textit{parity check} is performed by taking the inner product of a row of the parity-check matrix with a codeword that has been affected by a noise channel.
+  A parity check yields either zero (no error) or a nonzero field element (error).
+  Despite the fact that there is more than one nonzero outcome, \(q>2g\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
+
+
+relations:
+  parents:
+    - code_id: tanner
+      detail: '\(q\)-ary LDPC codes are \(q\)-ary Tanner codes on sparse bipartite graphs whose constraint nodes represent \(q\)-ary parity-check codes.'
+  cousins:
+    - code_id: q-ary_ldgm
+      detail: 'The dual of a \(q\)-ary LDPC code has a sparse generator matrix and is called a \(q\)-ary LDGM code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

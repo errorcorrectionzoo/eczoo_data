@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: alternant
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Alternant code'
+introduced: '\cite{doi:10.1016/S0019-9958(74)80005-7}'
+
+description: 'Given a length-\(n\) GRS code \(C\) over \(GF(q^m)\), an alternant code is the \(GF(q)\)-subfield subcode of the dual of \(C\).'
+
+# More precisely, an \([n, k \geq n-tm, d \geq t + 1]\) code with parity check matrix with \(n\) columns and \(t\) rows of the form:
+# \begin{align}
+# \begin{split}
+# H = \begin{bmatrix}
+# y_1g_1(x) & y_2g_2(x) & \hdots & y_ng_1(x_n)\\
+# y_1g_2(x_1) & y_2g_2(x_2) & \hdots & y_ng_2(x_n)\\
+# vdots & \vdots & \ddots & \vdots\\
+# y_1g_t(x_1) & y_2g_t(x_2)& \hdots &y_ng_t(x_n)\\
+# \end{bmatrix}
+# \end{split}
+# \end{align}
+# where each \(y_i \in F_{q^m}\), \(g\) is a polynomial with coefficents in \(F_{q^m}\)
+# with degree \(\leq t-1\), and each \(x_i\) is a distinct element in \(F_{q^m}\).'
+
+#This class of codes includes as special cases BCH codes, Goppa codes, and Srivastava codes \cite{doi:10.1016/S0019-9958(74)80005-7}.
+
+features:
+  decoders:
+    - 'Variation of the Berlekamp-Welch algorithm \cite{doi:10.1109/TIT.1977.1055730}.'
+    - 'Guruswami-Sudan list decoder \cite{doi:10.1109/SFCS.1998.743426}.'
+
+notes:
+  - 'See \cite[Ch. 12]{preset:MacSlo} for more details.'
+
+relations:
+  parents:
+    - code_id: generalized_reed_solomon
+      detail: 'Alternant codes are subfield subcodes of GRS codes.'
+
+#Classic (L,G)-Goppa codes are a subclass of alternant codes, and they are also cousins of AG codes. Alternant codes as such don't qualify as cousins of AG codes. They are in fact subfield subcodes of GRS codes and as such are cousins of BCH codes and children of GRS codes.
+#A subfield subcode is a subset of the code formed of the vectors all of whose coordinates are in a subfield (or even just a subset, they have considered subset subcodes, where this subalphabet does not have to be a field, e.g., 49 -> 46).
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-02'
+    - user_id: khalilguy
+      date: '2022-01-02'
+    - user_id: VictorVAlbert
+      date: '2022-03-24'
+    - user_id: ManasiShingane
+      date: '2021-12-05'

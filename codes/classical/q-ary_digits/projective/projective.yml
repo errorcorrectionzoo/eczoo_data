@@ -1,0 +1,56 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: projective
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Projective geometry code'
+
+description: |
+  Linear \(q\)-ary \([n,k,d]\) code such that columns of its generator matrix \(G\) does not contain any repeated columns or the zero column.
+  That way, each column corresponds to a distinct point in the projective space \(PG(k-1,q)\) arising from a \(k\)-dimensional vector space over \(GF(q)\). If the columns are linearly independent, then the codewords are collectively called an \textit{information set}.
+  Columns of a code's parity-check matrix can similarly correspond to points in projective space. This formulation yields connections to projective geometry, which can be applied to determine code properties.
+
+  Recall that a linear code encodes a message \(h\) into a codeword \(c = hG\). The \(i\)th coordinate of a codeword is given the dot product \(h \cdot G_{i}\) with \(G_{i}\) being the \(i\)th column of the generator matrix. The zero-coordinate condition \(h \cdot x = 0\) defines a hyperplane of points \(x\) with normal vector \(h\). Therefore, the Hamming weight of the corresponding codeword is the number of points \(G_i\) \textit{not} contained in said hyperplane.
+
+  In general, linear codes admit repeating columns or columns proportional to each other. In that case, the columns correspond to a multiset of non-distinct nonzero points, and multisets are in one-to-one correspondence to arcs in projective space (\cite{doi:10.1007/978-1-4613-0283-4_14}, Thm. 1.1; \cite{doi:10.1016/S0012-365X(99)00183-1}). Multisets can also be used to construct parity-check matrices of linear codes.
+
+protection: 'Distance \(d\) is \(n\) minus the maximum number of points that are contained in a hyperplane. For \(n \geq 3\), a code is projective if and only if the distance of its dual code is at least three.'
+#https://www.birs.ca/workshops/2018/18frg220/report18frg220.pdf
+
+notes:
+  - 'See corresponding definition in \href{http://mint.sbg.ac.at/glossary.php#GProjectiveCode}{MinT}.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: 'Columns of the generator matrix of a projective linear \([n,k]_q\) code correspond to distinct nonzero points in projective space. In general, linear codes admit repeating columns or columns proportional to each other. In that case, the columns correspond to a multiset of non-distinct nonzero points, and multisets are in one-to-one correspondence to arcs in projective space (\cite{doi:10.1007/978-1-4613-0283-4_14}, Thm. 1.1).'
+  cousins:
+    - code_id: evaluation_varieties
+      detail: 'Codewords of an evaluation code of multivariate polynomials up to degree one evaluated at points in projective space yields a projective code.'
+#https://www.birs.ca/workshops/2018/18frg220/report18frg220.pdf
+    - code_id: extended_reed_solomon
+      detail: 'Columns of parity-check matrices of doubly extended narrow-sense RS codes consist of points of a normal rational curve \cite[Def. 14.2.6]{preset:HKSprojective}.'
+    - code_id: griesmer
+      detail: 'Acrs corresponding to Griesmer codes are called Griesmer arcs \cite[pg. 248]{doi:10.1007/978-1-4613-0283-4_14}.
+      There is a one-to-one correspondence between Griesmer codes and minihypers \cite{doi:10.1016/0378-3758(89)90098-0,manual:{N. Hamada, Characterization of minihypers in a finite projective geometry and its applications to error-correcting codes, Bull. Osaka Women''s Univ. 24 (1987), 1-24.}}; see \cite[Sec. 14.2.4]{preset:HKSprojective}\cite{doi:10.1007/978-1-4613-0283-4_13} for more details.'
+    - code_id: anticode
+      detail: 'There is a relation between anticodes and minihypers (\cite{doi:10.1201/9781315371993}, pg. 295).'
+
+
+# May be related to AG; check algebraic geometric codes: basic notions
+#    - code_id: mds
+#      detail: 'An \(n\)-arc in the projective space \(PG_{n-k-1}(q)\) defines an MDS code \cite{doi:10.1007/978-1-4613-0283-4_13}.'
+#    - code_id: weight-two
+#      detail: 'There is a correpondence between projective and weight-two codes \cite{doi:10.1112/blms/18.2.97,doi:10.1023/A:1008294128110,doi:10.1016/j.ffa.2017.12.010}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-09'

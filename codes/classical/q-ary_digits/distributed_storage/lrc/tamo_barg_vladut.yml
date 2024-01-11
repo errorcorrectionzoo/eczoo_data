@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tamo_barg_vladut
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Tamo-Barg-Vladut code'
+introduced: '\cite{arxiv:1501.04904,arxiv:1603.08876}'
+
+description: |
+  Polynomial evaluation code on algebraic curves, such as Hermitain or Garcia-Stichtenoth curves, that is constructed to be an LRC code.
+  Codes can be constructed to be be able to recover locally after one or more erasures as well as to tackle the availability problem.
+
+features:
+  rate: 'Tamo-Barg-Vladut codes on asymptotically maximal curves improve upon the asymptotic LRC Gilbert-Varshamov bound \cite{arxiv:1603.08876}.'
+
+
+relations:
+  parents:
+    - code_id: locally_recoverable
+    - code_id: evaluation_polynomial
+  cousins:
+    - code_id: hermitian
+      detail: 'Tamo-Barg-Vladut codes can be defined on Hermitian curves.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-11'

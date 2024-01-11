@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: weighed_covering
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Weighed-covering code'
+
+description: |
+  A \(q\)-ary code for which balls of some radius centered at its codewords provide a weighted covering of the Hamming space.
+
+  Let the \textit{outer} or \textit{weight distribution} of a \(q\)-ary string \(x\) with respect to a \(q\)-ary code \(C\) be \(A(x) = \left( A_0(x),A_1(x),\cdots,A_n(x) \right)\), where
+  \begin{align}
+    A_j(x) = \left|\{ c \in C~\text{such that}~ D(c,x)=j \}\right|~,
+  \end{align}
+  and \(D\) is the Hamming distance. Given a tuple \(m=(m_1,m_2,\cdots,m_n)\) of rational numbers, the \textit{\(m\)-density} of the code at \(x\) is
+  \begin{align}
+    \theta(x) = \sum_{j=0}^n m_j A_j(x)~.
+  \end{align}
+
+  A code is an \textit{\(m\)-weighed covering} if \(\theta(x)\geq1\) for all strings \(x\in GF(q)^n\).
+  The \textit{\(m\)-covering radius} \(r\) is the largest \(j\) for which \(m_j\) is nonzero.
+
+notes:
+  - 'See book \cite{preset:CoveringBook} for an expositions on weighed covering codes and generalized sphere-packing bounds.'
+  - 'See book \cite{doi:10.1007/978-3-662-00174-5}, Table 7.5.18 for tables of codes with particular weighed coverings.'
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'

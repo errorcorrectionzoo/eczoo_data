@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ae
+physical: spins
+
+name: 'Æ code'
+introduced: '\cite{arXiv:2311.12324}'
+
+description: |
+  Code defined in a single angular-momentum subspace that is embedded in a larger direct-sum space of different angular momenta, which can arise from combinations of spin, electronic, or rotational, or nuclear angular momenta of an atom or molecule.
+  A code is obtained by solving an over-constrained system of equations, and many solutions can be mapped into existing codes defined on other state spaces.
+
+  A simple example of an Æ code is the error-detecting code with codewords
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle&=\frac{1}{\sqrt{2}}\left(|J,-m\rangle+|J,m\rangle\right)\\
+    |\overline{1}\rangle&=|J,m\rangle~,
+  \end{split}
+  \end{align}
+  constructed out of states of total angular momentum \(J\) and its projection \(m\) for any \(J,m\geq 2\).
+  This code detects a single change in \(m\) or \(J\).
+
+
+protection: |
+  Protects against noise native to atomic and molecular platforms, such as spontaneous emission, stray electromagnetic fields, and Raman scattering.
+  Noise operators arising from these processes, when restricted to the angular momentum degrees of freedom, changes either the total angular momentum or its projection and correspond to matrices whose elements are particular combinations of Clebsch-Gordan coefficients.
+
+
+relations:
+  parents:
+    - code_id: spins_into_spins
+  cousins:
+    - code_id: diatomic_molecular
+      detail: 'Diatomic molecular codes are supported on states with various total angular momenta, while the more practical Æ codes are supported on only one subspace of fixed total momentum. The latter codes are thus more practical and more applicable to other spin spaces.'
+    - code_id: binomial
+      detail: 'Many well-performing Æ codes can be mapped into shifted versions of binomial codes via the Holstein-Primakoff mapping.'
+    - code_id: gnu_permutation_invariant
+      detail: 'Many well-performing Æ codes can be mapped into GNU codes via the Dicke state mapping.'
+    - code_id: single_spin
+      detail: 'Since Æ codes are defined in a subspace of fixed total angular momentum and protect against errors linear in the momentum generators, they can also be thought of a single-spin codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-22'

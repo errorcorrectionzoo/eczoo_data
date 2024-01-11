@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: haar_random
+physical: qubits
+logical: qubits
+
+name: 'Haar-random qubit code'
+introduced: '\cite{preset:ShorMSRI,arXiv:quant-ph/0702005,arXiv:quant-ph/0304127,arXiv:0712.2558}'
+
+description: |
+  Haar-random codewords are generated in a process involving averaging over unitary operations distributed accoding to the Haar measure. Haar-random codes are used to prove statements about the capacity of a quantum channel to transmit quantum information \cite{arXiv:1106.1445}, but encoding and decoding in such \(n\)-qubit codes quickly becomes impractical as \(n\to\infty\).
+
+  There are different approaches to create Haar-random codewords. In the construction of Ref. \cite{arXiv:quant-ph/0702005}, codewords are produced by performing a unitarily covariant projective measurement on a \textit{typical} subspace of a tensor-power state. Reference \cite{arXiv:quant-ph/0702005} showed that the capacity of a noisy quantum channel can be achieved by encoding in such Haar-random codes. In particular, Haar-random codes achieve perfect transmission in the \(n\to\infty\)) limit by proving that the encoded information becomes decoupled from the environment. This is a necessary and sufficient condition for successful decoding since measurements of the environment should never reveal the encoded information \cite{arxiv:quant-ph/9604022}.
+
+  Intuitively, coupling with the environment can be decreased by projecting the system onto a random codespace. The more qubits that are randomly discarded, the more the codespace is decoupled from the environment. One may ask what is the least amount of qubits that can be discarded, i.e. the largest remaining codespace, that still achieves decoupling. It can be shown through the decoupling inequality \cite{arXiv:quant-ph/0512247} that the largest possible dimension of the random codespace that achieves arbitrarily large decoupling is exponential in the coherent information of the channel. Therefore, there exist codes that can transmit information with rate equal to the coherent information. Furthermore, these codes can be constructed with high probability by performing a Haar-random isometry embedding a \(k\)-dimensional logical subspace into an \(n\)-dimensional physical space, where \(k/n\) is equal to the coherent information. Such an isometry can be produced by QR decomposition of a Gaussian random matrix \cite{doi:10.1137/0717034}.
+
+protection: 'Random code achieve the capacity of any noisy quantum channel.'
+
+features:
+  rate: 'The rate of the code is equal to the coherent information of the channel (i.e. the quantum channel capacity).'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: random_circuit
+  cousins:
+    - code_id: t-designs
+      detail: 'Approximating the random projections through \(t\)-designs is necessary in order to make the protocol practical. Replacing with random Clifford gates is especially convenient since the Clifford group forms a unitary 2-design and produces stabilizer codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-04'
+    - user_id: JonNelson
+      date: '2021-12-15'

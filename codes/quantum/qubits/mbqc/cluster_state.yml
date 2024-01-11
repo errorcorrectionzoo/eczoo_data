@@ -1,0 +1,114 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cluster_state
+physical: qubits
+logical: qubits
+
+name: 'Cluster-state code'
+introduced: '\cite{arxiv:quant-ph/0004051}'
+
+alternative_names:
+  - 'Graph-state code'
+
+description: |
+  Code consisting of cluster states \cite{arxiv:quant-ph/0004051}, which are stabilizer states defined on a graph. There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
+  \begin{align}
+    S_v = X_{v} \prod_{w\in N(v)} Z_w~,
+  \end{align}
+  where the neighborhood \(N(v)\) is the set of vertices which share an edge with \(v\).
+
+  Cluster-state codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
+  This is done by encoding the computation into the topological features of the cluster state''s graph.
+
+  An MBQC scheme can be constructed out of any qubit CSS code (via \textit{foliation} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
+  The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (equivalently, a cubic lattice with qubits on edges and faces).
+
+protection: |
+  Protection is related to the stabilizer code underlying the cluster state.
+  There is no physical error correction, and decoding output is simply used to update the Pauli frame.
+
+features:
+  encoders:
+    - 'Initialization of all qubits in the \(|+\rangle\) state and action of \(CZ\) gates along the edges of the graph.'
+
+  general_gates:
+    - 'The computation encoded in pre-determined fashion via topological features of the cluster state''s graph, such as boundaries, defects, or twists.
+    Such features can be created using \(Z\)-type measurements, which effectively cut a qubit off from the cluster state.
+    Non-Clifford gates are performed by inserting non-Clifford states into particular \textit{singular} qubits.
+    More generally, any gate protocol of a qubit stabilizer code yields an MBQC protocol \cite{arxiv:1811.11780}.
+
+    To perform the computation, subsets qubits are measured, e.g., along one two-dimensional slice of a 3D lattice for each time step.
+    This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
+    The computation terminates after all qubits are measured.
+
+    The entire cluster state does not need to be created at the start of the computation. Instead, the portion of the cluster state in the extra dimension can be initialized as the computation progresses.'
+
+  decoders:
+    - 'MBQC syndrome extraction is performed by multiplying certain single-qubit \(X\)-type measurements, which yield syndrome values.'
+
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(p_X = 2.9\%\) under MWPM decoding \cite{arxiv:quant-ph/0510135}.
+    The threshold under ML decoding corresponds to the value of critical point of the 3D random-plaquette \(\mathbb{Z}_2\) gauge theory (3D-RPGM) via the statistical mechanical mapping \cite{arxiv:quant-ph/0110143}, calculated to be \(3.3 \%\) \cite{arxiv:quant-ph/0401101} (see also \cite{arxiv:cond-mat/0501372}).'
+
+  fault_tolerance:
+    - 'Generalized foliation procedures exist for noise-bias preserving MBQC \cite{arxiv:2201.10566}.'
+
+# Do only local measurements, X in the bulk (vacuum V)
+# Multiply outcomes to get stabilizers XXXXXX on cube, which is the same as product of cluster state stabs on a cube since Z's cancel
+# This diagnoses for Z errors
+#
+# Z-type error correction round measures Z in the bulk (defect D), which yields ZZZZZZ when multiplied together on a cube
+# This diagnoses for X errors
+
+# 3D cluster state has anyonic strings
+
+# Logical info is no desctroyed, but teleported layer by layer along the third direction
+
+# Storage capacity depends upon the topology of the code surface
+#   Rough/smooth boundaries
+#   Tori = 2 qubits
+#   Planes with two holes = 1 qubit
+# Gates consist of building a 3D lattice in which holes are twisted. Cluster state is using 3rd spatial dim for a temporal one.
+# Lattice surgery also can be scaffolded in.
+
+# So information is effectively stored near the boundary of the 2D slice. Measuring slice by slice will teleport it to the next slice.
+
+notes:
+  - 'See Ref. \cite{arxiv:quant-ph/0602096} for a review of cluster states and their applications.'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: 'Cluster states are particular qubit stabilizer states defined on a graph.
+      Any qubit stabilizer code is locally equivalent to a graph code \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0703112}).
+      As a corollary, any qubit stabilizer state is locally equivalent to a cluster state \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
+      Any fault-tolerant scheme based on qubit stabilizer codes can be mapped into a cluster-state based MBQC protocol \cite{arxiv:1811.11780}.'
+  cousins:
+    - code_id: fusion
+      detail: 'FBQC and MBQC are both computational models in which computation is done by measuring resource states (which are qubit stabilizer states).
+      The difference between the two is in how the states are constructed.
+      FBQC is based exclusively on two-qubit measurements tailored to photonic platforms. These measurements require a foliation with more qubits but one which can be built by fusing smaller modules.'
+    - code_id: qubit_css
+      detail: 'A resource cluster state can be constructed out of any qubit CSS code via foliation. Conversely, CSS codes can be constructed out of cluster states \cite{arxiv:1607.02579}.'
+    - code_id: gkp-cluster-state
+      detail: 'The GKP cluster-state code is a concatenation of a cluster-state stabilizer code with a single-mode GKP code.'
+    - code_id: dynamic_gen
+      detail: 'MBQC is done using a measurement-based dynamical process.'
+    - code_id: dual_rail
+      detail: 'MBQC can be achieved with dual-rail codes using linear optical elements and photon detectors \cite{arxiv:quant-ph/0405157}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-01'
+    - user_id: YaronJarach
+      date: '2023-03-01'
+    - user_id: VictorVAlbert
+      date: '2023-03-01'

@@ -1,0 +1,55 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: ira
+physical: bits
+logical: bits
+
+name: 'Irregular repeat-accumulate (IRA) code'
+short_name: 'IRA'
+introduced: '\cite{manual:{Hui Jin, Aamod Khandekar, and Robert McEliece. "Irregular repeat-accumulate codes." Proc. 2nd Int. Symp. Turbo codes and related topics. 2000.},doi:10.7907/Q06G-MW38,manual:{Hui Jin, Aamod Khandekar, and Robert J. McEliece. "Serial concatenation of interleaved convolutional codes forming turbo-like codes." United States Patent Number 7116710B1 (2023).}}'
+
+description: |
+  A generalization of the RA code in which the outer 1-in-3 repetition encoding step is replaced by an LDGM code.
+  A simple version is when different bits in the RA block are repeated a different number of times.
+
+  IRA codes can be optimized against various noise channels \cite{doi:10.1109/TIT.2004.831778}.
+
+features:
+  rate: 'IRA codes nearly achieve the Shannon capacity of the binary erasure channel using iterative decoding \cite{manual:{Jin, Hui, Aamod Khandekar, and Robert McEliece. "Irregular repeat-accumulate codes." Proc. 2nd Int. Symp. Turbo codes and related topics. 2000.}}. Puncturing ressens the decoding complexity while still allowing sequences of codes to achive capacity \cite{doi:10.1109/TIT.2005.850079}.'
+  encoders:
+    - 'One linear-time encoder for a \textit{systematic} IRA code consists of first encoding into an \([n,k]\) LDGM binary linear code, applying a random permutation, and then applying an acumulator to obtain
+    \begin{align}
+      (u_{1},u_{1}+u_{2},\cdots,u_{1}+\cdots+u_{3K})~.
+    \end{align}'
+  decoders:
+    - 'Linear-time decoder \cite{manual:{Jin, Hui, Aamod Khandekar, and Robert McEliece. "Irregular repeat-accumulate codes." Proc. 2nd Int. Symp. Turbo codes and related topics. 2000.}}.'
+
+realizations:
+  - 'LDPC codes are used for digital satellite video broadcasting per the DVB-S2 standard \cite{doi:10.1109/ICARES.2014.7024407,manual:{ETSI, ETSI. "Digital video broadcasting (dvb); second generation framing structure, channel coding and modulation systems for broadcasting, interactive services, news gathering and other broadband satellite applications." Part II: S2-Extensions (DVB-S2X) (2005): 22-27.}} utilize IRA code features and are subject to ongoing litigation; see Ref. \cite{manual:{Hui Jin, Aamod Khandekar, and Robert J. McEliece. "Serial concatenation of interleaved convolutional codes forming turbo-like codes." United States Patent Number 7116710B1 (2023).}}.'
+  - 'Apple and Broadcom Wi-Fi devices utilize IRA encoding and decoding code features and are subject to ongoing litigation; see Ref. \cite{manual:{Hui Jin, Aamod Khandekar, and Robert J. McEliece. "Serial concatenation of interleaved convolutional codes forming turbo-like codes." United States Patent Number 7116710B1 (2023).}}.'
+
+relations:
+  parents:
+    - code_id: extended_ira
+    - code_id: protograph_ldpc
+      detail: 'IRA codes can be formulated as protograph LDPC codes \cite{doi:10.1109/GLOCOM.2005.1577834}.'
+    - code_id: concatenated
+      detail: 'IRA codes can be interpreted as serial concatenated codes \cite{doi:10.1109/18.669119}.'
+  cousins:
+    - code_id: ldgm
+      detail: 'IRA codes replace the outer 1-in-3 repetition encoding step in RA codes with an LDGM code.'
+    - code_id: mn_ldpc
+      detail: 'MN-LDPC and IRA codes intersect for certain parameters \cite{manual:{Henry D. Pfister, private communication, 2022}}.'
+
+# IRA codes can be formulated as multi-edge LDPC codes \cite[Sec. XI]{manual:{Richardson, Tom, and Rüdiger Urbanke. "Multi-edge type LDPC codes." Workshop honoring Prof. Bob McEliece on his 60th birthday, California Institute of Technology, Pasadena, California. 2002.}}.
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: multi_edge_ldpc
+physical: bits
+logical: bits
+
+name: 'Multi-edge LDPC code'
+introduced: '\cite{manual:{Richardson, Tom, and Rüdiger Urbanke. "Multi-edge type LDPC codes." Workshop honoring Prof. Bob McEliece on his 60th birthday, California Institute of Technology, Pasadena, California. 2002.}}'
+
+description: |
+  Irregular LDPC code whose construction generalizes those of the original examples of irregular LDPC as well as RA codes.
+
+
+relations:
+  parents:
+    - code_id: ldpc
+  cousins:
+    - code_id: irregular_ldpc
+      detail: 'The multi-edge code construction generalizes generalizes several of the original examples of irregular LDPC codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stabilizer
+# includes Galois, modular, oscillators, and groups
+
+name: 'Stabilizer code'
+
+description: |
+  A code whose logical subspace is the joint eigenspace (usually with eigenvalue \(+1\)) of a set of commuting unitary operators forming the code's stabilizer group.
+  They can be block codes defined of tensor-product spaces of qubits or qudits, or non-block codes defined on single sufficiently large Hilbert spaces such as bosonic modes or group spaces.
+
+  The coding theory motivation for stabilizer codes came from linear binary codes, whose codewords form a closed subspace in the space of binary strings.
+  Stabilizer codes extend this property, in various ways, to quantum error correction.
+  The stabilizer formalism is applicable to almost all quantum-code kingdoms; see \href{https://errorcorrectionzoo.org/list/stabilizer}{list of stabilizer codes} for a list of all stabilizer codes in the zoo.
+
+  Stabilizer codes were originally defined for qubits, where the relevant commuting operators are tensor products of Pauli matrices.
+  The Pauli stabilizer structure is useful in providing standardized encoding, gates, decoding, and performance bounds.
+  Elements of this structure remain in qudit extensions, in particular for prime-dimensional modular qudits and Galois qudits.
+  Other qubit-based extensions, such as \hyperref[code:xs_stabilizer]{XS} and \hyperref[code:xp_stabilizer]{XP} stabilizer codes, relax the mutual commutation property.
+  Still other extensions defined for Galois qudits include \hyperref[code:non_stabilizer]{non-stabilizer codes}.
+
+#  Stabilizer codes have been defined for qubits, modular qudits, Galois qudits, and oscillators using their respective Pauli-type groups.
+# An important property of qubit and qudit stabilizer codes is the QLDPC property, which means (roughly) that working with them remains not too hard as number of qudits grows; these remain as the primary ingredients for a quantum memory.
+
+
+relations:
+  parents:
+    - code_id: commuting_projector
+      detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, which consists of an equal linear combination of stabilizer generators and which can be made into a commuting-projector Hamiltonian.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-19'

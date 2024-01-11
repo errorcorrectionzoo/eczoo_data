@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: psk
+physical: spheres
+logical: reals
+
+name: 'Phase-shift keying (PSK) code'
+short_name: 'PSK'
+
+description: |
+  A \(q\)-ary phase-shift keying (\(q\)-PSK) encodes one \(q\)-ary digit of information into a constellation of \(q\) points distributed equidistantly on a circle in \(\mathbb{C}\) or, equivalently, \(\mathbb{R}^2\).
+  For example, such a constellation could be
+  \begin{align}
+    \{1,e^{i\frac{2\pi}{q}},\cdots,e^{i\frac{2\pi}{q}(q-1)}\}~.
+  \end{align}
+  Each point is typically associated with a complex amplitude of an electromagnetic signal, and information is encoded into the phase of that signal.
+
+  Concatenating PSK with \(q\)-ary codes yields a natural non-binary way of digitizing the analog AGWN channel \cite{manual:{Massey, J. L. "Convolutional codes over rings." Fourth Joint Swedish-Soviet International Workshop on Information Theory. 1989.},manual:{Massey, J. L. "Ring convolutional codes for phase modulation." presented at the IEEE Int. Symp. on Information Theory, San Diego, CA, Jan. 14-19. 1990.}}.
+
+features:
+  rate: 'Nearly achieves Shannon AWGN capacity for one-dimensional constellations in the limit of infinite signal to noise \cite[Fig. 11.7]{doi:10.1017/CBO9780511811401}.'
+
+realizations:
+  - 'Telephone-line modems: 1967 Milgo 4400/48 and international standard V.27 used 8-PSK \cite{manual:{International Telecommunication Union-T, Recommendation V.27ter: 4800/2400 Bits Per Second Modem Standardized For Use in the General Switched Telephone Network, 1984}}.'
+
+relations:
+  parents:
+    - code_id: polygon
+      detail: 'The PSK constellation forms a \(q\)-gon.'
+    - code_id: polyphase
+      detail: 'A polyphase code can be thought of as a concatenation of a \(q\)-ary outer code with a PSK inner code. When the outer code is trivial, the construction reduces to a PSK code.'
+    - code_id: modulation
+      detail: 'PSK is a modulation whose constellation consists of points arranged equidistantly on a circle.'
+  cousins:
+    - code_id: gray
+      detail: '1D Gray codes are often concatenated with PSKs so that the Hamming distance between the bitstrings encoded into the points is a discretized version of the Euclidean distance between the points.'
+    - code_id: cat
+      detail: 'PSK (cat) codes are used to transmit classical (quantum) information using (superpositions of) single-mode coherent states distributed on a circle over classical (quantum) channels.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'

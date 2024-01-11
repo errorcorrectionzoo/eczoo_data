@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lrpc
+physical: matrices
+logical: matrices
+
+name: 'Low-rank parity-check (LRPC) code'
+short_name: LRPC
+introduced: '\cite{manual:{Gaborit, P., Murat, G., Ruatta, O., & Zemor, G. (2013, April). Low rank parity check codes and their application to cryptography. In Proceedings of the Workshop on Coding and Cryptography WCC (Vol. 2013).}}'
+
+description: |
+  An LRPC code of rank \(d\) is a rank-metric code that, when interpreted as a linear code over \(GF(q^m)\), admits an \((n-k)\times n\) parity-check matrix whose entries span a subspace of \(GF(q^m)\) that is at most \(d\)-dimensional.
+
+
+features:
+  decoders:
+    - 'Efficient probabilistic decoder \cite{manual:{Gaborit, P., Murat, G., Ruatta, O., & Zemor, G. (2013, April). Low rank parity check codes and their application to cryptography. In Proceedings of the Workshop on Coding and Cryptography WCC (Vol. 2013).}}.'
+    - 'Mixed decoder \cite{doi:10.1007/978-3-319-11659-4_6}.'
+
+
+realizations:
+  - 'Cryptosystem \cite{manual:{Gaborit, P., Murat, G., Ruatta, O., & Zemor, G. (2013, April). Low rank parity check codes and their application to cryptography. In Proceedings of the Workshop on Coding and Cryptography WCC (Vol. 2013).}} that is a rank-metric analogue of NTRU \cite{doi:10.1007/BFb0054868} and MDPC \cite{doi:10.1109/ISIT.2013.6620590} cryptosystems.'
+  - 'Post-quantum cryptography \cite{doi:10.1007/978-3-319-11659-4_6}.'
+
+
+relations:
+  parents:
+    - code_id: rank_metric
+  cousins:
+    - code_id: ldpc
+      detail: 'LRPC codes are rank-metric analogues of LDPC codes \cite{manual:{Gaborit, P., Murat, G., Ruatta, O., & Zemor, G. (2013, April). Low rank parity check codes and their application to cryptography. In Proceedings of the Workshop on Coding and Cryptography WCC (Vol. 2013).}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: MazinKarjikar
+      date: '2023-01-16'
+    - user_id: VictorVAlbert
+      date: '2023-01-16'

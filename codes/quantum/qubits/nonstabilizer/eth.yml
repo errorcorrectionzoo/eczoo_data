@@ -1,0 +1,56 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eth
+physical: qubits
+logical: qubits
+
+name: 'Eigenstate thermalization hypothesis (ETH) code'
+short_name: 'ETH'
+introduced: '\cite{arxiv:1710.04631}'
+
+description: |
+  Also called a \textit{thermodynamic code} \cite{arxiv:1902.07714}. An \(n\)-qubit approximate code whose codespace is formed by eigenstates of a translationally-invariant quantum many-body system which satisfies the Eigenstate Thermalization Hypothesis (ETH). ETH ensures that codewords cannot be locally distinguished in the thermodynamic limit. Relevant many-body systems include 1D non-interacting spin chains, Motzkin chains, or Heisenberg models.
+
+  ETH requires that for ordered energy eigenstates \(|E_l\rangle\) and any local observable \(O\),
+  \begin{align}
+  |\langle E_l|O|E_l\rangle-\langle E_{l+1}|O|E_{l+1}\rangle|\leq\exp(-cn)
+  \end{align}
+  for a constant \(c\). This implies that energy eigenstates around some energy \(\bar E\) are approximately locally indistinguishable from one another, as their reduced density matrices on any subsystem are both approximately thermal at energy \(\bar E\). In this way, global information is protected from local measurements by the environment as \(n\to\infty\).
+
+protection: 'Approximately protects against erasure errors at known locations. Translation invariance alone is sufficient for good approximate error-correcting properties in a many-body spectrum, including in integrable models \cite{arxiv:1710.04631}. The ETH code generated from the spectrum of the translation-invariant 1D Heisenberg spin chain \cite{arxiv:1710.04631} has recovery infidelity (against the erasure of a constant number of sites) scale as \(\epsilon_\text{worst}=O(1/n)\) \cite{arxiv:1902.07714}.'
+
+features:
+  decoders:
+    - 'An explicit universal recovery channel for the ETH code is given in \cite{arXiv:1906.03669}.'
+
+  # fault_tolerance:
+
+  # threshold:
+
+# notes:
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: hamiltonian
+      detail: 'ETH codewords are eigenstates of a local Hamiltonian whose eigenstates satisfy ETH.'
+    - code_id: approximate_qecc
+      detail: 'ETH codes approximately protect against erasures in the thermodynamic limit.'
+  cousins:
+    - code_id: topological
+      detail: 'ETH codewords, like topological codewords, are locally indistinguishable.'
+    - code_id: permutation_invariant
+      detail: 'Several instances of ETH codes contain permutation-invariant codewords.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-01'
+    - user_id: ChrisFechisin
+      date: '2021-12-13'

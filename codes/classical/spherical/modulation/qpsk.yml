@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qpsk
+physical: spheres
+logical: reals
+
+name: 'Quadrature PSK (QPSK) code'
+short_name: 'QPSK'
+introduced: '\cite{doi:10.1109/TCE.1962.6373228}'
+
+description: |
+  Also known as \textit{quadriphase PSK}, \textit{4-PSK}, or \textit{4-QAM}.
+  Quaternary encoding into a constellation of four points distributed equidistantly on a circle.
+  For the case of \(\pi/4\)-QPSK, the constellation is \(\{e^{\pm i\frac{\pi}{4}},e^{\pm i\frac{3\pi}{4}}\}\).
+
+realizations:
+  - 'Japanese and North American digital cellular and personal systems \cite{doi:10.1109/25.289416}.'
+  - 'Telephone-line modems: 1962 Bell 201 and international standard V.24 \cite{manual:{International Telecommunication Union-T, Recommendation V.24: List of definitions for interchange circuits between data terminal equipment (DTE) and data circuit-terminating equipment (DCE), 1988}}.'
+
+relations:
+  parents:
+    - code_id: psk
+      detail: 'QPSK is also known as 4-PSK.'
+    - code_id: biorthogonal
+      detail: 'QPSK code is equivalent to the biorthogonal spherical code for \(n=2\).'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'

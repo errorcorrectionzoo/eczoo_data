@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: plane_curve
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Plane-curve code'
+introduced: '\cite{doi:10.1109/18.32157}'
+
+description: |
+  Evaluation AG code of bivariate polynomials of some finite maximum degree, evaluated at points lying on an affine plane curve.
+
+protection: 'Bezout''s theorem yields parameters \([n,k,d]\), which depend on the polynomial used to define the plane curve as well as the maximum degree of the polynomials used for evaluation (\cite{preset:HPAlgCodes}, pg. 883). Distance bounds can be derived from how the plane curve is embedded in the ambient projective space (\cite{arXiv:0905.2345}, Thm. 4.1).'
+
+features:
+  decoders:
+    - 'Generalization of the Peterson algorithm for BCH codes \cite{doi:10.1109/18.32157}.'
+
+relations:
+  parents:
+    - code_id: evaluation
+      detail: 'Plane-curve codes are evaluation AG codes of bivariate polynomials with \(\cal X\) being an affine plane curve (\cite{preset:HPAlgCodes}, Thm. 2.27).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-05'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_15_7_3
+physical: qubits
+logical: qubits
+
+name: '\([[15, 7, 3]]\) Hamming-based CSS code'
+short_name: '\([[15, 7, 3]]\)'
+introduced: '\cite{arxiv:quant-ph/9605021,manual:{Jim Harrington and Ben W. Reichardt, “Addressable multi-qubit logic via permutations,” Talk at Southwest Quantum Information and Technology (SQuInT) (2011).}}'
+
+description: 'Self-dual Hamming-based CSS code that admits permutation-based CZ logical gates.'
+
+features:
+  transversal_gates: 'Single-qubit Clifford operations applied transversally yield the corresponding Clifford gates on one of the logical qubits \cite{arxiv:1705.05365}. CNOT gate because it is a CSS code. Transversal CCZ gate \cite{arxiv:1304.3709}.'
+  general_gates:
+    - 'CZ gates can be performed using qubit permutations, and a CCZ gate can be performed using four ancilla qubits \cite{arxiv:1705.05365}.'
+  fault_tolerance:
+    - 'Clifford gates can be performed fault-tolerantly using two ancillary flag qubits, and a CCZ gate can be performed using four ancilla qubits \cite{arxiv:1705.05365}.'
+
+relations:
+  parents:
+    - code_id: quantum_hamming_css
+  cousins:
+    - code_id: quantum_perfect
+      detail: '\([[15, 7, 3]]\) Hamming-based CSS code is perfect as a CSS code, i.e., the number of its \(Z\)-type syndromes matches the number of \(X\)-type Pauli errors up to weight one \cite{arxiv:1705.05365}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-06'

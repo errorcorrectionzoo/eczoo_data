@@ -13,14 +13,28 @@ introduced: '\cite{arXiv:quant-ph/9705052}'
 description: |
   An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint eigenspace of commuting qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a qudit Pauli string that implements a nontrivial logical operation in the code.
 
-  (Pauli matrices go here.)
+  A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{\mathbb{Z}_q}\) or \([[n,k,d]]_{\mathbb{Z}_q}\). For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\). \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
 
-  A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{q}\) or \([[n,k,d]]_{q}\). For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\). \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
+  Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
-  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. (Standard form goes here.)
+  One can switch between stabilizer codes by appending another Abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
+  \begin{defterm}{Code switching}
+  \label{topic:code-switching}
+  Code switching is a map between stabilizer codes that is done using a stabilizer group \(\mathsf{F}\) of the \(n\)-qudit Pauli group,
+  \begin{align}
+  \mathsf{S}\to\mathsf{N}_{\left\langle \mathsf{S},\mathsf{F}\right\rangle }\left(\mathsf{F}\right)~,
+  \end{align}
+  where \(\mathsf{Z}\) denotes taking the center of a group.
+  Code switching may not preserve the logical information and instead implement logical measurements; conditions on \(\mathsf{S}\) and \(\mathsf{F}\) such that qubit stabilizer code switching preserves logical information are derived in \cite[Prop. II.1]{arxiv:2304.01277}.
+  In the context of Abelian topological stabilizer codes, code switching implements \textit{anyon condensation} of any anyons represented by operators in the group \(\mathsf{F}\).
+  \end{defterm}
 
-protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.
-More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
+  Stabilizer codewords for odd qudit dimension have a specific form per the finite-dimensional version of Hudson's theorem \cite{arxiv:quant-ph/0602001}.
+  General modular-qudit stabilizer codes can equivalently \cite{arxiv:quant-ph/0111080} be defined using graphs, yielding an analytical form for the codewords \cite{arxiv:quant-ph/0012111}.
+
+
+
+protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
 
 features:
   decoders:
@@ -29,10 +43,31 @@ features:
 
 notes:
   - 'A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.'
+  - 'The number of modular-qudit stabilizer codes was determined in Refs. \cite{arxiv:quant-ph/0602001,arxiv:2209.01449}.'
 #   - 'For codes that do encode an integer number of \(q\)-dimensional qudits, i.e., \(K=q^k\), \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
 
 relations:
   parents:
-    - code_id: stabilizer
     - code_id: qudits_into_qudits
-      detail: ''
+    - code_id: stabilizer
+    - code_id: quantum_lego
+      detail: 'Modular-qudit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qudit repetition code, single-qudit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state.'
+  cousins:
+    - code_id: q-ary_over_zq
+      detail: 'Modular-qudit stabilizer codes are the closest quantum analogues of additive codes over \(\mathbb{Z}_q\) because addition in the ring corresponds to multiplication of stabilizers in the quantum case.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-19'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'
+    - user_id: LeonidPryadko
+      date: '2022-02-16'
+    - user_id: QingfengKeeWang
+      date: '2022-01-07'
+    - user_id: VictorVAlbert
+      date: '2021-11-02'

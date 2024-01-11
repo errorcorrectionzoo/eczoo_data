@@ -1,0 +1,80 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qecc
+#physical: bits
+#logical: qubits
+
+name: 'Quantum error-correcting code (QECC)'
+short_name: 'QECC'
+
+# Following Gottesman's book, but removed finite dims
+description: |
+  Encodes quantum information in a (\textit{logical}) subspace of a
+  (\textit{physical}) Hilbert space such that it is possible to recover said
+  information from errors that act as linear maps on the physical space.
+
+  Since quantum information is encoded in quantum superpositions, an additional source of noise (not relevant to classical encodings) can affect the relative phase of such superpositions.
+  Quantum error-correcting codes have to protect against such \textit{phase-flip noise} while also protecting against conventional classical \textit{bit-flip} noise.
+  Codes are not expected to protect against both types of noise perfectly, and there is generally a tradeoff.
+
+  The
+  logical subspace is spanned by a basis comprised of \textit{code basis states}
+  or \textit{codewords}. Codewords may not be normalizable if the physical
+  Hilbert space in infinite, so approximate versions have to be constructed in
+  practice.
+
+protection: |
+  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a quantum code
+  \((U,\cal{E})\) is a partial isometry
+  \(U:\mathsf{H}_{\text{logical}}\to\mathsf{H}_{\text{physical}}\) with a set of
+  correctable errors \(\cal{E}\) with the following property: there exists a
+  quantum operation \(\cal{D}\) such that for all \(E\in\cal{E}\) and states
+  \(|\psi\rangle\in\mathsf{H}_{\text{logical}}\),
+  \begin{align}
+    {\cal D} (EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})
+    = c(E,|\psi\rangle)|\psi\rangle\langle\psi|
+  \end{align}
+  for some constant \(c\).
+
+  Equivalently, correction capability is determined by the \term{Knill-Laflamme conditions}, which may admit infinite terms due to non-normalizability of ideal code states in the case of codes with infinite-dimenional physical spaces. A code that satisfies these conditions approximately, i.e., up to some small quantifiable error, is called an \hyperref[code:approximate_qecc]{approximate code}. These conditions can also be formulated in terms of a dual Heisenberg picture, where correctability is checked for some algebra of observables \cite{arxiv:0811.0421}.
+# Include other often used defs
+
+#notes:
+#  - 'Bounds on n,k, or d for this class.'
+#  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arXiv:####.#####}.'
+
+features:
+  rate: 'The quantum channel capacity, i.e., the regularized coherent information, is the highest rate of quantum information transmission through a quantum channel with arbitrarily small error rate \cite{arxiv:quant-ph/9604015,preset:ShorMSRI,arXiv:quant-ph/0304127}.
+  See \cite[Ch. 24]{arxiv:1106.1445} for definitions and a history.'
+
+notes:
+  - 'See Refs. \cite{doi:10.1090/gsm/047,doi:10.1017/CBO9780511976667,arxiv:0905.2794,arxiv:1302.3428,doi:10.1103/RevModPhys.88.041001,doi:10.1002/9783527805785.ch1,arxiv:1907.11157,preset:PreskillNotes,arxiv:1910.03672,doi:10.1002/9781119790327.ch10} for overviews of quantum error correction.'
+  - 'See Refs. \cite{doi:10.1017/CBO9781139034807,doi:10.1201/b15868,preset:GottesmanBook} for books on quantum error correction.'
+  - 'See video tutorials by \href{https://www.youtube.com/watch?v=_ls3KczZL2c}{V. V. Albert}, \href{https://www.youtube.com/watch?v=uD69GCYF9Zg}{S. M. Girvin}, \href{https://www.youtube.com/watch?v=buIbd_aXAHw}{P. Shor}, and \href{https://www.youtube.com/watch?v=Je7sVJGKMgU}{B. Terhal}.'
+  - 'Quantum error correction was initially claimed not to be theoretically possible \cite{arxiv:hep-th/9406058,doi:10.1098/rsta.1995.0106}.'
+
+relations:
+  parents:
+    - code_id: quantum_into_quantum
+    - code_id: oaecc
+  cousins:
+    - code_id: ecc
+      detail: 'Quantum information cannot be copied using a linear process \cite{doi:10.1038/299802a0}, so one cannot send several copies of a quantum state through a channel as can be done for classical information.
+      Error-correction conditions can similarly be formulated for classical codes \cite[Sec. 3]{arxiv:2109.08691}, although they are not as widely as used as those for quantum codes.'
+    - code_id: metrological
+      detail: 'Metrological codes are logical-qubit codes that satisfy the \term{Knill-Laflamme conditions} conditions only partially, and codes that satisfy them fully are QECCs.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-30'
+    - user_id: PhilippeFaist
+      date: '2022-07-15'
+    - user_id: VictorVAlbert
+      date: '2022-01-03'

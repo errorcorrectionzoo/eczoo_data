@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: regular_ldpc
+physical: bits
+logical: bits
+
+name: 'Regular LDPC code'
+
+description: |
+  An LDPC code whose parity-check matrix has a fixed number of entries for each row or column.
+
+
+relations:
+  parents:
+    - code_id: ldpc
+    - code_id: regular_binary_tanner
+      detail: 'Regular LDPC codes are regular binary Tanner codes defined on sparse graphs whose constraint nodes represent parity-check codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

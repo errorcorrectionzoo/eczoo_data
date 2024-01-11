@@ -11,29 +11,33 @@ name: 'Polar code'
 introduced: '\cite{doi:10.1109/TIT.2009.2021379}'
 
 description: |
-  In its basic version, a binary linear polar code encodes \(K\) message bits into \(N=2^n\) bits. The linear transformation that defines the code is given by the matrix \(G^{(n)}=B_N G^{\otimes n}\), where \(B_N\) is a certain \(N\times N\) permutation matrix, and \(G^{\otimes n}\) is the \(n\)th Kronecker power of the \(2\times 2\) \textit{kernel} matrix \(G=\left[\begin{smallmatrix}1 & 0\\ 1 & 1 \end{smallmatrix}\right]\). To encode \(K\) message bits, one forms an \(N\)-vector \(u\) in which \(K\) coordinates represent the message bits. The remaining \(N-K\) coordinates are set to some fixed values and are said to be \textit{frozen}. The codeword \(x \in \{0,1\}^N\) is obtained as \(x=u G^{\otimes n}\).
+  In its basic version, a binary linear polar code encodes \(K\) message bits into \(N=2^n\) bits. The linear transformation that defines the code is given by the matrix \(G^{(n)}=B_N G^{\otimes n}\), where \(B_N\) is a certain \(N\times N\) permutation matrix, and \(G^{\otimes n}\) is the \(n\)th Kronecker power of the \(2\times 2\) \textit{kernel matrix} \(G=\left[\begin{smallmatrix}1 & 0\\ 1 & 1 \end{smallmatrix}\right]\). To encode \(K\) message bits, one forms an \(N\)-vector \(u\) in which \(K\) coordinates represent the message bits. The remaining \(N-K\) coordinates are set to some fixed values and are said to be \textit{frozen}. The codeword \(x \in \{0,1\}^N\) is obtained as \(x=u G^{\otimes n}\).
 
   The choice of the frozen coordinates depends on the communication channel, and they correspond to the least reliable bits on the output of the channel under a particular decoding procedure called successive cancellation decoding. If the communication channel is input-symmetric, the values of the frozen bits can be set to zero.
 
-  There are multiple variants of the above basic construction, in particular relying on other kernel matrices. The codes can be defined for nonbinary alphabets, and they can be adjusted to support tasks such as lossless and lossy compression, successive refinement, communication over the mulitple access channel, communication over the wiretap channel, and many others.
+  There are multiple variants of the above basic construction, in particular relying on other kernel matrices \cite{doi:10.1109/TIT.2010.2080990}.
+  The codes can be defined for nonbinary alphabets, and they can be adjusted to support tasks such as lossless and lossy compression, successive refinement, communication over the mulitple access channel, communication over the wiretap channel, and many others.
 
-protection: 'Protects against various types of noise in the communication channel, for instance, errors, erasures, or other types of noise. Distance plays no role in the analysis of its properties, and is much lower than the largest possible value given \(K,N\).'
+protection: 'Protects against various types of noise in the communication channel, for instance, errors, erasures, or other types of noise. Distance plays no role in the analysis of its properties, and is much lower than the largest possible value given \(K,N\). Polar codes often need to be tailored for a given channel, but universal constructions also exist \cite{doi:10.1109/ISIT.2014.6875073}.'
 
 features:
-  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel.'
+  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel under the successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379,doi:10.1109/ISIT.2009.5205860}; see also Refs. \cite{doi:10.1109/TIT.2016.2616117,doi:10.1109/ISIT.2010.5513579}.'
 
   decoders:
-    - 'Successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
-    - 'Successive cancellation list decoder \cite{doi:10.1109/TIT.2015.2410251}.'
-
-  threshold:
-    - 'Achieves Shannon capacity of the binary-input memoryless channel under successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379}.'
+    - 'Successive cancellation (SC) decoder \cite{doi:10.1109/TIT.2009.2021379}.'
+    - 'Successive cancellation list (SCL) decoder \cite{doi:10.1109/TIT.2015.2410251} and a modification utilizing sequence repetition (SR-List) \cite{arXiv:2205.08857}.'
+    - 'Soft cancellation (SCAN) decoder \cite{doi:10.1109/JSAC.2014.140515,doi:10.1109/ICC.2013.6655247}.'
+    - 'Belief propagation (BP) decoder \cite{doi:10.1109/LCOMM.2008.080017}.'
+    - 'Noisy quantum gate-vased decoder \cite{arxiv:2210.10854}.'
 
 realizations:
   - 'Code control channels for the 5G NR (New Radio) interfaces \cite{manual:{3rd Generation Partnership Project (3GPP), \emph{Technical specification group radio access network}, 3GPP TS 38.212 V.15.0.0, 2017.}}.'
 
 notes:
-  - 'For more details, see Ch. 32 of Ref. \cite{doi:10.1201/9781315147901}.'
+  - 'For more details, see Ref. \cite{preset:HKSpolar}.'
+  - 'See Kaiserslautern database \cite{preset:KLdatabase} and the pretty-good-codes database \cite{preset:PGCdatabase} for explicit representatives and benchmarking.'
+  - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
+  - 'Polar codes are also useful for source coding \cite{doi:10.1109/TIT.2010.2040961}.'
 
 relations:
   parents:
@@ -42,4 +46,18 @@ relations:
       detail: 'Polar codes can be represented as generalized concatenations of their kernels.'
   cousins:
     - code_id: reed_muller
-      detail: 'Reed-Muller code relies on the same generator matrix, but places message bits in different coordinates.'
+      detail: 'RM codes rely on the same generator matrix, but place message bits in different coordinates. There are families interpolating between the two codes \cite{doi:10.1109/TCOMM.2014.2345069}.'
+    - code_id: polar_for_quantum
+      detail: 'Quantum-classical polar codes generalize polar codes for transmission through channels with quantum output.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-12'
+    - user_id: AlexanderBarg
+      date: '2021-11-10'
+    - user_id: VictorVAlbert
+      date: '2021-11-04'

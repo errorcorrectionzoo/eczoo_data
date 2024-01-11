@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: good_qldpc
+# includes both Galois and modular
+
+name: 'Good QLDPC code'
+
+description: |
+  Also called \textit{asymptotically good QLDPC codes}. A family of QLDPC codes \([[n_i,k_i,d_i]]\) whose asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive.
+
+  The first good QLDPC codes are families constructed by applying the CSS construction to classical Tanner codes on expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8}.
+  The three constructions are closely related, assigning qubits and check operators to vertices, edges, and faces of a particular graph called the left-right Cayley complex.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H, c H>{Code & vertices & edges & faces}
+      \celldata<c, c, c, c>{
+      \hyperref[code:expander_lifted_product]{expander lifted-product} & qubits & \(X,Z\) checks & qubits
+          \\
+      \hyperref[code:quantum_tanner]{quantum Tanner} & \(X,Z\) checks &  & qubits
+          \\
+      \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick} & \(X\) checks & qubits & \(Z\) checks
+      }
+      \end{cells}
+      \caption{Assignment of qubits and checks for three asymptotically good QLDPC codes.}
+      \label{table:good-qldpc-codes}
+    \end{table}
+
+
+relations:
+  parents:
+    - code_id: qldpc
+  cousins:
+    - code_id: topological
+      detail: 'Chain complexes describing some good QLDPC codes can be ''lifted'' into higher-dimensional manifolds admitting some notion of geometric locality \cite{arXiv:2012.02249}. Applying this procedure to good QLDPC codes yiels geometrically local \([[n,n^{1-2/D},n^{1-1/D}]]\) codes in \(D\) spatial dimensions, up to corrections poly-logarithmic in \(n\) \cite{arxiv:2303.06755}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-06-24'
