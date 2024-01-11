@@ -1,0 +1,33 @@
+
+code_id: delsarte_goethals
+physical: bits
+logical: bits
+
+name: 'Delsarte-Goethals Codes'
+introduced: '\cite{doi:10.1016/0097-3165(75)90090-4}'
+
+description: 'Delsarte-Goethals codes are a family of binary non-linear codes which were first introduced by P. Delsarte and J.M. Goethals in 1975. For even \(m >= 4\) and \( 0 \leq r \leq m/2-1\), the Delsarte-Goethals code with parameters \((m,r)\) is denoted by \(\mathcal{DG}(m,r)\) and has length \(n= 2^m\), size \(N = 2^{r(m-1)+2m}\), and minimum distance \(d = 2^{m-1}-2^{m/2-1+r}\) \cite{doi:10.1016/0097-3165(75)90090-4}. \(\mathcal{DG}(m,r)\) is a subcode of the second order Reed-Muller code of length 2^m ( i.e. \(\mathcal{RM}(2,m)\)). Furthermore \(\mathcal{DG}(m,1)= \mathcal{RM}(2,m)\) . i.e for \(r=2\), \(\mathcal{DG}(m,1)\) codes are equivalent to \(\mathcal{RM}(2,m)\) codes of the same length.\cite{manual:{(MacWilliams FJ, Sloane NJ. The theory of error correcting codes. Elsevier; 1977. Chapter 15.)}}. In fact, \(\mathcal{DG}(m,r)\) is the union of certain cosets of \(\mathcal{RM}(1,m)\) in \(\mathcal{RM}(2,m)\). Certain bilinear forms are used to specify these cosets \cite{doi:10.1016/0097-3165(75)90090-4}. This approach is used to explicitely construct the codes. Kerdock code of length 2^m (\(\mathcal{K}(m)\))is a subcode of \(\mathcal{DG}(m,r)\). Furthermore, \(\mathcal{DG}(m,m/2) = \mathcal{K}(m)\).\cite{manual:{(MacWilliams FJ, Sloane NJ. The theory of error correcting codes. Elsevier; 1977. Chapter 15.)}}. \(\mathcal{DG}(m,r+1)\) is a union of disjoint translates of \(\mathcal{DG}(m,r)\).\cite{manual:{(MacWilliams FJ, Sloane NJ. The theory of error correcting codes. Elsevier; 1977. Chapter 15.)}}. While \(\mathcal{DG}(m,r)\) is not itself linear, it is the Gray map image of a certain linear code over \(\mathbb{Z_4}\) \cite{doi:10.1109/18.312154}. This is another way of constructing Delsarte-Goethals codes. In fact, the corresponding \(\mathbb{Z_4}\) codes are extended cyclic codes over \(\mathbb{Z_4}\). \cite{doi:10.1109/18.312154}. These codes are distance invariant \cite{doi:10.1109/18.312154}. Hence distance distribution and the weight distribution are the same. Duals of \(\mathcal{DG}(m,r)\) exists in the sense that there exists codes with distance distribution equal to the MacWilliams transform of the distance distribution of Delsarte-Goethals codes \cite{doi:10.1016/0012-365X(90)90010-F}.'
+
+
+features:
+  
+  rate: '\(= {r(m-1)+2m}/2^m\). Therefore, rate goes to 0 as the block length goes to infinity.'
+  
+  decoders:
+    - 'Since the equivalent \(\mathbb{Z_4}\) codes are extended cyclic codes, efficient encoding-decoding is possible \cite{doi:10.1109/18.312154}.'
+
+realizations:
+  - 'Space-time signalling. \cite{doi:10.1109/ICC.2004.1312536}.'
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+      detail: ''
+    - code_id: quaternary_over_z4
+      detail: 'Delsarte-Goethals codes are the Gray map image of a certain class of linear codes over \(\mathbb{Z_4}\)'
+  cousins:
+    - code_id: reed_muller 
+      detail: '\(\mathcal{DG}(m,r)\) is a subcode of the second order Reed-Muller code of length 2^m ( i.e. \(\mathcal{RM}(2,m)\)).'
+    #- code_id: kerdock
+    #  detail: 'Kerdock code of length 2^m (\(\mathcal{K}(m)\)) is a subcode of \(\mathcal{DG}(m,r)\). In particular, \(\mathcal{DG}(m,m/2) = \mathcal{K}(m)\).'
+
