@@ -8,10 +8,22 @@ physical: spins
 logical: qubits
 
 name: 'Spin cat code'
-introduced: '\cite{arXiv:2101.03662}'
+introduced: '\cite{arXiv:2101.03662,arxiv:2401.04271}'
 
 description: |
-  An analogue of the two-component cat code designed for atomic ensembles. Was designed by using the Holstein-Primakoff mapping \cite{doi:10.1103/PhysRev.58.1098} (see also \cite{doi:10.2307/3212170}) to pull back the phase-space structure of a bosonic system to the compact phase space of a quantum spin.
+  An analogue of the two-component cat code designed for a large spin, which is often realized in the permutation-invariant subspace of atomic ensembles.
+
+  The encoding was designed by using the Holstein-Primakoff mapping \cite{doi:10.1103/PhysRev.58.1098} (see also \cite{doi:10.2307/3212170}) to pull back the phase-space structure of a bosonic system to the compact phase space of a quantum spin.
+
+  The codewords can be approximated by two spin-coherent states.
+  The version where the two spin-coherent states are antipodal has been considered in Ref. \cite{arxiv:2401.04271}.
+
+features:
+  general_gates:
+    - 'CNOT gate preserving the rank of spherical-tensor noise operators \cite{arxiv:2401.04271}.'
+  decoders:
+    - 'Measurement-free error correction protocol \cite{arxiv:2401.04271}.'
+
 
 relations:
   parents:
