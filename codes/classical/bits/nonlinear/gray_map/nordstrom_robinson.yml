@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nordstrom_robinson
+physical: bits
+logical: bits
+
+name: 'Nordstrom-Robinson (NR) code'
+short_name: 'NR'
+introduced: '\cite{doi:10.1016/S0019-9958(67)90835-2,manual:{N. V. Semakov, V. A. Zinovev, Complete and Quasi-complete Balanced Codes, Probl. Peredachi Inf., 5:2 (1969), 14–18; Problems Inform. Transmission, 5:2 (1969), 11–13}}'
+
+description: |
+  A nonlinear \(((16,256,6))\) binary code that is the smallest Kerdock and the smallest Preparata code.
+  The size of this code is larger than the largest possible linear code with the same length and distance.
+
+# It is an orthogonal array of strength 5.
+
+# cite following
+# Orthogonal array specification -- http://mint.sbg.ac.at/desc_CNordstromRobinson.html#bib-CNordstromRobinson-3
+
+realizations:
+    - ''
+
+relations:
+  parents:
+    - code_id: kerdock
+      detail: 'The NR code is the smallest Kerdock code.'
+    - code_id: preparata
+      detail: 'The NR code is the smallest Preparata code.'
+  cousins:
+    - code_id: octacode
+      detail: 'The NR code is the image of the octacode under the Gray map \cite{manual:{Forney Jr GD, Sloane NJ, Trott MD. The Nordstrom-Robinson code is the binary image of the octacode. InCoding and Quantization: DIMACS/IEEE workshop 1992 Oct 19 (pp. 19-26). Amer. Math. Soc..}}.'
+    - code_id: golay
+      detail: 'The NR code can be constructed using the extended Golay code by first selecting a set of Golay codewords satisfying certain conditions and then deleteing specific coordinates \cite[Ch. 11]{preset:MacSlo}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-11'
+    - user_id: MadhuraPankaja
+      date: '2024-01-11'
