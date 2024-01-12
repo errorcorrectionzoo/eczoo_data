@@ -1,0 +1,55 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: delsarte_goethals
+physical: bits
+logical: bits
+
+name: 'Delsarte-Goethals (DG) code'
+short_name: 'DG'
+introduced: '\cite{doi:10.1016/0097-3165(75)90090-4}'
+
+description: |
+  Member of a family of \(((2^{2t+2},2^{(2t+1)(t-d+2)+2t+3},2^{2t+1}-2^{2t+1-d}))\) binary nonlinear codes for parameters \(r\) and \(m = 2t+2 \geq 4\), denoted by DG\((m,r)\), that generalizes the Kerdock code.
+
+  The code DG\((m,r)\) is a nonlinear subcode of the second-order Reed-Muller code RM\((2,m)\), and equals RM\((2,m)\) at \(r=1\) \cite[pg. 461]{preset:MacSlo}.
+  The code is the union of certain cosets of RM\((1,m)\) in RM\((2,m)\) that are specified by bilinear forms \cite{doi:10.1016/0097-3165(75)90090-4}.
+  The code DG\((m,r+1)\) is a union of disjoint translates of DG\((m,r)\).
+
+  While DG\((m,r)\) is not generally linear, it is the Gray map image of a certain extended cyclic linear code over \(\mathbb{Z_4}\) \cite{doi:10.1109/18.312154}.
+  These codes are distance invariant \cite{doi:10.1109/18.312154}, so the distance and weight distributions are the same.
+
+
+features:
+
+  rate: 'The code rate is \({r(m-1)+2m}/2^m\), going to 0 as the block length goes to infinity.'
+
+  decoders:
+    - 'Since the equivalent \(\mathbb{Z_4}\) codes are extended cyclic codes, efficient encoding and decoding is possible \cite{doi:10.1109/18.312154}.'
+
+realizations:
+  - 'Space-time signaling \cite{doi:10.1109/ICC.2004.1312536}.'
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+  cousins:
+    - code_id: quaternary_over_z4
+      detail: 'DG codes can be seen, via the Gray map, as extended linear cyclic codes over \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
+    - code_id: gray
+      detail: 'DG codes can be seen, via the Gray map, as extended linear cyclic codes over \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
+    - code_id: reed_muller
+      detail: 'The code DG\((m,r)\) is a subcode of the second-order Reed-Muller code RM\((2,m)\), and equals RM\((2,m)\) at \(r=1\) \cite[pg. 461]{preset:MacSlo}.
+      The code is the union of certain cosets of RM\((1,m)\) in RM\((2,m)\) that are specified by bilinear forms \cite{doi:10.1016/0097-3165(75)90090-4}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-11'
+    - user_id: MadhuraPankaja
+      date: '2024-01-11'

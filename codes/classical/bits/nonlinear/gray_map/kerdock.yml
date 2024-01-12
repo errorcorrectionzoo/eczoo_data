@@ -3,7 +3,6 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-# code id, physical, logical are all lower case
 code_id: kerdock
 physical: bits
 logical: bits
@@ -12,8 +11,9 @@ name: 'Kerdock code'
 introduced: '\cite{doi:10.1016/S0019-9958(72)90376-2}'
 
 description: |
-  Binary nonlinear \((2^m, 2^{2m}, 2^{m-1} - 2^{(m-2)/2})\) code where \(m\) is even. The size of code book is \(|2^{m-1}||R(1,m)|\), where \(R(1,m)\) is the corresponding first order Reed Muller code.
-  This is twice the size of the largest possible linear code with the same length and distance.
+  Binary nonlinear \((2^m, 2^{2m}, 2^{m-1} - 2^{(m-2)/2})\) for even \(m\) consisting of the first-order Reem-Muller code RM\((1,m)\) with maximum-rank cosets of RM\((1,m)\) in RM\((2,m)\).
+
+  The size of code book, \(|2^{m-1}||\text{RM}(1,m)|\), is twice the size of the largest possible linear code with the same length and distance.
   The relative minimum distance tends to \(\frac{1}{2}\) as \(m\) becomes large.
 
   Let the matrices \(A = [a_{ij}]\) constitute the Kerdock set \(K\), i.e., a set of symmetric binary matrices with zero diagonal entries with the property that differences of distinct matrices in the set have full rank.
@@ -37,7 +37,8 @@ notes:
 
 relations:
   parents:
-    - code_id: bits_into_bits
+    - code_id: delsarte_goethals
+      detail: 'Kerdock code of length \(2^m\) is equivalent to DG\((m,m/2)\) and is a subcode of DG\((m,r)\) \cite[pg. 461]{preset:MacSlo}.'
   cousins:
     - code_id: quaternary_over_z4
       detail: 'Kerdock codes can be seen, via the Gray map, as extended linear cyclic codes over \(\mathbb{Z}_4\), where the appended bit is a zero sum check \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
@@ -47,7 +48,8 @@ relations:
       detail: 'Kerdock code is a subcode of a second-order RM Code \cite[pg. 457]{preset:MacSlo}.
       It consists of a number of cosets of RM\((2,m)\) created by quotienting with RM\((1,m)\).'
     - code_id: preparata
-      detail: 'Preparata codes are dual to Kerdock codes in the sense of the MacWilliams weight distribution \cite{doi:10.1109/TIT.1983.1056676}. However, the two codes are images of a pair of mutually dual linear codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{doi:10.1201/9781315147901}.'
+      detail: 'Preparata codes are duals of Kerdock codes in that their distance distribution is equal to the MacWilliams transform of the distance distribution of Kerdock codes \cite{doi:10.1109/TIT.1983.1056676}.
+      However, the two codes are images of a pair of mutually dual linear codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{doi:10.1201/9781315147901}.'
     - code_id: hamming
       detail: 'Kerdock codes can be obtained by Hensel-lifting Hamming codes to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}.'
     - code_id: qubit_stabilizer
