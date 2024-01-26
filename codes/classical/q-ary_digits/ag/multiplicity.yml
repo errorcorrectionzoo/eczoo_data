@@ -12,21 +12,27 @@ introduced: '\cite{manual:{M. Yu. Rosenbloom, M. A. Tsfasman, “Codes for the m
 Denmark, 2001},doi:10.1145/2629416}'
 
 description: |
-  A generalization of a polynomial evaluation code based on evaluating polynomials and \(s\) of their derivatives at all points in \(GF(q)^m\).
+  A generalization of an \(m\)-variant polynomial evaluation code based on evaluating polynomials and \(s\) of their derivatives at all points in \(GF(q)^m\).
   Originally proposed for coding using the Rosenbloom-Tsfasman metric \cite{manual:{M. Yu. Rosenbloom, M. A. Tsfasman, “Codes for the m-Metric”, Probl. Peredachi Inf., 33:1 (1997), 55–63; Problems Inform. Transmission, 33:1 (1997), 45–52}}.
+
+protection: |
+  The multiplicity Schwartz-Zippel Lemma provides a lower bound on code distance \cite{arxiv:0901.2529}.
 
 features:
   decoders:
     - 'Multivariate multiplicity codes can be decoded up to half of the minimum distance in polynomial time \cite{doi:10.4086/toc.2015.v011a005}.'
     - 'Univariate \cite{manual:{Rasmus R. Nielsen. List decoding of linear block codes. PhD thesis, Technical University of
     Denmark, 2001}} and multivariate \cite{doi:10.4086/toc.2015.v011a005} multiplicity codes can be list-decoded up to the Johnson bound.
-    Certain code families achieve the list-decoding capacity \cite{arxiv:1106.3951,doi:10.4086/toc.2015.v011a005}.'
+    Certain code families achieve the list-decoding capacity for sufficiently large field characteristic  \cite{arxiv:1106.3951,doi:10.4086/toc.2015.v011a005}.'
 
 relations:
   parents:
     - code_id: q-ary_linear
     - code_id: group
-      detail: 'Multiplicity codes of order \(s\) are Abelian group-algebra codes whose corresponding polynomial is \((x-\alpha_j)^s\) for evaluation point \(\alpha_j\) \cite{arxiv:2103.07930}.'
+      detail: 'Multiplicity codes of order \(s\) are Abelian group-algebra codes whose corresponding polynomial that is modded out is \((x-\alpha_j)^s\) for evaluation point \(\alpha_j\) \cite{arxiv:2103.07930}.'
+  cousins:
+    - code_id: ldc
+      detail: 'There exist multiplicity codes with rate arbitrarily close to one that are locally decodable from a constant error fraction \cite{doi:10.1145/2629416}.'
 
 
 # Begin Entry Meta Information
@@ -34,4 +40,4 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2023-01-26'
+      date: '2024-01-26'
