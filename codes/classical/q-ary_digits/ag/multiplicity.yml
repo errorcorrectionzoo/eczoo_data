@@ -8,15 +8,25 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Multiplicity code'
-introduced: '\cite{manual:{M. Yu. Rosenbloom, M. A. Tsfasman, “Codes for the m-Metric”, Probl. Peredachi Inf., 33:1 (1997), 55–63; Problems Inform. Transmission, 33:1 (1997), 45–52}}'
+introduced: '\cite{manual:{M. Yu. Rosenbloom, M. A. Tsfasman, “Codes for the m-Metric”, Probl. Peredachi Inf., 33:1 (1997), 55–63; Problems Inform. Transmission, 33:1 (1997), 45–52},manual:{Rasmus R. Nielsen. List decoding of linear block codes. PhD thesis, Technical University of
+Denmark, 2001},doi:10.1145/2629416}'
 
 description: |
-  A generalization of a polynomial evaluation code based on evaluating polynomials and their derivatives.
-  Originally proposed for coding using the Rosenbloom-Tsfasman metric or \(m\)-metric \cite{manual:{M. Yu. Rosenbloom, M. A. Tsfasman, “Codes for the m-Metric”, Probl. Peredachi Inf., 33:1 (1997), 55–63; Problems Inform. Transmission, 33:1 (1997), 45–52}}.
+  A generalization of a polynomial evaluation code based on evaluating polynomials and \(s\) of their derivatives at all points in \(GF(q)^m\).
+  Originally proposed for coding using the Rosenbloom-Tsfasman metric \cite{manual:{M. Yu. Rosenbloom, M. A. Tsfasman, “Codes for the m-Metric”, Probl. Peredachi Inf., 33:1 (1997), 55–63; Problems Inform. Transmission, 33:1 (1997), 45–52}}.
+
+features:
+  decoders:
+    - 'Multivariate multiplicity codes can be decoded up to half of the minimum distance in polynomial time \cite{doi:10.4086/toc.2015.v011a005}.'
+    - 'Univariate \cite{manual:{Rasmus R. Nielsen. List decoding of linear block codes. PhD thesis, Technical University of
+    Denmark, 2001}} and multivariate \cite{doi:10.4086/toc.2015.v011a005} multiplicity codes can be list-decoded up to the Johnson bound.
+    Certain code families achieve the list-decoding capacity \cite{arxiv:1106.3951,doi:10.4086/toc.2015.v011a005}.'
 
 relations:
   parents:
     - code_id: q-ary_linear
+    - code_id: group
+      detail: 'Multiplicity codes of order \(s\) are Abelian group-algebra codes whose corresponding polynomial is \((x-\alpha_j)^s\) for evaluation point \(\alpha_j\) \cite{arxiv:2103.07930}.'
 
 
 # Begin Entry Meta Information
