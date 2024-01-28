@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2d_stabilizer
+# includes both Galois and modular
+
+name: '2D topological stabilizer code'
+
+description: |
+  Translationally invariant stabilizer code in two spatial dimensions.
+
+  Any prime-qudit code can be converted to several copies of the prime-qudit 2D surface code along with some trivial codes \cite{arXiv:1812.11193}.
+
+features:
+  decoders:
+    - 'Tensor-network based decoder for 2D codes subject to correlated noise \cite{arxiv:1809.10704}.'
+    - 'Standard stabilizer-based error correction can be performed even in the presence of perturbations to the codespace \cite{arxiv:2401.06300}.'
+
+relations:
+  parents:
+    - code_id: translationally_invariant_stabilizer
+  cousins:
+    - code_id: surface
+      detail: 'Translation-invariant 2D qubit topological stabilizer codes are equivalent to several copies of the Kitaev surface code via a local constant-depth Clifford circuit \cite{arXiv:1103.4606,arXiv:1107.2707,arXiv:1607.01387}.
+      There exists an algorithm with which one can determine the fusion and braiding rules of a 2D translationally invariant qubit code, and decompose the given code into copies of the surface code \cite{arxiv:2312.11170}.'
+    - code_id: quantum_double_abelian
+      detail: 'Translation-invariant 2D prime-qudit topological stabilizer codes are equivalent to several copies of the prime-qudit surface code via a local constant-depth Clifford circuit \cite{arxiv:1812.11193}.'
+    - code_id: holographic
+      detail: '2D topological stabilizer codes admit a bulk-boundary correspondence similar to that of holographic codes, namely, the boundary Hilbert space of the former cannot be realized via local degrees of freedom \cite{arxiv:2312.04617}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-27'
