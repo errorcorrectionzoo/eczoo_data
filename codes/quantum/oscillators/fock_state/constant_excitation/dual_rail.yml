@@ -3,12 +3,12 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: dual_rail
-physical: oscillators
-logical: qubits
+code_id: 'dual_rail'
+physical: 'oscillators'
+logical: 'qubits'
 
 name: 'Dual-rail quantum code'
-introduced: \cite{doi:10.1103/PhysRevA.52.3489}
+introduced: '\cite{doi:10.1103/PhysRevA.52.3489}'
 
 description: 'Two-mode code encoding a logical qubit in Fock states with one excitation. The logical-zero state is represented by \(|01\rangle\), while the logical-one state is represented by \(|10\rangle\). The two modes of the encoding can represent temporal or spatial modes, corresponding to a \textit{time-bin} or \textit{frequency-bin} encoding.'
 
@@ -16,34 +16,36 @@ protection: |
   This is an error-detecting code against one photon loss event; it is often used in photonic quantum devices because of its ease of realization. A single loss event can be detected because, after the loss occurs, the output state \(|00\rangle\) is orthogonal to the codespace. Recovery is not possible, so a successful run of a quantum circuit is conditioned on not losing a photon during the circuit.
 
   For Deutsch''s  problem specifically, this code protects against errors resulting in states that have the correct photon number, but in the wrong modes \cite{doi:10.1103/PhysRevA.52.3489}.
-#In general, this code can be used for universal QC in systems where amplitude damping is the primary noise source.
 
 features:
+
   general_gates:
-    - 'General gates are performed using beamsplitters and Kerr nonlinearities. Universal quantum computing can be achieved with photons in dual-rail encodings using the KLM protocol \cite{doi:10.1038/35051009} with only linear optical elements and photon detectors.'
+    - 'General gates are performed using beamsplitters \cite{doi:10.1038/s41467-023-41104-0} and Kerr nonlinearities. Universal quantum computing can be achieved with photons in dual-rail encodings using the KLM protocol \cite{doi:10.1038/35051009} with only linear optical elements and photon detectors.'
     - 'Error-detecting \(CCZ\) and \(cSWAP\) gates using three-level ancilla \cite{arxiv:2212.11196}.'
+
   fault_tolerance:
     - 'Dual-rail qubits can be used to convert leakage and amplitude damping noise into erasure noise \cite{arxiv:2208.05461}.'
 
 realizations:
   - 'The dual-rail code is ubiquitous in linear optical quantum devices \cite{arxiv:quant-ph/0512071}.'
-  - 'Superconducting circuit devices: error detection has been demonstrated in 3D cavities in Michel Devoret''s group at Yale University \cite{arxiv:2311.04423} and Amazon Web Services \cite{arxiv:2307.08737} using transmon qubits, following earlier theoretical proposals \cite{arxiv:2212.12077,arxiv:2208.05461}. Logical readout in 3D cavities has been demonstrated by Quantum Circuits Inc. \cite{arxiv:2307.03169}.'
-
+  - 'Superconducting circuit devices: Gates have been demonstrated in Rob Schoelkopf''s group at Yale University \cite{doi:10.1038/s41467-023-41104-0}. Error detection has been demonstrated in 3D cavities in Michel Devoret''s group at Yale University \cite{arxiv:2311.04423} and Amazon Web Services \cite{arxiv:2307.08737} using transmon qubits, following earlier theoretical proposals \cite{arxiv:2212.12077,arxiv:2208.05461}. Logical readout in 3D cavities has been demonstrated by Quantum Circuits Inc. \cite{arxiv:2307.03169}.'
 
 notes:
   - 'For Deutsch''s problem \cite{doi:10.1098/rspa.1992.0167} with optical qubits, error correction using photon number detection reduces the error probability from \(\frac{1}{4} (1+e^{-\gamma}-2e^{-3\gamma/2}) \)   to \(\frac{1}{2} (1- \text{sech} \gamma/2)\).'
+
   - 'See review \cite{arxiv:quant-ph/0512071} for more details.'
 
 relations:
+
   parents:
-    - code_id: one_hot_quantum
+    - code_id: 'one_hot_quantum'
 
-
-# Begin Entry Meta Information
 _meta:
-  # Change log - most recent first
+
   changelog:
-    - user_id: VictorVAlbert
+    - user_id: 'VictorVAlbert'
       date: '2021-12-18'
-    - user_id: DhruvDevulapalli
+    - user_id: 'DhruvDevulapalli'
       date: '2021-12-17'
+    - user_id: 'AniketMaiti'
+      date: '2024-02-08'
