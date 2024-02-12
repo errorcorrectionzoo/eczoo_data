@@ -9,16 +9,17 @@ logical: qubits
 
 name: 'GNU permutation-invariant code'
 short_name: 'GNU'
-introduced: '\cite{arXiv:1302.3247}'
+introduced: '\cite{arXiv:1302.3247,arxiv:1512.02469}'
 
 description: |
   Permutation-invariant code whose codewords can be expressed as superpositions of \hyperref[topic:dicke]{Dicke states} with coefficients are square-roots of the binomial distribution.
 
-  The logical states are
+  Logical codewords for codes encoding a single qubit \cite{arXiv:1302.3247} are
   \begin{align}
   |\overline{\pm}\rangle = \sum_{\ell=0}^{n} \frac{(\pm 1)^\ell}{\sqrt{2^n}} \sqrt{n \choose \ell} |D^m_{g \ell}\rangle~.
   \end{align}
   Here, \(m\) is the number of particles used for encoding \(1\) qubit, and \(g, n \leq m\) are arbitrary positive integers.
+  Codes with higher logical dimension are developed in Ref. \cite{arxiv:1512.02469}.
 
 
 protection: 'Depends on the family. One family which is completely symmetrized versions of Bacon-Shor codes (parameterized by \(t\)) protects against arbitrary weight-\(t\) spin errors. Additionally, codes with large enough length \((t+1)(3t+1)+t\) can approximately correct \(t\) spontaneous decay errors.'
@@ -30,8 +31,7 @@ features:
 
 relations:
   parents:
-    - code_id: spins_into_spins
-    - code_id: permutation_invariant
+    - code_id: qudit_gnu_permutation_invariant
   cousins:
     - code_id: bacon_shor
       detail: 'GNU codes of length \((2t+1)^2\) result from projecting Bacon-Shor codes into the permutation-invariant qubit subspace \cite{arXiv:1302.3247}.'
