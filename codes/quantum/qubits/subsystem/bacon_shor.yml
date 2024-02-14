@@ -24,16 +24,16 @@ description: |
   \end{align}
   Syndrome extraction can be done by measuring these gauge operators, which are on fewer qubits and local.
 
-  The shortest error-correcting Bacon-Shor code is \([[9,1,3]]\) with four stabilizer generators
+  The shortest error-correcting Bacon-Shor code is \([[9,1,3,3]]\), with four stabilizer generators
   \begin{align}
     \begin{array}{ccccccccc}
       X & X & X & X & X & X & I & I & I\\
       I & I & I & X & X & X & X & X & X\\
       Z & Z & I & Z & Z & I & Z & Z & I\\
       I & Z & Z & I & Z & Z & I & Z & Z
-    \end{array}
+    \end{array}~,
   \end{align}
-  and eight gauge generators
+  which generate the gauge group with the help of eight additional generators
   \begin{align}
     \begin{array}{ccccccccc}
     X & I & I & X & I & I & I & I & I\\
@@ -55,6 +55,7 @@ features:
   transversal_gates: 'Logical Hadamard is transversal in symmetric Bacon-Shor codes up to a qubit permutation \cite{arxiv:quant-ph/0610063} and can be implemented with teleportation \cite{arXiv:quant-ph/0002039}. Bacon-Shor codes on an \(m \times mk\) lattice admit transversal \(k\)-qubit-controlled \(Z\) gates \cite{arXiv:1705.01686}.'
   general_gates:
     - 'Piecably fault-tolerant circuits can be employed to construct non-transversal gates effectively \cite{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
+    - 'Subsystem lattice surgery \cite{arxiv:1609.08062}.'
   fault_tolerance:
     - 'Piecably fault-tolerant circuits can be employed to construct non-transversal gates effectively \cite{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
   threshold:
@@ -63,10 +64,11 @@ features:
     - 'A lower bound of \(1.94 \times 10^{-4}\) for the accuracy threshold was proved for Bacon-Shor code with 5 levels of concatenation, using Steane method of FTEC \cite{arxiv:quant-ph/0610063}.'
     - 'The three dimensional version offers the possibility of being a self-correcting quantum memory \cite{doi:10.1103/PhysRevA.73.012340}.'
   decoders:
+    - 'Utilizing the mapping of the effect of the noise to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:2002.11733} yields several copies of the 1D Ising model \cite[Sec. V.B]{arxiv:0908.4246}.'
     - 'While check operators are few-body, stabilizer weights scale with the number of qubits, and stabilizer expectation values are obtained by taking products of gauge-operator expectation values. It is thus not clear how to extract stabilizer values in a fault-tolerant manner \cite{arxiv:2009.03921,arXiv:2107.02194}.'
 
 realizations:
-  - 'Trapped-ion qubits: state preparation, logical measurement, and stabilizer measurement for nine-qubit Bacon-Shor code demonstrated on a 13-qubit device by M. Cetina and C. Monroe groups \cite{arxiv:2009.11482}.'
+  - 'Trapped-ion qubits: state preparation, logical measurement, and syndrome extraction (deferred to the end) for nine-qubit Bacon-Shor code demonstrated on a 13-qubit device by M. Cetina and C. Monroe groups \cite{arxiv:2009.11482}.'
 
 notes:
   - 'See \cite[Sec. III.C1]{arxiv:1302.3428} for an exposition.'

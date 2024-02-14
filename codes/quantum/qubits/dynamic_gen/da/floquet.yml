@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: floquet
+physical: qubits
+logical: qubits
+
+name: 'Hastings-Haah Floquet code'
+short_name: 'Floquet'
+introduced: '\cite{arXiv:2107.02194}'
+
+description: |
+  DA code whose sequence of check-operator measurements is periodic.
+
+# In addition, the number of logical qubits is larger than when the code is viewed as a static subsystem stabilizer code.
+
+protection: 'Protects against single-qubit Pauli noise and check operator measurement errors.'
+
+features:
+  fault_tolerance:
+    - 'Floquet codes on tri-colorable lattices can be made fault-tolerant in the presence of dead qubits \cite{arxiv:2307.03715}.'
+
+relations:
+  parents:
+    - code_id: da
+      detail: 'Floquet codes are DA codes with periodic measurement sequences.'
+  cousins:
+    - code_id: subsystem_stabilizer
+      detail: 'This code can be viewed as a subsystem stabilizer code, albeit one with less logical qubits.'
+    - code_id: monitored_random_circuits
+      detail: 'Both Floquet and monitored random circuit codes can have an instantaneous stabilizer group which evolves through unitary evolution and measurements. However, Floquet codewords are generated via a specific sequence of measurements, while random-circuit codes maintain a stabilizer group after any measurement. Floquet codes have the additional capability of detecting errors induced during the measurement process; see Appx. A of Ref. \cite{arxiv:2107.02194}.'
+    - code_id: majorana_stab
+      detail: 'Floquet codes are viable candidates for storage in Majorana-qubit devices \cite{arxiv:2202.11829}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-12'
+    - user_id: VictorVAlbert
+      date: '2022-01-01'

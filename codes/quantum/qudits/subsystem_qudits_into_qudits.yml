@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_qudits_into_qudits
+physical: qudits
+logical: qudits
+
+name: 'Subsystem modular-qudit code'
+
+alternative_names:
+  - 'Gauge modular-qudit code'
+
+description: |
+  Subsystem QECC encoding into a \(q^n\)-dimensional Hilbert space consisting of \(n\) modular qudits.
+
+
+relations:
+  parents:
+    - code_id: oecc
+  cousins:
+    - code_id: qudits_into_qudits
+      detail: 'Subsystem modular-qudit codes reduce to (subspace) modular-qudit codes when there is no gauge subsystem.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-25'

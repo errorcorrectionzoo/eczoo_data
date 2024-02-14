@@ -11,12 +11,14 @@ name: 'Generalized surface code'
 introduced: '\cite{arxiv:quant-ph/0110143,doi:10.1201/9781420035377-13,doi:10.1007/978-3-642-01877-0_21}'
 
 description: |
-  Also called the \(D\)\textit{-dimensional surface} or \(D\)\textit{-dimensional toric} code.
-  CSS-type extenstion of the Kitaev surface code to arbitrary \(D\)-dimensional manifolds.
-  The 4D surface code serves as a self-correcting quantum memory, while surface codes in higher dimensions can have distances not possible in lower dimensions.
+  CSS-type extenstion of the Kitaev surface code to arbitrary manifolds.
+  The version on a Euclidean manifold of some fixed dimension is called the \(D\)\textit{-dimensional surface} or \(D\)\textit{-dimensional toric} code.
 
   Given a cellulation of a manifold, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers
   are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \((i+1)\)-faces.
+
+  The 4D surface code serves as a self-correcting quantum memory, while surface codes in higher dimensions can have distances not possible in lower dimensions.
+
 
 
 features:
@@ -47,8 +49,7 @@ notes:
 
 relations:
   parents:
-    - code_id: qubit_css
-    - code_id: generalized_homological_product_css
+    - code_id: qubit_generalized_homological_product_css
       detail: 'The generalized surface code is constructed from chain complexes arising from cell complexes of the underlying manifold. Such complexes are not necessarily products of two non-trivial complexes, but the manifolds are picked so that their homology ensures favorable code properties.'
 
 

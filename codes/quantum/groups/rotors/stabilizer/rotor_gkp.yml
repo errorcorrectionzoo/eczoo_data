@@ -8,7 +8,7 @@ physical: groups
 logical: qudits
 
 name: 'Rotor GKP code'
-introduced: '\cite{arxiv:quant-ph/0008040,arxiv:1911.00099}'
+introduced: '\cite{arxiv:quant-ph/0008040,arxiv:1003.1201,arxiv:1911.00099}'
 
 description: 'GKP code protecting against small angular position and momentum shifts of a planar rotor.'
 
@@ -17,9 +17,12 @@ relations:
     - code_id: rotor_stabilizer
     - code_id: group_gkp
       detail: 'Rotor GKP codes correspond to the \(\mathbb{Z}_{k_1} \subseteq \mathbb{Z}_{k_2} \subset U(1)\) group construction, where \(k=k_2/k_1\).'
+    - code_id: single_subsystem
   cousins:
     - code_id: gkp
       detail: 'GKP (rotor GKP) codes protect against shifts in linear (angular) degrees of freedom.'
+    - code_id: quantum_concatenated
+      detail: 'The rotor GKP code can be thought of as a concatenation of a homological rotor code and a modular-qudit GKP code \cite[Fig. 3]{arxiv:2311.07679}.'
 
 
 # Begin Entry Meta Information
