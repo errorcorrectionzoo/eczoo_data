@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: one_vs_one
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'One-versus-one (OVO) code'
+introduced: \cite{doi:10.1109/72.165597,doi:10.1214/aos/1028144844}
+
+alternative_names:
+  - 'One-against-one (1A1) code'
+
+description: |
+  A length-\(n\) ternary code over \(\{\om 1,0\}\) whose whose generator matrix has columns with one \(+1\), one \(-1\), and with the rest of the entries zero.
+
+  See \cite[Tab. 6.3]{doi:10.1142/7238} for an example, whose generator matrix is
+  \begin{align}
+  \begin{array}{cccccc}
+  1 & 1 & 1 & 0 & 0 & 0 \\
+  -1 & 0 & 0 & 1 & 1 & 0 \\
+  0 & -1 & 0 & -1 & 0 & 1 \\
+  0 & 0 & -1 & 0 & -1 & -1 \\
+  \end{array}~.
+  \end{align}
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: constant_weight
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-02'

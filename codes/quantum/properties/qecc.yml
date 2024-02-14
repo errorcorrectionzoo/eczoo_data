@@ -14,7 +14,13 @@ short_name: 'QECC'
 description: |
   Encodes quantum information in a (\textit{logical}) subspace of a
   (\textit{physical}) Hilbert space such that it is possible to recover said
-  information from errors that act as linear maps on the physical space. The
+  information from errors that act as linear maps on the physical space.
+
+  Since quantum information is encoded in quantum superpositions, an additional source of noise (not relevant to classical encodings) can affect the relative phase of such superpositions.
+  Quantum error-correcting codes have to protect against such \textit{phase-flip noise} while also protecting against conventional classical \textit{bit-flip} noise.
+  Codes are not expected to protect against both types of noise perfectly, and there is generally a tradeoff.
+
+  The
   logical subspace is spanned by a basis comprised of \textit{code basis states}
   or \textit{codewords}. Codewords may not be normalizable if the physical
   Hilbert space in infinite, so approximate versions have to be constructed in
@@ -45,7 +51,9 @@ features:
   See \cite[Ch. 24]{arxiv:1106.1445} for definitions and a history.'
 
 notes:
-  - 'See Refs. \cite{doi:10.1017/CBO9780511976667,preset:PreskillNotes,preset:GottesmanBook,arxiv:1302.3428,arxiv:1907.11157} for introductions to quantum error correction. See also tutorials by \href{https://www.youtube.com/watch?v=_ls3KczZL2c}{V. V. Albert}, \href{https://www.youtube.com/watch?v=uD69GCYF9Zg}{S. M. Girvin}, \href{https://www.youtube.com/watch?v=buIbd_aXAHw}{P. Shor}, and \href{https://www.youtube.com/watch?v=Je7sVJGKMgU}{B. Terhal}.'
+  - 'See Refs. \cite{doi:10.1090/gsm/047,doi:10.1017/CBO9780511976667,arxiv:0905.2794,arxiv:1302.3428,doi:10.1103/RevModPhys.88.041001,doi:10.1002/9783527805785.ch1,arxiv:1907.11157,preset:PreskillNotes,arxiv:1910.03672,doi:10.1002/9781119790327.ch10} for overviews of quantum error correction.'
+  - 'See Refs. \cite{doi:10.1017/CBO9781139034807,doi:10.1201/b15868,preset:GottesmanBook} for books on quantum error correction.'
+  - 'See video tutorials by \href{https://www.youtube.com/watch?v=_ls3KczZL2c}{V. V. Albert}, \href{https://www.youtube.com/watch?v=uD69GCYF9Zg}{S. M. Girvin}, \href{https://www.youtube.com/watch?v=buIbd_aXAHw}{P. Shor}, and \href{https://www.youtube.com/watch?v=Je7sVJGKMgU}{B. Terhal}.'
   - 'Quantum error correction was initially claimed not to be theoretically possible \cite{arxiv:hep-th/9406058,doi:10.1098/rsta.1995.0106}.'
 
 relations:
@@ -54,7 +62,8 @@ relations:
     - code_id: oaecc
   cousins:
     - code_id: ecc
-      detail: 'Error-correction conditions can similarly be formulated for classical codes \cite[Sec. 3]{arxiv:2109.08691}, although they are not as widely as used as those for quantum codes.'
+      detail: 'Quantum information cannot be copied using a linear process \cite{doi:10.1038/299802a0}, so one cannot send several copies of a quantum state through a channel as can be done for classical information.
+      Error-correction conditions can similarly be formulated for classical codes \cite[Sec. 3]{arxiv:2109.08691}, although they are not as widely as used as those for quantum codes.'
     - code_id: metrological
       detail: 'Metrological codes are logical-qubit codes that satisfy the \term{Knill-Laflamme conditions} conditions only partially, and codes that satisfy them fully are QECCs.'
 

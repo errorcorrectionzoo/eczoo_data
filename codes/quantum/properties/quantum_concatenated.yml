@@ -6,12 +6,15 @@
 code_id: quantum_concatenated
 
 name: 'Concatenated quantum code'
+introduced: '\cite{arxiv:quant-ph/9608012}'
 
 description: 'A combination of two codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the outer code consists of the logical subspace of the inner code. In other words, first one encodes in the outer code \(C^\prime\), and then one encodes each of the physical registers of \(C^\prime\) in an inner code \(C\).'
 
 #protection: ''
 
 features:
+  decoders:
+    - 'The effective channel for a concatenation of codes is the composition of the codes'' effective channels \cite{arxiv:quant-ph/0206061}.'
   threshold:
     - 'The first method to achieve a fault-tolerant computational threshold uses concatenated stabilizer codes \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9906129,arXiv:quant-ph/9705031,arXiv:quant-ph/0504218}. Such methods require constant-space and polylogarithmic time overhead, but concatentions using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826}.'
 

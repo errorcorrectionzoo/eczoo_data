@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ruskai
+physical: spins
+logical: qubits
+
+name: '\(((9,2,3))\) Ruskai code'
+introduced: '\cite{arxiv:quant-ph/9906114}'
+
+description: |
+  Nine-qubit permutation-invariant code that protects against single-qubit errors as well as two-qubit errors arising from exchange processes.
+
+  In terms of \hyperref[topic:dicke]{Dicke states}, the codewords are
+  \begin{align}
+    \begin{split}
+      |0_{L}\rangle&\propto|D_{0}^{9}\rangle+\sqrt{3}|D_{6}^{9}\rangle\\
+      |1_{L}\rangle&\propto\sqrt{3}|D_{3}^{9}\rangle+|D_{9}^{9}\rangle~.
+    \end{split}
+  \end{align}
+
+protection: |
+  Protects against all single-qubit errors as well as two-qubit errors arising from exchange processes.
+
+
+relations:
+  parents:
+    - code_id: gnu_permutation_invariant
+      detail: 'The \(((9,2,3))\) Ruskai code is a GNU permutation-invariant code \cite{arXiv:1302.3247}.'
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: shor_nine
+      detail: 'The \(((9,2,3))\) Ruskai code results from projecting the Shor code into the permutation-invariant qubit subspace \cite{arxiv:quant-ph/9906114}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-07'

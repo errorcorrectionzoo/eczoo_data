@@ -28,7 +28,7 @@ description: |
   One can gauge fix \cite{arxiv:quant-ph/0508131} an Abelian subgroup of the gauge group by adding it to the stabilizer group.
   \begin{defterm}{Gauge fixing}
   \label{topic:gauge-fixing}
-  Gauge fixing is a map between subsystem codes that is done using an abelian subgroup \(\mathsf{F}\subseteq\mathsf{G}\),
+  Gauge fixing is a map between subsystem codes that is done using an Abelian subgroup \(\mathsf{F}\subseteq\mathsf{G}\),
   \begin{align}
   \begin{split}
     \mathsf{S}&\to\left\langle \mathsf{S},\mathsf{F}\right\rangle \\
@@ -50,6 +50,7 @@ description: |
     \mathsf{G}&\to\left\langle \mathsf{G},\mathsf{F}\right\rangle ~.
   \end{split}
   \end{align}
+  The stabilizer group of the output subsystem code is a subgroup of that of the input code, \(\mathsf{Z}\left(\left\langle \mathsf{G},\mathsf{F}\right\rangle \right)\subseteq\mathsf{Z}\left(\mathsf{G}\right)\).
   When \(\mathsf{F}\) is a subgroup of the logical Pauli group, this is also called \textit{gauging}.
   If \(\mathsf{F}\) is itself a Pauli group of \(m\) logical qubits of the original subsystem code, then gauging those qubits is equivalent to treating them as gauge qubits.
   \end{defterm}
@@ -59,13 +60,15 @@ features:
     - 'Syndrome measurements are obtained by first measuring gauge operators of the code and taking their products, which give the stabilizer measurement outcomes.
     The order in which gauge operators are measured is important since they do not commute.
     There is a sufficient condition for inferring the stabilizer syndrome from the measurements of the gauge generators \cite[Appendix]{arxiv:1012.0425}.'
+    - 'Decoder for certain geometrically local subsystem codes from hypergraphs \cite{arxiv:1805.12542}.'
 
 relations:
   parents:
+    - code_id: subsystem_qudits_into_qudits
+  cousins:
     - code_id: qudit_stabilizer
       detail: 'Subsystem modular-qudit stabilizer codes reduce to modular-qudit stabilizer codes when there are no gauge qudits.'
-    - code_id: oecc
-# Need another root code of subsystem type for qubit and qudit kingdom so that subsystem is separate from subspace.
+
 
 # Begin Entry Meta Information
 _meta:

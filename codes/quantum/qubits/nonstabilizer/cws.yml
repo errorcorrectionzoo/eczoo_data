@@ -9,14 +9,17 @@ logical: qubits
 
 name: 'Codeword stabilized (CWS) code'
 short_name: 'CWS'
-introduced: '\cite{arXiv:0708.1021}'
+introduced: '\cite{arXiv:cs/0610159,arXiv:0708.1021,arxiv:0709.1780}'
 
 description: |
   This family of codes strictly generalizes stabilizer codes. They are usually denoted by \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \) where \(\mathcal{G}\) is a graph and \(\mathcal{C}\) is a \( (n,K,d) \) binary classical code. From the graph we form the unique graph state (stabilizer state) \( |G \rangle \). From the classical code we form Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th bit of the \(i\)-th classical codeword. The CWS codewords are then \( | i \rangle =  W_i | G \rangle \).
 
   There is an alternative description to the one above that is locally Clifford-equivalent. In particular, we can describe CWS codes as \( \mathcal{Q} = (S,\mathcal{W})\) where \(S\) is a stabilizer group and \( \mathcal{W} = \{ w_\ell \}_{\ell = 1}^K \) is a family of \(K\) \(n\)-qubit Pauli strings. We then form CWS codeswords as \( | i \rangle = w_i | S \rangle \), where \( | S \rangle \) is the (unique) stabilizer state of \(S\).
 
-protection: 'Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \). The \hyperref[code:qubits_into_qubits]{diagonal distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\). Computing the distance is generally NP-complete, and is \(NP\)-hard for non-degenerate codes \cite{arXiv:2203.04262}.'
+  The term CWS was coined in Ref. \cite{arxiv:0708.1021}, and their approach is equivalent to another approach \cite{arXiv:cs/0610159} based on Boolean functions (see Ref. \cite{manual:{Zeng, Bei. Quantum operations and codes beyond the Stabilizer-Clifford framework. Diss. Massachusetts Institute of Technology, 2009.}}).
+
+
+protection: 'Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \). The \hyperref[code:qubits_into_qubits]{diagonal distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\). Computing the distance is generally \(NP\)-complete, and is \(NP\)-hard for non-degenerate codes \cite{arXiv:2203.04262}.'
 
 features:
   encoders:
@@ -24,6 +27,7 @@ features:
 
   decoders:
     - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
+    - 'Structured error recovery \cite{arxiv:0912.3245}, which reduces to syndrome-based recovery for additive (i.e., stabilizer) CWS codes.'
 
 notes:
   - 'See Ref. \cite{doi:10.1017/CBO9781139034807.012} for an introduction to CWS codes.'
@@ -31,7 +35,10 @@ notes:
 
 relations:
   parents:
-    - code_id: qubits_into_qubits
+    - code_id: qsqc
+      detail: 'Restricting the underlying classical code to be symplectic self-dual reduces the \(((n,2^k L,d))\) QSQC construction to the \(((n,L,d))\) CWS construction \cite[Sec. IV.E]{arxiv:2311.07265}.'
+    - code_id: qudit_cws
+      detail: 'Qudit CWS codes reduce to CWS codes for \(q=2\).'
   cousins:
     - code_id: movassagh_ouyang
       detail: 'The Movassagh-Ouyang codes overlap the CWS codes but neither family is contained in the other.'
