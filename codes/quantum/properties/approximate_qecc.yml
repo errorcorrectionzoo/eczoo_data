@@ -11,18 +11,6 @@ introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1070/RM1997v052n06ABEH002155,ar
 
 description: 'Encodes quantum information so that it is possible to approximately recover that information from noise up to an error bound in recovery.'
 
-# In exact quantum error correction, we say that encoding \(\mathcal{E}\) is correctable
-# under noise channel \(\mathcal{N}\) iff there exists some channel \(\mathcal{D}\) such that
-# \begin{align}\mathcal{D}\mathcal{N}\mathcal{E}\ket{\psi}\bra{\psi}=\ket{\psi}\bra{\psi}\end{align}
-# for all \(\ket{\psi}\).
-#
-# This can be interpreted as pure state fidelity being equal to 1 for all pure states \(\ket{\psi}\). This is true
-# iff entanglement fidelity, another measure of error, is also equal to 1 for all
-# quantum states \(\rho\)~\cite{arxiv:quant-ph/9604022}.
-# In the \hyperref[code:qecc_finite]{exact case},
-# this means that for all \(\rho\) where \(\ket{\psi}\) is a purification of \(\rho\),
-# \begin{align}(\mathcal{D}\mathcal{N}\mathcal{E}\otimes\mathrm{id})(\ket{\psi}\bra{\psi})=\ket{\psi}\bra{\psi}.\end{align}
-
 protection: |
   Many of the state fidelity conditions that hold exactly for \hyperref[code:qecc_finite]{(exact) QECCs} can be shown to hold up to some error \(\epsilon\) for approximate QECCs.
 
@@ -53,6 +41,19 @@ protection: |
     d(\mathcal{D}\mathcal{E}\mathcal{U}(\rho),\rho)\leq \epsilon
   \end{align}
   for all logical states \(\rho\)~\cite{arXiv:0907.5391}.
+
+  \subsection{Complementary channel formulation}
+
+  Given a noise channel \(\mathcal{E}\), there exists a recovery channel \(\mathcal{D}\) such that
+  \(F(\mathcal{D}\mathcal{E},id)=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
+  for complementary channel \(\mathcal{E}^C\), \(F(\mathcal{E}^C,\mathcal{D}')=1-\epsilon\) 
+  and \(D'(\rho)=\rho_0\) for some fixed \(\rho_0\).
+  Note that \(F\) denotes worst case entaglement fidelity between channels.
+
+  We can generalize this by replacing \(\mathrm{id}\) with some channel \(M\). Given noise channel \(\mathcal{E}\),
+  there exists a recovery channel \(\mathcal{D}\) such that
+  \(F(\mathcal{D}\mathcal{E},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
+  for complementary channel \(\mathcal{E}^C\), \(F(\mathcal{E}^C,\mathcal{D}'\mathcal{M}^C)=1-\epsilon\)~\cite{arXiv:0907.5391}.
 
   \subsection{Necessary and sufficient approximate error-correction conditions}
   Analogously to the \term{Knill-Laflamme conditions} for (exact) QECCs, there exist various formulations of necessary and sufficient conditions for approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
@@ -135,6 +136,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: M10T
+      date: '2023-07-25'
     - user_id: VictorVAlbert
       date: '2023-07-24'
     - user_id: M10T
