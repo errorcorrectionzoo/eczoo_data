@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: squeezed_fock_state
+physical: oscillators
+logical: qudits
+
+name: 'Squeezed fock-state code'
+introduced: '\cite{arXiv:2312.16000}'
+
+description: |
+  Approximate boosnic code that encodes a qubit into the same Fock state, but one which is squeezed in opposite directions.
+
+  Taking the Fock state \(|1\rangle\), the codewords are
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle&=S(r)|1\ket\\|\overline{1}\rangle&=S(-r)|1\ket~,
+  \end{split}
+  \end{align}
+  where \(S(\pm r)\) is the squeezing operator with squeezing parameter \(\pmr\).
+
+protection: 'The code approximately protects against loss and dephasing errors, becoming exact in the \(r\to\infty\) limit.'
+
+relations:
+  parents:
+    - code_id: single-mode
+    - code_id: approximate_qecc
+      detail: 'The squeezed Fock-state code approximately protects against loss and dephasing errors, becoming exact in the \(r\to\infty\) limit.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-12-30'

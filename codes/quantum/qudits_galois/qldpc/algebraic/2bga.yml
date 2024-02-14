@@ -1,0 +1,154 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2bga
+physical: galois
+logical: galois
+
+name: 'Two-block group-algebra (2BGA) codes'
+short_name: '2BGA'
+introduced: '\cite{arxiv:2305.06890,arXiv:2306.16400}'
+
+alternative_names:
+  - 'Non-Abelian GB code'
+
+description: |
+  2BGA codes are the smallest \hyperref[code:lifted_product]{LP codes}
+  LP\((a,b)\), constructed from a pair of \hyperref[topic:group-algebra]{group algebra} elements
+  \(a,b\in \mathbb{F}_q[G]\), where \(G\) is a finite group, and \(\mathbb{F}_q\) is a Galois field.
+  For a group of order \(\ell\), we get a 2BGA code of length
+  \(n=2\ell\).
+  A 2BGA code for an Abelian group is called an \textit{Abelian 2BGA code}.
+
+  An \(\mathbb{F}_q\)-linear code isomorphic to a \(Z\) logical subspace of the 2BGA code LP\((a,b)\) can be most
+  naturally defined as a linear space of pairs
+  \((u,v)\in \mathbb{F}_q[G]\times \mathbb{F}_q[G]\) such that
+  \begin{align}
+    a u+v b=0,
+  \end{align}
+  with any two pairs \((u,v)\) and \((u',v')\) such that \(u'=u+w b\)
+  and \(v'=v-aw\) considered equivalent.  The order in the products is relevant
+  when the group is non-Abelian.
+
+  For example, consider the
+  alternating group \(G=A_4=T\), also known as the rotation group of a
+  regular tetrahedron,
+  \begin{align}
+    T=\langle x,y|x^3=(yx)^3=y^2=1\rangle,\quad |T|=12,
+  \end{align} and the
+  binary algebra \(\mathbb{F}_2[T]\).  Select \(a=1+x+y+x^{-1}yx\)
+  and \(b=1+x+y+yx\) to get an \emph{essentially non-Abelian} 2BGA code
+  LP\([a,b]\) with parameters \([[24,5,3]]_2\) \cite{arXiv:2306.16400}.
+
+# \subsection{Examples}
+#
+# 1. GB codes: For the cyclic group \(\mathbb{Z}_{\ell}\equiv \langle x|x^\ell=1\rangle \),
+# any element \(a\) of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[\mathbb{Z}_{\ell}]\) can be seen as a
+# polynomial \(a(x)\in \mathbb{F}_q[x]\) over the group generator \(x\), where the
+# polynomial degree deg\(a(x)<\ell\).  The 2BGA code LP\((a,b)\) is just
+# a generalized bicycle code GB\([a(x),b(x)]\) constructed from the
+# polynomials \(a(x)\) and \(b(x)\) corresponding to
+# \(a,b\in \mathbb{F}_q[\mathbb{Z}_{\ell}]\).
+#
+# 2. Multi-dimensional quantum quasi-cyclic codes: Any finite Abelian
+# group can be written as a direct product of several cyclic groups,
+# e.g., \(G=C_{m_1}\times C_{m_2}\times \ldots C_{m_D}\) for a product
+# of \(D\) cyclic groups, which is equivalent to a representation
+# \begin{align}
+#   G=\langle x_1,\ldots,x_D|x_1^{m_1}=x_2^{m_2}=\ldots=x_D^{m_D}\rangle.
+# \end{align}
+# Respectively, an element of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[G]\), where \(\mathbb{F}_q\) is
+# a finite field, can be written as a \(D\)-variate polynomial in
+# \(\mathbb{F}_q[x_1,x_2,\ldots,x_D]\), with the degree of the generator \(x_j\) of
+# order \(m_j\) not exceeding \(m_j-1\).  Thus, any Abelian 2BGA code
+# can be thought of as a multi-dimensional index-two quasi-cyclic code.
+# This includes toric codes and Haah's cubic codes.  An equivalent
+# construction in terms of Kronecker products of circulant matrices was
+# introduced in \cite{arXiv:1212.6703}.
+# Related higher-dimensional
+# quasi-cyclic and convolutional quantum codes have been constructed in
+# \cite{arxiv:2305.00137}.
+#
+# 3. Several Abelian 2BGA codes with stabilizer generators of weight 6
+# have been constructed by Bravyi et al. \cite{arXiv:2308.07915}.  These
+# are two-dimensional QC codes which admit time-optimal syndrome
+# measurement circuits which can be implemented in a two-layer
+# architecture, a generalization of the square-lattice architecture
+# optimal for the surface codes.  Circuit simulations show a threshold
+# of approximately \(0.8\%\).
+#
+# 4. Explicit example from \cite{arXiv:2306.16400}: Consider the
+# alternating group \(A_4\), also known as the rotation group of a
+# regular tetrahedron,
+# \begin{align}
+#   T=\langle x,y|x^3=(yx)^3=y^2=1\rangle,\quad |T|=12,
+# \end{align} and the
+# binary algebra \(\mathbb{F}_q_2[T]\).  Select \(a=1+x+y+x^{-1}yx\)
+# and \(b=1+x+y+yx\) to get an \emph{essentially non-Abelian} 2BGA code
+# LP\([a,b]\) with parameters \([[24,5,3]]_2\) \cite{arXiv:2306.16400}.
+
+protection: |
+  Some upper and lower bounds on parameters and many examples of 2BGA codes are given in Ref. \cite{arXiv:2306.16400}.
+  The code dimension \(k\) for Abelian 2BGA codes is always even \cite{manual:{Kalachev, G. V., and Panteleev, P. A. (2020). On the minimum distance in one class of quantum LDPC codes. Intelligent systems. Theory and applications, 24(4), 87-117.}}.
+
+features:
+  rate: |-
+    The 2BGA construction gives some of the best short codes with small stabilizer weights.
+
+    A number of 2BGA codes \([[n,k,d]]_q\) with row weights
+    \(W\le 8\), block lengths \(n\le 100\), and parameters such that
+    \(kd\ge n\) have been constructed by
+    exhaustive enumeration \cite{arxiv:2306.16400}.  Examples include GB codes with parameters
+    \([[70,8,10]]_2\), \([[72,10,9]]_2\), Abelian 2BGA for groups
+    \(\mathbb{Z}_{mh}=\mathbb{Z}_m\times \mathbb{Z}_2\) (index-4 QC codes) with parameters
+    \([[48,8,6]]_2\) and \([[56,8,7]]_2\), and non-Abelian codes with
+    parameters \([[64,8,8]]_2\), \([[82,10,9]]_2\), \([[96,10,12]]_2\),
+    and \([[96,12,10]]_2\) (all of these have stabilizer generators of
+    weight \(W=8\).)
+
+relations:
+  parents:
+    - code_id: lifted_product
+      detail: |-
+        2BGA codes are LP\((a,b)\) codes, constructed from a pair of one-by-one matrices \(a,b\in \mathbb{F}_q[G]\) in a \hyperref[topic:group-algebra]{group algebra}.
+    - code_id: two_block_quantum
+      detail: |-
+        2BGA codes are two-block quantum codes whose commuting matrices are constructed with the help of a \hyperref[topic:group-algebra]{group algebra}.
+  cousins:
+    - code_id: qldpc
+      detail: |
+        Given \hyperref[topic:group-algebra]{group algebra} elements \(a,b\in \mathbb{F}_q[G]\) with weights \(W_a\) and \(W_b\) (i.e., number of non-zero terms in the expansion), the 2BGA code LP\((a,b)\) has stabilizer
+        generators of uniform weight \(W_a+W_b\).
+    - code_id: quantum_quasi_cyclic
+      detail: |
+        Any Abelian 2BGA code
+        can be thought of as a multi-dimensional index-two quasi-cyclic code.
+        More precisely, any finite Abelian
+        group can be written as a direct product of several cyclic groups,
+        e.g., \(G=C_{m_1}\times C_{m_2}\times \ldots C_{m_D}\) for a product
+        of \(D\) cyclic groups, which is equivalent to a representation
+        \begin{align}
+          G=\langle x_1,\ldots,x_D|x_j^{m_j}=1, x_jx_ix_j^{-1}x_i^{-1}=1, \forall 1\le i,j\le D\rangle.
+        \end{align}
+        Respectively, an element of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[G]\), where \(\mathbb{F}_q\) is
+        a finite field, can be written as a \(D\)-variate polynomial in
+        \(\mathbb{F}_q[x_1,x_2,\ldots,x_D]\), with the degree of the generator \(x_j\) of
+        order \(m_j\) not exceeding \(m_j-1\).
+        An equivalent
+        construction in terms of Kronecker products of circulant matrices was
+        introduced in \cite{arXiv:1212.6703}.
+        Related higher-dimensional quasi-cyclic and convolutional quantum codes have been constructed in
+        \cite{arxiv:2305.00137}.
+    - code_id: group
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-16'
+    - user_id: LeonidPryadko
+      date: '2023-10-10'

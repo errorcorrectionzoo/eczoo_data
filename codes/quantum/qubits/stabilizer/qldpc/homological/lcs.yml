@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lcs
+physical: qubits
+logical: qubits
+
+name: 'Lift-connected surface (LCS) code'
+short_name: 'LCS'
+introduced: \cite{arxiv:2401.02911}
+
+description: |
+  Member of one of several families of lifted-product codes that consist of sparsely interconnected stacks of surface codes.
+
+protection: |
+  Code distance is linear with \(n\) up to some maximum number of qubits.
+
+features:
+  threshold:
+    - '\(6.7\%\) and \(7.7\%\) under bit-flip noise and BP+OSD decoding for two families of LCS codes.'
+  code_capacity_threshold:
+    - '\(2.9\%\) and \(3.2\%\) under phenomenological noise and BP+OSD decoding for two families of LCS codes.'
+
+relations:
+  parents:
+    - code_id: lifted_product
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-08'

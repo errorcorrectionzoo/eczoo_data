@@ -19,7 +19,7 @@ description: |
   Explicit constructions for expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8} with any ratio \(n/m\) are known where \(D = \text{polylog}(n/m)\), \(\gamma = \Omega(1/D)\) and arbitrary \(\epsilon\) \cite{doi:10.1145/509907.510003}.
 
 protection: |
-  There exist minimum distance bounds in terms of features of the expander graph \cite{doi:10.1109/18.556667,arxiv:cs/0406048}.
+  There exist minimum distance bounds \cite{doi:10.1109/18.556667,arxiv:cs/0406048} as well as bounds on decoding performance \cite{arxiv:0805.2427,doi:10.1109/TIT.2017.2726064,arxiv:2312.16087} in terms of features of the expander graph.
 
 features:
   rate: 'The rate is \(1 - m/n\) where \(n\) is the number of left nodes and \(m\) is the number of right nodes in the bipartite expander graph.'
@@ -28,7 +28,8 @@ features:
     - 'Multiplication by generator matrix with runtime \(O(n^2)\)'
 
   decoders:
-    - 'Decoding can be done in \(O(n)\) runtime using a greedy \textit{flip decoder} \cite{doi:10.1109/18.556667}. The algorithm consists of flipping a bit of the received word if it will result in a greater number of satisfied parity checks. This is repeated until a codeword is reached.'
+    - 'Decoding can be done in \(O(n)\) runtime using a greedy \textit{flip decoder} \cite{doi:10.1109/18.556667} (see also \cite{doi:10.1109/TIT.2006.887523}). The algorithm consists of flipping a bit of the received word if it will result in a greater number of satisfied parity checks. This is repeated until a codeword is reached.'
+    - '''Find erasures and Decode'' a.k.a. Viderman''s alogrithm correcting \(\Omega(n)\) in order \(O(n)\) time \cite{doi:10.1145/2493252.2493255}.'
 
   fault_tolerance:
     - 'The flip decoding algorithm is fault tolerant against parity check errors \cite{doi:10.1109/18.556668}; see also \href{http://courses.csail.mit.edu/6.440/spring08/index.html}{course notes} by M. Sudan.'
@@ -37,6 +38,9 @@ relations:
   parents:
     - code_id: regular_ldpc
       detail: 'Expander codes yield an explicit (i.e., non-random) asymptotically good LDPC code family.'
+  cousins:
+    - code_id: ldc
+      detail: 'Expander codes are locally decodable provided that the inner code satisfies certain properties; there exist code families with rate approaching one \cite{arxiv:1304.8129}.'
 
 
 # Begin Entry Meta Information

@@ -17,16 +17,22 @@ description: |
 
   Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
-  One can switch between stabilizer codes by appending another abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
-  \begin{defterm}{Code switching}
+  One can switch between stabilizer codes by appending another Abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
+  \begin{defterm}{Code switching or code deformation}
   \label{topic:code-switching}
-  Code switching is a map between stabilizer codes that is done using an abelian subgroup \(\mathsf{F}\) of the \(n\)-qudit Pauli group,
+  Code switching is a map between stabilizer codes that is done using a stabilizer group \(\mathsf{F}\) of the \(n\)-qudit Pauli group,
   \begin{align}
   \mathsf{S}\to\mathsf{N}_{\left\langle \mathsf{S},\mathsf{F}\right\rangle }\left(\mathsf{F}\right)~,
   \end{align}
   where \(\mathsf{Z}\) denotes taking the center of a group.
-  In the context of abelian topological stabilizer codes, code switching implements \textit{anyon condensation} of any anyons represented by operators in the group \(\mathsf{F}\).
+  Code switching may not preserve the logical information and instead implement logical measurements; conditions on \(\mathsf{S}\) and \(\mathsf{F}\) such that qubit stabilizer code switching preserves logical information are derived in \cite[Prop. II.1]{arxiv:2304.01277}.
+  Clifford operations and Pauli measurements can be expressed as sequences of code switching \cite{arxiv:2401.12017}.
+  In the context of stabilizer codes realizing Abelian topological phases, code switching implements \textit{anyon condensation} of any anyons represented by operators in the group \(\mathsf{F}\).
   \end{defterm}
+
+  Stabilizer codewords for odd qudit dimension have a specific form per the finite-dimensional version of Hudson's theorem \cite{arxiv:quant-ph/0602001}.
+  General modular-qudit stabilizer codes can equivalently \cite{arxiv:quant-ph/0111080} be defined using graphs, yielding an analytical form for the codewords \cite{arxiv:quant-ph/0012111}.
+
 
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
@@ -38,12 +44,13 @@ features:
 
 notes:
   - 'A standardized definition of the qudit stabilizer group is developed in \cite{arXiv:1101.1519}.'
-  - 'The number of modular-qudit stabilizer codes was determined in Ref. \cite{arxiv:2209.01449}.'
+  - 'The number of modular-qudit stabilizer codes was determined in Refs. \cite{arxiv:quant-ph/0602001,arxiv:2209.01449}.'
 #   - 'For codes that do encode an integer number of \(q\)-dimensional qudits, i.e., \(K=q^k\), \(k\le 2n\) for composite \(q\)  \cite{arXiv:1101.1519}.'
 
 relations:
   parents:
-    - code_id: qudits_into_qudits
+    - code_id: qudit_cws
+      detail: 'Qudit CWS codes are a generalization of modular-qudit stabilizer codes \cite[Corr. 4-5]{arxiv:1505.00283}.'
     - code_id: stabilizer
     - code_id: quantum_lego
       detail: 'Modular-qudit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qudit repetition code, single-qudit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state.'

@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: five_squares
+physical: qubits
+logical: qubits
+
+name: 'Generalized five-squares code'
+introduced: '\cite{arxiv:1012.0425,arxiv:1207.0479,arxiv:1805.12542}'
+
+description: |
+  Member of a family of subsystem codes that are generalizations \cite{arxiv:1207.0479,arxiv:1805.12542} of a code defined on a three-valent hypergraph associated with the five-squares lattice \cite{arxiv:1012.0425}.
+
+features:
+  decoders:
+    - 'Decoding of five-squares codes leads to a mapping of these codes to two copies of the surface code \cite{arxiv:1012.0425,arxiv:1805.12542}.'
+  code_capacity_threshold:
+    - 'Original five-squares code has a threshold of at least \(2\%\) against depolarizing noise \cite{arxiv:1012.0425}.'
+
+
+relations:
+  parents:
+    - code_id: subsystem_hypergraph
+      detail: 'Generalized five-squares codes are special cases of subsystem hypergraph codes \cite[Sec. II.B]{arxiv:1805.12542}.'
+    - code_id: translationally_invariant_subsystem
+  cousins:
+    - code_id: surface
+      detail: 'Decoding of five-squares codes leads to a mapping of these codes to two copies of the surface code \cite{arxiv:1012.0425,arxiv:1805.12542}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-23'

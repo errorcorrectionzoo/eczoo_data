@@ -11,13 +11,14 @@ name: 'Combinatorial design code'
 
 description: |
   A constant-weight binary code that is mapped into a combinatorial \(t\)-design.
+
   The mapping proceeds as follows for a length-\(n\) code with codewords of constant weight \(w\).
-  A \(c\) corresponds to a \textit{block} of the design, with the codeword's \(j\)th coordinate labeling whether or not element \(j\) is contained in the block.
+  A codeword \(c\) corresponds to a \textit{block} of the design, with the codeword's \(j\)th coordinate labeling whether or not element \(j\) is contained in the block.
   There are a total of \(n\) \textit{elements}, and the constant weight of the code implies that each block contains a fixed number \(w\) of elements.
   The code supports an \(S(t,w,n)\) \textit{Steiner system} if each subset of \(t\leq w\) elements is contained in exactly one block.
-  More generally, the code supports a \textit{combinatorial \(t\)-design}, or, more precisely, a \(t-(n,w,\lambda)\)-design, if each such \(t\)-subset is contained in exactly \(\lambda \geq 1\) blocks.
+  More generally, the code supports a \textit{combinatorial \(t\)-design}, or, more precisely, a \(t\)-\((n,w,\lambda)\)-design, if each such \(t\)-subset is contained in exactly \(\lambda \geq 1\) blocks.
 
-  For example, the eight codewords of weight \(w=3\) of the \([7,4,3]\) Hamming code support a \(2-(7,3,1)\)-design a.k.a. an \(S(2,3,7)\) Steiner system.
+  For example, the eight codewords of weight \(w=3\) of the \([7,4,3]\) Hamming code support a \(2\)-\((7,3,1)\)-design a.k.a. an \(S(2,3,7)\) Steiner system.
   The codeword \(1000110\) corresponds to a block containing elements 1, 5, and 6.
   Similarly, the other seven codewords correspond to blocks 257, 367, 147, 246, 345, and 123.
   Each pair of elements is contained in exactly one block.
@@ -25,12 +26,14 @@ description: |
   Combinatorial \(t\)-designs exist for all \(t\) \cite{doi:10.1016/0012-365X(87)90061-6}.
 
 notes:
-  - 'See \cite{preset:HKSdesigns} for more on combinatorial designs.'
+  - 'See \cite{preset:HKSdesigns} for a review combinatorial designs.'
+  - 'See \cite{doi:10.1017/CBO9780511549533,doi:10.1201/9781420010541,doi:10.1017/CBO9780511623714} for books on combinatorial designs.'
 
 relations:
   parents:
     - code_id: bits_into_bits
     - code_id: constant_weight
+    - code_id: subspace_design
   cousins:
     - code_id: q-ary_digits_into_q-ary_digits
       detail: 'Designs can be constructed from \(q\)-ary codes by taking the supports of a subset of codewords of constant weight.'
@@ -39,7 +42,7 @@ relations:
     - code_id: reed_muller
       detail: 'Fixed-weight RM codewords of weight less than \(2^m\) support combinatorial 3-designs \cite[Ex. 5.2.7]{preset:HKSdesigns}.'
     - code_id: hamming743
-      detail: 'Weight-three and weight-four codewords of the \([7,4,3]\) Hamming code support combinatorial \(2-(7,3,1)\) and \(2-(7,4,2)\) designs, respectively \cite[Ex. 5.2.5]{preset:HKSdesigns}.'
+      detail: 'Weight-three and weight-four codewords of the \([7,4,3]\) Hamming code support combinatorial \(2\)-\((7,3,1)\) and \(2\)-\((7,4,2)\) designs, respectively \cite[Ex. 5.2.5]{preset:HKSdesigns}.'
     - code_id: hamming
       detail: 'Weight-three codewords of the \([2^r-1,2^r-r-1, 3]\) Hamming code support the Steiner system \(S(2,3,2^r-1)\) \cite[pg. 89]{preset:splag}.'
     - code_id: extended_hamming

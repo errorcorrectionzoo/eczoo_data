@@ -18,9 +18,9 @@ description: |
   The parity-check matrix for the \([7,4,3]\) Hamming code is
   \begin{align}
     H = \left(\begin{matrix}
-      1&0&0&1&0&1&1\\
-      0&1&0&1&1&0&1\\
-      0&0&1&0&1&1&1
+      0&0&0&1&1&1&1\\
+      0&1&1&0&0&1&1\\
+      1&0&1&0&1&0&1
     \end{matrix}\right),
   \end{align}
   and the check matrix for the Steane code is therefore
@@ -42,8 +42,12 @@ description: |
 protection: 'The Steane code is a distance 3 code. It detects errors on 2 qubits, corrects errors on 1 qubit.'
 
 realizations:
-  - 'Trapped-ion qubits: seven-qubit device in Blatt group \cite{arXiv:1403.5426}, ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} (see APS Physics Synopsys \cite{doi:10.1103/Physics.14.184}). Fault-tolerant universal two-qubit gate set by Monz group \cite{arxiv:2111.12654}. Logical CNOT gate between two logical qubits, including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.'
-  - 'Rydberg atom arrays: Lukin group \cite{arXiv:2112.03923}.'
+  - 'Trapped-ion qubits: seven-qubit device in Blatt group \cite{arXiv:1403.5426}.
+  Ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} realizing repeated syndrome extraction, real-time look-up-table decoding (yielding lower logical SPAM error rate than physical SPAM), and non-fault-tolerant magic-state distillation (see APS Physics Synopsis \cite{doi:10.1103/Physics.14.184}).
+  Fault-tolerant universal two-qubit gate set using T injection by Monz group \cite{arxiv:2111.12654}.
+  Logical CNOT gate and Bell-pair creation between two logical qubits (yielding a logical fidelity higher than physical), including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.
+  Multiple rounds of Steane error correction \cite{arxiv:2312.09745}.'
+  - 'Rydberg atom arrays: Lukin group \cite{arXiv:2112.03923}; transversal CNOT gate performed on distance \(3\), \(5\), and \(7\) codes, logical ten-qubit GHZ state initialized with break-even fidelity, fault-tolerant logical two-qubit GHZ state initialized \cite{arxiv:2312.03982}.'
 
 features:
   encoders:
@@ -52,19 +56,24 @@ features:
   transversal_gates: 'All single-qubit Clifford gates, which realize the \(2O\) binary octahedral subgroup of \(SU(2)\) \cite{arxiv:quant-ph/9605011,arxiv:0706.1382}.'
 
   general_gates:
+    - 'Fault-tolerant logical zero and magic state preparation \cite{doi:10.1038/srep19578}. Magic-state preparation converts unbiased noise into biased noise \cite{arxiv:2401.10982}.'
     - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
 
   fault_tolerance:
+    - 'Fault-tolerant logical zero and magic state preparation \cite{doi:10.1038/srep19578}. Magic-state preparation converts unbiased noise into biased noise \cite{arxiv:2401.10982}.'
     - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
     - 'Syndrome measurement can be done with ancillary flag qubits \cite{arXiv:1612.04795,arXiv:1705.02329} or with no extra qubits \cite{doi:10.1088/2058-9565/abc6f4}. The depth of syndrome extraction circuits can be lowered by using past syndrome values \cite{arxiv:2305.00784}.'
 
 relations:
   parents:
-    - code_id: color
-      detail: 'Steane code is the smallest 2D color code.'
+    - code_id: triangular_color
+      detail: 'Steane code is the smallest triangular color code.'
     - code_id: diagonal_clifford
     - code_id: quantum_hamming_css
     - code_id: single_qubit_clifford
+  cousins:
+    - code_id: quantum_concatenated
+      detail: 'The concatenated Steane code is one of the first codes to admit a concatenated threshold \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9809054,arxiv:quant-ph/0207119}. Randomized compiling helps reduce logical error rate for some noise models \cite{arxiv:2303.06846}.'
 
 #      detail: 'Steane code is the smallest member of a family of Reed-Muller-based CSS codes.'
 #      detail: 'Steane code is the smallest member of a family of Hamming-based CSS codes.'

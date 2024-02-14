@@ -12,7 +12,7 @@ short_name: 'Finite QECC'
 description: 'Encodes quantum information in a \(K\)-dimensional (\textit{logical}) subspace of an \(N\)-dimensional (\textit{physical}) Hilbert space such that it is possible to recover said information from errors. The logical subspace is spanned by a basis comprised of \textit{code basis states} or \textit{codewords}.'
 
 protection: |
-  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a finite-dimensional quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{K}\to\mathsf{H}_{N}\) with a set of correctable errors \({\cal{E}}:\mathsf{H}_N\to\mathsf{H}_M\) with the following property: there exists a quantum operation \({\cal{D}}:\mathsf{H}_M\to \mathsf{H}_K\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{K}\),
+  Denoting Hilbert spaces by the letter \(\mathsf{H}\), a finite-dimensional quantum code \((U,\cal{E})\) is a partial isometry \(U:\mathsf{H}_{K}\to\mathsf{H}_{N}\) and a set of correctable errors \({\cal{E}}:\mathsf{H}_N\to\mathsf{H}_M\) with the following property: there exists a quantum operation \({\cal{D}}:\mathsf{H}_M\to \mathsf{H}_K\) such that for all \(E\in\cal{E}\) and states \(|\psi\rangle\in\mathsf{H}_{K}\),
   \begin{align}
   {\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\end{align}
   for some constant \(c\) \cite{preset:GottesmanBook}. A code is said to \textit{protect against} or \textit{correct} the errors \(\mathcal{E}\).
@@ -39,36 +39,55 @@ protection: |
 
   A code is \textit{degenerate} with respect to a noise model if different errors map code states to the same error subspace. For a linearly independent error set \(\cal{E}\), degeneracy is equivalent to \(\text{rank}(c_{ij}) < |\cal{E}|\).
 
-  Determining protection and bounds on code parameters can also be done using Shor-Laflamme \textit{quantum weight enumerators} \cite{arxiv:quant-ph/9610040} and Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
-
   \subsection{Correctability of quantum channels}
 
-  We define that some quantum channel \(\mathcal{N}\) is exactly correctable if
-  there exists some recovery channel \(\mathcal{R}\) such that \(\mathcal{R}\mathcal{N}=\mathrm{id}\).
+  From now on, we use \(\mathcal{E}\) to denote a noise channel constructed out of the set of errors \(E\) and let \(\mathcal{U}(\cdot)=U(\cdot)U^\dagger\) be the superoperator corresponding to the partial encdoing isometry \(U\).
+  A noise channel is correctable if there exists a recovery channel \(\mathcal{D}\) such that
+  \begin{align}
+    \mathcal{D}\mathcal{E}\mathcal{U}(\rho)=\rho
+  \end{align}
+  for all logical states \(\rho\).
 
-  Given some noise channel \(\mathcal{N}\), a necessary and sufficient condition for exact correctibility
-  is that complementary channel \(\mathcal{N}^C(\rho)=\rho_0\mathrm{Tr}(\rho)\). This can be used to derive the Knill-Laflamme conditions~\cite{arXiv:0907.5391}.
+  The above is equivalent to the fidelity between \(\rho\) and \(\mathcal{D}\mathcal{E}\mathcal{U}(\rho)\) being one for any notion of distance between quantum states.
+  In particular, we can consider a scenario where we send only one part of an entangled state through a channel and determine whether the entanglement has been preserved during transmission.
+  Using the notion of entanglement fidelity, a quantum channel \(\mathcal{E}\) is exactly correctable iff there exists a quantum channel \(\mathcal{D}\) such that
+  \begin{align}
+    (\mathcal{D}\mathcal{E}\mathcal{U}\otimes\mathrm{id})(\ket{\psi}\bra{\psi})=\ket{\psi}\bra{\psi}
+  \end{align}
+  for all states \(\rho\) and their corresponding purifications \(\ket{\psi}\) (i.e., states \(\ket{\psi}\) such that \(\text{Tr}_{2}(|\psi\rangle\langle\psi|)=\rho\)).
 
-# Include other often used defs
-# Include complementary channel + approximate defs; approx should be a separate property or not?
+  The above entanglement fidelity condition can be alternatively expressed using complementary channels.
+
+  \begin{defterm}{Complementary channel}
+  \label{topic:complementary-channel}
+  A complementary channel \(\mathcal{E}^C\) is obtained from a channel \(\mathcal{E}\) that acts on a system by interpreting the channel as coming from a unitary operation acting on a larger system-environment tensor-product space (i.e., performing an isometric extension) and then tracing out the system factor (instead of the second environmental factor) \cite[Sec. 5.2.2]{doi:10.1017/CBO9781139525343}.
+  A noise channel \({\cal E}(\cdot)=\sum_{j}E_{j}(\cdot)E_{j}^{\dagger}\) admits a complementary channel of the form
+  \begin{align}
+    {\cal E}^{C}(\cdot)=\sum_{j,k}\text{Tr}\{E_{j}(\cdot)E_{k}^{\dagger}\}|j\rangle\langle k|~.
+  \end{align}
+  \end{defterm}
+
+  A channel \(\mathcal{E}\) is correctable if  \(\mathcal{E}^C(\rho)=\rho_0\mathrm{Tr}(\rho)\) for some constant state \(\rho_0\), which is equivalent to the \term{Knill-Laflamme conditions} \cite{arXiv:0907.5391}.
 
 features:
-
-  #rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
-
-#  encoders:
-  #  - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
-  #  - 'Measurement-based preparation ... with ancilla overhead of ... .'
-  #  - 'Leave discussion of fault tolerance to fault-tolerance field.'
-
-  #transversal_gates: 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
+  rate: 'One can achieve a transmission rate
+  \(r\) over a quantum channel \(\mathcal{E}\) iff, for sufficiently large \(n\), \(m=\lfloor r n \rfloor\),
+  and for all \(\epsilon>0\),
+  \begin{align}
+    ||\mathcal{D}\mathcal{E}\mathcal{U}-I^{\otimes m}||_1\leq \epsilon
+  \end{align}
+  for some encoding channel \(\mathcal{U}\) and some recovery channel \(\mathcal{D}\).
+  The quantum capacity \(Q\) of \(\mathcal{E}\) is defined as the supremum over \(n\) of achievable transmission rates~\cite{doi:10.1017/9781316848142}.'
 
   general_gates:
     - 'Universal gate set cannot be transversal for any code that detects single-qubit errors due to Eastin-Knill theorem \cite{arXiv:0811.4262}.'
 
   decoders:
-    - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of an encoder, which does not correct errors.'
+    - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of the encoder \(\cal{U}\), which does not correct errors.'
     - 'Quantum machine-learning based decoders such as quantum convolutional neural networks \cite{arXiv:1810.03787} and quantum autoencoders \cite{arxiv:2202.00555}.'
+
+  code_capacity_threshold:
+    - 'Coherent information of the state under the action of a noise channel can be used to estimate the optimal threshold \cite{arxiv:2312.06664}.'
 
 relations:
   parents:
@@ -81,6 +100,14 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2023-07-24'
+    - user_id: M10T
+      date: '2023-07-17'
+    - user_id: M10T
+      date: '2023-07-07'
+    - user_id: M10T
+      date: '2023-07-03'
     - user_id: M10T
       date: '2023-06-28'
     - user_id: VictorVAlbert
