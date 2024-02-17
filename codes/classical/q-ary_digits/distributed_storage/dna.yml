@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dna
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'DNA storage code'
+introduced: '\cite{arxiv:1410.8837}'
+
+description: |
+  Code that was designed (or that can be applied) to encode information into the four-base-pair alphabet of a DNA molecule.
+
+  There exist several proposals tailored specifically for DNA storage \cite{arxiv:1410.8837,doi:10.1073/pnas.2004821117,doi:10.1109/TIT.2021.3066430}.
+
+protection: |
+  Noise affecting DNA molecules can include insertions and deletions \cite{arxiv:1803.03322}.
+
+relations:
+  parents:
+    - code_id: ecc_finite
+  cousins:
+    - code_id: ldpc
+      detail: 'LDPC codes are potentially relevant for DNA storage \cite{doi:10.1109/ACCESS.2020.3021700}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-03-22'
