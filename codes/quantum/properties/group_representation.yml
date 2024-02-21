@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: group_representation
+
+name: 'Group-representation code'
+introduced: '\cite{arXiv:2005.10910,arxiv:2306.11621}'
+
+description: |
+  Code whose projection is onto a copy of an irreducible representation of a group \(G\) of unitary operations.
+  Error correction ability is not guaranteed, but can be searched in the multiplicity space of the irrep in case there is more than one copy present.
+
+features:
+  encodings:
+    - 'General encoding map \cite{arxiv:2306.11621}.'
+  general_gates:
+    - 'By definition, a group \(G\) of gates can be realized on the code using the unitary operations used to define the code.'
+
+
+relations:
+  parents:
+    - code_id: qecc
+# cousins:
+#   - code_id: qsc
+#     detail: 'There exist group-representation codes that are quantum spherical codes with non-uniform coefficients; such codes, by definition, admit a desired group of gates via Gaussian rotations \cite{arxiv:2306.11621}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-21'
