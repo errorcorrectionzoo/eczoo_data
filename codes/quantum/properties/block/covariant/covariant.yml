@@ -9,7 +9,8 @@ name: 'Covariant code'
 introduced: '\cite{arxiv:1709.04471}'
 
 description: |
-  A block code on \(n\) subsystems that admits a group \(G\) of transversal gates. The group has to be finite for finite-dimensional codes due to the Eastin-Knill theorem. Continuous-\(G\) covariant codes, necessarily infinite-dimensional, are relevant to error correction of quantum reference frames \cite{arxiv:1709.04471} and error-corrected parameter estimation.
+  A block code on \(n\) subsystems that admits a group \(G\) of transversal gates. The group has to be finite for finite-dimensional codes due to the Eastin-Knill theorem.
+  Continuous-\(G\) covariant codes, necessarily infinite-dimensional, are relevant to error correction of quantum reference frames \cite{arxiv:1709.04471} and error-corrected parameter estimation.
 
   Denoting the code's encoding map as \(U\), covariance is equivalent to
   \begin{align}
@@ -54,13 +55,15 @@ relations:
   parents:
     - code_id: block_quantum
       detail: 'Covariant codes for \(n>1\) are block quantum codes.'
+    - code_id: group_representation
+      detail: 'Covariant codes are block group-representation codes \cite[Lemma 2]{arxiv:2306.11621}.'
   cousins:
     - code_id: approximate_qecc
       detail: 'Normalizable constructions of infinite-dimensional \(G\)-covariant codes for continuous \(G\) are approximately error-correcting.'
     - code_id: quantum_reed_muller
       detail: 'Quantum RM codes are approximately covariant and nearly saturate certain covariance-performance bounds \cite{arxiv:2111.06360}.'
     - code_id: eth
-      detail: 'ETH codes consisting of Dicke states are approximately \(U(1)\)-covariant and nearly saturate certain covariance-performance bounds \cite{arxiv:1902.07714,arxiv:2111.06360}.'
+      detail: 'ETH codes consisting of \hyperref[topic:dicke]{Dicke states} are approximately \(U(1)\)-covariant and nearly saturate certain covariance-performance bounds \cite{arxiv:1902.07714,arxiv:2111.06360}.'
     - code_id: quantum_random
       detail: 'Random \(U(d)\)-covariant almost exactly error-correcting codes exist \cite{arxiv:1902.07714,arxiv:2112.01498}.'
     - code_id: group_gkp

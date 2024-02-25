@@ -32,15 +32,50 @@ protection: |
 
   The minimum weight of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}. Codes whose distance is greater than the diagonal distance are degenerate.
 
+  A quantum channel whose Kraus operators are Pauli strings is called a \textit{Pauli channel}, and such channels are typically more tractable than general, non-Pauli channels.
+  Relevant Pauli channels include dephasing noise and depolarizing noise (a.k.a. Werner-Holevo channel \cite{arxiv:quant-ph/0203003}), while relevant non-Pauli channels are amplitude damping, erasure (which maps all qubit states into a third state \(|e\rangle\) outside of the qubit Hilbert space), and biased erasure (in which case only the \(|1\rangle\) qubit state is mapped to \(|e\rangle\)).
+
+  Bounds on code performance include the quantum Singleton bound \cite{arxiv:quant-ph/9604034,arxiv:quant-ph/9702031,arxiv:quant-ph/9703048}, quantum Hamming bound \cite{arxiv:quant-ph/9602022}, and quantum Gilbert-Varshamov bound \cite{arxiv:quant-ph/9602022}.
+  Linear programming bounds also exist \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}.
+
+  Determining protection and bounds on code parameters can also be done using Shor-Laflamme \textit{quantum weight enumerators} \cite{arxiv:quant-ph/9610040} and Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
+
+
+
 
 features:
+  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}.'
+  general_gates:
+    - 'Universal computing can be achieved using Clifford gates and a single type of non-Clifford gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
+    Non-Clifford gates are typically more difficult to implement than Clifford gates and so are treated as a resource. Optimizing T-gate count is \(NP\)-hard \cite{arxiv:2310.05958}.'
+    - 'Arbitrary \(n\)-qubit circuits can be implemented fault-tolerantly in a 3D architecture using \(O(n^{3/2}\log^3 n)\) qubits, and in a 2D architecture using only \(O(n^2 \log^3 n)\) qubits \cite{arxiv:2402.13863}.'
   decoders:
-    - 'The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}. For few-qubit codes (\(n\) is small), maximum-likelihood decoding can be based by creating a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used.'
+    - 'Incorporating faulty syndrome measurements can be done using the \textit{phenomenological noise model}, which simulates errors during syndrome extraction by flipping some of the bits of the measured syndrome bit string. In the more involved \textit{circuit-level noise model}, every component of the syndrome extraction circuit can be faulty.'
+    - '\textit{Hook errors} are syndrome measurement circuit faults that cause more than one data-qubit error \cite{arxiv:quant-ph/0110143}.
+    Hook errors occur at specific places in a syndrome extraction circuit and can sometimes be removed by re-ordering the gates of the circuit. If not, the use of flag qubits to detect hook errors may be necessary to yield fault-tolerant decoders.'
+    - 'The decoder determining the most likely error given a noise channel is called the \textit{maximum probability error} (MPE) decoder. For few-qubit codes (\(n\) is small), MPE decoding can be based by creating a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used.'
+    - 'Decoders are characterized by an \textit{effective distance} or \textit{circuit-level distance}, the minimum number of faulty operations during syndrome measurement that is required to make an undetectable error. A code is \textit{distance-preserving} if it admits a decoder whose circuit-level distance is equal to the code distance.'
   fault_tolerance:
     - 'There are lower bounds on the overhead of fault-tolerant QEC in terms of the capacity of the noise channel \cite{arxiv:2202.00119}. A more stringent bound applies to geometrically local QEC due to the fact that locality constrains the growth of the entanglement that is needed for protection \cite{arxiv:2302.04317}.'
+    - 'Arbitrary \(n\)-qubit circuits can be implemented fault-tolerantly in a 3D architecture using \(O(n^{3/2}\log^3 n)\) qubits, and in a 2D architecture using only \(O(n^2 \log^3 n)\) qubits \cite{arxiv:2402.13863}.'
+  threshold:
+    - '\begin{defterm}{Computational threshold}
+      \label{topic:computational-threshold}
+      A fault-tolerant computational threshold is the maximum noise rate in a noise model below which any logical computation of size \(M\) can be executed on a physical-qubit architecture to arbitrary accuracy and with an overhead of order \(O(M\text{polylog}M)\).
+      The first methods to achieve a computational threshold use concatenated stabilizer codes \cite{arxiv:quant-ph/9702058,arXiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arXiv:quant-ph/0410047,arXiv:quant-ph/0504218,arxiv:quant-ph/0604090}.
+      Such methods require constant-space and polylogarithmic-time overhead, but concatentions using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826}.
+      Fault-tolerant computations with no notion of locality can be made local on a 2D or 3D geometry with minimial overhead \cite{arxiv:2402.13863}.
+      \end{defterm}'
+    - '\begin{defterm}{Measurement threshold}
+      \label{topic:measurement-threshold}
+      One can derive conditions quantifying how many random single-qubit measurements can be made without destroying the logical information \cite{arxiv:2402.00145}.
+      The measurement threshold is the maximum total probability that a single qubit is measured in a random \(X\), \(Y\), or \(Z\) basis at which the logical information is still recoverable.
+      The measurement threshold is at least as large as the erasure threshold \cite[Thm. 4]{arxiv:2402.00145}.
+      \end{defterm}'
 
 notes:
   - 'There is a relation between one-way entanglement distillation protocols and QECCs \cite{arXiv:quant-ph/9604024}.'
+  - 'See \href{https://github.com/qiskit-community/qiskit-qec}{Qiskit QEC framework} for realizing protocols on IBM machines.'
 
 relations:
   parents:

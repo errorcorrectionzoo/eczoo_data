@@ -24,14 +24,14 @@ description: |
   An RS code with length \(n=q-1\) whose points \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is a \textit{narrow-sense RS code}.
   In an alternative convention (not used here), the primitive-root case is called an RS code, and the general-root case is a generalized RS code.
 
-protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it can be determined from its values at \(k\) points. This means that RS codes can correct erasures on up to \(n-k\) registers. The resulting distance, \(d=n-k+1\), saturates the Singleton bound.'
+protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it has less than \(k\) roots; this is called the \textit{degree mantra}.
+Therefore, the polynomial can be determined from its values at \(k\) points. This means that RS codes can correct erasures on up to \(n-k\) registers. The resulting distance, \(d=n-k+1\), saturates the Singleton bound.'
 
 features:
   encoders:
     - 'Bit-serial encoder \cite{doi:10.1109/TIT.1982.1056591}.'
     - '\([n,k,n-k+1]\) RS code requires an order \(O(n^2)\) operations while encoding if a straightforward matrix multiplication is employed and \(k=O(n)\). Using the FFT algorithm, complexity of evaluating a polynomial at \(n\) roots of unity becomes \(O(n\log n)\). The FFT can be generalized to finite fields and rings, which is referred as Number-theoretic Transform (NTT). However, for some values of \(n\), which can not be factorized into small primes or do not have \(n\) roots of unity, the FFT algorithm fails. Independently developed by \cite{doi:10.1109/49.1926,doi:10.1016/0097-3165(89)90020-4} and generalized in Ref. \cite{doi:10.1017/CBO9781139856065}, the additive FFT solves this problem by evaluating the polynomial at \(n-1\) roots of unity when \(n\) is power of 2.'
 
-  rate: 'Generic Reed-Solomon codes achieve list-decoding capacity \cite{arxiv:2206.05256}.'
   decoders:
     - 'Although using iFFT has its counterpart iNNT for finite fields, the decoding is usually standard polynomial interpolation in \(k=O(n\log^2 n)\). However, in erasure decoding, encoded values are only erased in \(r\) points, which is a specific case of polynomial interpolation and can be done in \(O(n\log n)\) by computing product of the received polynomial and an erasure locator polynomial and using long division to find an original polynomial. The long division step can be omitted to increase speed further by only dividing the derivative of the product polynomial, and derivative of erasure locator polynomial evaluated at erasure locations.'
     - 'Berlekamp-Massey decoder with runtime of order \(O(n^2)\) \cite{doi:10.1109/TIT.1969.1054260,preset:Berlekamp}.'
@@ -39,7 +39,13 @@ features:
     - 'Berlekamp-Welch decoder with runtime of order \(O(n^3)\) \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S. Patent, Number 4,633,470 1986.}} (see exposition in Ref. \cite{doi:10.1016/0020-0190(92)90195-2}), assuming that \(t \geq (n+k)/2\).'
     - 'Gao decoder using extended Euclidean algorithm \cite{doi:10.1007/978-1-4757-3789-9_5}.'
     - 'Fast-Fourier-transform decoder with runtime of order \(O(n \text{polylog}n)\) \cite{doi:10.1109/TIT.1978.1055816}.'
-    - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaluation of \(Q(\alpha_i,y_i)\) and solving a homogenous linear equation (interpolation). Once this is done, one lists roots of \(y\) that agree at \(\geq t\) points. The breakthrough Sudan list-decoding algorithm corrects up to \(1-\sqrt{2R}\) fraction of errors \cite{doi:10.1006/JCOM.1997.0439}. Roth and Ruckenstein proposed a modified key equation that allows for correction of more than \(\left\lfloor (n-k)/2 \right\rfloor\) errors \cite{doi:10.1109/18.817522}. The Guruswami-Sudan algorithm improved the Sudan algorithm to \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}; see Ref. \cite{doi:10.1109/TIT.2006.878164} for bounds. A further modification by Koetter and Vardy is used for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332} (see also Ref. \cite{doi:10.1109/26.79287}).'
+    - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaluation of \(Q(\alpha_i,y_i)\) and solving a homogenous linear equation (interpolation). Once this is done, one lists roots of \(y\) that agree at \(\geq t\) points. The breakthrough Sudan list-decoding algorithm corrects up to \(1-\sqrt{2R}\) fraction of errors \cite{doi:10.1006/JCOM.1997.0439}. Roth and Ruckenstein proposed a modified key equation that allows for correction of more than \(\left\lfloor (n-k)/2 \right\rfloor\) errors \cite{doi:10.1109/18.817522}.
+    The Guruswami-Sudan algorithm improved the Sudan algorithm to \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}, meaning that RS codes achieve list-decoding capacity; see Ref. \cite{doi:10.1109/TIT.2006.878164} for bounds.
+    It was later shown that generic Reed-Solomon codes achieve list-decoding capacity \cite{arxiv:2206.05256}.
+    A modification of the Guruswami-Sudan algorithm  by Koetter and Vardy is used for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332} (see also Ref. \cite{doi:10.1109/26.79287}).
+    Subcodes of RS codes whose evaluation points lie in a subfield can be decoded up to the \(1-R\) \cite{doi:10.1145/2488608.2488715}.'
+    - 'The ubiquity of RS codes has yielded off-the-shelf VLSI intergrated-circuit decoding hardware \cite{doi:10.1109/92.953498} (see also Ref. \cite{doi:10.1109/9780470546345}, Ch. 5 and 10).'
+
 
 #    - 'Error locator polynomial \(E(y_i) = E(f(\alpha_i))\).'
 #    - 'This problem is linearized to \(E(y_i) = N(\alpha_i)\). Using the known degrees of these polynomials \(deg_q f \leq k-1, deg_q E \leq t\), this problem becomes a set of linear equations which can be solved for \(E\) and \(f\).'
@@ -50,7 +56,6 @@ realizations:
   - 'DSL technologies and their variants against impluse noise \cite{doi:10.1109/ICC.2012.6364040}.'
   - 'Cryptographic primitives based on the hardness of decoding RS codes for more than \(1-\sqrt{k/n}+\epsilon\) errors. This is equivalent to the polynomial reconstruction problem \cite{doi:10.1007/3-540-45465-9_21}.'
   - 'RS codes as outer codes concatenated with convolutional codes are used indirectly in space exploration programs such as Voyager and Galileo. RS codes were part of a temetry channel coding standard issued by the Consultative Committee for Space Data Systems (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 3).'
-  - 'The ubiquity of RS codes has yielded off-the-shelf VLSI intergrated-circuit decoding hardware \cite{doi:10.1109/92.953498} (see also Ref. \cite{doi:10.1109/9780470546345}, Ch. 5 and 10).'
   - 'Automatic repeat request (ARQ) data transmission protocols (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 7).'
   - 'Slow-frequency-hop spread-spectrum transmission (see Ref. \cite{doi:10.1109/9780470546345}, Chs. 8-9).'
   - 'Coded sharding designs in blockchains to increase efficiency \cite{arXiv:1809.10361}.'
@@ -58,6 +63,7 @@ realizations:
   - 'Used in QR-Codes to retrieve damaged barcodes \cite{manual:{International Organization for Standardization, Information Technology: Automatic Identification and Data Capture Techniques-QR Code 2005 Bar Code Symbology Specification, 2nd ed., IEC18004 (ISO, 2006).}}.'
   - 'Wireless communication systems such as 3G, DVB, and WiMAX \cite{doi:10.1109/PIMRC.2010.5672091}.'
   - 'Correcting pooled testing results for SARS-CoV-2 \cite{doi:10.1126/sciadv.abc5961}.'
+  - 'DNA storage \cite{doi:10.1002/anie.201411378}.'
 
 notes:
   - 'See Kaiserslautern database \cite{preset:KLdatabase} for explicit codes.'
@@ -73,6 +79,12 @@ relations:
       detail: 'An IRS code utilizing one polynomial \(f\) reduces to an RS code.'
     - code_id: folded_reed_solomon
       detail: 'An FRS code with no extra grouping (\(m=1\)) reduces to an RS code.'
+    - code_id: multiplicity
+      detail: 'Univariate multiplicity codes of degree \(s=1\) reduce to RS codes.'
+    - code_id: tamo_barg
+      detail: 'Tamo-Barg codes reduce to RS codes when \(r=k\).'
+    - code_id: dna
+      detail: 'RS codes have been used for DNA storage \cite{doi:10.1002/anie.201411378}.'
   cousins:
     - code_id: mds
       detail: 'RS codes have distance \(n-k+1\), saturating the Singleton bound.
@@ -82,7 +94,8 @@ relations:
       Their minimal distance is equal to their designed distance \cite[pg. 81]{doi:doi:10.1007/978-1-4757-6568-7}.
       Moreover, an RS code can be represented as a union of cosets, with each coset being an interleaver of several binary BCH codes \cite{doi:10.1109/26.79287}.'
     - code_id: q-ary_cyclic
-      detail: 'If the length divides \(q-1\), then it is possible to construct a cyclic RS code.'
+      detail: 'If the length divides \(q-1\), then it is possible to construct a cyclic RS code.
+      Such codes a Abelian group-algebra codes \cite[Example 16.4.9]{preset:HKSalgebra}.'
     - code_id: tensor
       detail: 'Tensor codes constructed from RS codes are robustly testable \cite{doi:10.1145/195058.195132}.'
     - code_id: q-ary_ltc

@@ -11,16 +11,18 @@ name: 'Alamouti code'
 introduced: '\cite{doi:10.1109/49.730453}'
 
 description: |
-  The simplest OSTBC, with two time slots, two channels, and with unitary coding matrix
+  The simplest OSTBC, with \(n=2\) transmitting antennas, \(m=1\) receiving antennas, and \(t=2\) uses.
+
+  The unitary coding matrix is
   \begin{align}
     \begin{pmatrix}c_{1} & c_{2}\\
     -c_{2}^{\star} & c_{1}^{\star}
     \end{pmatrix}~,
   \end{align}
-  where \(c_i\) are complex numbers.
+  where \(c_i\) are complex numbers, and where \(\star\) denotes complex conjugation.
 
 features:
-  rate: 'The only OSTBC with unity rate.'
+  rate: 'The only OSTBC with full rate, \(k = mt = 2\).'
 
 realizations:
   - 'Wireless standards since: 3G, LTE, LTE-Advanced, and 5G.'
@@ -31,6 +33,7 @@ realizations:
 relations:
   parents:
     - code_id: orth_spacetime_block
+    - code_id: linear_spacetime
 
 
 # Begin Entry Meta Information

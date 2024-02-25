@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: syk
+physical: qubits
+logical: qubits
+
+name: 'SYK code'
+introduced: '\cite{arXiv:2203.05058,arxiv:2310.07770}'
+
+description: |
+  Approximate \(n\)-fermionic code whose codewords are low-energy states of the Sachdev-Ye-Kitaev (SYK) Hamiltonian \cite{arxiv:cond-mat/9212030,manual:{Kitaev, Alexei. "A simple model of quantum holography (part 2)." Entanglement in Strongly-Correlated Quantum Matter (2015): 38.}} or other low-rank SYK models \cite{arxiv:1910.10173,arxiv:2010.10545}.
+
+features:
+  rate: 'SYK codes can have a constant rate and distance scaling as \(n^c\) for some power \(c\) \cite{arxiv:2310.07770}.'
+
+relations:
+  parents:
+    - code_id: fermions
+    - code_id: approximate_qecc
+      detail: 'SYK codes are approximately error correcting in that they satisfy certain error-correction conditions based on mutual information \cite{arxiv:2310.07770}.'
+    - code_id: hamiltonian
+      detail: 'The SYK code Hamiltonian is constructed out of non-commuting few-site terms, and every fermion participates in many interactions.'
+    - code_id: holographic
+      detail: 'In a holographic model \cite{arxiv:2310.07770}, the large distance of these codes can be interpreted as being due to the emergence of a wormhole.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-16'

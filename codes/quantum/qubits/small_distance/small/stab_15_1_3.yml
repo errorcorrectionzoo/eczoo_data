@@ -8,6 +8,7 @@ physical: qubits
 logical: qubits
 name: '\([[15,1,3]]\) quantum Reed-Muller code'
 short_name: '\([[15,1,3]]\)'
+introduced: '\cite{arxiv:quant-ph/9610011}'
 
 description: |
   \([[15,1,3]]\) CSS code that is most easily thought of as a tetrahedral 3D color code.
@@ -33,13 +34,17 @@ notes:
 
 relations:
   parents:
-    - code_id: color
+    - code_id: 3d_color
       detail: 'The \([[15,1,3]]\) code is a 3D color code.'
     - code_id: diagonal_clifford
     - code_id: quantum_triorthogonal
       detail: 'The \([[15, 1, 3]]\) code is a triorthogonal code \cite{arXiv:2107.09684}.'
+  cousins:
     - code_id: doubled_color
       detail: 'The \([[15,1,3]]\) code, when extended to a gauge color code, is the smallest doubled color code.'
+    - code_id: quantum_concatenated
+      detail: 'The concatenated \([[15,1,3]]\) code has a \hyperref[topic:measurement-threshold]{measurement threshold} less than one \cite{arxiv:2402.00145}.'
+
 
 
 # Begin Entry Meta Information

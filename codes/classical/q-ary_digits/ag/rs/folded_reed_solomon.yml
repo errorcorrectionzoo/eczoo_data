@@ -22,6 +22,7 @@ description: |
 features:
   decoders:
     - 'Guruswami and Rudra \cite{arXiv:cs/0511072,manual:{Atri Rudra. List Decoding and Property Testing of Error Correcting Codes. PhD thesis, University of Washington, 8 2007.}} achieved list-decoding up to \(1-\frac{k}{n}-\epsilon\) fraction of errors using the Parvaresh-Vardy algorithm \cite{doi:10.1109/SFCS.2005.29}; see Ref. \cite{arXiv:1106.0436} for a randomized construction.'
+    - 'List-decoding works up to the Johnson bound using the Guruswami-Sudan algorithm \cite{arxiv:2103.07930}.'
     - 'Folded RS codes, concatenated with suitable inner codes, can be efficiently list-decoded up to the Blokh-Zyablov bound \cite{arXiv:cs/0511072,doi:10.1109/TIT.2008.2008124}.'
 
 notes:
@@ -32,6 +33,8 @@ relations:
   parents:
     - code_id: q-ary_linear
       detail: 'Folding an RS code yields a code that is no longer linear over \(GF(q)\) but is linear over \(GF(q^m)\).'
+    - code_id: group
+      detail: 'FRS codes are polynomial ideal codes whose corresponding polynomial is a product of the polynomials of the RS codes that are being folded \cite{arxiv:2103.07930}.'
 
 # Begin Entry Meta Information
 _meta:

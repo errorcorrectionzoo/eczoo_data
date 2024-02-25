@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_cubic
+physical: qudits
+logical: qudits
+
+name: 'Qudit cubic code'
+introduced: '\cite{arXiv:1202.0052,manual:{J. Haah, Two generalizations of the cubic code model, \href{https://online.kitp.ucsb.edu/online/qinfo_c17/haah/}{KITP Conference: Frontiers of Quantum Information Physics, UCSB, Santa Barbara, CA.}},arXiv:1709.04460}'
+
+description: |
+  Generalization of the Haah cubic code to modular qudits.
+
+protection: |
+  Performance over the erasure and depolarizing channels was studied in Ref. \cite{doi:10.23919/ISITA.2018.8664389}.
+
+
+relations:
+  parents:
+    - code_id: qudit_stabilizer
+    - code_id: fracton
+      detail: 'Haah cubic \cite{arXiv:1101.1962} codes 1-4, 7, 8, and 10 do not have string logical operators and are the first examples of Type-II fracton phases. The remaining cubic codes are fractal Type-I fracton codes \cite{arxiv:1908.08049,arxiv:2001.01722}.
+      There is evidence that a qutrit and a \(q=5\) qudit cubic code from Ref. \cite{arXiv:1202.0052} have no string operators and are thus Type-II fracton codes (see \cite[Eqs. (D11-D13)]{arxiv:1908.08049}).'
+  cousins:
+    - code_id: homological_rotor
+      detail: 'The qudit cubic code can be generalized to rotors \cite{manual:{J. Haah, Two generalizations of the cubic code model, \href{https://online.kitp.ucsb.edu/online/qinfo_c17/haah/}{KITP Conference: Frontiers of Quantum Information Physics, UCSB, Santa Barbara, CA.}},arXiv:1709.04460}.'
+    - code_id: analog_stabilizer
+      detail: 'The qudit cubic code can be generalized to oscillators \cite{arXiv:1709.04460}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-11'

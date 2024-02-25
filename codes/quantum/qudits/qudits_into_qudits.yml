@@ -11,7 +11,7 @@ name: 'Modular-qudit code'
 #introduced: ''
 
 description: |
-  Also called a \(\mathbb{Z}_q\)\textit{-qudit code}. Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the group \(\mathbb{Z}_q\) of integers \textit{modulo} \(q\). Usually denoted as \(((n,K))_q\) or \(((n,K,d))_q\), whenever the code's distance \(d\) is defined, and with \(q=p\) when the dimension is prime.
+  Also called a \(\mathbb{Z}_q\)\textit{-qudit code}. Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the group \(\mathbb{Z}_q\) of integers \textit{modulo} \(q\). Usually denoted as \(((n,K))_{\mathbb{Z}_q}\) or \(((n,K,d))_{\mathbb{Z}_q}\), whenever the code's distance \(d\) is defined, and with \(q=p\) when the dimension is prime.
 
 protection: |
   A convenient and often considered error set is the modular-qudit analogue \cite{arxiv:quant-ph/9802007,arxiv:2302.07966} of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes. For a single qudit, this set consists of products of powers of the qudit Pauli matrices \(X\) and \(Z\), which act on computational basis states \(|k\rangle\) for \(k\in\mathbb{Z}_q\) as
@@ -24,10 +24,10 @@ protection: |
 
 features:
   decoders:
-    - 'For few-qudit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
+    - 'For few-qudit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood} (ML) decoder.'
 
 notes:
-  - 'See Refs. \cite{arxiv:quant-ph/9802007,arxiv:quant-ph/0408190} for descriptions of the qudit Clifford group.'
+  - 'See Refs. \cite{arxiv:quant-ph/9802007,arxiv:quant-ph/0408190,arxiv:2008.00959} for reviews on qudits and descriptions of the qudit Clifford group.'
   - 'Weight distribution of a code depends on the average entanglement of codewords \cite{arXiv:quant-ph/0310137,arxiv:2209.07607}.'
 
 relations:

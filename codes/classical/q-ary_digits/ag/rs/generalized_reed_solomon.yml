@@ -26,6 +26,7 @@ features:
     - 'The decoding process of GRS codes reduces to the solution of a polynomial congruence equation, usually referred to as the key equation. Decoding schemes are based on applications of the Euclid algorithm to solve the key equation.'
     - 'Berlekamp-Massey decoder with runtime of order \(O(n^2)\) \cite{doi:10.1109/TIT.1968.1054109,doi:10.1109/TIT.1969.1054260,preset:Berlekamp}.'
     - 'Guruswami-Sudan list decoder \cite{doi:10.1109/SFCS.1998.743426} and modification by Koetter-Vardy for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332}.'
+    - 'Hard-decision decoder for errors within the Singleton bound \cite{manual:{Berman, A., Dor, A., Shany, Y., Shapir, I., and Doubchak, A. (2023). U.S. Patent No. 11,855,658. Washington, DC: U.S. Patent and Trademark Office.}}.'
 
 realizations:
   - 'Commonly used in mass storage systems such as CDs, DVDs, QR codes etc.'
@@ -41,7 +42,6 @@ relations:
       detail: 'GRS (RS) codes are in one-to-one correspondence with evaluation AG codes of univariate polynomials \(f\) with \(\cal X\) being the projective (affine) line  \cite[Thm. 15.3.24]{preset:HKSag}\cite[Ch. 3.2]{doi:10.1007/978-94-011-3810-9}\cite{preset:HPAlgCodes}.'
     - code_id: evaluation_polynomial
       detail: 'GRS (RS) codes are in one-to-one correspondence with univariate polynomial evaluation codes with \(\cal X\) being the projective (affine) line \cite[Thm. 15.3.24]{preset:HKSag}\cite[Ch. 3.2]{doi:10.1007/978-94-011-3810-9}\cite{preset:HPAlgCodes}).'
-  cousins:
     - code_id: mds
       detail: 'GRS codes have distance \(n-k+1\), saturating the Singleton bound.'
     - code_id: distributed_storage

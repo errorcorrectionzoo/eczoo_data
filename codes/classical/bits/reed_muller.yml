@@ -22,6 +22,9 @@ description: |
 
   Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).
 
+protection: |
+  The \textit{Schwartz-Zippel Lemma} provides a distance lower bound on RM codes and extended the degree mantra from RS codes.
+
 features:
   rate: 'Achieves capacity of the binary erasure channel \cite{doi:10.1109/TIT.2017.2673829}, the binary memoryless symmetric (BMS) channel under bitwise maximum-a-posteriori decoding \cite{arxiv:2110.14631} (see also Ref. \cite{arxiv:1411.4590}), and the binary symmetric channel (BSC), solving a long-standing conjecture \cite{arxiv:2304.02509}.'
 
@@ -46,16 +49,16 @@ relations:
       detail: 'All RM codes can be constructed via the \((u|u+v)\) construction \cite[Ch. 13]{preset:MacSlo}.'
     - code_id: generalized_reed_muller
       detail: 'Binary GRM codes are RM codes.'
-    - code_id: evaluation_polynomial
-      detail: 'RM codes are multivariate polynomial evaluation codes with \(\cal X\) being the entire \(m\)-dimensional affine binary space (\cite{doi:10.1007/978-94-011-3810-9}, pgs. 44-46; \cite{doi:10.1007/BF02249124,preset:HPAlgCodes}).'
     - code_id: divisible
       detail: 'An RM\((r,m)\) code is \(2^{\left\lceil m/r\right\rceil-1}\)-divisible, according to McEliece''s theorem \cite{doi:10.1016/0097-3165(71)90066-5,doi:10.1016/0012-365X(72)90032-5}.'
     - code_id: group
-      detail: 'RM codes are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.}}\cite[Ex. 16.4.11]{preset:HKSalgebra}. Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the group algebra \( \mathbb{F}_2 G_m \), where \(\mathbb{F}_2=GF(2)\). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
+      detail: 'RM codes are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.}}\cite[Ex. 16.4.11]{preset:HKSalgebra}. Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary Abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_2 G_m \), where \(\mathbb{F}_2=GF(2)\). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
   cousins:
     - code_id: bch
       detail: 'RM\(^*(r,m)\) codes are equivalent to subcodes of BCH codes of designed distance \(2^{m-r}-1\) while RM\((r,m)\) are subcodes of extended BCH codes of the same designed distance \cite[Ch. 13]{preset:MacSlo}.'
     - code_id: quaternary_over_z4
+      detail: 'RM codes are images of linear quaternary codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{preset:HKSrings}.'
+    - code_id: gray
       detail: 'RM codes are images of linear quaternary codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{preset:HKSrings}.'
     - code_id: dual
       detail: 'The codes RM\((r,m)\) and RM\((m-r-1,m)\) are dual to each other.'

@@ -7,11 +7,19 @@ code_id: quantum_hamming
 physical: qubits
 logical: qubits
 
-name: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming code'
+name: '\([[2^r, 2^r-r-2, 3]]\) Gottesman code'
 short_name: '\([[2^r, 2^r-r-2, 3]]\)'
 introduced: '\cite{arXiv:quant-ph/9604038}'
 
-description: 'A family of stabilizer codes of distance \(3\) that saturate the asymptotic quantum Hamming bound. Can be obtained from the CSS construction using a first-order \([2^r,r+1,2^{r-1}]\) RM code and a \([2^r,2^r-1,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.'
+alternative_names:
+  - '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming code'
+
+description: |
+  A family of non-CSS stabilizer codes of distance \(3\) that saturate the asymptotic quantum Hamming bound.
+
+  The family can be obtained from a modified CSS construction \cite{arxiv:quant-ph/9605021} with a \([2^r,r+1,2^{r-1}] = C_2^{\perp}\) RM code and a \([2^r,2^r-1,2] = C_1\) even-weight code \cite{arxiv:quant-ph/9605021}.
+  The modification introduces signs between the codewords.
+
 
 protection: 'Protects against any single qubit error.'
 
@@ -19,14 +27,15 @@ protection: 'Protects against any single qubit error.'
 relations:
   parents:
     - code_id: qubit_stabilizer
-    - code_id: small_distance
+    - code_id: small_distance_quantum
   cousins:
     - code_id: quantum_perfect
-      detail: 'Quantum Hamming codes saturate the asymptotic quantum Hamming bound.'
+      detail: '\([[2^r, 2^r-r-2, 3]]\) Gottesman codes saturate the asymptotic quantum Hamming bound.'
     - code_id: hamming
-      detail: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming codes are analogues of Hamming codes in that they saturate the asymptotic Hamming bound.'
-    - code_id: reed_muller
-      detail: '\([[2^r, 2^r-r-2, 3]]\) quantum Hamming code can be obtained from the CSS construction using a first-order \([2^r,r+1,2^{r-1}]\) RM code and a \([2^r,2^r-1,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.'
+      detail: '\([[2^r, 2^r-r-2, 3]]\) Gottesman codes are analogues of Hamming codes in that they saturate the asymptotic Hamming bound.'
+
+# - code_id: reed_muller
+#   detail: 'Gottesman codes can be obtained from the CSS construction using a first-order \([2^r,r+1,2^{r-1}]\) RM code and a \([2^r,2^r-1,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.'
 
 
 # Begin Entry Meta Information

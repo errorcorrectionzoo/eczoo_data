@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: yoked_surface
+physical: qubits
+logical: qubits
+
+name: 'Yoked surface code'
+introduced: '\cite{arxiv:2312.04522}'
+
+description: |-
+  Member of a family of \([[n,k,d]]\) qubit CSS codes resulting from a concatenation of a \hyperref[code:qmdpc]{QMDPC code} with a \hyperref[code:rotated_surface]{rotated surface code}.
+  Concatenation can as much as triple the number of logical qubits per physical qubit of the original surface code and does not impose additional connectivity constraints.
+
+features:
+  decoders:
+    - 'Outer code stabilizer generators are measured using lattice surgery.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: qldpc
+    - code_id: quantum_concatenated
+      detail: 'A yoked surface code is a concatenation of a QMDPC code (outer code) with a rotated surface code (inner code).'
+
+
+_meta:
+  changelog:
+    - user_id: 'VictorVAlbert'
+      date: '2023-12-08'

@@ -9,11 +9,22 @@ physical: spins
 name: 'Single-spin code'
 
 description: |
-  Permutation invariant qubit code encoding a \(K\)-dimensional Hilbert space into the maximally symmetric subspace or \textit{collective spin} of \(2\ell\) spin-half systems.
+  An encoding into a monolithic (i.e. non-tensor-product) Hilbert space that houses an irreducible representation of \(SU(2)\) or, more generally, another Lie group.
+  In some cases, this space can be thought of as the permutation invariant subspace of a particular tensor-product space.
+
+  For the simplest case of \(SU(2)\), a single-spin code can be thought of as a permutation invariant qubit code encoding a \(K\)-dimensional Hilbert space into the maximally symmetric subspace or \textit{collective spin} of \(2\ell\) spin-half systems.
   This \(2\ell+1\)-dimensional Hilbert space can be thought of as a standalone spin-\(\ell\) quantum system.
 
 protection: |
-  Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not. The former include single-spin errors akin to qubit Pauli noise. The latter include collective rotations or decays.
+  Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not.
+
+  Noise models that do not preserve the permutation-invariant subspace correspond to models for the tensor-product case.
+  Single spin-half errors do not preserve permutation symmetry and correspond to qubit Pauli noise.
+
+  Noise models that preserve the permutation-invariant subspace are typically relevant to the case of a monolithic spin.
+  They include collective rotations or decays.
+  A continuous-time single-spin noise channel akin to the depolarizing channel is the Landau-Streater channel \cite{doi:10.1016/0024-3795(93)90274-R}.
+  A particular error basis of interest consists of the spherical tensors \cite{arxiv:2304.08611}.
 
 features:
   transversal_gates: 'When the physical Hilbert space is thought of a collective spin, logical gates for spin codes have the form \(U^{\otimes N}\), where \(U\) is a local rotation on the physical system.'
@@ -23,7 +34,13 @@ relations:
   parents:
     - code_id: spins_into_spins
     - code_id: permutation_invariant
-      detail: 'Single-spin codes are subspaces of a single large spin, which can be either standalone or correspond to the permutation-invariant subspace of a set of spins.'
+      detail: 'Single-spin codes are subspaces of a single large spin, which can be either standalone or correspond to the permutation-invariant subspace of a set of spins.
+      A single-spin code correcting spherical tensors can be mapped into a permutation-invariant code with an analogous distance \cite[Thm. 1]{arxiv:2310.17652}.'
+    - code_id: single_subsystem
+    - code_id: qecc_finite
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'Certain single-spin codes yield permutation-invariant qubit codes with non-trivial distance \cite{arxiv:2304.08611} when the single spin is treated as a collective spin of several qubits.'
 
 
 # Begin Entry Meta Information
