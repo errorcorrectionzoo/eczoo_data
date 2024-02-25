@@ -11,8 +11,14 @@ name: 'Hypergraph product (HGP) code'
 short_name: 'HGP'
 introduced: '\cite{arXiv:0903.0566,arxiv:1202.0928}'
 
+alternative_names:
+  - 'Quantum hypergraph (QHG) code'
+
 description: |
-  A family of \([[n,k,d]]\) CSS codes whose construction is based on two binary linear \textit{seed} codes, \(i\in\{1,2\}\) \(C_i\) with parameters \([n_i, k_i, d_i]\) defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
+  A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear codes.
+  Codes from hypergraph products in higher dimension are called \textit{higher-dimensional HGP codes} \cite{arxiv:1810.01519}.
+
+  The \([[n,k,d]]\) CSS code's construction is based on two binary linear \textit{seed} codes, \(i\in\{1,2\}\) \(C_i\) with parameters \([n_i, k_i, d_i]\) defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
   The hypergraph product yields two classical codes \(C_{X,Z}\) with parity-check matrices
   \begin{align}
     H_{X}&=\begin{pmatrix}H_{1}\otimes I_{n_{2}} & \,\,I_{r_{1}}\otimes H_{2}^{T}\end{pmatrix}\\
@@ -20,9 +26,6 @@ description: |
   \end{align}
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
-
-
-
 
 # Could be expanded to include Tanner graphs
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
