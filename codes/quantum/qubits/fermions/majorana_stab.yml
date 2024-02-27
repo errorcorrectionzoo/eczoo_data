@@ -21,7 +21,10 @@ description: |
 
 # f in subscript should be bold, but this requires changing mathjax input
 
-protection: 'Detects products of Majorana operators with weight up to \(d-1\). Physically, protects against dephasing errors caused by coupling of fermion density to the environment and bit-flip errors caused by quasiparticle poisoning processes.'
+protection: |
+  Detects products of Majorana operators with weight up to \(d-1\). Physically, protects against dephasing errors caused by coupling of fermion density to the environment and bit-flip errors caused by quasiparticle poisoning processes.
+
+  Code bounds have been developed for small codes \cite{arxiv:1703.00612}.
 
 features:
   encoders:
@@ -49,6 +52,8 @@ relations:
       detail: 'Majorana stabilizer codes can be constructed by self-orthogonal RM codes \cite{arXiv:1703.00459}. These codes have the additional property that the global fermion parity is fixed in the codespace. In this family of codes, logical measurements are reduced to parity measurements of some subset of Majorana fermions in the code.'
     - code_id: stabilizer
       detail: 'Majorana stabilizer codes are useful for Majorana-based architectures, where the degrees of freedom are electrons, and the notion of locality is different than all other code kingdoms.'
+    - code_id: hamming
+      detail: 'Majorana Hamming codes are codes closely related to the classical Hamming codes \cite{arxiv:1703.00612}.'
 
 
 # Begin Entry Meta Information
