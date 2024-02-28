@@ -12,7 +12,7 @@ introduced: '\cite{arxiv:1302.3240,arxiv:1606.01904,arxiv:1709.02832}'
 # [Prop. 8]{1906.11394}
 
 description: |
-  A CSS code whose \(X\)-type stabilizers come from a \(\nu\)-even linear binary code and that admits a transversal gate at the \(\nu\)th level of the Clifford hierarchy.
+  A level-\(\nu\) quantum divisible code is a CSS code whose \(X\)-type stabilizers form a \(\nu\)-even linear binary code in the symplectic representation and which admits a transversal gate at the \(\nu\)th level of the Clifford hierarchy.
   A CSS code is \textit{doubly-even} (\textit{triply-even}) if all \(X\)-type stabilizer generators have weight divisible by four (eight), i.e., if they form a doubly-even (triply-even) classical code.
   Doubly-even codes can yield a transversal \(S\) gate, while triply-even codes yield a transversal \(T\) gate for odd \(n\) \cite{arxiv:1509.03239}.
 
@@ -41,10 +41,12 @@ realizations:
 
 relations:
   parents:
-    - code_id: qubit_css
+    - code_id: generalized_quantum_divisible
+      detail: 'Generalized level-\(\nu\) quantum divisible codes reduce to quantum level-\(\nu\) divisible codes when \(t\) is a vector with \(\pm 1\) entries.
+      The classical code formed by their \(X\)-type stabilizer generator matrix is \(\nu\)-even \cite[pg. 10]{arxiv:1709.08658}.'
   cousins:
     - code_id: divisible
-      detail: 'The \(X\)-type stabilizers of a quantum \(\nu\)-divisible code form a \(\nu\)-even linear binary code.'
+      detail: 'The \(X\)-type stabilizers of a level-\(\nu\) quantum divisible code form a \(\nu\)-even linear binary code.'
     - code_id: reed_muller
       detail: 'Quantum divisible codes can be constructed out of first-order RM codes \cite{arxiv:2204.13176}.'
     - code_id: quantum_concatenated
