@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_49_1_5
+physical: qubits
+logical: qubits
+
+name: '\([[49,1,5]]\) triorthogonal code'
+introduced: '\cite[Appx. B]{arXiv:1209.2426}'
+
+description: |
+  Triorthogonal and quantum divisible code which is the smallest distance-five stabilizer code to admit a transversal \(T\) gate \cite{arXiv:1012.4134,arXiv:1209.2426}.
+  It \(X\)-type stabilizers form a triply-even linear binary code in the symplectic representation.
+
+features:
+  magic_scaling_exponent: 'The code yields an exponent \(\gamma = \log 49 / \log 5 \approx 2.42\).'
+
+  transversal_gates: 'The code admits a transversal \(T\) gate \cite[Appx. B]{arXiv:1209.2426}.'
+
+
+relations:
+  parents:
+    - code_id: quantum_triorthogonal
+    - code_id: quantum_divisible
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: doubled_color
+      detail: 'The \([[49,1,5]]\) triorthogonal code can be viewed as a (gauge-fixed) doubled color code obtained from the \([[17,1,5]]\) 2D color code via the doubling transformation \cite{arxiv:1509.03239}.'
+    - code_id: 2d_color
+      detail: 'The \([[49,1,5]]\) triorthogonal code can be viewed as a (gauge-fixed) doubled color code obtained from the \([[17,1,5]]\) 2D color code via the doubling transformation \cite{arxiv:1509.03239}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: BenjaminQuiring
+      date: '2021-12-16'
