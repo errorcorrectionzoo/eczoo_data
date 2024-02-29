@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hyperbolic
+physical: reals
+logical: reals
+
+name: 'Hyperbolic sphere packing'
+introduced: '\cite{doi:10.1109/ITW.1998.706453,doi:10.1016/j.jfranklin.2005.09.001}'
+
+description: |
+  Encodes states (codewords) into coordinates in the hyperbolic plane \(\mathbb{H}^2\).
+
+protection: |
+  Designed to communicate information over channels for which a Lorentzian metric is appropriate \cite{doi:10.1137/1104038}.
+  Linear programming bounds exist for hyperbolic surfaces \cite{arxiv:2302.02540}.
+
+relations:
+  parents:
+    - code_id: analog
+  cousins:
+    - code_id: pam
+      detail: 'Hyperbolic PAM constellations may yield improved performance over Euclidean ones \cite{doi:10.1109/ITW.1998.706453}.'
+    - code_id: psk
+      detail: 'Hyperbolic PSK constellations may yield improved performance over Euclidean ones \cite{manual:{Silva, E. B., and R. Palazzo Jr. "M-PSK signal constellations in hyperbolic space achieving better performance than the M-PSK signal constellations in Euclidean space." 1999 IEEE Information Theory Workshop, Metsovo, Greece. 1999.}}.'
+    - code_id: qam
+      detail: 'Hyperbolic QAM constellations may yield improved performance over Euclidean ones \cite{manual:{Silva, E. B., R. Palazzo Jr, and M. Firer. "Performance analysis of QAM-like constellations in hyperbolic space." 2000 International Symposium on Information Theory and its Applications, Honolulu, USA. 2000.}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-02'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'

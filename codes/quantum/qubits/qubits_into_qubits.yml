@@ -14,9 +14,9 @@ description: |
   Encodes \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space. Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code's distance.
 
 protection: |
-  Corrects erasure errors on up to \(d-1\) qubits.
+  An \(((n,K,d))\) code corrects erasure errors on up to \(d-1\) qubits.
   The number of correctable errors is often called the \textit{decoding radius}, and it is upper bounded by half of the code distance.
-  As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers.
+  As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers, where \(R = \log_2 K/n\) is the code rate.
 
   A convenient and often considered error set is the \textit{Pauli error} or \textit{Pauli string} basis. For a single qubit, this set consists of products of powers of the Pauli matrices
   \begin{align}
