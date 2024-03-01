@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_k-orthogonal
+physical: qubits
+logical: qubits
+
+name: '\(k\)-orthogonal code'
+introduced: '\cite{arXiv:2210.14066}'
+
+description: |
+  Stabilizer code whose \(X\)-type generators form a \(k\)-orthogonal matrix (defined below) in the symplectic representation.
+
+  A matrix is \(k\)-orthogonal \cite[Def. 4]{arxiv:2210.14066} if
+  \begin{align}
+		|x^1|&\equiv 0\text{ mod }2 \\
+		|x^1\cdot x^2|&\equiv 0\text{ mod }2 \\
+		|x^1\cdot x^2\cdot x^3|&\equiv 0\text{ mod }2 \\
+		&\vdots \\
+		|x^1\cdot x^2\cdot x^3\cdot\ldots\cdot x^k|&\equiv 0\text{ mod }2 \\
+  \end{align}
+  for all its rows \(x^j\), where the generalized dot-product notation means a sum of products of the respective coordinates of all vectors.
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-01'
