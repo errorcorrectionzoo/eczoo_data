@@ -11,7 +11,10 @@ name: 'Bacon-Shor code'
 introduced: '\cite{doi:10.1103/PhysRevA.52.R2493,arxiv:quant-ph/0506023}'
 
 description: |
-  CSS subsystem stabilizer code defined on an \(m_1 \times m_2\) lattice of qubits. It is said to be symmetric when \(m_1=m_2\). The \(X\)-type and \(Z\)-type stabilizers defined as \(X\) and \(Z\) operators acting on all qubits on adjacent columns and rows, respectively. Let \(O_{i,j}\) denote an operator acting on the qubit at a position \((i,j)\) on the lattice, with \(i\in\{0,1,\ldots ,m_1-1\}\) and \(j\in\{0,1,\ldots,m_2-1\}\). The code's stabilizer group is
+  Subsystem CSS code defined on an \(m_1 \times m_2\) lattice of qubits that generalizes the \([[9,1,3]]\) (subspace) Shor code.
+  It is said to be \textit{symmetric} when \(m_1=m_2\), and \textit{asymmetric} otherwise.
+
+  The \(X\)-type and \(Z\)-type stabilizers defined as \(X\) and \(Z\) operators acting on all qubits on adjacent columns and rows, respectively. Let \(O_{i,j}\) denote an operator acting on the qubit at a position \((i,j)\) on the lattice, with \(i\in\{0,1,\ldots ,m_1-1\}\) and \(j\in\{0,1,\ldots,m_2-1\}\). The code's stabilizer group is
   \begin{align}
   \mathsf{S}=\langle X_{i,*}X_{i+1,*},Z_{*,j}Z_{*,j+1}\rangle~,
   \end{align}
@@ -48,7 +51,10 @@ description: |
   \end{align}
   If the physical qubits are arranged in a three-by-three square, the \(Z\)-type (\(X\)-type) gauge operators are supported on qubits in the same row (column). The code reduces to the \hyperref[code:shor_nine]{Shor code} for a particular gauge configuration.
 
-protection: 'The \([[m_1 m_2,1,min(m_1,m_2)]]\) variant has distance \(d=min(m_1,m_2)\). In a symmetric 3-dimensional case (defined on a cubic lattice) with \(L^3\) qubits, the code has the parameters \([[L^3,1,L]]\).'
+protection: |
+  The \([[m_1 m_2,1,min(m_1,m_2)]]\) variant has distance \(d=min(m_1,m_2)\).
+  In a symmetric 3-dimensional case (defined on a cubic lattice) with \(L^3\) qubits, the code has the parameters \([[L^3,1,L]]\).
+  The block size can be optimized based on noise rates \cite{arxiv:1209.0794}.
 
 features:
   rate: 'A non-LDPC family of Bacon-Shor codes achieves a distance of \(\Omega(n^{1-\epsilon})\) with sparse gauge operators.'
@@ -57,6 +63,7 @@ features:
     - 'Piecably fault-tolerant circuits can be employed to construct non-transversal gates effectively \cite{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
     - 'Subsystem lattice surgery \cite{arxiv:1609.08062}.'
   fault_tolerance:
+    - 'Fault-tolerant teleportation-based computation scheme for asymmetric codes that is effective against highly biased noise \cite{arxiv:1211.1400}.'
     - 'Piecably fault-tolerant circuits can be employed to construct non-transversal gates effectively \cite{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
   threshold:
     - 'The number of check operators scales sublinearly with system size, so the Bacon-Shor codes alone do not exhibit a threshold \cite{arxiv:1903.03937}.
