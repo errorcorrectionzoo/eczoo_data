@@ -10,8 +10,11 @@ logical: qudits
 name: 'Modular-qudit surface code'
 introduced: '\cite{arXiv:quant-ph/9707021,arxiv:quant-ph/0609070,arxiv:2211.00299}'
 
-description:
-  Also known as the \(\mathbb{Z}_q\) \textit{surface code}. Extension of the surface code to prime-dimensional \cite{arXiv:quant-ph/9707021,arxiv:quant-ph/0609070} and more general modular qudits \cite{arxiv:2211.00299}.
+alternative_names:
+  - '\(\mathbb{Z}_q\) surface code'
+
+description: |
+  Extension of the surface code to prime-dimensional \cite{arXiv:quant-ph/9707021,arxiv:quant-ph/0609070} and more general modular qudits \cite{arxiv:2211.00299}.
   Stabilizer generators are few-body \(X\)-type and \(Z\)-type Pauli strings associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface.
   Since qudits have more than one \(X\) and \(Z\)-type operator, various sets of stabilizer generators can be defined.
   Ground-state degeneracy and the associated phase depends on the qudit dimension and the stabilizer generators.
@@ -22,7 +25,9 @@ description:
 
 features:
   decoders:
-    - 'Renormalization-group decoder \cite{arxiv:1311.4895}.'
+    - 'Renormalization-group decoder \cite{arxiv:1311.4895,arxiv:1411.3028}.'
+# More on RG: CITE H. Anwar, B.J. Brown, E.T. Campbell and D.E. Browne, New J. Phys. 16, 063038 (2014)
+# RG: CITE G. Duclos-Cianci and D. Poulin, Quant. Inf. Comp. 9&10, 0721 (2014).
 
 notes:
   - 'The simplest \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the qudit surface code with \( q=10\). See related \href{https://github.com/quantumjim/qec_lectures}{Qiskit tutorial}.'
@@ -30,7 +35,8 @@ notes:
 relations:
   parents:
     - code_id: quantum_double_abelian
-      detail: 'Modular-qudit surface code Hamiltonians admit topological phases associated with \(\mathbb{Z}_q\) \cite{arXiv:quant-ph/0609070}.'
+      detail: 'Modular-qudit surface code Hamiltonians admit topological phases associated with \(\mathbb{Z}_q\) topological order \cite{arXiv:quant-ph/0609070}.'
+    - code_id: generalized_homological_product_css
 
 
 # Begin Entry Meta Information
