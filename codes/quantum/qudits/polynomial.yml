@@ -7,13 +7,15 @@ code_id: polynomial
 physical: qudits
 logical: qudits
 
-name: 'Quantum Reed-Solomon code'
-short_name: 'Quantum RS'
+name: 'Prime-qudit quantum RS code'
 introduced: '\cite{arxiv:quant-ph/9910059}'
 # doi:10.1103/PhysRevA.77.012308?
 
+alternative_names:
+  - 'Prime-qudit polynomial code (QPyC)'
+
 description: |
-  Also called \textit{prime-qudit polynomial code (QPyC)}. Prime-qudit CSS code constructed using two Reed-Solomon codes.
+  Prime-qudit CSS code constructed using two Reed-Solomon codes.
 
   The original construction \cite{arxiv:quant-ph/9910059} was for a qubit code (\(p=2\)) by using a basis for a larger Galois field over \(GF(2)\), yielding an \([[kN,k(N-2K),K+1]]\) qubit code from a \([N,K,\delta]_{GF(2^k)}\) RS code with \(N=2^k-1\) and \(K=N-\delta+1\).
 
@@ -29,7 +31,7 @@ description: |
   \end{align}
 
 features:
-  magic_scaling_exponent: 'Triorthogonal quantum RS codes achieve a magic-state distillation scaling exponent \(\gamma\) that is arbitrarily close to zero \cite{arxiv:1811.08461}.'
+  magic_scaling_exponent: 'Triorthogonal prime-qudit RS codes achieve a magic-state distillation scaling exponent \(\gamma\) that is arbitrarily close to zero \cite{arxiv:1811.08461}.'
 
 relations:
   parents:
@@ -39,7 +41,7 @@ relations:
   cousins:
     - code_id: quantum_triorthogonal
       detail: 'Triorthogonality can be generalized to qudit codes.
-      Quantum RS codes achieve a magic-state distillation scaling exponent \(\gamma\) that is arbitrarily close to zero \cite{arxiv:1811.08461}.'
+      Prime-qudit RS codes achieve a magic-state distillation scaling exponent \(\gamma\) that is arbitrarily close to zero \cite{arxiv:1811.08461}.'
 
 
 # Begin Entry Meta Information
