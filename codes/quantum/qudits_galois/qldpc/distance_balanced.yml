@@ -15,8 +15,10 @@ description: |
   The initial code is said to be \textit{unbalanced}, i.e., tailored to noise biased toward either bit- or phase-flip errors, and the procedure can result in a code that is treats both types of errors on a more equal footing.
   The original distance-balancing procedure \cite{arxiv:1611.03790}, later generalized \cite[Thm. 4.2]{arxiv:2004.07935}, can yield QLDPC codes \cite[Thm. 1]{arxiv:1611.03790}.
 
+  \begin{defterm}{Weight reduction}
+  \label{topic:weight-reduction}
   A related procedure called \textit{weight reduction} \cite{arXiv:1611.03790} takes in a CSS stabilizer code and outputs another CSS code that admits a set of stabilizer generators whose weight is independent of the number of qubits \(n\).
-  This procedure has been studied in the context of specific small codes, inclduing GKP cluster-state codes \cite{arxiv:2402.05228}.
+  \end{defterm}
 
 relations:
   parents:
@@ -27,7 +29,9 @@ relations:
       detail: 'Distance balancing relies on taking a homological product of chain complexes corresponding to a classical and a quantum code.'
     - code_id: subsystem_stabilizer
     - code_id: gkp-cluster-state
-      detail: 'Weight reduction has been studied in the context of GKP cluster-state codes \cite{arxiv:2402.05228}.'
+      detail: '\hyperref[topic:weight-reduction]{Weight reduction} has been studied in the context of GKP cluster-state codes \cite{arxiv:2402.05228}.'
+    - code_id: qldpc
+      detail: 'Lattice surgery techniques for QLDPC codes \cite{arxiv:2110.10794,arxiv:2308.08648} utilize \hyperref[topic:weight-reduction]{weight reduction}.'
 
 
 # Begin Entry Meta Information
