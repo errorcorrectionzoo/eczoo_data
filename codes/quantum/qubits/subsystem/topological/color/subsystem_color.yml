@@ -7,6 +7,7 @@ code_id: subsystem_color
 physical: qubits
 logical: qubits
 
+# general class encapsulating capped and doubled, so not necessarily translation invariant. Consider peeling off original lattice codes to separate entries
 name: 'Subsystem color code'
 introduced: '\cite{arxiv:0908.4246,arxiv:1311.0879}'
 
@@ -14,11 +15,12 @@ alternative_names:
   - 'Gauge color code'
 
 description: |
-  Subsystem version of the color code that is obtained by expanding the vertices of a two-colex embedded in a surface of genus \(g\).
+  A subsystem version of the color code.
+  One way to obtain it is by expanding the vertices of a two-colex embedded in a surface of genus \(g\).
   Vertex expansion consists of splitting every vertex into a triangle and splitting every edge into a pair of edges.
 
 protection: |
-  The family of subsystem codes has parameters \([[3m,2g,2m+2g-2,d]]\), where \(m\) is the number of vertices of the original embedded two-colex, where \(g\) is the genus of the surface embedding the two-colex, and where the distance is bounded from below by the length of the smallest nontrivial homological cycle of the two-colex \(\Gamma\) \cite[Construction B]{arxiv:1207.0479}\cite[Lemma 2]{arxiv:1805.12542}.
+  One family of subsystem codes has parameters \([[3m,2g,2m+2g-2,d]]\), where \(m\) is the number of vertices of the original embedded two-colex, where \(g\) is the genus of the surface embedding the two-colex, and where the distance is bounded from below by the length of the smallest nontrivial homological cycle of the two-colex \(\Gamma\) \cite[Construction B]{arxiv:1207.0479}\cite[Lemma 2]{arxiv:1805.12542}.
 
 features:
   general_gates:
@@ -38,13 +40,13 @@ relations:
     - code_id: subsystem_css
     - code_id: qudit_subsystem_color
       detail: 'Modular-qudit subsystem color codes reduce to subsystem color codes for \(q=2\).'
-    - code_id: translationally_invariant_subsystem
   cousins:
     - code_id: color
     - code_id: single_shot
       detail: 'The 3D subsystem color code is a single-shot code \cite{arxiv:1404.5504,arxiv:1503.08217}.'
     - code_id: symmetry_protected_self_correct
-      detail: 'A particular gauge-fixed version of this code on a 3D lattice yields a self-correcting memory protected by one-form symmetries (see Sec. IV D of Ref. \cite{arXiv:1805.01474}). The symmetric energy barrier grows linearly with the length of a side of the lattice. When the system is coupled locally to a thermal bath respecting the symmetry and below a critical temperature, the memory time grows exponentially with the side length.
+      detail: 'A particular gauge-fixed version of a subsystem code on a 3D lattice yields a self-correcting memory protected by one-form symmetries \cite[Sec. IV D]{arXiv:1805.01474}.
+      The symmetric energy barrier grows linearly with the length of a side of the lattice. When the system is coupled locally to a thermal bath respecting the symmetry and below a critical temperature, the memory time grows exponentially with the side length.
       The subsystem color code is not a self-correcting quantum memory if symmetry protection is removed \cite{arxiv:2305.06389}.'
 
 
