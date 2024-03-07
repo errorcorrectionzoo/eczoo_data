@@ -11,7 +11,7 @@ name: 'Dinur-Hsieh-Lin-Vidick (DHLV) code'
 short_name: 'DHLV'
 introduced: '\cite{arxiv:2206.07750}'
 
-description: 'Stub.'
+description: 'A family of asymptotically good QLDPC codes which are related to expander LP codes in that the roles of the check operators and physical qubits are exchanged.'
 
 features:
   rate: 'Asymptotically good QLDPC codes.'
@@ -22,7 +22,8 @@ features:
 relations:
   parents:
     - code_id: qubit_generalized_homological_product_css
-    - code_id: balanced_product
+    - code_id: lifted_product
+      detail: 'DHLV codes are LP codes \cite[Footnote 7]{arxiv:2403.03651}.'
   cousins:
     - code_id: good_qldpc
       detail: 'DHLV code construction yields asymptotically good QLDPC codes.'
@@ -30,6 +31,8 @@ relations:
       detail: 'Regular binary Tanner codes are used in constructing quantum DHLV codes.'
     - code_id: tensor
       detail: 'Tensor codes are used in constructing quantum DHLV codes.'
+    - code_id: balanced_product
+      detail: 'DHLV codes can be obtained from a balanced product of two expander codes \cite{arxiv:2403.03651}.'
 
 
 # Begin Entry Meta Information
