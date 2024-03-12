@@ -14,8 +14,7 @@ introduced: '\cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0403025,arXiv:quant-ph/
 
 description: |
   Member of color-code code family constructed with a first-order punctured RM\((1,m=r)\) \([2^r-1,r+1,2^{r-1}-1]\) code and its even subcode for \(r \geq 3\).
-  Each code transversally implements a diagonal gate at the \((r-1)\)st level of the \term{Clifford hierarchy} \cite{arxiv:1608.06596}.
-
+  Each code transversally implements a diagonal gate at the \((r-1)\)st level of the \term{Clifford hierarchy} \cite{arxiv:quant-ph/0611214,arxiv:1608.06596}.
   Each code is a color code defined on a simplex in \(r-1\) dimensions \cite{arxiv:1311.0879,arxiv:1503.08217}, where qubits are placed on the vertices, edges, and faces as well as on the simplex itself.
 # Notation swithed from classical RM(r,m)
 
@@ -24,7 +23,7 @@ description: |
 # r is correct in placement of RM label here
 
 features:
-  transversal_gates: 'Logical \(Z\)-rotation by angle \(-\pi/2^{r-1}\) \cite{arxiv:quant-ph/0611214}.
+  transversal_gates: 'Each code transversally implements a diagonal gate at the \((r-1)\)st level of the \term{Clifford hierarchy} in the form of a \(Z\)-rotation by angle \(-\pi/2^{r-1}\) \cite{arxiv:quant-ph/0611214,arxiv:1608.06596}.
   These are the smallest qubit stabilizer codes with such a gate \cite{arxiv:2210.14066}'
 
 relations:
@@ -40,6 +39,9 @@ relations:
     - code_id: quantum_k-orthogonal
       detail: '\([[2^r-1, 1, 3]]\) quantum Reed-Muller codes are \((r-1)\)-orthogonal \cite[Lemma 2]{arxiv:2210.14066}.'
     - code_id: small_distance_quantum
+  cousins:
+    - code_id: simplex_spherical
+      detail: 'Each \([[2^r-1, 1, 3]]\) quantum Reed-Muller code is a color code defined on a simplex in \(r-1\) dimensions \cite{arxiv:1311.0879,arxiv:1503.08217}.'
 
 
 # Begin Entry Meta Information
