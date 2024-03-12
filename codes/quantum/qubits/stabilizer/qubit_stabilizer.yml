@@ -49,9 +49,16 @@ description: |
 
 
 protection: |
-  Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
+  Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits.
 
-  A stabilizer code is \textit{geometrically local} if the support of the stabilizer generators is bounded by a ball of size independent of \(n\).
+  There is the following analogue of the \term{Knill-Laflamme conditions} for qubit stabilizer codes.
+  Define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\).
+  A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
+
+  Entropic conditions have been formulated for random projective measurement noise \cite{arxiv:2402.00145}.
+
+
+# A stabilizer code is \textit{geometrically local} if the support of the stabilizer generators is bounded by a ball of size independent of \(n\).
 
 features:
   encoders:

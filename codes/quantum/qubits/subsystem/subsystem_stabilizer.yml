@@ -28,7 +28,12 @@ description: |
   Thus the Hilbert space is partitioned into 3 sets; \(k\) logical qubits, \(r\) gauge qubits, and \(s\) stabilizer qubits, with \(s+r+k=n\).
 
 protection: |
-  Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits. More generally, a set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathsf{S}) \setminus \mathsf{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathsf{S}) \setminus \mathsf{G}\).
+  Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.
+
+  There is the following analogue of the \term{Knill-Laflamme conditions} for subsystem qubit stabilizer codes.
+  A set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathsf{S}) \setminus \mathsf{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathsf{S}) \setminus \mathsf{G}\).
+
+  Entropic conditions have been formulated for random projective measurement noise \cite{arxiv:2402.00145}.
 
 features:
   encoders:
