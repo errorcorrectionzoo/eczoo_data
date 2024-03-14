@@ -8,24 +8,26 @@ physical: qubits
 logical: qubits
 
 name: 'Quantum Reed-Muller code'
-introduced: '\cite{arXiv:quant-ph/9608026}'
+introduced: '\cite{arXiv:quant-ph/9608026,arxiv:quant-ph/9703045}'
 
-description: 'A CSS code formed from a classical Reed-Muller code (or its punctured versions) in which polynomials over finite fields encode data. This is done by transforming these polynomials into the stabilizer generator matrices.'
+description: |
+  A CSS code formed from a classical Reed-Muller (RM) code or its punctured/shortened versions.
+  Such codes often admit transversal logical gates in the \term{Clifford hierarchy}.
+
+  Various RM codes can be used to construct quantum Reed-Muller codes.
+  For example, the original construction \cite{arXiv:quant-ph/9608026} uses a general RM\((r,m)\) code for the \(X\)-type stabilizers, and an RM\((r-1,m)\) code for the \(Z\)-type stabilizers.
+  Non-CSS codes can be derived from such codes by modifying the \(X\)-type stabilizers \cite{arXiv:quant-ph/9608026}.
 
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
 features:
+  transversal_gates: 'Many quantum Reed-Muller codes admit gates in the \term{Clifford hierarchy}.
+  For example, the \([[2^m,{m \choose r}, 2^r]]\) family, where \(r\) divides \(m\), admit diagonal gates in the form of \(Z\)-rotations by angle \(\pi/2^{m/r}\) \cite[Exam. 8]{arxiv:1910.09333}.'
 
   rate: '\(\frac{k}{n}\), where \(k = 2^r - {r \choose t} + 2 \sum_{i=0}^{t-1} {r \choose i}\). Additionally, CSS codes formed from binary Reed-Muller codes achieve channel capacity on erasure channels \cite{doi:10.1109/ISIT.2016.7541599}.'
 
-  general_gates:
-    - 'Magic state distillation in all prime dimensions \cite{doi:10.1103/PhysRevX.2.041021}'
-
   fault_tolerance:
     - 'Gate switching protocol for universal computation \cite{arxiv:1403.2734}.'
-
-  threshold:
-    - 'Between \(10^{-3}\) and \(10^{-6}\) for depolarizing noise (assuming ideal decoders), see \cite{doi:10.1088/2058-9565/abb027}'
 
 relations:
   parents:
@@ -42,6 +44,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-14'
     - user_id: BenjaminQuiring
       date: '2021-12-16'
     - user_id: VictorVAlbert
