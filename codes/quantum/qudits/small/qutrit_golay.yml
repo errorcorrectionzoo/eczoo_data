@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qutrit_golay
+physical: qudits
+logical: qudits
+
+name: 'Qutrit Golay code'
+introduced: '\cite{arXiv:2003.02717}'
+
+description: |
+  An \([[11,1,5]]_3\) CSS code constructed from the ternary Golay code.
+
+  The code's 11-by-23 stabilizer generator matrix blocks are
+  \begin{align}
+    H_{X}=H_{Z}=
+    \begin{pmatrix}
+      2&1&1&2&2&0&1&0&0&0&0\\
+      2&1&2&1&0&2&0&1&0&0&0\\
+      2&2&1&0&1&2&0&0&1&0&0\\
+      2&2&0&1&2&1&0&0&0&1&0\\
+      2&0&2&2&1&1&0&0&0&0&1
+    \end{pmatrix}.
+  \end{align}
+
+
+features:
+  transversal_gates: 'All single-qutrit encoded Clifford gates \cite{arXiv:2003.02717}.'
+
+  magic_scaling_exponent: 'Magic-state distillation scailing exponent \(\gamma=\log_3(1728\times 11)=\approx 8.97\), where the \(1728\) factor comes from the fact that one round of distillation succeeds with probability \(\approx\frac{1}{1728}\) \cite{arXiv:2003.02717}.'
+
+  general_gates:
+    - 'Magic-state distillation of the strange state \(|S\rangle=\frac{1}{\sqrt{2}}(|1\rangle-|2\rangle)\) and the Norell state \(|N\rangle=\frac{1}{\sqrt{2}}(|1\rangle+|2\rangle)\), with the former achieving a cubic error suppression \cite{arXiv:2003.02717}.'
+
+relations:
+  parents:
+    - code_id: qudit_css
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: ternary_golay
+      detail: 'The qutrit Golay code is a CSS code constructed from the ternary Golay code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: YinchenLiu
+      date: '2024-03-15'
+    - user_id: VictorVAlbert
+      date: '2024-03-15'

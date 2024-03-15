@@ -37,7 +37,10 @@ description: |
 
 
 protection: |
-  Detects a single-qubit error \cite{arXiv:quant-ph/9603031} or single erasure \cite{arXiv:quant-ph/9610042}. Not able to correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \). Approximately corrects a single amplitude damping error \cite{arXiv:quant-ph/9704002} (see also \cite{arxiv:quant-ph/0103042}).
+  Detects a single-qubit error \cite{arXiv:quant-ph/9603031} or single erasure \cite{arXiv:quant-ph/9610042}.
+  Not able to correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
+
+  The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arXiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single amplitude damping error, with the latter being a constant excitation code.
 
 
 features:
@@ -88,9 +91,13 @@ relations:
     - code_id: stab_5_1_3
       detail: 'The \([[4,2,2]]\) code can be derived from the five-qubit code using a protocol that converts an \([[n,k,d]]\) code into an \([[n-1, k+1, d-1]]\) code; see Sec. 3.5 in Gottesman \cite{arXiv:quant-ph/9705052}.'
     - code_id: approximate_qecc
-      detail: '\([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arXiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single amplitude damping error.'
+      detail: 'The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arXiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single amplitude damping error, with the latter being a constant excitation code.'
+    - code_id: constant_excitation
+      detail: 'The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arXiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single amplitude damping error, with the latter being a constant excitation code.
+      An \(((8,1))\) constant-excitation code correcting a single amplitude damping error can be obtained from concatenating that subcode with the dual-rail code \cite{arxiv:2010.00538}.'
     - code_id: binomial
-      detail: '\([[4,1,2]]\) subcode consisting of \(\{|\overline{00}\rangle\) and any other codeword reduces to the \(0,2,4\) binomial code when the basis labels in each codeword are written as in base-ten. Such a mapping can be generalized \cite{manual:{Linshu Li, private communication, 2018}}.'
+      detail: '\([[4,1,2]]\) subcode consisting of \(\{|\overline{00}\rangle\) and any other codeword reduces to the \(0,2,4\) binomial code when the basis labels in each codeword are written as in base-ten.
+      Such a mapping can be generalized \cite{manual:{Linshu Li, private communication, 2018}}.'
     - code_id: heavy_hex
       detail: 'Magic states prepared using the \([[4,1,2]]\) subcode can be injected into the heavy-hex code \cite{arxiv:2110.04285,arxiv:2305.13581}.'
 
@@ -99,6 +106,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: YinchenLiu
+      date: '2024-03-15'
     - user_id: VictorVAlbert
       date: '2022-06-23'
     - user_id: AntonioDCorcoles

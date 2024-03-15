@@ -49,12 +49,18 @@ relations:
     - code_id: 'one_hot_quantum'
   cousins:
     - code_id: quantum_concatenated
-      detail: 'The KLM protocol, one of the first protocols for fault-tolerant quantum computation, utilizes concatenations of the dual-rail with a stabilizer code \cite{doi:10.1038/35051009}.'
+      detail: 'The KLM protocol, one of the first protocols for fault-tolerant quantum computation, utilizes concatenations of the dual-rail with a stabilizer code \cite{doi:10.1038/35051009}.
+      Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538}.'
+    - code_id: constant_excitation
+      detail: 'An \(((8,1))\) constant-excitation code correcting a single amplitude damping error can be obtained from concatenating the \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) (constant-excitation) subcode with the dual-rail code.
+      More generally, concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538}.'
 
 
 _meta:
 
   changelog:
+    - user_id: YinchenLiu
+      date: '2024-03-15'
     - user_id: EshaSwaroop
       date: '2024-03-14'
     - user_id: 'VictorVAlbert'
