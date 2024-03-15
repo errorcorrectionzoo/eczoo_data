@@ -13,9 +13,9 @@ introduced: '\cite{arxiv:quant-ph/9605021}'
 description: |
   A \([[23, 1, 7]]\) self-dual CSS code with eleven stabilizer generators of each type, and with each generator being weight eight.
 
-  The code's 11-by-23 stabilizer generator matrix blocks are
+  The code's 11-by-23 stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both
   \begin{align}
-    H_{X}=H_{Z}=\left(\begin{array}{ccccccccccccccccccccccc}
+    \left(\begin{array}{ccccccccccccccccccccccc}
     0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
     1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
     0 & 1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
@@ -43,14 +43,14 @@ features:
   transversal_gates: 'All encoded Clifford gates by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\) \cite{arXiv:1106.2190}.'
 
   general_gates:
-    - 'The Golay code can be used to perform magic-state distillation for the magic state defined as \(|T\rangle\langle T|=\frac{1}{2}(I+\frac{1}{\sqrt{3}}(X+Y+Z))\) where \(|T\rangle\) is an eigenstate of the Clifford operator \(SH\) \cite{arXiv:quant-ph/0411036}.'
+    - 'The Golay code can be used to perform magic-state distillation for the magic state defined as \(|T\rangle\langle T|=\frac{1}{2}(I+\frac{1}{\sqrt{3}}(X+Y+Z))\), where \(|T\rangle\) is an eigenstate of the Clifford operator \(SH\) \cite{arXiv:quant-ph/0411036}.'
 
   fault_tolerance:
     - 'Fault-tolerant depth-7 circuit consisting of 57 CNOT gates and preparing a logical-zero state \cite{arXiv:1106.2190}.'
 
   threshold:
     - '\(1.32\times 10^{-3}\)-per gate error rate for depolarizing noise upon recursive concatenation \cite{arXiv:1106.2190}, improving previous lower bounds \cite{arxiv:quant-ph/0207119,arXiv:0711.1556,manual:{B. Reichardt and Y. Ouyang. Unpublished (2006).}}.
-    The latter numerical study found that the Golay code achieved the highest threshold among a dozen well-known codes at the time \cite{arXiv:0711.1556}.'
+    The first numerical study \cite{arxiv:quant-ph/0207119} found that the Golay code achieved the highest threshold among a dozen well-known codes at the time \cite{arXiv:0711.1556}.'
 
 notes:
   - 'See Ref. \cite{arxiv:quant-ph/0612004} for more details.'

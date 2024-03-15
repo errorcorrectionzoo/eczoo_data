@@ -19,15 +19,14 @@ alternative_names:
 # qubits per logical qubit,
 
 description: |
-  A surface code with weight-four stabilizer generators defined on a triangular lattice patch with a single twist defect at the center of the patch.
+  A surface code with weight-four stabilizer generators defined on a triangular lattice patch that are examples of twist-defect surface code with a single twist defect at the center of the patch.
   The codes use about \(25\%\) fewer physical per logical qubit for a given distance compared to the surface code.
-  The also yield a way to implement gate \(S\) without state distillation.
 
-  The codes are defined an a plane tiled with equilateral triangles and having a twist defect at its center.
-  Each triangle can encode a qubit where one side is a string of \(Z\)s as logical \(\bar{Z}\), one side is a string of \(X\)s as logical \(\bar{X}\), and the last side is a mixed-type string as logical \(\bar{Y}\).
+  Triangular surface codes are defined on a plane tiled with equilateral triangles.
   The size of the triangular patches and which patch encodes data versus act as ancillas for gates depends on the initialization and measurement procedures.
   See Ref. \cite{arXiv:1612.04795} for tables and figures.
 
+# Each triangle can encode a qubit where one side is a string of \(Z\)s as logical \(\bar{Z}\), one side is a string of \(X\)s as logical \(\bar{X}\), and the last side is a mixed-type string as logical \(\bar{Y}\).
 #
 #
 # The codes have simple syndrome extraction circuits and have a high threshold close to that of surface codes.
@@ -40,12 +39,12 @@ description: |
 
 
 protection: |
-  For a triangle code with 7 qubits of information, 6 (6, 8) ancilla qubits, 13 (13, 15) qubits in total, and max degree of 4 (5, 4) the lower pseudothreshold under depolarizing noise is \(1.05 \times 10^{-4}\) (\(1.57 \times 10^{-4}\), \(1.76 \times 10^{-4}\)) and upper pseudothreshold is \(1.22 \times 10^{-4}\) (\(1.92 \times 10^{-4}\), \(2.23 \times 10^{-4}\)).
+  For a triangle code with 7 qubits of information, 6 (6, 8) ancilla qubits, 13 (13, 15) qubits in total, and max degree of 4 (5, 4), the lower pseudothreshold under depolarizing noise is \(1.05 \times 10^{-4}\) (\(1.57 \times 10^{-4}\), \(1.76 \times 10^{-4}\)), and the upper pseudothreshold is \(1.22 \times 10^{-4}\) (\(1.92 \times 10^{-4}\), \(2.23 \times 10^{-4}\)).
 
 
 features:
   rate: 'For specific triangle codes, the rates are \(7/13\) or \(7/15\) both with distance \(3\) and weight-four check operators.
-  In general, for \(d\) distance, there are \(3d^2 + O(d)\), \(9d^2/4 + O(d)\), or \(6d^2/4 + O(d)\) physical qubits per logical qubit, depending on the type of initialization and measurement procedures (code conversion vs. basis-state conversion vs. CAT states, respectively).'
+  In general, for \(d\) distance, there are \(3d^2 + O(d)\), \(9d^2/4 + O(d)\), or \(6d^2/4 + O(d)\) physical qubits per logical qubit, depending on the type of initialization and measurement procedures.'
 
   encoders:
     - 'Code conversion (CC) initialization and measurement method, in which the surface code is used to hold data between gates in patches.'
@@ -77,14 +76,17 @@ features:
 
   decoders:
     - 'The decoding uses a a single decoding graph since the triangle code is not a CSS code.
-    Nodes of the graph are located at each stabilizer (center of the triangle graph) and has red or blue edges where red associates with \(X\) errors and blue with \(Z\) errors. To take into account any errors from measuring the error syndrome, a three-dimensional stack of the decoding graphs is laid on top of the code with vertical edges connecting to qubits between layers \cite{arXiv:1612.04795}.'
+    Nodes of the graph are located at each stabilizer (center of the triangle graph) and have red or blue edges, where red associates with \(X\) errors and blue with \(Z\) errors.
+    To take into account any errors from measuring the error syndrome, a three-dimensional stack of the decoding graphs is laid on top of the code with vertical edges connecting to qubits between layers \cite{arXiv:1612.04795}.'
 
   fault_tolerance:
     - 'The symmetry of triangle codes allows for fault-tolerant measurement and encoding in any Pauli basis \cite{arXiv:1612.04795}.'
     - 'A non-fault-tolerant curcuit initializes the triangle code.
     To guarantee fault-tolerance, postselection is performed on trivial measurements of the syndrome and of the logical Pauli, depending on the basis of the logical states \cite{arXiv:1612.04795}.'
-    - 'For syndrome extraction, instead of using the conventional ordering of coupling to the loop after coupling to the plaquette, the extraction has the coupling to the loop interwoven with the coupling to the plaquette.
-    These are equivalent in circuits, but makes a difference to the fault-tolerance since the latter can detect hook errors and the former cannot \cite{arXiv:1612.04795}.'
+    - 'Making syndrome extraction fault tolerant requires a specific ordering of syndrome measurements so as to avoid hook errors \cite{arXiv:1612.04795}.'
+
+# , instead of using the conventional ordering of coupling to the loop after coupling to the plaquette, the extraction has the coupling to the loop interwoven with the coupling to the plaquette.
+# These are equivalent in circuits, but makes a difference to the fault-tolerance since the latter can detect hook errors and the former cannot
 
   code_capacity_threshold:
     - '\(10\%\) under either bit-flip or bit-phase noise for ideal syndrome measurements.
