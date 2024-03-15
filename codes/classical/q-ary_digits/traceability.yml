@@ -1,0 +1,52 @@
+code_id: traceability
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Traceability Codes'
+introduced: '\cite{doi:10.1109/18.841169}'
+
+description: 'Traceability codes are codes with combinatorial properties that trace sources of leaks of sensitive information \cite{doi:10.1109/18.841169}. Codes with strong traceability traces at least one member of a group that has constructed a pirate decoder \cite{doi:10.1109/18.915661}. A pirate decoder is a generic pirate decryption process \cite{doi:10.1109/18.841169}. A code with weak traceability has the ability to ensure that no group is able to frame another user \cite{doi:10.1109/18.915661}.' 
+
+protection: 'Protects materials that have be copyrighted by providing the ability to trace potential leaks as well as aids in helping to ensure an innocent party can not be framed for the pirated information \cite{doi:10.1109/18.915661}. Additionally, having this ability will help to deter pirates, help to identify pirates to then take legal action, and also codes with this ability can be used to disable pirates \cite{doi:10.1109/18.841169}.'
+
+features:
+
+  rate: |
+    Suppose n is the number of users, k is the number of users known by the pirates, and p is the probability that the pirates cannot be traced. An open (public) resilient scheme using a hash function has the personal keys of the users consisting of O(k^{2}log n) descryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{4}log n) \cite{doi:10.1109/18.841169}.
+    Suppose n, k, and p are as above. A secret resilient scheme using a hash function has the personal keys of the users consisting of O(k log(n/p)) decryption keys which is the amount of decryptions needed to reveal the information. The amount of data redundancy overhead is about O(k^{2} log(n/p)) \cite{doi:10.1109/18.841169}.
+    Suppose n, k, and p are as above. A threshold (secret) scheme using a hash function that is successful against pirates which decrpt with greater probability than paramter q, has the personal keys of the users consisting of (4k/3q)log(n/p) decryption keys. Note that this is the same as in the secret resilient schreme above. These types of schemes only need O(1) decryption operation performed by users to decrypt the information successfully. Finally, the amount of data redundancy overhead is 4k encrypted keys which is a large improvement compared to the above \cite{doi:10.1109/18.841169}.
+
+  #encoders:
+  
+  #transversal_gates: 
+
+  #general_gates:
+
+  decoders:
+    - 'A pirate decoder represents the pirate decryption process that is considered a black box. It is not necessary to know how it works so a pirate decode could be a physical box or even code on a computer \cite{doi:10.1109/18.841169}.'
+
+  #fault_tolerance:
+
+  #code_capacity_threshold:
+    
+  #threshold:
+  
+realizations:
+  - 'Code used in broadcast messages, pay-per-view movies, protecting copyrighted online material \cite{doi:10.1109/18.915661}.'
+
+notes:
+  - 'Fully resilient schemes guarantee to trace the source of any piracy \cite{doi:10.1109/18.841169}.'
+  - 'Threshold schemes have a parameter of the scheme, say q, for which the scheme only traces sources of pirate decoders that decrypt with greater probability than q \cite{doi:10.1109/18.841169}.'
+  - 'Secret schemes are those that have their decryption scheme and keys as secret. The open schemes are those that the decryption schemes and decryption keys are public information \cite{doi:10.1109/18.841169}.'
+  - 'Note that in the feature section above, the hash function maps the users into a set of 2k^{2} decryption keys \cite{doi:10.1109/18.841169}.'
+  - 'Links to code tables \cite{doi:10.1109/18.841169} and \cite{doi:10.1109/18.915661}.'
+
+relations: 
+  parents:
+    - code_id: ipp
+      detail: 'Codes with the identifiable parent property have the ability that given any descendent, a parent codeword can always be identified \cite{doi:10.1016/j.endm.2005.07.012}.' 
+  cousins:
+    - code_id: frameproof
+      detail: 'Frameproof codes fingerprint digital data and also they help prevent copyrighted information from unauthorized use \cite{arXiv:1411.5782}.'
+    #- code_id: separating
+     # detail: 'Separating codes are equivalent to codes with the secure frameproof property. A c-separating code has the property that for any two disjoint sets that each contain at most \(c\) code words, there is at least one position where the set of symbols of each set are disjoint \cite{doi:10.1007/s10623-021-00988-z}.'
