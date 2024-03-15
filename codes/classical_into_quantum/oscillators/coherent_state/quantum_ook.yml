@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_ook
+physical: oscillators
+logical: reals
+
+name: 'On-off keyed (OOK) c-q code'
+short_name: 'OOK c-q'
+introduced: '\cite{doi:10.1038/nature05655}'
+
+description: 'Coherent-state c-q binary code whose encoding is either in the vacuum \(|0\rangle\) or in a nonzero coherent state \(|\alpha\rangle\).'
+
+features:
+  decoders:
+    - 'Dolinar receiver \cite{manual:{Dolinar, Samuel Joseph. "An optimum receiver for the binary coherent state quantum channel." Research Laboratory of Electronics, MIT, Quarterly Progress Report 11 (1973): 115-120.}}.'
+    - 'Superconducting transition edge sensor (TES) photon-number resolving detector \cite{doi:10.1364/OE.18.008107}.'
+
+realizations:
+  - 'Proof-of-principle experiments using Dolinar \cite{doi:10.1038/nature05655} and TES receivers \cite{doi:10.1364/OE.18.008107}.'
+
+relations:
+  parents:
+    - code_id: coherent_state_c-q
+  cousins:
+    - code_id: quantum_bpsk
+      detail: 'OOK c-q codewords are related to BPSK c-q codewords by a displacement in phase space.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-01-13'

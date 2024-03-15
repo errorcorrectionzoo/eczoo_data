@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: simplex_spherical
+physical: spheres
+logical: reals
+
+name: 'Simplex spherical code'
+
+description: |
+  Spherical \((n,n+1,2+2/n)\) code whose codewords are all permutations of the \(n+1\)-dimensional vector \((1,1,\cdots,1,-n)\), up to normalization, forming an \(n\)-simplex.
+  Codewords are all equidistant and their components add up to zero.
+  For example, the spherical simplex code in \(n=3\) makes up the vertices of a tetrahedron.
+  In general, the code makes up the vertices of an \(n\)-simplex.
+  See \cite[Sec. 7.7]{preset:EricZin} for a parameterization.
+
+protection: |
+  Simplex spherical codes saturate the absolute bound, the Levenshtein bound and, for \(2 < \rho \leq 4\), the first two Rankin bounds \cite{preset:EricZin}.
+  All simplex codes are unique up to equivalence \cite[pg. 18]{preset:EricZin}, which follows from saturating the Boroczky bound \cite{manual:{K. Boroczky, Packing of spheres in spaces of constant curvature, Acta Math. Acad. Sci. Hung. 32 (1978), 243–261.}}.
+
+relations:
+  parents:
+    - code_id: polytope
+      detail: 'Simplex spherical codewords in 2 (3, 4, \(n\)) dimensions form the vertices of a triangle (tetrahedron, 5-cell, \(n\)-simplex).'
+    - code_id: sharp_config
+    - code_id: spherical_design
+      detail: 'Simplex spherical codes are the only tight spherical 2-designs \cite[Tab. 9.3]{preset:EricZin}.'
+    - code_id: permutation_spherical
+  cousins:
+    - code_id: binary_antipodal
+      detail: 'A binary simplex code (also known as a shortened Hadamard code) to a \((2^m,2^m+1)\) simplex signal set under the antipodal mapping \cite[Sec. 6.5.2]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}. This set is equivalent to the simplex code since all such codes are unique up to equivalence \cite[pg. 18]{preset:EricZin}. Simplex (simplex spherical) codes form simplices in Hamming (Euclidean) space.'
+    - code_id: icosahedron
+      detail: 'Vertices of a dodecahedron can be split up into vertices of five tetrahedra, which are simplex spherical codes for \(n=3\) \cite{preset:coxeter}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-15'

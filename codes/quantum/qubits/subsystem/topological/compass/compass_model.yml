@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: compass_model
+physical: qubits
+logical: qubits
+
+name: 'Compass code'
+introduced: '\cite{arxiv:1809.01193}'
+
+description: |
+  Subspace or subsystem CSS code defined by gauge-fixing the Bacon-Shor code, i.e., the code whose gauge group consists of terms in the compass model Hamiltonian \cite{doi:10.1070/PU1982v025n04ABEH004537,arxiv:cond-mat/0501708,arxiv:1303.5922} on a square lattice.
+  Families of random codes perform well against biased noise and spatially dependent (i.e., asymmetric) noise.
+
+  The gauge fixing proceeds by denoting plaquettes by \(X\) or \(Z\) type using two colors, and fixing or \textit{cutting} the corresponding \(X\) or \(Z\)-type gauge generators at the respective plaquettes.
+  A fully colored lattice yields a subspace code, but allowing for non-colored plaquettes yield a subsystem code.
+  A fully non-colored lattice reduces to the Bacon-Shor code.
+
+  The \textit{surface-density} compass code family is obtained by randomly cutting \(X\)-type stabilizers at only plaquettes of one color in a checkboard coloring; it interpolates between Bacon-Shor codes and rotated surface codes.
+  The \textit{Shor-density} compass code family is obtained by randomly cutting \(X\)-type stabiilzers at any plaquette; it interpolates between Bacon-Shor codes and QPCs.
+
+features:
+  decoders:
+    - 'Asymmetrically-weighed variant of the union-find decoder \cite{arxiv:1809.01193}.'
+  code_capacity_threshold:
+    - 'See \cite[Sec. IV]{arxiv:1809.01193} for tables of code capacity threholds against spatially dependent and biased noise.'
+
+
+relations:
+  parents:
+    - code_id: subsystem_css
+  cousins:
+    - code_id: rotated_surface
+      detail: 'The surface-density compass code family interpolates between Bacon-Shor codes and rotated surface codes.'
+    - code_id: quantum_parity
+      detail: 'The Shor-density compass code family interpolates between Bacon-Shor codes and QPCs.'
+    - code_id: quantum_random
+      detail: 'Compass code families are constructed by randomly assigning stabilizers to plaquettes of a square lattice.'
+# translationally_invariant_subsystem doesn't work as parent since no guarantee gauge generators are local
+# subspace code cousins can't be children 
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-01'

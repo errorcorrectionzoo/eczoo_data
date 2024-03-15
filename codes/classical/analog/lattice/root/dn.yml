@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dn
+physical: reals
+logical: reals
+
+name: '\(D_n\) checkerboard lattice code'
+short_name: '\(D_n\)'
+
+description: |
+  Lattice code consisting of all points whose coordinates add up to an even integer.
+  Its generator matrix can be represented by
+  \begin{align}
+    G=\begin{pmatrix}-1 & -1 & 0 & 0 & \cdots & 0 & 0\\
+    \phantom{-}1 & -1 & 0 & 0 & \cdots & 0 & 0\\
+    0 & \phantom{-}1 & -1 & 0 & \cdots & 0 & 0\\
+    0 & 0 & \phantom{-}1 & -1 & \cdots & 0 & 0\\
+    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+    0 & 0 & 0 & 0 & \cdots\phantom{-} & 1 & -1
+    \end{pmatrix}~.
+  \end{align}
+
+protection: |
+  Exhibits the densest lattice packing and highest known kissing number in four and five \cite{manual:{Sur les formes quadratiques positives. (Zus. Mit S. Zolotareff) Korkine in: Mathematische Annalen}} dimensions.
+
+relations:
+  parents:
+    - code_id: root
+  cousins:
+    - code_id: parity_check
+      detail: '\([n,n-1,2]\) SPC codes yield \(D_n\) checkerboard lattice codes via the mod-two lattice construction \cite[Ex. 10.5.1]{preset:EricZin}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-12'

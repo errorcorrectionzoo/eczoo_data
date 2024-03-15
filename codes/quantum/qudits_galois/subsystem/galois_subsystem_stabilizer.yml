@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_subsystem_stabilizer
+physical: galois
+logical: galois
+
+name: 'Subsystem Galois-qudit stabilizer code'
+introduced: '\cite{arxiv:quant-ph/0604161}'
+
+description: |
+  Galois-qudit generalization of a subsystem qubit stabilizer code.
+  Can be obtained by taking a Galois-qudit stabilizer code and assigning some of its logical qubits to be gauge qubits.
+
+protection: |
+  Bounds on code parameters are formulated in Ref. \cite{arxiv:quant-ph/0610153}.
+  The Singleton bound has been extended to Galois-qudit subsystem codes \cite{arxiv:quant-ph/0703213}.
+  
+relations:
+  parents:
+    - code_id: subsystem_galois_into_galois
+  cousins:
+    - code_id: galois_stabilizer
+      detail: 'Subsystem Galois-qudit stabilizer codes reduce to Galois-qudit stabilizer codes when there are no gauge qudits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-09'

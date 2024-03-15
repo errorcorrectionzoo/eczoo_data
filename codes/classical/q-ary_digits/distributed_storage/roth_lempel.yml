@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: roth_lempel
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Roth-Lempel code'
+introduced: '\cite{doi:10.1109/18.30988}'
+
+description: |
+  Member of a \(q\)-ary linear code family that includes many examples of MDS codes that are not GRS codes.
+
+  The generator matrix of a Roth-Lempel code is
+    \begin{align}
+          G=\left(\begin{array}{cccccc}
+    \alpha_{1}^{k-1} & \alpha_{2}^{k-1} & \cdots & \alpha_{n}^{k-1} & 1 & 0\\
+    \alpha_{1}^{k-2} & \alpha_{2}^{k-2} & \cdots & \alpha_{n}^{k-2} & 0 & 1\\
+    \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
+    \alpha_{1}^{2} & \alpha_{2}^{2} & \cdots & \alpha_{n}^{2} & 0 & 0\\
+    \alpha_{1} & \alpha_{2} & \cdots & \alpha_{n} & 0 & 0\\
+    1 & 1 & \cdots & 1 & 0 & 0
+    \end{array}\right)~,
+  \end{align}
+  where \(\{\alpha_j\}\) is a set of elements of \(GF(q)\).
+  The code is MDS if no subset of \(k-1\) elements sums to zero.
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: mds
+      detail: 'Roth-Lempel codes are examples of MDS codes that are not GRS codes.'
+  cousins:
+    - code_id: extended_reed_solomon
+      detail: 'Roth-Lempel codes are doubly extended RS codes.'
+# unclear how to make the evaluation codes since cannot map to zero and infinity
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-20'

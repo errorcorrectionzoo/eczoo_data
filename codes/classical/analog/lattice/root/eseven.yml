@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eseven
+physical: reals
+logical: reals
+
+name: '\(E_7\) root lattice code'
+short_name: '\(E_7\)'
+#introduced: '\cite{manual:{Gosset, Thorold. "On the regular and semi-regular figures in space of n dimensions." Messenger of Mathematics 29 (1900): 43-48.}}'
+
+description: |
+  Lattice in dimension \(7\).
+
+protection: 'The \(E_7\) root lattice exhibits the densest lattice packing \cite{manual:{Blichfeldt, H. F. "On the minimum value of positive real quadratic forms in 6 variables." Bulletin of American Math. Soc 31 (1925): 386.},doi:10.1007/BF01454863,doi:10.1007/BF01201341,doi:10.1112/plms/s3-13.1.549,manual:{Vetchinkin, N. M. "Uniqueness of classes of positive quadratic and highest known kissing number in seven dimensions."}}.'
+
+
+relations:
+  parents:
+    - code_id: root
+  cousins:
+    - code_id: hamming743
+      detail: 'The \([7,4,3]\) Hamming code yields the \(E_7^{\perp}\) root lattice code via the mod-two lattice construction \cite{doi:10.1137/0605031}.
+      The \([7,3,4]\) little Hamming code yields the \(E_7\) root lattice code via the same construction \cite[Ex. 10.5.3]{preset:EricZin}\cite{doi:10.1137/0605031}.'
+# - code_id: simplex
+#   detail: 'The \(S(2,3)\) simplex \([7,3,4]\) code, also known as the little Hamming code, yields the \(E_7\) root lattice code via the mod-two lattice construction \cite[Ex. 10.5.3]{preset:EricZin}\cite{doi:10.1137/0605031}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-12'

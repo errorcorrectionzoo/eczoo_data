@@ -1,0 +1,62 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: frameproof
+# binary and q-ary
+
+name: 'Frameproof Code'
+introduced: '\cite{doi:10.1007/3-540-44750-4_36,doi:10.1109/18.705568}'
+
+description: |
+  A block code designed to prevent a group of users from being able to collude to frame another user outside of the group for creating an unauthorized copy of data.
+  Even further, the group of users cannot frame a separate user even if they know the unique codeword of the separate user \cite{doi:10.1007/3-540-44750-4_36}.
+  Frameproof codes help to provide software protection from the illegal distribution and copying of computer software and copyrighted materials. These codes help protect products of distributors as well as other naive users from being framed for illegal activity \cite{doi:10.1007/3-540-44750-4_36}.
+
+  Separating codes are equivalent to codes with the secure frameproof property. A \(c\)\textit{-separating} code has the property that, for any two disjoint sets that each contain at most \(c\) code words, there is at least one position where the set of symbols of each set are disjoint \cite{doi:10.1007/s10623-021-00988-z}.
+
+  Let us define \(\Gamma = \{w^{(1)}, \dots, w^{(n)}\} \subseteq \{(0,1)\}^{l}\) as an ( \(l,n\) )-code.
+  Each codeword \(w^{(i)}\) correlates to a user \(u_i\).
+  Let \(C\) be a group of users.
+  A bit in position \(i\) is undetectable for the group \(C\) when the words assigned to the users in the group match at the the same position \(i\).
+  The feasible set of the group \(C\), denoted \(F(C;\Gamma)\) or \(F(C)\), for some user \(u \in C\) contains all of the codewords that match the group's set of undetectable bits.
+  Finally, if every subset \(S \subset \Gamma\) of size at most \(c\) satisfies \(F(S)\cap\Gamma = S\), then \(\Gamma\) is a \(c\)\textit{-frameproof} code \cite{doi:10.1007/3-540-44750-4_36}.
+
+  Any \(c\)-frameproof code must be of length at least \(c\) \cite{doi:10.1007/3-540-44750-4_36}.
+  A length-\(l\) \(q\)-ary \(c\)-frameproof code has at most \(tq^{\lceil l/c \rceil} + O(q^{\lceil l/c \rceil - 1})\) codewords, where \(t\) is an integer between \(1\) and \(c\), and \(t \equiv 1\) modulo \(c\) \cite{doi:10.1137/S0895480101384633}.
+
+
+features:
+  rate: 'Frameproof codes tend to have large minimal distance and low rate \cite{doi:10.1007/3-540-44750-4_36}.
+  Specifically, for any positive integers \(n\) and \(c\), if \(l = 16c^{2}\log n\), then there exists a \(c\)-frameproof \( (l,n) \)-code which has rate \(n/l\) \cite{doi:10.1007/3-540-44750-4_36}.'
+
+
+realizations:
+  - 'Frameproof codes are utilized in digital fingerprinting and watermarking \cite{doi:10.1137/S0895480101384633}.'
+
+
+relations:
+  parents:
+    - code_id: ipp
+# detail: 'Codes with the identifiable parent property have the ability that given any descendent, a parent codeword can always be identified \cite{doi:10.1016/j.endm.2005.07.012}.'
+  cousins:
+    - code_id: traceability
+      detail: 'Frameproof codes fingerprint digital data and also they help prevent copyrighted information from unauthorized use \cite{arXiv:1411.5782}.
+      Codes with traceability also deter users from unauthorized copying or sharing of digital materials by being able to trace sources of leaks, which also helps to ensure that an innocent user is not framed for the unauthorized activity \cite{doi:10.1109/18.841169}.'
+    - code_id: evaluation
+      detail: 'Asymptotic bounds on frameproof codes can be formulated using evaluation AG codes \cite{doi:10.1109/TIT.2002.804111,arXiv:1010.5764}.
+      A sufficient condition for an evaluation AG code to be frameproof can be recast as an instance of the Riemann-Roch equation \cite[Sec. 15.8.2]{doi:10.1201/9781315147901}.'
+    - code_id: kerdock
+      detail: 'Kerdock codes of sufficient order are separating \cite{manual:{Krasnopeev, A., and Yu L. Sagalovich. "The Kerdock codes and separating systems." Eight International Workshop on Algebraic and Combinatorial Coding Theory. Vol. 7. No. 7.2. 2002.},doi:10.1109/TIT.2004.838106}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: RaleyRoberts
+      date: '2024-03-15'
+    - user_id: VictorVAlbert
+      date: '2024-03-15'

@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: luby_transform
+physical: bits
+logical: bits
+
+name: 'Luby transform (LT) code'
+short_name: 'LT'
+introduced: '\cite{doi:10.1109/SFCS.2002.1181950}'
+
+description: |
+  Erasure codes based on fountain codes. They improve on random linear fountain codes by having a much more efficient encoding and decoding algorithm.
+
+  LT codes can be constructed as follows. First, randomly choose a degree \(d_n\) from a degree distribution depending on total size \(K\). Then, randomly choose \(d_n\) distinct source packets and let the packet to be transmitted \(\hat{p}_n\) be the bitwise sum of the chosen input packets. This forms a graph connecting encoded packets to source packets.
+# Huffman Kim Sole 30.3
+
+features:
+  decoders:
+    - 'Sum-Product Algorithm (SPA), often called a peeling decoder \cite{doi:10.1017/CBO9780511791338,manual:{David J. C. MacKay. 2002. Information Theory, Inference & Learning Algorithms. Cambridge University Press, USA}}, similar to belief propagation \cite{doi:10.1145/3501714.3501727}.'
+
+relations:
+  parents:
+    - code_id: raptor
+      detail: 'Raptor codes using a trivial pre-code are LT codes. Typically, Raptor codes have constant-sized more overhead but are faster to decode.'
+#  cousins:
+#    - code_id: ldpc
+#      detail: 'When using a (ir)regular bipartite graph, the encoding process can be thought of as an LDPC code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-26'
+    - user_id: ThomasWrona
+      date: '2022-05-02'
+    - user_id: NoahBerthusen
+      date: '2022-04-21'

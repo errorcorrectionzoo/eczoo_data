@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_subsystem_css
+physical: galois
+logical: galois
+
+name: 'Subsystem Galois-qudit CSS code'
+introduced: '\cite{arxiv:quant-ph/0610153,arxiv:0811.1570}'
+
+alternative_names:
+  - 'Euclidean construction subsystem code'
+
+description: |
+  Galois-qudit subsystem stabilizer code which admits a set of gauge-group generators which consist of either all-\(Z\) or all-\(X\) Galois-qudit Pauli strings.
+
+  These codes can be constructed from classical codes via a subsystem generalization of the CSS construction or the Hermitian construction \cite{arxiv:quant-ph/0604161,arxiv:quant-ph/0610153}.
+
+relations:
+  parents:
+    - code_id: galois_subsystem_stabilizer
+  cousins:
+    - code_id: galois_css
+      detail: 'Subsystem Galois-qudit CSS codes reduce to (subspace) Galois-qudit CSS codes when there is no gauge subsystem.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-13'

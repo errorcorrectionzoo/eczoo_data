@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: block_quantum
+
+name: 'Block quantum code'
+
+description: |
+  A code constructed in a multi-partite quantum system, i.e., a physical space consisting of a tensor product of \(n\) identical subsystems, e.g., qubits, modular qudits, Galois qudits, or oscillators.
+
+protection: |
+  Block codes protect from errors acting on a few of the \(n\) subsystems. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) subsystems, and corrects erasure errors on up to \(d-1\) subsystems.
+
+  Noise models for block codes include \textit{stochastic noise}, in which every possible error is assigned a probability.
+  In the case of \textit{local stochastic noise}, the probability decreases rapidly (typically, exponentially) with the number of subsystems that an error acts on.
+  On the other hand, the \textit{adversarial noise} model consists of errors acting on at most a fixed number of subsystems.
+
+features:
+  transversal_gates: '\textit{Transversal gates} are logical gates on block codes that can be realized as tensor products of unitary operations acting on subsets of subsystems whose size is independent of \(n\). When the subsets are of size one and the single-subsystem unitaries are identical, then the gates are sometimes called \textit{strongly transversal}.'
+
+relations:
+  parents:
+    - code_id: qecc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-02-14'

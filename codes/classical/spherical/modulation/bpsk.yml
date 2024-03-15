@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bpsk
+physical: spheres
+logical: reals
+
+name: 'Binary PSK (BPSK) code'
+short_name: 'BPSK'
+introduced: '\cite{doi:10.1002/j.1538-7305.1948.tb00917.x}'
+
+description: |
+  Also called a \textit{binary antipodal modulation}, \textit{phase-reversal keying (PRK)}, or \textit{antipodal signaling}.
+  Encodes one bit of information into a constellation of antipodal points \(\pm\alpha\) for complex \(\alpha\).
+  These points are typically associated with two phases of an electromagnetic signal.
+# in a PAM, PSK, or QAM scheme.
+
+features:
+  rate: 'Achieve capacity of AGWN in the low signal-to-noise regime \cite{doi:10.1109/ALLERTON.2010.5706965} (see also \cite{doi:10.1002/j.1538-7305.1948.tb00917.x}). BPSK concatenated with quantum-classical polar codes achieves the Holevo capacity for the pure-loss channel \cite{arxiv:1202.0533}.'
+
+realizations:
+  - 'Telephone-line modems throughout 1950s and 1960s: Bell 103 and 202, as well as international standards V.21 \cite{manual:{International Telecommunication Union-T, Recommendation V.21: 300 bits per second duplex modem standardized for use in the general switched telephone network, 1984}} and V.23 \cite{manual:{International Telecommunication Union-T, Recommendation V.23: 600/1200-baud modem standardized for use in the general switched telephone network, 1988}}.'
+
+relations:
+  parents:
+    - code_id: psk
+      detail: 'BPSK is also known as 2-PSK.'
+    - code_id: binary_antipodal
+      detail: 'A single-bit binary code yields a spherical \((n,2,4)\) spherical code under the antipodal mapping, which is equivalent to the BPSK code for dimension \(n=2\).'
+  cousins:
+    - code_id: pam
+      detail: 'BPSK for real \(\alpha\) is the simplest non-trivial PAM encoding.'
+    - code_id: binary_linear
+      detail: 'Concatenating binary linear codes with BPSK yields a standard way of digitizing the analog AGWN channel \cite[Ch. 29]{doi:10.1017/9781316822708}.'
+    - code_id: two-legged-cat
+      detail: 'BPSK (two-component cat) codes are used to transmit classical (quantum) information using (superpositions of) antipodal coherent states over classical (quantum) channels.'
+    - code_id: polar_for_quantum
+      detail: 'BPSK concatenated with quantum-classical polar codes achieves the Holevo capacity for the pure-loss channel \cite{arxiv:1202.0533}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'

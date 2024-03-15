@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_quantum_divisible
+physical: qubits
+logical: qubits
+
+name: 'Generalized quantum divisible code'
+introduced: '\cite{arxiv:1709.08658}'
+
+description: |
+  A level-\(\nu\) generalized quantum divisible code is a CSS code whose \(X\)-type stabilizers, in the symplectic representation, have zero norm and form a \((\nu,t)\)-null matrix (defined below) with respect to some odd-integer vector \(t\) \cite[Def. V.1]{arxiv:1709.08658}.
+  Such codes admit gates at the \(\nu\)th level of the \term{Clifford hierarchy}.
+  Such codes can also be level-lifted \cite[Theorem V.6]{arxiv:1709.08658}, \(\nu\to\nu+1\), which recursively yields towers of generalized divisible codes from a particular ground code.
+
+  Given an odd-integer coefficient length-\(n\) vector \(t\), two vectors \(v,w\) are \((\nu,t)\)\textit{-orthogonal} if
+  \begin{align}
+  	\sum_i v_i t_i w_i \equiv 0 \mod 2^{\nu-1}~.
+  \end{align}
+  A matrix whose rows make up such vectors is called \((\nu,t)\)-orthogonal.
+
+
+features:
+  transversal_gates: |
+    A level-\(\nu\) generalized quantum divisible code admits a diagonal transversal gate at the \(\nu\)th level of the \term{Clifford hierarchy} \cite[Lemma V.3]{arxiv:1709.08658}.
+
+relations:
+  parents:
+    - code_id: qubit_css
+      detail: 'Generalized quantum divisible codes are CSS codes.
+      Any weakly self-dual CSS code yields a level-three generalized quantum divisible code when level-lifted \cite[Sec. VI.C]{arxiv:1709.08658}.'
+  cousins:
+    - code_id: quantum_triorthogonal
+      detail: 'Triorthogonal codes are stabilizer codes, while generalized quantum divisible codes are CSS codes.
+      Every level-three generalized divisible code is a triorthogonal code, but whether the converse is true or false is not known \cite[Sec. VI.C]{arxiv:1709.08658}.'
+    - code_id: quantum_random
+      detail: 'Random CSS codes \cite{arxiv:quant-ph/9512032} can be used to construct families of \([[O(d^{\nu−1}), \Omega(d), d]]\) level-\(\nu\) generalized quantum divisible codes \cite[Sec. VI.A]{arxiv:1709.08658}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ConnorClayton
+      date: '2024-03-15'
+    - user_id: VictorVAlbert
+      date: '2024-02-28'

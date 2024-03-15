@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: qc_ldpc
+physical: bits
+logical: bits
+
+name: 'Quasi-cyclic LDPC (QC-LDPC) code'
+short_name: 'QC-LDPC'
+introduced: '\cite[Appx. C]{manual:{R. Gallagher, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}\cite{manual:{H. Jin, T. Richardson, V. Novichkov, "Error Correction of Algebraic Block Codes". U.S. Patent, Number US8751902B2 2002},doi:10.1109/ISIEA.2009.5356472,manual:{Tanner, R. Michael, Deepak Sridhara, and Tom Fuja. "A class of group-structured LDPC codes." Proc. ISTA. 2001.},doi:10.1109/ISIT.2002.1023584,doi:10.1109/LCOMM.2003.814716,doi:10.1109/ISIT.2003.1228165,doi:10.1109/TIT.2004.831841}'
+
+description: |
+  LDPC code that can be put into quasi-cyclic form.
+  Its parity check matrix can be put into the form of a block matrix consisting of either circulant permutation sub-matrices or the zero sub-matrix.
+  Such codes are often constructed by \hyperref[topic:lifting]{lifting} certain protographs into such block matrices \cite{arXiv:1108.0840}.
+  Their simple structure makes them useful for several wireless communication standards.
+
+protection: |
+  Minimum-distance upper bounds exist \cite{doi:10.1007/978-1-4613-0165-3_6,doi:10.1109/TIT.2011.2173244}.
+
+
+realizations:
+  - '5G NR cellular communication for the traffic channel \cite{doi:10.1109/MCOM.2018.1700839,doi:10.1109/CSCITA47329.2020.9137797}.'
+  - 'Wireless communication: WiMAX (IEEE 802.16e) \cite{manual:{LDPC coding for OFDMA PHY. 802.16REVe Sponsor Ballot Recirculation comment, July 2004. IEEE C802.16e04/141r2},doi:10.1109/PIMRC.2006.254126,doi:10.1049/el:20081927}, WiFi 4 (IEEE 802.11n) \cite{doi:10.1109/ICCT.2013.6820375}, and WPAN (IEEE 802.15.3c) \cite{doi:10.1109/ASICON.2015.7517004}.'
+
+
+relations:
+  parents:
+    - code_id: protograph_ldpc
+    - code_id: quasi_cyclic
+  cousins:
+    - code_id: ld_convolutional
+      detail: 'QC-LDPC codes can be \textit{unwrapped} to obtain LDPC-CCs by expressing each circulant matrix block as a power of some generating circulant matrix and replacing that generating matrix by the shift operator of the convolutional code \cite{doi:10.1109/TIT.2004.838370}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

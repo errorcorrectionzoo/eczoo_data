@@ -1,0 +1,74 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fusion
+physical: qubits
+logical: qubits
+
+name: 'Fusion-based quantum computing (FBQC) code'
+short_name: 'FBQC'
+introduced: '\cite{arXiv:2101.09310}'
+
+description: |
+  Code whose codewords are resource states used in an FBQC scheme. Related to a cluster state via Hadamard transformations.
+
+  FBQC is a fault tolerant way to produce \textit{fusion networks}, or large entangled resource states starting from small constant-sized entangled resource states along with destructive measurements called \textit{fusions}.
+  These large states can be produced asychronously in the fusion framework and can be used as resources, as in measurement-based quantum computation (MBQC), or as logical states of topological codes.
+  The difference from ordinary MBQC is that error-correction two-qubit measurements are performed, which requires a foliation with more qubits.
+  The use of two-qubit measurements makes FBQC more compatible with photonic platforms.
+
+protection: 'Protects against erasure, Pauli errors, photon loss, fusion failure from non-determinism, and faulty resource states. Redundancy in fusion outcomes is captured by the check operator group. Fusion measurement outcomes form a syndrome that allows to correct for Pauli errors. There is no physical error correction, and decoding output is simply used to update the Pauli frame.'
+
+features:
+  encoders:
+    - 'Resource state generators, which produce small constant size cluster states, and Fusion measurements (Bell fusions).'
+
+  general_gates:
+    - 'Clifford gates are performed by creating topological features such as boundaries, defects, or twists, which can be done by single qubit measurements.
+    Logical gates can also be performed by code deformation.
+
+    Non Clifford gates are perfomed by magic-state injection.'
+
+    # - 'Logical Clifford operations can be kept track of using the classical Pauli-frame register and need not be explicitly applied at the quantum level.'
+
+#  decoders:
+#    - 'Logical timescales are separated from the physical measurement timescales.'
+#    - 'Decoding syndrome information is tracked in the Pauli frame.'
+
+  fault_tolerance:
+    - 'Fusion networks are constructed in a fault tolerant way (as a stabilizer code), and they can be created in a way that naturally encodes topological fault tolerance.'
+
+  threshold:
+    - '\(11.98\%\) against erasure in fusion measurements.'
+    - '\(1.07\%\) against Pauli error.'
+    - 'In linear optical systems, can tolerate \(10.4\%\) probability of photon loss in each fusion.'
+    - '\(43.2\%\) against fusion failure.'
+    - 'FBQC applied to the surface code yields thresholds for logical gates that is consistent with the code capacity threshold \cite{arxiv:2112.12160}.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: 'The resource states in FBQC are small stabilizer states, and after fusion measurements, the outputs are stabilizers (conditioned on measurement outcomes).'
+  cousins:
+    - code_id: topological
+      detail: 'Arbitrary topological codes can be created using FBQC, as can topological features such as defects and boundaries, by modifying fusion measurements or adding single qubit measurements.'
+    - code_id: dual_rail
+      detail: 'FBQC resource states are concatenated with dual-rail codes to increase loss detection.'
+    - code_id: dynamic_gen
+      detail: 'Building a fusion network is done using a measurement-based dynamical process.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-01'
+    - user_id: YaronJarach
+      date: '2023-03-01'
+    - user_id: VictorVAlbert
+      date: '2021-12-30'
+    - user_id: DhruvDevulapalli
+      date: '2021-12-17'

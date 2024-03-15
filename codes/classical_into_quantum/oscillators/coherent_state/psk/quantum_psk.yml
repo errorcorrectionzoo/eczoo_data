@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_psk
+physical: oscillators
+logical: reals
+
+name: 'PSK c-q code'
+introduced: '\cite{doi:10.1038/nphoton.2014.280}'
+
+description: 'Coherent-state c-q \(q\)-ary code whose \(j\)th codeword corresponds to a coherent state whose phase is the \(j\)th multiple of \(2\pi/q\). These states are also called geometrically uniform states (GUS) \cite{doi:10.1109/18.915636}.'
+
+protection: |
+  The error probability for \(q=4\) under an optimal quantum detector is worked out in \cite[Sec. IV.3]{preset:Helstrom}; see also \cite{doi:10.1109/18.915636,doi:10.1109/26.752130,arxiv:1410.5282}.
+
+features:
+  decoders:
+    - 'Multi-stage quantum receivers \cite{arxiv:quant-ph/0410133,doi:10.1103/PhysRevA.84.062324,arxiv:0905.2496,arxiv:1208.1815,arxiv:1302.2691,arxiv:1304.7316}.'
+    - 'Bayesian inference \cite{arxiv:1802.08287}.'
+
+realizations:
+  - 'Unambiguous state discrimination using displacement-based receiver for 4-PSK \cite{doi:10.1038/ncomms3028}.'
+  - 'Multi-stage quantum receivers \cite{doi:10.1038/nphoton.2012.316,arxiv:2001.05902,doi:10.1038/nphoton.2014.280,arxiv:1711.00074}.'
+  - 'Bayesian inference \cite{doi:10.1364/CLEO_QELS.2020.FF1D.1}.'
+  - 'Time resolving quantum receiver opertaing in the telecom C band \cite{doi:10.1116/5.0123880}.'
+  - 'Displacements and photon detection \cite{arxiv:2009.02558}.'
+  - 'Adaptive decoder using linear-optical elements and photon detection \cite{arxiv:2207.12234}.'
+
+relations:
+  parents:
+    - code_id: quantum_fsk
+      detail: 'The CFSK c-q code reduces to the \(q\)-ary PSK c-q code when \(\Delta\omega = 0\) and \(\Delta\theta = 2\pi/q\).'
+  cousins:
+    - code_id: psk
+      detail: 'PSK (PSK c-q) codes are used to transmit classical information using single-mode coherent states distributed on a circle over classical (quantum) channels.'
+    - code_id: cat
+      detail: 'PSK c-q (cat) codes are used to transmit classical (quantum) information using (superpositions of) single-mode coherent states distributed on a circle over quantum channels.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-04'

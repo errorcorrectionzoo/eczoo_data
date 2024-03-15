@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rect_hessian_polyhedron
+physical: spheres
+logical: reals
+
+name: 'Rectified Hessian polyhedron code'
+
+description: |
+  Spherical \((6,72,1)\) code whose codewords are the vertices of the rectified Hessian complex polyhedron and the \(1_{22}\) real polytope.
+  Codewords form the minimal lattice-shell code of the \(E_6\) lattice.
+  See \cite[pg. 127]{preset:coxeterComplex}\cite[pg. 126]{doi:10.1007/978-1-4757-6568-7} for realizations of the 72 codewords.
+
+
+
+relations:
+  parents:
+    - code_id: polytope
+    - code_id: esix_shell
+      detail: 'Rectified Hessian polyhedron codewords form the minimal shell of the \(E_6\) lattice.'
+    - code_id: spherical_design
+      detail: 'The rectified Hessian polyhedron code forms a spherical 5-design \cite{doi:10.1016/S0195-6698(03)00101-X}.'
+  cousins:
+    - code_id: hessian_polyhedron
+      detail: 'The (rectified) Hessian polyhedron is an analogue of a (octahedron) tetrahedron in 3D complex space, while the double Hessian polyhedron is the analogue of a cube \cite[pg. 127]{preset:coxeterComplex}.
+      The rectified and double Hessian polyhedra are dual to each other, just like the octahedron and cube.
+      Moreover, the double Hessian consists of two Hessians, just like the cube can be constructed with two tetrahedra.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-29'

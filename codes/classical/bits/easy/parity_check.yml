@@ -1,0 +1,70 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: parity_check
+physical: bits
+logical: bits
+
+name: 'Single parity-check (SPC) code'
+short_name: 'SPC'
+
+alternative_names:
+  - 'Sum-zero code'
+  - 'Zero-sum code'
+  - 'Even-weight code'
+
+description: |
+  An \([n,n-1,2]\) linear binary code whose codewords consist of the message string appended with a \textit{parity-check bit} or \textit{parity bit} such that the parity (i.e., sum over all coordinates of each codeword) is zero.
+  If the Hamming weight of a message is odd (even), then the parity bit is one (zero). This code requires only one extra bit of overhead and is therefore inexpensive.'
+
+protection: 'This code cannot protect information, it can only detect 1-bit error.'
+
+features:
+  rate: 'The code rate is \(\frac{n}{n+1}\to 1\) as \(n\to\infty\).'
+
+  decoders:
+    - 'If the receiver finds that the parity information of a codeword disagrees with the parity bit, then the receiver will discard the information and request a resend.'
+    - 'Wagner''s rule yields a procedure that is linear in \(n\) \cite{doi:10.1109/TIT.1954.1057466} (see \cite[Sec. 29.7.2]{doi:10.1017/9781316822708} for a description).'
+
+realizations:
+  - 'Can be realized on almost every communication device. SPCs are some of the earliest error-correcting codes (\cite{doi:10.1201/9781315115870}, Ch. 27).'
+
+relations:
+  parents:
+    - code_id: crc
+      detail: 'A CRC using the divisor 11 is a single parity-check code \cite[Sec. 2.3.3]{doi:10.1007/978-0-387-68192-4_2}.'
+    - code_id: reed_muller
+    - code_id: q-ary_parity_check
+      detail: 'RM\((m-1,m)\) are parity-check codes.'
+    - code_id: nearly_perfect
+    - code_id: mds
+    - code_id: divisible
+      detail: 'Binary SPCs are two-divisible.'
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The SPC code is a binary sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
+  cousins:
+    - code_id: repetition
+      detail: 'Binary SPCs and repetition codes are dual to each other.'
+    - code_id: binary_linear
+      detail: 'Any \([n,k,d]\) code with odd distance can be \textit{extended} to an \([n+1,k,d+1]\) code by adding a bit storing the sum of codeword coordinates.'
+    - code_id: ldgm
+      detail: 'Concatenated SPCs are LDGM \cite{doi:10.1109/20.917609}.'
+
+# - code_id: binary_cyclic
+#   detail: 'Since permutations preserve parity, the cyclic permutation of an SPC codeword is another codeword. The generator polynomial of the code is \(x-1\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
+    - user_id: VictorVAlbert
+      date: '2022-07-20'
+    - user_id: VictorVAlbert
+      date: '2021-12-15'
+    - user_id: YijiaXu
+      date: '2021-12-14'

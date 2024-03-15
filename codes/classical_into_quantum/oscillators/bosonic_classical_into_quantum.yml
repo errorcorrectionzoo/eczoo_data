@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bosonic_classical_into_quantum
+physical: oscillators
+logical: reals
+
+name: 'Bosonic c-q code'
+
+description: |
+  Bosonic code designed for transmission of classical information through non-classical channels.
+
+features:
+  rate: 'The Holevo capacity has been calculated for various bosonic quantum channels \cite{doi:10.1109/JSTQE.2009.2024959,arxiv:2002.05766,doi:10.1515/9783110642490} such as the lossy bosonic channel \cite{arxiv:quant-ph/0308012} or quantum AGWN \cite{arxiv:1312.6225}.
+  The energy-constrained capacity of the noiseless bosonic c-q channel is finite due to quantum effects \cite{doi:10.1103/PhysRevLett.70.363,doi:10.1103/RevModPhys.66.481}, while the Shannon capacity can be infinite.
+  Gordon was the first to calculate such capacities (in a published work) for a specific case \cite{manual:{J. P. Gordon, in Advances in Quantum Electronics edited by J. R. Singer (Columbia University, New York, 1961), p. 509},doi:10.1109/JRPROC.1962.288169,manual:{J.P. Gordon, in Quantum Electronics and Coherent Light, Proceedings of the International School of Physics "Enrico Fermi," Course XXXI, edited by PA. Miles (Academic, New York, 1964), p. 156.}}, and a related discussion is given by Forney \cite{manual:{G.D. Forney, Jr., S.M. thesis, Massachusetts Institute of Technology, 1963 (unpublished).}}.'
+
+relations:
+  parents:
+    - code_id: classical_into_quantum
+  cousins:
+    - code_id: oscillators
+      detail: 'Bosonic c-q codes are bosonic codes designed to transmit classical information.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: JasSidhu
+      date: '2023-03-21'
+    - user_id: VictorVAlbert
+      date: '2023-03-21'
+    - user_id: VictorVAlbert
+      date: '2022-12-04'

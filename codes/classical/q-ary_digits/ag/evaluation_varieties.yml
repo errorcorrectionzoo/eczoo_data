@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: evaluation_varieties
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Evaluation code'
+introduced: '\cite{doi:10.1007/BF02249124,doi:10.1007/978-94-011-3810-9}'
+
+description: |
+  Code whose codewords are evaluations of functions at certain fixed points. Code properties can be inferred from the structure of the functions and the underlying geometric object containing the points, often using results from algebraic geometry.
+
+  Let \(\cal{X}\) be a geometric object that contains a subset \({\cal P} = \left( P_1,P_2,\cdots,P_n \right) \) consisting of \(n\) points \(P_j\). Let \(L\) be a vector space over \(GF(q)\) of functions \(f\) that take values in \(GF(q)\). Each \(f\in L\) yields a codeword of an evaluation code \(C_L({\cal X},{\cal P})\) of the form
+  \begin{align}
+    \left( f(P_1), f(P_2), \cdots, f(P_n) \right) \quad\quad\forall f\in L~.
+  \end{align}
+  This is a linear binary or \(q\)-ary code since the functions \(f\) take values in \(GF(q)\) and form a vector space.
+
+  Examples of geometric objects \(\cal X\) include affine or projective spaces over \(GF(q)\) as well as subsets of those spaces determined by some constraints. Prominent subsets are \textit{algebraic varieties}, i.e., sets of solutions of systems of polynomial equations in either affine or projective space. The functions \(f\) are typically polynomials or rational functions.
+
+protection: 'Properties of \(\cal X\) can be used to bound the code dimension \(k\) and distance \(d\). The order or Feng-Rao bound gives a lower bound on the distance of evaluation codes \cite{doi:10.1142/9789812794017_0004,doi:10.1109/18.335973,doi:10.1109/18.179340,doi:10.1023/A:1008274212057,preset:HPAlgCodes}; see Ref. \cite{preset:HPAlgCodes}, Ch. 4 and Ref. \cite{arxiv:0802.2349} for more discussion.'
+
+notes:
+  - 'See books \cite{preset:TVNAlgCodes,preset:HPAlgCodes,doi:10.1007/978-3-540-76878-4,doi:10.1007/978-94-015-6870-8,manual:{Lachaud, G. (1985). Les codes géométriques de Goppa. Sem. Bourbaki, 37, 1984-85.}} for more information.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+      detail: 'Evaluation codes are defined using polynomial or rational functions evaluated on a subset of affine or projective space.
+      Given access to more general structures (i.e., morphisms of algebras), any \(q\)-ary linear code can be formulated as an evaluation code (\cite{preset:HPAlgCodes}, Sec. 4.1; \cite{preset:TVNAlgCodes}, Prop. 1.1.4).'
+  cousins:
+    - code_id: ag
+      detail: 'Evaluation codes on varieties can also be considered AG codes since they use algebraic geometry in quantifying code bounds. However, early AG constructions all used only one-dimensional varieties, i.e., algebraic curves.'
+
+#    - code_id: projective
+#      detail: 'An evaluation-code generator matrix has columns that form a subset of points on a curve in projective space.'
+#TO DO: is projective same as evaluation?
+# https://link.springer.com/article/10.1007/s10623-021-00905-4
+# https://algo.epfl.ch/_media/en/courses/2008-2009/mct_l04.pdf
+# http://people.sabanciuniv.edu/~mlavrauw/LaStVa2009b.pdf
+# Basic Notions: Thm. 1.1.6
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-12'

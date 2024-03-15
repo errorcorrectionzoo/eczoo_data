@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: checkerboard
+physical: qubits
+logical: qubits
+
+name: 'Checkerboard model code'
+introduced: '\cite{arXiv:1505.02576}'
+
+description: |
+  A foliated type-I fracton code defined on a cubic lattice that admits weight-eight  \(X\)- and \(Z\)-type stabilizer generators on the eight vertices of each cube in the lattice.
+  
+  Variants include the twisted checkerboard model \cite{arxiv:1805.06899}.
+
+features:
+  decoders:
+    - 'Parallelized matching decoder \cite{arxiv:1901.08061}.'
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(\sim 7.5\%\), higher than 3D surface code and color code \cite{arXiv:2112.05122}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: fracton
+      detail: 'The checkerboard model is equivalent to two copies of the X-cube model via a local unitary \cite{arxiv:1806.08633}. Hence, it is a foliated type-I fracton code.'
+  cousins:
+    - code_id: xcube
+      detail: 'The checkerboard model is equivalent to two copies of the X-cube model via a local unitary \cite{arxiv:1806.08633}.'
+
+
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-30'

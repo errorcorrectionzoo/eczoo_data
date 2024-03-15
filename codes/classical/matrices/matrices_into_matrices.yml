@@ -6,11 +6,24 @@
 code_id: matrices_into_matrices
 physical: matrices
 
-name: 'Matrix code'
+name: 'Matrix-based code'
+
+alternative_names:
+  - 'Array code'
 
 description: 'Encodes \(K\) states (codewords) in an \(m\times n\)-dimensional \textit{matrix} of coordinates over a field (e.g., the Galois field \(GF(q)\) or the complex numbers \(\mathbb{C}\)).'
 
 relations:
   parents:
-    - code_id: ecc
-      detail: ''
+    - code_id: ecc_finite
+    - code_id: block
+    - code_id: group_classical
+      detail: 'Matrix-based code alphabets are fields, which are groups under addition.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-16'

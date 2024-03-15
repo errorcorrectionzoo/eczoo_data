@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_5_1_2_convolutional
+physical: qubits
+logical: qubits
+
+name: '\((5,1,2)\)-convolutional code'
+introduced: '\cite{arxiv:quant-ph/0304189}'
+
+description: |-
+  Quantum convolutional code with the stabilizer generators
+  \begin{align}
+    \begin{array}{cccccccc}
+    X & Z & I & I & I & I & I & \cdots\\
+    Z & X & X & Z & I & I & I & \cdots\\
+    I & Z & X & X & Z & I & I & \cdots\\
+    I & I & Z & X & X & Z & I & \cdots\\
+    \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+    \end{array}
+  \end{align}
+
+relations:
+  parents:
+    - code_id: quantum_convolutional
+  cousins:
+    - code_id: stab_5_1_3
+      detail: 'The \((5,1,2)\)-convolutional code is an infinite-qubit version of the five-qubit perfect code, with the former''s lattice-translation symmetry being the extension of the latter''s cyclic permutation symmetry.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-01-04'

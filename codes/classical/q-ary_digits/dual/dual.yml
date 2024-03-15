@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Dual linear code'
+
+description: |
+  For any \([n,k]_q\) linear code \(C\), the dual (or orthogonal) code,
+  \begin{align}
+  C^\perp = \{ y\in GF(q)^{n} ~|~ x\cdot y=0 \forall x\in C\},
+  \end{align}
+  where the \textit{ordinary}, \textit{standard}, or \textit{Euclidean} inner product is \(x\cdot y = \sum_{i=1}^n x_i y_i\) for coordinates \(x_i,y_i\).
+
+  A code that is contained in its dual, \(C \subseteq C^\perp\), is called \textit{self-orthogonal} or \textit{weakly self-dual}. A code that contains its dual, \(C^\perp \subseteq C\), is called \textit{dual-containing}. A code that is equal to its dual, \(C^\perp = C\), is called \textit{self-dual}. The dual of a dual code is the original code. A code is dual-containing iff its dual is self-orthogonal.
+
+  The dual code \(C^\perp\) is the row space of the parity check matrix of \(C\). The dual code is the kernel of the encoding map for \(C\), and \(\dim C^\perp = n-k\).
+
+  An alternative definition of dual substitutes the Euclidean inner product for the \textit{Hermitian inner product},
+  \begin{align}
+    x\cdot y \to x\cdot \bar{y} = \sum_{i=1}^n x_i y^{p}_i~.
+  \end{align}
+  Self-dual codes with respect to the above product are called \textit{Hermitian self-dual}; similar definitions hold for self-orthogonal and dual-containing.
+
+  More general inner products can also be considered \cite{doi:10.1007/s10623-016-0282-8}.
+
+protection: |
+  The dual of an \([n,k,d] \) code is an \([n,n-k,d'']\) code, where \(d''\) is not always related to \(d\). The generator matrix of \(C^\perp\) is the parity check matrix of \(C\), and visa versa.
+
+  The generator matrix of the Hermitian dual of a code with generator matrix \(G = [I_k~~A]\) is \([-\bar{A}^T~~I_{n-k}]\), where \(\bar{A}\) contains matrix elements of \(A\) raised to the \(p\)th power.
+  A code is Hermitian self-dual if and only if \(A \bar{A}^{T} = -I_{n/2}\).
+
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'
+    - user_id: MicahShaw
+      date: '2022-06-28'
+    - user_id: VictorVAlbert
+      date: '2021-12-18'
+    - user_id: DhruvDevulapalli
+      date: '2021-12-17'

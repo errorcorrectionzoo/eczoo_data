@@ -1,0 +1,79 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_product
+physical: qubits
+logical: qubits
+
+name: 'Subsystem product (SP) code'
+short_name: 'SP'
+introduced: '\cite{arXiv:2007.12152}'
+
+
+description: |
+  A CSS subsystem code constructed from a product of two (subspace) CSS codes.
+  The case for qubits is formulated below, but these codes have also been extended to Galois qudits \cite{arXiv:2007.12152}.
+
+  Denote the two CSS codes' parity-check matrix blocks as \(H_X^i, H_Z^i\) for \(i \in \{A, B\}\).
+  SP codes can be constructed by the following gauge generating matrices
+  \begin{align}
+  \begin{split}
+    \label{sub:gauge}
+      G_X=\left(\begin{array}{c}H_X^A \otimes I \\ I \otimes
+                H_X^B \end{array}\right)
+      G_Z=\left(\begin{array}{c}H_Z^A \otimes I \\ I \otimes
+                H_Z^B \end{array}\right)~,
+  \end{split}
+  \end{align}
+  where \(I\) is the identity matrix with size chosen to match the dimensions.
+
+  A stabilizer generator matrix can be written in terms of
+  the codes' generating matrices, \(L_X^i, L_Z^i\) for \(i \in \{A, B\}\):
+  \begin{align}
+  \begin{split}
+    \label{sub:stabilizer}
+      H_X=\left(\begin{array}{c}H_X^A \otimes H_X^B \\
+                H_X^A \otimes L_X^B \\
+                L_X^A \otimes H_X^B \end{array}\right),
+      H_Z=\left(\begin{array}{c}H_Z^A \otimes H_Z^B \\
+                H_Z^A \otimes L_Z^B \\
+                L_Z^A \otimes H_Z^B \end{array}\right)~.
+  \end{split}
+  \end{align}
+  The null space of \(G\) excluding \(H\) gives logical generating matrices in canonical pairs
+  \begin{align}
+  \begin{split}
+    L_{X}&=\left(L_{X}^{A}\otimes L_{X}^{B}\right)\\
+    L_{Z}&=\left(L_{Z}^{A}\otimes L_{Z}^{B}\right)~,
+  \end{split}
+  \end{align}
+  which satisfy \(L_{X}L_{Z}^{T}=I\).
+
+protection: |
+  If the CSS codes have parameters \([[n_i,k_i,d_{i},d_{i}]]\) and sparsity \(\{r_i,c_i\}\), for \(i=A,B\) respectively,
+  the SP code have parameters \([[n_an_b,k_ak_b,d\leq d_ad_b]]\) and sparsity \(\{\max (r_a,r_b), c_a+c_b\}\).
+  Note the distance relation holds for both \(X\) and \(Z\), hence we omit the \(X/Z\) subscript.
+
+
+relations:
+  parents:
+    - code_id: subsystem_css
+  cousins:
+    - code_id: hypergraph_product
+      detail: 'SP codes are projected higher-dimensional HGP codes \cite{arXiv:2007.12152}.'
+    - code_id: quantum_concatenated
+      detail: 'Concatenated CSS stabilizer codes are gauge-fixed SP codes \cite[Thm. 4]{arxiv:2007.12152}.'
+    - code_id: homological_product
+      detail: 'Homological product codes are gauge-fixed SP codes \cite{arxiv:2007.12152}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-25'
+    - user_id: WeileiZeng
+      date: '2023-08-14'

@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: small_triorthogonal
+physical: qubits
+logical: qubits
+
+name: '\([[3k + 8, k, 2]]\) triorthogonal code'
+introduced: '\cite[Appx. B]{arXiv:1209.2426}'
+
+description: |
+  Member of the \([[3k + 8, k, 2]]\) family (for even \(k\)) of triorthogonal and quantum divisible codes that admit a transversal \(T\) gate and are relevant for magic-state distillation.
+
+
+features:
+  magic_scaling_exponent: 'The family yields the asymptotic exponent \(\gamma = \log_2 \frac{3k+8}{k} \approx 1.585\) \cite[Box 2]{arxiv:1612.07330}; see \cite[Table V]{arxiv:1709.02789}.'
+
+  transversal_gates: 'The code admits a transversal \(T\) gate \cite{arXiv:1209.2426}.'
+
+
+relations:
+  parents:
+    - code_id: quantum_triorthogonal
+    - code_id: quantum_divisible
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: quantum_h
+      detail: 'The H code \([[k+4,k,2]]\) family yields the \([[3k + 8, k, 2]]\) family of triorthogonal codes when level-lifted \cite[Sec. VI.C]{arxiv:1709.08658}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-28'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: BenjaminQuiring
+      date: '2021-12-16'

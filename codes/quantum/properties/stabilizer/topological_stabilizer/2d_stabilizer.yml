@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2d_stabilizer
+# includes both Galois and modular
+
+name: '2D lattice stabilizer code'
+
+description: |
+  Lattice stabilizer code in two spatial dimensions.
+
+  Any prime-qudit code can be converted to several copies of the prime-qudit 2D surface code along with some trivial codes \cite{arXiv:1812.11193}.
+
+features:
+  decoders:
+    - 'Tensor-network based decoder for 2D codes subject to correlated noise \cite{arxiv:1809.10704}.'
+    - 'Standard stabilizer-based error correction can be performed even in the presence of perturbations to the codespace \cite{arxiv:2401.06300,arxiv:2402.14906}.'
+  code_capacity_threshold:
+    - 'Noise thresholds can be formulated as anyon \hyperref[topic:code-switching]{condensation} transitions in a topological field theory \cite{arxiv:2301.05687}, generalizing the mapping of the effect of noise on a code state to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688,arXiv:1809.10704}.
+    Namely, the noise threshold for a noise channel \(\cal{E}\) acting on a 2D stabilizer state \(|\psi\rangle\) can be obtained from the properties of the resulting (mixed) state \(\cal{E}(|\psi\rangle\langle\psi|)\) \cite{arXiv:2301.05238,arxiv:2301.05687,arxiv:2301.05689,arXiv:2309.11879, arXiv:2401.17359}.'
+
+
+relations:
+  parents:
+    - code_id: translationally_invariant_stabilizer
+  cousins:
+    - code_id: surface
+      detail: 'Translation-invariant 2D qubit lattice stabilizer codes are equivalent to several copies of the Kitaev surface code via a local constant-depth Clifford circuit \cite{arXiv:1103.4606,arXiv:1107.2707,arXiv:1607.01387}.
+      There exists an algorithm with which one can determine the fusion and braiding rules of a 2D translationally invariant qubit code, and decompose the given code into copies of the surface code \cite{arxiv:2312.11170}.'
+    - code_id: quantum_double_abelian
+      detail: 'Translation-invariant 2D prime-qudit lattice stabilizer codes are equivalent to several copies of the prime-qudit surface code and a trivial code via a local constant-depth Clifford circuit \cite{arxiv:1812.11193}.'
+    - code_id: holographic
+      detail: '2D lattice stabilizer codes admit a bulk-boundary correspondence similar to that of holographic codes, namely, the boundary Hilbert space of the former cannot be realized via local degrees of freedom \cite{arxiv:2312.04617}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-27'

@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gkp-cluster-state
+physical: oscillators
+logical: qudits
+
+name: 'GKP cluster-state code'
+introduced: '\cite{arXiv:1310.7596}'
+
+description: |
+  Multi-mode code encoding logical qubits into a cluster-state stabilizer code concatenated with a single-mode GKP code. Provides a way to perform a continuous-variable (CV) analogue of fault-tolerant MBQC.
+
+  A cluster state of GKP qubits on a graph is made by applying two-mode \(C_Z\)-type gates \(e^{\pm i \hat{x}\otimes\hat{x}}\) to a tensor product of \(|\overline{+}\rangle\) logical GKP states on each vertex. Logical Clifford gates are performed on the cluster state using CV measurement-based computation \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}, i.e., via a combination of linear-optical gates and homodyne measurements on subsets of vertices. Magic-state distillation is required for universal computation. GKP error correction can be naturally combined with CV measurement-based protocols since the performance of both is quantified by a squeezing parameter.
+
+features:
+
+  general_gates:
+    - 'Single-mode logical Clifford gates can be performed using Gaussian operations and measurements on a 1D GKP cluster state, while two-mode logical Clifford gates require a 2D cluster state. Magic-state distillation using photon-counting can be used for a non-Clifford logical \(\pi/8\) gate.'
+
+  fault_tolerance:
+    - 'First encoding demonstrating the possibility of fault-tolerant measurement-based computation with CV cluster states. A fault-tolerance threshold can be achieved by concatenating existing fault-tolerant schemes for qubit-based cluster-state encodings with the GKP code \cite{arXiv:1310.7596}.'
+    - 'Hybrid cluster state consisting of GKP qubits at some modes and squeezed states at others has been proposed to work in a fault-tolerant scheme \cite{arxiv:2010.02905}.'
+
+relations:
+  parents:
+    - code_id: multimodegkp
+      detail: 'The GKP cluster-state code is a concatenation of a cluster-state stabilizer code with a single-mode GKP code.
+      A GKP-based cluster state is a multimode GKP codeword, although other codewords are not utilized in CV MBQC.'
+    - code_id: qudits_into_oscillators
+    - code_id: oscillators_concatenated
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-06-28'

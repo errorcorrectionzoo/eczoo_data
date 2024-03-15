@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quasi_perfect
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Quasi-perfect code'
+#introduced: '\cite{preset:MacSlo}'
+
+description: |
+  Perfect codes \((n,K,d)_q\) are those for which balls of Hamming radius \(t=\left\lfloor (d-1)/2\right\rfloor\) exactly fill the space of all \(n\) \(q\)-ary strings. \textit{Quasi-perfect codes} are those for which balls of Hamming radius \(t\) are disjoint, while balls of radius \(t+1\) cover the space with possible overlaps. In other words, any \(q\)-ary string is at most \(t+1\) bit flips away from a codeword of a quasi-perfect code.
+
+protection: 'Correct errors of weight \(t\) as well as some errors of weight \(t+1\).'
+
+relations:
+  parents:
+    - code_id: weighed_covering
+      detail: 'A quasi-perfect code is an \(m\)-weighed covering code for \(r=t+1\), \(m_0=m_1=\cdots=m_{t+1}=1\), and \(m_t=m_{t+1}=1/\left\lfloor (n+1)(t+1) \right\rfloor\) (\cite{preset:CoveringBook}, Ch. 13).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'

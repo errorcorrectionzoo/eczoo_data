@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: reinforcement_learning
+physical: qubits
+logical: qubits
+
+name: 'Neural network code'
+introduced: '\cite{arxiv:1802.05267,arxiv:1806.08781,arxiv:1812.08451}'
+
+description: |
+  An approximate code obtained from a numerical optimization involving a reinforcement learning agent.
+
+protection: |
+  Depends on the parameter being optimized.
+
+features:
+  rate: 'Neural network codes can be obtained by optimizing the coherent information \cite{arxiv:1806.08781}.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: approximate_qecc
+  cousins:
+    - code_id: surface
+      detail: 'Reinforcement learners can be used to optimize the geometry of the surface code to be more suited to a noise channel \cite{arxiv:1812.08451}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-08'

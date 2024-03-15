@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: ara
+physical: bits
+logical: bits
+
+name: 'Accumulate-repeat-accumulate (ARA) code'
+short_name: 'ARA'
+introduced: '\cite{doi:10.1109/TCOMM.2007.894109}'
+
+description: |
+  A generalization of the RA code in which the outer repetition-code encoding step is augmented with an acumulator acting on a fraction of the incoming bits.
+  In addition, the code may be punctured after the final acumulating step.
+
+
+relations:
+  parents:
+    - code_id: irregular_ldpc
+    - code_id: protograph_ldpc
+      detail: 'ARA codes can be formulated as protograph LDPC codes \cite{doi:10.1109/GLOCOM.2005.1577834}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

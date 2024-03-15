@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_shor
+physical: qubits
+logical: qubits
+
+name: 'Generalized Shor code'
+introduced: '\cite{arxiv:quant-ph/0506023,arxiv:quant-ph/0610088}'
+
+description: |
+  Code constructed by concatenating two classical codes in a way the generalizes the Shor and quantum parity codes.
+
+  This \([[n_1n_2,k_1k_2,\min(d_1,d_2)]]\) code can be defined \cite{arxiv:0903.0566} via the CSS construction applied to two binary linear codes, \(C_X\) and \(C_Z\), satisfying \(C_X^{\perp}\subset C_Z\).
+  These codes are in turn constructed from two more binary linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\), with parity-check matrices \(H_{1,2}\) and generator matrices \(G_{1,2}\), respectively.
+  The parity-check matrices of \(C_X\) and \(C_Z\) are then
+  \begin{align}
+  \begin{split}
+  H_X &= H_1 \otimes I_{n_2}\\
+  H_Z &= G_1 \otimes H_2~.
+  \end{split}
+  \end{align}
+
+  Based on the above construction, the Hilbert space on \(n_1n_2\) qubits can be decomposed into a multiple direct sums of multiple tensor products of Hilbert spaces of lower dimensions, as outlined in \cite{arXiv:quant-ph/0506023}.
+
+
+
+protection: 'Has distance \(d=\min(m_1,m_2)\).'
+
+features:
+  decoders:
+    - 'Efficient decoder \cite{doi:10.1109/ISIT.2009.5205650}.'
+
+#                   - 'Tier 1(physical encoding): \(\ket{0}=\ket{H}\) and \(\ket{1}=\ket{V}\) '
+#                   - 'Tier 2(parity encoding): \(\ket{0}^{(n)} = (\ket{+}^{\otimes n}+\ket{-}^{\otimes n})/\sqrt{2} \)  and \(\ket{1}^{(n)} = (\ket{+}^{\otimes n} - \ket{-}^{\otimes n})/\sqrt{2} \)'
+#                   - 'Tier 3(redundant encoding): Finally, any code word is: \ket{\psi}=\alpha\ket{0}^{(n)\ket{0}^{(n)\cdots\ket{0}^{(n)+\beta\ket{1}^{(n)\ket{1}^{(n)\cdots\ket{1}^{(n)}'
+
+realizations:
+  - 'The \([[m^2,1,m]]\) codes for \(m\leq 7\) have been realized in trapped-ion quantum devices \cite{arXiv:2104.01205}.'
+
+notes:
+  - 'Non-determinisitic linear-optical encoding \cite{arxiv:quant-ph/0501184} whose success probability \(P_{E}\) is determined by the efficiency \(\eta\) of the photonic encoding circuit. A threshold \(\eta > 0.82 \) exists for the efficiency, above which \(P_{E}\to 1\) as \(m_1\to\infty\) given particular \(m_2\).'
+  - 'Studied in the context of error-corrected quantum repeaters \cite{arXiv:1310.5291}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-14'

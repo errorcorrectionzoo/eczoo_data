@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_hyperbolic_surface
+physical: qubits
+logical: qubits
+
+name: 'Subsystem hyperbolic surface code'
+introduced: '\cite{arxiv:2010.09626}'
+
+description: |
+  Subsystem generalization of the surface code on a 2D hyperbolic tesselation with gauge-group generators of weight at most three.
+  An \(\{r,s\}\) hyperbolic tesselation with \(E\) edges yields a \([[3E/2,(1/2-2/r)E+2,(1-2/r)E,d]]\) subsystem code.
+
+protection: |
+  Distance \(d\) is bounded between \(d_X/2\) and \(d_X\), where \(d_X\) is the \(X\) distance of the subspace hyperbolic surface code derived from the same tesselation \cite[Appx. F]{arxiv:2010.09626}.
+
+relations:
+  parents:
+    - code_id: subsystem_css
+  cousins:
+    - code_id: two_dimensional_hyperbolic_surface
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-01'

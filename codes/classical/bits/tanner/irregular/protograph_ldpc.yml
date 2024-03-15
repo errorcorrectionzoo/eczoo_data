@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: protograph_ldpc
+physical: bits
+logical: bits
+
+name: 'Protograph LDPC code'
+introduced: '\cite{manual:{Thorpe, Jeremy. "Low-density parity-check (LDPC) codes constructed from protographs." IPN progress report 42.154 (2003): 42-154.},doi:10.1109/GLOCOM.2005.1577834,doi:10.1109/MILCOM.2006.302313}'
+
+description: |
+  LDPC code whose parity-check matrix is constructed using the lifting procedure (defined below) applied to the incident matrix of a sparse graph called, in this context, a \textit{protograph}.
+  Its parity check matrix can be put into the form of a block matrix consisting of either a sum of permutation sub-matrices or the zero sub-matrix.
+
+  \begin{defterm}{Lifting}
+  \label{topic:lifting}
+  Given the incidence matrix \(A\) of a protograph, each non-zero entry is replaced by a sum of \(\ell\)-dimensional permutation matrices while each zero entry is replaced by the \(\ell\)-dimensional zero matrix.
+  The resulting matrix is called a \textit{lift} of \(A\).
+  The permutation matrices can be chosen randomly or deterministically, with a deterministic lift also called a \textit{permutation voltage assignment} in the theory of theory of voltage graphs \cite{doi:10.1109/ISIT.2008.4595095,doi:10.1017/CBO9781139087223}.
+  \end{defterm}
+
+  For example, the lift of a two-dimensional incidence matrix using two-dimensional permutation matrices associated with the group \(\mathbb{Z}_2\) is as follows:
+  \begin{align}
+    \begin{pmatrix}1 & 1\\
+    0 & 1
+    \end{pmatrix}\to\begin{pmatrix}\begin{smallmatrix}0 & 1\\
+    1 & 0
+    \end{smallmatrix} & \begin{smallmatrix}0 & 1\\
+    1 & 0
+    \end{smallmatrix}\\
+    \begin{smallmatrix}0 & 0\\
+    0 & 0
+    \end{smallmatrix} & \begin{smallmatrix}1 & 0\\
+    0 & 1
+    \end{smallmatrix}
+    \end{pmatrix}~.
+  \end{align}
+  Here, the two non-zero entries in the top row are replaced by the exchange permutation while the bottom non-zero entry is replaced by the trivial permutation.
+
+protection: |
+  The minimum distance of protograph codes is bounded by a function of the number of commuting permutation-matrix blocks \cite{doi:10.1007/978-1-4613-0165-3_6}.
+
+notes:
+  - 'For reviews on protograph LDPC codes, see Ref. \cite{doi:10.1109/COMST.2015.2436705}.'
+
+relations:
+  parents:
+    - code_id: multi_edge_ldpc
+      detail: 'LDPC codes based on protographs can be formulated as multi-edge LDPC codes \cite{doi:10.1109/ITW.2011.6089477}.'
+    - code_id: q-ary_protograph_ldpc
+  cousins:
+    - code_id: algebraic_ldpc
+      detail: 'Some deterministic protograph LDPC codes \cite{doi:10.1109/ALLERTON.2008.4797704} can be obtained from the theory of voltage graphs \cite{doi:10.1109/ISIT.2008.4595095,doi:10.1017/CBO9781139087223}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

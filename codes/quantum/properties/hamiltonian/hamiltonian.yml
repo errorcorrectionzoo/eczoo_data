@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hamiltonian
+
+name: 'Hamiltonian-based code'
+#introduced: ''
+
+description: |
+  Code whose codespace corresponds to a set of energy eigenstates of a quantum-mechanical Hamiltonian.
+  The codespace is typically a set of low-energy eigenstates or ground states, but can include subspaces of arbitrarily high energy.
+
+  For block quantum codes, the Hamiltonian can be \textit{local}, i.e., consisting of operators acting on a number of subsystems that is independent of the total number of subsystems (e.g., \hyperref[code:qldpc]{QLDPC codes}).
+  When the physical space is endowed with a geometry, the Hamiltonian is typically \textit{geometrically local}, consisting of operators acting on subsystems that occupy a region whose size is independent of the number of subsystems (e.g., \hyperref[code:topological]{topological codes}).
+
+  Ground states of infinite families geometrically local block-code Hamiltonians can sometimes be said to be a particular phase of (quantum) matter.
+  A phase is a "region in some parameter space in which the ... states possess properties that can be distinguished from those in other phases" \cite{doi:10.1063/PT.3.1641}.
+
+protection: 'Often determined from the underlying physical properties of the Hamiltonian.'
+
+features:
+  encoders:
+    - 'Lindbladian-based dissipative encoding can be constructed for a codespace that is the ground-state subspace of a frustration-free Hamiltonian \cite{arXiv:0809.0613,arXiv:1112.4860,arxiv:0803.1447,arxiv:1802.00010}.'
+
+relations:
+  parents:
+    - code_id: qecc
+    
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-15'
