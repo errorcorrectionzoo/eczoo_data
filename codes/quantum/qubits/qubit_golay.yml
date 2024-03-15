@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_golay
+physical: qubits
+logical: qubits
+
+name: 'Qubit Golay code'
+introduced: '\cite{arXiv:quant-ph/0207119}'
+
+description: |
+
+  The Golay code is a \([[23, 1, 7]]\) CSS quantum error-correcting code with eleven \(X\) and eleven \(Z\) stabilizer generators. The \(H_X\) and \(H_Z\) stabilizer generator matrices can both be given by the 11-by-23 matrix
+
+    \left[\begin{array}{*{23}c}
+    0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+    1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+    0 & 1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+    1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+    1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+    1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{array}\right].
+
+    Note that each stabilizer generator has weight eight \cite{arXiv:1106.2190}.
+
+protection: 'The Golay code is a distance 7 code. It can detect up to 6-qubit errors and correct up to 3-qubit errors.'
+
+features:
+  encoders:
+    - 'There exists a depth-7 circuit consisting of 57 CNOT gates which prepares a logical zero state in the Golay code \cite{arXiv:1106.2190}.'
+
+  magic_scaling_exponent: 'Magic-state distillation scailing exponent \(\gamma=\log_2 23\approx 4.52\)\cite{arXiv:2003.02717}.'
+
+  transversal_gates: 'The Golay code admits transversal implementations of all encoded Clifford gates by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\)\cite{arXiv:1106.2190}.'
+  
+  general_gates:
+    - 'The Golay code can be used to perform magic-state distillation for the magic state defined as \(|T\rangle\langle T|=\frac{1}{2}(I+\frac{1}{\sqrt{3}}(X+Y+Z))\) where \(|T\rangle\) is an eigenstate of the Clifford operator \(SH\)\cite{arXiv:quant-ph/0411036}.'
+
+  threshold:
+    - 'provable threshold of \(1.32\times 10^{-3}\)-per gate error rate for depolarizing noise \cite{arXiv:1106.2190}.'
+    - 'One numerical study found that the Golay code achieves the highest threshold among a dozen well-known quantum error-correcting codes \cite{arXiv:0711.1556}.' 
+
+relations:
+  parents:
+    - code_id: css
+
+  cousins:
+    # - code_id: binary_golay
+
+    - code_id: qutrit_golay
