@@ -24,6 +24,38 @@ description: |
 
   See \cite[Sec. 10.5]{doi:10.1017/CBO9780511807077}\cite[pg. 87]{doi:10.1007/978-1-4757-6568-7} for more details.
 
+
+# Code for table
+# \begin{tabular}{c|ccccccc}
+# % If you use tabularx, try to use \textwidth if possible:
+# %\begin{tabularx}{\textwidth}{XCCC}
+# \toprule
+# % Header
+#  $S_q$ &
+# $\infty$ & $0$ & $1$ & $\dots$ & $j$ & $\dots$ & $p-1$
+# \\
+# % Body
+# \midrule
+# % -----
+# $\infty$ &
+# $0$  & $1$  & $1$ & $\dots$ & $1$ & $\dots$ & $1$
+# \\
+# $0$ &
+# $\chi(-1)$ & $\chi(0)$ & $\chi(1)$ & $\dots$ & $\chi(j)$ & $\dots$ & $\chi(p-1)$
+# \\
+# $1$
+# & $\chi(-1)$
+# \\
+# $\vdots$ & $\vdots$ &&& $\ddots$ && $\ddots$
+# \\
+# $i$ & $\chi(-1)$ &&&& $\chi(j-i)$ \\
+# $\vdots$ & $\vdots$ &&& $\ddots$ && $\ddots$ \\
+# $p-1$ & $\chi(-1)$ \\
+# % -----
+# \bottomrule
+# \end{tabular}%
+
+
 relations:
   parents:
     - code_id: self_dual
