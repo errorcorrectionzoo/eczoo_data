@@ -22,6 +22,12 @@ description: |
   A surface code with weight-four stabilizer generators defined on a triangular lattice patch with a single twist defect at the center of the patch.
   The codes use about \(25\%\) fewer physical per logical qubit for a given distance compared to the surface code.
   The also yield a way to implement gate \(S\) without state distillation.
+
+  The codes are defined an a plane tiled with equilateral triangles and having a twist defect at its center.
+  Each triangle can encode a qubit where one side is a string of \(Z\)s as logical \(\bar{Z}\), one side is a string of \(X\)s as logical \(\bar{X}\), and the last side is a mixed-type string as logical \(\bar{Y}\).
+  The size of the triangular patches and which patch encodes data versus act as ancillas for gates depends on the initialization and measurement procedures.
+  See Ref. \cite{arXiv:1612.04795} for tables and figures.
+
 #
 #
 # The codes have simple syndrome extraction circuits and have a high threshold close to that of surface codes.
@@ -31,10 +37,6 @@ description: |
 # Triangle codes also
 #
 
-  The codes are defined an a plane tiled with equilateral triangles and having a twist defect at its center.
-  Each triangle can encode a qubit where one side is a string of \(Z\)s as logical \(\bar{Z}\), one side is a string of \(X\)s as logical \(\bar{X}\), and the last side is a mixed-type string as logical \(\bar{Y}\).
-  The size of the triangular patches and which patch encodes data versus act as ancillas for gates depends on the initialization and measurement procedures.
-  See Ref. \cite{arXiv:1612.04795} for tables and figures.
 
 
 protection: |
