@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_ppm
+physical: oscillators
+logical: reals
+
+name: 'PPM c-q code'
+introduced: '\cite{arXiv:1111.4017}'
+
+description: |
+  A \(q\)-PPM c-q code is a coherent-state c-q code whose \(j\)th codeword corresponds to a tensor-product state of zero-amplitude coherent states at all modes except mode \(j\).
+  For example, a 3-PPM encoding corresponds to the three-mode states \(|\alpha\rangle|0\rangle|0\rangle\), \(|0\rangle|\alpha\rangle|0\rangle\), and \(|0\rangle|0\rangle|\alpha\rangle\) for some complex \(\alpha\).
+  The dual of a PPM code is obtained by the exchange \(0\leftrightarrow\alpha\).
+
+protection: |
+  The error probability under an optimal quantum detector is worked out in \cite[Sec. IV.2]{preset:Helstrom}.
+
+features:
+  decoders:
+    - 'Conditional pulse nulling (CPN) receiver \cite{manual:{S. J. Dolinar, Jr., “A near-optimum receiver structure for the detection of M-ary optical PPM signals”, The Telecommunications and Data Acquisition Progress Report 42 72: December 1982; NASA: Pasadena, CA, (1983)}}.'
+
+realizations:
+  - 'Conditional pulse nulling (CPN) receiver \cite{arxiv:1111.4017}.'
+
+relations:
+  parents:
+    - code_id: coherent_state_c-q
+  cousins:
+    - code_id: ppm
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-04'

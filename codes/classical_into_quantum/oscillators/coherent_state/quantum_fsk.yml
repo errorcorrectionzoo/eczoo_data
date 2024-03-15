@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_fsk
+physical: oscillators
+logical: reals
+
+name: Coherent FSK (CFSK) c-q code
+short_name: CFSK c-q
+introduced: \cite{arXiv:1802.08287,doi:10.1103/PRXQuantum.1.010308}
+
+description: \hyperref[code:coherent_state_c-q]{Coherent-state c-q code} encoding
+  into coherent states that are frequency-shifted with certain initial relative phase.
+  Codewords are coherent states \(|\alpha_m\rangle\), where \begin{align} \alpha_m
+  = \alpha e^{i(\omega_0+[m-1]\Delta\omega)t+i(m-1)\Delta\theta} \end{align} for common
+  frequency \(\omega_0\), frequency shift \(\Delta\omega < 2\pi/T\), total time \(T\),
+  and phase shift \(\Delta\theta\).
+
+protection: |
+  The square-root measurement is not optimal for CFSK c-q codes, unlike for PSK c-q codes \cite{arXiv:2203.09822}.
+
+features:
+  decoders:
+  - Bondurant receiver \cite{doi:10.1364/OL.18.001896}.
+  - Cyclic receiver \cite{doi:10.1364/OSAC.409200}.
+  - Time-resolving receiver \cite{arXiv:1802.08287,doi:10.1103/PRXQuantum.1.010308,doi:10.1038/s41534-022-00573-9}.
+  - Bayesian inference \cite{arxiv:1802.08287}.
+
+realizations:
+- Time-resolving quantum receiver \cite{doi:10.1038/s41534-022-00573-9}.
+- Bondurant receiver \cite{doi:10.1364/OSAC.409200}.
+- Bayesian inference \cite{doi:10.1103/PRXQuantum.1.010308}.
+
+relations:
+  parents:
+  - code_id: coherent_state_c-q
+  cousins:
+  - code_id: fsk
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+  - user_id: VictorVAlbert
+    date: '2022-12-04'
+  - user_id: IvanBurenkov
+    date: '2022-12-04'

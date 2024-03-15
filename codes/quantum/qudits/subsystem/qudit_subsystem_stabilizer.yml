@@ -1,0 +1,78 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_subsystem_stabilizer
+physical: qudits
+logical: qudits
+
+name: 'Subsystem modular-qudit stabilizer code'
+# introduced: '\cite{arXiv:quant-ph/0508131}'
+
+description: |
+  Also called a \textit{gauge stabilizer code}.
+  Modular-qudit generalization of a subsystem qubit stabilizer code.
+  Can be obtained by taking a modular qudit stabilizer code and assigning some of its logical qubits to be gauge qubits.
+  For composite qudit dimensions, such codes need not encode an integer number of qudits.
+
+  Subsystem stabilizer codes are defined by a gauge group \(\mathsf{G}\) and a stabilizer group \(\mathsf{S}\), both subgroups of the \(n\)-qudit Pauli group \(\mathsf{P}_n\) that satisfy \(\mathsf{Z}(\mathsf{G})=\mathsf{S}\), where \(\mathsf{Z}\) denotes taking the center of a group.
+
+  A code can be constructed by starting with either group.
+  Given an \(\mathsf{S}\), one can pick any \(\mathsf{G}\) satisfying \(\mathsf{S}\subseteq\mathsf{G}\subseteq\mathsf{N(S)}\), where \(\mathsf{N(S)}\) is the normalizer of the stabilizer group within \(\mathsf{P}_n\).
+  Alternatively, given a \(\mathsf{G}\), one defines \(\mathsf{S}\) to be the center of the gauge group.
+
+  The logical Pauli group is \(\mathsf{N(G)/S}\).
+  As such, the case when \(\mathsf{G}=\mathsf{S}\) reduces to an ordinary stabilizer code, while the case \(\mathsf{G}=\mathsf{N(S)}\) reduces to a trivial code.
+
+  One can gauge fix \cite{arxiv:quant-ph/0508131} an Abelian subgroup of the gauge group by adding it to the stabilizer group.
+  \begin{defterm}{Gauge fixing}
+  \label{topic:gauge-fixing}
+  Gauge fixing is a map between subsystem codes that is done using an Abelian subgroup \(\mathsf{F}\subseteq\mathsf{G}\),
+  \begin{align}
+  \begin{split}
+    \mathsf{S}&\to\left\langle \mathsf{S},\mathsf{F}\right\rangle \\
+    \mathsf{G}&\to\mathsf{N}_{\mathsf{G}}\left(\mathsf{F}\right)~,
+  \end{split}
+  \end{align}
+  where \(\mathsf{N}_{\mathsf{G}}\left(\mathsf{F}\right)\) is the normalizer of the stabilizer group within \(\mathsf{G}\).
+  \end{defterm}
+  Gauge fixing can be used to switch between different stabilizer codes that yield different gauge sets in a process known as \textit{gauge switching}.
+  Gauge fixing also encompasses lattice surgery and code deformation \cite{arxiv:1810.10037}.
+
+  One can also gauge out a subgroup \(\mathsf{F}\) of the Pauli group by adding it to the gauge group.
+  \begin{defterm}{Gauging out}
+  \label{topic:gauging-out}
+  Gauging out is a map between subsystem codes that is done using a subgroup \(\mathsf{F}\subseteq\mathsf{P}_n\),
+  \begin{align}
+  \begin{split}
+    \mathsf{S}&\to\mathsf{Z}\left(\left\langle \mathsf{G},\mathsf{F}\right\rangle \right)\\
+    \mathsf{G}&\to\left\langle \mathsf{G},\mathsf{F}\right\rangle ~.
+  \end{split}
+  \end{align}
+  The stabilizer group of the output subsystem code is a subgroup of that of the input code, \(\mathsf{Z}\left(\left\langle \mathsf{G},\mathsf{F}\right\rangle \right)\subseteq\mathsf{Z}\left(\mathsf{G}\right)\).
+  When \(\mathsf{F}\) is a subgroup of the logical Pauli group, this is also called \textit{gauging}.
+  If \(\mathsf{F}\) is itself a Pauli group of \(m\) logical qubits of the original subsystem code, then gauging those qubits is equivalent to treating them as gauge qubits.
+  \end{defterm}
+
+features:
+  decoders:
+    - 'Syndrome measurements are obtained by first measuring gauge operators of the code and taking their products, which give the stabilizer measurement outcomes.
+    The order in which gauge operators are measured is important since they do not commute.
+    There is a sufficient condition for inferring the stabilizer syndrome from the measurements of the gauge generators \cite[Appendix]{arxiv:1012.0425}.'
+    - 'Decoder for certain geometrically local subsystem codes from hypergraphs \cite{arxiv:1805.12542}.'
+
+relations:
+  parents:
+    - code_id: subsystem_qudits_into_qudits
+  cousins:
+    - code_id: qudit_stabilizer
+      detail: 'Subsystem modular-qudit stabilizer codes reduce to modular-qudit stabilizer codes when there are no gauge qudits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-09'

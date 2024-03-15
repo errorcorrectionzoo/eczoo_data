@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xs_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'XS stabilizer code'
+introduced: '\cite{arXiv:1404.5327}'
+
+description: |
+  A type of stabilizer code where stabilizer generators are elements of the group \( \{\alpha I, X, \sqrt{Z}]\}^{\otimes n} \), with \( \sqrt{Z} = \text{diag} (1, i)\). The codespace is a joint \(+1\) eigenspace of a set of stabilizer generators, which need not commute to define a valid codespace.
+
+relations:
+  parents:
+    - code_id: xp_stabilizer
+      detail: 'The XP stabilizer formalism reduces to the XS formalism at \(N=4\).'
+  cousins:
+    - code_id: tqd_abelian
+      detail: 'TQD models for the groups \(\mathbb{Z}_2^k\) can be realized as XS stabilizer codes \cite{arXiv:1404.5327}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-19'

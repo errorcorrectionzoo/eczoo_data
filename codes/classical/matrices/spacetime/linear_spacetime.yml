@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: linear_spacetime
+physical: matrices
+logical: q-ary_digits
+
+name: 'Linear STC'
+
+description: |
+  Spacetime code whose set of matrix codewords is closed under addition and subtraction.
+
+features:
+  decoders:
+    - 'Sphere decoder \cite{doi:10.1109/4234.846498,doi:10.1109/TSP.2005.850352,doi:10.1109/18.771234}.'
+
+relations:
+  parents:
+    - code_id: spacetime_block
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-02'

@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: analog_surface
+physical: oscillators
+logical: oscillators
+
+name: 'Analog surface code'
+introduced: '\cite{arXiv:0711.0820}'
+
+description: |
+  Also called a \textit{continuous-variable (CV) surface code}. An analog CSS version of the Kitaev surface code.
+
+features:
+  decoders:
+    - 'Shift-based decoder \cite{arxiv:1810.00047}.'
+
+notes:
+  - 'See \cite[Sec. III.C2]{arxiv:1302.3428} for an exposition.'
+
+relations:
+  parents:
+    - code_id: analog_stabilizer
+  cousins:
+    - code_id: qudit_surface
+      detail: 'The analog surface code realizes a straightforward extension of the modular-qudit surface code to infinite local dimension, \(q\to\infty\).
+      There are two types of anyons, \(e\) and \(m\), with each type being valued in \(U(1)\) as opposed to \(\mathbb{Z}_q\) for the qudit surface code.'
+    - code_id: topological_abelian
+      detail: 'The analog surface code realizes a straightforward extension of the modular-qudit surface code to infinite local dimension, \(q\to\infty\).
+      There are two types of anyons, \(e\) and \(m\), with each type being valued in \(U(1)\) as opposed to \(\mathbb{Z}_q\) for the qudit surface code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-10-11'

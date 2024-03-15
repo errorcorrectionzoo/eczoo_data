@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_polynomial
+physical: galois
+logical: galois
+
+name: 'Galois-qudit RS code'
+short_name: 'Galois RS'
+introduced: '\cite{arxiv:quant-ph/9906129}'
+
+description: |
+  Also called a \textit{polynomial code (QPyC)}. An \([[n,k,n-k+1]]_q\) (with \(q>n\)) Galois-qudit CSS code constructed using two Reed-Solomon codes over \(GF(q)\).
+
+  Let \(C_1\) be a \([n,k_1,d_1]_q\) Reed-Solomon code and \(C_2^\perp\) be a \([n,k_2,d_2]_q\) Reed-Solomon code, modified such that \(C_2^\perp \subseteq C_1\) and \(0\le k_2 \le k_1 \le n\). Then, a polynomial code is a non-degenerate \([[n,k_2,d]]_q\) Galois-qudit CSS code with \(d=\min(n-k_1+1,k_1-k_2+1)\). The polynomial code is the span of the basis codewords over GF(\(q\))
+  \begin{align}
+  |\overline{\beta_0,\cdots,\beta_{k_2-1}}\rangle
+  =
+  \sum_{(\beta_{k_2},\cdots,\beta_{k_1-1})\in GF(q) }
+  \bigotimes_{i=1}^{n}
+  \left| \sum_{j=0}^{k_1-1} \beta_j \alpha_i^j \right\rangle,
+  \end{align}
+  where \((\alpha_1, \cdots, \alpha_n)\) are \(n\) distinct points chosen for code \(C_1\) from \(GF(q)\setminus \{0\}\).'
+
+relations:
+  parents:
+    - code_id: galois_grs
+  cousins:
+    - code_id: galois_fqrs
+      detail: 'A FQRS code with no extra grouping (\(m=1\)) reduces to a Galois-qudit RS code that is CSS.'
+    - code_id: reed_solomon
+      detail: 'Galois-qudit RS codes codes are CSS codes constructed from Reed-Solomon codes.'
+    - code_id: quantum_mds
+      detail: 'A polynomial code is a quantum MDS code when \(n-k_1=k_1-k_2\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-10'
+    - user_id: QingfengKeeWang
+      date: '2021-12-20'

@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: perfect_binary
+physical: bits
+logical: bits
+
+name: 'Perfect binary code'
+
+description: |
+  An \((n,K,2t+1)\) binary code is perfect if parameters \(n\), \(K\), and \(t\) are such that the binary Hamming (a.k.a. sphere-packing) bound
+  \begin{align}
+  \sum_{j=0}^{t} {n \choose j} \leq 2^{n}/K
+  \end{align}
+  becomes an equality. For example, for a code with one logical bit (\(K=2\)) and \(t=1\), the bound becomes \(n+1 \leq 2^{n-1}\).
+  Perfect codes are those for which balls of Hamming radius \(t\) exactly fill the space of all \(n\) binary strings.
+
+  Any perfect linear binary code is either a binary repetition code, a binary Hamming code, or the binary Golay code \cite{doi:10.1016/S0019-9958(77)90519-8}.
+
+  For codes with \(K=2^k\), one can work out an asymptotic Hamming bound in the large-\(n,k,t\) limit,
+  \begin{align}
+  \frac{k}{n}\leq 1-h(t/n),
+  \end{align}
+  where \(h\) is the binary entropy function.
+
+relations:
+  parents:
+    - code_id: nearly_perfect
+      detail: 'Perfect binary codes are nearly perfect, and \(t+1\) divides \(n-t\) for such codes. In addition, any perfect code can be extended to a nearly perfect code.'
+    - code_id: perfect
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-19'
+    - user_id: MustafaDoger
+      date: '2022-04-01'
+    - user_id: VictorVAlbert
+      date: '2022-03-21'
+    - user_id: VictorVAlbert
+      date: '2021-12-01'

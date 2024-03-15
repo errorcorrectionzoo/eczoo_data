@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: clifford_qsc
+physical: oscillators
+logical: qubits
+
+name: 'Clifford group-representation QSC'
+introduced: '\cite{arXiv:2306.11621}'
+
+description: |
+  QSC whose projection is onto a copy of an irreducible representation of the single-qubit Clifford group \(2O\), taken as the binary octahedral subgroup of the group \(SU(2)\) of Gaussian rotations.
+
+features:
+  general_gates:
+    - 'The Clifford group \(2O\) can be realized via Gaussian rotations.
+    The \(T\) and \(CZ\) gates can be realized using quartic Kerr operations \cite{arxiv:2306.11621}.'
+
+
+relations:
+  parents:
+    - code_id: qsc
+      detail: 'The Clifford group-representation QSC has non-uniform coefficients.'
+    - code_id: group_representation
+      detail: 'The Clifford group-representation QSC is a group-representation code with \(G\) being the binary octahedral subgroup of \(SU(2)\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-21'

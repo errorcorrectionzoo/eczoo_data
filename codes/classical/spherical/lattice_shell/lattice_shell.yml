@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lattice_shell
+physical: spheres
+logical: reals
+
+name: 'Lattice-shell code'
+introduced: '\cite{doi:10.1109/TIT.1981.1056351,doi:10.1109/18.265491}'
+
+description: |
+  Spherical code whose codewords are scaled versions of points on a lattice.
+  A \(m\)-shell code consists of normalized lattice vectors \(x\) with squared norm \(\|x\|^2 = m\).
+  Each code is constructed by normalizing a set of lattice vectors in one or more \textit{shells}, i.e., sets of lattice points lying on a hypersphere.
+
+notes:
+  - 'See \cite[Ch. 10]{preset:EricZin} for tables of lattice-shell codes.'
+
+relations:
+  parents:
+    - code_id: spherical
+  cousins:
+    - code_id: points_into_lattices
+      detail: 'Lattice-shell codes consists of lattice points that have been normalized.'
+    - code_id: cyclic
+      detail: 'Lattice-shell codewords are often permutations of a particular set of reference vectors, meaning that a cyclic permutation of a codeword yields another codeword.'
+    - code_id: spherical_design
+      detail: 'Nonempty \(2m\)-shell codes of extremal even unimodular lattices in \(n\) dimensions form spherical \(t\)-designs with \(t=11\) (\(t=7\), \(t=3\)) if \(n \equiv 0\) (\(n \equiv 8\), \(n\equiv 16\)) modulo 24 \cite{manual:{B. B. Venkov. Even unimodular extremal lattices, algebraic geometry and its applications. Trudy Mat. Inst. Steklov., 165:43–48, 1984.},manual:{B. Venkov. Réseaux et designs sphériques. In Réseaux euclidiens, designs sphériques et formes modulaires, volume 37 of Monogr. Enseign. Math., pages 10–86. Enseignement Math., Geneva, 2001.}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'

@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_gkp
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit GKP code'
+introduced: '\cite[Sec. II]{arXiv:quant-ph/0008040}'
+
+description: |
+  Modular-qudit analogue of the GKP code.
+  Encodes a qudit into a larger qudit and protects against Pauli shifts up to some maximum value.
+
+  The simplest example requires a 15-dimensional qudit and admits stabilizer generators \(Z^6\) and \(X^6\).
+  The logical codewords are
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle&=\frac{1}{\sqrt{3}}\left(|0\rangle+|6\rangle+|12\rangle\right)\\|\overline{1}\rangle&=\frac{1}{\sqrt{3}}\left(|3\rangle+|9\rangle+|15\rangle\right)~, \end{split}
+  \end{align}
+  and logical opeartors are \(Z^3\) and \(X^3\).
+
+  More generally, for qudit dimension \(q = r_1 r_2 K\) for some positive integers \(r_1\), \(r_2\), and logical dimension \(K\), the stabilizer generators are \(Z^{r_1 n}\) and \(X^{r_2 n}\).
+
+protection: |
+  The above simple code corrects any Pauli string \(X^{a}Z^{b}\) with \(|a|,|b|\leq 1\).
+  A general code protects against any strings for which \(|a| < r_1/2\) and \(|b| < r_2/2\).
+
+relations:
+  parents:
+    - code_id: qudit_css
+    - code_id: single_subsystem
+  cousins:
+    - code_id: gkp
+      detail: 'The square-lattice GKP code can be obtained from the modular-qudit code by taking the physical qudit dimension to be infinite \cite[Sec. II]{arXiv:quant-ph/0008040}.'
+    - code_id: quantum_perfect
+      detail: 'The modular-qudit GKP code is not a block code, but it is perfect in the sense that each correctable error maps the logical space into a distinct error space.'
+    - code_id: rotor_gkp
+      detail: 'The rotor GKP code can be thought of as a concatenation of a homological rotor code and a modular-qudit GKP code \cite[Fig. 3]{arxiv:2311.07679}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-03'

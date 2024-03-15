@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 3d_color
+physical: qubits
+logical: qubits
+
+name: 'Three-dimensional color code'
+short_name: '3D color code'
+introduced: '\cite{arxiv:cond-mat/0607736}'
+
+description: |
+  Three-dimensional version of the color code.
+  Logical dimension is determined by the genus of the underlying surface (for closed surfaces), types of boundaries (for open surfaces), and/or any twist defects \cite{arxiv:1806.02820} present.
+
+features:
+  transversal_gates: 'Universal transversal gates can be achieved using lattice surgery \cite{arXiv:1407.5103} or code deformation \cite{arxiv:1006.5260,arXiv:0806.4827}.'
+
+  threshold:
+    - '\(0.46\%\) for 3D codes with clustering decoder \cite{arXiv:1708.07131}.'
+    - '\(1.9\%\) for 1D string-like logical operators and \(27.6\%\) for 2D sheet-like operators for 3D codes with noise models using optimal decoding and perfect measurements \cite{arXiv:1708.07131}.'
+
+
+relations:
+  parents:
+    - code_id: color
+    - code_id: 3d_stabilizer
+    - code_id: qudit_color
+      detail: 'Modular-qudit 3D color codes reduce to 3D color codes for \(q=2\).'
+    - code_id: topological_abelian
+    - code_id: quantum_triorthogonal
+  cousins:
+    - code_id: 3d_surface
+      detail: 'The 3D color code is equivalent to multiple decoupled copies of the 3D surface code \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.'
+    - code_id: xs_stabilizer
+      detail: 'The 3D color code admits XS stabilizers; see \href{https://www.youtube.com/watch?v=B8h5-ANc_-8}{talk by M. Kesselring at the 2020 FTQC conference} and the related \cite[Exam. 6.4]{arxiv:2203.00103}.'
+    - code_id: three_fermion
+      detail: 'The 3D color code is equivalent to two decoupled copies of the 3F code \cite[Appx. B]{arxiv:1806.02820}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-13'
+    - user_id: CellaKove
+      date: '2023-06-20'

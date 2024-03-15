@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: semion
+physical: qudits
+logical: qudits
+
+name: 'Chiral semion subsystem code'
+introduced: '\cite{arXiv:2211.03798}'
+
+description: |
+  Modular-qudit subsystem stabilizer code with qudit dimension \(q=4\) that is characterized by the chiral semion topological phase.
+  Admits a set of geometrically local stabilizer generators on a torus.
+
+features:
+  encoders:
+    - 'Unitary encoder applied to a 3D stack of 2D surface codes, realizing chiral semion topological order at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
+
+relations:
+  parents:
+    - code_id: qudit_subsystem_stabilizer
+    - code_id: translationally_invariant_subsystem
+    - code_id: topological_abelian
+      detail: 'The semion code is a subsystem code characterized by the chiral semion topological phase.'
+  cousins:
+    - code_id: double_semion
+      detail: 'The semion code can be obtained from the double-semion stabilizer code by \hyperref[topic:gauging-out]{gauging out} the anyon \(\bar{s}\) \cite[Fig. 15]{arxiv:2211.03798}.'
+    - code_id: qudit_znone
+      detail: 'The semion code can be obtained from the \(\mathbb{Z}_4^{(1)}\) subsystem code by \hyperref[topic:code-switching]{condensing} the anyon \(s^2\) \cite[Fig. 15]{arxiv:2211.03798}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: nathanan
+      date: '2023-04-08'
+    - user_id: VictorVAlbert
+      date: '2023-04-08'
+    - user_id: VictorVAlbert
+      date: '2021-12-29'

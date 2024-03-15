@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xp_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'XP stabilizer code'
+introduced: '\cite{arXiv:2203.00103}'
+
+description: |
+  The XP Stabilizer formalism is a generalization of the XS and Pauli stabilizer formalisms, with stabilizer generators taken from the group \( \mathsf{BD}_{2N}^{\otimes n} = \{\omega I, X, P\}^{\otimes n} \), which is the tensor product of the binary dihedral group of order \(8N\).
+  Here, \(N\) is called the \textit{precision}, \( \omega \) is a \( 2N \)th root of unity, and \( P = \text{diag} ( 1, \omega^2) \).
+  The codespace is a \(+1\) eigenspace of a set of XP stabilizer generators, which need not commute to define a valid codespace.
+
+  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former can be mapped to a CSS code with similar logical operator structure.
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+  cousins:
+    - code_id: qubit_css
+      detail: 'Each XP-regular code can be mapped to a CSS code with a similar logical operator structure \cite{arXiv:2203.00103}.'
+    - code_id: cws
+      detail: 'The orbit representatives of XP codes play a similar role to the word operators of CWS codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-19'
+    - user_id: MuhammadJunaidAftab
+      date: '2022-04-15'

@@ -1,0 +1,65 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qetc
+physical: qubits
+logical: qubits
+
+name: 'Error-transmuting code (QETC)'
+short_name: 'QETC'
+introduced: \cite{arXiv:2310.10278}
+
+description: |
+  Encodes quantum information in a (logical, \(k\)-qubit) subspace \(\mathsf{C}\) of a (physical, \(n\)-qubit) Hilbert space \(\mathsf{H}\) such that recovery is possible from a set of physical errors occurring \textit{up to} a pre-specified (smaller, but non-empty) admissible set of logical errors. This is relevant \textit{e.g.} in the simulation of noisy systems.
+  QETCs are stabilizer codes: \(\mathsf{C}\) is the subspace stabilised by an abelian subgroup \(\mathsf{S} \subset \mathcal{G}_n\) of the Pauli group on \(n\) qubits.
+
+
+protection: |
+  For a pair \(E=\{E_i\}\) and \(\overline{M} = \{\overline{m}_{\alpha}\}\) of physical and logical error sets, \(\mathsf{C}\) is a QETC if there exists a recovery operation \(\mathcal{R}\) such that for all physical noise channels \(\mathcal{E}\) with Kraus operators proportional to elements of \(\{E_i\}\), and density matrices \(\rho\) supported on \(\mathsf{C}\), we have:
+  \begin{align}
+  \mathcal{R} \circ \mathcal{E} (\rho) = \mathcal{M} (\rho).
+  \end{align}
+  Here \(\mathcal{M}\) is a logical noise channel whose Kraus operators are proportional to elements of the cosets \(\{\mathcal{A}(\overline{m}_{\alpha})\mathsf{S}\} \subset \mathcal{G}_n\), where
+  \begin{align}
+          \mathcal{G}_k \xrightarrow[]{\mathcal{A}} \mathsf{N(S)}/\mathsf{S}
+  \end{align}
+  is a choice of isomorphism, \textit{i.e.} an identification of the logical Pauli group with elements of the physical Pauli group. \(\mathsf{N(S)}\) denotes the normaliser of \(\mathsf{S}\) in \(\mathcal{G}_n\).
+
+  Equivalently, this can be rephrased in terms of a generalisation of the Knill-Laflamme conditions for error-correction. Label the cosets of \(\mathsf{N(S)}\) in \(\mathcal{G}_n\) by \(\mathfrak{n}\), and the physical errors in a given coset by \(E_{\mathfrak{n}} := \{E_{\mathfrak{n},i}\}\). Then \(\mathsf{C}\) is a QETC for a pair \(\{E, \overline{M}\}\) if and only if there exists an isomorphism \(\mathcal{A}: \overline{\mathcal{G}}_k \rightarrow \mathsf{N(S)}/\mathsf{S}\), such that for each \(\mathfrak{n}\) there exists a map:
+  \begin{align}
+  \pi_{\mathfrak{n}}: E_{\mathfrak{n}}  \rightarrow \mathcal{A}(\overline{M}),\qquad \pi_{\mathfrak{n}}(E_{\mathfrak{n},i}) := \overline{m}_{\pi_{\mathfrak{n}},i}
+  \end{align}
+  so that \(\forall\, E_{\mathfrak{n},i},\,E_{\mathfrak{n},j} \in E_{\mathfrak{n}}\):
+  \begin{align}
+  P E_{\mathfrak{n},i}^\dagger E_{\mathfrak{n},j} P = P{m}_{\pi_{\mathfrak{n}},i}^\dagger m_{\pi_{\mathfrak{n}},j}P.
+  \end{align}
+  Here, \(P\) is the projector onto \(\mathsf{C}\), and \( m_{\pi_{\mathfrak{n}},i}\) is a choice of representative of \(\overline{m}_{\pi_{\mathfrak{n}},i}\) in \(\mathsf{N(S)}\).
+
+  For a QETC, the \textit{effective} code distance \(d_{\text{eff}}\) is defined to be \(2w+1\), where \(w\) is the maximum weight such that the set of all errors with weight \(\leq w\) obey the generalised Knill-Laflamme conditions above. The code \(\mathsf{C}\) is thus able to transmute the set of all Pauli errors of weight \(\leq w\) to the admissible error set \(\overline{M}\).
+
+
+
+relations:
+  parents:
+    - code_id: quantum_into_quantum
+  cousins:
+    - code_id: qubit_stabilizer
+      detail: 'QETCs are stabilizer codes: \(\mathsf{C}\) is the subspace stabilised by an abelian subgroup \(\mathsf{S} \subset \mathcal{G}_n\) of the Pauli group on \(n\) qubits.'
+    - code_id: qecc
+      detail: 'QETCs are quantum codes which satisfy a generalisation of the Knill-Laflamme conditions. QETCs for which the admissible logical error set consists solely of the identity are QECCs.'
+    - code_id: metrological
+      detail: 'Metrological codes are also codes which satisfy a generalisation of the Knill-Laflamme conditions, albeit a different one.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-10-31'
+    - user_id: TobyCubitt
+      date: '2023-10-31'
+    - user_id: DanielZhang
+      date: '2023-10-31'

@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pam
+physical: reals
+logical: reals
+
+name: 'Pulse-amplitude modulation (PAM) code'
+short_name: 'PAM'
+#introduced: '\cite{}'
+
+description: |
+  Encodes a \(q\)-ary digit into a constellation of equally spaced points on the real line.
+  For example, a \(q\)-PAM scheme for \(q=8\) could encode the constellation \(\{ \pm \alpha,\pm 3\alpha,\pm 5\alpha, \pm 7\alpha \}\) with real scaling factor \(\alpha\).
+  The points in the constellation are typically associated with one quadrature of an electromagnetic signal.
+
+relations:
+  parents:
+    - code_id: qam
+      detail: 'PAM codes can be thought of as QAM codes restricted to the real line. A \(q\times q\)-QAM code is informationally equivalent to two \(q\)-PAM codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'

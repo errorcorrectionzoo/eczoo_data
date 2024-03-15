@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: capped_color
+physical: qubits
+logical: qubits
+
+name: 'Capped color code (CCC)'
+short_name: 'CCC'
+introduced: '\cite{arxiv:2106.02649}'
+
+description: |
+  A non-geometrically local subsystem color code consisting of two layers of 2D color code stacked together and topped (or capped) by a single qubit.
+  Gauge fixing yields two types of codes, capped color codes in H or T form.
+  Layers of 2D color codes can also be stacked together in a recursive construction, yielding \textit{recursive capped color codes} (RCCCs).
+
+features:
+  transversal_gates: 'Capped color codes in H (T) form admit a transversal Hadamard (T) gate.'
+
+  fault_tolerance:
+    - 'Fault-tolerant syndrome extraction and error correction for capped color codes in H form \cite{arxiv:2106.02649}.'
+    - 'Fault-tolerant T gate implementation \cite{arxiv:2106.02649}.'
+
+relations:
+  parents:
+    - code_id: subsystem_color
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-01'

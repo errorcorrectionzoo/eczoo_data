@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_h
+physical: qubits
+logical: qubits
+
+name: '\([[k+4,k,2]]\) H code'
+short_name: '\([[k+4,k,2]]\)'
+introduced: '\cite{arXiv:1210.3388}'
+
+description: |
+  Family of \([[k+4,k,2]]\) CSS codes (for even \(k\)) with transversal Hadamard gates that are relevant to magic state distillation.
+  The four stablizer generators are \(X_1X_2X_3X_4\), \(Z_1Z_2Z_3Z_4\), \(X_1X_2X_5X_6...X_{k+4}\), and \(Z_1Z_2Z_5Z_6...Z_{k+4}\).'
+
+protection: 'Detects weight-1 Pauli errors. The \(r\)-level contatenated H code detects weight Pauli errors up to weight \(2^r-1\).'
+
+features:
+  transversal_gates: 'Hadamard and \(TXT^{\dagger}\) gates, with the latter Clifford-equivalent to Hadamard, and where \(T=\exp(i\pi(I-Z)/8)\) is the \(\pi/8\)-rotation gate.'
+
+  magic_scaling_exponent: 'A total of \(r\) rounds of magic-state distillation yields a magic-state scaling exponent \(\gamma\to 1\) as \(k,r\rightarrow \infty\); see \cite[Box 2]{arxiv:1612.07330}.
+  This matches a conjectured bound for \(\gamma\) \cite{arXiv:1209.2426}.'
+  #, where the number of input states for the protocol is of order \(O(\log^{\gamma}(\epsilon_{in}/\epsilon_{out})\)
+
+  rate: 'The H codes are dense, i.e., the rate \(\frac{k}{k+4}\rightarrow 1\) as \(k \rightarrow \infty\). The distance is 2. However an \(r\)-level concatenation of H codes gives a distance of \(2^r\).'
+
+#  encoders:
+#    - 'Standard Clifford-based encoder for H code. It encodes \(k^r\) magic states for a \(r\)-level concatenated H code.'
+
+  general_gates:
+    - 'The H codes can be used for high-quality and high-efficiency magic-state distillation \cite{arXiv:1210.3388}. Their associated multi-level magic states protocols have an efficency advantage over the 10-to-2 and 15-to-1 protocals for output error below \(10^{-7}\).'
+
+relations:
+  parents:
+    - code_id: generalized_quantum_divisible
+      detail: 'H codes are level-two generalized divisible codes \cite[Sec. VI.C]{arxiv:1709.08658}.'
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-28'
+    - user_id: XiaoXiao
+      date: '2022-04-28'

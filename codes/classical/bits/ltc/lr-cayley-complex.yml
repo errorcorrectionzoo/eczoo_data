@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lr-cayley-complex
+physical: bits
+logical: bits
+
+name: 'Left-right Cayley complex code'
+introduced: '\cite{arxiv:2111.04808}'
+
+description: |
+  Binary code constructed on a left-right Cayley complex using a pair of base codes \(C_A,C_B\) and an expander graph \cite{doi:10.1090/S0273-0979-06-01126-8} such that codewords for a fixed graph vertex are codewords of the tensor code \(C_A \otimes C_B\). A family of such codes is one of the first \(c^3\)-LTCs.
+
+relations:
+  parents:
+    - code_id: binary_ltc
+      detail: 'Left-right Cayley complex codes yield one of the first two families of \(c^3\)-LTCs.'
+  cousins:
+    - code_id: tensor
+      detail: 'Left-right Cayley complex codewords for a fixed graph vertex are codewords of a tensor code.'
+    - code_id: expander
+      detail: 'Left-right Cayley complex codes can be viewed as Tanner-like codes on expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8}, but with bits defined on squares and constraints on edges (as opposed to edges and vertices, respectively, for expander codes). Expander codes are also typically not locally testable \cite{doi:10.1145/780542.780594}.'
+    - code_id: balanced_product
+      detail: 'Left-right Cayley complexes can be obtained via a balanced product of \(G\)-graphs \cite{arxiv:2111.04808}.'
+    - code_id: quantum_tanner
+      detail: 'Applying the CSS construction to two left-right Cayley complex codes yields quantum Tanner codes, and one can simultaneously prove a linear distance for the quantum code and local testability for one of its constituent classical codes \cite{arxiv:2202.13641}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-29'

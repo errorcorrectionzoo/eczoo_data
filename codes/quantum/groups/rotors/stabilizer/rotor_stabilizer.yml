@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor_stabilizer
+physical: groups
+
+name: 'Rotor stabilizer code'
+
+description: |
+  Rotor code whose codespace is defined as the common \(+1\) eigenspace of a group of mutually commuting rotor generalized Pauli operators.
+  The stabilizer group can be either discrete or continuous, corresponding to modular or linear constraints on angular positions and momenta.
+  Both cases can yield finite or infinite logical dimension.
+  Exact codewords are non-normalizable, so approximate constructions have to be considered.
+
+
+relations:
+  parents:
+    - code_id: rotor
+    - code_id: stabilizer
+  cousins:
+    - code_id: css
+      detail: 'A rotor stabilizer code admitting a set of generators such that each generator consists of either angular position or angular momentum operators is a CSS code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-12'

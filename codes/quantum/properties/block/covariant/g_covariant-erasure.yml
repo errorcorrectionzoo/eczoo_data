@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: g_covariant_erasure
+
+name: '\(G\)-covariant erasure code'
+introduced: '\cite{arxiv:1709.04471}'
+
+description: |
+  A \(G\)-covariant block code that serves as a proof-of-principle construction to demonstrate the existence of
+  \hyperref[code:covariant]{\(G\)-covariant codes} where \(G\) is a finite
+  group, and the physical space is finite-dimensional.
+  This construction can be done for any erasure-correcting code.
+
+  Consider a finite group \(G\) acting on a finite set
+  \(A\) as a subgroup of the symmetric group on \(|A|\) elements, \(G \subset S_{|A|}\).
+  Let \(U_0: \mathsf{H}_{\text{logical}} \rightarrow \mathsf{H}_{\text{physical}}
+  = \mathsf{H}^{\otimes n}\) be any QECC, possibly non-covariant.  Define the covariant
+  encoder \(U \equiv U_0^{\otimes |A|}: \mathsf{H}_{\text{logical}}^{\otimes |A|}
+  \rightarrow \mathsf{H}_{\text{physical}}^{\otimes |A|}\) on \(|A|\).  Then, the group acts on codewords by index
+  permutation:
+  \begin{align}
+  V(g) | \phi_{a_1} \rangle | \phi_{a_2} \rangle \cdots | \phi_{a_{|A|}} \rangle = | \phi_{g^{-1} a_1} \rangle | \phi_{g^{-1} a_2} \rangle \cdots | \phi_{g^{-1} a_{|A|}} \rangle~,
+  \end{align}
+  where \(V(g)\) is the unitary representation of \(g \in G\) acting on the physical space. The action of \(V(g)\) is transversal with respect to the partition \(\mathsf{H}_{\text{physical}}^{\otimes |A|}\).
+
+protection: |
+  Depends on the base encoding \(U_0\).
+
+# \(k\) out of \(n\) modes within each of the \(|A|\) copies of \(\mathsf{H}_{\text{physical}}\). Each copy may have a different set of \(k\) erased modes.
+
+relations:
+  parents:
+    - code_id: covariant
+      detail: 'In a proof of principle demonstration, error-correcting codes that are finite-\(G\) covariant can be constructed from a base encoding \(U_0\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'
+    - user_id: JackDavis
+      date: '2022-04-02'

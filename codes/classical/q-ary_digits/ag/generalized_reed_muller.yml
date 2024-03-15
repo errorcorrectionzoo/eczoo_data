@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_reed_muller
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Generalized RM (GRM) code'
+short_name: 'GRM'
+introduced: '\cite{doi:10.1109/TIT.1968.1054127,doi:10.1109/TIT.1968.1054128,doi:10.1016/S0019-9958(70)90214-7}'
+
+description: |
+  Reed-Muller code GRM\(_q(r,m)\) of length \(n=q^m\) over \(GF(q)\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at a set of distinct points \(\{\alpha_1,\cdots,\alpha_n\}\) in \(GF(q)\).
+
+  Since \(\beta^q=\beta\) for any \(\beta\in GF(q)\), the above definition is not injective. Replacing each factor in each polynomial as \(x^q\to x\), the above set reduces to the set of all degree-\(\leq r\) polynomials in \(m\) variables such that no term has an exponent \(q\) or higher on any variable.
+
+protection: 'Code parameters for specific \(m,r\) are given in Ref. \cite{doi:10.1007/978-94-011-3810-9}, pg. 46.'
+
+features:
+  rate: 'GRM codes achieve capacity on sufficiently symmetric non-binary channels \cite{arxiv:2305.07779}.'
+
+notes:
+  - 'See books \cite{doi:10.1017/CBO9781316529836,doi:10.1017/CBO9780511807077,manual:{E. F. Assmus, Jr. and J. D. Key, “Polynomial codes and finite geometries,” in Handbook of Coding Theory, eds. V. S. Pless and W. C. Huffman. Amsterdam: Elsevier, 1998, pp. 1269–1343.}} for details of GRM codes.'
+
+# If mobing to evaluation, then remove "nontrivial" in that entry
+relations:
+  parents:
+    - code_id: evaluation_polynomial
+      detail: 'GRM (PRM) codes are multivariate polynomial evaluation codes with \(\cal X\) being the entire \(m\)-dimensional affine (projective) space over \(GF(q)\) (\cite{doi:10.1007/978-94-011-3810-9}, pgs. 44-46; \cite{doi:10.1007/BF02249124,preset:HPAlgCodes}).'
+    - code_id: multiplicity
+      detail: 'Multivariate multiplicity codes of degree \(s=1\) reduce to GRM codes.'
+    - code_id: matrix_product
+      detail: 'Applying a special case of the matrix-product procedure yields GRM codes \cite{doi:10.1007/PL00004226}.'
+    - code_id: ldc
+      detail: 'GRM codes are locally decodable \cite{doi:10.1561/0400000030}.'
+  cousins:
+    - code_id: q-ary_cyclic
+      detail: 'GRM codes with nonzero evaluation points are cyclic (\cite{doi:10.1007/978-94-011-3810-9}, pg. 52).'
+    - code_id: q-ary_ltc
+      detail: 'GRM codes for \(r<q\) can be LTCs in the low- \cite{doi:10.1145/103418.103428,doi:10.1145/278298.278306} and high-error \cite{doi:10.1145/258533.258641,doi:10.1145/258533.258642} regimes. They admit weakly stable presentations of their correspoding groups \cite{arxiv:2311.04681}.'
+    - code_id: group
+      detail: 'GRM codes over prime-power fields are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.},doi:10.1007/BF00141972}\cite[Ex. 16.4.11]{preset:HKSalgebra}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-20'

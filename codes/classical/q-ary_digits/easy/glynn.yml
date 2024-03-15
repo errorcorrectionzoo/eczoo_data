@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: glynn
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Glynn code'
+introduced: '\cite{doi:10.1016/0012-365X(86)90067-1}'
+
+description: |
+  The unique trace-Hermitian self-dual \([10,5,6]_9\) code, constructed using a 10-arc in \(PG(4,9)\) that is not a rational curve.
+
+  The Glynn code is the unique trace-Hermitian code for its parameters, and is not Euclidean self-dual \cite{manual:{T. Baicheva, I. Bouyukliev, S. Dodunekov, and W. Willems, “On the [10; 5; 6] Reed-Solomon and Glynn codes,” Mathematica Balkanica, New Series, vol. 18, pp. 67–78, 200},doi:10.1109/tit.2008.928297,doi:10.1007/s10623-009-9267-1}.
+
+relations:
+  parents:
+    - code_id: projective
+      detail: 'The Glynn code is constructed using a 10-arc in \(PG(4,9)\) that is not a rational curve.'
+    - code_id: mds
+  cousins:
+    - code_id: reed_solomon
+      detail: 'The only other inequivalent \([10,5,6]_9\) code is a Reed-Solomon code, which is the unique Euclidean self-dual code for its parmaters, and which is not Hermitian self-dual \cite{manual:{T. Baicheva, I. Bouyukliev, S. Dodunekov, and W. Willems, “On the [10; 5; 6] Reed-Solomon and Glynn codes,” Mathematica Balkanica, New Series, vol. 18, pp. 67–78, 200},doi:10.1109/tit.2008.928297,doi:10.1007/s10623-009-9267-1}.'
+    - code_id: stab_9_1_5
+      detail: 'Applying the \hyperref[code:stabilizer_over_gfqsq]{Hermitian construction} to the Glynn code yields a \([[10,0,6]]_3\) quantum code \cite{arxiv:1502.05267,arxiv:1907.04391}.
+      The \([[9,1,5]]_3\) quantum Glynn code can be obtained by applying the \hyperref[code:stabilizer_over_gfqsq]{Hermitian construction} to the shortened Glynn code \cite[Corr. 4]{arxiv:1502.05267} (cf. \cite[Exam. 7]{arXiv:2108.08088}).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-11'

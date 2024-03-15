@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ld_convolutional
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'LDPC convolutional code (LDPC-CC)'
+short_name: 'LDPC-CC'
+introduced: '\cite{doi:10.1109/18.782171,manual:{K. Engdahl, K. Sh. Zigangirov, “To the Theory of Low-Density Convolutional Codes. I”, Probl. Peredachi Inf., 35:4 (1999), 12–28; Problems Inform. Transmission, 35:4 (1999), 295–310},doi:10.1023/A:1013815115684}'
+
+alternative_names:
+  - 'Low-density convolutional (LDC) code'
+
+description: |
+  Convolutional code defined by an infinite low-density parity-check matrix.
+
+
+
+relations:
+  parents:
+    - code_id: convolutional
+  cousins:
+    - code_id: ldpc
+      detail: 'LDPC-CCs are convolutional analogues of LDPC codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-09'

@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: spacetime_block
+physical: matrices
+logical: q-ary_digits
+
+name: 'Spacetime block code (STBC)'
+short_name: 'STBC'
+introduced: '\cite{doi:10.1109/18.887864,doi:10.1109/18.868472,doi:10.1109/18.825818,doi:10.1109/26.891215}'
+
+description: |
+  In a space-time block code, \(n\) spatially separated channels transmit symbols to \(m\) receiving channel using \(T\) time slots.
+  These symbols can be arranged in a \(n \times T\) matrix where the rows correspond to the channels, and the columns correspond to the time slots.
+  The codewords \(\{X\}\) maing up the code are thus \(n \times T\) matrices.
+
+protection: |
+  Provides protection against errors due to thermal noise and destructive interference arising from traversing an environment with scattering, reflection, and/or refraction.
+
+  Transmission occurs from \(n\) transmitting antennas to \(m\) receiving antennas and is performed \(t\) times.
+  The typical noise model, a fading channel \cite{doi:10.1109/18.720551}, multiplies an incoming codeword by an \(m \times n\) \textit{fading matrix} or \textit{damping matrix} \(H\) and adds random (typically Gaussian) noise using an \(n \times t\) matrix \(Z\),
+  \begin{align}
+  X\to HX+Z = Y~.
+  \end{align}
+  If \(H\) is known (unknown) to the receiver, then the receiver is called coherent (incoherent).
+
+  Decoding corresponding to choosing the codeword \(X\) that, when transformed under the channel, is closest to the corrupted output \(Y\) in the Frobenius norm,
+  \begin{align}
+    \min_{X\in C}\|Y-HX\|^{2}~.
+  \end{align}
+
+features:
+  rate: 'A spacetime block code is said to be full rate when \(k = m t\), where \(k\) is the number of information symbolds encoded in its codewords.'
+
+realizations:
+  - 'High data-rate wireless communication, e.g., WiMAX (IEEE 802.16m) \cite{doi:10.1007/s11235-013-9846-3,doi:10.1109/JSTSP.2008.922508,doi:10.1109/MWC.2006.1678163}.'
+
+relations:
+  parents:
+    - code_id: spacetime
+      detail: 'Spacetime codes also use spatial and temporal diversity, but do not necessarily use blocks as codewords.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: RichardBarney
+      date: '2022-04-05'

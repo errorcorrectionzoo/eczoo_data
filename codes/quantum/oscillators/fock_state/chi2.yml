@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: chi2
+physical: oscillators
+logical: qudits
+
+name: '\(\chi^{(2)}\) code'
+introduced: '\cite{arXiv:1709.05302}'
+
+description: |
+  A \(3n\)-mode bosonic Fock-state code that requires only linear optics and the \(\chi^{(2)}\) optical nonlinear interaction for encoding, decoding, and logical gates.
+  Codewords lie in Fock-state subspaces that are invariant under Hermitian combinations of the \(\chi^{(2)}\) nonlinearities \(abc^\dagger\) and \(i abc^\dagger\), where \(a\), \(b\), and \(c\) are lowering operators acting on one of the \(n\) triples of modes on which the codes are defined.
+  Codewords are also \(+1\) eigenstates of stabilizer-like \textit{symmetry operators}, and photon parities are error syndromes.
+
+protection: 'Codes protect against loss, gain, and dephasing errors conditional on the knowledge of the total number of photons lost.'
+
+features:
+  encoders:
+    - 'Linear optics and \(\chi^{(2)}\) interactions.'
+  decoders:
+    - 'Linear optics and \(\chi^{(2)}\) interactions.'
+  general_gates:
+    - 'Linear optics and \(\chi^{(2)}\) interactions yield a universal set of gates.'
+
+relations:
+  parents:
+    - code_id: fock_state
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-01-10'

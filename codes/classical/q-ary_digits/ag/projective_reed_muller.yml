@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: projective_reed_muller
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Projective RM (PRM) code'
+short_name: 'PRM'
+introduced: '\cite{doi:10.1016/0012-365X(90)90155-B,doi:10.1109/18.104317}'
+
+description: |
+  Reed-Muller code for nonzero points \(\{\alpha_1,\cdots,\alpha_n\}\) whose leftmost nonzero coordinate is one, corresponding to an evaluation code of polynomials over projective coordinates. PRM codes  PRM\(_q(r,m)\) for \(r<q\) are injective evaluation codes with parameters \cite{doi:10.1515/9783110811056.77}
+  \begin{align}
+    \left[ q^m+q^{m-1}\cdots +1, {m+r \choose r},(q+1-r)q^{m-1} \right]~.
+  \end{align}
+
+relations:
+  parents:
+    - code_id: generalized_reed_muller
+  cousins:
+    - code_id: projective
+      detail: 'Nonzero codewords of minimum weight of a \(r\)th-order \(q\)-ary projective RM code correspond to algebraic hypersurfaces of degree \(r\) having the largest number of points in the projective space \(PG(n,q)\) \cite[Thm. 14.3.3]{preset:HKSprojective}.'
+    - code_id: griesmer
+      detail: 'PRM codes for \(r=1\) attain the Griesmer bound for all \(m\) \cite{arxiv:0802.2349}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-10'

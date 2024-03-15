@@ -1,0 +1,74 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pless_symmetry
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Pless symmetry code'
+introduced: '\cite{manual:{V. Pless, On a new family of symmetry codes and related new five-designs, BAMS 75 (1969), 1339-1342},doi:10.1016/0097-3165(72)90088-X}'
+
+alternative_names:
+  - 'Pless double circulant code'
+
+description: |
+  A member of a family of self-dual ternary \([2q+2,q+1]_3\) codes for any power of an odd prime satisfying \(q \equiv 2\) modulo 3.
+
+  The code's generator matrix is \(G = [I | S_q]\), where \(I\) is the \((q+1)\)-dimensional identity matrix, and where \(S_q\) is:
+  \begin{table}
+    \includegraphics{pless_symmetry_table.svg}
+  \end{table}
+  where \(\chi(0)=0\), \(\chi(x)=1\) if \(x\) is a square in \(GF(q)\) and, \(\chi(x)=-1\) if \(x\) is a not square in \(GF(q)\).
+
+  See \cite[Sec. 10.5]{doi:10.1017/CBO9780511807077}\cite[pg. 87]{doi:10.1007/978-1-4757-6568-7} for more details.
+
+
+# Code for table
+# \begin{tabular}{c|ccccccc}
+# % If you use tabularx, try to use \textwidth if possible:
+# %\begin{tabularx}{\textwidth}{XCCC}
+# \toprule
+# % Header
+#  $S_q$ &
+# $\infty$ & $0$ & $1$ & $\dots$ & $j$ & $\dots$ & $p-1$
+# \\
+# % Body
+# \midrule
+# % -----
+# $\infty$ &
+# $0$  & $1$  & $1$ & $\dots$ & $1$ & $\dots$ & $1$
+# \\
+# $0$ &
+# $\chi(-1)$ & $\chi(0)$ & $\chi(1)$ & $\dots$ & $\chi(j)$ & $\dots$ & $\chi(p-1)$
+# \\
+# $1$
+# & $\chi(-1)$
+# \\
+# $\vdots$ & $\vdots$ &&& $\ddots$ && $\ddots$
+# \\
+# $i$ & $\chi(-1)$ &&&& $\chi(j-i)$ \\
+# $\vdots$ & $\vdots$ &&& $\ddots$ && $\ddots$ \\
+# $p-1$ & $\chi(-1)$ \\
+# % -----
+# \bottomrule
+# \end{tabular}%
+
+
+relations:
+  parents:
+    - code_id: self_dual
+  cousins:
+    - code_id: ternary_golay
+      detail: 'The Pless symmetry code for \(p=5\) is the extended ternary Golay code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ConnorClayton
+      date: '2024-03-15'
+    - user_id: VictorVAlbert
+      date: '2022-07-14'

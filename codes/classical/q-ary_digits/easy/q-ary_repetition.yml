@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_repetition
+physical: bits
+logical: bits
+
+name: '\(q\)-ary repetition code'
+
+description: '\([n,1,n]_q\) binary linear code encoding consisting of codewords \((j,j,\cdots,j)\) for \(j \in GF(q)\). The length \(n\) needs to be an odd number, since the receiver will pick the majority to recover the information.'
+
+protection: 'Detects errors on up to \(\frac{n-1}{2}\) coordinates, corrects erasure errors on up to \(\frac{n-1}{2}\) coordinates.'
+
+
+relations:
+  parents:
+    - code_id: q-ary_cyclic
+      detail: 'The \(q\)-ary repetition code is cyclic with generator polynomial \(1+x+\cdots+x^{n-1}\).'
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The \(q\)-ary repetition code is a \(q\)-ary sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
+  cousins:
+    - code_id: repetition
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-12'

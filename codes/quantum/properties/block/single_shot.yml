@@ -1,0 +1,67 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: single_shot
+
+name: 'Single-shot code'
+introduced: \cite{arxiv:1404.5504,arxiv:1805.09271}
+
+description: |
+  Block quantum qudit code whose error-syndrome weights increase linearly with the distance of the error state to the code space.
+
+  Measurement errors during decoding can yield the wrong syndrome outcome, which can cause error correction to fail even against correctable data errors.
+  A single-shot code is a block quantum code admitting a fault-tolerant error-correcting protocol that does not "fail too badly" when faced with noisy syndrome measurements.
+
+  The property typically implies that a sufficiently large number of error-correction rounds will keep both (sufficiently low-weight) data and measurement errors bounded, as opposed to yielding eventually uncorrectable residual errors.
+  The property is sufficient (but not necessary \cite{arxiv:2002.05180}) to reduce the number of error-correction rounds required for fault-tolerant error correction.
+  The word "single" refers to the ability to decode well using syndrome data from only one measurement round, i.e., without using syndrome data from previous rounds.
+
+  In the loosest form of the single-shot property for qubit, modular qudit, or Galois qudit codes, given some data error \(e\), ideal data error syndrome \(s\), and measurement error \(m\), there exists an error-correction protocol that outputs a correction \(f\) such that the Hamming weight of the \textit{residual error} \(e-f\) is \textit{polynomial} in the weight of \(m\).
+  Note that the \textit{stabilizer-reduced weight} \cite{arxiv:1805.09271} of \(e\) is often used instead of the weight of \(e\), with the justification that many decoders are designed to obtain the minimum-weight error representative.
+
+  A related property is \textit{linear confinement}, which states that low-weight errors cause low-weight syndromes.
+  A code admits \((\gamma,\alpha)\) linear confinement if the (stabilizer-reduced) weight of the syndrome is proportional to the (stabilizer-reduced) weight of the data error (for data errors of weight less than \(\gamma\)) with proportionality constant \(\alpha\).
+  Linear confinement is sufficient for being single shot against local stochastic noise, and more general notions of confinement are sufficient for being single shot against adversarial noise \cite{arxiv:2009.11790}.
+
+#  Single-shot codes admit a threshold after only one round of noisy syndrome measurements.
+
+# Typical noise models considered include stochastic noise \cite{arxiv:1404.5504} and adversarial noise \cite{arxiv:1805.09271}.
+
+#  This can happen for some QLDPC codes and some abelian topological codes.
+#   The property is named after its primary implication, namely, that one can obtain fault-tolerant syndrome data from only a single round of error correction.
+
+
+# In other words, the single-shot property implies that the number of error-correcting rounds necessary for successful error correction is independent of the number of subsystems \(n\).
+
+features:
+  threshold:
+    - 'Residual errors do not become unwieldy after some system-size-independent number cycles of faulty syndrome measurements, and a perfect decoder would be able to recover the information if the final residual error is correctable.
+    Consider acting on a state \(\rho\) with a noise channel \(\mathcal N\) with noise rate \(p\), followed by \(t\) rounds of faulty syndrome measurements \(\mathcal R\) with noise rate \(\eta\) and one perfect recovery (which can be substituted with destructive physical-qubit measurements in practice).
+    The failure probability of a single-shot code should decrease exponentially with the distance of the code,
+    \begin{align}
+      fp_{\text{fail}}	=1-F\left(\mathcal{R}[\mathcal{R}_{\eta}\mathcal{N}_{p}]^{t}(\rho),\rho\right)
+	    =t\left(p/p_{\star}\right)^{d}~,
+    \end{align}
+    where \(F\) is a state fidelity, and where \(p_{\star}\) is called the \textit{sustainable threshold} \cite{arxiv:2009.11790}.
+    For any \(p\) below this threshold, some maximum measurement noise \(\eta_{\star}>0\) can be tolerated after sufficiently large \(t\).
+
+    The final ideal decoding step \(\mathcal{R}\) cannot be done non-destructively in practice due to noisy syndrome measurements, but information can still be recovered by measuring all logical qubits in the computational basis and correcting the outcomes.
+    If the code is single-shot, then such a procedure will output the correct logical information.'
+
+
+relations:
+  parents:
+    - code_id: block_quantum
+  cousins:
+    - code_id: self_correct
+      detail: 'The presence of an energy barrier (i.e., confinement) is sufficient for a code to be single shot, and is also conjectured to be necessary for a code to be a self-correcting memory.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-02'

@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hypercubic
+physical: reals
+logical: reals
+
+name: '\(\mathbb{Z}^n\) hypercubic lattice code'
+short_name: '\(\mathbb{Z}^n\)'
+#introduced: '\cite{doi:10.1017/S1446788700025064}'
+
+description: |
+  Lattice-based code consisting of all integer vectors in \(n\) dimensions.
+  Its generator matrix is the \(n\)-dimensional identity matrix.
+  Its automorphism group consists of all coordinate permutations and sign changes.
+
+protection: |
+  The \(\mathbb{Z}\) integer lattice solves the lattice quantization problem in one dimension with a second moment of \(G_1 = 1/12\).
+  The lattice has determinant 1, kissing number \(2n\), packing radius \(1/2\), covering radius \(\sqrt{n}/2\), and density \(V_{n}/\sqrt{2^{n}(n+1)}\) (with \(V_n\) the volume of the unit \(n\)-sphere).
+
+relations:
+  parents:
+    - code_id: root
+    - code_id: self_dual_lattice
+      detail: 'The hypercubic lattice code is odd and unimodular.'
+  cousins:
+    - code_id: barnes_wall
+      detail: 'The hypercubic lattice is the \(m=1\) BW lattice.'
+    - code_id: points_into_lattices
+      detail: 'The generator matrix of a lattice-based code serves as a linear transformation that can be applied to the hypercubic lattice to obtain said code \cite[Ch. 10]{preset:EricZin}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-12'

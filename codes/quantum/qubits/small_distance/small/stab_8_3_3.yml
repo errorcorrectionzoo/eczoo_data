@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_8_3_3
+physical: qubits
+logical: qubits
+
+name: '\([[8, 3, 3]]\) code'
+short_name: '\([[8, 3, 3]]\)'
+introduced: '\cite{arXiv:quant-ph/9604038,arxiv:quant-ph/9605005,arxiv:quant-ph/9605021}'
+
+description: |
+   Eight-qubit non-degenerate code that can be obtained from a modified CSS construction using a first-order \([8,4,4]\) RM code and a \([8,7,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.
+   The modification introduces signs between the codewords.
+
+   See \cite[Table 3.3]{arxiv:quant-ph/9705052} for its stabilizer generator matrix.
+   The code's automorphism group is \(\text{A}\Gamma\text{L}(1,8)\) \cite{arxiv:2109.12735}.
+   It is unique for its parameters, up to local equivalence \cite{arxiv:0709.1780}.
+
+features:
+  transversal_gates: 'No gates outside of the Pauli group were found in Ref. \cite{arxiv:1912.10063}.'
+
+relations:
+  parents:
+    - code_id: quantum_hamming
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-28'

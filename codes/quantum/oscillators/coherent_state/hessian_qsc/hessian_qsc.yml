@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hessian_qsc
+physical: oscillators
+logical: qubits
+
+name: 'Hessian QSC'
+introduced: '\cite{arxiv:2302.11593}'
+
+description: |
+  Quantum spherical code encoding a logical qubit, with each codeword an equal superposition of vertices of a Hessian complex polyhedron.
+  For the unit sphere, the codewords are
+  \begin{align}
+    |\overline{0}\rangle &= \frac{1}{\sqrt{27}}\left( \sum_{\mu,\nu=0}^{2} |0,\omega^{\mu},-\omega^{\nu}\rangle + |-\omega^{\nu},0,\omega^{\mu}\rangle + |\omega^{\mu},-\omega^{\nu},0\rangle   \right) \\
+    |\overline{1}\rangle &= \frac{1}{\sqrt{27}}\left( \sum_{\mu,\nu=0}^{2} |0,-\omega^{\mu},\omega^{\nu}\rangle + |\omega^{\nu},0,-\omega^{\mu}\rangle + |-\omega^{\mu},\omega^{\nu},0\rangle   \right)~,
+  \end{align}
+  where \(\omega = e^{\frac{2\pi i}{3}}\).
+  \begin{figure}
+    \includegraphics{hessian_qsc.svg}
+    \caption{Projection of the \textit{double Hessian} code constellation with each copy of the \textit{Hessian} logical constellation marked in a different colour.}
+    \label{figure:hessian_qsc}
+  \end{figure}
+
+protection: 'The Hessian QSC is a \(\langle 4, 5, 9 \rangle\) code, i.e. it detects 8 photon losses and protects against 3.
+The code also detects up to 4 ladder errors (losses or gains).
+The code resolution \( d_E = 1.0\).'
+
+#, i.e. the code protects against rotation errors satisfying \( |R\alpha - \alpha| < 1.0  \) where \(\alpha\) is the unrotated state.'
+
+relations:
+  parents:
+    - code_id: qsc
+      detail: 'The Hessian QSC is an example of a QSC with logical constellation built from the Hessian complex polyhedron.'
+  cousins:
+    - code_id: hessian_polyhedron
+      detail: 'The Hessian QSC is the quantum generalization of the classical Hessian polyhedron code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-09'
+    - user_id: ShubhamPJain
+      date: '2023-04-08'

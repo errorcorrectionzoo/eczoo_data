@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: random_circuit
+# includes Galois, modular, oscillators, and groups
+
+name: 'Random-circuit code'
+introduced: '\cite{arxiv:quant-ph/9910081}'
+
+description: 'Code whose encoding is naturally constructed by randomly sampling from a large set of (not necessarily unitary) quantum circuits.'
+
+protection: 'A useful proxy and upper bound to the code distance \(d\) is the \textit{contiguous code distance}: the contiguous length (with periodic boundary conditions) of the shortest logical operator \cite{arxiv:0810.1983,arxiv:1905.05195}.'
+
+
+notes:
+  - 'See Refs. \cite{arxiv:2111.08018,arxiv:2207.14280} for reviews on random-circuit codes.'
+
+# This is more of a unifying property, not meant to be a parent to anything
+relations:
+  parents:
+    - code_id: dynamic_gen
+    - code_id: quantum_random
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-11-30'

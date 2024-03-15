@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: ha_ldpc
+physical: bits
+logical: bits
+
+name: 'Hsu-Anastasopoulos LDPC (HA-LDPC) code'
+short_name: 'HA-LDPC'
+introduced: '\cite{arXiv:cs/0509062}'
+
+description: |
+  A regular LDPC code obtained from a concatenation of a certain random regular LDPC code and a certain random LDGM code.
+
+features:
+  rate: 'Codes can achieve capacity on the BEC channel under BP decoding \cite{arXiv:cs/0509062} as well as the capacity of memoryless binary-input symmetric-output channels under MAP decoding \cite{arXiv:1102.4612}. HA-LDPC codes can achieve the GV bound with asymptotically high probability \cite{arXiv:cs/0509062}.'
+
+
+relations:
+  parents:
+    - code_id: regular_ldpc
+    - code_id: multi_edge_ldpc
+      detail: 'HA-LDPC codes can be formulated as multi-edge LDPC codes \cite{arxiv:1102.4612}.'
+  cousins:
+    - code_id: ldgm
+      detail: 'HA-LDPC codes are a concatenation of an LDPC and an LDGM code.'
+    - code_id: concatenated
+      detail: 'HA-LDPC codes are a concatenation of an LDPC and an LDGM code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

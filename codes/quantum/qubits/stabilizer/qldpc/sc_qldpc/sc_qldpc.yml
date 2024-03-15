@@ -1,0 +1,188 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: sc_qldpc
+physical: qubits
+logical: qubits
+
+name: 'Quantum spatially coupled (SC-QLDPC) code'
+short_name: 'SC-QLDPC'
+introduced: '\cite{arxiv:1102.3181,arxiv:2305.00137}'
+
+description: |
+  QLDPC code whose stabilizer generator matrix resembles the parity-check matrix of SC-LDPC codes.
+  There exist CSS \cite{arxiv:1102.3181} and stabilizer constructions \cite{arxiv:2305.00137}.
+  In either case, the stabilizer generator matrix is constructed by "spatially" coupling sub-matrix blocks in chain-like fashion (or, more generally, in grid-like fashion) to yield a band matrix.
+  The sub-matrix blocks have to satisfy certain conditions amongst themselves so that the resulting band matrix is a stabilizer generator matrix.
+  Matrices corresponding to translationally invariant chains are called \textit{time-variant}, and otherwise are called \textit{time-invariant}.
+
+  A finite-length chain is then capped by imposing either open boundary conditions (yielding \textit{non-tail-biting} SC-QLDPC codes) or open boundary conditions (yielding \textit{tail-biting} SC-QLDPC codes).
+  Both constructions \cite{arxiv:1102.3181,arxiv:2305.00137} are tail-biting.
+
+  In the stabilizer construction \cite{arxiv:2305.00137}, the structure of the band matrix allows codes to be concisely defined in terms of \textit{characteristic polynomials}, whose coefficients are the sub-matrix blocks and which resemble the \hyperref[topic:quantum-polynomial-mapping]{Pauli-to-polynomial mapping} associated with translationally invariant stabilizer codes.
+  Some CSS code constructions can used to define sub-matrix blocks, yielding spatially coupled (i.e., translationally invariant) extensions of such codes.
+
+  For example, the \(3\times 3\) toric code can be expressed as an SC-QLDPC code with stabilizer generator matrix given in \ref{figure:sc-qldpc-3toric-stabilizer-generators}.
+  \begin{figure}
+    \includegraphics{sc_qldpc_3toric_generator_matrix}
+    \caption{Stabilizer generator matrix of the \(3\times 3\) toric code, expressed
+        as an SC-QLDPC code.}
+    \label{figure:sc-qldpc-3toric-stabilizer-generators}
+  \end{figure}
+
+# MathJaX doesn't like this matrix, it's probably too big?
+  # \begin{align}
+  # \left(\begin{array}{c|c|c}
+  # \begin{array}{c|c|c}
+  # \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array} & \\
+  # \hline \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array} & \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array}\\
+  # \hline  & \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array}
+  # \end{array} &  & \begin{array}{c|c|c}
+  # \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array} &  & \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array}\\
+  # \hline \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array} & \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array}\\
+  # \hline  & \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array} & \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array}
+  # \end{array}\\
+  # \hline %%%%
+  # \begin{array}{c|c|c}
+  # \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array} &  & \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array}\\
+  # \hline \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array} & \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array}\\
+  # \hline  & \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array} & \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array}
+  # \end{array} & \begin{array}{c|c|c}
+  # \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array} &  & \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array}\\
+  # \hline \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array} & \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array}\\
+  # \hline  & \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array} & \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array}
+  # \end{array}\\
+  # \hline %%%%%
+  # & \begin{array}{c|c|c}
+  # \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array} &  & \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array}\\
+  # \hline \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array} & \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array}\\
+  # \hline  & \begin{array}{cc}
+  # I & I\\
+  # I & Z
+  # \end{array} & \begin{array}{cc}
+  # I & X\\
+  # Z & Z
+  # \end{array}
+  # \end{array} & \begin{array}{c|c|c}
+  # \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array} &  & \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array}\\
+  # \hline \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array} & \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array}\\
+  # \hline  & \begin{array}{cc}
+  # X & X\\
+  # Z & I
+  # \end{array} & \begin{array}{cc}
+  # X & I\\
+  # I & I
+  # \end{array}
+  # \end{array}
+  # \end{array}\right)~.
+  # \end{align}
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: translationally_invariant_stabilizer
+      detail: 'Stabilizer generator matrices of SC-QLDPC codes on infinite-length chains or grids define a class of lattice stabilizer codes.'
+  cousins:
+    - code_id: sc_ldpc
+      detail: 'SC-QLDPC code stabilizer-generator matrices have similar block form as the parity-check matrices of SC-LDPC codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-10'

@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: clifford-deformed_surface
+physical: qubits
+logical: qubits
+
+name: Clifford-deformed surface code (CDSC)
+short_name: 'CDSC'
+introduced: \cite{arxiv:2201.07802}
+
+description: 'A generally non-CSS derivative of the surface code defined by applying a constant-depth Clifford circuit to the original (CSS) surface code. Unlike the surface code, CDSCs include codes whose thresholds and subthreshold performance are enhanced under noise biased towards dephasing. Examples of CDSCs include the XY code, XZZX code, and random CDSCs.'
+
+#FIGURE
+#Caption: Phase diagram for the random CDSCs at infinite bias.  Typical realizations of random CDSCs in the blue region of the $(\pixz,\piyz)$ phase space have a 50\% threshold. See Ref.~\cite{dua2022clifforddeformed} for an understanding of the regions marked with black, orange and purple boundaries.
+
+protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
+
+features:
+  fault_tolerance:
+    - In order to leverage the benefits of CDSCs into practical universal computation, we have to implement syndrome measurement circuits and fault-tolerant logical gates in a bias-preserving way.
+  code_capacity_threshold:
+    - 'A class of random CDSCs, parametrized by the probabilities \(\Pi_{XZ},~ \Pi_{YZ}\) of \(X\leftrightarrow Z\) and \(Y\leftrightarrow Z\) Pauli permutations, respectively, has \(50\%\) code capacity threshold at infinite \(Z\) bias.'
+    - 'Certain translation-invariant CDSCs such as the XY code and the XZZX code also have \(50\%\) code capacity threshold at infinite \(Z\) bias.'
+    - 'XZZX code and the \((0.5,\Pi_{YZ})\) random CDSCs have a \(50\%\) code capacity threshold for noise infinitely biased towards either Pauli-\(X\), \(Y\), or \(Z\) errors.'
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: quantum_double_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, surface codewords
+      realize \(\mathbb{Z}_2\) topological order, a topological phase of matter that also exists in \(\mathbb{Z}_2\) lattice gauge theory
+      \cite{doi:10.1063/1.1665530}.
+      Local Clifford deformations preserve this topological order.'
+  cousins:
+    - code_id: dynamic_gen
+      detail: 'To create CDSCs, a dynamical process is applied on top of the surface code.'
+    - code_id: quantum_random
+      detail: 'Many useful CDSCs are constructed using random Clifford circuits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-28'
+    - user_id: AleksanderKubica
+      date: '2022-09-28'
+    - user_id: LiangJiang
+      date: '2022-09-28'
+    - user_id: StevenTFlammia
+      date: '2022-09-28'
+    - user_id: MichaelGullans
+      date: '2022-09-28'
+    - user_id: VictorVAlbert
+      date: '2022-01-20'
+    - user_id: ArpitDua
+      date: '2022-01-19'

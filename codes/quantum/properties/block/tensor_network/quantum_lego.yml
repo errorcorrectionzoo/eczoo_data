@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_lego
+
+name: 'Quantum Lego code'
+introduced: '\cite{arxiv:2109.08158}'
+
+#  Code constructed using the quantum LEGO method, which combines multiple codes that have been converted into tensors by tying together the input and outputs of those codes, in a way stacking them similar to LEGOs.
+
+description: |
+  Block quantum code constructed using a tensor-network-based graphical framework from \textit{quantum lego blocks}, which are smaller quantum codes over qubits or qudits. The class of codes constructed using the framework depends on the choice of atomic lego blocks.
+
+  The individual lego blocks and resulting quantum lego codes can be stabilizer or non-stabilizer. However, both the logical and physical degrees of freedom must have the same local dimension.
+
+  For example, any stabilizer code can be built out of atomic blocks like the 2-site repetition code, single-site trivial stabilizer codes, and tensor products of the \(|0\rangle\) state.
+  Specifically, the \hyperref[code:happy]{HaPPY} holographic code is a quantum Lego code whose atomic Lego block is the \hyperref[code:stab_5_1_3]{five-qubit perfect} qubit code.
+
+  Many known codes can be created using this code''s methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code. For example, a simple \( [[4,2,2]] \) stabilizer code can be written as a rank 6 tensor. Attaching two of these via gluing together one logical leg from each can produce a \( [[6,4,2]] \) stabilizer code.
+  Code optimization in this framework can be done using reinforcement learning \cite{arxiv:2305.06378}.
+
+  To construct a Lego code, the encoding map \(V\) for each code that is to be used in the construction is converted to a tensor by decomposing it using the formula
+  \begin{align}
+  V = \sum_{i_j} V_{i_1 \ldots i_{n+k}} | i_{k+1} \ldots i_{k+n} \rangle \langle i_1 \ldots i_k |~.
+  \end{align}
+  We then look at the codes graphically, treating each \(i_j\) as an edge dangling out of the tensor vertex \(V_{i_1 \ldots i_{n+k}}\). These edges are either connected to another tensor vertex's edges or left dangling. If the block codes are stabilizer, then each local tensor has unitary product stabilizers (UPS). The goal is to push each UPS through the tensor network until each dangling edge has only trivial support. Otherwise, a matching value is pushed through the edge and the process is repeated on the next tensor. If a UPS can be pushed through the whole network, then a UPS for the larger network has been found. The dangling legs (edges) and UPS of the whole network can then be converted to physical/logical elements and stabilizers/logical operators for a new quantum code.
+#protection: 'Depends heavily on the code it constructs.'
+
+features:
+  encoders:
+    - 'Unitary-circuit encoding exists for a restricted class of tensor networks contractible via isometries \cite{arxiv:2109.08158}.'
+
+  decoders:
+    - 'The decoder is created by creating a decoding quantum circuit with dangling legs replaced with input/output wires, and tensors converted to unitary gates. Maximum likelihood decoding can be used when the tensors are stabilizer codes.'
+    - 'Tensor-network decoder when the tensor network is contractible via stabilizer isometries \cite{arxiv:2009.10329}.'
+    - 'Tensor-network-based decoder when the encoding unitary is known \cite{arxiv:1312.4578}.'
+
+
+relations:
+  parents:
+    - code_id: block_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-05-25'
+    - user_id: ThomasWrona
+      date: '2022-05-18'
