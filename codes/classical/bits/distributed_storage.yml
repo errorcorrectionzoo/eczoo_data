@@ -1,0 +1,26 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: distributed-storage
+physical: bits
+logical: bits
+
+name: 'Distributed-storage code'
+introduced: '\cite{arXiv:1408.4862}'
+
+description: 'A storage code is a way of representing information in a distributed storage system wherein the contents of the file is spread across multiple nodes. In the event of node failure the contents of the node can be recovered from a subset of other nodes in the system, called the helper nodes.'
+
+protection: 'Protects a distributed storage system against the failure of a single node or multiple nodes.'
+
+notes:
+  - 'The size of the code depends on the underlying structure of the distributed storage system.'
+
+relations:
+  parents:
+    - code_id: 'ecc' 
+      detail: 'An \((n,k)\)optimal linear erasure codes have the property that any \(k\) out of the \(n\) codeword symbols are sufficient to recover the original message.'
+  cousins:
+    - code_id: 'reed_solomon'
+      detail: 'Reed-Solomon codes are MDS codes and they are used very often to protect the distributed systems.'
