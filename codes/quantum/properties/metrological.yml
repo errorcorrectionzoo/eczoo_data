@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: metrological
+logical: qubits
+
+name: 'Metrological code'
+introduced: '\cite{arxiv:2207.13707}'
+
+description: |
+  Two-dimensional subspace of a Hilbert space whose basis states satisfy only a part of the \term{Knill-Laflamme conditions}. The satisfied part of the conditions ensures that the code can be used for local parameter estimation.
+
+  Letting \(\Pi = U U^\dagger\) be the codespace projector for encoding isometry \(U\) and projecting a pair of errors \(E_i,E_j\) from an error set \(\cal E\) into the two-dimensional codespace yields
+  \begin{align}
+    \Pi E_{i}^{^{\dagger}}E_{j}\Pi=c_{ij}\,\Pi+x_{ij}\overline{X}+y_{ij}\overline{Y}+z_{ij}\overline{Z}
+  \end{align}
+  with error-matrix element \(c_{ij}\) and logical-error coefficients
+  \begin{align}
+    \left\{ x,y,z\right\} _{ij}={\textstyle \frac{1}{2}}\text{Tr}\left(\left\{ \overline{X},\overline{Y},\overline{Z}\right\} E_{i}^{^{\dagger}}E_{j}\right)~.
+  \end{align}
+  If all three logical-error coefficients are zero, then the \term{Knill-Laflamme conditions} are satisfied, and the code is a \hyperref[code:qecc]{QECC}. If only one of the three coefficients is zero, then the code is the more general metrological code.
+
+protection: |
+  Physical noise can cause logical errors along one of the three axes, i.e., either logical-\(X\), \(Y\), or \(Z\), depending on what basis is used. Codes protect against logical errors along the remaining two axes.
+
+  A metrological block quantum code has distance \(d\) if the above conditions are satisfied for an error set \(\cal E\) consisting of errors supported on \(d-1\) subsystems of less.
+
+relations:
+  parents:
+    - code_id: quantum_into_quantum
+#    - code_id: oaecc
+#      detail: ''
+# Unclear if these are oaecc
+  cousins:
+    - code_id: metopt
+      detail: 'Error-corrected sensing codes are required to satisfy the \term{Knill-Laflamme conditions}, while metrological codes need only satisfy the conditions partially.'
+    - code_id: covariant
+      detail: 'Any time-covariant QECC, i.e., a code admitting a continuous-parameter \(U(1)\) family of gates, is automatically a metrological code.'
+    - code_id: qubit_stabilizer
+      detail: 'A joint \(+1\) and \(-1\) eigenstate of a set of stabilizer can form a metrological stabilizer code \cite{arxiv:2207.13707}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-30'

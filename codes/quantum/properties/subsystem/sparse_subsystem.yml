@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: sparse_subsystem
+# includes both Galois and modular
+
+name: 'Sparse subsystem code'
+introduced: '\cite{arxiv:1411.3334}'
+# geometrically local would also cover hyperbolic, Euclidean overlaps with CSS
+
+description: |
+  A geometrically local qubit, modular-qudit, or Galois-qudit subsystem stabilizer code for which the number of sites participating in each gauge-group generator and the number of gauge-group generators that each site participates in are both bounded by a constant as \(n\to\infty\).
+
+features:
+  rate: 'There exists a family of sparse subsystem codes with \(d = n^{1-\epsilon}\), where \(\epsilon = O(1/\sqrt{\log n})\) \cite{arxiv:1411.3334}.'
+
+
+relations:
+  parents:
+    - code_id: oecc
+  cousins:
+    - code_id: qldpc
+      detail: 'Sparse subsystem codes reduce to QLDPC codes when there are no gauge qudits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-14'
+    - user_id: XiaozhenFu
+      date: '2024-03-14'

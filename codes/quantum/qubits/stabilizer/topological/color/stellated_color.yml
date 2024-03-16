@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stellated_color
+physical: qubits
+logical: qubits
+
+name: 'Stellated color code'
+introduced: '\cite{arxiv:1806.02820}'
+
+description: |
+  A color code on a lattice patch with a single twist defect at the center of the patch.
+
+features:
+  rate: 'Stellated color codes have negative curvature around the central defect, and thus circumvent the \hyperref[topic:BPT-bound]{BPT bound} for codes on Euclidean lattices.'
+
+relations:
+  parents:
+    - code_id: color
+    - code_id: 2d_stabilizer
+  cousins:
+    - code_id: triangle_surface
+      detail: 'Stellated color codes are color-code analogues of triangle surface codes in that both encode logical information in lattices with a single twist defect.
+      Instances of the former can be obtained by fattening \cite{arxiv:cond-mat/0607736} the vertices of the latter \cite{arxiv:1806.02820}.'
+# 2D stabilizer is a stretch since defects can induce hyperbolic geometry
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-10'

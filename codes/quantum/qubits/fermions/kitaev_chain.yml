@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: kitaev_chain
+physical: qubits
+logical: qubits
+
+name: 'Kitaev chain code'
+introduced: '\cite{arXiv:cond-mat/0010440}'
+
+description: |
+  An \([[n,1,1]]_{f}\) Majorana stabilizer code forming the ground-state of the Kitaev Majorana chain (a.k.a. Kitaev Majorana wire) in its fermionic topological phase, which is equivalent to the 1D quantum Ising model in the symmetry-breaking phase via the Jordan-Wigner transformation.
+  The code is usually defined using the algebra of two anti-commuting Majorana operators called \textit{Majorana zero modes (MZMs)} or \textit{Majorana edge modes (MEMs)}.
+
+  Codewords have different values of the fermionic parity.
+  As a result, this code is considered unphysical because, in the fermionic context, fermion parity conservation prevents one from realizing coherent superpositions between them.
+  However, controlling the MZMs associated with this code is an important step to realizing its parent the tetron code, whose codewords have the same parity.
+
+protection: |
+  In the fermionic context, code states are insensitive to any local Majorana operator product that respects fermion parity symmetry.
+  However, the distance is one because the code does not protect against single Majorana operators, which do not commute with the parity symmetry.
+
+realizations:
+  - 'Photonic systems: braiding of defects has been simulated in a device that has a different notion of locality than a bona-fide fermionic system \cite{arxiv:1411.7751}.'
+  - 'Superconducting circuits: initialization \cite{arxiv:2206.00563}, braiding \cite{arxiv:2203.15083} and detection \cite{arxiv:2203.15083,arxiv:2204.11372} of defects has been simulated in devices that have a different notion of locality than a bona-fide fermionic system.'
+
+
+
+notes:
+  - 'See notes \cite{arxiv:0904.2771} for a description of this code.'
+
+relations:
+  parents:
+    - code_id: mbq
+      detail: 'Kitaev chain codewords can be obtained by restricting to only one Kitaev chain out of the two chains that define the tetron Majorana code.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-07'

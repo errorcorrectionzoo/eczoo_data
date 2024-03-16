@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: crc
+physical: bits
+logical: bits
+
+name: 'Cyclic redundancy check (CRC) code'
+short_name: 'CRC'
+introduced: '\cite{doi:10.1109/JRPROC.1961.287814,preset:PetersonWeldon,preset:LinCostello}'
+
+alternative_names:
+  - 'Frame check sequence (FCS)'
+
+description: |
+  A generalization of the single parity-check code in which the generalization of the parity bit is the remainder of the data string (mapped into a polynomial via the \ref{topic:Cyclic-to-polynomial-correspondence}) divided by some generator polynomial.
+  A notable family of codes is referred to as \textit{CRC-}(\(m-1\)), where \(m\) is the length of the generator polynomial.
+
+protection: 'Detects any burst error up to the length of the generator polynomial.'
+
+realizations:
+  - 'CRC-16 and CRC-32 are used in data transmission, e.g., IEEE 802.16e, IEEE 802.3 \cite{manual:{Borrelli, Chris. "IEEE 802.3 cyclic redundancy check." application note: Virtex Series and Virtex-II Family, XAPP209 (v1. 0) (2001).}} and TCP/IP communication \cite[Sec. 2.3.3]{doi:10.1007/978-0-387-68192-4_2}.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1109/CICN.2015.108} and book \cite{manual:{Wells, Richard B. Applied coding and information theory for engineers. Prentice-Hall, Inc., 1998.}} for introductions to CRC codes.'
+  - 'See Refs. \cite{doi:10.1109/DSN.2002.1028931,doi:10.1109/DSN.2004.1311885} for exhaustive lists of CRC polynomials, as well as the \href{https://users.ece.cmu.edu/~koopman/crc/crc32.html}{CRC Polynomial Zoo website} by Philip Koopman.'
+
+relations:
+  parents:
+    - code_id: binary_cyclic
+  cousins:
+    - code_id: polar
+      detail: 'CRC codes concataned with polar codes yield improved performance of the SCL polar-code decoder \cite{doi:10.1109/LCOMM.2012.111612.121898,doi:10.1109/TIT.2015.2410251}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-25'
+    - user_id: GageErwin
+      date: '2023-08-11'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: b_array
+physical: matrices
+
+
+name: 'B-code'
+introduced: '\cite{doi:10.1109/18.179343}'
+
+description: |
+  The first array code, constructed over \(GF(q)\).
+
+features:
+  decoders:
+    - 'Efficient decoding algorithm against erasures \cite{doi:10.1109/18.179343}.'
+
+
+relations:
+  parents:
+    - code_id: array
+  cousins:
+    - code_id: reed_solomon
+      detail: 'B-codes can be interpreted as RS codes over polynomials whose symbols lie in Galois rings  \cite{doi:10.1109/18.179343,doi:10.1007/978-1-4615-1525-8_7}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-04'

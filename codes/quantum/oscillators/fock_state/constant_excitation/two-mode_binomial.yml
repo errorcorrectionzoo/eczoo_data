@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: two-mode_binomial
+physical: oscillators
+logical: qudits
+
+name: 'Two-mode binomial code'
+introduced: '\cite{doi:doi:10.1103/PhysRevA.56.1114}'
+
+description: |
+  Two-mode constant-energy CLY code whose coefficients are square-roots of binomial coefficients.
+
+  The simplest two-mode \(S=1\) code is an analogue of the "0-2-4" single-mode binomial code, with codewords
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle&=\frac{1}{\sqrt{2}}\left(|40\rangle+|04\rangle\right)\\
+    |\overline{1}\rangle&=|22\rangle~.
+  \end{split}
+  \end{align}
+
+  The general codewords are
+  \begin{align}
+    |\overline{\mu}\rangle=\frac{1}{2^{J}}\sum_{m=0}^{2J}\left(-1\right)^{\mu m}\sqrt{{2J \choose m}}\left|2J-(S+1)m,(S+1)m\right\rangle~,
+  \end{align}
+  with spacing \(S\) and dephasing error parameter \(N\) such that \(J = \frac{1}{2}(N+1)(S+1)\) \cite{arXiv:1602.00008}.
+  The \(S=0\) version can be obtained by applying a \(50:50\) beamsplitter to the highest-weight Fock state \(|2J,0\rangle\) \cite{arxiv:1512.07605}.
+
+
+relations:
+  parents:
+    - code_id: chuang-leung-yamamoto
+  cousins:
+    - code_id: binomial
+    - code_id: chi2
+      detail: 'Two-mode binomial codes \cite[Eqs. (90-91)]{arxiv:1709.05302} are closely related to three-mode \(\chi^2\) binomial codes \cite[Eqs. (61-62)]{arxiv:1709.05302}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-17'

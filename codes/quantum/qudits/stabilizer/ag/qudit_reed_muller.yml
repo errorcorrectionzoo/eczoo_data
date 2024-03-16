@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_reed_muller
+physical: qudits
+logical: qudits
+
+name: 'Prime-qudit RM code'
+introduced: '\cite{arXiv:quant-ph/0502001,arxiv:1205.3104}'
+
+# Dual added to include qudit_hamming_css as a child
+description: |
+  Modular-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes or their duals via the modular-qudit CSS construction.
+  An odd-prime-qudit CSS code family constructed from first-order punctured RM codes transversally implements a diagonal gate at any level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} \cite{arxiv:1205.3104}.
+
+features:
+  magic_scaling_exponent: 'An odd-prime-qudit CSS code family constructed from first-order punctured RM codes can be used for qudit magic-state distillation \cite{arxiv:1205.3104}.'
+
+  transversal_gates: 'An odd-prime-qudit CSS code family constructed from first-order punctured RM codes transversally implements a diagonal gate at any level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} \cite{arxiv:1205.3104}.'
+
+relations:
+  parents:
+    - code_id: qudit_css
+    - code_id: galois_reed_muller
+      detail: 'Galois-qudit RM codes reduce to prime-qudit RM codes when \(q\) is prime.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-01'

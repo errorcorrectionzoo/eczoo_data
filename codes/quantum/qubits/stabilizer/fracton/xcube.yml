@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xcube
+physical: qubits
+logical: qubits
+
+name: 'X-cube model code'
+introduced: '\cite{arxiv:1603.04442}'
+
+description: |
+  A foliated type-I fracton code supporting a subextensive number of logical qubits.
+  Variants include the membrane-coupled \cite{arxiv:1701.00747}, twice-foliated \cite{arxiv:1806.08625}, and several generalized \cite{arxiv:2402.16831} X-cube models.
+
+features:
+  decoders:
+    - 'Parallelized matching decoder \cite{arxiv:1901.08061}.'
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(\sim 7.5\%\), higher than 3D surface code and color code \cite{arXiv:2112.05122}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: fracton
+      detail: 'The X-cube model is a foliated type-I fracton code \cite{arxiv:1803.10426,arxiv:1908.08049}.'
+  cousins:
+    - code_id: quantum_inspired
+      detail: 'According to Ref. \cite{arxiv:2002.11738}, a classical analogue of the X-cube model is the eight-vertex model \cite{doi:10.1063/1.1665111,doi:10.1103/PhysRevLett.26.832,doi:10.1016/0003-4916(72)90335-1}.'
+    - code_id: newman_moore
+      detail: 'Generalized X-cube models \cite{arxiv:2402.16831} are constructed from a product of the repetion (1D Ising) code and the Newman-Moore code.'
+    - code_id: quantum_repetition
+      detail: 'Generalized X-cube models \cite{arxiv:2402.16831} are constructed from a balanced product of the quantum repetion (1D Ising) code and the Newman-Moore code.'
+    - code_id: balanced_product
+      detail: 'Generalized X-cube models \cite{arxiv:2402.16831} are constructed from a balanced product of the quantum repetion (1D Ising) code and the Newman-Moore code.'
+
+
+_meta:
+  changelog:
+    - user_id: KeLiu
+      date: '2023-03-31'
+    - user_id: VictorVAlbert
+      date: '2023-03-31'

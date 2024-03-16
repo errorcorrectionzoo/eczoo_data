@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: evaluation
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Evaluation AG code'
+
+description: |
+  Also called a \textit{function code}. Evaluation code over \(GF(q)\) on a set of points \({\cal P} = \left( P_1,P_2,\cdots,P_n \right)\) in \(GF(q)\) lying on an algebraic curve \(\cal X\) whose corresponding vector space \(L\) of functions \(f\) consists of certain polynomials or rational functions. Codewords are evaluations of all functions at the specified points,
+  \begin{align}
+    \left( f(P_1), f(P_2), \cdots, f(P_n) \right) \quad\quad\forall f\in L~.
+  \end{align}
+  The code is denoted as \(C_L({\cal X},{\cal P},D)\), where the \textit{divisor} \(D\) (of degree less than \(n\)) determines which rational functions to use by prescribing features associated with their zeroes and poles. The original motivation for evaluation codes, which are generalizations of RS codes that expand both the types of functions used as well as the available evaluation points, was to increase code length while maintaining good distance and size.
+
+  The algebraic curve \(\cal X\) used for this construction is the set of zeroes of a nontrivial polynomial that is both smooth and irreducible over any field extension of \(GF(q)\). The curve can be defined over affine space or projective space, which contains the affine coordinates as a subset and which can yield an increase in length.
+  If evaluations are made over projective coordinates, then the codewords are evaluations of homogeneous polynomials, and there are relations between such polynomials with polynomials over affine space. See Refs. \cite{preset:HPAlgCodes,doi:10.1007/978-3-319-51103-0} for more details.
+
+  In the case of polynomial functions \(f\), evaluation AG codes reduce to \hyperref[code:evaluation_polynomial]{polynomial evaluation} codes on algebraic curves. In the general case of rational functions, which are ratios of two polynomials, one can select such features for both the numerator and denominator polynomials. Zeroes of the denominator polynomial are called poles of the rational function, and their multiplicities correspond to orders of the poles. A bookkeeping device for this data is the divisor \(D\), and the corresponding vector space of functions defined using the curve \(\cal X\) and the divisor is the \textit{Riemann-Roch space} \(L=L(D)\) \cite[pg. 313]{preset:HKSag}.
+
+protection: 'Riemann-Roch theorem yields code length \(n\), dimension \(k\), and a lower bound on distance in terms of features of \(L\) and genus of the curve \(\cal X\) \cite[Thm. 15.3.12]{preset:HKSag}. The order or Feng-Rao bound, a generalization of the shift bound for cyclic codes, gives a lower bound on the distance of evaluation AG codes \cite{doi:10.1109/18.179340,doi:10.1515/9783110811056.155,doi:10.1016/j.ffa.2006.09.006}. Connection to semigroups yields another bound \cite{doi:10.1109/18.333893,preset:HPAlgCodes}.'
+
+features:
+  decoders:
+    - 'Generalization of plane-curve decoder \cite{doi:10.1109/18.57204,manual:{V. Yu. Krachkovskii, "Decoding of codes on algebraic curves," (in Russian), Conference Odessa, 1988.}}. Another decoder \cite{doi:10.1109/18.165441} was later showed to be equivalent in Ref. \cite{doi:10.1007/BFb0087989}. Application of several algorthims in parallel can be used to decode up to half the minimum distance \cite{doi:10.1109/18.45279,doi:10.1109/18.59945}. Computational procedure implementing these decoders is based on an extension of the Berlekamp-Massey algorithm by Sakata \cite{doi:10.1016/S0747-7171(88)80033-6,doi:10.1016/0890-5401(90)90039-K,doi:10.1109/18.86974}.'
+    - 'Decoder based on majority voting of unknown syndromes \cite{doi:10.1109/18.179340} decodes up to half of the minimum distance \cite{doi:10.1109/18.256485}.'
+    - 'List decoders generalizing Sudan''s RS decoder by Shokrollahi-Wasserman \cite{doi:10.1109/18.748993} and Guruswami-Sudan \cite{doi:10.1109/SFCS.1998.743426}.'
+
+notes:
+  - 'See Refs. \cite{preset:HPAlgCodes,doi:10.1109/18.476214,doi:10.1142/9789812794017_0002,preset:HKSag,doi:10.1017/CBO9780511543401} for surveys and overviews of decoders.'
+
+# All children q-ary except RM
+relations:
+  parents:
+    - code_id: evaluation_varieties
+      detail: 'Evaluation AG codes are evaluation codes of rational functions \(f\) for which \(\cal X\) is an algebraic curve, i.e., an algebraic variety of dimension one \cite{preset:HPAlgCodes}.'
+    - code_id: ag
+  cousins:
+    - code_id: q-ary_linear
+      detail: 'The degree of the divisor for evaluation AG codes is restricted to be less than \(n\).
+      When there is no restriction, any \(q\)-ary linear code can be formulated as an evaluation AG code \cite{doi:10.1109/18.79915}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-11'
+    - user_id: VictorVAlbert
+      date: '2022-03-22'

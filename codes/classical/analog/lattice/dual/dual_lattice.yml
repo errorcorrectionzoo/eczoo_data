@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual_lattice
+physical: reals
+logical: reals
+
+name: 'Dual lattice code'
+
+description: |
+  Also called the \textit{reciprocal} or \textit{polar} lattice code.
+  For any \(n\)-dimensional lattice \(L\), the dual lattice is
+  \begin{align}
+  L^{\perp} = \{ y\in \mathbb{R}^{n} ~|~ x \cdot y \in \mathbb{Z} ~\forall~ x \in L\},
+  \end{align}
+  where the Euclidean inner product is used.
+
+  A lattice that is contained in its dual, \(L \subseteq L^\perp\), is called \textit{integral}.
+  The Gram matrix of such a lattice has integer entries, and its dual is contained in a suitably scaled version of itself, \(L^{\perp} \subseteq L/\det L\).
+  Integral lattices are classified into \textit{even} or \textit{odd}, where the norm squared of every lattice vector is an even or odd integer, respectively.
+
+  A lattice that is equal to its dual, \(L^\perp = L\), is called \textit{unimodular} or \textit{self-dual}.
+
+#   A code that contains its dual, \(C^\perp \subseteq C\), is called \textit{dual-containing}.  The dual of a dual code is the original code. A code is dual-containing iff its dual is self-orthogonal.
+
+protection: |
+  The Gram matrix of \(L^{\perp}\) is the inverse of that of \(L\).
+  The generator matrix of \(L^{\perp}\) is the transposed inverse of that of \(L\).
+
+
+relations:
+  parents:
+    - code_id: points_into_lattices
+  cousins:
+    - code_id: dual
+      detail: 'Dual lattices are lattice analogues of dual codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-02-25'

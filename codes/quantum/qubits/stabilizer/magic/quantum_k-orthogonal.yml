@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_k-orthogonal
+physical: qubits
+logical: qubits
+
+name: '\(k\)-orthogonal code'
+introduced: '\cite{arxiv:1503.08800,arxiv:1906.11394,arXiv:2210.14066}'
+# 1906.11394 also defines ell-orthogonal
+
+description: |
+  Stabilizer code whose \(X\)-type generators form a \(k\)-orthogonal matrix (defined below) in the symplectic representation.
+  In other words, the overlap between any \(k\) stabilizers (including the identity) is even.
+  This entry is formulated for qubits, but an extension exists for modular qudits \cite{arxiv:1503.08800}.
+
+  A matrix is \(k\)-orthogonal \cite[Def. 4]{arxiv:2210.14066} if
+  \begin{align}
+    |x^1|&\equiv 0 \mod 2 \\
+    |x^1\cdot x^2|&\equiv 0 \mod 2 \\
+    |x^1\cdot x^2\cdot x^3|&\equiv 0 \mod 2 \\
+    &\vdots \\
+    |x^1\cdot x^2\cdot x^3\cdot\ldots\cdot x^k|&\equiv 0 \mod 2 \\
+  \end{align}
+  for all its rows \(x^j\), where the generalized dot-product notation means a sum of products of the respective coordinates of all vectors.
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+  cousins:
+    - code_id: qudit_color
+      detail: 'The notion of \(k\)-orthogonality can be extended to modular-qudit codes and is known as \(k^{\star}\)-orthogonality \cite[Def. 2]{arxiv:1503.08800}.
+      Modular-qudit color codes defined on lattices in \(D\) spatial dimension whose \(X\)-type stabilizers are placed on cells of dimension \(\nu \leq D\) are \(k^{\star}\)-orthogonal for all \(k \leq \nu\) \cite[Lemma 5]{arxiv:1503.08800}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-01'

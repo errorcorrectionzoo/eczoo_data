@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: self_dual_additive
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Self-dual additive code'
+
+description: |
+  An additive \((n,2^n)_q\) code that is equal to its dual, \(C^\perp = C\), where the dual is defined with respect to some inner product, usually the trace-Hermitian inner product.
+
+  Self-dual additive codes that contain at least one codeword of odd weight are called \textit{Type I additive}.
+  Even self-dual additive codes are called \textit{Type II additive}, existing only for even \(n\) \cite[Sec. 9.10]{doi:10.1017/CBO9780511807077}.
+  Type I (type II) additive codes with length up to seven (eight) have been classified \cite{arxiv:math/0005266}.
+  Much is known about codes up to length 16 \cite{manual:{P. Gaborit, W. C. Huffman, J.-L. Kim, and V. Pless, “On additive GF(4) codes,” in Codes and Association Schemes (DIMACS Workshop, November 9–12, 1999), eds. A. Barg and S. Litsyn. Providence, RI: American Mathematical Society, 2001, pp. 135–149.}}.
+
+protection: |
+  The minimum distance of a trace-Hermitian self-dual additive \((n,n/2\) code satisfies \cite[Thm. 33]{preset:HPRainsSloane}
+  \begin{align}
+    d\leq\begin{cases}
+    2\left\lfloor \frac{n}{6}\right\rfloor +1 & n\equiv0\text{ mod 6 and code is Type I additive}\\
+    4\left\lfloor \frac{n}{6}\right\rfloor +3 & n\equiv5\text{ mod 6 and code is Type I additive}\\
+    2\left\lfloor \frac{n}{6}\right\rfloor +2 & \text{otherwise for Type I  additive codes}\\
+    2\left\lfloor \frac{n}{6}\right\rfloor +2 & \text{code is Type II additive}
+    \end{cases}~.
+  \end{align}
+  A self-dual additive code saturating the above inequality is called \textit{extremal additive}.
+
+
+relations:
+  parents:
+    - code_id: dual_additive
+  cousins:
+    - code_id: dual
+      detail: 'The difference between the definitions of dual linear and dual additive codes is in the trace used in the inner product.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-22'

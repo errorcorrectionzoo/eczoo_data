@@ -1,0 +1,55 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: binary_cyclic
+physical: bits
+logical: bits
+
+name: 'Cyclic linear binary code'
+#introduced: ''
+
+description: |
+  A binary code of length \(n\) is cyclic if, for each codeword \(c_1 c_2 \cdots c_n\), the cyclically shifted string \(c_n c_1 \cdots c_{n-1}\) is also a codeword. A cyclic code is called \textit{primitive} when \(n=2^r-1\) for some \(r\geq 2\). A \textit{shortened cyclic code} is obtained from a cyclic code by taking only codewords with the first \(j\) zero entries, and deleting those zeroes.
+
+protection: 'Shift bound \cite{doi:10.1109/TIT.1986.1057134} gives a lower bound on the distance of cyclic binary codes.'
+
+#  \subsection{Binary-cyclic-to-polynomial correspondence}
+
+#  \begin{defterm}{binary-cyclic-to-polynomial correspondence}
+#  Cyclic codes and their properties can be naturally formulated using the theory of polynomials.
+#  Cyclic codes correspond to ideals in a particular polynomial ring. Codewords \(c_1 c_2 \cdots c_n\) of a binary code can be thought of as coefficients in a polynomial \(c(x)=c_1+c_2 x+\cdots+c_n x^{n-1}\) in the set of polynomials with binary coefficients, \(\mathbb{F}_2[x]\) with \(\mathbb{F}_2=GF(2)\). Polynomials corresponding to codewords of a linear cyclic code form an \textit{ideal} (i.e., are closed under multiplication and addition) in the ring \(\mathbb{F}_2[x]/(x^n-1)\) (i.e., the set of equivalence classes of polynomials congruent modulo \(x^n-1\)). Multiplication of a codeword polynomial \(c(x)\) by \(x\) in such a ring corresponds to a cyclic shift of the corresponding codeword string.
+#  \end{defterm}
+
+#  Codeword polynomials of a cyclic code can be generated, via multiplication, by a \textit{generator polynomial} \(g(x)\). A particular generator polynomial \(e(x)\) has the additional property of being \textit{idempotent}, i.e., \(e(x)^2=e(x)\). Given a generator polynomial, the corresponding \textit{check polynomial} \(h(x)=(x^n-1)/g(x)\) yields zero when multiplying a codeword polynomial. Its coefficients correspond to the code's parity check matrix.
+
+#  Odd-length cyclic codes can also be defined in terms of zeroes of their generator polynomial. Since \(g(x)\) is a polynomial over the binary field, it can be factorized over some potentially larger \textit{splitting field} (just like \(x^2+1\) can be factorized over the complex numbers but not the reals). Roots of \(g(x)\) are called \textit{zeroes} of the code, and they are all powers of a primitive \(n\)th root of unity because \(g(x)\) is a divisor of \(x^n-1\). Since the generator polynomial generates all codeword polynomials \(c(x)\) by multiplication by \(x\), its zeroes are also zeroes of those polynomials.
+
+features:
+  decoders:
+    - 'Meggitt decoder \cite{doi:10.1109/TIT.1961.1057659}.'
+    - 'Information set decoding (ISD) \cite{doi:10.1109/TIT.1962.1057777}, a probabilistic decoding strategy that essentially tries to guess \(k\) correct positions in the received word, where \(k\) is the size of the code. Then, an error vector is constructed to map the received word onto the nearest codeword, assuming the \(k\) positions are error free. When the Hamming weight of the error vector is low enough, that codeword is assumed to be the intended transmission.'
+    - 'Permutation decoding \cite{doi:10.1002/j.1538-7305.1964.tb04075.x}.'
+
+notes:
+  - 'See Ch. 7 of Ref. \cite{preset:MacSlo} for an exposition on cyclic codes.'
+  - 'See Ref. \cite{doi:10.1109/18.119714} for tables of the best binary cyclic codes of odd lengths 101 to 127.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: q-ary_cyclic
+  cousins:
+    - code_id: binary_ltc
+      detail: 'Cyclic linear codes cannot be \(c^3\)-LTCs \cite{doi:10.1109/TIT.2005.851735}. Codeword symmetries are in general an obstruction to achieving such LTCs \cite{doi:10.1007/978-3-642-16367-8_12}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: MazinKarjikar
+      date: '2022-12-30'
+    - user_id: VictorVAlbert
+      date: '2022-07-13'

@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: su3_sigma360
+physical: qudits
+logical: qudits
+
+name: '\(\Sigma(360\phi)\) qutrit code'
+introduced: '\cite{arXiv:2402.01638}'
+
+description: |
+  Qutrit block code realizing the \(\Sigma(360\phi)\) subgroup of \(SU(3)\) transversally.
+  Smallest codes in the two infinite families have parameters \(((5,3,2))_3\) and \(((7,3,2))_3\).
+
+features:
+  transversal_gates: '\(\Sigma(360\phi)\) group gates can be realized transversally.'
+
+relations:
+  parents:
+    - code_id: su3_spin
+      detail: '\(\Sigma(360\phi)\) spin codes can be interpreted as \(SU(3)\) single-spin codes.'
+  cousins:
+    - code_id: small_distance_quantum
+      detail: 'Smallest codes in the two infinite families of \(\Sigma(360\phi)\) codes have parameters \(((5,3,2))_3\) and \(((7,3,2))_3\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-06'

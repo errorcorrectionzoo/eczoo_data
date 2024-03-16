@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ecoc
+
+name: 'Error-correcting output code (ECOC)'
+introduced: '\cite{arxiv:cs/9501101,manual:{Allwein, Erin L., Robert E. Schapire, and Yoram Singer. "Reducing multiclass to binary: A unifying approach for margin classifiers." Journal of machine learning research 1.Dec (2000): 113-141.}}'
+
+description: |
+  A length-\(n\) binary or ternary (over \(\{\pm 1,0\}\)) block code used to convey information about classes to classifiers in multiclass machine learning.
+  Rows of the code's generator matrix denote different classes, while columns correspond to classifiers.
+
+  A \textit{data-driven ECOC (DECOC)} \cite{doi:10.1016/j.patcog.2007.05.020} is an ECOC whose design takes into account features of the data that is to be classified.
+  Not always decoded using the Hamming metric.
+
+features:
+  decoders:
+    - 'Standard Hamming-distance decoding \cite{manual:{Nilsson, Nils J. "Learning machines." (1965).}}.'
+    - 'Inverse Hamming decoding \cite{doi:10.1016/S1566-2535(02)00101-X}.'
+    - 'Euclidean-distance decoding or attenuated Euclidean decoding \cite{doi:10.1016/j.patcog.2007.04.008}.'
+    - 'Loss-based decoding \cite{manual:{Allwein, Erin L., Robert E. Schapire, and Yoram Singer. "Reducing multiclass to binary: A unifying approach for margin classifiers." Journal of machine learning research 1.Dec (2000): 113-141.}}.'
+    - 'Probabilistic-based decoding \cite{doi:10.1109/TNN.2003.820841}.'
+
+realizations:
+  - Multiclass problems in machine learning, relevant to facial recognition \cite{doi:10.1049/cp:20030513,doi:10.1109/CVPR.2001.990552}, text recognition \cite{doi:10.1109/ICDM.2001.989574}, or digit classification \cite{doi:10.1109/ICDAR.2005.246}.
+
+notes:
+  - 'See \cite{doi:10.1109/TPAMI.2008.266}\cite[Ch. 6]{doi:10.1142/7238} for overviews of ECOCs.'
+  - 'See \cite{manual:{Escalera, Sergio, Oriol Pujol, and Petia Radeva. "Error-correcting ouput codes library." The Journal of Machine Learning Research 11 (2010): 661-664.}} for a library of ECOCs.'
+
+
+relations:
+  parents:
+    - code_id: block
+  cousins:
+    - code_id: hadamard
+      detail: 'Hadamard codes and subcodes can be used as ECOCs \cite{arxiv:cs/9501101,doi:10.1145/307400.307429,doi:10.1007/978-3-540-45080-1_51}.'
+    - code_id: bch
+      detail: 'BCH codes can be used as ECOCs \cite{arxiv:cs/9501101}.'
+    - code_id: one_hot
+      detail: 'One-hot codes are the primary codes used in multiclass classification \cite{doi:10.1142/7238,arxiv:0711.2914,doi:10.5120/ijca2017915495,doi:10.1162/08997660151134334}.'
+    - code_id: one_vs_one
+      detail: 'One-vs-one codes are often used in multiclass classification because they separate the muilticlass task into several two-class tasks  \cite{doi:10.1142/7238}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-02'

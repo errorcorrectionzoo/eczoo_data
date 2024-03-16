@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dhlv
+physical: qubits
+logical: qubits
+
+name: 'Dinur-Hsieh-Lin-Vidick (DHLV) code'
+short_name: 'DHLV'
+introduced: '\cite{arxiv:2206.07750}'
+
+description: 'A family of asymptotically good QLDPC codes which are related to expander LP codes in that the roles of the check operators and physical qubits are exchanged.'
+
+features:
+  rate: 'Asymptotically good QLDPC codes.'
+
+  decoders:
+    - 'Linear-time decoder utilizing the small set-flip decoder \cite{arxiv:2206.06557} for \(Z\) errors and a reconstruction procedure for \(X\) errors \cite{arxiv:2206.07750}.'
+
+relations:
+  parents:
+    - code_id: qubit_generalized_homological_product_css
+    - code_id: lifted_product
+      detail: 'DHLV codes are LP codes \cite[Footnote 7]{arxiv:2403.03651}.'
+  cousins:
+    - code_id: good_qldpc
+      detail: 'DHLV code construction yields asymptotically good QLDPC codes.'
+    - code_id: regular_binary_tanner
+      detail: 'Regular binary Tanner codes are used in constructing quantum DHLV codes.'
+    - code_id: tensor
+      detail: 'Tensor codes are used in constructing quantum DHLV codes.'
+    - code_id: balanced_product
+      detail: 'DHLV codes can be obtained from a balanced product of two expander codes \cite{arxiv:2403.03651}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-06-17'

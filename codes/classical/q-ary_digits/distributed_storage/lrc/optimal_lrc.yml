@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: optimal_lrc
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Optimal LRC'
+introduced: '\cite{arxiv:1106.3625,arxiv:1206.3804}'
+
+description: |
+  An LRC whose parameters saturate a generalized Singleton bound.
+
+  A \((n,k,r)\) LRC with distance \(d\) is optimal if its parameters \(n\), \(k\), \(d\), and \(q\) are such that the generalized Singleton bound
+  \begin{align}
+  \label{eq:gen-singleton}
+  d\leq n-k-\left \lceil\frac{k}{r}\right \rceil+2
+  \end{align}
+  becomes an equality.
+  When \(k=r\), the generalized Singleton bound becomes the Singleton bound.
+
+  The generalized Singleton bound \eqref{eq:gen-singleton} does not account for \(q\)-ary alphabet size.
+  A more general bound (including the nonlinear case) is given in Ref. \cite{doi:10.1109/TIT.2015.2477406}.
+
+
+relations:
+  parents:
+    - code_id: locally_recoverable
+      
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-12-01'

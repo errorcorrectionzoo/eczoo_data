@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: penrose
+physical: oscillators
+
+name: 'Penrose tiling code'
+introduced: '\cite{arxiv:2311.13040}'
+
+description: |
+  Encodes quantum information into superpositions of rotated and translated versions of different Penrose tilings of \(\mathbb{R}^n\).
+
+  Letting \(|T\rangle\) be a Penrose tiling, the codeword corresponding to this tiling is a superposition of all points in the tiling's orbit under all Euclidean transformations,
+  \begin{align}
+    |\overline{T}\rangle=\int dg|gT\rangle~,
+  \end{align}
+  where \(g\) is a Euclidean transformation.
+
+protection: |
+  Properties of Pensrose tilings such as local indistinguishability and local recoverability ensure that Penrose tiling codes can correct erasures of any finite region of space.
+
+notes:
+  - 'Popular summary of Penrose tiling codes in \href{https://www.quantamagazine.org/never-repeating-tiles-can-safeguard-quantum-information-20240223}{Quanta Magazine}.'
+
+
+relations:
+  parents:
+    - code_id: oscillators
+      detail: 'Penrose tiling codes encode information into Penrose tilings, which are non-periodic tilings of \(\mathbb{R}^n\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-28'

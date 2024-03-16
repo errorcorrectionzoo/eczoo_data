@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: orth_spacetime_block
+physical: matrices
+logical: q-ary_digits
+
+name: 'Orthogonal Spacetime Block Code (OSTBC)'
+short_name: 'OSTBC'
+introduced: '\cite{doi:10.1109/49.730453}'
+
+description: 'The codewords are \(T\times n\) matrices as defined for spacetime codes, with the additional condition that columns of the coding matrix are orthogonal. The parameter \(n\) is the number of channels, and \(T\) is the number of time slots.'
+
+protection: 'If the matrix \(C-C''\), where \(C\) and \(C''\) are distinct codewords, has minimum rank \(b\), the code has diversity order \(bn_R\) \cite[Sec. 28.2.1]{preset:HKSstc}, where \(n_R\) is the number of receivers. The maximum possible diversity order is \(nn_R\).'
+
+features:
+  rate: 'The greatest rate which can be achieved is \(\frac{n_0+1}{2n_0}\), where either \(n=2n_0\) or \(n=2n_0-1\) \cite{doi:10.1109/TIT.2003.817426}.'
+
+  decoders:
+    - 'Maximum-likelihood decoding can be achieved with only linear processing \cite{doi:10.1109/49.753730}.'
+
+relations:
+  parents:
+    - code_id: spacetime_block
+      detail: 'The same construction without the constraint that the codeword matrices are orthogonal.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-04-21'
+    - user_id: RichardBarney
+      date: '2022-04-05'

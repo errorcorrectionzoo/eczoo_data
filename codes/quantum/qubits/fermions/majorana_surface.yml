@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: majorana_surface
+physical: qubits
+logical: qubits
+
+name: 'Majorana surface code'
+introduced: '\cite{arxiv:1504.01724,arxiv:1509.05345}'
+
+description: |
+  Majorana analogue of the surface code defined on a 2D lattice and constructed out of Majorana box qubit codes placed on patches of the lattice.
+
+features:
+  general_gates:
+    - 'Ordinary and twist-based lattice surgery \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
+  fault_tolerance:
+    - 'Ordinary and twist-based lattice surgery can be made fault tolerant \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
+
+
+
+relations:
+  parents:
+    - code_id: majorana_stab
+  cousins:
+    - code_id: surface
+      detail: 'The Majorana surface code is a Majorana stabilizer analogue of the surface code.'
+    - code_id: mbq
+      detail: 'Majorana box qubits, such as hexons, tetrons, octons, and dodecons, are placed onto patches of a 2D lattice to form Majorana surface codes \cite[Table I]{arxiv:1801.08143}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-27'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_homological_product
+# Now includes rotors
+
+name: 'Generalized homological-product code'
+
+description: |
+  Stabilizer code whose properties are determined from an underlying chain complex, which often consists of some type of product of other chain complexes.
+  The \ref{topic:CSS-to-homology-correspondence} yields an interpretation of codes in terms of manifolds, thus allowing for the use of various products from topology in constructing codes.
+
+  The codes participating in the product can be quantum, classical, or mixed.
+  Homology can be used to design codes for qubits, modular qudits, Galois qudits, as well as rotors; most codes are CSS codes.
+  However, products can be of more than two underlying codes, in which case the output code need not be CSS (e.g., for \hyperref[code:xyz_product]{XYZ-product codes}).
+
+  The simplest product is a tensor product, with more general products imposing equivalence or symmetry relations on the outputs of the tensor product.
+  A product of two codes can be interpreted as a fiber bundle, with one element of the product being the base and the other being the fiber.
+
+relations:
+  parents:
+    - code_id: qldpc
+      detail: 'Homological products are a primary tool for generating QLDPC codes with favorable parameters. Typically, whenever the input codes are LDPC or QLDPC, the resulting code will be QLDPC with non geometrically local stabilizer generators.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: NikolasBreuckmann
+      date: '2022-01-20'
+    - user_id: VictorVAlbert
+      date: '2022-01-20'

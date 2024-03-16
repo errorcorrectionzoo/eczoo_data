@@ -1,0 +1,84 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: points_into_lattices
+physical: reals
+logical: reals
+
+name: 'Lattice-based code'
+
+description: |
+  Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice, i.e., a discrete set of points in Euclidean space \(\mathbb{R}^n\) that forms a group under vector addition when the set is translated such that one point is at the origin. The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.
+
+  A \(n\)-dimensional lattice-based code can be defined using a generator matrix \(G\) of rank \(n\), where the rows of \(G\) are the lattice translation vectors \(g_i\).
+  Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 + \cdots + c_n g_n\).
+  A lattice-based code can also be defined using the Gram matrix \(GG^T\).
+
+  The \textit{automorphism group} of a lattice is the group of all isometries that preserve the origin and map the lattice into itself.
+  This group is a subgroup of the orthogonal group \(O(n)\), which is the group of isometries in Euclidean space.
+  An orthogonal matrix \(U\) leaves the lattice invariant if there exists an integer matrix \(A\) of determinant \(\pm 1\) such that
+  \begin{align}
+  \label{eq:lattice-auto}
+    AG=GU~.
+  \end{align}
+  The \textit{affine automorphism group} is the group obtained from adding lattice translations to the automorphism group.
+
+protection: |
+  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=\det G\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
+
+  The minimum Euclidean distance is an analogue of the minimum distance of binary codes. Half of this distance is called the \textit{packing radius}.
+
+  The \textit{nominal coding gain} \(\gamma_{c}\) (a.k.a. \textit{Hermite parameter}) of an \(n\)-dimensional lattice is
+  \begin{align}
+    \gamma_{c}=\left(d_{\text{min}}/\sqrt[n]{V}\right)^{2}~,
+  \end{align}
+  characterizing the ratio of the level of protection to the required spatial resources.
+  The \textit{density} of a lattice is the fraction of the total volume of space that is occupied by spheres of \textit{packing radius} \(\frac{1}{2}d_{\text{min}}\) centered at each point in the lattice,
+  \begin{align}
+    \Delta=\frac{\text{volume of one sphere}}{\sqrt{V}}~.
+  \end{align}
+
+  The covering radius of a lattice is defined similarly as above, but with the spheres' \textit{covering radius} now being the smallest one such that the spheres cover all space.
+  In general, finding the covering radius of lattice is \(NP\)-hard \cite{manual:{van Emde, Boas P. "Another NP-complete partition problem and the complexity of computing short vectors in lattices." TR (1981).}}.
+
+  The \textit{lattice quantizer problem} is to find a lattice whose \textit{fundamental Voronoi cell} \(\Pi\), the Voronoi cell at the origin, has the smallest possible normalized second moment,
+  \begin{align}
+    G(\Pi)=\frac{\frac{1}{n}\int_{\Pi}x\cdot x\,dx}{\text{Vol}(\Pi)^{1+2/n}}\,.
+  \end{align}
+  Higher-dimensional lattices yield quantizers with lower normalized second moments than the 1D integer lattice \cite{manual:{P. L. Zador, Development and evaluation of procedures for quantiZing multivariate distributions, Ph.D. Dissertation, Stanford Univ., 1963},doi:10.1109/TIT.1982.1056490}.
+
+# Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a non-zero vector in the lattice.
+
+features:
+  rate: |
+    Lattice codes with minimal-distance decoding achieve the capacity of the AGWN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, Ph.D Thesis, McMaster Univ., Hamilton, Ontario, 1981,doi:10.1109/18.651040}}.
+
+
+notes:
+  - 'See books \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/b98975} for introductions and overviews of lattices.'
+  - 'See Catalogue of Lattices \cite{manual:{G. Nebe and N. J. A. Sloane. "Catalogue of Lattices." http://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/index.html}} for more information.'
+  - 'Tables of bounds on kissing numbers \cite{manual:{H. Cohn. "Kissing numbers." https://cohn.mit.edu/kissing-numbers}}.'
+  - 'See Refs. \cite{manual:{Cannon, J., Bosma, W., Fieker, C., & Steel, A. (2008). HANDBOOK OF MAGMA FUNCTIONS.},doi:10.1145/190347.190362,doi:10.1006/jsco.1996.0125} for various examples and implementations in Magma.'
+
+
+
+relations:
+  parents:
+    - code_id: analog
+    - code_id: group_linear
+      detail: 'Lattice-based codes are linear codes over \(G=\mathbb{R}^n\).
+      Because any orthogonal matrix leaving the lattice invariant has a corresponding integer matrix (see lattice code description), integer representations of groups can be used to obtain lattices \cite[Ch. 3, Sec. 4.2]{doi:10.1007/978-1-4757-6568-7}.'
+
+
+# The construction of lattices from integral representations
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-02'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'

@@ -1,0 +1,67 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stabilizer_over_gf4
+physical: qubits
+logical: qubits
+
+name: 'Hermitian qubit code'
+introduced: '\cite{arXiv:quant-ph/9608006}'
+
+alternative_names:
+  - 'Calderbank-Rains-Shor-Sloane (CRSS) code'
+#   - 'Stabilizer code over \(GF(4)\)'
+
+description: |
+  An \([[n,k,d]]\) stabilizer code constructed from a Hermitian self-orthogonal linear quaternary code using the one-to-one correspondence between the four Pauli matrices \(\{I,X,Y,Z\}\) and the four elements \(\{0,1,\alpha^2,\alpha\}\) of the quaternary field \(GF(4)\).
+
+  Hermitian codes are in one-to-one correspondence with trace-Hermitian self-orthogonal additive codes via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}.
+  Quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (\cite[Thm. 9.10.3]{doi:10.1017/CBO9780511807077}).
+  In other words, if the underlying quaternary code is linear, then the extra trace operation can be removed from the definition of inner product.
+
+  All of its automorphisms lie in the Clifford group \cite[Corr. 16]{arxiv:quant-ph/9704043}.
+
+protection: |
+  A Hermitian self-orthogonal linear \([n,k,d]_{4}\) code yields an \([[n,n-2k]]\) qubit stabilizer code with distance no less than \(d\); this is the \textit{qubit Hermitian construction}.
+  A variant construction allows for the use of nearly self-orthogonal codes \cite{doi:10.1007/s10623-014-9934-8}.
+
+  The stabilizer generator matrix is of the form
+  \begin{align}
+  H=\begin{pmatrix}H\\
+  \alpha H
+  \end{pmatrix}~,
+  \end{align}
+  where \(H\) is the parity-check matrix of the classical code.
+
+features:
+  fault_tolerance:
+    - '\(M_3\) gate \cite{arxiv:quant-ph/9702029} can be applied to any Hermitian code \cite[Exam. 2]{arxiv:quant-ph/9703048}.'
+    - 'Characterizing fault-tolerant multi-qubit gates under the \hyperref[topic:gf4-representation]{\(GF(4)\) representation} may involve characterizing all global automorphisms of some number of copies of a code that preserve the symplectic inner product \cite[pg. 9]{arxiv:quant-ph/9703048}.'
+
+
+notes:
+  - 'Tables of \([[n,0,d]]\) codes \cite{arXiv:math/0504522}, corresponding to a self-dual \(GF(4)\) representation, at \href{http://www.ii.uib.no/~larsed/vncorbits/}{this website}.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: stabilizer_over_gfqsq
+  cousins:
+    - code_id: dual
+      detail: 'Hermitian qubit codes are constructed from Hermitian self-orthogonal linear codes over \(GF(4)\) via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}.'
+    - code_id: constacyclic
+      detail: 'Duadic constacyclic codes yield many examples of Hermitian qubit codes \cite{arxiv:2312.06504}.'
+    - code_id: graph
+      detail: 'Bounds on self-dual \([[n,0,d]]\) codes based on graphs have been derived \cite{doi:10.1016/S0012-365X(02)00513-7}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-21'
+    - user_id: MariannaPodzorova
+      date: '2021-12-13'

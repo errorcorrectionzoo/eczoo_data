@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: chebyshev
+
+name: 'Chebyshev code'
+introduced: '\cite{arxiv:1811.01450}'
+
+description: |
+  Single-mode bosonic Fock-state code that can be used for error-corrected sensing of a signal Hamiltonian \({\hat n}^s\), where \({\hat n}\) is the occupation number operator. Codewords for the \(s\)th-order Chebyshev code are
+  \begin{align}
+  \begin{split}
+  \ket{\overline 0} &=\sum_{k \text{~even}}^{[0,s]} \tilde{c}_k \Ket{\left\lfloor M\sin^2\left( k\pi/{2s}\right) \right\rfloor},\\
+  \ket{\overline 1} &= \sum_{k \text{~odd}}^{[0,s]} \tilde{c}_k \Ket{\left\lfloor M\sin^2 \left(k\pi/{2s}\right) \right\rfloor},
+  \end{split}
+  \end{align}
+  where \(\tilde{c}_k>0\) can be obtained by solving a system of order \(O(s^2)\) linear equations, and where \(\lfloor x \rfloor\) is the floor function. The code approaches optimality for sensing the signal Hamiltonian as \(M\) increases.
+
+protection: 'The \(s\)th-order code corrects errors from the set \(\{I,a,a^{\dagger},{\hat n},{\hat n}^2,\cdots,{\hat n}^{s-1}\}\).'
+
+relations:
+  parents:
+    - code_id: bosonic_rotation
+    - code_id: single-mode
+    - code_id: metopt
+  cousins:
+    - code_id: binomial
+      detail: 'Chebyshev codes resemble binomial codes, and a class of binomial codes have similar error-correcting properties \cite{arxiv:1811.01450}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'

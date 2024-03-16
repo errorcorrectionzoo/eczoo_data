@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: classical_product
+physical: qubits
+logical: qubits
+
+name: 'Classical-product code'
+introduced: '\cite{doi:10.1007/s11128-018-2095-3,arxiv:2209.13474}'
+
+description: |-
+  A CSS code constructed by separately constructing the \(X\) and \(Z\) check matrices using product constructions from classical codes. A particular \([[512,174,8]]\) code performed well \cite{arxiv:2209.13474} against erasure and depolarizing noise when compared to other notable CSS codes, such as the asymptotically good quantum Tanner codes.
+
+  For example, for \(H_i^x\), \(H_i^z\) being the \(X\) and \(Z\) check matrices of CSS codes \(C_i\) with \(i\in\{1,2,3,4\}\), the 2-fold symmetric classical product code is given by
+  \begin{align}
+  H_{\otimes}^x &:=\left(\begin{array}{c}
+  H_1^x \otimes H_2^x \otimes I \otimes I \\
+  I \otimes I \otimes H_3^x \otimes H_4^x
+  \end{array}\right) \\
+  H_{\otimes}^z &:=\left(\begin{array}{c}
+  H_1^z \otimes I \otimes H_3^z \otimes I \\
+  I \otimes H_2^z \otimes I \otimes H_4^z
+  \end{array}\right)~.
+  \end{align}
+
+# The above construction can be generalized to the case with a symmetric \(D\)-fold product as  \begin{align}
+# &H_{(D)}^x:=\left[\begin{array}{c}
+# D \text { Stack } \\
+# j=0
+# \end{array} \bigotimes_{\ell=1}^{D^2} \mathcal{H}_{\ell, j}^x \quad \mathcal{H}_{\ell, j}^x= \begin{cases}H_{\ell}^x & \text { if } j D+1 \leq \ell \leq(j+1) D \\
+# I_{n_{\ell}} & \text { otherwise }\end{cases}\right.\\
+# &H_{(D)}^z:=\left[\begin{array}{c}
+# D \text { Stack } \\
+# j=0
+# \end{array}\right] \bigotimes_{\ell=1}^{D^2} \mathcal{H}_{\ell, j}^z \quad \mathcal{H}_{\ell, j}^z=\left\{\begin{array}{lll}
+# H_{\ell}^z & \text { if }(\ell-1) \equiv j & \bmod D \\
+# I_{n_{\ell}} & \text { otherwise }
+# \end{array}\right.
+# \end{align}
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: qldpc
+  cousins:
+    - code_id: quantum_tanner
+      detail: 'A \([[512,174,8]]\) classical-product code performed well \cite{arxiv:2209.13474} against erasure and depolarizing noise when compared to a member of an asymptotically good quantum Tanner code family.'
+    - code_id: parity_check
+      detail: 'SPC codes are used as component codes in classical-product code constructions.'
+    - code_id: tensor
+      detail: 'Tensor-product codes are utilized in classical-product code constructions.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-13'
+    - user_id: HarryZhou
+      date: '2022-11-13'
