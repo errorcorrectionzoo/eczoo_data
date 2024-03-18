@@ -15,22 +15,25 @@ description: |
   A \([[7,1,3]]\) CSS code that is the smallest qubit CSS code to correct a single-qubit error.
   The code is constructed using the classical binary \([7,4,3]\) Hamming code for protecting against both \(X\) and \(Z\) errors.
 
-  The parity-check matrix for the \([7,4,3]\) Hamming code is
+  The code's stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both the parity-check matrix for the the \([7,4,3]\) Hamming code,
   \begin{align}
-    H = \left(\begin{matrix}
+    H_{X} = H_{Z} = \left(\begin{matrix}
       0&0&0&1&1&1&1\\
       0&1&1&0&0&1&1\\
       1&0&1&0&1&0&1
-    \end{matrix}\right),
-  \end{align}
-  and the check matrix for the Steane code is therefore
-  \begin{align}
-    \left(\begin{matrix}
-      0&H\\
-      H&0
     \end{matrix}\right).
   \end{align}
-  The stabilizer group for the Steane code has six generators.
+
+  The stabilizer group for the Steane code has six generators, three \(X\)-type and three \(Z\)-type, which can be thought of as lying on the three trapezoids of the following tiling of the triangle.
+  \ref{figure:steane-operators}.
+  \begin{figure}
+    \includegraphics{steane}
+    \caption{
+    Stabilizer generators of the Steane code.
+    }
+    \label{figure:steane-operators}
+  \end{figure}
+
   Logical codewords are
   \begin{align}
   \begin{split}
@@ -40,6 +43,14 @@ description: |
 
   The automorphism group of the code is \(PGL(3,2)\) \cite{arxiv:2109.12735}.
   It is one of sixteen distinct \([[7,1,3]]\) codes \cite{arxiv:0709.1780}.
+
+# and the check matrix for the Steane code is therefore
+# \begin{align}
+#   \left(\begin{matrix}
+#     0&H\\
+#     H&0
+#   \end{matrix}\right).
+# \end{align}
 
 protection: 'The Steane code is a distance 3 code. It detects errors on 2 qubits, corrects errors on 1 qubit.'
 
@@ -90,6 +101,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: EricHuang
+      date: '2024-03-18'
     - user_id: VictorVAlbert
       date: '2022-08-04'
     - user_id: VictorVAlbert
