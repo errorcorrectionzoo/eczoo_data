@@ -12,15 +12,14 @@ short_name: 'FP'
 introduced: '\cite{doi:10.1109/18.705568,doi:10.1016/S0378-3758(99)00131-7}'
 
 description: |
-  A block code designed to prevent a group of users from being able to collude to frame another user outside of the group for creating an unauthorized copy of data.
-  Even further, the group of users cannot frame a separate user even if they know the unique codeword of the separate user.
+  A block code designed to prevent a group of users from framing another user outside of the group for creating an unauthorized copy of data.
   FP codes help to provide software protection from the illegal distribution and copying of computer software and copyrighted materials.
   These codes help protect products of distributors as well as other naive users from being framed for illegal activity \cite{doi:10.1007/3-540-44750-4_36}.
 
   A \(c\)\textit{-separating} code has the property that, for any two disjoint sets that each contain at most \(c\) code words, there is at least one position where the set of symbols of each set are disjoint \cite{doi:10.1007/s10623-021-00988-z}.
   Separating codes are equivalent to codes with the \textit{secure FP (SFP)} property \cite{doi:10.1016/S0378-3758(99)00131-7}.
 
-  Let us define \(\Gamma = \{w^{(1)}, \dots, w^{(n)}\} \subseteq \{(0,1)\}^{l}\) as an ( \(l,n\) )-code.
+  Let us define \(\Gamma = \{w^{(1)}, \dots, w^{(n)}\} \subseteq GF(2)^{l}\) as an ( \(l,n\) )-code.
   Each codeword \(w^{(i)}\) correlates to a user \(u_i\).
   Let \(C\) be a group of users.
   A bit in position \(i\) is undetectable for the group \(C\) when the words assigned to the users in the group match at the the same position \(i\).
@@ -30,6 +29,8 @@ description: |
   Any \(c\)-FP code must be of length at least \(c\) \cite{doi:10.1007/3-540-44750-4_36}.
   A length-\(l\) \(q\)-ary \(c\)-FP code has at most \(tq^{\lceil l/c \rceil} + O(q^{\lceil l/c \rceil - 1})\) codewords, where \(t\) is an integer between \(1\) and \(c\), and \(t \equiv 1\) modulo \(c\) \cite{doi:10.1137/S0895480101384633}.
 
+
+# Even further, the group of users cannot frame a separate user even if they know the unique codeword of the separate user.
 
 features:
   rate: 'FP codes tend to have large minimal distance and low rate \cite{doi:10.1007/3-540-44750-4_36}.

@@ -12,16 +12,16 @@ introduced: '\cite{doi:10.1006/jcta.1997.2851}'
 
 description: |
   A code that is embedded in copyrighted content in order to detect unauthorized redistribution of said content by pirates.
-  In particular, IPP codes can detect pirates even when segments of the content are mixed together.
+  IPP codes are designed to detect pirates even when segments content are mixed together so as to conceal the pirates' identities.
 
-  Each copy of the content (say, a movie or videogame) is embedded with a codeword of an IPP code.
-  The location of this codeword is unknown to the buyer of the content, and reselling a copy will expose the seller as a pirate.
+  A unique codeword of an IPP code is hidden into each copy of the content (say, a movie or videogame) such that reselling a copy would expose the seller as a pirate.
 
-  A coalition of \(t\) pirates can then obtain the content and mix their copies together so as to obfuscate their identities.
-  The \textit{descendant} bit-string corresponding to the pirated mixed copy therefore contains subsets of codeword coordinates of the copies that were used in the mixing.
+  To overcome this, a coalition of \(t\) pirates can mix their copies together so as to obfuscate their identities.
+  The \textit{descendant} bit-string corresponding to the new mixed copy therefore contains subsets of codeword coordinates of the copies that were used in the mixing.
 
-  Mathematically, if \(C\) is an IPP code of length \(n\), and \(B=\{c_1 \cdots c_t\}\) is a set of \(t\) codewords, then \(a\) is called a \textit{descendant} of \(B\) if every coordinate of \(a\) also exists as a coordinate (in the same position) of at least one of the codewords in \(B\).
-  In other words, for all coordinates \(i\), we require that \(a^i = c_j^{i}\) and some \(c_j \in A\), where \(c_j^i\) denotes the \(i\)th coordinate of the codeword \(c_j\).
+  More technically, let \(B=\{c_1 \cdots c_t\}\) be a subset of \(t\) IPP codewords, corresponding to the copies of the pirate coalition.
+  Then, \(a\) is called a \textit{descendant} of \(B\) if every coordinate of \(a\) also exists as a coordinate (in the same position) of at least one of the codewords in \(B\).
+  In other words, for all coordinates \(i\), we require that \(a_i = c_i\) and some \(c \in B\).
 
   A \(t\)-IPP code has the ability that, given any descendent, a parent codeword can always be identified by examining all possible \(t\)-subsets of the code \cite{doi:10.1016/j.endm.2005.07.012}.
 
@@ -35,7 +35,7 @@ features:
 relations:
   parents:
     - code_id: frameproof
-      detail: 'A \(t\)-IPP code is a \(t\)-SFP code, which further implies it is a \(t\)-FP code; see \cite[Sec. I.C]{doi:10.1109/18.915661} and \cite{doi:10.1016/j.endm.2005.07.012}.'
+      detail: 'A \(t\)-IPP code is a \(t\)-SFP code, which further implies it is a \(t\)-FP code; see \cite[Sec. I.C]{doi:10.1109/18.915661}\cite{doi:10.1016/j.endm.2005.07.012}.'
 
 
 # Begin Entry Meta Information

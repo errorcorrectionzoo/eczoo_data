@@ -8,7 +8,7 @@ physical: bits
 logical: bits
 
 name: 'Cycle code'
-introduced: '\cite{manual:{Kasami, T. "A topological approach to construction of group codes." J. Inst. Elec. Commun. Engrs.(Japan) 44 (1961): 1316-1321.},manual:{Huffman, D. A. "A graph-theoretic formulation of binary group codes." Summaries of papers presented at ICMCI, part 3 (1964): 29-30.},manual:{Frazer, W. D. "A graph theoretic approach to linear codes." Proc. Second Annual Allerton Conf. On Circuit & System Theory. 1964.},doi:10.1109/TIT.1965.1053789,arXiv:quant-ph/0605094}'
+introduced: '\cite{manual:{Kasami, T. "A topological approach to construction of group codes." J. Inst. Elec. Commun. Engrs.(Japan) 44 (1961): 1316-1321.},manual:{Huffman, D. A. "A graph-theoretic formulation of binary group codes." Summaries of papers presented at ICMCI, part 3 (1964): 29-30.},manual:{Frazer, W. D. "A graph theoretic approach to linear codes." Proc. Second Annual Allerton Conf. On Circuit & System Theory. 1964.},doi:10.1109/TIT.1965.1053789,doi:10.1109/TIT.1968.1054190,arXiv:quant-ph/0605094}'
 
 alternative_names:
   - 'Graph theoretic code'
@@ -20,16 +20,14 @@ description: |
   This code's properties are derived from the size two chain complex associated with the graph.
 
   Let \(G\) be a finite, undirected, connected graph without loops and multiple edges.
-  Let \(r\) be its number of vertices and \(n\) be its number of edges.
-  Its parity check matrix \(H\) is an \(r \times n\) matrix whose rows are indexed by the vertices of \(G\), and whose columns are indexed by the edges of \(G\).
+  Let \(|V|\) be its number of vertices and \(|E|\) be its number of edges.
+  Its parity check matrix \(H\) is an \(|V| \times |E|\) matrix whose rows are indexed by the vertices of \(G\), and whose columns are indexed by the edges of \(G\).
   The matrix element \(H_{ij}=1\) if vertex \(i\) belongs to the edge \(j\) and \(H_{ij}=0\) otherwise.
 
 # Given a connected simplicial (no self loops or muliedges) graph \(G = (V, E)\), which is not a tree, with incidence matrix \(\Gamma\) we can construct a code by choosing a parity check matrix which consists of all the linearly independent rows of \(\Gamma\).
 
 protection: |
-  The rate is \(k=n-r+1\) \cite{doi:10.1007/978-3-642-01877-0_21}.
-
-  More generally, an \([n,k,d]\) cycle code constructed out of a graph with \(n = |E|\), \(k = 1 - \mathcal{X}(G) = 1-|V|+|E|\), where \( \mathcal{X}(G)\) is the euler characteristic of the graph.
+  More generally, an \([n,k,d]\) cycle code constructed out of a graph with \(n = |E|\), \(k = 1 - \mathcal{X}(G) = 1-|V|+|E|\), where \( \mathcal{X}(G)\) is the euler characteristic of the graph \cite{doi:10.1007/978-3-642-01877-0_21}.
   The code distance is equal to the shortest size of a cycle, guaranteed to exist since \(G\) is not a tree.
 
 
