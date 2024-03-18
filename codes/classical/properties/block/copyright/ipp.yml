@@ -4,23 +4,47 @@
 #######################################################
 
 code_id: ipp
+# not necessarily an ECC
 
 name: 'Identifiable parent property (IPP) code'
 short_name: 'IPP'
 introduced: '\cite{doi:10.1006/jcta.1997.2851}'
 
 description: |
-  A code with the ability that, given any descendent, a parent codeword can always be identified \cite{doi:10.1016/j.endm.2005.07.012}.
+  A code that is embedded in copyrighted content in order to detect unauthorized redistribution of said content by pirates.
+  In particular, IPP codes can detect pirates even when segments of the content are mixed together.
+
+  Each copy of the content (say, a movie or videogame) is embedded with a codeword of an IPP code.
+  The location of this codeword is unknown to the buyer of the content, and reselling a copy will expose the seller as a pirate.
+
+  A coalition of \(t\) pirates can then obtain the content and mix their copies together so as to obfuscate their identities.
+  The \textit{descendant} bit-string corresponding to the pirated mixed copy therefore contains subsets of codeword coordinates of the copies that were used in the mixing.
+
+  Mathematically, if \(C\) is an IPP code of length \(n\), and \(B=\{c_1 \cdots c_t\}\) is a set of \(t\) codewords, then \(a\) is called a \textit{descendant} of \(B\) if every coordinate of \(a\) also exists as a coordinate (in the same position) of at least one of the codewords in \(B\).
+  In other words, for all coordinates \(i\), we require that \(a^i = c_j^{i}\) and some \(c_j \in A\), where \(c_j^i\) denotes the \(i\)th coordinate of the codeword \(c_j\).
+
+  A \(t\)-IPP code has the ability that, given any descendent, a parent codeword can always be identified by examining all possible \(t\)-subsets of the code \cite{doi:10.1016/j.endm.2005.07.012}.
+
+# Denote by \(X(C)\) the set of descendants of all \(t\)-tuples of the codewords.
+# There is a mapping from the set \(X(C)\) such that for every \(z\) in \(X(C)\), its image under this mapping is one of the \(t\) parents of \(z\) in \(C\).
+
+features:
+  rate: 'A hypergraph approach can be used to show that, for any \(t \leq q\), there exists a sequence of IPP codes with asymptotically non-vanishing rate \cite{doi:10.1137/S0895480100376848}.'
 
 
 relations:
   parents:
-    - code_id: block
+    - code_id: frameproof
+      detail: 'A \(t\)-IPP code is a \(t\)-SFP code, which further implies it is a \(t\)-FP code; see \cite[Sec. I.C]{doi:10.1109/18.915661} and \cite{doi:10.1016/j.endm.2005.07.012}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: FengxingZhu
+      date: '2024-03-16'
+    - user_id: VictorVAlbert
+      date: '2024-03-16'
     - user_id: VictorVAlbert
       date: '2022-03-01'
