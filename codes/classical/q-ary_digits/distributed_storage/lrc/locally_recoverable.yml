@@ -16,7 +16,8 @@ alternative_names:
   - 'Locally correctable code (LCC)'
 
 description: |
-  Any code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from (at most \(r\)) other coordinates of \(x\). An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC code.
+  Any code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from (at most \(r\)) other coordinates of \(x\).
+  An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC code.
 
   More technically, a \(q\)-ary code \(C\) with length \(n\) is \(r\)-locally recoverable, or \textit{has locality} \(r\), if \(\forall i \in [n]\), there exists \(I_i \subset [n]\setminus i\) such that \(|I_i|\leq r\), and the projection of the set \(\mathcal{C}(i,a)=\{x\in C : x_i=a\}\) on to the coordinates in \(I_i\), i.e., \(\mathcal{C}_{I_i}(i,a)\) is disjoint from \(\mathcal{C}_{I_i}(i,a^\prime)\) where \(a\neq a^\prime\).
 
@@ -37,10 +38,6 @@ relations:
     - code_id: q-ary_digits_into_q-ary_digits
       detail: 'Locally recoverable codes protect against coordinate erasure.'
     - code_id: distributed_storage
-#    - code_id: codes_with_availability
-#      detail: ''
-#     - code_id: regenerating_code
-#       detail: ''
 
 
 # Begin Entry Meta Information
