@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cycle_ldpc
+physical: bits
+logical: bits
+
+name: 'Cycle LDPC code'
+introduced: '\cite{doi:10.1109/TIT.1968.1054190}'
+
+description: |
+  An LDPC code whose parity-check matrix forms the incidence matrix of a graph, i.e., has weight-two columns.
+
+protection: |
+  The minimum distance of a cycle LDPC code is \(d\geq g/2\), where \(g\) is the girth of the code's Tanner graph \cite[Remark 21.2.13]{preset:HKSgraphs}.
+
+features:
+  rate: 'Cycle codes are not asymptotically good \cite{doi:10.1109/ISIT.1994.394711}.'
+  encoders:
+    - 'Linear-time encoder \cite{doi:10.1109/LCOMM.2006.1633326}.'
+
+realizations:
+  - 'Cycle LDPC codes have been proposed to be used for MIMO channels \cite{doi:10.1109/TWC.2008.070057}.'
+
+relations:
+  parents:
+    - code_id: qc_ldpc
+      detail: 'Cycle LDPC codes form a class of regular QC LDPC codes \cite{doi:10.1109/tit.2004.838370}.'
+    - code_id: regular_ldpc
+      detail: 'Cycle LDPC codes form a class of regular QC LDPC codes \cite{doi:10.1109/tit.2004.838370}.'
+    - code_id: homological_classical
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: FengxingZhu
+      date: '2024-03-16'
+    - user_id: VictorVAlbert
+      date: '2024-03-16'
+    - user_id: VictorVAlbert
+      date: '2023-05-09'

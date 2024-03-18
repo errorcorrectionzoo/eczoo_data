@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: homological_classical
+physical: bits
+logical: bits
+
+name: 'Cycle code'
+introduced: '\cite{manual:{Kasami, T. "A topological approach to construction of group codes." J. Inst. Elec. Commun. Engrs.(Japan) 44 (1961): 1316-1321.},manual:{Huffman, D. A. "A graph-theoretic formulation of binary group codes." Summaries of papers presented at ICMCI, part 3 (1964): 29-30.},manual:{Frazer, W. D. "A graph theoretic approach to linear codes." Proc. Second Annual Allerton Conf. On Circuit & System Theory. 1964.},doi:10.1109/TIT.1965.1053789,arXiv:quant-ph/0605094}'
+
+alternative_names:
+  - 'Graph theoretic code'
+  - 'Graph homology code'
+# First one is before 1968, second one is Bombin; Zemor claims this was rediscovered
+
+description: |
+  A code whose parity-check matrix forms the incidence matrix of a graph.
+  This code's properties are derived from the size two chain complex associated with the graph.
+
+  Let \(G\) be a finite, undirected, connected graph without loops and multiple edges.
+  Let \(r\) be its number of vertices and \(n\) be its number of edges.
+  Its parity check matrix \(H\) is an \(r \times n\) matrix whose rows are indexed by the vertices of \(G\), and whose columns are indexed by the edges of \(G\).
+  The matrix element \(H_{ij}=1\) if vertex \(i\) belongs to the edge \(j\) and \(H_{ij}=0\) otherwise.
+
+# Given a connected simplicial (no self loops or muliedges) graph \(G = (V, E)\), which is not a tree, with incidence matrix \(\Gamma\) we can construct a code by choosing a parity check matrix which consists of all the linearly independent rows of \(\Gamma\).
+
+protection: |
+  The rate is \(k=n-r+1\) \cite{doi:10.1007/978-3-642-01877-0_21}.
+
+  More generally, an \([n,k,d]\) cycle code constructed out of a graph with \(n = |E|\), \(k = 1 - \mathcal{X}(G) = 1-|V|+|E|\), where \( \mathcal{X}(G)\) is the euler characteristic of the graph.
+  The code distance is equal to the shortest size of a cycle, guaranteed to exist since \(G\) is not a tree.
+
+
+relations:
+  parents:
+    - code_id: binary_linear
+#      detail: 'Homology codes are linear codes, but not every linear code can be constructed homologically.'
+  cousins:
+    - code_id: quantum_inspired
+      detail: 'Cycle codes have been known in classical coding theory, and have been rediscovered in the quantum context; see Ref. \cite{doi:10.1007/978-3-642-01877-0_21} for a brief exposition.'
+    - code_id: generalized_homological_product
+      detail: 'Cycle codes have been known in classical coding theory, and have been rediscovered in the quantum context; see Ref. \cite{doi:10.1007/978-3-642-01877-0_21} for a brief exposition.'
+    - code_id: higher_dimensional_surface
+      detail: 'Cycle codes feature in generalizations of the surface code \cite{doi:10.1007/978-3-642-01877-0_21}.'
+    - code_id: perfect_binary
+      detail: 'A family of cycle codes saturate the asymptotic Hamming bound \cite{arXiv:quant-ph/0605094}.'
+    - code_id: graph
+      detail: 'Graph-based (graph-theoretic) codes'' generator matrices are defined using adjacency (incidence) matrices of graphs.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: FengxingZhu
+      date: '2024-03-16'
+    - user_id: VictorVAlbert
+      date: '2024-03-16'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: SeyedSajjadNezhadi
+      date: '2021-12-14'

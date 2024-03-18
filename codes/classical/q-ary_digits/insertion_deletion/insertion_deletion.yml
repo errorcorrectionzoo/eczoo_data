@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: insertion_deletion
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Insertion and deletion code'
+introduced: '\cite{manual:{Levenshtein, Vladimir I. "Binary codes capable of correcting deletions, insertions, and reversals." Soviet physics doklady. Vol. 10. No. 8. 1966.}}'
+
+description: |
+    A code designed to protect against insertions, where a new symbol is added somewhere within the string, and deletions, where a symbol at an unknown location is erased.
+    Since deletions come at unknown locations, they are more difficult to deal with than erasures.
+
+protection: |
+    The metric measuring distance of an error word to the nearest codeword is the \textit{deletion distance}: given vectors \(u,v\), this distance is one-half the smallest number of deletions and insertions needed to change \(u\) to \(v\).
+    A code \(C\) corrects \(e\) delections if all codewords are separated by at least \(e+1\) in the deletion distance \cite{arxiv:math/0207197}.
+
+features:
+  rate: 'For binary codes, the optimal achievable rate to protect against a \(\delta\) fraction of insertions and deletions is \(1- \mathcal{O}(\delta \log\frac{1}{\delta}\).
+  In the large alphabet setting, there exists a code which corrects a \(\delta\) fraction of insertions and deletions and has a rate of \((1-\Omega)^5\).'
+
+notes:
+  - 'See Ref. \cite{doi:10.1109/TIT.2021.3056317} for more details.'
+
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: FengxingZhu
+      date: '2024-03-16'
+    - user_id: VictorVAlbert
+      date: '2024-03-16'

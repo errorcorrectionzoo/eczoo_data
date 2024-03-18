@@ -5,12 +5,13 @@
 
 
 code_id: traceability
+# not necessarily an ECC
 
 name: 'Traceability code'
 introduced: '\cite{doi:10.1109/18.841169}'
 
 description: |
-  A code that protects copyrighted materials by providing the ability to trace potential leaks via combinatorial properties \cite{doi:10.1109/18.841169}.
+  An IPP code with which it is possible to detect a parent of a given pirated descendent by finding the closest codeword to the said descendant.
   The code also aids in helping to ensure that an innocent party cannot be framed for the pirated information \cite{doi:10.1109/18.915661}.
 
   Codes with strong traceability trace at least one member of a group that has constructed a pirate decoder (i.e., a generic pirate decryption process \cite{doi:10.1109/18.841169}).
@@ -39,15 +40,21 @@ realizations:
   - 'Code used in broadcast messages, pay-per-view movies, and protecting copyrighted online material \cite{doi:10.1109/18.915661}.'
 
 notes:
-  - 'Note that in the feature section above, the hash function maps the users into a set of 2k^{2} decryption keys \cite{doi:10.1109/18.841169}.'
+  - 'Note that in the feature section above, the hash function maps the users into a set of \(2k^{2}\) decryption keys \cite{doi:10.1109/18.841169}.'
   - 'For code tables, see Refs. \cite{doi:10.1109/18.841169} and \cite{doi:10.1109/18.915661}.'
   # - 'Fully resilient schemes guarantee to trace the source of any piracy \cite{doi:10.1109/18.841169}.'
   # - 'Threshold schemes have a parameter of the scheme, say q, for which the scheme only traces sources of pirate decoders that decrypt with greater probability than q \cite{doi:10.1109/18.841169}.'
   # - 'Secret schemes are those that have their decryption scheme and keys as secret. The open schemes are those that the decryption schemes and decryption keys are public information \cite{doi:10.1109/18.841169}.'
 
+# - 'For a \(q\)-ary code of length \(n\) with IPP its size is upper bounded by \(3q^{\frac{n}{3}} \) and lower bounded by \(c (\frac{q}{4})^{n/3}\) where \(c\) is a constant.'
+
 relations:
   parents:
     - code_id: ipp
+      detail: 'Traceability codes allow for detection of parents of pirated descendant copies by only determining the closest codeword to the descendant; see \cite[Lemma 1.3]{doi:10.1109/18.915661}.'
+  cousins:
+    - code_id: q-ary_digits_into_q-ary_digits
+      detail: 'A \(q\)-ary code with distance \(d \geq n(1-1/t^2)\) has the \(t\)-traceability property \cite[Thm. 4.3]{doi:10.1109/18.915661}.'
 
 
 # Begin Entry Meta Information
