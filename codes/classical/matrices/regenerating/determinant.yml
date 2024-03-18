@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: determinant
+physical: matrices
+logical: q-ary_digits
+
+name: 'Determinant code'
+introduced: '\cite{doi:10.1109/TIT.2016.2616137}'
+
+description: |
+    Determinant codes give optimal exact repair regenerating codes for any \([n,k,d=k]\) at all the points of the storage bandwidth trade-off curve.
+    The codes are linear, and the exact regenerating property is provided based on fundamental properties of matrix determinants.
+    The field size \(q\) required for this code construction is linear in \(n\).
+
+features:
+  decoders:
+    - 'For exact repair, the interior points of the storage-bandwidth trade-off curve can be shown to be the convex hull of \(k\) corner points described by \((\alpha_m,\beta_m)= (\binom{k}{m},\binom{k-1}{m-1})\) for \(m\in\{1,2,\cdots,k\}\).'
+
+relations:
+  parents:
+    - code_id: regenerating
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: AdwayPatra
+      date: '2024-03-18'
+    - user_id: VictorVAlbert
+      date: '2024-03-18'

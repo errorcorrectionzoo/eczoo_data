@@ -11,17 +11,12 @@ name: 'Regenerating code (RGC)'
 introduced: '\cite{doi:10.1109/TIT.2010.2054295}'
 
 description: |
-    An \([n,k,d,\alpha,\beta,M]_q\) Regenerating Code \(\mathcal{C}\) is an erasure correcting code that
+    An \([n,k,d,\alpha,\beta,M]\) Regenerating Code \(\mathcal{C}\) is an erasure correcting code that
     encodes \(M\) symbols from \(GF(q)\) into an \(\alpha \times n\) matrix over \(GF(q)\), with each column of the matrix
     treated as a coordinate of a codeword.
 
     The code has the following properties. Any \(k\) coordinates of the codeword can be used to recover the original \(M\) symbols.
     Any erased coordinate, i.e., the \(\alpha\) symbols of that coordinate, can be recovered by contacting any \(d\) other coordinates and collecting \(\beta\) symbols from each one of them, where \(k \le d \le n-1\) and \(\beta \le \alpha\).
-
-    There are two types of recovery processes, or repairs.
-    If the recovered symbols are exactly equal to the erased symbols, the repair is called an \textit{exact repair}.
-    On the other hand, if the recovered symbols are not exactly equal to the erased symbols but still preserve the code properties, the repair
-    is called a \textit{functional repair}.
 
     The connection of such codes to distributed storage is as follows. A file of size \(M\) symbols is encoded using the code, and the \(\alpha\) symbols of each coordinate are stored in geographically separated storage nodes.
     Accessing any \(k\) such nodes gives back the original file.
@@ -35,6 +30,11 @@ protection: |
     It was shown by network coding arguments that \(M \le \sum_{i=0}{k-1}\min\{\alpha,\(d-i\)\beta\}\).
     Depending on the relative values of \(\alpha\) and \(\beta\), a trade-off between storage per node and download bandwidth arises.
     Two extreme points of this trade-off curve are the MBR (\(\alpha = d\beta\)) and MSR (\(\alpha = (d-k+1)\beta\)) codes.
+
+features:
+  decoders:
+    - 'If the recovered symbols are exactly equal to the erased symbols, the repair is called an \textit{exact repair}.'
+    - 'If the recovered symbols are not exactly equal to the erased symbols but still preserve the code properties, the repair is called a \textit{functional repair}.'
 
 
 relations:

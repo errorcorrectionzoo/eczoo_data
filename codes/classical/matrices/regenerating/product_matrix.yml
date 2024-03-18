@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: product_matrix
+physical: matrices
+logical: q-ary_digits
+
+name: 'Product-matrix (PM) code'
+short_name: 'PM'
+introduced: '\cite{doi:10.1109/TIT.2011.2159049}'
+
+description: |
+    Code constructed using two explicit constructions, with each construction corresponding to one of the two extreme points of the storage-bandwidth trade-off curve \cite{doi:10.1109/TIT.2010.2054295}.
+    For the MBR point, the parameters of the code are \([n,k, n-1 \ge d\ge k, \alpha, \beta = \frac{\alpha}{d}, M= kd-\binom{k}{2}]\).
+    For the MSR point, the parameters of the code are \([n,k,d \ge 2k-2, \alpha, \beta = \frac{\alpha}{d-k+1}, M=k\alpha]\).
+
+    PM codes are the first explicit constructions for all values of the system parameters \([n,k,d]\) at the MBR point, and for all parameters satisfying \([n,k,d \ge 2k-2]\) at the MSR point.
+    Both constructions are based on a common product-matrix frame work which make them easy to implement.
+
+
+relations:
+  parents:
+    - code_id: regenerating
+  cousins:
+    - code_id: mbr
+      detail: 'One of the two PM code constructions yields MBR codes for all \([n,k,d]\).'
+    - code_id: msr
+      detail: 'One of the two PM code constructions yields MSR codes for all \([n,k,d \ge 2k-2]\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: AdwayPatra
+      date: '2024-03-18'
+    - user_id: VictorVAlbert
+      date: '2024-03-18'

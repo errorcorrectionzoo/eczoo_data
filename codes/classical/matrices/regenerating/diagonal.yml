@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: diagonal
+physical: matrices
+logical: q-ary_digits
+
+name: 'Diagonal code'
+introduced: '\cite{doi:10.1109/ISIT.2016.7541489}'
+
+description: |
+    Member of an explicit family of high-rate \([n,k,d,\alpha, \beta = \frac{\alpha}{d-k+1}, M=k\alpha]\) MSR codes for any \(r\) and \(n\).
+    Such codes can optimally repair any \(f\) failed nodes from any \(d\) helper nodes for all \(d\), \(1 \le f \le r\) and \(k \le d \le n-f\) simultaneously.
+    These codes can be constructed over any base field \(GF(q)\) as long as \(|GF(q)| \ge sn\), where \(s = \text{lcm}(1,2,\cdots,r)\).
+
+    Let \(C \in GF(q)^{\alpha \times n}\) be a codeword, with \(C_i\) being the \(i\)-th coordinate.
+    Then, the code is defined as
+    \begin{equation}
+      \mathsf{C} = \{(C_1,C_2,\cdots,C_n) \sum_{i=1}^nA_i^{t-1}C_i = 0, t=1,2,\cdots,r\}~,
+    \end{equation}
+    where the matrices \(A_i\) are diagonal \(\alpha \times \alpha\) matrices.
+
+relations:
+  parents:
+    - code_id: msr
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: AdwayPatra
+      date: '2024-03-18'
+    - user_id: VictorVAlbert
+      date: '2024-03-18'
