@@ -10,7 +10,19 @@ logical: qubits
 name: 'XZZX surface code'
 introduced: \cite{arxiv:quant-ph/0205004,arxiv:1108.5490,arXiv:2009.07851}
 
-description: 'Non-CSS variant of the rotated surface code whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).'
+description: |
+  Non-CSS variant of the rotated surface code whose generators are \(XZXZ\) Pauli strings associated, clock-wise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).
+
+  Stabilizer generators for this code are shown in \ref{figure:xzzx-operators}.
+  \begin{figure}
+    \includegraphics{xzzx}
+    \caption{
+    Stabilizer generators of an XZZX code with open boundaries.
+    The generators are four-body \(XZZX\) operators on the corners of squares in the bulk and two-body \(XZ\) operators on the boundaries.
+    }
+    \label{figure:xzzx-operators}
+  \end{figure}
+
 
 protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
