@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bvc
+physical: qubits
+logical: qubits
+
+name: 'Ball-Verstraete-Cirac (BVC) code'
+short_name: 'BVC'
+introduced: '\cite{arxiv:cond-mat/0409485,arxiv:cond-mat/0508353}'
+
+alternative_names:
+  - 'Verstraete-Cirac code'
+  - 'Auxiliary fermion code'
+
+description: |
+  A 2D fermion-into-qubit encoding that builds upon the JW transformation encoding by eliminating the weight-\(O(n)\) \(X\)-type string at the expense introducing additional gauge qubits.
+  See \cite[Sec. IV.B]{arxiv:2201.05153} for details.
+
+protection: |
+  Some single-qubit errors are detectable, with the rest inducing low-weight fermionic dephasing noise \cite{arxiv:2003.07125}.
+
+
+relations:
+  parents:
+    - code_id: fermions_into_qubits
+    - code_id: qetc
+      detail: 'The BVC code transmutes all single-qubit errors \cite{arxiv:2310.10278}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'
