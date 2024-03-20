@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bkt
+physical: qubits
+logical: qubits
+
+name: 'Bravyi-Kitaev transformation (BKT) code'
+short_name: 'BKT'
+introduced: '\cite{arxiv:quant-ph/0003137}'
+
+description: |
+  A fermion-into-qubit encoding defined on ternary trees that maps Majorana operators into qubit operators of weight \(\lceil \log (n+1) \rceil\).
+  The code can be reformulated in terms of Fenway trees \cite{doi:10.1002/spe.4380240306} and its locality can be further optimized to yield the \textit{segmented Bravyi-Kitaev (SBK) transformation code} \cite{arxiv:1701.07072}.
+
+
+relations:
+  parents:
+    - code_id: fermions_into_qubits
+  cousin:
+    - code_id: jw
+      detail: 'The BKT code exponentially improves over the JW transformation code in the weight of encoded fermionic operators \cite{arxiv:1910.10746}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'

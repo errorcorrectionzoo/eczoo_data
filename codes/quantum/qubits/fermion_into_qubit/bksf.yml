@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bksf
+physical: qubits
+logical: qubits
+
+name: 'Bravyi-Kitaev superfast (BKSF) code'
+short_name: 'BKSF'
+introduced: '\cite{arxiv:quant-ph/0003137}'
+
+alternative_names:
+  - 'Loop-Stabilized fermion simulation (LSFS) code'
+# 1701.07072
+
+description: |
+  An error-detecting fermion-into-qubit encoding defined on 2D qubit lattice whose stabilizers are associated with loops in the lattice.
+  The code can be generalized to an error-correcting code (of distance three) on graphs of degree \(\geq 6\) \cite{arxiv:1810.05274}.
+
+protection: |
+  The code can detect single-qubit errors \cite{arxiv:1812.08190}.
+  A generalized BKSF code has distance 3 on a graph with degree \(\geq 6\), while original BKSF code cannot be error-correcting on graphs of degree \(< 6\) \cite{arxiv:1810.05274}.
+
+
+relations:
+  parents:
+    - code_id: fermions_into_qubits
+  cousin:
+    - code_id: jw
+      detail: 'The BKT code exponentially improves over the JW transformation code in the weight of encoded fermionic operators \cite{arxiv:1910.10746}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'
