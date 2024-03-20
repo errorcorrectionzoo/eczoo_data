@@ -7,10 +7,12 @@ code_id: fermions
 physical: qubits
 logical: qubits
 
-name: 'Fermionic code'
+name: 'Fermion code'
 #introduced: ''
 
-description: 'Finite-dimensional quantum error-correcting code encoding a logical Hilbert space into a physical Fock space of fermionic modes. Codes are typically described using Majorana operators, which are linear combinations of fermionic creation and annihilation operators \cite{arXiv:quant-ph/0003137}.'
+description: |
+  Finite-dimensional quantum error-correcting code encoding a logical (qudit or fermionic) Hilbert space into a physical Fock space of fermionic modes.
+  Codes are typically described using Majorana operators, which are linear combinations of fermionic creation and annihilation operators \cite{arXiv:quant-ph/0003137}.
 
 features:
   general_gates:
@@ -23,10 +25,12 @@ notes:
 relations:
   parents:
     - code_id: qubits_into_qubits
-      detail: 'The Majorana operator algebra is isomorphic to the qubit Pauli-operator algebra via the Jordan-Wigner transformation \cite{arXiv:cond-mat/0010440}. However, Majorana codes and the noise they are designed for are based on a different notion of locality.'
+      detail: 'The Majorana operator algebra is isomorphic to the qubit Pauli-operator algebra via various fermion-into-qubit encodings.'
   cousins:
     - code_id: oscillators
       detail: 'Bosonic (fermionic) codes are associated with bosonic (fermionic) degrees of freedom.'
+    - code_id: fermions_into_qubits
+      detail: 'The Majorana operator algebra is isomorphic to the qubit Pauli-operator algebra via various fermion-into-qubit encodings.'
 
 
 # Begin Entry Meta Information

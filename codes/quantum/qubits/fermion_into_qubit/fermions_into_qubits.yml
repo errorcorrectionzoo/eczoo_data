@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fermions
+physical: qubits
+logical: qubits
+
+name: 'Fermion-into-qubit code'
+
+description: |
+  Qubit stabilizer code encoding a logical fermionic Hilbert space into a physical space of \(n\) qubits.
+  Such codes are primarily intended for simulating fermionic systems on quantum computers, and some of them have error-detecting and correcting properties.
+
+  In addition to the children of this entry, various custom encodings exist \cite{arxiv:2009.11860,arxiv:2212.09731,arxiv:2311.07409} that can be tailored to the quantum simulation problem of interest.
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: 'Fermion-into-qubit codes are qubit stabilizer codes that encode a logical fermionic Hilbert space into a physical space of \(n\) qubits.'
+  cousins:
+    - code_id: twist_defect_surface
+      detail: 'Treating a twist-defect surface codespace as a logical fermion encoding yields a fermion-into-qubit code \cite{arxiv:2110.10280}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'

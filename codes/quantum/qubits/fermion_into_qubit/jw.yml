@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: jw
+physical: qubits
+logical: qubits
+
+name: 'Jordan-Wigner transformation code'
+short_name: 'JW transformation'
+introduced: '\cite{doi:10.1007/978-3-662-02781-3_9,arXiv:cond-mat/0010440,arxiv:quant-ph/0108146}'
+
+description: |
+  A mapping between qubit Pauli strings and Majorana operators that can be thought of as a trivial \([[n,n,1]]\) code.
+  The mapping is best described as converting a chain of \(n\) qubits into a chain of \(2n\) Majorana modes (i.e., \(n\) fermionic modes).
+
+  The Majorana modes \(\{\gamma_j\}\) are defined from Pauli strings as follows,
+  \begin{align}
+  \begin{split}
+    \gamma_{1}&=Z\\
+    \gamma_{2}&=XZ\\
+    \gamma_{3}&=X\otimes Z\\
+    \gamma_{4}&=X\otimes XZ\\
+    \gamma_{5}&=X\otimes X\otimes Z\\
+              &\vdots
+  \end{split}
+  \end{align}
+  The \(X\)-type Pauli strings ensure that the resulting Majorana operators satisfy the appropriate anti-commutation relations, namely, \(\{\gamma_i,\gamma_j\} = \delta_{ij}\).
+
+features:
+  encoders:
+    - 'Circuit of depth linear in the number of qubits \(n\).
+    The depth can be reduced for particle-preserving systems \cite{arxiv:2211.04501} and in other contexts \cite{arxiv:2110.12792}.'
+
+
+relations:
+  parents:
+    - code_id: aqm
+      detail: 'The AQM fermion-into-qubit code reduces to the JW transformation code when the outer code is trivial.'
+  cousins:
+    - code_id: fermions_into_qubits
+      detail: 'The JW transformation code is the first example of a fermion-into-qubit code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'
