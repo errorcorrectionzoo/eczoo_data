@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: t_group
+physical: qudits
+logical: qudits
+
+name: 'Twisted \(1\)-group code'
+introduced: '\cite{arXiv:2402.01638,arxiv:2403.08999}'
+
+description: |
+  Block group-representation code realizing particular irreps of particular groups such that a distance of two is automatically guaranteed.
+  Groups which admit irreps with this property are called \textit{twisted (unitary) \(1\)-groups} and include the binary icosahedral group \(2I\), the \(\Sigma(360\phi)\) subgroup of \(SU(3)\), the family \(\{PSp(2b, 3), b \geq 1\}\), the alternating groups \(A_{5,6}\), and the binary tetrahedral group \(2T\).
+
+  A \(((6,3,2))\) code can implement \(A_5\) transversally, a \(((6,2,2))_3\) implements \(2T\) transversally, and a \(((6,5,2))_3\) code implements \(A_6\) transverally.
+
+features:
+  transversal_gates: 'All gates in the underlying twisted \(1\)-group.
+  See \cite[Table II]{arxiv:2403.08999} for other notable groups including the sporadic groups.'
+
+relations:
+  parents:
+    - code_id: spins_into_spins
+    - code_id: group_representation
+      detail: 'Twisted \(1\)-group codes are group-representation codes with \(G\) being a twisted \(1\)-group.'
+    - code_id: small_distance_quantum
+      detail: 'All twisted \(1\)-group codes have a distance \(d \geq 2\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'
