@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2d_bosonization
+physical: qubits
+logical: qubits
+
+name: '2D bosonization code'
+introduced: '\cite{arxiv:1711.00515,arxiv:2201.05153}'
+
+description: |
+  A mapping between a 2D lattice of qubits and a 2D lattice of Majorana modes.
+  The original code \cite{arxiv:1711.00515} can be converted via Clifford operations into codes whose distance runs up to \(7\) while preserving the code rate \cite{arxiv:2201.05153}.
+  This family also includes a super-compact fermionic encoding with a qubit-to-fermion ratio of \(1.25\) \cite[Table I]{arxiv:2201.05153}.
+
+
+relations:
+  parents:
+    - code_id: fermions_into_qubits
+  cousins:
+    - code_id: jw
+      detail: 'The 2D bosonization code can be converted into chains of JW-transformed qubits by a linear-depth circuit \cite[Fig. 24]{arxiv:2201.05153}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-20'
