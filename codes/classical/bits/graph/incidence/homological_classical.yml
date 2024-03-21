@@ -13,6 +13,7 @@ introduced: '\cite{manual:{Kasami, T. "A topological approach to construction of
 alternative_names:
   - 'Graph theoretic code'
   - 'Graph homology code'
+  - 'Graph code'
 # First one is before 1968, second one is Bombin; Zemor claims this was rediscovered
 
 description: |
@@ -33,9 +34,12 @@ protection: |
 
 relations:
   parents:
-    - code_id: binary_linear
+    - code_id: projective
+      detail: 'Incidence matrices of graphs have no repeated columns since that would correspond to multi-edges.'
 #      detail: 'Homology codes are linear codes, but not every linear code can be constructed homologically.'
   cousins:
+    - code_id: graph
+      detail: 'Graph-adjacency (cycle) codes'' generator (parity-check) matrices are defined using adjacency (incidence) matrices of graphs.'
     - code_id: quantum_inspired
       detail: 'Cycle codes have been known in classical coding theory, and have been rediscovered in the quantum context; see Ref. \cite{doi:10.1007/978-3-642-01877-0_21} for a brief exposition.'
     - code_id: generalized_homological_product
@@ -44,8 +48,8 @@ relations:
       detail: 'Cycle codes feature in generalizations of the surface code \cite{doi:10.1007/978-3-642-01877-0_21}.'
     - code_id: perfect_binary
       detail: 'A family of cycle codes saturate the asymptotic Hamming bound \cite{arXiv:quant-ph/0605094}.'
-    - code_id: graph
-      detail: 'Graph-based (graph-theoretic) codes'' generator matrices are defined using adjacency (incidence) matrices of graphs.'
+    - code_id: qubit_css
+      detail: 'Cycle codes, including the Petersen \([15,6,5]\) code, feature in magic-state distillation protocols \cite[Appx. A.2.1]{arxiv:1703.07847}\cite[Sec. VII.A]{arxiv:1709.02789}.'
 
 
 # Begin Entry Meta Information
