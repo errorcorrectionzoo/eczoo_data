@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hypercube
+physical: spheres
+logical: reals
+
+name: 'Hypercube code'
+
+description: |
+  Spherical \((n,2^n,4/n)\) code whose codewords are vertices of an \(n\)-cube, i.e., all permutations and negations of the vector \((1,1,\cdots,1)\), up to normalization.
+
+
+relations:
+  parents:
+    - code_id: polytope
+      detail: 'Hypercube codewords in 2 (3, 4, \(n\)) dimensions form the vertices of a triangle (sqaure, cube, \(n\)-cube).'
+    - code_id: lattice_shell
+      detail: 'Hypercube codewords form the minimal lattice shell code of the \(\mathbb{Z}^n\) hypercubic lattice when the lattice is shifted such that the center of a hypercube is at the origin.'
+    - code_id: polyphase
+  cousins:
+    - code_id: hypercubic
+      detail: 'Hypercube codewords form the minimal lattice shell code of the \(\mathbb{Z}^n\) hypercubic lattice when the lattice is shifted such that the center of a hypercube is at the origin.'
+    - code_id: binary_antipodal
+      detail: 'Binary antipodal codes are subcodes of a hypercube code since the hypercube code corresponds to the Hamming \(n\)-cube embedded into the unit \(n\)-sphere.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-21'

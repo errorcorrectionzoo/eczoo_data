@@ -7,7 +7,7 @@ code_id: hypercube_quantum
 physical: qubits
 logical: qubits
 
-name: 'Hypercube code'
+name: '\([[2^D,D,2]]\) hypercube code'
 introduced: '\cite{arxiv:1503.02065,manual:{E. Campbell, “The smallest interesting colour code,” Online available at https://earltcampbell.com/2016/09/26/the-smallest-interesting-colour-code/ (2016), accessed on 2019-12-09.}}\cite[Exam. 3]{arxiv:2112.01446}'
 
 alternative_names:
@@ -16,24 +16,24 @@ alternative_names:
 # \cite{arxiv:2112.01446}
 
 description: |
-  Member of a family of \([[2^D,D,2]]\) codes defined by placing qubits on a \(D\)-dimensional hypercube, \(Z\)-stabilizers on all two-dimensional faces, and an \(X\)-stabilizer on all vertices.
+  Member of a family of codes defined by placing qubits on a \(D\)-dimensional hypercube, \(Z\)-stabilizers on all two-dimensional faces, and an \(X\)-stabilizer on all vertices.
   These codes realize gates at the \((D-1)\)-st level of the Clifford hierarchy.
 
 features:
-  transversal_gates: 'Hypercube codes realize generalized \(CZ\) gates at the \((D-1)\)-st level of the Clifford hierarchy \cite[Exam. 6.10]{arxiv:2203.00103}.'
+  transversal_gates: '\([[2^D,D,2]]\) hypercube codes realize generalized \(CZ\) gates at the \((D-1)\)-st level of the Clifford hierarchy \cite[Exam. 6.10]{arxiv:2203.00103}.'
 
 
 relations:
   parents:
     - code_id: ball_color
-      detail: 'Hypercube codes can be thought of as small color codes defined on balls constructed from hyperoctahedra \cite[Exam. 3]{arxiv:2112.01446}, or on lattices with no bulk qubits and cubic boundaries  \cite{arxiv:1503.02065,manual:{E. Campbell, “The smallest interesting colour code,” Online available at https://earltcampbell.com/2016/09/26/the-smallest-interesting-colour-code/ (2016), accessed on 2019-12-09.}}.'
+      detail: '\([[2^D,D,2]]\) hypercube codes can be thought of as small color codes defined on balls constructed from hyperoctahedra \cite[Exam. 3]{arxiv:2112.01446}, or on lattices with no bulk qubits and cubic boundaries  \cite{arxiv:1503.02065,manual:{E. Campbell, “The smallest interesting colour code,” Online available at https://earltcampbell.com/2016/09/26/the-smallest-interesting-colour-code/ (2016), accessed on 2019-12-09.}}.'
     - code_id: quantum_reed_muller
-      detail: 'Hypercube codes are special cases of the \([[2^m,{m \choose r}, 2^r]]\) quantum Reed-Muller codes for \(m=D\) and \(r=1\) \cite[Exam. 8]{arxiv:1910.09333}.'
+      detail: '\([[2^D,D,2]]\) hypercube codes are special cases of the \([[2^m,{m \choose r}, 2^r]]\) quantum Reed-Muller codes for \(m=D\) and \(r=1\) \cite[Exam. 8]{arxiv:1910.09333}.'
     - code_id: xp_stabilizer
       detail: 'The \(D\)th hypercube code can be viewed as an XP stabilizer code with precision \(N = 2^D\) \cite[Exam. 6.10]{arxiv:2203.00103}.'
   cousins:
-    - code_id: biorthogonal
-      detail: 'Orthoplexes are used to construct hypercube codes.'
+    - code_id: hypercube
+      detail: '\([[2^D,D,2]]\) hypercube code qubits are placed on vertices of a \(D\)-cube.'
 
 
 # Begin Entry Meta Information
