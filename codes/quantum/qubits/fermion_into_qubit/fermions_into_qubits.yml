@@ -11,7 +11,14 @@ name: 'Fermion-into-qubit code'
 
 description: |
   Qubit stabilizer code encoding a logical fermionic Hilbert space into a physical space of \(n\) qubits.
-  Such codes are primarily intended for simulating fermionic systems on quantum computers, and some of them have error-detecting and correcting properties.
+  Such codes are primarily intended for simulating fermionic systems on quantum computers, and some of them have error-detecting, correcting, and transmuting properties.
+
+  The first fermion-into-qubit code is the Jordan-Wigner transformation code, a trivial \([[n,n,1]]\) stabilizer code encoding Majorana operators into Pauli strings of weight \(O(n)\).
+  This is necessary to ensure that Majorana operators satisfy the proper anti-commutation relations.
+
+  Subsequent encodings consisted of stabilizer codes with \(k < n\), ensuring anti-commutation through the long-range entanglement of the codestates.
+  This makes it possible to reduce the Pauli weight of a Majorana operator by multiplying by a stabilizer.
+  Stabilizer constraints are often associated with loops of a 2D lattice.
 
   See \cite[Table I]{arxiv:2003.06939}\cite[Table I]{arxiv:2201.05153} for comparisons of various fermion-into-qubit codes.
   In addition to the children of this entry, various custom encodings exist \cite{arxiv:2009.11860,arxiv:2212.09731,arxiv:2311.07409} that can be tailored to the quantum simulation problem of interest.
@@ -24,12 +31,10 @@ features:
 relations:
   parents:
     - code_id: qubit_stabilizer
-      detail: 'Fermion-into-qubit codes are qubit stabilizer codes that encode logical fermionic Hilbert space into a physical space of \(n\) qubits.'
+      detail: 'Fermion-into-qubit codes are qubit stabilizer codes that encode a logical fermionic Hilbert space into a physical space of \(n\) qubits.'
   cousins:
     - code_id: twist_defect_surface
       detail: 'Treating a twist-defect surface codespace as a logical fermion encoding yields a fermion-into-qubit code \cite{arxiv:2110.10280}.'
-    - code_id: fermions
-      detail: 'Fermion (fermion-into-qubit) codes encode logical information into a physical space of fermionic modes (qubits).'
 
 
 # Begin Entry Meta Information
