@@ -8,20 +8,21 @@ physical: qubits
 logical: qubits
 
 name: '3D fermionic surface code'
-introduced: '\cite{arXiv:cond-mat/0302460,arXiv:1104.2632,arxiv:1302.7072}'
+introduced: '\cite{arXiv:cond-mat/0302460,arXiv:1104.2632,arXiv:1807.07081}'
 
 alternative_names:
   - '3D toric code with emergent fermion'
 
 description: |
-  A 3D Kitaev surface code that realizes \(\mathbb{Z}_2\) gauge theory with an emergent fermion.
-  The model can be defined on a cubic lattice in several ways \cite[Eq. (D45-46)]{arxiv:1908.08049}
+  A non-CSS 3D Kitaev surface code that realizes \(\mathbb{Z}_2\) gauge theory with an emergent fermion.
+  The model can be defined on a cubic lattice in several ways \cite[Eq. (D45-46)]{arxiv:1908.08049}. Realizations on other lattices also exist \cite{arXiv:0801.0229,arXiv:0811.2036}
 
   \textit{3D fermionic toric code} often either refers to the construction on
   the three-dimensional torus or is an alternative name for the general
   construction.
   The construction on surfaces with boundaries is often called the
-  \textit{3D fermionic surface code}.
+  \textit{3D fermionic surface code}. However, unlike the 3D surface code, a rough boundary is not admitted.
+  Nevertheless, defects of Kitaev chains (twist defects) can be introduced as in the surface code to store additional logicals \cite{arXiv:1906.01045,arXiv:2208.07367}
 
 features:
   transversal_gates: 'CCZ and CS gates can be obtained for the fermionic 3D surface code on certain manifolds by circuits that can be interpreted as moving and spreading lattice realizations of Kitaev chain and \(p+ip\) defects \cite{arxiv:2311.05674}.'
@@ -29,7 +30,8 @@ features:
 
 relations:
   parents:
-    - code_id: higher_dimensional_surface
+    - code_id: walker_wang
+      detail: 'The 3D fermionic surface code is a Walker-Wang model code with premodular input category sVec consisting of a trivial anyon and a fermion.'
     - code_id: 3d_stabilizer
     - code_id: topological_abelian
       detail: 'The 3D Kitaev surface code realizes 3D \(\mathbb{Z}_2\) gauge theory with an emergent fermion.'
@@ -39,5 +41,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+   - user_id: nathanan
+      date: '2024-03-26'
     - user_id: VictorVAlbert
       date: '2023-11-27'
