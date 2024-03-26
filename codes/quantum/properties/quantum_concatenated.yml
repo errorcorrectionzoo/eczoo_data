@@ -8,9 +8,14 @@ code_id: quantum_concatenated
 name: 'Concatenated quantum code'
 introduced: '\cite{arxiv:quant-ph/9608012}'
 
-description: 'A combination of two codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the outer code consists of the logical subspace of the inner code. In other words, first one encodes in the outer code \(C^\prime\), and then one encodes each of the physical registers of \(C^\prime\) in an inner code \(C\).'
+description: |
+  A combination of two codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the inner code consists of the logical subspace of the outer code.
+  In other words, first one encodes in the inner code \(C^\prime\), and then one encodes each of the physical registers of \(C^\prime\) in an outer code \(C\).
+  An inner \(C = ((n_1,K,d_1))_{q_1}\) and outer \(C^\prime = ((n_2,q_1,d_2))\) block quantum code yield an \(((n_1 n_2, K, d \geq d_1d_2))_{q_2}\) concatenated quantum code \cite{preset:GottesmanBook}.
 
-#protection: ''
+  Concatenating an \(((n,q,d))_q\) block quantum code can be done recursively, with the \(k\)\textit{th level} of concatenation yielding an \(n^k,q,d^k))_q\) code.
+
+
 
 features:
   decoders:
@@ -21,6 +26,8 @@ features:
 
 notes:
   - 'Concatenated codes can achieve the Gilbert-Varshamov bound \cite{arxiv:1004.1127}.'
+  - 'See the book \cite{preset:GottesmanBook} for an introduction.'
+
 
 relations:
   parents:
