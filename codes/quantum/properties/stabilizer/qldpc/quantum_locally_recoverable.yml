@@ -11,22 +11,22 @@ short_name: 'QLRC'
 introduced: '\cite{arXiv:2311.08653}'
 
 description: |
-  A QLRC of locality \(r\) is a block quantum code whose code states can be recovered by performing a recovery map on at most \(r-1\) subsystems.
+  A QLRC of locality \(r\) is a block quantum code whose code states can be recovered by performing a recovery map on at most \(r\) subsystems.
 
 
 protection: |
   A Singleton-like QLRC bound states that an \(((n,K,d))_q\) QLRC of locality \(r\) and rate \(R = \frac{\log_q K}{n}\) must have relative distance \cite[Thm. 4]{arxiv:2311.08653}
   \begin{align}
-    \delta = \frac{d}{n} \leq \frac{1-R}{2} - \Omega{1/r}~,
+    \delta = \frac{d}{n} \leq \frac{1-R}{2} - \Omega\left(\frac{1}{r}\right)~,
   \end{align}
   implying that locality restricts the distance of the code.
   Random QLRCs with qudit dimension \(q = 2^{O(r)}\) achieve a relative distance that is order \(O(1/r)\) below the bound \cite[Prop. 5]{arxiv:2311.08653}.
-  Codes constructed with the help of AEL distance amplification further admit a gap of order \(O(1/r^{1/4})\) \cite[Prop. 6]{arxiv:2311.08653}.
+  Codes constructed with the help of AEL distance amplification admit a gap of order \(O(1/r^{1/4})\) \cite[Prop. 6]{arxiv:2311.08653}.
 
 
 features:
   decoders:
-    - 'Codes constructed with the help of AEL distance amplification admit efficient decoders.'
+    - 'Codes constructed with the help of AEL distance amplification admit efficient decoders \cite{arxiv:2311.08653}.'
 
 relations:
   parents:
