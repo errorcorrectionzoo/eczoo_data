@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: q-ary_lcc
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\(q\)-ary linear LCC'
+
+
+description: |
+  A linear code for which one can recover any coordinate of a codeword from at most \(r\) coordinates of the error word (assuming the error word is within the decoding radius).
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: lcc
+    - code_id: ldc
+      detail: 'Linear LCCs can be converted into LDCs with the same locality \(r\) \cite[Sec. 2.4.1]{manual:{Gopi, Sivakanth. Locality in coding theory. Diss. Princeton University, 2018.}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-27'

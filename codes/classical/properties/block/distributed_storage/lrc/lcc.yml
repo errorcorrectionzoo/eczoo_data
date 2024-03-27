@@ -20,13 +20,7 @@ description: |
   Recall that a block code encodes a length-\(k\) message into a length-\(n\) codeword, which is then sent through a noise channel to yield an error word.
   Informally, an LCC is a block code for which one can recover any coordinate of a codeword from at most \(r\) coordinates of the error word (assuming the error word is within the decoding radius).
 
-  LDCs have applications in computational complexity theory and cryptography \cite[Sec. 17.4]{doi:10.1017/CBO9780511804090}\cite{doi:10.1561/0400000030,doi:10.1145/301250.301397,doi:10.1145/2993749.2993761}.
-
-  Modified versions of local decodability include \textit{relaxed local decodability} \cite{doi:10.1145/1007352.1007361}.
-
-features:
-  decoders:
-    - 'LDCs admit \textit{local decoders}, i.e., decoders whose runtime scales polylogarithmically with \(n\).'
+  Modified versions of local correctability include \textit{relaxed local correctability} \cite{doi:10.4086/toc.2020.v016a018}.
 
 
 relations:
@@ -36,8 +30,7 @@ relations:
       Since a codeword is a trivial error word, any LCC is also an LRC.'
   cousins:
     - code_id: ldc
-      detail: 'Linear LCCs are automatically LDCs \cite[Sec. 2.4.1]{manual:{Gopi, Sivakanth. Locality in coding theory. Diss. Princeton University, 2018.}}.
-      More generally, any family of LCCs can be converted to a family of LDCs whose rate differs by a constant \cite{arxiv:1611.06980}.'
+      detail: 'Any family of LCCs can be converted to a family of LDCs whose rate differs by a constant \cite{arxiv:1611.06980}; see \cite[Sec. 2.4.1]{manual:{Gopi, Sivakanth. Locality in coding theory. Diss. Princeton University, 2018.}}.'
     - code_id: ltc
       detail: 'There are relations between LDCs and LTCs \cite{doi:10.1007/978-3-642-15369-3_50}.'
     - code_id: quantum_locally_recoverable
@@ -49,4 +42,4 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2023-05-05'
+      date: '2023-03-27'
