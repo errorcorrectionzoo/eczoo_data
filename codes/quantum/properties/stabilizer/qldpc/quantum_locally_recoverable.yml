@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_locally_recoverable
+# includes both Galois and modular
+
+name: 'Quantum locally recoverable code (QLRC)'
+short_name: 'QLRC'
+introduced: '\cite{arXiv:2311.08653}'
+
+description: |
+  A QLRC of locality \(r\) is a block quantum code whose code states can be recovered by performing a recovery map on at most \(r-1\) subsystems.
+
+
+protection: |
+  A Singleton-like QLRC bound states that an \(((n,K,d))_q\) QLRC of locality \(r\) and rate \(R = \frac{\log_q K}{n}\) must have relative distance \cite[Thm. 4]{arxiv:2311.08653}
+  \begin{align}
+    \delta = \frac{d}{n} \leq \frac{1-R}{2} - \Omega{1/r}~,
+  \end{align}
+  implying that locality restricts the distance of the code.
+  Random QLRCs with qudit dimension \(q = 2^{O(r)}\) achieve a relative distance that is order \(O(1/r)\) below the bound \cite[Prop. 5]{arxiv:2311.08653}.
+  Codes constructed with the help of AEL distance amplification further admit a gap of order \(O(1/r^{1/4})\) \cite[Prop. 6]{arxiv:2311.08653}.
+
+
+features:
+  decoders:
+    - 'Codes constructed with the help of AEL distance amplification admit efficient decoders.'
+
+relations:
+  parents:
+    - code_id: block_quantum
+  cousins:
+    - code_id: locally_recoverable
+    - code_id: galois_css
+      detail: 'A Galois-qudit CSS code is a QLRC of locality \(r\) if each qudit participates in at least one \(X\)-type and one \(Z\)-type stabilizer whose product is of weight \(\leq r\) \cite[Corr. 34]{arxiv:2311.08653}.'
+    - code_id: quantum_random
+      detail: 'Random QLRCs with qudit dimension \(q = 2^{O(r)}\) achieve a relative distance that is order \(O(1/r)\) below the Singleton-like QLRC bound \cite[Prop. 5]{arxiv:2311.08653}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-26'

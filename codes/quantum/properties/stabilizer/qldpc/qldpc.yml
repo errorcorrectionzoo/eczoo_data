@@ -13,7 +13,10 @@ alternative_names:
   - 'Sparse quantum code'
 
 description: |
-  Member of a family of \([[n,k,d]]\) modular-qudit or Galois-qudit stabilizer codes for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant as \(n\to\infty\).
+  Member of a family of \([[n,k,d]]\) modular-qudit or Galois-qudit stabilizer codes for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\); can be denoted by \([[n,k,d,w]]\).
+  QLDPC codes can correct many stochastic errors far beyond the distance, which may not scale as favorably.
+  Together with more accurate, faster, and easier-to-parallelize measurements than those of general stabilizer codes, this property makes QLDPC codes interesting in practice.
+
   A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome bit are contained in a fixed volume that does not scale with \(n\).
   As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
 
@@ -52,8 +55,11 @@ description: |
 protection: |
   Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
   Code distance may not be a reliable marker of code performance.
-  QLDPC codes with generator weights bounded by some constant can correct many stochastic errors far beyond the distance, which may not scale as favorably.
-  Together with more accurate, faster, and easier-to-parallelize measurements than those of general stabilizer codes, this property makes QLDPC codes interesting in practice.
+
+  Since QLDPC codes are stabilizer QLRCs whose locality \(r = w\), their relative distance is bounded by \cite[Thm. 4]{arxiv:2311.08653}
+  \begin{align}
+    \delta = \frac{d}{n} \leq \frac{1}{2} - \Omega\left(\frac{1}{r}\right)~.
+  \end{align}
 
 features:
   rate: |
@@ -96,6 +102,8 @@ relations:
     - code_id: stabilizer
     - code_id: qlwc
       detail: 'QLDPC codes are QLWC codes for which the number of stabilizer generators that each site participates in is bounded by a constant as \(n\to\infty\).'
+    - code_id: quantum_locally_recoverable
+      detail: 'QLDPC codes are stabilizer QLRCs whose locality \(r \leq w\), the maximum number of subsystems that a stabilizer generator participates in \cite{arxiv:2311.08653}.'
   cousins:
     - code_id: ldpc
     - code_id: topological

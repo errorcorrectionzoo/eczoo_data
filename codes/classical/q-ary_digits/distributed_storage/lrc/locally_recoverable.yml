@@ -13,15 +13,15 @@ short_name: 'LRC'
 
 alternative_names:
   - 'Locally repairable code'
-  - 'Locally correctable code (LCC)'
 
 description: |
-  Any code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from (at most \(r\)) other coordinates of \(x\).
+  An LRC of locality \(r\) is a block code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from at most \(r-1\) other coordinates of \(x\).
   An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC code.
 
   More technically, a \(q\)-ary code \(C\) with length \(n\) is \(r\)-locally recoverable, or \textit{has locality} \(r\), if \(\forall i \in [n]\), there exists \(I_i \subset [n]\setminus i\) such that \(|I_i|\leq r\), and the projection of the set \(\mathcal{C}(i,a)=\{x\in C : x_i=a\}\) on to the coordinates in \(I_i\), i.e., \(\mathcal{C}_{I_i}(i,a)\) is disjoint from \(\mathcal{C}_{I_i}(i,a^\prime)\) where \(a\neq a^\prime\).
 
-  The definition can be generalized to \(t\)-LRC code, if every coordinate is recoverable from \(t\) disjoint subsets of coordinates. A study on the parameters of \(t\)-LRC codes, together with known bounds, can be found in Ref. \cite{doi:10.1109/TIT.2016.2518663}.
+  The definition can be generalized to \(t\)-LRC code, if every coordinate is recoverable from \(t\) disjoint subsets of coordinates.
+  A study on the parameters of \(t\)-LRC codes, together with known bounds, can be found in Ref. \cite{doi:10.1109/TIT.2016.2518663}.
 
   See Ref. \cite{arXiv:1408.4862} for more bounds on locally recoverable distributed storage codes.
 
@@ -31,6 +31,7 @@ features:
 
 realizations:
   - 'An \((18,14,7)\) LRC code has beed used in the Windows Azure cloud storage system \cite{manual:{C. Huang, H. Simitci, Y. Xu, A. Ogus, B. Calder, P. Gopalan, J. Li, and S. Yekhanin. \emph{Erasure coding in Windows Azure Storage}. In Proc. USENIX Annual Technical Conference (ATC), pgs. 15-26, Boston, Massachusetts, June 2012.}}; see also \cite[31.3.1.2]{preset:HKSdist}.'
+  - 'Facebook f4 BLOB cloud storage system \cite{manual:{Muralidhar, S., Lloyd, W., Roy, S., Hill, C., Lin, E., Liu, W., Pan, S., Shankar, S., Sivakumar, V., Tang, L. and Kumar, S., 2014. f4: Facebook's warm {BLOB} storage system. In 11th USENIX Symposium on Operating Systems Design and Implementation (OSDI 14) (pp. 383-398).}}'
 
 
 relations:
@@ -38,6 +39,10 @@ relations:
     - code_id: q-ary_digits_into_q-ary_digits
       detail: 'Locally recoverable codes protect against coordinate erasure.'
     - code_id: distributed_storage
+  cousins:
+    - code_id: q-ary_linear
+      detail: 'A \(q\)-ary linear code is an LRC of locality \(r\) if each coordinate participates in at least one parity check of weight \(\leq r\).'
+# \cite{arxiv:2311.08653}
 
 
 # Begin Entry Meta Information
