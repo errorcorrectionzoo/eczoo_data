@@ -4,8 +4,6 @@
 #######################################################
 
 code_id: locally_recoverable
-physical: q-ary_digits
-logical: q-ary_digits
 
 name: 'Locally recoverable code (LRC)'
 short_name: 'LRC'
@@ -15,7 +13,8 @@ alternative_names:
   - 'Locally repairable code'
 
 description: |
-  An LRC of locality \(r\) is a block code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from at most \(r-1\) other coordinates of \(x\).
+  An LRC is a block code for which one can recover any coordinate of a codeword from at most \(r\) other coordinates of the codeword.
+  In other words, an LRC of locality \(r\) is a block code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from at most \(r-1\) other coordinates of \(x\).
   An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC code.
 
   More technically, a \(q\)-ary code \(C\) with length \(n\) is \(r\)-locally recoverable, or \textit{has locality} \(r\), if \(\forall i \in [n]\), there exists \(I_i \subset [n]\setminus i\) such that \(|I_i|\leq r\), and the projection of the set \(\mathcal{C}(i,a)=\{x\in C : x_i=a\}\) on to the coordinates in \(I_i\), i.e., \(\mathcal{C}_{I_i}(i,a)\) is disjoint from \(\mathcal{C}_{I_i}(i,a^\prime)\) where \(a\neq a^\prime\).
@@ -36,13 +35,13 @@ realizations:
 
 relations:
   parents:
-    - code_id: q-ary_digits_into_q-ary_digits
-      detail: 'Locally recoverable codes protect against coordinate erasure.'
     - code_id: distributed_storage
   cousins:
     - code_id: q-ary_linear
       detail: 'A \(q\)-ary linear code is an LRC of locality \(r\) if each coordinate participates in at least one parity check of weight \(\leq r\).'
 # \cite{arxiv:2311.08653}
+
+# LDCs are similar in nature to LRC, but work in another regime. Namely, given a heavily corrupted codeword within the decoding radius, you need to recover any given bit of the message using a small number of queries
 
 
 # Begin Entry Meta Information
