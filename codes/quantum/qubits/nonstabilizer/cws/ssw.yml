@@ -7,8 +7,9 @@ code_id: ssw
 physical: qubits
 logical: qubits
 
-name: 'Smolin-Smith-Wehner code'
-introduced: '\cite{arXiv:quant-ph/0701065}'
+name: 'Smolin-Smith-Wehner (SSW) code'
+short_name: 'SSW'
+introduced: '\cite{arXiv:quant-ph/0701065,doi:10.1090/S0002-9947-07-04242-0}'
 
 description: |
   A family of \(((n=4k+2l+3,M_{k,l},2))\) CWS codes, where \(M_{k,l} \approx 2^{n-2}(1-\sqrt{2/(\pi(n-1))})\),  whose codewords are superpositions of particular bitstrings and their complements.
@@ -18,10 +19,13 @@ description: |
 relations:
   parents:
     - code_id: cws
+      detail: 'SSW codes can be formulated as CWS codes \cite{arxiv:0708.1021,manual:{Cross, Andrew William. Fault-tolerant quantum computer architectures using hierarchies of quantum error-correcting codes. Diss. Massachusetts Institute of Technology, 2008.}}.'
     - code_id: small_distance_quantum
   cousins:
     - code_id: iceberg
-      detail: 'Smolin-Smith-Wehner and iceberg codewords are superpositions of particular bitstrings and their complements.'
+      detail: 'SSW and \([[2m,2m-2,2]]\) codewords are superpositions of particular bitstrings and their complements.'
+    - code_id: rains
+      detail: 'The SSW code outperforms the Rains codes in terms of code parameters at odd \(n > 11\) \cite{arxiv:0708.1021,manual:{Cross, Andrew William. Fault-tolerant quantum computer architectures using hierarchies of quantum error-correcting codes. Diss. Massachusetts Institute of Technology, 2008.}}.'
 
 
 # Begin Entry Meta Information
