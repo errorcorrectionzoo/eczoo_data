@@ -47,11 +47,13 @@ relations:
       detail: 'Modular-qudit CSS codes are modular-qudit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
       Additionally, any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]_{\mathbb{Z}_q}\) CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003} (see also \cite{arXiv:1409.4724}).'
     - code_id: group_gkp
-      detail: 'An \(n\) modular-qubit CSS code corresponds to the \(\mathbb{Z}_q^{k_1} \subseteq \mathbb{Z}_q^{k_2} \subset \mathbb{Z}_q^{n}\) group construction, where \(k=k_2/k_1\).'
+      detail: 'An \(n\) modular-qubit CSS code corresponds to the \(\mathbb{Z}_q^{k_1} \subseteq \mathbb{Z}_q^{k_2} \subset \mathbb{Z}_q^{n}\) group construction, where \(k=k_2/k_1\), and where the group operation is addition.
+      This construction should be extendable to additive \(q\)-ary codes over \(\mathbb{Z}_q\) since those are also groups under addition.'
+    - code_id: css
     # Add Leonid's reverse mapping to stabilizers
   cousins:
-    - code_id: q-ary_linear
-      detail: 'Construction for prime \(q=p\) uses two related \(p\)-ary linear codes \(C_X\) and \(C_Z\).'
+    - code_id: q-ary_linear_over_zq
+      detail: 'The modular-qudit CSS construction uses two related \(q\)-ary linear codes over \(\mathbb{Z}_q\), \(C_X\) and \(C_Z\).'
 
 
 # Begin Entry Meta Information

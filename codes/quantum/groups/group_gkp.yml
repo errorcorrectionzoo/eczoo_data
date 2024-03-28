@@ -16,7 +16,9 @@ description: |
   superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or
   infinite-dimensional.
 
-  The group GKP code was originally formulated as an extension of the \hyperref[code:gkp]{GKP code} construction, and has turned out to encompass a wide variety of codes, tabulated in \ref{table:group-gkp-codes}.
+  The group GKP code was originally formulated as an extension of the \hyperref[code:gkp]{GKP code} construction to other group-valued spaces.
+  In other words, the only requirement to construct group GKP codes is that the configuration space \(G\) is a group under some operation.
+  The construction encompasses a wide variety of codes, tabulated in \ref{table:group-gkp-codes}.
   \begin{table}
     \begin{cells}
     \celldata<c H, c H, c H, l H>{Space & \(G\) & \(H\) & Related code}
@@ -26,6 +28,9 @@ description: |
         \\
     \(n\) modular qudits & \(\mathbb{Z}_q^n\) & \(\mathbb{Z}_q^m\)
         & modular-qudit CSS
+        \\
+    \(n\) Galois qudits & \(GF(q)^n\) & \(GF(q)^m\)
+        & Galois-qudit CSS
         \\
     \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{R}^m \)
         & analog stabilizer
@@ -43,9 +48,12 @@ description: |
         & molecular
     }
     \end{cells}
-    \caption{Special cases of group GKP codes}
+    \caption{
+    Special cases of group GKP codes.
+    }
     \label{table:group-gkp-codes}
   \end{table}
+
 
 protection: 'Protects against generalized bit-flip errors \(g\in G\) that are inside the fundamental domain of \(G/K\). Protection against phase-flip errors determined by branching rules of irreps of \(G\) into those of \(K\), and further into those of \(H\).'
 

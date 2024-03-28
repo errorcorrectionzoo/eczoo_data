@@ -18,7 +18,7 @@ description: |
   are either \(Z\)-type or \(X\)-type Galois-qudit Pauli strings.
   Codes can be defined from chain complexes over \(GF(q)\) via an extension of \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} to Galois qudits.
 
-  The stabilizer generator matrix, taking values from \(GF(q)\), is of the form
+  The stabilizer generator matrix \cite[Def. 2]{arxiv:quant-ph/0211014}, taking values from \(GF(q)\), is of the form
   \begin{align}
   H=\begin{pmatrix}0 & H_{Z}\\
   H_{X} & 0
@@ -50,10 +50,13 @@ relations:
   parents:
     - code_id: galois_true_stabilizer
       detail: 'Galois-qudit CSS codes are true stabilizer codes \cite{preset:GottesmanBook}.'
+    - code_id: group_gkp
+      detail: 'An \(n\) Galois-qubit CSS code corresponds to the \(GF(q)^{k_1} \subseteq GF(q)^{k_2} \subset GF(q)^{n}\) group construction, where \(k=k_2/k_1\), and where the group operation is addition.
+      This construction should be extendable to additive \(q\)-ary codes since those are also groups under addition.'
     - code_id: css
   cousins:
     - code_id: q-ary_linear
-      detail: 'Construction uses two related \(q\)-ary linear codes \(C_X\) and \(C_Z\).'
+      detail: 'The Galois-qudit CSS construction uses two related \(q\)-ary linear codes, \(C_X\) and \(C_Z\).'
     - code_id: q-ary_cyclic
       detail: 'Galois CSS codes can be constructed using self-orthogonal \(q\)-ary cyclic codes \cite{arxiv:1608.06674}.'
 

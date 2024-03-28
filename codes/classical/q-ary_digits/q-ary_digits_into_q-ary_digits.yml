@@ -14,7 +14,22 @@ short_name: '\(q\)-ary'
 description: 'Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)=\mathbb{F}_q\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.'
 #the minimum Hamming distance between a pair of distinct codewords.
 
-protection: 'The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}. Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.'
+protection: |
+  The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}. Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.
+
+  \begin{defterm}{Weight enumerator}
+  \label{topic:weight-enumerator}
+  Determining protection and bounds on code parameters can also be done using the \textit{weight enumerator} \cite{arxiv:quant-ph/9610040} (cf. \hyperref[topic:quantum-weight-enumerator]{quantum weight enumerators}),
+    \begin{align}
+    \begin{split}
+      A(x,y)&=\sum_{j=0}^{n}A_{j}x^{n-j}y^{j}\\
+      A_{j}&=\text{number of wt-}j\text{ codewords}~.
+    \end{split}
+    \end{align}
+  The weight enumerator and its dual satisfy the \textit{MacWilliams identity} \cite{doi:10.1002/j.1538-7305.1963.tb04003.x}; see \cite[Ch. 5]{preset:MacSlo}.
+  Other types of weight enumerators includes the Hamming weight enumerator, Lee weight enumerator, joint weight enumerator, split weight enumerator, and biweight enumerator \cite{preset:MacSlo}.
+  \end{defterm}
+
 
 features:
   rate: The rate of a \(q\)-ary code is usually defined as \(R=\frac{1}{n}\log_q K\) dits per symbol.

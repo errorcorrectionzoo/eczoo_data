@@ -39,7 +39,28 @@ protection: |
   Bounds on code performance include the quantum Singleton bound \cite{arxiv:quant-ph/9604034,arxiv:quant-ph/9702031,arxiv:quant-ph/9703048}, quantum Hamming bound \cite{arxiv:quant-ph/9602022}, and quantum Gilbert-Varshamov bound \cite{arxiv:quant-ph/9602022}.
   Linear programming bounds also exist \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}.
 
-  Determining protection and bounds on code parameters can also be done using Shor-Laflamme \textit{quantum weight enumerators} \cite{arxiv:quant-ph/9610040} and Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
+  \begin{defterm}{Quantum weight enumerator}
+  \label{topic:quantum-weight-enumerator}
+  Determining protection and bounds on code parameters can also be done using the Shor-Laflamme \textit{quantum weight enumerator} \cite{arxiv:quant-ph/9610040} (cf. \hyperref[topic:weight-enumerator]{weight enumerators})
+    \begin{align}
+    \begin{split}
+      A(x)&=\sum_{j=0}^{n}A_{j}x^{j}\\
+      A_{j}&=\frac{1}{K^{2}}\sum_{\text{wt-}j\text{ Paulis }P}\left|\text{tr}(P\Pi)\right|^{2}~,
+    \end{split}
+    \end{align}
+  where \(\Pi\) is the code projection, and where the sum is over the Pauli group modulo the subgroup of phases (hence, the dagger below is necessary in case the coset representative is not Hermitian).
+  The dual quantum weight enumerator is
+    \begin{align}
+    \begin{split}
+      B(x)&=\sum_{j=0}^{n}B_{j}x^{j}\\
+      B_{j}&=\frac{1}{K}\sum_{\text{wt-}j\text{ Paulis }P}\text{tr}(P\Pi P^{\dagger}\Pi)~.
+    \end{split}
+    \end{align}
+  The weight enumerator and its dual satisfy the \textit{quantum MacWilliams identity} \cite{arxiv:quant-ph/9610040}; see \cite[Ch. 7]{preset:GottesmanBook}.
+  An \(((n,K,d))_q\) code is called \textit{pure} if \(A_j = B_j = 0\) for all \(j < d\).
+  Other types of quantum weight enumerators are the Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
+  These notions can be generalized to qudit codes and other error bases \cite{arxiv:2211.02756,doi:10.1016/j.aam.2020.102085}.
+  \end{defterm}
 
 
 features:
