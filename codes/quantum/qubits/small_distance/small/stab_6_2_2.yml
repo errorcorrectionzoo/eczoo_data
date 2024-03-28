@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_6_2_2
+physical: qubits
+logical: qubits
+
+name: '\([[6,2,2]]\) \(C_6\) code'
+introduced: '\cite{arxiv:quant-ph/0410199}'
+
+description: |
+  Error-detecting self-dual CSS code used in concatenation schemes for fault-tolerant quantum computation.
+  Its stabilizer generators are \(IIXXXX\) and \(XXIIXX\), and it has the same \(Z\)-type generators.
+
+features:
+  magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \([[6,2,2]]\) \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
+  For example, the magic-state scaling exponent is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
+
+  fault_tolerance:
+    - 'Concatenations of \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: quantum_concatenated
+      detail: 'Concatenations of \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} and the Meier-Eastin-Knill (MEK) magic-state distillation protocols \cite{arxiv:1204.4221}.'
+    - code_id: stab_4_2_2
+      detail: 'Concatenations of \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} and the Meier-Eastin-Knill (MEK) magic-state distillation protocols \cite{arxiv:1204.4221}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-13'

@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_6_4_2
+physical: qubits
+logical: qubits
+
+name: '\([[6,4,2]]\) error-detecting code'
+introduced: '\cite{arxiv:quant-ph/9605021,arxiv:quant-ph/9702029,arxiv:quant-ph/0402171,arxiv:quant-ph/0404104}'
+
+description: |
+  Error-detecting six-qubit code with rate \(1/3\) whose codewords are cat/GHz states.
+  Its stabilizer generators are \(XXXXXX\) and \(ZZZZZZ\).
+  It is the unique code for its parameters, up to local equivalence \cite[Tab. III]{arxiv:quant-ph/9608006v5}.
+  Concatenations of this code with itself yield the \([[6^r,4^r,2^r]]\) level-\(r\) \textit{many-hypercube} code \cite{arxiv:2403.16054}.
+
+  See \cite[Appx. B]{arxiv:2403.16054} for a set of logical Paulis.
+
+features:
+  encoders:
+    - 'See \cite[Fig. 5]{arxiv:2403.16054}.'
+
+  transversal_gates: 'CNOT and Hadamard gates \cite[Appx. B]{arxiv:2403.16054}.
+  A \(CZ\) gate implemented by transversal \(S\) and \(S^{\dagger}\) \cite{arxiv:1912.10063}; see also \cite{arxiv:2112.01446}.'
+
+  general_gates:
+    - 'Universal Clifford gates \cite[Sec. III]{arxiv:1803.06987}.'
+
+  decoders:
+    - 'Efficient decoder for the many-hypercube code \cite{arxiv:2403.16054}.'
+
+realizations:
+  - 'Trapped-ion devices: Bayesian quantum phase estimation on a device by Quantinuum \cite{arxiv:2306.16608}.'
+
+relations:
+  parents:
+    - code_id: iceberg
+      detail: 'The \([[2m,2m-2,2]]\) error-detecting code for \(m=3\) reduces to the \([[6,4,2]]\) error-detecting code.'
+    - code_id: triangular_color
+      detail: 'The \([[6,4,2]]\) error-detecting code can be interpreted as a color code on a single hexagon of a honeycomb lattice; this code can be concatenated with the surface code to yield the honeycomb color code \cite[Appx. A]{arxiv:1604.04062}.'
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: quantum_concatenated
+      detail: 'Concatenations of this code with itself yield the level-\(r\) \([[6^r,4^r,2^r]]\) many-hypercube code \cite{arxiv:2403.16054}.'
+    - code_id: stab_4_2_2
+      detail: 'The \([[6,4,2]]\) error-detecting code can be constructed out of two \([[4,2,2]]\) codes in the quantum Lego code framework.'
+    - code_id: quantum_lego
+      detail: 'The \([[6,4,2]]\) error-detecting code can be constructed out of two \([[4,2,2]]\) codes in the quantum Lego code framework.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-28'

@@ -16,10 +16,12 @@ alternative_names:
 
 description: |
   CSS stabilizer code for \(m\geq 2\) with generators \(\{XX\cdots X, ZZ\cdots Z\} \) acting on all \(2m\) physical qubits.
+  The code is constructed via the CSS construction from an SPC code and a repetition code \cite[Sec. III]{arxiv:1803.06987}.
   This is the highest-rate distance-two code when an even number of qubits is used \cite{arxiv:quant-ph/9608006}.
 
   Admits a basis such that each codeword is a superposition of a computational basis state labeled by a bitstring \(b\) and a state labeled by the negation of \(b\).
   Such states generalize the two-qubit Bell states and three-qubit GHz states and are often called \textit{(qubit) cat states} or \textit{poor-man's GHz states}.
+  Its all-zero logical state is a conventional GHz state.
 
   All of its automorphisms lie in the Clifford group \cite[Thm. 13]{arxiv:quant-ph/9704043}.
 
@@ -28,6 +30,7 @@ protection: 'Detects a single-qubit error.'
 features:
   encoders:
     - 'Adaptive constant-depth circuit with geometrically local gates and measurements throughout \cite{arxiv:1906.08890,arXiv:2112.03061}.'
+
   transversal_gates: 'Transveral CNOT gates can be performed by first teleporting qubits into different code blocks \cite{arxiv:quant-ph/9702029}.'
 
   general_gates:
@@ -38,7 +41,7 @@ features:
     - 'CNOT and Hadamard gates using only two extra qubits and four-qubit fault-tolerant CCZ gate \cite{arxiv:1705.05365}.'
 
 realizations:
-  - 'Trapped-ion devices: 12-qubit device by Quantinuum \cite{arXiv:2211.06703}. Subsequent experiment performed Bayesian Quantum Phase Estimation on the \(m=3\) code \cite{arxiv:2306.16608}.'
+  - 'Trapped-ion devices: the \(m=5\) code has been realized on a 12-qubit device by Quantinuum \cite{arXiv:2211.06703}.'
 
 notes:
   - 'See description of the code in Ref. \cite{preset:PreskillNotes}.'
@@ -48,7 +51,14 @@ relations:
     - code_id: qmdpc
       detail: 'The \([[2m,2m-2,2]]\) error-detecting code is a 1D QMDPC.'
     - code_id: quantum_mds
-      detail: 'The \([[2m,2m-2,2]]\) error-detecting code is one of the two qubit quantum MDS codes \cite{arxiv:quant-ph/0312164}.'
+      detail: 'The \([[2m,2m-2,2]]\) error-detecting code forms one of the two families qubit quantum MDS codes \cite{arxiv:quant-ph/0312164}.'
+    - code_id: ball_color
+      detail: 'The \([[2m,2m-2,2]]\) error-detecting code is a ball color code \cite[Sec. III.A]{arxiv:2112.01446}.'
+  cousins:
+    - code_id: parity_check
+      detail: 'The \([[2m,2m-2,2]]\) error-detecting code is constructed via the CSS construction from an SPC code and a repetition code \cite[Sec. III]{arxiv:1803.06987}.'
+    - code_id: repetition
+      detail: 'The \([[2m,2m-2,2]]\) error-detecting code is constructed via the CSS construction from an SPC code and a repetition code \cite[Sec. III]{arxiv:1803.06987}.'
 
 
 # Begin Entry Meta Information
