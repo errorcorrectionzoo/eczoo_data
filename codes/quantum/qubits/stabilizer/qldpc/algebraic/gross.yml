@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gross
+physical: qubits
+logical: qubits
+
+name: '\([[144,12,12]]\) gross code'
+introduced: '\cite{arxiv:2308.07915}'
+
+description: |
+  A BB QLDPC code which requires less physical and ancilla qubits (for syndrome extraction) than the surface code with the same number of logical qubits and distance.
+  The name stems from the fact that a gross is a dozen dozen.
+# https://twitter.com/jaygambetta/status/1773099803561381995
+
+features:
+  rate: 'An ancilla-added rate of \(1/24\).
+  In contrast, the distance-13 surface code has ancilla-added rate \(1/338\).'
+
+relations:
+    parents:
+      - code_id: qcga
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-28'
