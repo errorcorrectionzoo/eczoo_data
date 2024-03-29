@@ -11,46 +11,57 @@ name: 'Triangular color code'
 introduced: '\cite{arxiv:quant-ph/0605138}'
 
 description: |
-  A planar color code defined on a trivalent lattice, typically the 6-6-6 (honeycomb) or the 4-8-8 (square octagon) lattice. Each boundary of the triangle intersects the lattice such that it only touches faces of two colors. The color of the boundary is then the other third color.
+  A planar color code defined on one of the three trivalent uniform 2D tilings with three colorable faces, namely, the 6.6.6 (honeycomb), 4.8.8 (square octagon) lattice, or 4.6.12 lattice \cite[Fig. 1]{arxiv:1108.5738}.
 
   There are three types of boundaries corresponding to the three colors of the faces \cite{arXiv:1311.0879}.
   There are also three types of string operators, one for each color. A string of one color must end in a boundary of that same color.
 
-  For example, stabilizer generators on a patch of the square octagon lattice are shown in \ref{figure:4-8-8-operators}.
+  For example, stabilizer generators on a patch of the square octagon lattice are shown in \ref{figure:4.8.8-operators}.
     \begin{figure}
       \includegraphics{color488}
       \caption{
       Stabilizer generators of a triangular color code defined on a patch of the square octagon lattice.
       }
-      \label{figure:4-8-8-operators}
+      \label{figure:4.8.8-operators}
     \end{figure}
 
+# Each boundary of the triangle intersects the lattice such that it only touches faces of two colors. The color of the boundary is then the other third color.
 
 #  The string-net for the triangular color code has a special geometry such that the \(X\) and Z logical qubits have the same geometry in a string-net. \(\{X_\mu, Z_\mu\} = 0\), where \(\mu\) denotes the string-net. Let \(\bar{X} = X_\mu\) and \(\bar{Z} = Z_\mu\), then \(\bar{X}\) and \(\bar{Z}\) have the same geometry.\cite{arXiv:1311.0879}
 
 
 protection: |
-  Triangular color codes can be defined on the 4-8-8 lattice exist for any odd code distance \(d\).
+  Triangular color codes can be defined on the 4.8.8 lattice exist for any odd code distance \(d\).
   For any \(d\), \([[\frac{d^2-1}{2}+d, 1, d]]\) \cite{arXiv:1407.5103}.
-  Triangular color codes can be defined on the honeycomb or 6-6-6 lattice for any odd code distance \(d\).
+  Triangular color codes can be defined on the honeycomb lattice for any odd code distance \(d\).
   For code distance \(d \geq 5\), the number of data qubits is \(\frac{(3d-1)^2}{4}\) \cite{arxiv:1911.00355}.
 
 
 #   transversal_gates: 'Color codes admit a logical Hadamard gate because logical Paulis have the same geometry \cite{arXiv:1311.0879}.
-# In general, the definition \(\widehat{P} = P^{\otimes V}\) doesn’t guarantee transversality, because though \(\widehat{P}Z_f\widehat{P}Z_f = Z_f\), \(\widehat{P}X_f\widehat{P} = (-1)^{\frac{t}{2}}X_fZ_f\), where \(t\) is the number of vertices of \(f\). Therefore, \(t\) must be a multiple of 4. This is only true for the triangular color code defined on the 4-8-8 lattice.\cite{arXiv:1311.0879}'
+# In general, the definition \(\widehat{P} = P^{\otimes V}\) doesn’t guarantee transversality, because though \(\widehat{P}Z_f\widehat{P}Z_f = Z_f\), \(\widehat{P}X_f\widehat{P} = (-1)^{\frac{t}{2}}X_fZ_f\), where \(t\) is the number of vertices of \(f\). Therefore, \(t\) must be a multiple of 4. This is only true for the triangular color code defined on the 4.8.8 lattice.\cite{arXiv:1311.0879}'
 
 features:
   general_gates:
     - 'Low-overhead magic-state distillation circuit using flag qubits \cite{arxiv:2003.03049}.'
     - 'Braiding twist defects \cite{arxiv:2104.03669}.'
   decoders:
+    - 'Integer-program (IP) decoder for the 4.8.8 color code \cite{arxiv:1108.5738}.'
+    - 'Decoder for the 4.8.8 code that maps to two copies of the surface code \cite{manual:{Duclos-Cianci, Guillaume, Héctor Bombın, and David Poulin. "Fast decoding algorithm for subspace and subsystem color codes and local equivalence of topological phases." Personal communication (2011).}}'
+    - 'Fault-tolerant syndrome extraction circuits for the 4.8.8 color code \cite{arxiv:1108.5738}.'
     - 'Mobius matching decoder gives low logical failure rate \cite{arXiv:2108.11395} and has an open-source implementation called Chromobius \cite{arxiv:2312.08813}.'
 
+  fault_tolerance:
+    - 'Fault-tolerant syndrome extraction circuits for the 4.8.8 color code \cite{arxiv:1108.5738}.'
+
   code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(p_X = 10.56(1)\%\) under IP decoding \cite{arxiv:1108.5738}, \(8.7\%\) under a decoder that maps to two copies of the surface code \cite{manual:{Duclos-Cianci, Guillaume, Héctor Bombın, and David Poulin. "Fast decoding algorithm for subspace and subsystem color codes and local equivalence of topological phases." Personal communication (2011).}}.
+    The threshold of the 4.8.8 color code under ML decoding corresponds to the value of critical point of the two-dimensional random-bond three-body Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:0902.4845},
+    calculated to be \(10.9(2)\%\) in Ref. \cite{arxiv:0902.4845} and \(10.925(5)\%\) in Ref. \cite{arxiv:0903.2102}.'
     - '\(12.6\%\) threshold for triangular color code with the restriction decoder \cite{arXiv:1911.00355} and the projection decoder \cite{arXiv:1308.6207,arXiv:1802.08680}.'
     - '\(8.7\%\) threshold for phase errors for the honeycomb triangular color code with the projection decoder \cite{arXiv:1308.6207}.'
-    - '\(\geq 6\%\) threshold with rescaling-based decoder on the 4-8-8 triangular color code \cite{arXiv:2112.09584}.'
-    - '\(44\%\) threshold under erasure noise for the 4-8-8 triangular color code \cite{arXiv:2111.14594} (see also \cite{doi:10.1109/ITW46852.2021.9457583}).'
+    - '\(\geq 6\%\) threshold with rescaling-based decoder on the 4.8.8 triangular color code \cite{arXiv:2112.09584}.'
+    - '\(44\%\) threshold under erasure noise for the 4.8.8 color code \cite{arXiv:2111.14594} (see also \cite{doi:10.1109/ITW46852.2021.9457583}).'
+
   threshold:
     - 'The honeycomb color code appears to have a \hyperref[topic:measurement-threshold]{measurement threshold} of one \cite{arxiv:2402.00145}.'
 
