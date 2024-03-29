@@ -1,0 +1,79 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: triangular_color
+physical: qubits
+logical: qubits
+
+name: 'Honeycomb (6.6.6) color code'
+short_name: '6.6.6 color'
+introduced: '\cite{arxiv:quant-ph/0605138}'
+
+
+
+description: |
+  Triangular color code defined on a patch of the 6.6.6 (honeycomb) tiling.
+
+# Each boundary of the triangle intersects the lattice such that it only touches faces of two colors. The color of the boundary is then the other third color.
+
+#  The string-net for the triangular color code has a special geometry such that the \(X\) and Z logical qubits have the same geometry in a string-net. \(\{X_\mu, Z_\mu\} = 0\), where \(\mu\) denotes the string-net. Let \(\bar{X} = X_\mu\) and \(\bar{Z} = Z_\mu\), then \(\bar{X}\) and \(\bar{Z}\) have the same geometry.\cite{arXiv:1311.0879}
+
+
+protection: |
+  There is a \([[(3d^2+1)/4, 1, d]]\) code family \cite[Fig. 2]{arxiv:1108.5738} and a \([[(3d-1)^2/4, 1, d]]\) code family \cite{arxiv:1911.00355}.
+
+
+features:
+  transversal_gates: |
+    CNOT gate because the code is CSS.
+    Hadamard gates for any qubit geometry which yields a self-dual CSS code.
+    Transversal \(S\) gate \cite{arxiv:quant-ph/0605138,arxiv:1108.5738}.
+
+  general_gates:
+    - 'Lattice surgery scheme for a hybrid 6.6.6-4.8.8 layout yields lower resource overhead when compared to analogous surface code scheme \cite{arXiv:2201.07806}.'
+    - 'Low-overhead magic-state distillation circuit using flag qubits \cite{arxiv:2003.03049}.'
+
+  decoders:
+    - 'Message-passing decoder \cite{arxiv:1111.0831}.'
+    - 'Projection decoder \cite{arxiv:1308.6207}, modified to account for syndrome errors \cite{arxiv:1402.3037}.'
+    - 'Adaptation of the restriction decoder \cite{arxiv:1911.00355}.'
+    - 'Neural-network decoder \cite{arxiv:1802.08680}.'
+    - 'Mobius matching decoder gives low logical failure rate \cite{arXiv:2108.11395} and has an open-source implementation called Chromobius \cite{arxiv:2312.08813}.'
+    - 'MaxSAT-based decoder \cite{arxiv:2303.14237}.'
+
+  fault_tolerance:
+    - 'Fault-tolerant syndrome extraction circuits using flag qubits \cite{arxiv:1911.00355}.'
+
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(p_X = 7.8\%\) under message-passing decoder \cite{arxiv:1111.0831}, \(8.7\%\) under projection decoder \cite{arXiv:1308.6207}, \(\geq 6\%\) under rescaling decoder \cite{arXiv:2112.09584}, and \(10.1\%\) under MaxSAT-based decoder \cite{arxiv:2303.14237}.
+    The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond three-body Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:0902.4845},
+    calculated to be \(10.9(2)\%\) in Ref. \cite{arxiv:0902.4845} and \(10.97(1)\%\) in Ref. \cite{arxiv:0903.2102}.'
+    - 'Depolarizing channel: \(12.6\%\) under the restriction decoder \cite{arXiv:1911.00355} and the projection decoder \cite{arXiv:1308.6207}.'
+
+
+# First point is for this code
+  threshold:
+    - 'Circuit-level noise: \(0.2\%\) using two flag qubits per stabilizer generator and the restriction decoder \cite{arXiv:1911.00355}.'
+    - 'A \hyperref[topic:measurement-threshold]{measurement threshold} of one \cite{arxiv:2402.00145}.'
+
+
+relations:
+  parents:
+    - code_id: 2d_color
+  cousins:
+    - code_id: hexagonal
+      detail: 'The triangular color code is defined on a trivalent lattice such as the honeycomb lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: EricHuang
+      date: '2024-03-18'
+    - user_id: VictorVAlbert
+      date: '2023-11-13'
+    - user_id: CellaKove
+      date: '2023-07-24'

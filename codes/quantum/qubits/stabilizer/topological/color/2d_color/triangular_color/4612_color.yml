@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 4612_color
+physical: qubits
+logical: qubits
+
+name: '4.6.12 color code'
+introduced: '\cite{arxiv:1108.5738}'
+
+
+description: |
+  Triangular color code defined on a patch of the 4.6.12 tiling.
+
+protection: |
+  There is a \([[(3d^2+5)/2-3d, 1, d]]\) code family \cite[Fig. 2]{arXiv:1108.5738}.
+
+features:
+  transversal_gates: |
+    CNOT gate because the code is CSS.
+    Hadamard gates for any qubit geometry which yields a self-dual CSS code.
+    Transversal \(S\) gate \cite{arxiv:quant-ph/0605138,arxiv:1108.5738}.
+
+relations:
+  parents:
+    - code_id: 2d_color
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-29'
