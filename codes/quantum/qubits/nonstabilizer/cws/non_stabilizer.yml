@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: non_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'Union stabilizer code'
+introduced: '\cite{arXiv:quant-ph/9703016,arxiv:quant-ph/0210097,arxiv:0801.2144}'
+# First ref discusses unions of general codes
+
+alternative_names:
+  - 'Non-stabilizer code'
+# arxiv:quant-ph/0210097
+
+description: |
+  Extension of stabilizer codes whose codespace consists of a direct sum of a stabilizer codespace and one or more of that stabilizer code's error spaces.
+
+  Union stabilizer codes constructed in Ref. \cite{arxiv:quant-ph/0210097} include \(((33, 155, 3))\), \(((15, 8, 3))\).
+
+
+features:
+  decoders:
+    - 'Error-detection algorithm \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1017/CBO9781139034807.012} for an overview of union stabilizer codes.'
+
+
+relations:
+  parents:
+    - code_id: cws
+      detail: 'Union stabilizer codes can be defined as CWS codes \cite{arxiv:0907.2038,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.'
+    - code_id: galois_non_stabilizer
+      detail: 'Galois-qudit union stabilizer codes reduce to union stabilizer codes for \(q=2\).'
+  cousins:
+    - code_id: qubit_css
+      detail: 'An \([[n,2k-n,d]]\) CSS code can be converted to a \([[n,k+k^{\prime}−n,\min(d,\left\lceil 3d^{\prime}/2\right\rceil )]]\) code for particular \(k^{\prime}\) and \(d^{\prime}\) via the \textit{Steane enlargement construction} \cite{arxiv:quant-ph/9802061}.
+      This code can be treated as a union stabilizer code \cite{arxiv:0801.2144}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-29'
