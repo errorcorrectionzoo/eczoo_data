@@ -23,7 +23,11 @@ description: |
   The term CWS was coined in Ref. \cite{arxiv:0708.1021}, and their approach is equivalent to another approach \cite{arXiv:cs/0610159} based on Boolean functions (see Ref. \cite{manual:{Zeng, Bei. Quantum operations and codes beyond the Stabilizer-Clifford framework. Diss. Massachusetts Institute of Technology, 2009.}}).
 
 
-protection: 'Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \). The \hyperref[code:qubits_into_qubits]{diagonal distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\). Computing the distance is generally \(NP\)-complete, and is \(NP\)-hard for non-degenerate codes \cite{arXiv:2203.04262}.'
+protection: |
+  Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).
+  The \hyperref[code:qubits_into_qubits]{diagonal distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\).
+  Computing the distance is generally \(NP\)-complete, and is \(NP\)-hard for non-degenerate codes \cite{arXiv:2203.04262}.
+  Some bounds are provided in Ref. \cite{arxiv:1108.5490}.
 
 features:
   encoders:
@@ -31,6 +35,7 @@ features:
 
   decoders:
     - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
+    - 'Clustered bounded-distance decoder \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}}.'
     - 'Structured error recovery \cite{arxiv:0912.3245}, which reduces to syndrome-based recovery for additive (i.e., stabilizer) CWS codes.'
 
 notes:
