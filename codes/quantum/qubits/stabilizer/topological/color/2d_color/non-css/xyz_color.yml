@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xyz_color
+physical: qubits
+logical: qubits
+
+name: 'XYZ color code'
+introduced: \cite{arxiv:2203.16534}
+
+description: |
+  Non-CSS variant of the 6.6.6 color code whose generators are \(XZXZXZ\) and \(ZYZYZY\) Pauli strings associated to each hexagonal in the hexagonal (6.6.6) tiling.
+
+features:
+  decoders:
+    - 'Cellular-automaton decoder \cite{arxiv:2203.16534}.'
+  code_capacity_threshold:
+    - '\(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using cellular-automaton decoder \cite{arxiv:2203.16534}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: 2d_stabilizer
+  cousins:
+    - code_id: triangular_color
+      detail: 'The XYZ surface code is obtained from the 6.6.6 color code by applying single-qubit Cliffors rotations on a subset of qubits such that the \(X\)- and \(Z\)-type generators are mapped to \(XZXZXZ\) and \(ZYZYZY\), respectively.'
+    - code_id: xzzx
+      detail: 'The XZZX surface (XYZ color) is a non-CSS analogue of the rotated surface (6.6.6 color) code such that the two codes are related by single-qubit Cliffors rotations.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-29'
