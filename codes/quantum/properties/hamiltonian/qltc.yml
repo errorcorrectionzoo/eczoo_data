@@ -25,8 +25,19 @@ description: |
 
   For example, the \([[n=2L^2,k=2,d=L]]\) toric code on an \(L\times L\) lattice is \textit{not} a QLTC because of the following argument. Let \(|\psi\rangle\) be a ground state that is excited by \(L/3\) Pauli strings, each of length \(L/2\). In order to fit on the lattice, such strings can, e.g., be horizontal and aligned next to each other in the vertical direction. The distance function \(\text{dist}(|\psi\rangle,\mathsf{C})\) is the weight of the smallest Pauli string that multiplies \(|\psi\rangle\) to yield a state in the codespace. In this case, that weight is the same as the weight of the perturbing string, i.e., \(L^2/6\), requiring \(\delta = 1/12\) to satisfy \eqref{eq:qltc}. There are \(2L/3\) violated Hamiltonian terms because each of the \(L/3\) strings violates only two stabilizer generators. However, there are \(r = 2(L^2-1)\) stabilizer generators, so the implication of \eqref{eq:qltc} is not satisfied for nonzero soundness as \(L\to\infty\) because \(\frac{1}{r}\langle\psi|H|\psi\rangle = \frac{2L/3}{2(L^2-1)}\to 0\).
 
+
+protection: |
+  Distance balancing and weight reduction are useful for constructing QLTCs.
+  Scaling of the soundness of a given code family is proven in \cite[Lemma 7]{arxiv:1611.03790} for the original distance balancing scheme and in \cite[Thm. 1.1]{arxiv:2305.00689} for a generalized scheme \cite{arxiv:2004.07935}.
+  Weight reduction can be used to construct codes of constant locality out of CSS QLTCs \cite[Thm. 1.1]{arxiv:2309.05541}.
+
+  \textit{Soundness amplification} \cite[Thm. 1.2]{arxiv:2309.05541} can be used to obtain a constant-soundness (i.e., \(R = O(1)\)) QLTC family from a CSS family with a sub-constant value, with the former's locality being at most polynomial in \(1/R\).
+
+  AEL distance amplification can be used to convert an \([[n^{\prime},k,d,w]]\) soundness-\(R\) CSS LTC family into an \([[n=n^{\prime}+O(1),k,d=O(n)]]\) family with \(w\) and \(R\) differing by a factor at most polynomial in \(w\) and \(n/d\) \cite[Thm. 1.3]{arxiv:2309.05541}.
+
 notes:
-  - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a QLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363} (see also \cite{arxiv:2311.09503}). QLTCs are believed to also be useful for solving the quantum PCP conjecture \cite{arXiv:1309.7495}.'
+  - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a QLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363} (see also \cite{arxiv:2311.09503}).
+  QLTCs are believed to also be useful for solving the quantum PCP conjecture \cite{arXiv:1309.7495}.'
 
 relations:
   parents:
@@ -41,8 +52,7 @@ relations:
     - code_id: qubit_css
       detail: 'A qubit CSS code defined by \(H_{Z}\) and \(H_{X}\) is glocally testable with some soundness iff the constituent codes \(\ker H_{Z}\) and \(\ker H_{X}\) are locally testable with the same soundness \cite[Fact 17]{arxiv:1510.02082}.'
     - code_id: distance_balanced
-      detail: 'Distance balancing is useful for constructing QLTCs.
-      Scaling of the soundness of a given code family is proven in \cite[Lemma 7]{arxiv:1611.03790} for the original distance balancing scheme and in \cite[Thm. 1.1]{arxiv:2305.00689} for the generalized scheme \cite{arxiv:2004.07935}.'
+      detail: 'Distance balancing and weight reduction are useful for constructing QLTCs \cite{arxiv:1611.03790,arxiv:2305.00689,arxiv:2309.05541}.'
 
 
 # Begin Entry Meta Information
