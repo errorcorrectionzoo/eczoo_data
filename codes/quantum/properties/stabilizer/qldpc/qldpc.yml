@@ -69,7 +69,8 @@ features:
     Conversely, a code with parameters \(k\) and \(d\) requires a graph with \(\Omega(d)\) edges of length \(\Omega(d/n^{1/D})\) \cite{arXiv:2109.10982}.
 
   decoders:
-    - 'Belief-propagation (BP) decoder \cite{arxiv:0801.1241} is a quantum version of the classical BP decoder, but performance suffers due to degeneracy \cite{arxiv:2012.15297}. Various post-processing algorithms have been proposed (see below and also Ref. \cite{doi:10.1109/MILCOM58377.2023.10356284}).'
+    - 'Belief-propagation (BP) decoder \cite{arxiv:0801.1241} is a quantum version of the classical BP decoder, but performance suffers due to degeneracy \cite{arxiv:2012.15297}.
+    Various post-processing algorithms have been proposed (see below and also Ref. \cite{doi:10.1109/MILCOM58377.2023.10356284,doi:10.1109/ICASSP48485.2024.10446153}).'
     - 'BP-OSD decoder, scaling as \(O(n^3)\), adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.
     For an open-source implementation, see \cite{arxiv:2005.07016,manual:{Roffe, Joschka. "LDPC: Python tools for low density parity check codes." (2022).}}.'
     - 'Neural BP decoder \cite{arxiv:2212.10245} for qubit codes.'
@@ -83,6 +84,7 @@ features:
     - 'Extension of the union-find decoder for qubit QLDPC codes, as well as a related heuristic decoder \cite{arxiv:2209.01180}.'
     - 'Sliding-window decoding \cite{arxiv:2311.03307}.'
     - 'Closed-branch decoder \cite{arxiv:2402.01532}.'
+    - 'BP with guided decimation guessing (GDG) sliding-window decoder for CSS qubit codes \cite{arxiv:2403.18901}.'
   fault_tolerance:
     - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794,arxiv:2308.08648}.
     In one such technique, one first performs a logical measurement by \hyperref[topic:code-switching]{code switching} into a code whose stabilizer group includes the original stabilizers together with the logical Paulis that are to be measured.
