@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_13_1_5
+physical: qubits
+logical: qubits
+
+name: '\([[13,1,5]]\) cyclic code'
+introduced: '\cite{manual:{E. Rains, private communication, April 1997.}}'
+
+
+description: |
+  Thirteen-qubit cyclic stabilizer code for which there is a set of stabilizer generators consisting of cyclic permutations of the \(XZZX\)-type Pauli string \(XIZZIXIIIIIII\).
+
+
+relations:
+  parents:
+    - code_id: stabilizer_over_gf4
+      detail: 'The five-qubit code is derived from a quadratic residue code using the Hermitian construction \cite{manual:{E. Rains, private communication, April 1997.}}; see \cite[pg. 11]{arxiv:quant-ph/9704019} for details.'
+    - code_id: frobenius
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-31'
