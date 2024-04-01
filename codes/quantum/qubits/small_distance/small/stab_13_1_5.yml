@@ -8,17 +8,20 @@ physical: qubits
 logical: qubits
 
 name: '\([[13,1,5]]\) cyclic code'
-introduced: '\cite{manual:{E. Rains, private communication, April 1997.}}'
+introduced: '\cite{manual:{E. Rains, private communication, April 1997.},arxiv:1108.5490}'
 
 
 description: |
-  Thirteen-qubit cyclic stabilizer code for which there is a set of stabilizer generators consisting of cyclic permutations of the \(XZZX\)-type Pauli string \(XIZZIXIIIIIII\).
+  Thirteen-qubit twisted surface code for which there is a set of stabilizer generators consisting of cyclic permutations of the \(XZZX\)-type Pauli string \(XIZZIXIIIIIII\).
+  The code can be derived from a quaternary QR code using the Hermitian construction \cite{manual:{E. Rains, private communication, April 1997.}}; see \cite[pg. 11]{arxiv:quant-ph/9704019} for details.
 
 
 relations:
   parents:
+    - code_id: twisted_xzzx
+      detail: 'The \([[13,1,5]]\) cyclic code is a small twisted XZZX surface code \cite[Ex. 11 and Fig. 3]{arxiv:1108.5490}.'
     - code_id: stabilizer_over_gf4
-      detail: 'The five-qubit code is derived from a quadratic residue code using the Hermitian construction \cite{manual:{E. Rains, private communication, April 1997.}}; see \cite[pg. 11]{arxiv:quant-ph/9704019} for details.'
+      detail: 'The \([[13,1,5]]\) cyclic code is derived from a quadratic residue code using the Hermitian construction \cite{manual:{E. Rains, private communication, April 1997.}}; see \cite[pg. 11]{arxiv:quant-ph/9704019} for details.'
     - code_id: frobenius
     - code_id: small_distance_quantum
 

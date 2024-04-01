@@ -45,6 +45,7 @@ features:
     - 'Magic-state distillation protocol \cite{arxiv:quant-ph/0403025}.'
     - 'Pieceable fault-tolerant CZ, CNOT, and CCZ gates \cite{arxiv:1603.03948}.'
   decoders:
+    - 'Syndrome extraction circuit using only CNOT-SWAP gates \cite{arxiv:2207.13356}.'
     - 'Combined dynamical decoupling and error correction protocol on individually-controlled qubits with always-on Ising couplings \cite{arxiv:1509.01239}.'
     - 'Symmetric decoder correcting all weight-one Pauli errors. The resulting logical error channel after coherent noise has been explicitly derived \cite{arxiv:2203.01706}.'
 
@@ -65,8 +66,13 @@ realizations:
 
 relations:
   parents:
-    - code_id: xzzx
-      detail: 'The five-qubit code is the smallest XZZX surface code \cite[Ex. 11]{arxiv:1108.5490}\cite[Ex. 3]{arxiv:1212.6703}.'
+    - code_id: twisted_xzzx
+      detail: 'Twisted XZZX codes are 2D lattice extensions of the five-qubit perfect code.
+      The five-qubit code is a small twisted XZZX surface code \cite[Ex. 11 and Fig. 3]{arxiv:1108.5490}\cite[Ex. 3]{arxiv:1212.6703}\cite[Fig. 1]{arxiv:2101.09349}.'
+    - code_id: stab_5_1_2_convolutional
+      detail: 'The \((5,1,2)\)-convolutional code is 1D lattice extension of the five-qubit perfect code, with the former''s lattice-translation symmetry being the extension of the latter''s cyclic permutation symmetry.
+      The \((5,1,2)\)-convolutional code code reduces to the five-qubit code for a five-qubit chain and periodic boundary conditions.
+      See Ref. \cite{arxiv:2211.03094} for a different extension.'
     - code_id: quantum_perfect
       detail: 'The five-qubit code is the smallest perfect code and is a member of the perfect qubit code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r = 2\).'
     - code_id: stabilizer_over_gf4

@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'XZZX surface code'
-introduced: \cite{arxiv:quant-ph/0205004,arxiv:1108.5490,arXiv:2009.07851}
+introduced: \cite{arxiv:quant-ph/0205004,arxiv:1108.5490,arxiv:1201.3757,arXiv:2009.07851}
 
 alternative_names:
   - 'Wen plaquette model'
@@ -30,18 +30,20 @@ description: |
 protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
 features:
+  decoders:
+    - 'MWPM decoder, which can be used for \(X\) and \(Z\) noise.
+    For \(Y\) noise, a variant of the matching decoder could be used like it is used for the XY code in Ref. \cite{arXiv:1907.02554}.
+    Decoding complexity scales as order \(O(n^3)\) because the code is non-CSS \cite[Supplement]{arxiv:1907.02554}\cite{arxiv:2202.06612}.'
+  code_capacity_threshold:
+    - 'For large but finite \(X\)- or \(Z\)-biased noise, the code''s thresholds exceed the zero-rate hashing bound.  The difference of the threshold from the hashing bound exceeds \(2.9\%\) at a \(Z\) or \(X\) bias of 300.'
+    - '\(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.'
+    - 'Depolarizing noise: \(18.7(1)\%\) under tensor-network decoder \cite{arxiv:1708.08474} and \(17.5\%\) under AMBP4 \cite{arxiv:2104.13659}.'
   threshold:
     - '\(\sim 4.5\%\) using minimum-weight perfect matching decoder for depolarizing noise (bias \(\eta=0.5\)); \(\sim 10\%\) for infinite \(Z\) bias.'
-  code_capacity_threshold:
-    - '\(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.'
-    - 'For large but finite \(X\)- or \(Z\)-biased noise, the code''s thresholds exceed the zero-rate hashing bound.  The difference of the threshold from the hashing bound exceeds \(2.9\%\) at a \(Z\) or \(X\) bias of 300.'
-    - '\(18.7\%\) for standard depolarising noise with maximum-likelihood decoder.'
-    - '\(0.817\%\) and \(0.940\%\) with minimum-weight perfect matching and belief-matching decoder, respectively, for biased circuit-level noise \cite{arxiv:2203.04948}.'
     - '\(4.15\%\) when \(98\%\) of depolarizing errors are converted into erasure errors with union-find decoder on a planar code, vs. \(0.937\%\) for pure depolarizing noise.
     In Rydberg atomic devices, the dominant source of noise is spontaneous decay into detectable energy levels outside of the computational subspace.
     Since that decay occurs in a Rydberg level that is accessible from only of the hyperfine states used for storage, the resulting channel is biased erasure \cite{arxiv:2201.03540}.'
-  decoders:
-    - 'Minimum-weight perfect matching decoder, which can be used for \(X\) and \(Z\) noise. For \(Y\) noise, a variant of the matching decoder could be used like it is used for the XY code in Ref. \cite{arXiv:1907.02554}.'
+    - '\(0.817\%\) and \(0.940\%\) with minimum-weight perfect matching and belief-matching decoder, respectively, for biased circuit-level noise \cite{arxiv:2203.04948}.'
 
 realizations:
   - 'Superconducting circuits: Distance-five 25-qubit code implemented on a superconducting quantum processor by Google Quantum AI \cite{arxiv:2207.06431}.
@@ -59,7 +61,8 @@ relations:
   parents:
     - code_id: clifford-deformed_surface
       detail: XZZX code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZXZ\).
-    - code_id: quantum_double_abelian
+    - code_id: twisted_xzzx
+      detail: 'Imposing twisted boundary conditions for the toric XZZX code yields the twisted XZZX code \cite[Ex. 11 and Fig. 3]{arxiv:1108.5490}\cite[Fig. 6]{arxiv:2101.09349}.'
   cousins:
     - code_id: rotated_surface
       detail: 'XZZX code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZXZ\). Both rotated and XZZX codes offer improved performance over the original surface code for biased noise \cite{arxiv:2312.17057}.'

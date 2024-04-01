@@ -44,10 +44,10 @@ features:
 
   decoders:
     - 'Message-passing decoder \cite{arxiv:1111.0831}.'
-    - 'Projection decoder \cite{arxiv:1308.6207}, modified to account for syndrome errors \cite{arxiv:1402.3037}.'
     - 'Adaptation of the restriction decoder \cite{arxiv:1911.00355}.'
     - 'Neural-network decoder \cite{arxiv:1802.08680}.'
     - 'Mobius matching decoder gives low logical failure rate \cite{arXiv:2108.11395} and has an open-source implementation called Chromobius \cite{arxiv:2312.08813}.'
+    - 'AMBP4, a quaternary version \cite{arxiv:2202.06612} of the MBP decoder \cite{arxiv:2104.13659}.'
     - 'MaxSAT-based decoder \cite{arxiv:2303.14237}.'
 
   fault_tolerance:
@@ -57,7 +57,7 @@ features:
     - 'Independent \(X,Z\) noise: \(p_X = 7.8\%\) under message-passing decoder \cite{arxiv:1111.0831}, \(8.7\%\) under projection decoder \cite{arXiv:1308.6207}, \(\geq 6\%\) under rescaling decoder \cite{arXiv:2112.09584}, and \(10.1\%\) under MaxSAT-based decoder \cite{arxiv:2303.14237}.
     The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond three-body Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:0902.4845},
     calculated to be \(10.9(2)\%\) in Ref. \cite{arxiv:0902.4845} and \(10.97(1)\%\) in Ref. \cite{arxiv:0903.2102}.'
-    - 'Depolarizing channel: \(12.6\%\) under the restriction decoder \cite{arXiv:1911.00355} and the projection decoder \cite{arXiv:1308.6207}.'
+    - 'Depolarizing channel: \(12.6\%\) under the restriction decoder \cite{arXiv:1911.00355} and the projection decoder \cite{arXiv:1308.6207}, and \(\sim 14.5\%\) under AMBP4 decoding \cite[Fig. 12]{arxiv:2202.06612}.'
 
 
 # First point is for this code
