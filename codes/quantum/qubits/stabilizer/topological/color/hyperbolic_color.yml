@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hyperbolic_color
+physical: qubits
+logical: qubits
+
+name: 'Hyperbolic color code'
+introduced: '\cite{arxiv:1804.06382}'
+
+description: |
+  An extension of the color code construction to hyperbolic manifolds.
+  As opposed to there being only three types of three-valent and three-colorable lattice tilings in the 2D Euclidean plane, there is an infinite number of admissible hyperbolic tilings in the 2D hyperbolic plane.
+
+  For example, a \(\{4g,4g\}\) tiling with periodic boundary conditions (i.e., a \(g\)-torus) yields a \([[4g+8,4g,4]]\) code family \cite{arxiv:1804.06382}.
+
+protection: |
+  The use of hyperbolic surfaces allows one to circumvent bounds on code parameters (such as the \term{BPT bound}) that are valid for lattice geometries.
+
+relations:
+  parents:
+    - code_id: color
+  cousins:
+    - code_id: hyperbolic_surface
+    - code_id: small_distance_quantum
+      detail: 'Many hyperbolic color codes have distance \(\leq 6\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-02'
