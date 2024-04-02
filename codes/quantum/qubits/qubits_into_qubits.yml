@@ -18,6 +18,7 @@ protection: |
   The number of correctable errors is often called the \textit{decoding radius}, and it is upper bounded by half of the code distance.
   As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers, where \(R = \log_2 K/n\) is the code rate.
 
+  \subsection{Pauli-string error basis}
   A convenient and often considered error set is the \textit{Pauli error} or \textit{Pauli string} basis. For a single qubit, this set consists of products of powers of the Pauli matrices
   \begin{align}
     X=\begin{pmatrix}0 & 1\\
@@ -28,14 +29,18 @@ protection: |
   \end{align}
   For multiple qubits, error set elements are tensor products of elements of the single-qubit error set.
 
-  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical nice error basis \cite{arxiv:quant-ph/9608048,arxiv:quant-ph/9608049,arxiv:quant-ph/0010082}. The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
+  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical nice error basis \cite{arxiv:quant-ph/9608048,arxiv:quant-ph/9608049,arxiv:quant-ph/0010082}.
+  The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
-  The minimum weight of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}. Codes whose distance is greater than the diagonal distance are degenerate.
+  The minimum weight of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}.
+  Codes whose distance is greater than the diagonal distance are \hyperref[topic:degeneracy]{degenerate}.
+  \hyperref[topic:degeneracy]{Degenerate} codes admit undetectable Pauli errors (i.e., errors whose projection into the codespace is nonzero) of weight less than the code distance (i.e., the projection satisfies the \term{Knill-Laflamme conditions}).
 
   A quantum channel whose Kraus operators are Pauli strings is called a \textit{Pauli channel}, and such channels are typically more tractable than general, non-Pauli channels.
   Relevant Pauli channels include dephasing noise and depolarizing noise (a.k.a. Werner-Holevo channel \cite{arxiv:quant-ph/0203003}), while relevant non-Pauli channels are amplitude damping, erasure (which maps all qubit states into a third state \(|e\rangle\) outside of the qubit Hilbert space), and biased erasure (in which case only the \(|1\rangle\) qubit state is mapped to \(|e\rangle\)).
   Noise can be correlated in space or in time, with the latter being an example of a non-Markovian phenomenon \cite{arxiv:2012.01894}.
 
+  \subsection{Bounds on code parameters}
   Bounds on code performance include the quantum Singleton bound \cite{arxiv:quant-ph/9604034,arxiv:quant-ph/9702031,arxiv:quant-ph/9703048}, quantum Hamming bound \cite{arxiv:quant-ph/9602022}, and quantum Gilbert-Varshamov bound \cite{arxiv:quant-ph/9602022}.
   Linear programming bounds also exist \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}.
 
@@ -57,7 +62,8 @@ protection: |
     \end{split}
     \end{align}
   The weight enumerator and its dual satisfy the \textit{quantum MacWilliams identity} \cite{arxiv:quant-ph/9610040}; see \cite[Ch. 7]{preset:GottesmanBook}.
-  An \(((n,K,d))_q\) code is called \textit{pure} if \(A_j = B_j = 0\) for all \(j < d\).
+  An \(((n,K,d))\) code is called \textit{pure} if \(A_j = B_j = 0\) for all \(j < d\); otherwise, the code is called \textit{impure}.
+  \hyperref[topic:degeneracy]{Degeneracy} is sufficient but not necessary for impurity \cite{preset:GottesmanBook}.
   Other types of quantum weight enumerators are the Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arXiv:quant-ph/0406063}).
   These notions can be generalized to qudit codes and other error bases \cite{arxiv:2211.02756,doi:10.1016/j.aam.2020.102085}.
   \end{defterm}

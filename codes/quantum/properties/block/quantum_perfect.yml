@@ -10,7 +10,7 @@ name: 'Perfect quantum code'
 #introduced: ''
 
 description: |
-  A non-degenerate code constructed out of \(q\)-dimensional qudits and having parameters \(((n,K,2t+1))\) is perfect if \(n\), \(K\), \(t\), and \(q\) are such that the quantum Hamming bound \cite{arxiv:quant-ph/9602022}
+  A \hyperref[topic:degeneracy]{non-degenerate} code constructed out of \(q\)-dimensional qudits and having parameters \(((n,K,2t+1))\) is perfect if \(n\), \(K\), \(t\), and \(q\) are such that the quantum Hamming bound \cite{arxiv:quant-ph/9602022}
   \begin{align}
   \sum_{j=0}^{t}(q^2-1)^{j}{n \choose j}\leq q^{n}/K
   \end{align}
@@ -24,7 +24,8 @@ description: |
   \end{align}
   where \(h\) is the binary entropy function.
 
-  A quantum Hamming-like bound exists for degenerate qubit stabilizer codes \cite{arxiv:2306.00048}.
+  Codes that are not \hyperref[topic:degeneracy]{non-degenerate} can in principle violate the quantum Hamming bound. It was shown that qubit stabilizer codes up to distance \(d\leq 85\) must obey the bound \cite{arxiv:2208.11800}.
+  A quantum Hamming-like bound exists for \hyperref[topic:degeneracy]{degenerate} qubit stabilizer codes \cite{arxiv:2306.00048}.
 
 protection: |
   Perfect codes have been classified. For qubits (\(q=2\)), the only nontrivial codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(GF(4)\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}.
@@ -36,7 +37,7 @@ features:
   rate: '\(k/n\to 1\) asymptotically with \(n\).'
 
 notes:
-  - 'Codes that are not non-degenerate can in principle violate the quantum Hamming bound. It was shown that qubit stabilizer codes up to distance \(d\leq 85\) must obey the bound \cite{arxiv:2208.11800}.'
+  - ''
 #In general, impure not the same as non-degenerate for general codes
 
 relations:
