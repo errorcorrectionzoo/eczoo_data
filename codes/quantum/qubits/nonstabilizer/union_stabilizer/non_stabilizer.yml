@@ -7,7 +7,8 @@ code_id: non_stabilizer
 physical: qubits
 logical: qubits
 
-name: 'Union stabilizer code'
+name: 'Union stabilizer (USt) code'
+short_name: 'USt'
 introduced: '\cite{arXiv:quant-ph/9703002,arXiv:quant-ph/9703016,arxiv:quant-ph/9710031,arxiv:quant-ph/0210097,arxiv:0801.2144}'
 # First ref discusses unions of general codes
 
@@ -17,6 +18,13 @@ alternative_names:
 
 description: |
   A qubit code whose codespace consists of a direct sum of a qubit stabilizer codespace and one or more of that stabilizer code's error spaces.
+
+  Given a subset \(T\) of coset representatives of \(\mathsf{N}(\mathsf{S})/\mathsf{S}\) of a stabilizer code \([[n,k]]\) with codespace \(\mathsf{C}\) and stabilizer group \(\mathsf{S}\), one can construct the USt with codespace \cite[Def. 10.1]{doi:10.1017/CBO9781139034807.012}
+  \begin{align}
+    \mathsf{C}_{\text{USt}}=\bigoplus_{t\in T}t\mathsf{C}~.
+  \end{align}
+  The parameters of the USt are \(((n,2^k |T|))\), where \(|T|\) is the number of chosen coset representatives.
+  A USt is \textit{CSS-like} when the underlying stabilizer code is CSS, so the coset representatives from the two classical codes underlying the CSS code.
 
   Union stabilizer codes constructed in Ref. \cite{arxiv:quant-ph/0210097} include the \(((33, 155, 3))\) and \(((15, 8, 3))\) codes.
 
@@ -31,8 +39,9 @@ notes:
 
 relations:
   parents:
-    - code_id: cws
-      detail: 'Union stabilizer codes can be defined as CWS codes \cite{arxiv:0907.2038,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.'
+    - code_id: qubits_into_qubits
+    - code_id: qudit_non_stabilizer
+      detail: 'Modular-qudit union stabilizer codes reduce to union stabilizer codes for \(q=2\).'
     - code_id: galois_non_stabilizer
       detail: 'Galois-qudit union stabilizer codes reduce to union stabilizer codes for \(q=2\).'
   cousins:

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_non_stabilizer
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit USt code'
+introduced: '\cite{arXiv:0712.1979,arXiv:0801.0831}'
+
+description: |
+  A modular-qubit code whose codespace consists of a direct sum of a modular-qubit stabilizer codespace and one or more of that stabilizer code's error spaces.
+
+  Given a subset \(T\) of coset representatives of \(\mathsf{N}(\mathsf{S})/\mathsf{S}\) of a modular-qudit stabilizer code \(((n,K))\) with codespace \(\mathsf{C}\) and stabilizer group \(\mathsf{S}\), one can construct the modular-qudit USt with codespace
+  \begin{align}
+    \mathsf{C}_{\text{USt}}=\bigoplus_{t\in T}t\mathsf{C}~.
+  \end{align}
+  The parameters of the USt are \(((n,K|T|,d))\), where \(|T|\) is the number of chosen coset representatives.
+  A modular-qudit USt is \textit{CSS-like} when the underlying stabilizer code is CSS, so the coset representatives from the two classical codes underlying the CSS code.
+
+relations:
+  parents:
+    - code_id: qudits_into_qudits
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-28'
+    - user_id: VictorVAlbert
+      date: '2024-02-11'

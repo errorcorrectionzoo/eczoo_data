@@ -11,9 +11,14 @@ name: 'Modular-qudit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9705052}'
 
 description: |
-  An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint eigenspace of commuting qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a qudit Pauli string that implements a nontrivial logical operation in the code.
+  An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint eigenspace of commuting qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\).
+  Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\).
+  The distance \(d\) is the minimum weight of a qudit Pauli string that implements a nontrivial logical operation in the code.
 
-  A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{\mathbb{Z}_q}\) or \([[n,k,d]]_{\mathbb{Z}_q}\). For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}. This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\). \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
+  A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{\mathbb{Z}_q}\) or \([[n,k,d]]_{\mathbb{Z}_q}\).
+  For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}.
+  This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
+  \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
 
   Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
@@ -51,12 +56,15 @@ notes:
 
 relations:
   parents:
-    - code_id: qudit_cws
-      detail: 'Modular-qudit CWS codes are a generalization of modular-qudit stabilizer codes \cite[Corr. 4-5]{arxiv:1505.00283}.'
+    - code_id: qudit_non_stabilizer
+      detail: 'A modular-qudit stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a modular-qudit USt with no coset representatives.
+      Conversely, if \(K = q^k\), and if the set of coset representatives of a modular-qudit USt form a \(q\)-ary linear code over \(\mathbb{Z}_q\), then they can be absorbed into a modular-qudit stabilizer group that defines the USt.'
     - code_id: stabilizer
     - code_id: quantum_lego
       detail: 'Modular-qudit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qudit repetition code, single-qudit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state.'
   cousins:
+    - code_id: qudit_cws
+      detail: 'Modular-qudit CWS codes whose underlying classical code is a linear \(q\)-ary code over \(\mathbb{Z}_q\) are modular-qudit stabilizer codes containing a cluster-state codeword; see \cite[Corr. 4-5]{arxiv:1505.00283}, which defines CWS codes as admitting an underlying stabilizer state that is not a necessarily a cluster state.'
     - code_id: q-ary_over_zq
       detail: 'Modular-qudit stabilizer codes are the closest quantum analogues of additive codes over \(\mathbb{Z}_q\) because addition in the ring corresponds to multiplication of stabilizers in the quantum case.'
 

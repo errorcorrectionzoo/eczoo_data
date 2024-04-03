@@ -12,22 +12,24 @@ short_name: 'CWS'
 introduced: '\cite{arXiv:cs/0610159,arXiv:0708.1021}'
 
 description: |
-  Member of a family of codes that strictly generalizes qubit stabilizer codes.
+  A code defined using a cluster state and a set of \(Z\)-type Pauli strings defined by a binary classical code.
 
-  They are usually denoted by \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \) where \(\mathcal{G}\) is a graph and \(\mathcal{C}\) is a \( (n,K,d) \) binary classical code.
-  From the graph we form the unique graph state (stabilizer state) \( |G \rangle \).
-  From the classical code we form Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th bit of the \(i\)-th classical codeword.
-  The CWS codewords are then \( | i \rangle =  W_i | G \rangle \).
+  The Galois-qudit CWS construction takes in \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \), where \(\mathcal{G}\) is a graph, and where \(\mathcal{C}\) is an \((n,K,d)\) binary code.
+  From the graph, we form the unique cluster state \( |\mathcal{G} \rangle \).
+  From the binary code, we form Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th coordinate of the \(i\)-th classical codeword.
+  The CWS codewords are then \( | i \rangle =  W_i | \mathcal{G} \rangle \).
 
-  The above definition corresponds to the \textit{standard form} of a CWS codes, and there is an alternative description that is locally Clifford-equivalent.
-  In particular, we can describe CWS codes as \( \mathcal{Q} = (S,\mathcal{W})\) where \(S\) is a stabilizer group and \( \mathcal{W} = \{ w_\ell \}_{\ell = 1}^K \) is a family of \(K\) \(n\)-qubit Pauli strings. We then form CWS codeswords as \( | i \rangle = w_i | S \rangle \), where \( | S \rangle \) is the (unique) stabilizer state of \(S\).
+  The above definition corresponds to the \textit{standard form} of CWS codes.
+  Since any stabilizer state is equivalent to a cluster state under a single-qubit Clifford circuit \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}, any code whose underlying state is a non-cluster stabilizer state is similarly equivalent to a CWS code.
 
   The term CWS was coined in Ref. \cite{arxiv:0708.1021}, and their approach is equivalent to another approach \cite{arXiv:cs/0610159} based on Boolean functions (see Ref. \cite{manual:{Zeng, Bei. Quantum operations and codes beyond the Stabilizer-Clifford framework. Diss. Massachusetts Institute of Technology, 2009.}}).
+  In an alternative convention (not used here), CWS codes are defined from an underlying stabilizer state that is not a necessarily a cluster state.
 
 
 protection: |
   Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).
   The \hyperref[code:qubits_into_qubits]{diagonal distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\).
+
   Computing the distance is generally \(NP\)-complete, and is \(NP\)-hard for \hyperref[topic:degeneracy]{non-degenerate} codes \cite{arXiv:2203.04262}.
   Some bounds are provided in Ref. \cite{arxiv:1108.5490}.
 
@@ -46,15 +48,22 @@ notes:
 
 relations:
   parents:
-    - code_id: qsqc
-      detail: 'Restricting the underlying classical code to be symplectic self-dual reduces the \(((n,2^k L,d))\) QSQC construction to the \(((n,L,d))\) CWS construction \cite[Sec. IV.E]{arxiv:2311.07265}.'
+    - code_id: non_stabilizer
+      detail: 'Any CWS code can be written as a USt whose (\(K=1\)) stabilizer code is the cluster state and whose coset representatives are constructed from the binary classical code.
+      Conversely, USts are equivalent to CWS codes via a single-qubit Clifford circuit as follows \cite{arxiv:0907.2038,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.
+      The set of coset representatives of any USt can be extended to a larger set iterating over the underlying stabilizer code such that all codewords can be obtained from a single stabilizer state.
+      Then, one can apply a single-qubit Clifford transformation to map said stabilizer state into a cluster state.'
     - code_id: qudit_cws
       detail: 'Modular-qudit CWS codes reduce to CWS codes for \(q=2\).'
     - code_id: galois_cws
       detail: 'Galois-qudit CWS codes reduce to CWS codes for \(q=2\).'
+    - code_id: qsqc
+      detail: 'Restricting the underlying classical code to be symplectic self-dual reduces the \(((n,2^k L,d))\) QSQC construction to the \(((n,L,d))\) CWS construction \cite[Sec. IV.E]{arxiv:2311.07265}.'
   cousins:
+    - code_id: cluster_state
+      detail: 'A single cluster-state codeword is used to construct a CWS code.'
     - code_id: movassagh_ouyang
-      detail: 'The Movassagh-Ouyang codes overlap the CWS codes but neither family is contained in the other.'
+      detail: 'The Movassagh-Ouyang codes overlap the CWS codes but neither family is contained in the other \cite{arXiv:2012.01453}.'
     - code_id: spacetime
       detail: 'CWS codes have been considered in the context of spacetime replication of quantum data \cite{arxiv:1210.0913,arXiv:1601.02544}, while STCs are designed to replicate classical data.'
 
@@ -63,6 +72,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-28'
     - user_id: VictorVAlbert
       date: '2022-04-21'
     - user_id: VictorVAlbert

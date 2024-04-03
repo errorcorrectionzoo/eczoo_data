@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_cws
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit CWS code'
+introduced: '\cite{arXiv:0712.1979,arXiv:0801.0831}'
+
+description: |
+  A CWS code for modular qudits, defined using a modular-qudit cluster state and a set of modular-qudit \(Z\)-type Pauli strings defined by a \(q\)-ary classical code over \(\mathbb{Z}_q\).
+
+  The modular-qudit CWS construction takes in \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \), where \(\mathcal{G}\) is a graph, and where \(\mathcal{C}\) is an \((n,K,d)_{\mathbb{Z}_q}\) \(q\)-ary code over \(\mathbb{Z}_q\).
+  From the graph, we form the modular-qudit cluster state \( |\mathcal{G} \rangle \).
+  From the \(q\)-ary code, we form modular-qudit Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th coordinate of the \(i\)-th classical codeword.
+  The codewords are then \( | i \rangle =  W_i | \mathcal{G} \rangle \).
+
+  In an alternative convention (not used here), CWS codes are defined from an underlying modular-qudit stabilizer state that is not a necessarily a cluster state.
+
+notes:
+  - 'See Ref. \cite{arxiv:0712.1979} for qudit CWS code tables.'
+
+relations:
+  parents:
+    - code_id: qudit_non_stabilizer
+      detail: 'Any modular-qudit CWS code can be written as a modular-qudit USt whose (\(K=1\)) stabilizer code is the cluster state and whose coset representatives are constructed from the \(q\)-ary classical code over \(\mathbb{Z}_q\).
+      Conversely, modular-qudit USts are equivalent to modular-qudit CWS codes via a single-Galois-qudit Clifford circuit as follows \cite{arxiv:0907.2038,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.
+      The set of coset representatives of any modular-qudit USt can be extended to a larger set iterating over the underlying stabilizer code such that all codewords can be obtained from a single stabilizer state.
+      Then, one can apply a single-qubit Clifford transformation to map said stabilizer state into a cluster state.'
+    - code_id: group_cluster_state
+      detail: 'A single group-based cluster-state codeword for \(G=\mathbb{Z}_q\) is used to construct a modular-qudit CWS code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-03-28'
+    - user_id: VictorVAlbert
+      date: '2024-02-11'

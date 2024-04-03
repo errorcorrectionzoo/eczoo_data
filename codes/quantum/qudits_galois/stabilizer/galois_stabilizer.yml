@@ -13,7 +13,10 @@ introduced: '\cite{doi:10.1109/18.959288,arXiv:quant-ph/0508070}'
 description: |
   An \(((n,K,d))_q\) Galois-qudit code whose logical subspace is the joint eigenspace of commuting Galois-qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\). The distance \(d\) is the minimum weight of a Galois-qudit Pauli string that implements a nontrivial logical operation in the code.
 
-  A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\). This notation differentiates between Galois-qudit and modular-qudit \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer codes, although the same notation is usually used for both. Galois-qudit stabilizer codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
+  A Galois-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\).
+  This notation differentiates between Galois-qudit and modular-qudit \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer codes, although the same notation is usually used for both.
+  Galois-qudit stabilizer codes need not encode an integer number of qudits, with \(K=q^{n-\frac{r}{m}}\), where \(r\) is the number of generators of the stabilizer group, and \(q=p^m\) given prime \(p\) for all Galois qudits.
+  As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
 
   \begin{defterm}{Galois symplectic representation}
   \label{topic:galois-symplectic-representation}
@@ -68,9 +71,12 @@ notes:
 relations:
   parents:
     - code_id: galois_non_stabilizer
-      detail: 'A Galois-qudit union stabilizer code reduces to a Galois-qudit stabilizer code when there are no error spaces included in the code.'
+      detail: 'A Galois-qudit stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a Galois-qudit USt with no coset representatives.
+      Conversely, if \(K = q^k\), and if the set of coset representatives of a Galois-qudit USt form a \(q\)-ary linear code, then they can be absorbed into a Galois-qudit stabilizer group that defines the USt.'
     - code_id: stabilizer
   cousins:
+    - code_id: galois_cws
+      detail: 'Galois-qudit CWS codes whose underlying classical code is a linear \(q\)-ary code are Galois-qudit stabilizer codes containing a cluster-state codeword.'
     - code_id: qudit_stabilizer
       detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{doi:10.1109/18.959288}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits.'
     - code_id: q-ary_additive

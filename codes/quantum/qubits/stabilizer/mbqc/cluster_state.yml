@@ -14,17 +14,19 @@ alternative_names:
   - 'Graph-state code'
 
 description: |
-  Code consisting of cluster states \cite{arxiv:quant-ph/0004051}, which are stabilizer states defined on a graph. There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
+  Code consisting of (typically one) cluster states \cite{arxiv:quant-ph/0004051}.
+  Often used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding a conventional code with a spatial dimension.
+  This is done by encoding the computation into the features of the cluster state''s graph.
+
+  Cluster states are stabilizer states defined on a graph.
+  There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
   \begin{align}
     S_v = X_{v} \prod_{w\in N(v)} Z_w~,
   \end{align}
   where the neighborhood \(N(v)\) is the set of vertices which share an edge with \(v\).
 
-  Cluster-state codewords are used in measurement-based quantum computation (MBQC), which substitutes the temporal dimension necessary for decoding with a spatial dimension.
-  This is done by encoding the computation into the topological features of the cluster state''s graph.
-
   An MBQC scheme can be constructed out of any qubit CSS code (via \textit{foliation} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
-  The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (equivalently, a cubic lattice with qubits on edges and faces).
+  The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (i.e., a cubic lattice with qubits on edges and faces).
 
 protection: |
   Protection is related to the stabilizer code underlying the cluster state.
@@ -84,9 +86,11 @@ relations:
   parents:
     - code_id: qubit_stabilizer
       detail: 'Cluster states are particular qubit stabilizer states defined on a graph.
-      Any qubit stabilizer code is locally equivalent to a graph code \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0703112}).
-      As a corollary, any qubit stabilizer state is locally equivalent to a cluster state \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
+      Any qubit stabilizer code is equivalent to a graph code via a single-qubit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0703112}).
+      As a corollary, any qubit stabilizer state is equivalent to a cluster state under a single-qubit Clifford circuit \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
       Any fault-tolerant scheme based on qubit stabilizer codes can be mapped into a cluster-state based MBQC protocol \cite{arxiv:1811.11780}.'
+    - code_id: group_cluster_state
+      detail: 'Group-based cluster-state codes reduce to cluster-state codes for \(G=\mathbb{Z}_2\).'
   cousins:
     - code_id: fusion
       detail: 'FBQC and MBQC are both computational models in which computation is done by measuring resource states (which are qubit stabilizer states).

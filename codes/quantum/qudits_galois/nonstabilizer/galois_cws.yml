@@ -11,12 +11,21 @@ name: 'Galois-qudit CWS code'
 # introduced: '\cite{arXiv:0712.1979,arXiv:0801.0831}'
 
 description: |
-  A CWS code for Galois qudits.
-  This entry has not yet been developed in the literature.
+  A CWS code for Galois qudits, defined using a Galois-qudit cluster state and a set of Galois-qudit \(Z\)-type Pauli strings defined by a \(q\)-ary classical code.
+
+  This entry has not yet been developed in the literature, so the formulation below is a conjecture.
+  The Galois-qudit CWS construction takes in \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \), where \(\mathcal{G}\) is a graph, and where \(\mathcal{C}\) is an \((n,K,d)_q\) \(q\)-ary code.
+  From the graph, we form the Galois-qudit cluster state \( |\mathcal{G} \rangle \).
+  From the \(q\)-ary code, we form Galois-qudit Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th coordinate of the \(i\)-th classical codeword.
+  The codewords are then \( | i \rangle =  W_i | \mathcal{G} \rangle \).
 
 relations:
   parents:
-    - code_id: galois_into_galois
+    - code_id: galois_non_stabilizer
+      detail: 'Any Galois-qudit CWS code can be written as a USt whose (\(K=1\)) stabilizer code is the cluster state and whose coset representatives are constructed from the \(q\)-ary classical code.'
+  cousins:
+    - code_id: group_cluster_state
+      detail: 'A group-based cluster-state codeword for \(G=GF(q)\) is used to construct a modular-qudit CWS code.'
 
 
 # Begin Entry Meta Information

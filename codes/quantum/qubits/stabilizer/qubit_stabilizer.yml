@@ -10,8 +10,13 @@ logical: qubits
 name: 'Qubit stabilizer code'
 introduced: '\cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}'
 
+alternative_names:
+  - 'Pauli stabilizer code'
+  - 'Additive quantum code'
+  - 'Additive CWS code'
+
 description: |
-  Also called a \textit{Pauli stabilizer code}. An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\). The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
+  An \(((n,2^k,d))\) qubit stabilizer code is denoted as \([[n,k]]\) or \([[n,k,d]]\), where \(d\) is the code's distance. Logical subspace is the joint eigenspace of commuting Pauli operators forming the code's stabilizer group \(\mathsf{S}\). Traditionally, the logical subspace is the joint \(+1\) eigenspace of a set of \(2^{n-k}\) commuting Pauli operators which do not contain \(-I\). The distance is the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
   \begin{defterm}{Binary symplectic representation}
   \label{topic:binary-symplectic-representation}
@@ -130,7 +135,8 @@ notes:
 relations:
   parents:
     - code_id: non_stabilizer
-      detail: 'A union stabilizer code reduces to a stabilizer code when there are no error spaces included in the code.'
+      detail: 'A stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a USt with no coset representatives.
+      Conversely, if the set of coset representatives of a USt form a linear binary code, then they can be absorbed into a stabilizer group that defines the USt.'
     - code_id: xp_stabilizer
       detail: 'The XP stabilizer formalism reduces to the Pauli formalism at \(N=2\).'
     - code_id: qudit_stabilizer
@@ -144,6 +150,8 @@ relations:
       detail: 'Galois-qudit stabilizer codes for \(q=2\) correspond to qubit stabilizer codes.'
     - code_id: qubit_stabilizer_oaqecc
   cousins:
+    - code_id: cws
+      detail: 'CWS codes whose underlying classical code is a linear binary code are qubit stabilizer codes containing a cluster-state codeword.'
     - code_id: binary_linear
       detail: 'Qubit stabilizer codes are the closest quantum analogues of binary linear codes because addition modulo two corresponds to multiplication of stabilizers in the quantum case.
       Any binary linear code can be thought of as a qubit stabilizer code with \(Z\)-type stabilizer generators \cite[Table I]{arxiv:quant-ph/0610088}.
