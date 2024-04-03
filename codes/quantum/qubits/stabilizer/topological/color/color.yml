@@ -12,8 +12,8 @@ introduced: '\cite{arxiv:quant-ph/0605138}'
 # not a lattice code because can be defined on general graph
 
 description: |
-  Member of a family of CSS codes defined on a \(D\)-dimensional graph which satisfies two properties: (1) the graph is a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex, and (2) the graph is \(D+1\)-colorable.
-  Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{arXiv:1311.0277,doi:10.7907/059V-MG69}.
+  Member of a family of qubit CSS codes defined on a \(D\)-dimensional graph which satisfies two properties: (1) the graph is a homogeneous simplicial \(D\)-complex obtained as a triangulation of the interior of a \(D\)-simplex, and (2) the graph is \(D+1\)-colorable.
+  Qubits are placed on the \(D\)-simplices and generators are supported on suitable simplices \cite{arXiv:1311.0277,arxiv:1410.0069,doi:10.7907/059V-MG69}.
 
 # For 2-dimensional color code, the lattice must be such that it is 3-valent and has 3-colorable faces, such as a honeycomb lattice.
 # The qubits are placed on the vertices and two stabilizer generators are placed on each face \cite{arXiv:1311.0277}.
@@ -24,6 +24,7 @@ protection: |
 
 
 features:
+  transversal_gates: 'Some color codes on \(D\)-dimensional lattices can transversally implement a gate at the \((D-1)\)st level of the \term{Clifford hierarchy} in the form of a \(Z\)-rotation by angle \(-\pi/2^D\) \cite[Fig. 3]{arxiv:1410.0069}.'
   decoders:
     - 'In contrast to the surface code, the color code can suffer from unremovable hook errors due to the specifics of its syndrome extraction circuits.
     Fault-tolerant decoders thus have to utilize additional flag qubits.'

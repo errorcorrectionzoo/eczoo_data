@@ -55,6 +55,14 @@ protection: |
   Define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\).
   A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
 
+  \begin{defterm}{Cleaning lemma}
+  \label{topic:cleaning-lemma}
+  If all logical operators act trivially on some subset of qubits in a stabilizer code, then any logical Pauli operator can be represented on the complementary qubit subset via a stabilizer.
+  More technically, given any subset \(M\) of qubits that is correctable (under erasure), any logical Pauli operator \(P\) can be \textit{cleaned off} of \(M\) using a stabilizer \(S\) such that \(PS\) is supported on \(M^{\perp}\).
+  More generally, for any \(M\), we have \(g(M)+g(M^{\perp}) = 2k\), where \(g(M)\) is the number of logical-\(X\) and logical-\(Z\) Pauli operators supported fully on \(M\) (up to stabilizers).
+  The Cleaning Lemma was originally proven \cite{arxiv:0810.1983}, where an analogous result is states for subsystem codes; see also Ref. \cite{arxiv:2204.04699}.
+  \end{defterm}
+
   Entropic conditions have been formulated for random projective measurement noise \cite{arxiv:2402.00145}.
 
 
