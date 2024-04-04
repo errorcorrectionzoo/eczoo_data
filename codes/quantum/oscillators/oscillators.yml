@@ -22,14 +22,19 @@ description: |
 
 protection: |
 
-  \subsection{Displacement operators}
+  \subsection{Displacement error basis}
 
-  An error set relevant to \hyperref[code:oscillator_stabilizer]{bosonic stabilizer} codes is the set of \textit{displacement operators}, a bosonic analogue of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes. For a single mode, its elements are products of exponentials of the mode's position and momentum operators, acting on the mode's position states \(|y\rangle\) for \(y\in\mathbb{R}\) as
+  An error set relevant to \hyperref[code:oscillator_stabilizer]{bosonic stabilizer} codes is the set of \textit{displacement operators}, a bosonic analogue of the Pauli string basis for \hyperref[code:qubits_into_qubits]{qubit} codes.
+
+  \begin{defterm}{Displacement operators}
+  \label{topic:displacements}
+  For a single mode, its elements are products of exponentials of the mode's position and momentum operators, acting on the mode's position states \(|y\rangle\) for \(y\in\mathbb{R}\) as
   \begin{align}
     e^{-iq\hat{p}}\left|y\right\rangle =\left|y+q\right\rangle \,\,\text{ and }\,\,e^{iq\hat{x}}\left|y\right\rangle =e^{iq y}\left|y\right\rangle ~,
   \end{align}
   where \(q\in\mathbb{R}\).
   For multiple modes, error set elements are tensor products of elements of the single-oscillator error set, characterized by the vector of coefficients \(\xi\in\mathbb{R}^{2n}\).
+  \end{defterm}
 
   The displacement error set is a unitary basis for bounded operators on the \(n\)-mode Hilbert space that is Dirac-orthonormal under the Hilbert-Schmidt inner product.
   Expanding a bounded operator in terms of displacements is called the \textit{Fourier-Weyl transform} or \textit{Fourier-Weyl relation} \cite[Eq. (4.11)]{doi:10.1201/9781315118727}\cite{doi:10.1103/PhysRev.177.1857} (e.g., for the expansion of Gaussian unitary operations, see \cite[Eq. (7.62)]{doi:10.1007/3-7643-7575-2}).
