@@ -19,6 +19,7 @@ protection: |
   As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers, where \(R = \log_2 K/n\) is the code rate.
 
   \subsection{Pauli-string error basis}
+  \begin{defterm}{topic:pauli}
   A convenient and often considered error set is the \textit{Pauli error} or \textit{Pauli string} basis. For a single qubit, this set consists of products of powers of the Pauli matrices
   \begin{align}
     X=\begin{pmatrix}0 & 1\\
@@ -31,6 +32,7 @@ protection: |
 
   The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical \hyperref[topic:nice-error-basis]{nice error basis}.
   The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
+  \end{defterm}
 
   The minimum weight of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arXiv:2107.11286}.
   Codes whose distance is greater than the diagonal distance are \hyperref[topic:degeneracy]{degenerate}.

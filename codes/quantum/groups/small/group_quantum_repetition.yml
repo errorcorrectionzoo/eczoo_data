@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: group_quantum_repetition
+physical: groups
+logical: groups
+
+name: 'Group-based quantum repetition code'
+introduced: '\cite{arxiv:1902.07714}'
+
+description: |
+  An \([[n,1]]_G\) generalization of the quantum repetition code.
+
+  The code encodes one group-valued qudit into \(n\).
+  There are two variants, a bit- and a phase-flip code, whose codewords for any \(g\in G\) and for \(n=3\) are
+  \begin{align}
+    |\overline{g}_{\text{bit}}\rangle&\rightarrow|g,g,g\rangle\\
+    |\overline{g}_{\text{phase}}\rangle&\rightarrow\frac{1}{|G|}\sum_{h_{1},h_{2},h_{3}\in G}\delta_{g,h_{1}h_{2}h_{3}}|h_{1},h_{2},h_{3}\rangle~,
+  \end{align}
+  where \(\delta_{g,h}\) is the \hyperref[topic:group-pauli]{group Kronecker-delta function}.
+
+
+relations:
+  parents:
+    - code_id: group_gkp
+  cousins:
+    - code_id: quantum_parity
+      detail: 'Group-based bit- and phase-flip repetition codes can be concatenated to yield group-based generalization of QPCs \cite{arxiv:1902.07714}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-04'
