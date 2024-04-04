@@ -12,10 +12,15 @@ short_name: '\([[15, 7, 3]]\)'
 introduced: '\cite{arxiv:quant-ph/9512032,arxiv:quant-ph/9605021,manual:{Jim Harrington and Ben W. Reichardt, “Addressable multi-qubit logic via permutations,” Talk at Southwest Quantum Information and Technology (SQuInT) (2011).}}'
 # First ref in https://arxiv.org/pdf/1912.10063.pdf
 
-description: 'Self-dual quantum Hamming code that admits permutation-based CZ logical gates.'
+description: |
+  Self-dual quantum Hamming code that admits permutation-based CZ logical gates.
+  The code is constructed using the CSS construction from the \([15,11,3]\) Hamming code and its \([15,4,8]\) dual code.
+
 
 features:
-  transversal_gates: 'Single-qubit Clifford operations applied transversally yield the corresponding Clifford gates on one of the logical qubits \cite{arxiv:1705.05365}. CNOT gate because it is a CSS code. Transversal CCZ gate \cite{arxiv:1304.3709}.'
+  transversal_gates: 'Single-qubit Clifford operations applied transversally yield the corresponding Clifford gates on one of the logical qubits \cite{arxiv:1705.05365}. CNOT gate because it is a CSS code.
+  Automorphism groups of the underlying classical codes can yield transversal gates when combined with qubit permutations \cite[Sec. IV.A]{arxiv:1302.1035}.
+  Transversal CCZ gate \cite{arxiv:1304.3709}.'
   general_gates:
     - 'CZ gates can be performed using qubit permutations, and a CCZ gate can be performed using four ancilla qubits \cite{arxiv:1705.05365}.'
   fault_tolerance:
