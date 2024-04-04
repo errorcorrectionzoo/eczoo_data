@@ -54,15 +54,6 @@ description: |
 
 protection: 'The Steane code is a distance 3 code. It detects errors on 2 qubits, corrects errors on 1 qubit.'
 
-realizations:
-  - 'Trapped-ion devices: seven-qubit device in Blatt group \cite{arXiv:1403.5426}.
-  Ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} realizing repeated syndrome extraction, real-time look-up-table decoding (yielding lower logical SPAM error rate than physical SPAM), and non-fault-tolerant magic-state distillation (see APS Physics Synopsis \cite{doi:10.1103/Physics.14.184}).
-  Fault-tolerant universal two-qubit gate set using T injection by Monz group \cite{arxiv:2111.12654}.
-  Logical CNOT gate and Bell-pair creation between two logical qubits (yielding a logical fidelity higher than physical), including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.
-  Multiple rounds of Steane error correction \cite{arxiv:2312.09745}.
-  Fault-tolerant universal gate set via code switching between the Steane code and the \([[10,1,2]]\) code \cite{arxiv:2403.13732}.'
-  - 'Rydberg atom arrays: Lukin group \cite{arXiv:2112.03923}; transversal CNOT gate performed on distance \(3\), \(5\), and \(7\) codes, logical ten-qubit GHZ state initialized with break-even fidelity, fault-tolerant logical two-qubit GHZ state initialized \cite{arxiv:2312.03982}.'
-
 features:
   encoders:
     - 'Nine CNOT and four Hadamard gates (\cite{doi:10.1201/9781420012293}, Fig. 10.14).'
@@ -81,6 +72,17 @@ features:
     - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
     - 'Syndrome measurement can be done with ancillary flag qubits \cite{arXiv:1612.04795,arXiv:1705.02329} or with no extra qubits \cite{doi:10.1088/2058-9565/abc6f4}.
     The depth of syndrome extraction circuits can be lowered by using past syndrome values \cite{arxiv:2305.00784}.'
+
+realizations:
+  - 'Trapped-ion devices: seven-qubit device in Blatt group \cite{arXiv:1403.5426}.
+  Ten-qubit QCCD device by Quantinuum \cite{arXiv:2107.07505} realizing repeated syndrome extraction, real-time look-up-table decoding (yielding lower logical SPAM error rate than physical SPAM), and non-fault-tolerant magic-state distillation (see APS Physics Synopsis \cite{doi:10.1103/Physics.14.184}).
+  Fault-tolerant universal two-qubit gate set using T injection by Monz group \cite{arxiv:2111.12654}.
+  Logical CNOT gate and Bell-pair creation between two logical qubits (yielding a logical fidelity higher than physical), including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.
+  Multiple rounds of Steane error correction \cite{arxiv:2312.09745}.
+  Fault-tolerant universal gate set via code switching between the Steane code and the \([[10,1,2]]\) code \cite{arxiv:2403.13732}.
+  Post-selected fault-tolerant logical Bell-state preparation with logical error rates at least 10 times lower than physical rate on a device by Quantinuum \cite{arxiv:2404.02280}.'
+  - 'Rydberg atom arrays: Lukin group \cite{arXiv:2112.03923}; transversal CNOT gate performed on distance \(3\), \(5\), and \(7\) codes, logical ten-qubit GHZ state initialized with break-even fidelity, fault-tolerant logical two-qubit GHZ state initialized \cite{arxiv:2312.03982}.'
+
 
 relations:
   parents:
