@@ -8,8 +8,11 @@ physical: qubits
 logical: qubits
 
 name: 'Dynamical automorphism (DA) code'
-short_name: 'DA code'
-introduced: \cite{arXiv:2307.10353}
+short_name: 'DA'
+introduced: \cite{arXiv:2107.02194,arXiv:2307.10353}
+
+alternative_names:
+  - 'Dynamical code'
 
 description: |
   Dynamically-generated stabilizer-based code whose (not necessarily periodic) sequence of few-body measurements implements state initialization, logical gates and error detection.
@@ -23,10 +26,33 @@ description: |
   For DA codes based on topological phases, the phase associated with each ISG of the code can be obtained from a single \textit{parent topological phase} associated with the DA code \cite{arxiv:2212.00042} via as \hyperref[topic:code-switching]{anyon condensation}.
   In this way, measurements cycle logical quantum information between the various condensed phases.
 
+
 # Known examples of DA codes include Floquet codes, whose measurement sequences are periodic.
 # DA codes with useful aperiodic sequences include the 2D (3D) DA color codes, which realize the ISG of 2D (3D) color codes at certain measurement rounds, and which can implement Clifford (non-Clifford) gates during their evolution by measurements \cite{arXiv:2307.10353}.
 
+protection: |
+  \subsection{Classification of stabilizers by masking}
+  There exists an efficient classical algorithm that tracks information learned by syndrome extraction at each step \cite{arxiv:2403.04163}.
+  The algorithm performs the following classification of stabilizers into unmasked, temporarily masked, and permanently unmasked stabilizers.
+
+  An unmasked stabilizer is a stabilizer whose outcome can be obtained by measurements.
+  In general, it is not obvious to determine if a stabilizer can be unmasked as its eigenvalue may only be revealed indirectly as a product of several measurements.
+  A temporarily masked stabilizer is a stabilizer whose syndrome can not be obtained by the given sequence but could possibly be obtained with future measurements.
+  A permanently masked stabilizer is a stabilizer whose outcome is irreversibly lost by the given sequence.
+
+  For a masked stabilizer code with a set \(U\) of \(l\) masked stabilizers, its \textit{masked distance} is given by:
+  \begin{equation}
+      d_{\mathrm{u}} \coloneqq \min\:\text{wt}\{ \mathsf{N}(U)\backslash \mathsf{G}\}~.
+  \end{equation}
+  Above, \(\mathsf{G}\) is a gauge group defined from the algorithm that depends partly on the freedom in the choice of destabilizers for the temporarily masked stabilizers, and partly on the measurement sequence which fixes the destabilizers for the permanently masked stabilizers.
+
 features:
+  rate: |
+    Code bounds similar to the \hyperref[topic:bpt-bound]{BPT} and \hyperref[topic:bk-bound]{BK bounds} can be formulated for QLDPC codes that are embedded in a \(D\)-dimensional lattice but that admit some long-range connectivity \cite{arxiv:2403.04163}.
+
+  encoders:
+    - 'An \(r\)-cycle measurement sequence can initialize a DA code with \(r\) stabilizer generators \cite{arxiv:2403.04163}.'
+
   general_gates:
   -  'The measurement sequences of the 2D DA color code on a \(N\) layers of triangular patches (which encodes \(N\) logical qubits) with a \textit{Pauli boundary} can be used to implement all Clifford logical gates via a sequence of two- and three-qubit measurements \cite{arXiv:2307.10353}.'
   - 'The 3D DA color code allows for a non-Clifford logical gate via adaptive two-qubit measurements \cite{arXiv:2307.10353}.'
@@ -45,15 +71,19 @@ relations:
     - code_id: surface
       detail: 'One of the instantaneous stabilizer codes of the 2D DA color code are stacks of toric/surface codes'
     - code_id: topological_abelian
-      detail: 'Useful measurement sequences of DA Floquet codes can be extracted from topological quantum field theory \cite{arXiv:2307.10353}.'
+      detail: 'Useful measurement sequences of DA codes can be extracted from topological quantum field theory \cite{arXiv:2307.10353}.'
     - code_id: translationally_invariant_stabilizer
-      detail: 'DA codes are defined on 2D and 3D lattices, but they are not conventional stabilizer codes in that they use code switching for error correction and gates.'
+      detail: 'DA codes are typically defined on 2D and 3D lattices, but they are not conventional stabilizer codes in that they use code switching for error correction and gates.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-04'
+    - user_id: XiaozhenFu
+      date: '2024-04-04'
     - user_id: VictorVAlbert
       date: '2023-07-21'
     - user_id: ShankarBalasubramanian
