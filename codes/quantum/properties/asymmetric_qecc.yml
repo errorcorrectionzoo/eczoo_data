@@ -1,0 +1,103 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: asymmetric_qecc
+
+name: 'Asymmetric quantum code'
+introduced: '\cite{arxiv:quant-ph/9605021,arxiv:quant-ph/060610}'
+
+alternative_names:
+  - 'Noise-biased quantum code'
+
+description: |
+  Quantum systems can be roughly characterized by two types of noise, a bit-flip noise that maps canonical basis states into each other, and a phase-flip noise that induces relative phases between superpositions of such basis states.
+  A code cannot protect against both types of noise arbitrarily well, and there is tradeoff between the two types of protection.
+  An asymmetric quantum code is one that performs much better against one type of noise than the other type.
+  Such codes typically have tunable distances against each noise type and include CSS codes, GKP codes, and QSCs.
+
+protection: |
+    Noise channels for which one type of noise is more prominent than the other are called \textit{asymmetric-noise channels} or \textit{biased-noise channels}.
+
+    In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
+		An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes has been formulated \cite{doi:10.1098/rspa.2008.0439}.
+    Such codes have been characterized \cite{arxiv:1006.1694}.
+
+features:
+  general_gates:
+    - 'Taking into account noise bias can reduce resource overhead in magic-state distillation schemes \cite{arxiv:1509.05032}.'
+    - 'A CNOT gate continuously connected to the identity cannot be noise-bias-preserving in finite dimensions \cite{arxiv:0806.0383}\cite[Appx. A]{arxiv:1904.09474}.'
+
+  threshold:
+    - 'A lower bound on concatenated thresholds with CSS codes under biased noise \cite{arxiv:0710.1301}.'
+
+  fault_tolerance:
+    - 'Fault-tolerant noise-bias-preserving computation scheme \cite{arxiv:0806.0383}.'
+    - 'Fault-tolerant circuits converting between asymmetric and symmetric subsystem codes \cite{arxiv:0709.3875}.'
+
+
+notes: |
+  - 'See Ref. \cite{arxiv:1403.7755} for a brief review of asymmetric quantum codes.'
+
+relations:
+  parents:
+    - code_id: qecc
+  cousins:
+    - code_id: distance_balanced
+      detail: 'Distance balancing is a procedure that can convert an asymmetric CSS code into a less asymmetric one.'
+    - code_id: subsystem_surface
+      detail: 'Subsystem surface codes perform well against biased circuit-level noise \cite{arxiv:2010.09626}.'
+    - code_id: clifford-deformed_surface
+      detail: 'Random Clifford deformation can improve performance of CDSCs agaisnt biased noise \cite{arxiv:2201.07802}.'
+    - code_id: xysurface
+      detail: 'XY surface codes perform well against biased noise \cite{arxiv:1708.08474}.'
+    - code_id: xyz_color
+      detail: 'XYZ color codes perform well against biased noise \cite{arxiv:2203.16534}.'
+    - code_id: twisted_xzzx
+      detail: 'Twisted XZZX codes perform well against biased noise \cite{arxiv:1703.08179,arxiv:2009.07851,arxiv:arxiv:2203.16486}; see also Ref. \cite{arxiv:1112.1613}.'
+    - code_id: xzzx
+      detail: 'The XZZX surface code can be foliated for a noise-bias preserving MBQC \cite{arxiv:2201.10566} or FBQC \cite{arxiv:2303.16122} protocol; see also \cite{arxiv:1308.4776}.'
+    - code_id: concatenated_steane
+      detail: 'Concatenating while taking into account noise bias can reduce resource overhead \cite{arxiv:0709.3875}.'
+    - code_id: quantum_mds
+      detail: 'An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes has been formulated \cite{doi:10.1098/rspa.2008.0439}.
+      Asymmetric MDS codes have been characterized \cite{arxiv:1006.1694}.'
+    - code_id: two_dimensional_hyperbolic_surface
+      detail: 'Asymmetric 2D hyperbolic surface codes have been constructed \cite{arxiv:2105.01144}.'
+    - code_id: surface
+      detail: 'The surface code on a hexagonal lattice is a CSS AQECC \cite{arxiv:2105.01144}.'
+    - code_id: compass_model
+      detail: 'Families of random codes perform well against biased noise and spatially dependent (i.e., asymmetric) noise \cite{arxiv:1809.01193}.'
+    - code_id: css
+      detail: 'In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).'
+    - code_id: quantum_reed_muller
+      detail: 'Asymmetric quantum RM codes have been constructed \cite[Lemma 4.1]{doi:10.1098/rspa.2008.0439}.'
+    - code_id: quantum_bch
+      detail: 'Asymmetric quantum BCH codes have been constructed \cite[Lemma 4.4]{doi:10.1098/rspa.2008.0439}\cite{arxiv:quant-ph/0606107,doi:10.26421/QIC11.3-4-4}.'
+    - code_id: pg_ldpc
+      detail: 'EG-LDPC codes can be used to construct asymmetric CSS codes \cite[Lemma 4.1]{doi:10.1098/rspa.2008.0439}.'
+    - code_id: galois_polynomial
+      detail: 'Asymmetric Galois-qudit RS codes have been constructed \cite{doi:10.1007/s11128-011-0269-3}.'
+    - code_id: bacon_shor
+      detail: 'Bacon-Shor code parameters against bit- and phase-noise can be optimized by changing the block geometry, yielding good performance against biased noise \cite{arxiv:1209.0794}.
+      A fault-tolerant teleportation-based computation scheme for asymmetric Bacon-Shor codes is effective against highly biased noise \cite{arxiv:1211.1400}.'
+    - code_id: two-legged-cat
+      detail: 'Two-component cat codes admit a bias-preserving CNOT gate that is continuously connected to the identity \cite{arXiv:1904.09474,arXiv:1905.00450}.'
+    - code_id: gkp
+      detail: 'GKP code parameters against position and momentum displacements can be tuned by the choice of lattice (e.g., square vs rectangular).'
+    - code_id: binomial
+      detail: 'Binomial code parameters against loss/gain errors and dephasing can be tuned.'
+    - code_id: qsc
+      detail: 'QSC code parameters against loss/gain errors and Gaussian rotations can be tuned.'
+    - code_id: quantum_parity
+      detail: 'QPC parameters against bit- and phase-noise can be tuned.'
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-04'
