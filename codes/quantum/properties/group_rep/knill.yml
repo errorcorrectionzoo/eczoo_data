@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: knill
+
+name: 'Knill code'
+introduced: '\cite{arxiv:quant-ph/9608049}'
+
+alternative_names:
+  - 'Clifford code'
+
+description: |
+  A group representation code whose projection is onto an irrep of a normal subgroup of the group formed by a nice error basis.
+  Knill codes yield stabilizer-like codes based on non-Pauli error bases that nevertheless maintain many of the useful features of Pauli strings.
+
+  \begin{defterm}
+  \label{topic:nice-error-basis}
+    A nice error basis \cite{arxiv:quant-ph/9608048,arxiv:quant-ph/9608049,arxiv:quant-ph/0010082} for an \(q\)-dimensional vector space is a set \(\{E_g~,~g\in G\}\) of unitary operators, where \(G\) is a group of order \(q^2\), and where
+    \begin{align}
+      \text{tr}(E_{g})&=q\delta_{g,1}\\
+      E_{g}E_{h}&=\omega_{g,h}E_{gh}
+    \end{align}
+  for all \(g,h\in G\).
+  Above, \(\delta_{g,1} = 1\) when \(g\) is the identity and zero otherwise.
+  A basis is called \textit{very nice} if \(\omega\) is a root of unity.
+  This definition can naturally be extended to continuous groups.
+  \end{defterm}
+
+
+notes:
+  - 'Catalogue of \hyperref[topic:nice-error-basis]{nice error bases}, managed by A. Klappenecker and M. Rotteler, is available on \hyperref{this website}{https://people.engr.tamu.edu/andreas-klappenecker/ueb/ueb.html}.'
+  - 'Many Knill codes are qubit stabilizer codes \cite{arxiv:quant-ph/0010076}.
+  A table of non-stabilizer Knill codes is available in Ref. \cite{doi:10.26421/QIC4.2-7}.'
+
+
+relations:
+  parents:
+    - code_id: group_representation
+      detail: 'Knill codes project onto a single irrep of the normalizer of a normal subgroup of the group formed by a \hyperref[topic:nice-error-basis]{nice error basis} \cite[Lemma 3.1]{arxiv:quant-ph/9608049}.'
+  cousins:
+    - code_id: oecc
+      detail: 'Subsystem Knill codes can be formulated \cite{arxiv:quant-ph/0604161}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-04'
