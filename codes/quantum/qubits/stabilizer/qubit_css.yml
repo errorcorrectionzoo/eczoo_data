@@ -42,7 +42,7 @@ description: |
   \end{align}
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
-  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric} CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
+  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for \textit{asymmetric CSS codes} is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
   The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to \hyperref[topic:degeneracy]{degeneracy} \cite{preset:GottesmanBook}.
 
   To find the minimum distance of \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
@@ -107,7 +107,7 @@ features:
   transversal_gates: |
     All CSS codes admit transversal Pauli and CNOT gates \cite{arXiv:quant-ph/9605011}.
     Self-dual CSS codes admit a transversal Hadamard gate.
-    Automorphism groups of the underlying classical codes can yield transversal gates when combined with qubit permutations \cite[Thms. 2-3]{arxiv:1302.1035}.
+    Automorphism groups of the underlying classical codes can yield transversal Clifford gates when combined with qubit permutations \cite[Thms. 2-3]{arxiv:1302.1035}.
     Realizing transversal gates outside of the Clifford group requires certain higher-order (i.e., non-quadratic) constraints to be satisfied on the code \cite{arxiv:1209.2426} (see \hyperref[code:quantum_divisible]{quantum divisible} codes).
     There are routines that can determine what diagonal gates in the \term{Clifford hierarchy} are realized by a code \cite{arxiv:2303.15615,manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.
   general_gates:
