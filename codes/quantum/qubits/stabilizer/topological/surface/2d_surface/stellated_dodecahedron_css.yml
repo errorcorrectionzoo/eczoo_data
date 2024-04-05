@@ -7,7 +7,7 @@ code_id: stellated_dodecahedron_css
 physical: qubits
 logical: qubits
 
-name: 'Bring''s code'
+name: '\([[30,8,3]]\) Bring code'
 introduced: '\cite{arXiv:1712.07666}'
 
 alternative_names:
@@ -17,13 +17,18 @@ description: |
   A \([[30,8,3]]\) hyperbolic surface code on a quotient of the \(\{5,5\}\) hyperbolic tiling called Bring's curve.
   Its qubits and stabilizer generators lie on the vertices of the small stellated dodecahedron. Admits a set of weight-five stabilizer generators.
 
+features:
+  transversal_gates: 'Clifford group of four of the eight logical qubits can be done by transversal gates combined with qubit permutations \cite{arxiv:2202.06647}.'
+
 relations:
   parents:
     - code_id: two_dimensional_hyperbolic_surface
     - code_id: small_distance_quantum
   cousins:
     - code_id: polytope
-      detail: 'Bring''s code and related codes listed in \cite[Table 1]{arXiv:1712.07666} arrange qubits and stabilizer generators on polytopes.'
+      detail: 'Bring code and related codes listed in \cite[Table 1]{arXiv:1712.07666} arrange qubits and stabilizer generators on polytopes.'
+    - code_id: golay
+      detail: 'The automorphism group of the parity-check matrix of the Golay code is the same as a certai automorphism group of the Bring code \cite{arxiv:2202.06647}.'
 
 
 # Begin Entry Meta Information
