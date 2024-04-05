@@ -8,7 +8,7 @@ code_id: block_quantum
 name: 'Block quantum code'
 
 description: |
-  A code constructed in a multi-partite quantum system, i.e., a physical space consisting of a tensor product of \(n\) identical subsystems, e.g., qubits, modular qudits, Galois qudits, or oscillators.
+  A code constructed in a multi-partite quantum system, i.e., a physical space consisting of a tensor product of \(n > 1\) identical subsystems, e.g., qubits, modular qudits, Galois qudits, or oscillators.
 
 protection: |
   Block codes protect from errors acting on a few of the \(n\) subsystems. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) subsystems, and corrects erasure errors on up to \(d-1\) subsystems.
@@ -23,6 +23,9 @@ features:
 relations:
   parents:
     - code_id: qecc
+  cousins:
+    - code_id: single_subsystem
+      detail: 'Block quantum codes for \(n=1\) are monolithic codes.'
 
 
 # Begin Entry Meta Information

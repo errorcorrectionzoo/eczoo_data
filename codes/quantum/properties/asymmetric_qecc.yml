@@ -13,15 +13,16 @@ alternative_names:
 
 description: |
   Quantum systems can be roughly characterized by two types of noise, a bit-flip noise that maps canonical basis states into each other, and a phase-flip noise that induces relative phases between superpositions of such basis states.
-  A code cannot protect against both types of noise arbitrarily well, and there is tradeoff between the two types of protection.
+  A code cannot protect against both types of noise arbitrarily well, and there is a tradeoff between the two types of protection.
   An asymmetric quantum code is one that performs much better against one type of noise than the other type.
   Such codes typically have tunable distances against each noise type and include CSS codes, GKP codes, and QSCs.
 
 protection: |
   Noise channels for which one type of noise is more prominent than the other are called \textit{asymmetric-noise channels} or \textit{biased-noise channels}.
+  An example of a noise-biased channel is a Pauli channel of independent \(X\) and \(Z\)-type noise with \(p_X \gg p_Z\) or visa versa.
 
-  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
-  An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes has been formulated \cite{doi:10.1098/rspa.2008.0439}.
+  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z)]]\) or \([[n,k,d_X/d_Z]]\), where \(d_{X,Z}\) are the \(X\)- and \(Z\)-distances, respectively.
+  An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes have been formulated \cite{doi:10.1098/rspa.2008.0439}.
   Such codes have been characterized \cite{arxiv:1006.1694}.
 
 features:
@@ -49,7 +50,7 @@ relations:
     - code_id: subsystem_surface
       detail: 'Subsystem surface codes perform well against biased circuit-level noise \cite{arxiv:2010.09626}.'
     - code_id: clifford-deformed_surface
-      detail: 'Random Clifford deformation can improve performance of CDSCs agaisnt biased noise \cite{arxiv:2201.07802}.'
+      detail: 'Random Clifford deformation can improve performance of surface codes agaisnt biased noise \cite{arxiv:2201.07802}.'
     - code_id: xysurface
       detail: 'XY surface codes perform well against biased noise \cite{arxiv:1708.08474}.'
     - code_id: xyz_color
@@ -61,14 +62,14 @@ relations:
     - code_id: concatenated_steane
       detail: 'Concatenating while taking into account noise bias can reduce resource overhead \cite{arxiv:0709.3875}.'
     - code_id: quantum_mds
-      detail: 'An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes has been formulated \cite{doi:10.1098/rspa.2008.0439}.
+      detail: 'An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes have been formulated \cite{doi:10.1098/rspa.2008.0439}.
       Asymmetric MDS codes have been characterized \cite{arxiv:1006.1694}.'
     - code_id: two_dimensional_hyperbolic_surface
       detail: 'Asymmetric 2D hyperbolic surface codes have been constructed \cite{arxiv:2105.01144}.'
     - code_id: surface
-      detail: 'The surface code on a hexagonal lattice is a CSS AQECC \cite{arxiv:2105.01144}.'
+      detail: 'The surface code on a hexagonal lattice is an asymmetric CSS code \cite{arxiv:2105.01144}.'
     - code_id: compass_model
-      detail: 'Families of random codes perform well against biased noise and spatially dependent (i.e., asymmetric) noise \cite{arxiv:1809.01193}.'
+      detail: 'Families of random compass codes perform well against biased noise and spatially dependent (i.e., asymmetric) noise \cite{arxiv:1809.01193}.'
     - code_id: css
       detail: 'In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).'
     - code_id: quantum_reed_muller

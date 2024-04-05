@@ -19,7 +19,7 @@ description: |
 protection: |
   \subsection{Group-based error basis}
   A convenient error set is the group-based analogue of the Pauli string set for \hyperref[code:qubits_into_qubits]{qubit} codes.
-  For a single group-valued qudit, this set consists of products of \(X\)-type operators labeled by group elements, and \(Z\)-type operators labeled by matrix elements of irreps \cite{arxiv:1408.6237,arxiv:1911.00099,arxiv:2111.12096}.
+  For a single group-valued qudit, this set consists of products of \(X\)-type operators labeled by group elements \(g\), and \(Z\)-type operators labeled by matrix elements of \(G\)-irreps \(\lambda\) \cite{arxiv:1408.6237,arxiv:1911.00099,arxiv:2111.12096}.
   The outline below is for finite groups, but can be extended to compact unimodular groups or to oscillators and rotors by substituting the sum over the group with a group integral.
 
   \begin{defterm}{Group-based error basis}
@@ -39,13 +39,13 @@ protection: |
   Each matrix element of this irrep matrix is a generally non-unitary operator on the group-valued qudit.
   For one-dimensional irreps, the matrix reduces to a single unitary \(Z\)-type operator, and the direct-product symbol is no longer needed.
   \end{defterm}
-  
+
   Products of either left- or right-multiplication \(X\)-type operators with all \(Z\)-type operators form a basis for linear operators on the group-valued qudit space that is complete and orthonormal under the Hilbert-Schmidt inner product \cite[Eq. (123)]{arxiv:1911.00099}.
   In particular,
   \begin{align}
     \text{tr}(\overrightarrow{X}_{g}^{\dagger}\overrightarrow{X}_{h})=\delta_{g,h}^{G}~,
   \end{align}
-  where the group Kronecker delta function \(\delta_{g,h}=1\) if \(g=h\) and zero otherwise.
+  where the group Kronecker delta function \(\delta^{G}_{g,h}=1\) if \(g=h\) and zero otherwise.
 
 
 
