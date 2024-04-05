@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: floquet_xcube
+physical: qubits
+logical: qubits
+
+name: 'X-cube Floquet code'
+introduced: '\cite{arxiv:2211.05784}'
+
+description: |
+  Floquet code whose qubits are placed on vertices of a truncated cubic lattice.
+  Its weight-two check operators are placed on various edges.
+  Its ISG can be that of the X-cube model code or that of several decoupled surface codes.
+
+
+features:
+  rate: 'Logical dimension grows with system size \cite{arxiv:2211.05784}.'
+  decoders:
+    - 'Period-six measurement sequence utilizing two-qubit measurements \cite{arxiv:2211.05784}.'
+  code_capacity_threshold:
+    - 'It is argued that this code has a threshold in Ref. \cite{arxiv:2211.05784}.'
+
+
+relations:
+  parents:
+    - code_id: floquet
+cousins:
+    - code_id: xcube
+      detail: 'The ISG of the X-cube Floquet code can be that of the X-cube model code or that of several decoupled surface codes.'
+    - code_id: surface
+      detail: 'The ISG of the X-cube Floquet code can be that of the X-cube model code or that of several decoupled surface codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-05'
