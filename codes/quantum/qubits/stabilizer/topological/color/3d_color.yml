@@ -21,6 +21,9 @@ features:
     - 'Magic-state distillation protocols \cite{doi:10.7907/059V-MG69}.'
     - 'Non-clifford gates can be implemented via code switching \cite{doi:10.7907/059V-MG69}.'
 
+  decoders:
+    - 'Decoder that maps 3D color code to three copies of the 3D surface code \cite{arxiv:1606.00960}.'
+
   threshold:
     - '\(0.46\%\) for 3D codes with clustering decoder \cite{arXiv:1708.07131}.'
     - '\(1.9\%\) for 1D string-like logical operators and \(27.6\%\) for 2D sheet-like operators for 3D codes with noise models using optimal decoding and perfect measurements \cite{arXiv:1708.07131}.'
@@ -39,7 +42,11 @@ relations:
     - code_id: quantum_triorthogonal
   cousins:
     - code_id: 3d_surface
-      detail: 'The 3D color code is equivalent to multiple decoupled copies of the 3D surface code via a local constant-depth Clifford circuit \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.'
+      detail: 'The 3D color code is equivalent to multiple decoupled copies of the 3D surface code via a local constant-depth Clifford circuit \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.
+      This mapping can also be done via code concatenation \cite{arxiv:1801.04255}.'
+    - code_id: quantum_concatenated
+      detail: 'The 3D color code is equivalent to multiple decoupled copies of the 3D surface code via a local constant-depth Clifford circuit \cite{arxiv:1007.4601,arxiv:1503.02065,arXiv:1804.00866}.
+      This mapping can also be done via code concatenation \cite{arxiv:1801.04255}.'
     - code_id: xs_stabilizer
       detail: 'The 3D color code admits XS stabilizers; see \href{https://www.youtube.com/watch?v=B8h5-ANc_-8}{talk by M. Kesselring at the 2020 FTQC conference} and the related \cite[Exam. 6.4]{arxiv:2203.00103}.'
 

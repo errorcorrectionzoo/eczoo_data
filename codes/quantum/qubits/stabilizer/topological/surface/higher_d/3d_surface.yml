@@ -12,16 +12,19 @@ introduced: '\cite{arxiv:quant-ph/0110143,arxiv:cond-mat/0411752}'
 
 alternative_names:
   - '3D toric code'
+  - '3D cubic code'
+
 
 description: |
-  A variant of the Kitaev surface code on a 3D lattice. The closely related \textit{solid code} \cite{arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
+  A generalization of the Kitaev surface code defined on a 3D lattice.
 
   \textit{3D toric code} often either refers to the construction on
   the three-dimensional torus or is an alternative name for the general
   construction.
   The construction on surfaces with boundaries is often called the
   \textit{3D surface code}.
-  There exists a rotated version of the 3D surface code, akin to the (2D) rotated surface code \cite{arxiv:2211.02116}.
+  There exists a rotated version of the 3D surface code, the \textit{3D rotated surface code}, akin to the (2D) rotated surface code \cite{arxiv:2211.02116}.
+  The \textit{welded surface code} \cite{arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
 
   Related models \cite{arxiv:cond-mat/0607736,arxiv:1012.0859} on lattices with certain colorability are equivalent to several copies of the 3D surface code \cite{arXiv:1908.08049}.
 
@@ -34,13 +37,27 @@ protection: |
 #protection: As a stabilizer code, \([[n=O(d^2), k=O(1), d]]\).
 
 features:
+  transversal_gates: 'Transversal CZ and CCZ gates \cite{arxiv:1503.02065,arxiv:1801.04255}.'
   decoders:
     - 'Flip decoder and its modification p-flip \cite{arxiv:2212.06985}.'
     - 'Tensor-network decoder \cite{arxiv:2310.10722}.'
+    - 'Efficient MWPM decoder for 3D toric and 3D welded surface codes \cite{arxiv:1808.03092}.'
+    - 'Generalization of linear-time ML erasure decoder \cite{arxiv:1703.01517} to 3D surface codes \cite{arxiv:1808.03092}.'
   general_gates:
     - 'CZ gate for toric code on a Klein bottle \cite{arxiv:2211.11764}.'
+    - 'Lattice surgery \cite{arxiv:1801.04255}.'
+    - '3D and Hybrid 2D-3D surface code computation using lattice surgery and without magic-state distillation \cite{arxiv:1801.04255}.
+    - 'Fault-tolerant Hadamard gate using teleportation and error correction \cite{arxiv:1801.04255}.'
+  fault_tolerance:
+    - 'Fault-tolerant Hadamard gate using teleportation and error correction \cite{arxiv:1801.04255}.'
+  code_capacity_threshold:
+    - 'Independent \(X,Z\) noise: \(12\%\) for bit-flip and \(3\%\) for phase-flip channels with MWPM decoder for 3D toric code \cite{arxiv:1808.03092}, and \(17.2\%\) and \(3.3\%\) with RG decoder for 3D toric code \cite{arxiv:1708.09286}.'
+    - 'Erasure noise: \(24.8\%\) with generalization of linear-time ML erasure decoder \cite{arxiv:1703.01517} to 3D surface codes \cite{arxiv:1808.03092}.
+    No threshold was observed for the 3D welded surface code \cite{arxiv:1808.03092}.'
+
   threshold:
-    - 'Phenomenological noise model for the 3D toric code: \(2.90(2)\%\) under BP-OSD decoder \cite{arXiv:2009.11790}, \(7.1\%\) under improved BP-OSD \cite{arxiv:2206.03122}, and \(2.6\%\) under flip decoder \cite{arXiv:2212.06985}. For 3D surface code: \(3.08(4)\%\) under flip decoder \cite{arXiv:2009.11790}.'
+    - 'Phenomenological noise model for the 3D toric code: \(2.90(2)\%\) under BP-OSD decoder \cite{arXiv:2009.11790}, \(7.1\%\) under improved BP-OSD \cite{arxiv:2206.03122}, \(7.3\%\) under RG \cite{arxiv:1708.09286}, and \(2.6\%\) under flip decoder \cite{arXiv:2212.06985}.
+    For 3D surface code: \(3.08(4)\%\) under flip decoder \cite{arXiv:2009.11790}.'
 
 
 relations:

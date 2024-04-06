@@ -31,6 +31,8 @@ description: |
 protection: 'Cubic codes protect against simultaneous independent Pauli errors on different sites (not qubits, since there can be 2 qubits per site). Codes CC0-CC4 are known to have distance \(d \ge L\), meaning they can achieve macroscopic code distance as \(L\to\infty\).'
 
 features:
+  decoders:
+    - 'Hard-decisions RG decoder \cite{arxiv:1112.3252}.'
   threshold:
     - 'The encoding rate depends on the code implemented, but code CC0 has been shown to have \(k \ge L\) (on a periodic finite cubic lattice of side length \(L\). In general we expect the number of logical bits to scale as \(k \sim L\).'
 
