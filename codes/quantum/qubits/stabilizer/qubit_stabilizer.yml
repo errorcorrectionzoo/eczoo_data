@@ -79,12 +79,13 @@ features:
     - 'Circuits obtained by first constructing the CWS form of the code \cite{arXiv:0803.3232,arXiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
     - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arXiv:1310.1036}, for which codespace is steady-state space of a Lindbladian. This does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}.'
 
-  transversal_gates: 'All stabilizer codes realize Pauli transformations transversally; for a single logical qubit, these a realize dicyclic subgroup of \(SU(2)\).
-  Several algorithms exist for finding logical Pauli operators \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.
-  The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite{arxiv:quant-ph/9705052}.
-  More generally, transversal logical gates are in a finite level of the \term{Clifford hierarchy}, which is shown using stabilizer \textit{disjointness} \cite{arxiv:1710.07256} (see also \cite{arxiv:0706.1382,arxiv:1409.8320}).
-  Transversal gates for \(n\in\{1,2\}\) are semi-Clifford \cite{arxiv:0712.2084}.
-  No stabilizer code can implement a classical universal gate set transversally \cite{arxiv:1704.07798}.'
+  transversal_gates:
+    - 'All stabilizer codes realize Pauli transformations transversally; for a single logical qubit, these a realize dicyclic subgroup of \(SU(2)\).
+    Several algorithms exist for finding logical Pauli operators \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.'
+    - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite{arxiv:quant-ph/9705052}.'
+    - 'Transversal logical gates are in a finite level of the \term{Clifford hierarchy}, which is shown using stabilizer \textit{disjointness} \cite{arxiv:1710.07256} (see also \cite{arxiv:0706.1382,arxiv:1409.8320}).
+    Transversal gates for \(n\in\{1,2\}\) are semi-Clifford \cite{arxiv:0712.2084}.'
+    - 'No stabilizer code can implement a classical universal gate set transversally \cite{arxiv:1704.07798}.'
 
   general_gates:
     - 'Logical Clifford gates can be performed by physical Clifford circuits that permute logical Pauli operators \cite{arxiv:1803.06987}.'
