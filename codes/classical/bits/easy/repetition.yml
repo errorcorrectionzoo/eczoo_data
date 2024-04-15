@@ -9,7 +9,11 @@ logical: bits
 
 name: 'Repetition code'
 
-description: '\([n,1,n]\) binary linear code encoding one bit of information into an \(n\)-bit string. The length \(n\) needs to be an odd number, since the receiver will pick the majority to recover the information. The idea is to increase the code distance by repeating the logical information several times. It is a \((n,1)\)-Hamming code.'
+description: |
+  \([n,1,n]\) binary linear code encoding one bit of information into an \(n\)-bit string.
+  The length \(n\) needs to be an odd number, since the receiver will pick the majority to recover the information.
+  The idea is to increase the code distance by repeating the logical information several times. It is a \((n,1)\)-Hamming code.
+  Its automorphism group is \(S_n\).
 
 protection: 'Detects errors on up to \(\frac{n-1}{2}\) coordinates, corrects erasure errors on up to \(\frac{n-1}{2}\) coordinates. The generator matrix is \(G=\left[\begin{smallmatrix}1 & 1&\cdots& 1 & 1 \end{smallmatrix}\right]\).'
 
