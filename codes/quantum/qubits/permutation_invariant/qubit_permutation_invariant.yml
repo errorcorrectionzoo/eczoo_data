@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_permutation_invariant
+
+name: 'Permutation-invariant qubit code'
+
+description: |
+  Block quantum code defined on two-dimensional subsystems such that any permutation of the subsystems leaves any codeword invariant.
+
+  \begin{defterm}{Dicke states}
+  \label{topic:dicke}
+  For \(n\)-qubit block codes, an often used basis for the \(n/2\)-dimensional permutation-invariant subspace consists of the Dicke states \(|D^n_w\rangle\) -- normalized permutation-invariant states of \(w\) excitations, i.e., a normalized sum over all binary-string basis elements with \(w\) ones and \(n - w\) zeroes.
+  Each Dicke state in the code can be \textit{shifted} by adding a shift \(s\) to both \(n\) and \(w\).
+  \end{defterm}
+
+features:
+  decoders:
+    - 'Schur-Weyl-transform based decoder \cite{arxiv:2212.06285}.
+    Here, one first measures the total angular momentum of consecutive pairs of qubits, and then its projection modulo some spacing.
+    Recovery can be performed by applying geometric phase gates \cite{arxiv:quant-ph/0111017} and the quantum Schur transform.'
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: permutation_invariant
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-18'

@@ -9,14 +9,8 @@ name: 'Permutation-invariant code'
 introduced: '\cite{arXiv:quant-ph/0304153}'
 
 description: |
-  Block quantum code such that any permutation of the subsystems leaves any codeword invariant. In other words, the automorphism group of the code contains the symmetric group \(S_n\).
-
-  \begin{defterm}{Dicke states}
-  \label{topic:dicke}
-  For \(n\)-qubit block codes, an often used basis for the \(n/2\)-dimensional permutation-invariant subspace consists of the Dicke states \(|D^n_w\rangle\) -- normalized permutation-invariant states of \(w\) excitations, i.e., a normalized sum over all binary-string basis elements with \(w\) ones and \(n - w\) zeroes.
-  Each Dicke state in the code can be \textit{shifted} by adding a shift \(s\) to both \(n\) and \(w\).
-  \end{defterm}
-
+  Block quantum code such that any permutation of the subsystems leaves any codeword invariant.
+  In other words, the automorphism group of the code contains the symmetric group \(S_n\).
 
 #Such a code is said to be stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (nonabelian) group actions.'
 
@@ -32,10 +26,6 @@ features:
   encoders:
     - 'With quantum harmonic oscillators (superconducting charge qubits in a ultrastrong coupling regime) in \(O(N)\) as in \cite{doi:10.1103/PhysRevA.99.012335}. Can be done in \(O(N^2)\) steps using quantum circuits \cite{arXiv:1904.07358}, or using geometric phase gates in \(O(N)\) \cite{arxiv:1908.01120}.'
 
-  decoders:
-    - 'Schur-Weyl-transform based decoder for qubit permutation-invariant codes \cite{arxiv:2212.06285}.
-    Here, one first measures the total angular momentum of consecutive pairs of qubits, and then its projection modulo some spacing.
-    Recovery can be performed by applying geometric phase gates \cite{arxiv:quant-ph/0111017} and the quantum Schur transform.'
 
 notes:
   - 'Can be constructed using real polynomials for high-dimensional qudit spaces \cite{doi:10.1016/j.laa.2017.06.031}.'
