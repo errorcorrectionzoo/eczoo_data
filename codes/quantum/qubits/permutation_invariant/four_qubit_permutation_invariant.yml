@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: four_qubit_permutation_invariant
+
+name: 'Four-qubit single-deletion code'
+introduced: '\cite{arxiv:2001.08405,arxiv:2004.00814}'
+
+description: |
+  Four-qubit permutation-invariant code that is the smallest qubit code to correct one deletion error.
+
+  In terms of \hyperref[topic:dicke]{Dicke states}, logical codewords are
+  \begin{align}
+  \begin{split}
+    |0_{L}\rangle&\propto|D_{0}^{4}\rangle+|D_{4}^{4}\rangle\\
+    |1_{L}\rangle&\propto|D_{2}^{4}\rangle~.
+  \end{split}
+  \end{align}
+
+protection: |
+  The smallest qubit code to correct one deletion error.
+
+relations:
+  parents:
+    - code_id: qubit_permutation_invariant
+    - code_id: small_distance_quantum
+      detail: 'The four-qubit single-deletion code corrects a single deletion error.'
+  cousins:
+    - code_id: binomial
+      detail: 'The four-qubit single-deletion code can be obtained from the "0-2-4" single-mode binomial code by substituting Fock states with \hyperref[topic:dicke]{Dicke states}.'
+    - code_id: stab_4_2_2
+      detail: 'A basis of codewords for the four-qubit single-deletion code consists of the \(|\overline{00}\rangle\) and \(|\overline{01}\rangle+|\overline{10}\rangle+|\overline{11}\rangle\)states of the four-qubit code.'
+    - code_id: combinatorial_permutation_invariant
+      detail: 'The combinatorial permutation-invariant code \(Q_{1,1,1,-}\) is another example of a four-qubit code correcting a single deletion error \cite[Sec. 5.1]{arxiv:2310.05358}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-18'

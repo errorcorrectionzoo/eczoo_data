@@ -4,6 +4,8 @@
 #######################################################
 
 code_id: qubit_permutation_invariant
+physical: qubits
+# Qudit GNU codes don't encode logical qubits
 
 name: 'Permutation-invariant qubit code'
 
@@ -15,6 +17,10 @@ description: |
   For \(n\)-qubit block codes, an often used basis for the \(n/2\)-dimensional permutation-invariant subspace consists of the Dicke states \(|D^n_w\rangle\) -- normalized permutation-invariant states of \(w\) excitations, i.e., a normalized sum over all binary-string basis elements with \(w\) ones and \(n - w\) zeroes.
   Each Dicke state in the code can be \textit{shifted} by adding a shift \(s\) to both \(n\) and \(w\).
   \end{defterm}
+
+protection: |
+  Permutation invariant qubit codes of distance \(d\) can protect against \(d-1\) deletion errors \cite{arxiv:2001.08405,arxiv:2004.00814}, i.e., erasures of subsystems at unknown locations.
+
 
 features:
   decoders:
