@@ -15,6 +15,7 @@ description: |
   Adding a parity bit to the code results in the \([24, 12, 8]\) \textit{extended Golay code}.
   Up to equivalence, both codes are unique for their respective parameters.
   Shortening the Golay code yields the \([22,10,8]\), \([22,11,7]\), and \([22,12,6]\) \textit{shortened Golay codes} \cite{doi:10.1109/18.57203}.
+  The dual of the Golay code is its \([23,11,8]\) even-weight subcode \cite{manual:{W. Feit. Some remarks on weight functions of spaces over GF(2), unpublished (1972)},doi:10.1016/0012-365X(74)90085-5}.
 
   To construct the Golay code, one can use the great dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the inner icosahedron.
   See \cite[Table II]{doi:10.1109/18.720549} for a generator matrix.
@@ -70,6 +71,8 @@ relations:
   cousins:
     - code_id: nearly_perfect
       detail: 'The extended Golay code is nearly perfect.'
+    - code_id: dual
+      detail: 'The dual of the Golay code is its \([23,11,8]\) even-weight subcode \cite{manual:{W. Feit. Some remarks on weight functions of spaces over GF(2), unpublished (1972)},doi:10.1016/0012-365X(74)90085-5}.'
     - code_id: self_dual
       detail: 'The extended Golay code is the unique code at its parameters and happens to be self-dual \cite[Remark 4.3.11]{preset:HPRainsSloane}.'
     - code_id: group
