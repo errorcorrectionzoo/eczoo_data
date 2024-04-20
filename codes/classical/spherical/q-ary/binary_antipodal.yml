@@ -9,9 +9,17 @@ logical: reals
 
 name: 'Binary antipodal code'
 
+alternative_names:
+  - 'Binary signal constellation'
+
 description: |
-  Also known as a \textit{binary signal constellation}.
-  An \((n,K,4d/n)\) spherical code obtained from a binary \((n,K,d)\) code via a component-wise \textit{antipodal mapping} (also known as a \textit{Euclidean-space image} or \(Y_2\) construction) \(0\to +1\) and \(1 \to -1\) \cite[Example 1.2.1]{preset:EricZin}.
+  An \((n,K,4d/n)\) spherical code obtained from a binary \((n,K,d)\) code via the antipodal mapping.
+
+  \begin{defterm}{Antipodal mapping}
+  \label{topic:antipodal-mapping}
+  The antipodal mapping, also known as a \textit{Euclidean-space image} or \(Y_2\) construction), is a component-wise mapping from binary space into Euclidean space.
+  Each coodinate of a binary string is mapped into a sign, \(0\to +1\) and \(1 \to -1\) \cite[Example 1.2.1]{preset:EricZin}.
+  \end{defterm}
 
 relations:
   parents:
@@ -20,7 +28,7 @@ relations:
     - code_id: bpsk
       detail: 'A binary antipodal code can be thought of as a concatenation of a binary outer code with a BPSK inner code.'
     - code_id: bits_into_bits
-      detail: 'Binary antipodal codes are spherical codes obtained from binary codes.'
+      detail: 'Binary antipodal codes are spherical codes obtained from binary codes via the \hyperref[topic:antipodal-mapping]{antipodal mapping}.'
 
 
 # Begin Entry Meta Information
