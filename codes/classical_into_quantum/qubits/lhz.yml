@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lhz
+physical: qubits
+logical: bits
+
+name: 'Lechner-Hauke-Zoller (LHZ) code'
+short_name: 'LHZ'
+introduced: '\cite{doi:10.1126/sciadv.1500838,arxiv:1511.00004}'
+
+alternative:
+  - 'Lechner-Hauke-Zoller (LHZ) parity code'
+
+description: |
+  LDPC c-q code designed to convert the long-range interactions of a quantum annealer into local constraints
+  The code maps the bits of a classical Ising model with all-to-all \(D\)-body interactions into one on a \(D\)-dimensional lattice.
+  An extension maps more general models onto the same lattice \cite{arxiv:2105.06233}.
+
+features:
+  encoders:
+    - 'Arbitrary quantum states \cite{arxiv:2303.08602}.'
+  general_gates:
+    - 'Universal gate set \cite{arxiv:2205.09505}.'
+  decoders:
+    - 'BP decoder \cite{arxiv:1511.00004}.'
+
+relations:
+  parents:
+    - code_id: qubit_classical_into_quantum
+      detail: 'The LHZ code is an LDPC c-q code designed to convert the long-range interactions of a quantum annealer into local constraints.'
+  cousins:
+    - code_id: ldpc
+      detail: 'The LHZ code is an LDPC c-q code designed to convert the long-range interactions of a quantum annealer into local constraints.'
+      
