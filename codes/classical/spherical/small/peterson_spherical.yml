@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: petersen_spherical
+physical: spheres
+logical: reals
+
+name: 'Petersen spherical code'
+introduced: '\cite{arxiv:0708.3947}'
+
+description: |
+  A \((4,10,1/6)\) spherical code whose codewords correspond to vertices of the Peterson graph.
+  Its Gram matrix is constructed by putting \(-2/3\) whenever two vertices are adjacent in the graph, and \(1/6\) otherwise.
+  The code is optimal for its parameters \cite{arxiv:0708.3947}.
+
+relations:
+  parents:
+    - code_id: spherical_design
+      detail: 'The Peterson spherical code forms a spherical two-design \cite{arxiv:0708.3947}.'
+  cousins:
+    - code_id: petersen
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-20'
