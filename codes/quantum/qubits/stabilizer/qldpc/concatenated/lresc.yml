@@ -12,13 +12,15 @@ short_name: 'LRESC'
 introduced: '\cite{arxiv:2309.11719}'
 
 description: |-
-  Code constructed using the hypergraph product of two copies of a concatenated LDPC-repetition code.
+  Code constructed using the hypergraph product of two copies of a particular concatenated LDPC-repetition code.
   This family interpolates between surface codes and hypergraph codes since the hypergraph product of two repetition codes yields the planar surface code.
-
+  The construction uses small \([3,2,2]\) and \([6,2,4]\) LDPC codes concatenated with \([4,1,4]\) and \([2,1,2]\) repetition codes, respectively.
+  An example using a \([5,2,3]\) code is also presented.
 
 relations:
   parents:
-    - code_id: hypergraph_product
+    - code_id: lacross
+      detail: 'La-cross codes reduce to LRESCs for \(k=2\).'
 
 
 _meta:
