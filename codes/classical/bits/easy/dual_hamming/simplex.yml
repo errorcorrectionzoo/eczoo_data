@@ -18,12 +18,14 @@ alternative_names:
   - 'Maximum-length feedback-shift-register code'
 
 description: |
-  A \([2^m-1,m,2^{m-1}]\) binary projective code with denoted as \(S(2,m)\).
+  A \([2^m-1,m,2^{m-1}]\) binary projective code.
   The columns of the generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(m-1,2)\), with each column being a chosen representative of the corresponding element.
   The codewords form a \((2^m,2^m+1)\) simplex spherical code under the \hyperref[topic:antipodal-mapping]{antipodal mapping}.
 
   A punctured simplex code is known as a \textit{MacDonald code} \cite{doi:10.1147/rd.41.0043}, with parameters \([[2^m-2^u,m,2^{m-1}-2^{u-1}]]\) for \(u \leq m-1\) \cite{doi:10.1109/TIT.1975.1055315}.
   The dual of a simplex code is the \([2^m,2^m-m-1,3]\) Hamming code.
+
+  The automorphism group of the code is \(GL_{m}(\mathbb{F}_{2})\) \cite{preset:MacSlo}.
 
 features:
   decoders:
@@ -35,14 +37,17 @@ relations:
   parents:
     - code_id: binary_linear
     - code_id: q-ary_simplex
+      detail: '\(q\)-ary simplex codes reduce to simplex codes for \(q=2\).'
   cousins:
     - code_id: hadamard
-      detail: 'Binary simplex codes are \([2^m-1,m,2^{m-1}]\) shortened Hadamard codes.'
+      detail: 'Binary simplex codes are shortened Hadamard codes.'
     - code_id: extended_reed_solomon
       detail: 'Simplex codes are extended RS codes \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Simplex Code.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. http://mint.sbg.ac.at/desc_CSimplex.html}}.'
     - code_id: hamming
       detail: 'Hamming and simplex codes are dual to each other.'
     - code_id: simplex_spherical
+      detail: 'Binary simplex codes map to \((2^m,2^m+1)\) simplex spherical codes under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite[Sec. 6.5.2]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 18]{preset:EricZin}. In other words, simplex (simplex spherical) codes form simplices in Hamming (Euclidean) space.'
+    - code_id: binary_antipodal
       detail: 'Binary simplex codes map to \((2^m,2^m+1)\) simplex spherical codes under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite[Sec. 6.5.2]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 18]{preset:EricZin}. In other words, simplex (simplex spherical) codes form simplices in Hamming (Euclidean) space.'
     - code_id: reed_muller
       detail: 'Binary simplex codes can be constructed from the generator matrix of RM\((1,m)\) by removing first the all-ones row, and then the all-zero column. Punctured RM codes and simplex codes are interconvertible via expurgation and augmentation (\cite{preset:MacSlo}, pg. 31).'

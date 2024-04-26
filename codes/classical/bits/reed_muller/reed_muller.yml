@@ -13,7 +13,7 @@ introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.105746
 
 description: |
   Member of the RM\((r,m)\) family of linear binary codes derived from multivariate polynomials. The code parameters are \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code satisfying \(0\leq r\leq m\).
-  First-order RM codes are also called \textit{biorthogonal} codes, while \(m\)th order RM codes are also called \textit{universe} codes.
+  First-order RM codes are biorthogonal codes, while \(m\)th order RM codes are also called \textit{universe} codes.
   \textit{Punctured RM codes} RM\(^*(r,m)\) are obtained from RM codes by deleting one or more coordinates from each codeword.
 
   Generator matrices of RM codes are constructed using the \((u|u+v)\) construction by starting from the \(2^m\)-dimensional matrix \(F^{(m)}=\left(\begin{smallmatrix}1 & 0\\
@@ -21,6 +21,8 @@ description: |
   \end{smallmatrix}\right)^{\otimes m}\), labeling its rows top-to-bottom from \(0\) to \(2^m-1\), converting the labels to binary strings of length \(m\), and deleting all rows whose labels have a Hamming weight less than \(m-r\). The recursive nature of the tensor product in the matrix \(F^{(m)}\) implies that RM\((r,m)\) is a subcode of RM\((r+1,m)\).
 
   Another way to generate RM codewords is to list all outcomes of all polynomials of \(m\) binary variables of degree at most \(r\) \cite{arXiv:2002.03317} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).
+
+  The automorphism code of the RM\((r,m)\) (RM\(^*(r,m)\)) code is \(GA_{m}(\mathbb{F}_2)\) (\(GL_{m}(\mathbb{F}_2)\)) for \(1 \leq r \leq m-2\) \cite{preset:MacSlo}.
 
 protection: |
   The \textit{Schwartz-Zippel Lemma} provides a distance lower bound on RM codes and extended the degree mantra from RS codes.
@@ -31,7 +33,6 @@ features:
   decoders:
     - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).'
     - 'Sequential code-reduction decoding \cite{doi:10.1109/TIT.1973.1055023}.'
-    - 'First-order (\(r=1\)) RM codes admit specialized decoders \cite{manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
     - 'Matrix factorization is equivalent to decoding an RM\((n,n-3)\) code \cite{doi:10.1137/0209059}; see \cite{arxiv:1606.01904}.'
 
 
@@ -40,7 +41,6 @@ realizations:
 
 notes:
   - 'See Chs. 13-15 of Ref. \cite{preset:MacSlo} for details of RM codes and their variants.'
-  - 'See Ref. \cite{doi:10.1109/TIT.1972.1054732} for the weight distribution of the \(2^{26}\) cosets of the \((32,6)\) first-order RM code, obtained in part by hand computation.'
 
 # If mobing to evaluation, then remove "nontrivial" in that entry
 relations:
@@ -69,8 +69,6 @@ relations:
       detail: 'Punctured RM codes are cyclic (\cite{preset:MacSlo}, Ch. 13, Thm. 11), making RM codes extended cyclic codes. RM codes with nonzero evaluation points are cyclic (\cite{doi:10.1007/978-94-011-3810-9}, pg. 52).'
     - code_id: binary_ltc
       detail: 'RM codes can be LTCs in the low- \cite{doi:10.1109/TIT.2005.856958,doi:10.1137/S0097539704445615} and high-error \cite{arxiv:math/0604353} regimes; see also \cite{arxiv:0910.0641}.'
-    - code_id: biorthogonal
-      detail: 'The RM\((1,m)\) maps to a \((2^m,2^{m+1})\) biorthogonal spherical code under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 19]{preset:EricZin}.'
     - code_id: qubits_into_qubits
       detail: 'Optimizing T gates in a qubit circuit that uses CNOT and T gates is equivalent decoding a paricular RM code \cite{arxiv:1601.07363}.'
 
