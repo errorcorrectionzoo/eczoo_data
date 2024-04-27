@@ -9,13 +9,17 @@ logical: galois
 
 name: 'Galois-qudit code'
 
-description: 'Also called a \(GF(q)\)\textit{-} or \(\mathbb{F}_q\)\textit{-qudit code}.
-Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the \textit{Galois field} \(GF(q)\) and with \(q\) being a power of a prime \(p\).
+alternative_names:
+  - '\(GF(q)\)-qudit code'
+  - '\(\mathbb{F}_q\)-qudit code'
 
-A Galois field can be thought of as a vector space whose basis vectors are the \(m\) roots of some polynomial and whose coefficients (i.e., field) are \(p\)th roots of unity.
+description: |
+  Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the \textit{Galois field} \(GF(q)\) and with \(q\) being a power of a prime \(p\).
 
-Codes can be denoted as \(((n,K))_q\) or \(((n,K,d))_q\), whenever the code''s distance \(d\) is defined.
-This notation differentiates between Galois-qudit and \(((n,K,d))_{\mathbb{Z}_q}\) modular-qudit codes, although the same notation is usually used for both.'
+  A Galois field can be thought of as a vector space whose basis vectors are the \(m\) roots of some polynomial and whose coefficients (i.e., field) are \(p\)th roots of unity.
+
+  Codes can be denoted as \(((n,K))_q\) or \(((n,K,d))_q\), whenever the code''s distance \(d\) is defined.
+  This notation differentiates between Galois-qudit and \(((n,K,d))_{\mathbb{Z}_q}\) modular-qudit codes, although the same notation is usually used for both.'
 
 protection: |
 
@@ -34,7 +38,7 @@ protection: |
   \end{align}
   For multiple Galois qudits, error set elements are tensor products of elements of the single-qudit error set.
   \end{defterm}
-  
+
   The Galois-qudit Pauli error set is a unitary basis for linear operators on the multi-qudit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a \hyperref[topic:nice-error-basis]{nice error basis}. The distance associated with this set is often the minimum weight of a Galois qudit Pauli string that implements a nontrivial logical operation in the code.
 
 
