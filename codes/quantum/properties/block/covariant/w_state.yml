@@ -11,22 +11,22 @@ name: 'W-state code'
 introduced: '\cite{arXiv:1902.07714}'
 
 description: |-
-  Encodes a quantum state of a \(d_L\)-dimensional Hilbert space into
-  \(n\) physical quantum systems, each associated with a Hilbert space
-  of dimension \(d_L+1\).
-  The encoding resembles the structure of the
-  W state~\cite{arXiv:quant-ph/0005115}:
+  Approximate block quantum code whose encoding resembles the structure of the
+  W state~\cite{arXiv:quant-ph/0005115}.
+  This code enables universal quantum computation with transversal gates.
+
+  The encoding is of a \(d_L\)-dimensional Hilbert space into  \(n\) physical quantum systems, each associated with a Hilbert space
+  of dimension \(d_L+1\):
   \begin{align}
     \ket\psi
     \to \frac{1}{\sqrt{n}}\bigl(\ket{\psi\perp\perp\ldots}
     + \ket{\perp\psi\perp\ldots} + \cdots
     + \ket{\perp\perp\ldots\psi}\bigr)\ ,
   \end{align}
-  where on each physical system, \(\ket\perp\) denotes the \((d_L+1)\)-th basis state
+  where on each physical system, \(\ket\perp\) denotes the \((d_L+1)\)-th basis state,
   and \(\ket\psi\) is encoded using the first \(d_L\) basis states.
 
-  This code enables universal quantum computation with transversal gates.  Indeed,
-  to apply any logical unitary \(U\) it suffices to apply \(U\) on each physical system,
+  Indeed, to apply any logical unitary \(U\) it suffices to apply \(U\) on each physical system,
   where the unitary is taken to act nontrivially only on the \(d_L\) first basis states
   of each system.  Universal computation with transversal gates does not violate the
   Eastin-Knill theorem because this code is an approximate error-correcting

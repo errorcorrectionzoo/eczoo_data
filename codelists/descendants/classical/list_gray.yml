@@ -1,0 +1,40 @@
+
+list_id: gray
+
+title: |
+  Gray-map codes
+
+intro: |
+  Here is a list of nonlinear codes related to linear codes via the Gray map.
+
+
+display:
+  style: table
+  options:
+    cssclass: xtra-xtra-stretch
+    columns:
+      - property: name
+        title: Code
+        link_to_code: true
+        cssclass: 'top left'
+
+      - property: description
+        title: Description
+        cssclass: 'textit'
+        first_paragraph_only: true
+
+      # will find the 'mds' code in relationships (parent or cousin), and get
+      # the associated 'detail'.
+      - relationship_property: 'gray'
+        property: 'detail'
+        title: 'Relation'
+        cssclass: 'textit'
+        first_paragraph_only: true
+
+sort:
+  by: name
+
+codes:
+  select:
+    - descendant_of: gray
+    - cousin_of: gray
