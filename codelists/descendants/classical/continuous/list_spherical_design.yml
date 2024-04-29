@@ -1,0 +1,33 @@
+
+list_id: spherical_design
+title: Spherical designs
+intro: |
+  Here is a list of spherical code families that contain spherical designs.
+
+codes:
+  select:
+    - descendant_of: spherical_design
+    - cousin_of: spherical_design
+
+display:
+  style: table
+  options:
+    cssclass: xtra-xtra-stretch
+    columns:
+      - property: name
+        title: Code
+        link_to_code: true
+        cssclass: 'top left'
+
+      # - property: description
+      #   title: Description
+      #   cssclass: 'textit'
+      #   first_paragraph_only: true
+
+      - relationship_property: spherical_design
+        property: 'detail'
+        title: 'Spherical design detail'
+        cssclass: 'textit'
+
+sort:
+  by: name
