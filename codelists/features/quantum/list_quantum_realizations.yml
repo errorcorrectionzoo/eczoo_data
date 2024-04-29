@@ -1,12 +1,12 @@
 
-list_id: 'decoders'
+list_id: quantum_realizations
 
 title: |
-  Codes with notable decoders
+  Realized quantum codes
 
 
 intro: |
-  Here is a list of all classical and quantum codes that have notable decoders.
+  Here is a list of classical codes that have been realized in devices and/or that have practical real-world relevance.
 
 display:
   style: table
@@ -26,19 +26,16 @@ display:
       # - property: 'introduced'
       #   title: 'Ref.'
 
-      - property: 'features.decoders'
-        title: 'Decoder(s)'
+      - property: 'realizations'
+        title: 'Realization(s)'
         cssclass: 'small top'
 
 codes:
   select:
     # all quantum codes that have a 'rate' field:
-    - property_set: features.decoders
-      #domain: quantum_domain
-      descendant_of: oaecc
-    - property_set: features.decoders
-      #domain: quantum_domain
-      descendant_of: eacq
+    - property_set: realizations
+      domain: quantum_domain
+      # descendant_of: qecc
 
     # Each list element of the 'codes:' list specifies a set of codes.  The set of
     # codes consists of the codes that satisfy all the given conditions
