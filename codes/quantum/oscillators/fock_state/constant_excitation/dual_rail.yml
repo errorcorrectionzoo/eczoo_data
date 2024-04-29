@@ -3,9 +3,9 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: 'dual_rail'
-physical: 'oscillators'
-logical: 'qubits'
+code_id: dual_rail
+physical: oscillators
+logical: qubits
 
 name: 'Dual-rail quantum code'
 introduced: '\cite{doi:10.1103/PhysRevA.52.3489}'
@@ -37,7 +37,10 @@ features:
 realizations:
   - 'The dual-rail code is ubiquitous in linear-optical quantum devices and is behind the KLM protocol, one of the first proposals for fault-tolerant computation.
   See reviews \cite{arxiv:quant-ph/0512104,arxiv:quant-ph/0512071} for more details.'
-  - 'Superconducting circuit devices: Gates have been demonstrated in Rob Schoelkopf''s group at Yale University \cite{doi:10.1038/s41467-023-41104-0}. Error detection has been demonstrated in 3D cavities in Michel Devoret''s group at Yale University \cite{arxiv:2311.04423} and Amazon Web Services \cite{arxiv:2307.08737} using transmon qubits, following earlier theoretical proposals \cite{arxiv:2212.12077,arxiv:2208.05461}. Logical readout in 3D cavities has been demonstrated by Quantum Circuits Inc. \cite{arxiv:2307.03169}.'
+  - 'Superconducting circuit devices: Gates have been demonstrated in the Schoelkopf group at Yale University \cite{doi:10.1038/s41467-023-41104-0}.
+  Error detection has been demonstrated in 3D cavities in the Devoret group at Yale University \cite{arxiv:2311.04423} and Amazon Web Services \cite{arxiv:2307.08737} using transmon qubits, following earlier theoretical proposals \cite{arxiv:2212.12077,arxiv:2208.05461}.
+  Logical readout in 3D cavities has been demonstrated by Quantum Circuits Inc. \cite{arxiv:2307.03169}.'
+  - 'Photonic platforms: state preparation and measurement fidelity of \(99.98\%\) in the C telecom band by PsiQuantum \cite{arxiv:2404.17570}.'
 
 notes:
   - 'For Deutsch''s problem \cite{doi:10.1098/rspa.1992.0167} with optical qubits, error correction using photon number detection reduces the error probability from \(\frac{1}{4} (1+e^{-\gamma}-2e^{-3\gamma/2}) \)   to \(\frac{1}{2} (1- \text{sech} \gamma/2)\).'
@@ -46,7 +49,7 @@ notes:
 relations:
 
   parents:
-    - code_id: 'one_hot_quantum'
+    - code_id: one_hot_quantum
   cousins:
     - code_id: quantum_concatenated
       detail: 'The KLM protocol, one of the first protocols for fault-tolerant quantum computation, utilizes concatenations of the dual-rail with a stabilizer code \cite{doi:10.1038/35051009}.
