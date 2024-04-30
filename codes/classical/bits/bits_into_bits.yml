@@ -21,6 +21,9 @@ protection: |
   The number of correctable errors is called the \textit{decoding radius}, and it is upper bounded by half of the distance.
   In addition, a code detects errors on up to \(d-1\) coordinates, and corrects erasure errors on up to \(d-1\) coordinates.
 
+  The \textit{dual distance} of a binary code is the number of the first nonzero coefficient in the \(\mathbb{Z}_2\) Fourier transform of the code's distance distribution \cite[Ch. 5]{preset:MacSlo}.
+
+
 features:
   rate: 'The rate of a binary code is usually defined as \(R=\frac{1}{n}\log_{2}K\) bits per symbol.
   The maximum rate of a binary code with linear distance is upper bounded by the McEliece, Rodemich, Rumsey and Welch (MRRW) bound \cite{doi:10.1109/TIT.1977.1055688} (see Refs. \cite{doi:10.1007/s00454-008-9128-0,doi:10.1137/S0895480102408353,arxiv:2104.14587,arxiv:2303.16619} for other proofs).'
@@ -33,7 +36,9 @@ features:
 relations:
   parents:
     - code_id: q-ary_digits_into_q-ary_digits
-
+  cousins:
+    - code_id: orthogonal_array
+      detail: 'An \((n,K)\) binary code with dual distance \(d^{\perp}\) is an OA\(_{K/2^{d^{\perp}-1}}(d^{\perp}-1,n,2)\) \cite{manual:{Delsarte, Philippe. "Bounds for unrestricted codes, by linear programming." (1972).}}\cite[Ch. 5]{preset:MacSlo}.'
 
 # Begin Entry Meta Information
 _meta:
