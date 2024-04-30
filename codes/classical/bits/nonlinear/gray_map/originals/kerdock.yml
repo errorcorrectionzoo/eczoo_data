@@ -26,7 +26,7 @@ features:
   rate: 'The transmission rate is \(2m/2^m\) which tends to 0 as \(m\) becomes large, hence these codes are asymptotically poor.'
 
   decoders:
-    - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the RM\((1,m)\) biorthogonal code to Kerdock code \cite{doi:10.1109/18.312154}.'
+    - 'Soft decision decoding involves extending the Fast Hadamard Transform decoding algorithm for the first-order RM code to Kerdock code \cite{doi:10.1109/18.312154}.'
     - 'Complexity of soft decision decoding algorithm: \(4^m\) multiplications and \(m4^m\) additions \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
 
 
@@ -41,10 +41,10 @@ relations:
   cousins:
     - code_id: reed_muller
       detail: 'Kerdock code is a subcode of a second-order RM Code \cite[pg. 457]{preset:MacSlo}.
-      It consists of a number of cosets of RM\((2,m)\) created by quotienting with RM\((1,m)\) biorthogonal codes.'
+      It consists of a number of cosets of RM\((2,m)\) created by quotienting with first-order RM\((1,m)\) codes.'
     - code_id: biorthogonal
       detail: 'Kerdock code is a subcode of a second-order RM Code \cite[pg. 457]{preset:MacSlo}.
-      It consists of a number of cosets of RM\((2,m)\) created by quotienting with RM\((1,m)\) biorthogonal codes.'
+      It consists of a number of cosets of RM\((2,m)\) created by quotienting with first-order RM\((1,m)\) codes.'
     - code_id: preparata
       detail: 'Preparata codes are duals of Kerdock codes in that their distance distribution is equal to the MacWilliams transform of the distance distribution of Kerdock codes \cite{doi:10.1109/TIT.1983.1056676}.
       However, the two codes are images of a pair of mutually dual linear codes over \(\mathbb{Z}_4\) under the Gray map \cite{arXiv:math/9310227}\cite[Sec. 6.3]{doi:10.1201/9781315147901}.'

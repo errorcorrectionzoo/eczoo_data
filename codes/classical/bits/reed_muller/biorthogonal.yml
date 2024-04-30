@@ -7,10 +7,10 @@ code_id: biorthogonal
 physical: bits
 logical: bits
 
-name: '\([2^m,m+1,2^{m-1}]\) biorthogonal code'
+name: '\([2^m,m+1,2^{m-1}]\) First-order RM code'
 
 alternative_names:
-  - 'First-order RM code'
+  - 'Biorthogonal code'
   - 'RM\((1,m)\) code'
   - 'Augmented Hadamard code'
 
@@ -24,22 +24,21 @@ description: |
 
 features:
   decoders:
-    - 'Biorthogonal codes admit specialized decoders, such as the Fast Hadamard Transform decoder \cite{manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
+    - 'First-order RM codes admit specialized decoders, such as the Fast Hadamard Transform decoder \cite{manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
 
 notes:
-  - 'See Ref. \cite{doi:10.1109/TIT.1972.1054732} for the weight distribution of the \(2^{26}\) cosets of the \([32,6]\) biorthogonal code, obtained in part by hand computation.'
+  - 'See Ref. \cite{doi:10.1109/TIT.1972.1054732} for the weight distribution of the \(2^{26}\) cosets of the \([32,6]\) first-order RM code, obtained in part by hand computation.'
 
 
 relations:
   parents:
     - code_id: reed_muller
-      detail: 'Biorthogonal codes are first-order RM\((1,m)\) codes.'
   cousins:
     - code_id: hadamard
-      detail: 'Biorthogonal codes are augmented Hadamard codes.'
+      detail: 'First-order RM codes are augmented Hadamard codes.'
     - code_id: biorthogonal_spherical
-      detail: 'Each biorthogonal code maps to a \((2^m,2^{m+1})\) biorthogonal spherical code under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 19]{preset:EricZin}.
-      In other words, biorthogonal (biorthogonal spherical) codes form orthoplexes in Hamming (Euclidean) space.'
+      detail: 'Each first-order RM code maps to a \((2^m,2^{m+1})\) biorthogonal spherical code under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 19]{preset:EricZin}.
+      In other words, first-order RM (biorthogonal spherical) codes form orthoplexes in Hamming (Euclidean) space.'
 
 
 # Begin Entry Meta Information
