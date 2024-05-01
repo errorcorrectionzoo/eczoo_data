@@ -7,26 +7,47 @@ code_id: subsystem_quantum_parity
 physical: qubits
 logical: qubits
 
-name: 'Bacon-Casaccino subsystem code'
-introduced: '\cite{arXiv:quant-ph/0610088}'
+name: 'Subsystem hypergraph product (SHP) code'
+# 2002.06257 renamed, this paper often cited afterwards
+introduced: '\cite{arXiv:quant-ph/0610088,arxiv:2002.06257}'
 
 alternative_names:
   - 'Subsystem generalized Shor code'
-  - 'Subsystem hypergraph product (SHP) code'
-# 2002.06257
+  - 'Bacon-Casaccino subsystem code'
 
 description: |
-  CSS subsystem version of the generalized Shor code that has the same parameters as the subspace version, but requires fewer stabilizer measurements, resulting in a simpler error recovery routine.
+  A CSS subsystem version of the generalized Shor code that has the same parameters as the subspace version, but requires fewer stabilizer measurements, resulting in a simpler error recovery routine.
+  The code can also be thought of as a subsystem version of an HGP code because two such codes reduce to an HGP code upon gauge fixing \cite[Sec. III]{arxiv:2002.06257}.
   The code can be obtained from a generalized Shor code by removing certain stabilizers that do no affect the code distance.
 
   The \(X\)- and \(Z\)-type gauge generators of this CSS \([[n_1n_2,k_1k_2,\min(d_1,d_2)]]\) code correspond to rows of the following two respective matrices,
   \begin{align}
   \begin{split}
-  G_{X}&=H_{1}\otimes I_{n_{2}}\\G_{Z}&=I_{n_{1}}\otimes H_{2}~,
+  G_{X}&=H_{1}\otimes I_{n_{2}}\\
+  G_{Z}&=I_{n_{1}}\otimes H_{2}~,
   \end{split}
   \end{align}
   where \(H_{1,2}\) are the parity-check matrices of two binary linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\)
   \cite{arxiv:2002.06257}.
+
+
+# IN THE CASE BOTH CLASSICAL CODES ARE THE SAME:
+# The gauge-group generator matrix blocks, \(G_X\) and \(G_Z\), are constructed using the generator matrix \(G_C\) and parity-check matrix \(H_C\) of a linear binary code \(C\).
+# They are of the form
+# \begin{align}
+# \begin{split}
+# G_{X}&=\left(H_{C}\otimes I\right),\\
+# G_{Z}&=\left(I\otimes H_{C}\right)~.
+# \end{split}
+# \end{align}
+# The stabilizer generator matrix blocks are of the form
+# \begin{align}
+# \begin{split}
+# H_{X}&=\left(H_{C}\otimes G_{C}\right),\\
+# H_{Z}&=\left(G_{C}\otimes H_{C}\right)~.
+# \end{split}
+# \end{align}
+
 
 features:
   decoders:
@@ -59,19 +80,22 @@ features:
 
 relations:
   parents:
+    - code_id: subsystem_lifted_product
+      detail: 'SLP codes reduce to SHP codes when the lift is trivial.'
     - code_id: subsystem_product
-      detail: 'When constructed from two classical codes instead of quantum CSS codes, SP codes reduce to Bacon-Casaccino subsystem codes \cite{arXiv:2007.12152}.'
+      detail: 'SP codes reduce to SHP codes when constructed from two classical codes instead of quantum CSS codes \cite{arXiv:2007.12152}.'
   cousins:
     - code_id: hypergraph_product
-      detail: 'The Bacon-Casaccino subsystem and hypergraph-product code constructions yield the same dimension and minimum distance, but the former does not yield QLDPC codes; see \cite[pg. 18]{arxiv:0903.0566}.
-      Two generalized Shor codes can be gauge-fixed to yield a hypergraph product code \cite[Sec. III]{arxiv:2002.06257}.'
+      detail: 'Two SHP codes can be gauge-fixed to yield an HGP code \cite[Sec. III]{arxiv:2002.06257}.
+      The SHP and HGP code constructions yield the same dimension and minimum distance, but the former does not yield QLDPC codes; see \cite[pg. 18]{arxiv:0903.0566}.'
     - code_id: generalized_shor
       detail: 'In a \([[n_1n_2, k_1k_2, min(d_1, d_2)]]\) generalized Shor code, error correction is achieved by measuring \((n_1−k_1)n_2+(n_2−k_2)\) stabilizer generators \cite{arXiv:quant-ph/0508131}.
-      The Bacon-Casaccino subsystem code achieves the same degree of correctability, but requires only \((n_1−k_1)k_2+k_1(n_2−k_2)\) stabilizer measurements.'
+      The SHP code achieves the same degree of correctability, but requires only \((n_1−k_1)k_2+k_1(n_2−k_2)\) stabilizer measurements.'
     - code_id: bravyi_bacon_shor
-      detail: 'Bacon-Casaccino subsystem and BBS codes have been numerically compared \cite{arxiv:2002.06257}.'
+      detail: 'SHP and BBS codes have been numerically compared \cite{arxiv:2002.06257}.'
     - code_id: oecc
       detail: 'Classical information can also be encoded in subsystem codes using their gauge qubits \cite{doi:10.1142/S0219749921500416}.'
+
 
 # Begin Entry Meta Information
 _meta:

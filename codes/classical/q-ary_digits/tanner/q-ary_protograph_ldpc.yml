@@ -12,7 +12,31 @@ name: '\(q\)-ary protograph LDPC code'
 introduced: '\cite{doi:10.1109/ISTC.2010.5613806,doi:10.1109/ISIT.2011.6034271,doi:10.1109/ISIT.2014.6874958,doi:10.1109/TIT.2014.2316215}'
 
 description: |
-  \(q\)-ary LDPC code whose parity-check matrix is constructed using the \hyperref[topic:lifting]{lifting} procedure as well as using \textit{edge scaling}, i.e., the ability to assign non-binary edge weights.
+  A \(q\)-ary LDPC code whose parity-check matrix is constructed using the \hyperref[topic:lifting]{lifting} procedure applied to the incidence matrix of a sparse graph called, in this context, a \textit{protograph}.
+  An ability to assign non-binary edge weight called \textit{edge scaling} can also be used in code construction.
+
+  \begin{defterm}{Lifting}
+  \label{topic:lifting}
+  Given the incidence matrix \(A\) of a protograph, each non-zero entry is replaced by a sum of \(\ell\)-dimensional permutation matrices while each zero entry is replaced by the \(\ell\)-dimensional zero matrix.
+  The resulting matrix is called a \textit{lift} of \(A\).
+  The permutation matrices can be chosen randomly or deterministically, with a deterministic lift also called a \textit{permutation voltage assignment} in the theory of theory of voltage graphs \cite{doi:10.1109/ISIT.2008.4595095,doi:10.1017/CBO9781139087223}.
+
+  The matrices can come from a group \(G\) or its \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q G\), in which case the lift is often called a \(G\)\textit{-lift}.
+  In this case, matrix entries of a \(\mathbb{F}_q\)-valued matrix \(A\) are substitited with matrices forming the regular representation of \(\mathbb{F}_q G\) according to some rule.
+
+  For example, the lift of a binary two-dimensional incidence matrix using two-dimensional permutation matrices associated with the group \(\mathbb{Z}_2\) is as follows:
+  \begin{align}
+    \begin{pmatrix}1 & 1\\
+    0 & 1
+    \end{pmatrix}\to\left(\begin{smallmatrix}0 & 1 & 0 & 1\\
+    1 & 0 & 1 & 0\\
+    0 & 0 & 1 & 0\\
+    0 & 0 & 0 & 1
+    \end{smallmatrix}\right)~.
+  \end{align}
+  Here, the two non-zero entries in the top row are replaced by the exchange permutation while the bottom non-zero entry is replaced by the trivial permutation.
+  \end{defterm}
+
 
 protection: |
   Minimum distance bounds \cite{doi:10.1109/ITA.2012.6181802}.

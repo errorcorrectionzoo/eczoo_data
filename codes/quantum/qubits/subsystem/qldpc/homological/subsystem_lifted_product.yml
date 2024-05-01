@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_lifted_product
+physical: qubits
+logical: qubits
+
+name: 'Subsystem lifted-product (SLP) code'
+short_name: SLP
+introduced: '\cite{arxiv:2404.18302}'
+
+description: |
+  Member of a family of subsystem CSS codes constructed from an SHP code by \hyperref[topic:lifting]{lifting}.
+  In other words, the generator matrix \(G_C\) and parity-check matrix \(H_C\) of a linear binary code \(C\) are first \hyperref[topic:lifting]{lifted} and then plugged into the subsystem hypergraph construction.
+
+
+relations:
+  parents:
+    - code_id: subsystem_css
+  cousins:
+    - code_id: lifted_product
+      detail: 'SLP codes reduce to (subspace) LP codes when there is no gauge subsystem.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-23'
