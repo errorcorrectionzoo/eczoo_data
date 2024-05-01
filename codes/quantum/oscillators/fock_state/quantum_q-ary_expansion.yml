@@ -1,0 +1,56 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_q-ary_expansion
+physical: oscillators
+logical: qudits
+
+name: 'Quantum \(q\)-ary expansion'
+introduced: '\cite{manual:{Victor V. Albert and Michel H. Devoret, private communication, 2016}}'
+
+description: |
+  A one-to-one mapping between basis states on \(n\) prime-dimensional qudits (of dimension \(q=p\)) and the subspace of the first \(p^n\) single-mode Fock states.
+  While this mapping offers a way to map qudits into a single mode, noise models for the two code families induce different notions of locality and thus qualitatively different physical interpretations \cite{arxiv:2111.08894}.
+
+  The mapping allows one to think of the Fock subspace as a tensor product of \(n\) \(p\)-dimensional qudits by performing a \(p\)-ary expansion of the Fock-state labels and treating each digit as an index of a qudit basis state.
+  The Fock state \(|N\rangle\) is expanded in the \(p\)-ary expansion as
+  \begin{align}
+      N=\sum_{\mu=0}^{\infty}b_{\mu}p^{\mu}~,
+  \end{align}
+  with each \(p\)-ary string \(b_{\mu}\in\mathbb{Z}_p\) corresponding to the basis-state label of qudit \(\mu\).
+
+  Pauli operators for the constituent qudits can be expressed in terms of bosonic raising and lowering operators.
+  The modular-qudit Pauli-\(Z\) operator for qudit \(\mu\) is the Fock-space rotation
+  \begin{align}
+    Z_{\mu}=\exp\left[i\frac{2\pi}{p}{\hat{n} \choose p^{\mu}}\right]~,
+  \end{align}
+  where \(\hat n\) is the mode's occupation number operator.
+  This can be proven by Lucas's theorem.
+
+  The Pauli-\(X\) operator is expressed as
+  \begin{align}
+    X_{\mu}=\frac{1-P_{\mu}^{(d-1)}}{\sqrt{\left(\hat{n}+p^{\mu}\right)_{p^{\mu}}}}a^{d^{\mu}}+\frac{P_{\mu}^{(d-1)}}{\sqrt{\left(\hat{n}\right)_{d^{\mu}(d-1)}}}a^{\dagger d^{\mu}\left(d-1\right)}~,
+  \end{align}
+  where \(\left(a\right)_{b}\) is the falling factorial, and where the projector
+  \begin{align}
+    P_{\mu}^{(k)}=\frac{1}{p}\sum_{l\in\mathbb{Z}_{p}}Z_{\mu}^{l}e^{-i\frac{2\pi}{p}kl}~.
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: fock_state
+      detail: 'The quantum \(q\)-ary expansion allows one to map between qubit states and a Fock subspace of a single mode.'
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'The quantum \(q\)-ary expansion allows one to map between qubit states and a Fock subspace of a single mode.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-05-01'
