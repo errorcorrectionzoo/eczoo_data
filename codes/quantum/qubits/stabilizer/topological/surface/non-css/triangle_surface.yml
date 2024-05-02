@@ -9,7 +9,7 @@ physical: qubits
 logical: qubits
 
 name: 'Triangular surface code'
-introduced: '\cite{arXiv:1612.04795}'
+introduced: '\cite{arxiv:1612.04795}'
 
 alternative_names:
   - 'Triangle surface code'
@@ -24,7 +24,7 @@ description: |
 
   Triangular surface codes are defined on a plane tiled with equilateral triangles.
   The size of the triangular patches and which patch encodes data versus act as ancillas for gates depends on the initialization and measurement procedures.
-  See Ref. \cite{arXiv:1612.04795} for tables and figures.
+  See Ref. \cite{arxiv:1612.04795} for tables and figures.
 
 # Each triangle can encode a qubit where one side is a string of \(Z\)s as logical \(\bar{Z}\), one side is a string of \(X\)s as logical \(\bar{X}\), and the last side is a mixed-type string as logical \(\bar{Y}\).
 #
@@ -52,7 +52,7 @@ features:
     # To initialize a state in a distance \(2d+1\) code can be done by initializing a \(d \times d\) surface code patch and then extending the patch from a corner.
     # Ancilla qubits are prepared in the \(|+\rangle\) or \(|0\rangle\) basis.
     # Then the triangle code stabilizers are measured \(O(d)\) times.
-    # In figure 3 in \cite{arXiv:1612.04795}, the product of dashed loops and solid loops make a plaquette in the triangle code.
+    # In figure 3 in \cite{arxiv:1612.04795}, the product of dashed loops and solid loops make a plaquette in the triangle code.
     # So this converts from the surface code where initialization and measurement is well-known to the triangle code.
     # Since this procudure is heavily based on the surface code, storing data with distance at least \(d\) can be stored without converting to triangle patches. However
     - 'Basis-state conversion (BC) initialization and measurement method in which one initializes and then measures a logical Pauli eigenstate.
@@ -62,42 +62,42 @@ features:
     - 'The CAT states (CS) initialization and measurement method uses a row of \(d\) ancilla qubits along some edge of a triangle code with distance \(d\) to create and verify a GHz state that is used to measure the logical operator along the same edge.
     Creating this GHz state takes \(O(d)\) time steps.
     To relaibly measure the logical state, the GHz state must be measured \(O(d)\) times, resuling in \(O(d^2)\) time for logical measurement.
-    Initialization is a similar procedure that requires \(O(d^2)\) time for logical-operator measurements that occur \(O(d)\) times as well as \(O(d^2)\) time to project the code onto a logical state \cite{arXiv:1612.04795}.'
+    Initialization is a similar procedure that requires \(O(d^2)\) time for logical-operator measurements that occur \(O(d)\) times as well as \(O(d^2)\) time to project the code onto a logical state \cite{arxiv:1612.04795}.'
 
   transversal_gates:
-    - 'Triangle codes admit transversal order-three single-qubit Clifford gates, e.g., \(\bar{SH}\) \cite{arXiv:1612.04795}.'
+    - 'Triangle codes admit transversal order-three single-qubit Clifford gates, e.g., \(\bar{SH}\) \cite{arxiv:1612.04795}.'
 # that performs \(H\) on all qubit positions \(x > 0\) or at \(x = 0\) and \(z > 0\) and then perform \(SH\) on the central qubit.
-# Note that qubits are placed on integer lattics in the \(xy-, yz-,\) and \(xz-\) planes \cite{arXiv:1612.04795}.'
+# Note that qubits are placed on integer lattics in the \(xy-, yz-,\) and \(xz-\) planes \cite{arxiv:1612.04795}.'
 
   general_gates:
     - 'Performing single-qubit Clifford gates using the CC procedure requires surface code patches to be embedded in triangle patches.
-    This procedure requires \(O(d)\) Clifford gate times for \(H,S,CNOT\) \cite{arXiv:1612.04795}.'
+    This procedure requires \(O(d)\) Clifford gate times for \(H,S,CNOT\) \cite{arxiv:1612.04795}.'
     - 'The BC procedure requires \(O(1)\) time to perform \(H,S\) gates and \(O(d)\) time to perform \(CNOT\).
-    Sometimes reorientation of the sides is required, and that takes \(O(d)\) to perform \cite{arXiv:1612.04795}.'
+    Sometimes reorientation of the sides is required, and that takes \(O(d)\) to perform \cite{arxiv:1612.04795}.'
 
   decoders:
     - 'The decoding uses a a single decoding graph since the triangle code is not a CSS code.
     Nodes of the graph are located at each stabilizer (center of the triangle graph) and have red or blue edges, where red associates with \(X\) errors and blue with \(Z\) errors.
-    To take into account any errors from measuring the error syndrome, a three-dimensional stack of the decoding graphs is laid on top of the code with vertical edges connecting to qubits between layers \cite{arXiv:1612.04795}.'
+    To take into account any errors from measuring the error syndrome, a three-dimensional stack of the decoding graphs is laid on top of the code with vertical edges connecting to qubits between layers \cite{arxiv:1612.04795}.'
 
   fault_tolerance:
-    - 'The symmetry of triangle codes allows for fault-tolerant measurement and encoding in any Pauli basis \cite{arXiv:1612.04795}.'
+    - 'The symmetry of triangle codes allows for fault-tolerant measurement and encoding in any Pauli basis \cite{arxiv:1612.04795}.'
     - 'A non-fault-tolerant curcuit initializes the triangle code.
-    To guarantee fault-tolerance, postselection is performed on trivial measurements of the syndrome and of the logical Pauli, depending on the basis of the logical states \cite{arXiv:1612.04795}.'
-    - 'Making syndrome extraction fault tolerant requires a specific ordering of syndrome measurements so as to avoid hook errors \cite{arXiv:1612.04795}.'
+    To guarantee fault-tolerance, postselection is performed on trivial measurements of the syndrome and of the logical Pauli, depending on the basis of the logical states \cite{arxiv:1612.04795}.'
+    - 'Making syndrome extraction fault tolerant requires a specific ordering of syndrome measurements so as to avoid hook errors \cite{arxiv:1612.04795}.'
 
 # , instead of using the conventional ordering of coupling to the loop after coupling to the plaquette, the extraction has the coupling to the loop interwoven with the coupling to the plaquette.
 # These are equivalent in circuits, but makes a difference to the fault-tolerance since the latter can detect hook errors and the former cannot
 
   code_capacity_threshold:
     - '\(10\%\) under either bit-flip or bit-phase noise for ideal syndrome measurements.
-    The decoder used is a decoding graph with the same weight assigned to each edge, and Dijkstra''s algorithm is used to computre the total weight of any path \cite{arXiv:1612.04795}.'
+    The decoder used is a decoding graph with the same weight assigned to each edge, and Dijkstra''s algorithm is used to computre the total weight of any path \cite{arxiv:1612.04795}.'
 
   threshold:
     - '\(3.2\%\) bit-flip error-correction threshold for noisy syndrome measurements and \(2.6\%\) for bit-phase flip noise.
-    The decoder used is a decoding graph as describe above \cite{arXiv:1612.04795}.'
+    The decoder used is a decoding graph as describe above \cite{arxiv:1612.04795}.'
     - 'In general, the triangular surface code has a threshold of similar magnitude to the toric code for uncorrelated \(X\) and \(Z\) errors.
-    For correlated errors, the triangle code has a lower threshold of a factor of about \(36\) \cite{arXiv:1612.04795}.'
+    For correlated errors, the triangle code has a lower threshold of a factor of about \(36\) \cite{arxiv:1612.04795}.'
 
 
 relations:
@@ -105,8 +105,8 @@ relations:
     - code_id: twist_defect_surface
   #cousins:
     #- code_id: dislocation
-    #  detail: 'Both triangle codes and dislocation codes are topological codes with twists on qubits \cite{arXiv:1612.04795}.'
-# detail: 'Triangle codes are related to Clifford-deformed surface codes by lattice surgery and the use of Clifford gates \cite{arXiv:1612.04795}.'
+    #  detail: 'Both triangle codes and dislocation codes are topological codes with twists on qubits \cite{arxiv:1612.04795}.'
+# detail: 'Triangle codes are related to Clifford-deformed surface codes by lattice surgery and the use of Clifford gates \cite{arxiv:1612.04795}.'
 
 
 

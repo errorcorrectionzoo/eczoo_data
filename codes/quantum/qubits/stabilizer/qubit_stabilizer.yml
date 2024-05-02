@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Qubit stabilizer code'
-introduced: '\cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}'
+introduced: '\cite{arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
 
 alternative_names:
   - 'Pauli stabilizer code'
@@ -75,9 +75,9 @@ protection: |
 
 features:
   encoders:
-    - 'Clifford circuits, i.e., those consisting of CNOT, Hadamard, and certain phase gates, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arXiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}.'
-    - 'Circuits obtained by first constructing the CWS form of the code \cite{arXiv:0803.3232,arXiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
-    - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arXiv:1310.1036}, for which codespace is steady-state space of a Lindbladian. This does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}.'
+    - 'Clifford circuits, i.e., those consisting of CNOT, Hadamard, and certain phase gates, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arxiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}.'
+    - 'Circuits obtained by first constructing the CWS form of the code \cite{arxiv:0803.3232,arxiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
+    - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arxiv:1310.1036}, for which codespace is steady-state space of a Lindbladian. This does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}.'
 
   transversal_gates:
     - 'All stabilizer codes realize Pauli transformations transversally; for a single logical qubit, these a realize dicyclic subgroup of \(SU(2)\).
@@ -89,9 +89,9 @@ features:
 
   general_gates:
     - 'Logical Clifford gates can be performed by physical Clifford circuits that permute logical Pauli operators \cite{arxiv:1803.06987}.'
-    - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arXiv:1603.03948}.'
+    - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arxiv:1603.03948}.'
     - 'Gates in the \term{Clifford hierarchy} can be done using \textit{gate teleportation}, in which a gate can be obtained from a particular \textit{magic state} \cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0002039}.
-    Such protocols can be made fault tolerant with the help of magic-state distillation \cite{arxiv:quant-ph/0403025}.
+    Such protocols can be made fault tolerant with the help of magic-state distillation \cite{arxiv:quant-ph/0403025,arxiv:quant-ph/0410199}.
     There exist various performance metrics for magic-state distillation \cite{arxiv:quant-ph/9806094,arxiv:1807.10296,arxiv:1901.03322,arxiv:1904.01124}.
     The Hadamard gate cannot be obtained from a magic state \cite{arxiv:2312.03515}.'
     - 'Logical circuit synthesis (LCS) taking in a code and a logical Clifford operation and producing a circuit acting on the physical qubits \cite{arxiv:1907.00310}.'
@@ -100,7 +100,7 @@ features:
     - 'MPE decoding, i.e., the process of finding the most likely error, is \(NP\)-complete in general \cite{arxiv:1009.1319,manual:{Kuo, Kao-Yueh, and Chung-Chin Lu. "On the hardness of decoding quantum stabilizer codes under the depolarizing channel." 2012 International Symposium on Information Theory and its Applications. IEEE, 2012.}}. If the noise model is such that the most likely error is the lowest-weight error, then ML decoding is called \textit{minimum-weight} decoding. Maximum-likelihood (ML) decoding (a.k.a.\ degenerate maximum-likelihood decoding), i.e., the process of finding the most likely error class (up to degeneracy of errors), is \(\#P\)-complete in general \cite{arxiv:1310.3235}.'
     - 'Incorporating faulty syndrome measurements can be done by performing spacetime decoding, i.e., using data from past rounds for decoding syndromes in any given round. If a decoder does not process syndrome data sufficiently quickly, it can lead to the \textit{backlog problem} \cite{arxiv:1302.3428}, slowing down the computation.'
     - 'Splitting decoders \cite{arxiv:2309.15354}.'
-    - 'Trellis decoder, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arXiv:quant-ph/0512041}.'
+    - 'Trellis decoder, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arxiv:quant-ph/0512041}.'
     - 'Quantum extension of GRAND decoder \cite{arxiv:2208.02744}.'
     - 'Deep neural-network probabilistic decoder \cite{arxiv:1705.09334}.'
     - 'Generalized belief propagation (GBP) \cite{arxiv:2212.03214} based on a classical version \cite{manual:{J. S. Yedidia, W. T. Freeman, and Y. Weiss, Generalized belief propagation, in NIPS, Vol. 13 (2000) pp. 689–695.}}.'
@@ -111,24 +111,25 @@ features:
     - 'Gates in the \term{Clifford hierarchy} can be done using \textit{gate teleportation}, in which a gate can be obtained from a particular \textit{magic state} \cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0002039}.
     Such protocols can be made fault tolerant with the help of magic-state distillation \cite{arxiv:quant-ph/0403025}.'
     - 'Logical Bell measurements can be done transversally, and thus fault tolerantly, by performing bitwise Bell measurements for each pair of qubits (with each member of the pair taken from one of the two code blocks) and processing the result.'
-    - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arXiv:1603.03948}.'
-    - 'Shor error correction \cite{arXiv:quant-ph/9605011,arxiv:quant-ph/9605031}, in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
+    - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arxiv:1603.03948}.'
+    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031}, in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
     - 'Generalization of Steane error correction stabilizer codes \cite[Sec. 3.6]{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
-    - 'Fault-tolerant error correction scheme by Knill (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), which is based on teleportation \cite{arxiv:quant-ph/0410199,arXiv:quant-ph/0312190}.'
+    - 'Fault-tolerant error correction scheme by Knill (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), which is based on teleportation \cite{arxiv:quant-ph/0410199,arxiv:quant-ph/0312190}.'
+    - 'Fault-tolerant error correction using flag qubits for codes satisfying certain conditions \cite{arxiv:1708.02246}.'
     - 'GHz state distillation for Steane error correction \cite{arxiv:2109.06248}.'
     - 'Syndrome extraction using flag qubits and classical codes \cite{arxiv:2212.10738}.'
 
   code_capacity_threshold:
-    - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arXiv:1208.2317,arXiv:1311.7688,arXiv:1809.10704}. The AQEC relative entropy is related to the resulting threshold \cite{arxiv:2312.16991}.'
+    - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arxiv:1208.2317,arxiv:1311.7688,arxiv:1809.10704}. The AQEC relative entropy is related to the resulting threshold \cite{arxiv:2312.16991}.'
 
   threshold:
-    - 'Computational thresholds against stochastic local noise can be achieved through repeated use of concatenatenation, and can rely on the same small code in every level \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9906129,arXiv:quant-ph/9705031,arXiv:quant-ph/0504218}. The resulting code is highly \hyperref[topic:degeneracy]{degenerate}, with all but an exponentially small fraction of generators having small weights.
+    - 'Computational thresholds against stochastic local noise can be achieved through repeated use of concatenatenation, and can rely on the same small code in every level \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9906129,arxiv:quant-ph/9705031,arxiv:quant-ph/0504218}. The resulting code is highly \hyperref[topic:degeneracy]{degenerate}, with all but an exponentially small fraction of generators having small weights.
     Circuit and measurement designs have to take case of the few stabilizer generators with large weights in order to be fault tolerant.'
 
 # and various \textit{gadgets} (encoders, gates, measurements, decoders, etc.)
 
 notes:
-  - 'Introductions to stabilizer codes can be found in \cite{arXiv:quant-ph/9705052,preset:PreskillNotes,doi:10.1002/9783527618637.ch1}.'
+  - 'Introductions to stabilizer codes can be found in \cite{arxiv:quant-ph/9705052,preset:PreskillNotes,doi:10.1002/9783527618637.ch1}.'
   - 'Tables of bounds and examples of stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Ref. \cite{doi:10.1007/978-3-540-37634-7_13}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'
   - 'Stabilizer error-recovery circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}).'
   - 'There is a correspondence between stabilizer codes and bilocal Clifford entanglement distillation circuits \cite{arxiv:2303.11465}.'

@@ -10,7 +10,7 @@ logical: qubits
 name: 'Subsystem hypergraph product (SHP) code'
 short_name: 'SHP'
 # 2002.06257 renamed, this paper often cited afterwards
-introduced: '\cite{arXiv:quant-ph/0610088,arxiv:2002.06257}'
+introduced: '\cite{arxiv:quant-ph/0610088,arxiv:2002.06257}'
 
 alternative_names:
   - 'Subsystem generalized Shor code'
@@ -55,7 +55,7 @@ features:
     - 'Efficient decoder \cite{doi:10.1109/ISIT.2009.5205650}.'
 
 
-# Following the construction outlined in \cite{arXiv:quant-ph/0506023}, this \([[n_1n_2,k_1k_2,\min(d_1,d_2)]]\) code is constructed as follows from two classical linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\).
+# Following the construction outlined in \cite{arxiv:quant-ph/0506023}, this \([[n_1n_2,k_1k_2,\min(d_1,d_2)]]\) code is constructed as follows from two classical linear codes, \(C_1 = [n_1, k_1, d_1]\) and \(C_2 = [n_2, k_2, d_2]\).
 # Let \(G_1\) and \(G_2\) (\(H_1\) and \(H_2\)) be the generator (parity-check) matrices for \(C_1\) and \(C_2\), respectively.
 # Using the rows of \(H_1\) and \(H_2\), construct stabilizer groups \(\mathsf{S}_{1}=\langle S_{1},\ldots,S_{n_{1}-k_{1}}\rangle\) and \(\mathsf{S}_{2}=\langle T_{1},\ldots,T_{n_{2}-k_{2}}\rangle\), where
 # \begin{align}
@@ -84,13 +84,13 @@ relations:
     - code_id: subsystem_lifted_product
       detail: 'SLP codes reduce to SHP codes when the lift is trivial.'
     - code_id: subsystem_product
-      detail: 'SP codes reduce to SHP codes when constructed from two classical codes instead of quantum CSS codes \cite{arXiv:2007.12152}.'
+      detail: 'SP codes reduce to SHP codes when constructed from two classical codes instead of quantum CSS codes \cite{arxiv:2007.12152}.'
   cousins:
     - code_id: hypergraph_product
       detail: 'Two SHP codes can be gauge-fixed to yield an HGP code \cite[Sec. III]{arxiv:2002.06257}.
       The SHP and HGP code constructions yield the same dimension and minimum distance, but the former does not yield QLDPC codes; see \cite[pg. 18]{arxiv:0903.0566}.'
     - code_id: generalized_shor
-      detail: 'In a \([[n_1n_2, k_1k_2, min(d_1, d_2)]]\) generalized Shor code, error correction is achieved by measuring \((n_1−k_1)n_2+(n_2−k_2)\) stabilizer generators \cite{arXiv:quant-ph/0508131}.
+      detail: 'In a \([[n_1n_2, k_1k_2, min(d_1, d_2)]]\) generalized Shor code, error correction is achieved by measuring \((n_1−k_1)n_2+(n_2−k_2)\) stabilizer generators \cite{arxiv:quant-ph/0508131}.
       The SHP code achieves the same degree of correctability, but requires only \((n_1−k_1)k_2+k_1(n_2−k_2)\) stabilizer measurements.'
     - code_id: bravyi_bacon_shor
       detail: 'SHP and BBS codes have been numerically compared \cite{arxiv:2002.06257}.'
