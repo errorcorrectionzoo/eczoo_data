@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tetrahedral_color
+physical: qubits
+logical: qubits
+
+name: 'Tetrahedral color code'
+introduced: '\cite{arxiv:1311.0879,arxiv:1410.0069}'
+
+description: |
+  3D color code defined on a lattice of tetrahedra that are carved out of a BCC lattice.
+  Qubits are placed on the vertices, edges, triangles, and in the center of each tetrahedron.
+
+
+features:
+  transversal_gates: |
+    A \([[5d^3-12d^2+16,3,d]]\) close relative of this code admits a logical CCZ gate via single-qubit rotations \cite{arxiv:2404.19005}.
+
+
+
+relations:
+  parents:
+    - code_id: 3d_color
+  cousins:
+    - code_id: bcc
+      detail: 'The tetrahedral color code is defined on a lattice of tetrahedra that are carved out of a BCC lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-05-03'

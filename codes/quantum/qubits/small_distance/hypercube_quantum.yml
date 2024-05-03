@@ -18,15 +18,16 @@ alternative_names:
 description: |
   Member of a family of codes defined by placing qubits on a \(D\)-dimensional hypercube, \(Z\)-stabilizers on all two-dimensional faces, and an \(X\)-stabilizer on all vertices.
   These codes realize gates at the \((D-1)\)-st level of the Clifford hierarchy.
+  It can be generalized to a \([[4^D,D,4]]\) error-correcting family \cite{arxiv:2404.19005}.
+  Various other concatenations give families with increasing distance (see cousins).
 
 features:
   transversal_gates:
-    - 'CZ, CCZ, CNOT, and generalized \(CZ\) gates at the \((D-1)\)-st level of the Clifford hierarchy \cite{manual:{E. Campbell, “The smallest interesting colour code,” Online available at https://earltcampbell.com/2016/09/26/the-smallest-interesting-colour-code/ (2016), accessed on 2019-12-09.}}\cite[Exam. 6.10]{arxiv:2203.00103}.'
+    - 'CZ, CCZ, and generalized \(CZ\) gates at the \((D-1)\)-st level of the Clifford hierarchy \cite{manual:{E. Campbell, “The smallest interesting colour code,” Online available at https://earltcampbell.com/2016/09/26/the-smallest-interesting-colour-code/ (2016), accessed on 2019-12-09.}}\cite[Exam. 6.10]{arxiv:2203.00103}.
+    CNOT and SWAP gates can be realized by qubit permutations \cite{arxiv:2404.19005}.'
 
-# notes:
-#   - 'Degree-\(D\) instantaneous quantum polynomial (IQP) circuits \cite{arxiv:1504.07999} can be realized on hypercube codes in a hardware-efficient way \cite{arxiv:}.'
-# CITE Hangleiter ... Gullans
-# Cluster states with CCZ gates and no measurements
+notes:
+  - 'Degree-\(D\) instantaneous quantum polynomial (IQP) circuits \cite{arxiv:1504.07999} can be realized on hypercube codes in a hardware-efficient way \cite{arxiv:2404.19005}.'
 # Are hypercube all-\(|+\rangle\) states cluster states?
 
 relations:
@@ -40,6 +41,14 @@ relations:
   cousins:
     - code_id: hypercube
       detail: '\([[2^D,D,2]]\) hypercube code qubits are placed on vertices of a \(D\)-cube.'
+    - code_id: quantum_repetition
+      detail: 'The hypercube code can be concatenated with a two-qubit quantum repetition code to yield a \([[2^{D+1},D,4]]\) error-detecting code family \cite{arxiv:2404.19005}.'
+    - code_id: higher_dimensional_surface
+      detail: 'The hypercube code can be concatenated with a distance-two \(D\)-dimensional surface code to yield a \([[2^D(2^D+1),D,4]]\) error-correcting code family that admits a transversal implementation of the logical \(C^{D-1}Z\) gate \cite{arxiv:2404.19005}.'
+    - code_id: quantum_concatenated
+      detail: |
+        The hypercube code can be concatenated with a two-qubit quantum repetition code to yield a \([[2^{D+1},D,4]]\) error-detecting code family \cite{arxiv:2404.19005}.
+        It can also be concatenated with a distance-two \(D\)-dimensional surface code to yield a \([[2^D(2^D+1),D,4]]\) error-correcting code family that admits a transversal implementation of the logical \(C^{D-1}Z\) gate \cite{arxiv:2404.19005}.
 
 
 # Begin Entry Meta Information
