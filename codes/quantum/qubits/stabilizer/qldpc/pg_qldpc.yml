@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pg_qldpc
+physical: qubits
+logical: qubits
+
+name: 'Finite-geometry (FG) QLDPC code'
+short_name: 'FG-QLDPC'
+introduced: '\cite{arxiv:0712.4115,arxiv:1207.0732,arxiv:1512.07081}'
+
+description: |
+  CSS code constructed from linear binary codes whose parity-check or generator matrices are incidence matrices of points, hyperplanes, or other structures in finite geometries.
+  These codes can be interpreted as quantum versions of FG-LDPC codes, but some of them \cite{arxiv:1207.0732,arxiv:1512.07081} are not strictly QLDPC.
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: qldpc
+  cousins:
+    - code_id: pg_ldpc
+      detail: 'Quantum versions of PG-LDPC and EG-LDPC codes can be constructed via the CSS construction \cite{arxiv:0712.4115,arxiv:1207.0732,arxiv:1512.07081}.'
+    - code_id: projective
+      detail: 'PG-QLDPC codes are constructed from linear binary codes whose parity-check or generator matrices are incidence matrices of structures in finite geometries.'
+    - code_id: qubit_generalized_homological_product
+      detail: 'Iterative tensor products of PG-QLDPC codes yield codes whose stabilizer-generator weights scale almost logarithmically with \(n\) \cite{arxiv:1512.07081}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-05-03'
