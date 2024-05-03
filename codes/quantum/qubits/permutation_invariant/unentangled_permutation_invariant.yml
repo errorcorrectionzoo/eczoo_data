@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: unentangled_permutation_invariant
+physical: qubits
+logical: qubits
+
+name: '\(((n,1,2))\) Bravyi-Lee-Li-Yoshida PI code'
+introduced: '\cite{arxiv:2405.01332}'
+
+description: |
+  PI distance-two code on \(n\geq4\) qubits whose degree of entanglement vanishes asymptotically with \(n\) \cite[Appx. D]{arxiv:2405.01332}.
+
+  In terms of \hyperref[topic:dicke]{Dicke states}, the codewords are
+  \begin{align}
+    \begin{split}
+      |0_{L}\rangle&=\sqrt{1-\frac{2}{n}}|D_{0}^{n}\rangle+\sqrt{\frac{2}{n}}|D_{n}^{n}\rangle\\
+      |1_{L}\rangle&=|D_{2}^{n}\rangle~.
+    \end{split}
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: qubit_permutation_invariant
+    - code_id: movassagh_ouyang
+      detail: 'The \(((n,1,2))\) PI code is a Movassagh-Ouyang Hamiltonian code constructed from a binary code consisting of all codewords of weight 0, 2, or \(n\) \cite[Appx. D]{arxiv:2405.01332}.'
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: quantum_concatenated
+      detail: 'The Bravyi-Lee-Li-Yoshida PI code can be concatenated to yield codes that have higher distance and that admit codewords with vanishing entanglement \cite[Appx. D]{arxiv:2405.01332}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-02-07'
