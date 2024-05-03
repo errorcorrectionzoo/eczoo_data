@@ -27,9 +27,7 @@ Jump to:
 All of the zoo entries' information are stored in data files that are both
 human and machine readable.
 
-See the `template.yml` file to get started.
-
-(@VVA: feel free to fill in more info about folder structure guidelines here)
+See the `template.yml` file to get started on contributing a code entry.
 
 ### The YAML language
 
