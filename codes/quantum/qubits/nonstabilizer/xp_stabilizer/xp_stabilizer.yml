@@ -10,12 +10,21 @@ logical: qubits
 name: 'XP stabilizer code'
 introduced: '\cite{arxiv:2203.00103}'
 
+alternative_names:
+  - 'Weighed hypergraph code'
+
 description: |
   The XP Stabilizer formalism is a generalization of the XS and Pauli stabilizer formalisms, with stabilizer generators taken from the group \( \mathsf{BD}_{2N}^{\otimes n} = \langle\omega I, X, P\rangle^{\otimes n} \), which is the tensor product of the binary dihedral group of order \(8N\).
   Here, \(N\) is called the \textit{precision}, \( \omega \) is a \( 2N \)th root of unity, and \( P = \text{diag} ( 1, \omega^2) \).
   The codespace is a \(+1\) eigenspace of a set of XP stabilizer generators, which need not commute to define a valid codespace.
 
-  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former can be mapped to a CSS code with similar logical operator structure.
+  XP stabilizer states are in one-to-one correspondence with weighted hypergraph states \cite{arxiv:2203.00103,manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}, which generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
+  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former admits logical dimension \(K=2^k\) (for some integer \(k\)) and can be mapped to a CSS code with similar logical operator structure.
+
+features:
+  encoders:
+    - 'Initialization of all qubits in the \(|+\rangle\) state and action of generalied controlled \(Z\) gates on multi-edges of the underlying hypergraph \cite{arxiv:2203.00103,manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.'
+
 
 relations:
   parents:
