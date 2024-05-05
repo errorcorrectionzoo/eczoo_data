@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_quad_residue
+physical: galois
+logical: galois
+
+name: 'Quantum quadratic-residue (QR) code'
+short_name: 'Quantum QR code'
+introduced: '\cite{arxiv:quant-ph/9703048,arxiv:quant-ph/0508070,arxiv:0712.0103}'
+
+description: |
+  Galois-qudit \([[n, 1]]_q\) \hyperref[topic:quantum-weight-enumerator]{pure} CSS code constructed from a dual-containing QR code via the Galois-qudit CSS construction.
+  For certain \(q\), its distance satisfies \(d^2-d+1 \geq n\) when \(n \equiv 3\) modulo 4 \cite[Thm. 40]{arxiv:quant-ph/0508070} and \(d \geq \sqrt{n}\) when \(n\equiv 1\) modulo 4 \cite[Thm. 41]{arxiv:quant-ph/0508070}.
+
+
+relations:
+  parents:
+    - code_id: galois_css
+  cousins:
+    - code_id: q-ary_quad_residue
+      detail: 'The qubit Golay code is a qubit quantum QR code sice the Golay code is a binary QR code.'
+    - code_id: data_syndrome
+      detail: 'A family of qubit quantum QR codes can be made into DS codes \cite[Thm. 14]{arxiv:1907.01393}.'
+    - code_id: quantum_mds
+      detail: 'Almost all quantum QR codes for prime-dimensional qudits are quantum MDS \cite[Corr. 11]{arxiv:quant-ph/9703048}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-05-05'
