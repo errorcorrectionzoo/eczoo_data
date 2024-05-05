@@ -15,7 +15,7 @@ description: |
   A \([[7,1,3]]\) CSS code that is the smallest qubit CSS code to correct a single-qubit error.
   The code is constructed using the classical binary \([7,4,3]\) Hamming code for protecting against both \(X\) and \(Z\) errors.
 
-  The code's stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both the parity-check matrix for the the \([7,4,3]\) Hamming code,
+  The code's stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both the parity-check matrix for the \([7,4,3]\) Hamming code,
   \begin{align}
     H_{X} = H_{Z} = \left(\begin{matrix}
       0&0&0&1&1&1&1\\
@@ -93,6 +93,8 @@ relations:
     - code_id: diagonal_clifford
     - code_id: quantum_hamming_css
     - code_id: single_qubit_clifford
+    - code_id: data_syndrome
+      detail: 'There exists a set of stabilizer generators for the Steane code that make it a DS code \cite{arxiv:1409.2559}.'
     - code_id: pg_qldpc
       detail: 'The Steane code is the \(m=1\) member of the \([[2^{2m}+2^{m}+1,1,>2^{m}]]\) PG-QLDPC code family that is constructed from codes corresponding to lines and affine charts in \(PG(2,2^m)\) via the CSS construction \cite[Def. 4.9]{arxiv:1512.07081}.'
     - code_id: group_representation

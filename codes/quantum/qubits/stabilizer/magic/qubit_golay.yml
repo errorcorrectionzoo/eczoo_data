@@ -7,8 +7,11 @@ code_id: qubit_golay
 physical: qubits
 logical: qubits
 
-name: 'Qubit Golay code'
+name: 'Quantum Golay code'
 introduced: '\cite{arxiv:quant-ph/9605021}'
+
+alternative_names:
+  - 'Qubit Golay code'
 
 description: |
   A \([[23, 1, 7]]\) self-dual CSS code with eleven stabilizer generators of each type, and with each generator being weight eight.
@@ -60,6 +63,8 @@ notes:
 relations:
   parents:
     - code_id: qubit_css
+    - code_id: data_syndrome
+      detail: 'There exists a set of stabilizer generators for the qubit Golay code that make it a DS code \cite{arxiv:1907.01393}.'
   cousins:
     - code_id: golay
       detail: 'The qubit Golay code is a CSS code constructed with the Golay code.'

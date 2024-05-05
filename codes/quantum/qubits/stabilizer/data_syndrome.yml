@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: data_syndrome
+physical: qubits
+logical: qubits
+
+name: 'Quantum data-syndrome (DS) code'
+short_name: 'DS code'
+introduced: '\cite{arxiv:1409.2559,arxiv:1907.01393}'
+
+description: |
+  Stabilizer code designed to correct both data qubit errors and syndrome measurement errors simultaneously due to extra redundancy in their stabilizer generators.
+
+  Extra redundancy can be added to any \([[n,n-m]]\) qubit stabilizer code by expanding its stabilizer generator matrix \(H\) as
+  \begin{align}
+    H_{DS}=\begin{pmatrix}H & I_{m} & 0\\
+    0 & A^{T} & I_{r}
+    \end{pmatrix}~,
+  \end{align}
+  where the redundancy is provided by the underlying \([m+r,m]\) \textit{syndrome measurement code} with generator matrix \(G= (I_m|A)\).
+
+protection: |
+  Protects against both physical qubit and syndrome measurement errors.
+  Singleton bounds, Hamming bounds, and \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} can be extended to DS codes.
+
+features:
+  decoders:
+    - 'Syndrome errors are decoded using redundant stabilizer measurements.'
+
+  fault_tolerance:
+    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031}, in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements \(\ell\) times, can be recast as a DS code whose underlying matrix \(A\) is the identity matrix \(I_m\) repeated \(\ell\) times \cite{arxiv:1907.01393}.'
+
+
+relations:
+  parents:
+    - code_id: stabilizer_codes
+      detail: 'Quantum DS codes are stabilizer codes whose stabilizer generators encode extra redundancy (via a linear binary code) so as to protect from syndrome measurement errors.'
+  cousins:
+    - code_id: quantum_hamming
+      detail: 'Codes such as the quantum Hamming code can be expanded to DS codes using almost any good binary linear code because their stabilizer generators are all have the same weight \cite{arxiv:1907.01393}.'
+    - code_id: quantum_mds
+      detail: 'The quantum Singleton bound can be formulated for DS codes \cite{arxiv:1907.01393}.'
+    - code_id: quantum_perfect
+      detail: 'The quantum Singleton bound can be formulated for DS codes \cite{arxiv:1907.01393}.'
+    - code_id: binary_linear
+      detail: 'The DS code construction employs a particular binary linear code to provide protection against syndrome measurement errors.'
