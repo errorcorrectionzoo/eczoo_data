@@ -58,6 +58,9 @@ features:
     # The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
     - 'The toric code has a \hyperref[topic:measurement-threshold]{measurement threshold} of one \cite{arxiv:2402.00145}.'
 
+  threshold:
+    - '\(0.133\%\) for independent \(X,Z\) noise and faulty syndrome measurements using a cellular automaton decoder \cite{arxiv:1609.00510}.'
+
 realizations:
   - |
     One cycle of syndrome readout on 19-qubit planar and 24-qubit toric codes realized in two-dimensional Rydberg atomic arrays \cite{arxiv:2112.03923}.
@@ -66,12 +69,14 @@ relations:
   parents:
     - code_id: surface
       detail: 'The toric code is the surface code on a 2D torus.'
+    - code_id: higher_dimensional_toric
+      detail: 'The \(D\)-dimensional twisted toric code reduces to the toric code for \(D=2\) and a square lattice.'
     - code_id: hypergraph_product
       detail: 'The toric code can be obtained from a hypergraph product of two repetition codes \cite[Ex. 6]{arxiv:1202.0928}.
       Other hypergraph products of two repetition codes yield the related \([[2d^2-2d+1,1,d]]\) CSS code family \cite[Exam. 5]{arxiv:1202.0928}.'
-  cousins:
     - code_id: lifted_product
       detail: 'A lifted-product code for the ring \(R=\mathbb{F}_2[x,y]/(x^L-1,y^L-1)\) is the toric code \cite[Appx. B]{arxiv:2111.03654}.'
+      cousins:
     - code_id: balanced_product
       detail: 'Twisted toric codes can be obtained from balanced products of cyclic graphs over a cyclic group \cite[Fig. 8]{arxiv:2012.09271}.'
 
