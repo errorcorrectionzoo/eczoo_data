@@ -9,10 +9,8 @@ logical: qubits
 
 name: 'Kitaev surface code'
 introduced: |
-  \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1007/978-1-4615-5923-8_19,arxiv:quant-ph/9707021}
+  \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1007/978-1-4615-5923-8_19,arxiv:quant-ph/9707021,arxiv:quant-ph/9811052}
 
-alternative_names:
-  - 'Kitaev toric code'
 
 description: |
   A family of Abelian topological \hyperref[code:css]{CSS stabilizer} codes
@@ -22,42 +20,13 @@ description: |
   cellulation).
   Codewords correspond to ground states of the surface code Hamiltonian, and error operators create or annihilate pairs of anyonic charges or vortices.
 
-  \textit{Toric code} often either refers to the construction on
-  the two-dimensional torus or is an alternative name for the general construction.
-  \textit{Twisted toric code} \cite[Fig. 8]{arxiv:2012.09271} refers to the construction on a torus with twisted (a.k.a. shifted) boundary conditions.
-  The construction on surfaces with boundaries is often called the
-  \textit{planar code} \cite{arxiv:quant-ph/9810055,arxiv:quant-ph/9811052}.
+  The construction on closed surfaces (surfaces with boundaries) is called the toric code (\textit{planar code} \cite{arxiv:quant-ph/9810055,arxiv:quant-ph/9811052}).
   There are two types of stabilizers one can put on edges, yielding \textit{open} (a.k.a. rough) and \textit{closed} (a.k.a. smooth) boundaries.
   A \textit{mixed boundary} consists of an interleaving of the two stabilizer types \cite{arxiv:1606.07116}.
 
-  The stabilizers of the surface code on the 2-dimensional torus are generated
-  by star operators \(A_v\) and plaquette operators \(B_p\).  Each star operator
-  is a product of four Pauli-\(X\) operators on the edges adjacent to a vertex
-  \(v\) of the lattice; each plaquette operator is a product of four Pauli-\(Z\)
-  operators applied to the edges adjacent to a face, or plaquette, \(p\) of the
-  lattice (\ref{figure:toric-code-operators}).
-
-  \begin{figure}
-    \includegraphics{toric-code-operators}
-    \caption{Stabilizer generators and logical operators of the 2D surface
-      code on a torus.  The star operators \(A_v\) and the plaquette operators
-      \(B_p\) generate the stabilizer group of the toric code.  The logical
-      operators are strings that wrap around the torus.}
-    \label{figure:toric-code-operators}
-  \end{figure}
-
-  The two-dimensional toric code encodes two logical qubits.  We denote by
-  \(\overline{X}_i,\overline{Z}_i\) the logical Pauli-\(X\) and Pauli-\(Z\)
-  operator of the \(i\)-th logical qubit.  They can are represented by strings
-  of Pauli-\(X\) operators or Pauli-\(Z\) operators that wrap around the torus
-  as shown in \ref{figure:toric-code-operators}.
-
 protection: |
-  Toric code on an \(L\times L\) torus is a \([[2L^2,2,L]]\) CSS code.
   The original planar code on a square-lattice patch with different boundary conditions on the vertical and horizontal edges is a \([[L^2+(L-1)^2,1,L]]\) CSS code \cite{arxiv:quant-ph/9810055}.
   Code size \(k = 2^{2g}\) for a torus of genus \(g\), and such higher genus surfaces have been investigated \cite{arxiv:2307.04418}.
-
-  Coherent physical errors are expected to become incoherent logical errors under syndrome measurement; see corroborating numerical studies performed via the Majorana mapping \cite{arxiv:1710.02270} as well as analytical bounds \cite{arxiv:1912.04319}.
 
 features:
   rate: |
@@ -67,14 +36,12 @@ features:
     - 'A depth-\(L^2\) circuit that grows the code out of a small patch on an \(L\times L\) square lattice using CNOT gates (i.e., "local moves") \cite{arxiv:quant-ph/0110143,arxiv:0712.0348}.'
     - 'Graph-state based adaptive circuit \cite{arxiv:quant-ph/0703143,arxiv:1105.2111}.'
     - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arxiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arxiv:0712.0348,arxiv:0806.4583,arxiv:1207.0253} (matching lower bounds \cite{arxiv:quant-ph/0603121,arxiv:1810.03912}).'
-    - 'Lindbladian-based dissipative encoding for the toric code \cite{arxiv:1310.1036} that does not give a speedup relative to circuit-based encoders \cite{arxiv:1310.1037}.'
     - 'Stabilizer measurement-based circuit of linear depth \cite{arxiv:quant-ph/0110143,arxiv:1404.2495}.'
     - 'Any geometrically local unitary circuit on a lattice \(\Lambda\) that prepares a state whose energy density with respect to the surface code Hamiltonian is \(\epsilon\) must have depth of order \(\Omega(\min(\sqrt{|\Lambda|},1/\epsilon^{\frac{1-\alpha}{2}}))\) for any \(\alpha>0\) \cite{arxiv:2210.06796}.'
     - 'Single-shot state preparation \cite{arxiv:1904.01502}.'
   #make one that you feel is applicable to a large and interesting class of codes
 
   transversal_gates:
-    - 'For the toric code, transversal logical Pauli gates correspond to Pauli strings on non-trivial loops of the torus.'
     - 'Transversal Clifford gates can be done on folded surface codes \cite{arxiv:1603.02286}.'
 
   general_gates:
@@ -137,16 +104,6 @@ features:
     - 'A color-code decoder can be used for the surface code \cite{arxiv:2306.16476}.'
     - 'Progressive-Proximity Bit-Flipping (PPBF) decoder \cite{arxiv:2402.15924}.'
 
-  code_capacity_threshold:
-    - 'Independent \(X,Z\) noise: \(p_X = 10.31\%\) under MWPM decoding \cite{arxiv:quant-ph/0207088} (see also Ref. \cite{arxiv:1405.4883}), \(9.9\%\) under BP-OSD decoding \cite{arxiv:2005.07016}, and \(8.9\%\) under GBP decoding \cite{arxiv:2212.03214}.
-    The threshold under ML decoding corresponds to the value of critical point of the two-dimensional random-bond two-body Ising model on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143}, calculated to be \(10.94 \pm 0.02\%\) in Ref. \cite{arxiv:cond-mat/0010143}, \(10.93(2)\%\) in Ref. \cite{arxiv:cond-mat/0106023}, \(10.9187\%\) in Ref. \cite{arxiv:0811.0464}, \(10.917(3)\%\) in Ref. \cite{arxiv:0811.2101}, \(10.939(6)\%\) in Ref. \cite{arxiv:0902.4153}, and estimated to be between \(10.9\%\) and \(11\%\) in Ref. \cite{arxiv:1405.4883}.
-    Above values are for one type of noise only, and the ML threshold for combined \(X\) and \(Z\) noise is \(2p_X - p_X^2 \approx 20.6\%\).'
-    - 'Depolarizing noise: between \(17\%\) and \(18.5\%\) under tensor-network decoding \cite{arxiv:1405.4883}, \(14\%\) under GBP decoding \cite{arxiv:2212.03214}, \(16.5\%\) under recursive MWPM \cite{arxiv:2212.11632}, between \(16\%\) and \(17.5\%\) under AMBP4 (depending on whether surface or toric code is considered) \cite{arxiv:2104.13659}, and between \(15\%\) and \(16\%\) under RG \cite{arxiv:0911.0581}, Markov-chain \cite{arxiv:1302.2669}, or MWPM \cite{arxiv:0905.0531} decoding.
-    The threshold under ML decoding corresponds to the value of critical point in the disordered eight-vertex Ising model, calculated to be \(18.9(3)\%\) \cite{arxiv:1202.1852} (see also APS Physics viewpoint \cite{doi:10.1103/Physics.5.50}).'
-    - 'Erasure noise: \(50\%\) for square tiling \cite{arxiv:0904.3556}.
-    There is an inverse relationship between coordination number of the syndrome graph, with the threshold corresponding to a percolation transition \cite{arxiv:1810.09621}.'
-    - 'Correlated noise: \(10.04(6)\%\) under mildly correlated bit-flip noise \cite{arxiv:1809.10704}.'
-    # The latter work considers \(X\)-type noise only, but this is equivalent since \(X\)- and \(Z\)-type noise is corrected independently.
   threshold:
     - 'Circuit-level noise: \(1.8\%\) under correlated CNOT-gate errors and single-qubit-gate depolarizing noise \cite{arxiv:0905.0531} with optimal decoder \cite{arxiv:1609.06373}, and
     \(0.35\%\) under independent \(X,Z\) noise with optimal decoder \cite{arxiv:1609.06373}.
@@ -158,12 +115,9 @@ features:
     - 'Phenomenological noise: \(3.3\%\) for square tiling \cite{arxiv:quant-ph/0401101}, and \(2.93(2)\%\) using several rounds of syndrome measurement \cite{arxiv:quant-ph/0207088}.'
     - 'Quasistatic phase damping and readout noise: \(2.85\%\) \cite{arxiv:2401.04530}.'
     - 'Numerical study of concatenated thresholds of logical CNOT gates for various codes against depolarizing noise \cite{arxiv:0711.1556}.'
-    - 'The toric code has a \hyperref[topic:measurement-threshold]{measurement threshold} of one \cite{arxiv:2402.00145}.'
 
 
 realizations:
-  - |
-    One cycle of syndrome readout on 19-qubit planar and 24-qubit toric codes realized in two-dimensional Rydberg atomic arrays \cite{arxiv:2112.03923}.
   - |
     Signatures of corresponding topological phase of matter detected in superconducting circuits \cite{arxiv:2104.01180} and two-dimensional Rydberg atomic arrays \cite{arxiv:2104.04119}.
 
@@ -190,9 +144,6 @@ relations:
       detail: 'CDSC codes are deformations of the surface code via constant-depth Clifford circuits that may not be CSS.'
     - code_id: higher_dimensional_surface
       detail: 'The surface-code CSS stabilizer generator prescription is extendable to higher-dimensional manifolds.'
-    - code_id: hypergraph_product
-      detail: 'The planar (toric) code can be obtained from a hypergraph product of two repetition (cyclic) codes \cite[Ex. 6]{arxiv:1202.0928}.
-      Other hypergraph products of two repetition codes yield the related \([[2d^2-2d+1,1,d]]\) CSS code family \cite[Exam. 5]{arxiv:1202.0928}.'
     - code_id: lcs
       detail: 'LCS codes consist of sparsely interconnected stacks of surface codes.'
     - code_id: qudit_surface
@@ -212,10 +163,6 @@ relations:
       detail: 'A quantum-double model with \(G=\mathbb{Z}_2\) is the surface code. Non-stabilizer surface-code states can be prepared by augmenting the surface code with a quantum double model \cite{arxiv:1811.06738}.'
     - code_id: hamiltonian
       detail: 'While codewords of the surface code form ground states of the code''s stabilizer Hamiltonian, they can also be ground states of other gapless Hamiltonians \cite{arxiv:1111.5817}.'
-    - code_id: lifted_product
-      detail: 'A lifted-product code for the ring \(R=\mathbb{F}_2[x,y]/(x^L-1,y^L-1)\) is the toric code \cite[Appx. B]{arxiv:2111.03654}.'
-    - code_id: balanced_product
-      detail: 'Twisted toric codes can be obtained from balanced products of cyclic graphs over a cyclic group \cite[Fig. 8]{arxiv:2012.09271}.'
 
 # lcs parent is lifted product
 # layer is cousin, otherwise surface parent would be fracton
