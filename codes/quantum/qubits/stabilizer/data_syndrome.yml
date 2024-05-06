@@ -7,8 +7,8 @@ code_id: data_syndrome
 physical: qubits
 logical: qubits
 
-name: 'Quantum data-syndrome (DS) code'
-short_name: 'DS code'
+name: 'Quantum data-syndrome (QDS) code'
+short_name: 'QDS code'
 introduced: '\cite{arxiv:1409.2559,doi:10.1109/ISIT.2014.6874892,doi:10.1109/ISIT.2015.7282628,doi:10.1109/ISIT.2016.7541704,arxiv:1907.01393}'
 
 description: |
@@ -24,38 +24,38 @@ description: |
 
 protection: |
   Protects against both physical qubit and syndrome measurement errors.
-  Quantum Singleton bounds, quantum Hamming bounds, and \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} can be extended to DS codes.
-  Single-error-correcting DS codes stemming from \hyperref[topic:quantum-weight-enumerator]{impure} stabilizer codes must satisfy a variant of the quantum Hamming bound \cite{arxiv:2302.01527}.
+  Quantum Singleton bounds, quantum Hamming bounds, and \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} can be extended to QDS codes.
+  Single-error-correcting QDS codes stemming from \hyperref[topic:quantum-weight-enumerator]{impure} stabilizer codes must satisfy a variant of the quantum Hamming bound \cite{arxiv:2302.01527}.
 
 features:
   decoders:
     - 'Syndrome errors are decoded using redundant stabilizer measurements.'
 
   fault_tolerance:
-    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031}, in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements \(\ell\) times, can be recast as a DS code whose underlying matrix \(A\) is the identity matrix \(I_m\) repeated \(\ell\) times \cite{arxiv:1907.01393}.'
+    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031}, in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements \(\ell\) times, can be recast as a QDS code whose underlying matrix \(A\) is the identity matrix \(I_m\) repeated \(\ell\) times \cite{arxiv:1907.01393}.'
 
 
 relations:
   parents:
     - code_id: qubit_stabilizer
-      detail: 'Quantum DS codes are stabilizer codes whose stabilizer generators encode extra redundancy (via a linear binary code) so as to protect from syndrome measurement errors.'
+      detail: 'QDS codes are stabilizer codes whose stabilizer generators encode extra redundancy (via a linear binary code) so as to protect from syndrome measurement errors.'
   cousins:
     - code_id: quantum_hamming_css
-      detail: 'Codes such as the quantum Hamming code can be expanded to DS codes using almost any good binary linear code because their stabilizer generators all have the same weight \cite{arxiv:1907.01393}.'
+      detail: 'Codes such as the quantum Hamming code can be expanded to QDS codes using almost any good binary linear code because their stabilizer generators all have the same weight \cite{arxiv:1907.01393}.'
     - code_id: quantum_mds
-      detail: 'The quantum Singleton bound can be extended to DS codes \cite{arxiv:1907.01393}.'
+      detail: 'The quantum Singleton bound can be extended to QDS codes \cite{arxiv:1907.01393}.'
     - code_id: quantum_perfect
-      detail: 'The quantum Hamming bound can be extended to DS codes \cite{arxiv:1907.01393}.'
+      detail: 'The quantum Hamming bound can be extended to QDS codes \cite{arxiv:1907.01393}.'
     - code_id: binary_linear
-      detail: 'The DS code construction employs a particular binary linear code to provide protection against syndrome measurement errors.'
+      detail: 'The QDS code construction employs a particular binary linear code to provide protection against syndrome measurement errors.'
     - code_id: quantum_convolutional
-      detail: 'The DS code framework has been extended to quantum convolutional codes \cite{arxiv:1902.07395}.'
+      detail: 'The QDS code framework has been extended to quantum convolutional codes \cite{arxiv:1902.07395}.'
     - code_id: single_shot
-      detail: 'DS codes contain redundancy in their stabilizer generators so as to protect from syndrome measurement errors.'
+      detail: 'QDS codes contain redundancy in their stabilizer generators so as to protect from syndrome measurement errors.'
     - code_id: bch
-      detail: 'Primitive narrow-sense BCH codes can be used as the syndrome measurement codes of a DS code \cite{arxiv:2311.16044}.
+      detail: 'Primitive narrow-sense BCH codes can be used as the syndrome measurement codes of a QDS code \cite{arxiv:2311.16044}.
       This construction requires fewer measurements than a previous general construction \cite{arxiv:1409.2559}.'
-    - code_id: qubit_subsystem
+    - code_id: subsystem_stabilizer
       detail: 'The DS construction can be extended to qubit subsystem codes \cite{arxiv:2302.01527}.'
 
 
