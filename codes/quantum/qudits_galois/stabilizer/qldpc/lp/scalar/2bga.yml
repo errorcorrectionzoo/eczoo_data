@@ -21,6 +21,7 @@ description: |
   For a group of order \(\ell\), we get a 2BGA code of length
   \(n=2\ell\).
   A 2BGA code for an Abelian group is called an \textit{Abelian 2BGA code}.
+  A construction of such codes in terms of Kronecker products of circulant matrices was introduced in \cite{arxiv:1212.6703}.
 
   An \(\mathbb{F}_q\)-linear code isomorphic to a \(Z\) logical subspace of the 2BGA code LP\((a,b)\) can be most
   naturally defined as a linear space of pairs
@@ -121,27 +122,29 @@ relations:
       detail: |
         Given \hyperref[topic:group-algebra]{group algebra} elements \(a,b\in \mathbb{F}_q[G]\) with weights \(W_a\) and \(W_b\) (i.e., number of non-zero terms in the expansion), the 2BGA code LP\((a,b)\) has stabilizer
         generators of uniform weight \(W_a+W_b\).
-    - code_id: quantum_quasi_cyclic
-      detail: |
-        Any Abelian 2BGA code
-        can be thought of as a multi-dimensional index-two quasi-cyclic code.
-        More precisely, any finite Abelian
-        group can be written as a direct product of several cyclic groups,
-        e.g., \(G=C_{m_1}\times C_{m_2}\times \ldots C_{m_D}\) for a product
-        of \(D\) cyclic groups, which is equivalent to a representation
-        \begin{align}
-          G=\langle x_1,\ldots,x_D|x_j^{m_j}=1, x_jx_ix_j^{-1}x_i^{-1}=1, \forall 1\le i,j\le D\rangle.
-        \end{align}
-        Respectively, an element of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[G]\), where \(\mathbb{F}_q\) is
-        a finite field, can be written as a \(D\)-variate polynomial in
-        \(\mathbb{F}_q[x_1,x_2,\ldots,x_D]\), with the degree of the generator \(x_j\) of
-        order \(m_j\) not exceeding \(m_j-1\).
-        An equivalent
-        construction in terms of Kronecker products of circulant matrices was
-        introduced in \cite{arxiv:1212.6703}.
-        Related higher-dimensional quasi-cyclic and convolutional quantum codes have been constructed in
-        \cite{arxiv:2305.00137}.
     - code_id: group
+
+
+# - code_id: quantum_quasi_cyclic
+#   detail: |
+#     Any Abelian 2BGA code
+#     can be thought of as a multi-dimensional index-two quasi-cyclic code.
+#     More precisely, any finite Abelian
+#     group can be written as a direct product of several cyclic groups,
+#     e.g., \(G=C_{m_1}\times C_{m_2}\times \ldots C_{m_D}\) for a product
+#     of \(D\) cyclic groups, which is equivalent to a representation
+#     \begin{align}
+#       G=\langle x_1,\ldots,x_D|x_j^{m_j}=1, x_jx_ix_j^{-1}x_i^{-1}=1, \forall 1\le i,j\le D\rangle.
+#     \end{align}
+#     Respectively, an element of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[G]\), where \(\mathbb{F}_q\) is
+#     a finite field, can be written as a \(D\)-variate polynomial in
+#     \(\mathbb{F}_q[x_1,x_2,\ldots,x_D]\), with the degree of the generator \(x_j\) of
+#     order \(m_j\) not exceeding \(m_j-1\).
+#     An equivalent
+#     construction in terms of Kronecker products of circulant matrices was
+#     introduced in \cite{arxiv:1212.6703}.
+#     Related higher-dimensional quasi-cyclic and convolutional quantum codes have been constructed in
+#     \cite{arxiv:2305.00137}.
 
 
 # Begin Entry Meta Information
