@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_turbo
+physical: qubits
+logical: qubits
+
+name: 'Quantum turbo code'
+introduced: '\cite{arxiv:quant-ph/0512041,arxiv:0712.2888}'
+
+description: |-
+  A quantum version of the turbo code, obtained from an interleaved serial quantum concatenation \cite[Def. 30]{arxiv:arxiv:0712.2888} of quantum convolutional codes.
+
+features:
+  encoders:
+    - 'Encoders of codes with polynomial distance encoders yield catastrophic errors, but code with bounded distance admit non-catastrophic encoders.'
+  decoders:
+    - 'Turbo decoder \cite[Sec. V]{arxiv:arxiv:0712.2888}.'
+
+relations:
+  parents:
+    - code_id: quantum_convolutional
+    - code_id: quantum_concatenated
+  cousins:
+    - code_id: turbo
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-05-06'
