@@ -9,22 +9,23 @@ logical: qubits
 
 name: 'Quantum data-syndrome (DS) code'
 short_name: 'DS code'
-introduced: '\cite{arxiv:1409.2559,arxiv:1907.01393}'
+introduced: '\cite{arxiv:1409.2559,doi:10.1109/ISIT.2014.6874892,doi:10.1109/ISIT.2015.7282628,doi:10.1109/ISIT.2016.7541704,arxiv:1907.01393}'
 
 description: |
-  Stabilizer code designed to correct both data qubit errors and syndrome measurement errors simultaneously due to extra redundancy in their stabilizer generators.
+  Stabilizer code designed to correct both data qubit errors and syndrome measurement errors simultaneously due to extra redundancy in its stabilizer generators.
 
-  Extra redundancy can be added to any \([[n,n-m]]\) qubit stabilizer code by expanding its stabilizer generator matrix \(H\) as
+  The redundancy can be added to any \([[n,n-m]]\) qubit stabilizer code by expanding its stabilizer generator matrix \(H\) as
   \begin{align}
     H_{DS}=\begin{pmatrix}H & I_{m} & 0\\
     0 & A^{T} & I_{r}
     \end{pmatrix}~,
   \end{align}
-  where the redundancy is provided by the underlying \([m+r,m]\) \textit{syndrome measurement code} with generator matrix \(G= (I_m|A)\).
+  where the redundancy is provided by the underlying \([m+r,m]\) \textit{syndrome measurement code} with generator matrix \(G= (I_m|A)\) \cite{arxiv:1907.01393}.
 
 protection: |
   Protects against both physical qubit and syndrome measurement errors.
-  Singleton bounds, Hamming bounds, and \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} can be extended to DS codes.
+  Quantum Singleton bounds, quantum Hamming bounds, and \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} can be extended to DS codes.
+  Single-error-correcting DS codes stemming from \hyperref[topic:quantum-weight-enumerator]{impure} stabilizer codes must satisfy a variant of the quantum Hamming bound \cite{arxiv:2302.01527}.
 
 features:
   decoders:
@@ -39,14 +40,23 @@ relations:
     - code_id: qubit_stabilizer
       detail: 'Quantum DS codes are stabilizer codes whose stabilizer generators encode extra redundancy (via a linear binary code) so as to protect from syndrome measurement errors.'
   cousins:
-    - code_id: quantum_hamming
-      detail: 'Codes such as the quantum Hamming code can be expanded to DS codes using almost any good binary linear code because their stabilizer generators are all have the same weight \cite{arxiv:1907.01393}.'
+    - code_id: quantum_hamming_css
+      detail: 'Codes such as the quantum Hamming code can be expanded to DS codes using almost any good binary linear code because their stabilizer generators all have the same weight \cite{arxiv:1907.01393}.'
     - code_id: quantum_mds
-      detail: 'The quantum Singleton bound can be formulated for DS codes \cite{arxiv:1907.01393}.'
+      detail: 'The quantum Singleton bound can be extended to DS codes \cite{arxiv:1907.01393}.'
     - code_id: quantum_perfect
-      detail: 'The quantum Singleton bound can be formulated for DS codes \cite{arxiv:1907.01393}.'
+      detail: 'The quantum Hamming bound can be extended to DS codes \cite{arxiv:1907.01393}.'
     - code_id: binary_linear
       detail: 'The DS code construction employs a particular binary linear code to provide protection against syndrome measurement errors.'
+    - code_id: quantum_convolutional
+      detail: 'The DS code framework has been extended to quantum convolutional codes \cite{arxiv:1902.07395}.'
+    - code_id: single_shot
+      detail: 'DS codes contain redundancy in their stabilizer generators so as to protect from syndrome measurement errors.'
+    - code_id: bch
+      detail: 'Primitive narrow-sense BCH codes can be used as the syndrome measurement codes of a DS code \cite{arxiv:2311.16044}.
+      This construction requires fewer measurements than a previous general construction \cite{arxiv:1409.2559}.'
+    - code_id: qubit_subsystem
+      detail: 'The DS construction can be extended to qubit subsystem codes \cite{arxiv:2302.01527}.'
 
 
 # Begin Entry Meta Information
