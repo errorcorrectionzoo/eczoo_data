@@ -87,14 +87,11 @@ relations:
       - code_id: 2bga
         detail: |
           A code GB\((a,b)\) with circulants of size \(\ell\) is a special case of a 2BGA code over the cyclic group \(\mathbb{Z}_{\ell}\).
-          More precisely, for the cyclic group \(\mathbb{Z}_{\ell}\equiv \langle x|x^\ell=1\rangle \), any element \(a\) of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[\mathbb{Z}_{\ell}]\) can be seen as a         polynomial \(a(x)\in \mathbb{F}_q[x]\) over the group generator \(x\), where the polynomial degree \(\deg a(x)<\ell\).
+          More precisely, for the cyclic group \(\mathbb{Z}_{\ell}\equiv \langle x|x^\ell=1\rangle \), any element \(a\) of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[\mathbb{Z}_{\ell}]\) can be seen as a polynomial \(a(x)\in \mathbb{F}_q[x]\) over the group generator \(x\), where the polynomial degree \(\deg a(x)<\ell\).
           The 2BGA code LP\((a,b)\) is then just a generalized bicycle code GB\([a(x),b(x)]\) constructed from the polynomials \(a(x)\) and \(b(x)\) corresponding to \(a,b\in \mathbb{F}_q[\mathbb{Z}_{\ell}]\).
-      - code_id: lifted_product
+      - code_id: abelian_lifted_product
         detail: |
           A code GB\((a,b)\) with circulants of size \(\ell\) is a special case of a lifted-product code LP\((A,B)\) code over the Abelian \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[\mathbb{Z}_{\ell}]\) associated with the cyclic group \(\mathbb{Z}_{\ell}\equiv \langle x|x^\ell=1\rangle\), with \(1\times 1\) matrices \(A=a(x)\), \(B=b(x)\) given by the corresponding polynomials.
-      - code_id: quantum_quasi_cyclic
-        detail: |
-          An index-\(m\) quasi-cyclic (QC) code of length \(n=m\ell\) is usually defined as a linear code invariant under the \(m\)-step shift permutation \(T_{n}^{m}\).
     cousins:
       - code_id: sc_qldpc
         detail: 'Qubit GB stabilizer generator matrices is equivalent to a 1D SC-QLDPC code, see \cite[Remark 7]{arxiv:2305.00137}.'
@@ -106,6 +103,11 @@ relations:
         detail: 'A qubit GB code \([[n,k,d]]_2\) has \(k\) non-trivial relations between the syndrome bits, which is expected to help with operation in a fault-tolerant regime (in the presence of syndrome measurement errors). See Ref. \cite{arxiv:2306.16400} for many examples of such codes.'
       - code_id: hypergraph_product
         detail: 'An arbitrary GB code of length \(2\ell\) is equivalent \cite{arxiv:2203.17216} to a rotated quantum hypergraph-product code with periodicity vectors \(\vec{L}_{1}\) and \(\vec{L}_{2}\) such that \(\lvert{\vec{L}_{1}\times\vec{L}_{2}\rvert=\ell}\).'
+
+# - code_id: quantum_quasi_cyclic
+#   detail: |
+#     An index-\(m\) quasi-cyclic (QC) code of length \(n=m\ell\) is usually defined as a linear code invariant under the \(m\)-step shift permutation \(T_{n}^{m}\).
+
 
 # - code_id: quantum_cyclic
 #   detail: 'Given a canonical generating polynomial \(g(x)\) of a cyclic quantum code \([[n,k,d]]\), its generator matrix is a cyclic matrix \(G=g(P)\). Here \(P\) is the permutation matrix of one-step length-\(n\) cyclic shift.'
