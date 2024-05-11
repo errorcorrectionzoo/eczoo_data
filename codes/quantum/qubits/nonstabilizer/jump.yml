@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: jump
+physical: qubits
+logical: qubits
+
+name: 'Jump code'
+introduced: '\cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0208140,doi:10.1023/A:1024188005329}'
+
+description: |
+  A CE code designed to detect and correct amplitude damping errors.
+  An \(((n,K))\) jump code is denoted as \(((n,K,t))_w\), where \(t\) is the maximum number of qubits that can be corrected after having undergone a jump error \(|0\rangle\langle 1|\), and where each codeword is an uniform superposition of qubit basis states with Hamming weight \(w\).
+
+protection: |
+  Various code bounds, including an upper bound on \(K\) given the other parameters, are provided in Ref. \cite{doi:10.1023/A:1024188005329}.
+  For example, one can apply bit flips to all qubits of an \(((n,K,t))_w\) jump code to obtain an \(((n,K,t))_{n-w}\) jump code.
+
+features:
+  rate: 'An infinite family of jump codes asymptotically attains an upper bound on \(K\) \cite[Thm. 27]{doi:10.1023/A:1024188005329}.'
+
+notes:
+  - 'Survey of jump codes \cite{doi:10.3233/978-1-60750-663-8-285}.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: constant_excitation
+    cousins:
+    - code_id: stab_4_2_2
+      detail: 'The subcode \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} is a \(((4,2,1))_2\) jump code correcting a single amplitude damping error.
+      This code can be extended to a \(((4,3,1))_2\) jump code \(\{|\overline{01}\rangle,|\overline{10}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0208140}.'
+    - code_id: chuang-leung-yamamoto
+      detail: 'Jump codes can be thought of as qubit analogues of uniform CLY codes.'
+    - code_id: iceberg
+      detail: 'The subcode of the \([[2m,2m-2,2]]\) error-detecting code consisting of codewords labeled by weight-\(m\) bitstrings is a \(((2m,\frac{1}{2}{2m \choose m},1))_{m}\) is an optimal jump code \cite{arxiv:quant-ph/0208140}\cite[Corr. 9]{doi:10.1023/A:1024188005329}.'
+    - code_id: combinatorial_design
+      detail: 'Certian types of combinatorial designs can be used to obtain jump codes \cite{arxiv:quant-ph/0208140,doi:10.1023/A:1024188005329,doi:10.1007/s10623-013-9829-0}.'
+    - code_id: self_dual
+      detail: 'Iso-dual codes can be used to construct jump codes \cite{doi:10.1023/A:1024188005329}.'
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-05-11'
