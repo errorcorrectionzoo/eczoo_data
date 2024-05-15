@@ -12,7 +12,7 @@ introduced: '\cite{arxiv:2303.02432}'
 
 description: |
   Multi-mode GKP code whose underlying lattice is utilized in variations of the NTRU cryptosystem \cite{doi:10.1007/BFb0054868}.
-  Randomized constructions yield asymptotically good GKP code families.
+  Randomized constructions yield constant-rate GKP code families whose largest decodable displacement length scales as \(O(\sqrt{n})\) with high probability.
 
   The integer-valued \(q\)-symplectic Gram matrix for an \(n\)-mode \(k\)-qubit good NTRU-GKP code is
   \begin{align}
@@ -23,11 +23,15 @@ description: |
   where \(Q\) is a circulant matrix constructed from coefficients of a cyclic polynomial used in the NTRU cryptosystem, and \(I\) is the \(n\)-dimensional identity matrix \cite[Prop. 2]{arxiv:2303.02432}.
 
 features:
+  rate: 'Randomized constructions yield constant-rate GKP code families whose largest decodable displacement length scales as \(O(\sqrt{n})\) with high probability.'
   decoders:
-    - 'Efficient decoder against stochastic displacement noise because the decoding problem is equivalent to decrypting the NTRU cryptosystem.'
+    - 'Babai''s nearest plane algorithm \cite{doi:10.1007/bf02579403} can be used for bounded-distance decoding.'
+    - 'An NTRU-based decoder against stochastic displacement noise is efficient because the decoding problem is equivalent to decrypting the NTRU cryptosystem with knowledge of the encoder.'
+  code_capacity_threshold:
+    - 'A lower bound on the threshould for displacement noise can be formulated in terms of code parameters \cite[Appx. B]{arxiv:2303.02432}.'
 
 realizations:
-  - 'Public-key quantum communication protocol \cite{arxiv:2303.02432}.'
+  - 'Public-key NTRU-based quantum communication protocol \cite{arxiv:2303.02432}.'
 
 
 relations:
@@ -36,7 +40,7 @@ relations:
     - code_id: qudits_into_oscillators
   cousins:
     - code_id: quantum_random
-      detail: 'Several NTRU lattices come from randomized constructions, yielding asymptotically good GKP code families.'
+      detail: 'Several NTRU lattices come from randomized constructions, yielding constant-rate GKP code families whose largest decodable displacement length scales as \(O(\sqrt{n})\) with high probability.'
 
 
 # Begin Entry Meta Information

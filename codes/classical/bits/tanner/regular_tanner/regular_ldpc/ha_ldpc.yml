@@ -14,9 +14,11 @@ introduced: '\cite{arxiv:cs/0509062}'
 
 description: |
   A regular LDPC code obtained from a concatenation of a certain random regular LDPC code and a certain random LDGM code.
+  Using rate-one LDGM codes eliminates high-weight codewords while admitting an amount of low-weight codewords that asymptotically vanishes, allowing code families to achieve the GV bound with high probability.
 
 features:
-  rate: 'Codes can achieve capacity on the BEC channel under BP decoding \cite{arxiv:cs/0509062} as well as the capacity of memoryless binary-input symmetric-output channels under MAP decoding \cite{arxiv:1102.4612}. HA-LDPC codes can achieve the GV bound with asymptotically high probability \cite{arxiv:cs/0509062}.'
+  rate: 'HA-LDPC codes achieve capacity on the BEC channel under BP decoding \cite{arxiv:cs/0509062} and the memoryless binary-input output-symmetric (MBIOS) channels under ML decoding \cite{arxiv:cs/0509062} and under MAP decoding \cite{arxiv:1102.4612}.
+  They also achieve the GV bound with asymptotically high probability when the concatenation is with a rate-one LDGM code \cite{arxiv:cs/0509062}.'
 
 
 relations:
@@ -29,6 +31,10 @@ relations:
       detail: 'HA-LDPC codes are a concatenation of an LDPC and an LDGM code.'
     - code_id: concatenated
       detail: 'HA-LDPC codes are a concatenation of an LDPC and an LDGM code.'
+    - code_id: mn_ldpc
+      detail: 'HA-LDPC and MN-LDPC codes are dual to each other \cite{arxiv:1102.4612}.'
+    - code_id: dual
+      detail: 'HA-LDPC and MN-LDPC codes are dual to each other \cite{arxiv:1102.4612}.'
 
 
 # Begin Entry Meta Information
