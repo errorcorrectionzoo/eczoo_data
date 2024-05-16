@@ -14,7 +14,7 @@ introduced: '\cite{arxiv:cs/0610159,arxiv:0708.1021}'
 description: |
   A code defined using a cluster state and a set of \(Z\)-type Pauli strings defined by a binary classical code.
 
-  The Galois-qudit CWS construction takes in \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \), where \(\mathcal{G}\) is a graph, and where \(\mathcal{C}\) is an \((n,K,d)\) binary code.
+  The CWS construction takes in \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \), where \(\mathcal{G}\) is a graph, and where \(\mathcal{C}\) is an \((n,K,d)\) binary code.
   From the graph, we form the unique cluster state \( |\mathcal{G} \rangle \).
   From the binary code, we form Pauli \(Z\)-type operators \( W_i = Z^{c_{i,1}} \otimes \cdots \otimes Z^{c_{i,n}} \), where \(c_{i,j} \) is the \(j\)-th coordinate of the \(i\)-th classical codeword.
   The CWS codewords are then \( | i \rangle =  W_i | \mathcal{G} \rangle \).
@@ -36,7 +36,7 @@ protection: |
 features:
   encoders:
     - 'If \( \mathcal{C} \) has an efficient classical encoder, then so does the CWS code \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \).'
-
+    - 'Sequantial encoder related to MBQC \cite{arxiv:2405.06142}.'
   decoders:
     - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
     - 'Clustered bounded-distance decoder \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,manual:{Li, Yunfan. Codeword Stabilized Quantum Codes and Their Error Correction. Diss. UC Riverside, 2010.}}.'
