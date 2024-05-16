@@ -11,7 +11,10 @@ name: Clifford-deformed surface code (CDSC)
 short_name: 'CDSC'
 introduced: '\cite{arxiv:2201.07802}'
 
-description: 'A generally non-CSS derivative of the surface code defined by applying a constant-depth Clifford circuit to the original (CSS) surface code. Unlike the surface code, CDSCs include codes whose thresholds and subthreshold performance are enhanced under noise biased towards dephasing. Examples of CDSCs include the XY code, XZZX code, and random CDSCs.'
+description: |
+  A generally non-CSS derivative of the surface code defined by applying a constant-depth Clifford circuit to the original (CSS) surface code.
+  Unlike the surface code, CDSCs include codes whose thresholds and subthreshold performance are enhanced under noise biased towards dephasing.
+  Examples of CDSCs include the XY code, XZZX code, and random CDSCs.
 
 #FIGURE
 #Caption: Phase diagram for the random CDSCs at infinite bias.  Typical realizations of random CDSCs in the blue region of the $(\pixz,\piyz)$ phase space have a 50\% threshold. See Ref.~\cite{dua2022clifforddeformed} for an understanding of the regions marked with black, orange and purple boundaries.
@@ -22,8 +25,10 @@ features:
   fault_tolerance:
     - In order to leverage the benefits of CDSCs into practical universal computation, we have to implement syndrome measurement circuits and fault-tolerant logical gates in a bias-preserving way.
   code_capacity_threshold:
-    - 'A class of random CDSCs, parametrized by the probabilities \(\Pi_{XZ},~ \Pi_{YZ}\) of \(X\leftrightarrow Z\) and \(Y\leftrightarrow Z\) Pauli permutations, respectively, has \(50\%\) code capacity threshold at infinite \(Z\) bias.'
-    - 'Certain translation-invariant CDSCs such as the XY code and the XZZX code also have \(50\%\) code capacity threshold at infinite \(Z\) bias.'
+    - 'Depolarizing noise: the threshold under ML decoding corresponds to the value of a critical point of the two-body two-dimensional random-bond Ising model (RBIM) on the Nishimori line \cite{doi:10.1143/JPSJ.55.3305,arxiv:quant-ph/0110143,arxiv:2201.07802}.
+    Utilizing this statistical mechanical mapping yields a phase diagram for a CDSC.'
+    - 'A class of random CDSCs, parametrized by the probabilities \(\Pi_{XZ},~ \Pi_{YZ}\) of \(X\leftrightarrow Z\) and \(Y\leftrightarrow Z\) Pauli permutations, respectively, has \(50\%\) code capacity threshold at infinite \(Z\) bias.
+    Certain translation-invariant CDSCs such as the XY code and the XZZX code also have \(50\%\) code capacity threshold at infinite \(Z\) bias.'
     - 'XZZX code and the \((0.5,\Pi_{YZ})\) random CDSCs have a \(50\%\) code capacity threshold for noise infinitely biased towards either Pauli-\(X\), \(Y\), or \(Z\) errors.'
 relations:
   parents:

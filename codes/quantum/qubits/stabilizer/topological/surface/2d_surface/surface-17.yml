@@ -10,14 +10,17 @@ logical: qubits
 name: 'Surface-17 code'
 introduced: '\cite{arxiv:1404.3747}'
 
-description: 'A \([[9,1,3]]\) rotated surface code named for the sum of its 9 data qubits and 8 syndrome qubits. It uses the smallest number of qubits to perform error correction on a surface code with parallel syndrome extraction.'
+description: |
+  A \([[9,1,3]]\) rotated surface code named for the sum of its 9 data qubits and 8 syndrome qubits.
+  It uses the smallest number of qubits to perform error correction on a surface code with parallel syndrome extraction.
 
-protection: 'Independent correction of single-qubit \(X\) and \(Z\) errors. Correction for some two-qubit \(X\) and \(Z\) errors.'
+protection: |
+  Independent correction of single-qubit \(X\) and \(Z\) errors. Correction for some two-qubit \(X\) and \(Z\) errors.
+  Admits \hyperref[topic:pseudo-threshold]{pseudo-threshold}s of \(\sim 10^{-4}\) under depolarizing noise.
 
 features:
   transversal_gates:
     - 'Pauli gates, CNOT gate, and \(H\) gate (with relabeling).'
-
   decoders:
     - 'Lookup table \cite{arxiv:1404.3747}.'
 
@@ -28,7 +31,7 @@ realizations:
   - |
     Implemented at ETH Zurich by the Wallraff group
     \cite{arxiv:2112.03708} and on the Zuchongzhi 2.1 superconducting quantum processor \cite{arxiv:2112.13505}.
-    Both experimental error rates are above the pseudothreshold for this code relative to a single qubit; see Physics viewpoint for a summary \cite{doi:10.1103/Physics.15.103}.
+    Both experimental error rates are above the \hyperref[topic:\hyperref[topic:pseudo-threshold]{pseudo-threshold}]{\hyperref[topic:pseudo-threshold]{pseudo-threshold}} for this code relative to a single qubit; see Physics viewpoint for a summary \cite{doi:10.1103/Physics.15.103}.
     Magic state have been created on the latter processor \cite{arxiv:2305.15972}.
 
 relations:

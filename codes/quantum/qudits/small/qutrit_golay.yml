@@ -11,18 +11,18 @@ name: '\([[11,1,5]]_3\) qutrit Golay code'
 introduced: '\cite{arxiv:2003.02717}'
 
 description: |
-  An \([[11,1,5]]_3\) CSS code constructed from the ternary Golay code.
+  An \([[11,1,5]]_3\) constructed from the ternary Golay code via the CSS construction.
+  The code's stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both the generator matrix of the ternary Golay code.
 
-  The code's 11-by-23 stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both
-  \begin{align}
-    \begin{pmatrix}
-      2&1&1&2&2&0&1&0&0&0&0\\
-      2&1&2&1&0&2&0&1&0&0&0\\
-      2&2&1&0&1&2&0&0&1&0&0\\
-      2&2&0&1&2&1&0&0&0&1&0\\
-      2&0&2&2&1&1&0&0&0&0&1
-    \end{pmatrix}.
-  \end{align}
+# \begin{align}
+#   \begin{pmatrix}
+#     2&1&1&2&2&0&1&0&0&0&0\\
+#     2&1&2&1&0&2&0&1&0&0&0\\
+#     2&2&1&0&1&2&0&0&1&0&0\\
+#     2&2&0&1&2&1&0&0&0&1&0\\
+#     2&0&2&2&1&1&0&0&0&0&1
+#   \end{pmatrix}.
+# \end{align}
 
 
 features:
@@ -44,6 +44,8 @@ relations:
   cousins:
     - code_id: ternary_golay
       detail: 'The qutrit Golay code is a CSS code constructed from the ternary Golay code.'
+    - code_id: cluster_state
+      detail: 'The qutrit Golay code can be represented as a graph state \cite[Fig. 2]{arxiv:2003.02717}.'
 
 
 # Begin Entry Meta Information
