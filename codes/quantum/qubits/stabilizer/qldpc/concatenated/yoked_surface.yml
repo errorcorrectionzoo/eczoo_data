@@ -12,11 +12,15 @@ introduced: '\cite{arxiv:2312.04522}'
 
 description: |-
   Member of a family of \([[n,k,d]]\) qubit CSS codes resulting from a concatenation of a \hyperref[code:qmdpc]{QMDPC code} with a \hyperref[code:rotated_surface]{rotated surface code}.
-  Concatenation can as much as triple the number of logical qubits per physical qubit of the original surface code and does not impose additional connectivity constraints.
+  Concatenation does not impose additional connectivity constraints and can as much as triple the number of logical qubits per physical qubit when compared to the original surface code.
+  Concatenation with 1D (2D) QMDPC yields codes with twice (four times) the distance.
+  The stabilizer generators of the outer QMDPC code are referred to as \textit{yokes} in this context.
+
 
 features:
   decoders:
-    - 'Outer code stabilizer generators are measured using lattice surgery.'
+    - 'Soft information from the inner surface codes can be utilized via a message passing algorithm \cite{arxiv:quant-ph/0606126}.'
+    - 'Yokes can be measured using lattice surgery \cite{arxiv:2312.04522}.'
 
 
 relations:
