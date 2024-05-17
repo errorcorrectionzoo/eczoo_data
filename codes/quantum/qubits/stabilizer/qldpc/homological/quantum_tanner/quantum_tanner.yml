@@ -11,8 +11,9 @@ name: 'Quantum Tanner code'
 introduced: '\cite{arxiv:2202.13641}'
 
 description: |
-  Member of a family of QLDPC codes based on two compatible classical Tanner codes defined on a two-dimensional Cayley complex.
+  Member of a family of QLDPC codes based on two compatible classical Tanner codes defined on a two-dimensional Cayley complex, a complex constructed from Cayley graphs of groups.
   For certain choices of codes and complex, the resulting codes have asymptotically good parameters.
+  This construction has been generalized to Schreier graphs \cite{arxiv:2405.07980}.
 
   The underlying geometric complex of the code is a left-right Cayley complex \(\operatorname{Cay}_2(A,G,B)\), where \(G\) is a finite group and \(A=A^{-1}\), \(B=B^{-1}\) are two symmetric generating sets satisfying the total no-conjugacy condition: \(ag\ne gb\) for any \(g\in G\), \(a\in A\), and \(b\in B\).
   The vertices of the complex are group elements, i.e., \(V=G\). If necessary, the double cover of the graph should be taken so that the graph is bipartite, \(V=V_0\sqcup V_1\).
@@ -70,7 +71,8 @@ notes:
 
 relations:
   parents:
-    - code_id: qubit_generalized_homological_product_css
+    - code_id: generalized_quantum_tanner
+      detail: 'Generalized quantum Tanner codes constructed out of bipartite double covers of Cayley graphs reduce to quantum Tanner codes \cite{arxiv:2405.07980}.'
     - code_id: single_shot
       detail: 'Quantum Tanner codes facilitate single-shot decoding \cite{arxiv:2306.12470}.'
   cousins:
