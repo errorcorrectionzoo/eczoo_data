@@ -11,11 +11,12 @@ name: 'Cubic theory code'
 introduced: '\cite{arxiv:2405.11719}'
 
 alternative_names:
-  - 'Non-Abelian self-correcting quantum memory'
   - 'Magic stabilizer code'
+  # - 'Non-Abelian self-correcting quantum memory'
 
 description: |
-  A geometrically local commuting-projector code defined on triangulations of lattices in five and higher spatial dimensions. Its code Hamiltonian terms include Pauli-\(Z\) operators and products of Pauli-\(X\) operators and \(CZ\) gates.
+  A geometrically local commuting-projector code defined on triangulations of lattices in arbitrary spatial dimensions.
+  Its code Hamiltonian terms include Pauli-\(Z\) operators and products of Pauli-\(X\) operators and \(CZ\) gates.
   The Hamiltonian realizes higher-form \(\mathbb{Z}_2^3\) gauge theories whose excitations obey non-Abelian Ising-like fusion rules.
 
   The construction is based on first constructing a model for an SPT phase \cite{arxiv:1106.4772,arxiv:1908.02613}, gauging its symmetries following Refs. \cite{arxiv:1202.3120,arxiv:1605.01640,arXiv:1806.08679}, and making all terms commute outside of the ground-state subspace by projecting them to zero flux.
@@ -28,17 +29,22 @@ features:
 
 relations:
   parents:
+    - code_id: qubits_into_qubits
     - code_id: commuting_projector
     - code_id: topological
       detail: 'Cubic theory codes realize \(\geq 5\)-dimensional higher-form \(\mathbb{Z}_2^3\) gauge theories with non-Abelian excitations.'
   cousins:
     - code_id: self_correct
       detail: 'A family of five-dimensional cubic theory codes with non-Abelian excitations is argued to be self-correcting below a critical temperature via a Peierls argument \cite{arxiv:2405.11719}.'
+    - code_id: quantum_double_dihedral
+      detail: 'The ground-state subspace of the cubic theory model code in 2D reduces to that of the gauged \(G=\mathbb{Z}_3^2\) twisted quantum double model \cite{arxiv:2405.11719}, realizing the same topological order as the \(G=D_4\) quantum double \cite{arxiv:hep-th/9511195,arxiv:2112.12757}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: GuanyuZhu
+      date: '2024-05-23'
     - user_id: VictorVAlbert
       date: '2024-05-23'
