@@ -7,16 +7,11 @@ code_id: mps
 physical: qubits
 logical: qubits
 
-name: 'Matrix-product state (MPS) code'
-short_name: 'MPS'
+name: 'Magnon code'
 introduced: '\cite{arxiv:1902.02115}'
 
-alternative_names:
-  - 'Magnon code'
-
 description: |
-  An \(n\)-qubit approximate code whose codespace of \(k=\Omega(\log n)\) qubits is efficiently described in terms of matrix product states (MPS) or Bethe ansatz tensor networks.
-  A no-go theorem states that open-boundary MPS that form a degenerate ground-state space of a gapped local Hamiltonian yield codes with distance that is only constant in the number of qubits \(n\), so MPS excitation ansatze have to be used to achieve a distance scaling nontrivially with \(n\).
+  An \(n\)-qubit approximate code whose codespace of \(k=\Omega(\log n)\) qubits is efficiently described in terms of particular matrix product states or Bethe ansatz tensor networks.
 
 protection: 'Distance \(d=\Omega(n^{1-\nu})\) for any \(\nu\in(0,1)\).'
 
@@ -24,12 +19,12 @@ relations:
   parents:
     - code_id: qubits_into_qubits
     - code_id: hamiltonian
-      detail: 'MPS codewords are low-energy excited states of a local Hamiltonian.'
+      detail: 'Magnon codewords are low-energy excited states of the frustration-free Heisenberg-XXX model Hamiltonian \cite{arxiv:1902.02115}.'
     - code_id: approximate_qecc
-      detail: 'MPS codes approximately protect against erasures in the thermodynamic limit.'
+      detail: 'Magnon codes approximately protect against erasures in the thermodynamic limit.'
   cousins:
     - code_id: eth
-      detail: 'MPS codes have been shown to protect against non-geometrically local noise, while ETH codes protect only against erasures on geometrically local patches.'
+      detail: 'Magnon codes have been shown to protect against non-geometrically local noise, while ETH codes protect only against erasures on geometrically local patches.'
 
 
 # Begin Entry Meta Information

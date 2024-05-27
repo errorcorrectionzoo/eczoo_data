@@ -18,7 +18,15 @@ description: |
   Ground states of infinite families geometrically local block-code Hamiltonians can sometimes be said to be a particular phase of (quantum) matter.
   A phase is a "region in some parameter space in which the ... states possess properties that can be distinguished from those in other phases" \cite{doi:10.1063/PT.3.1641}.
 
-protection: 'Often determined from the underlying physical properties of the Hamiltonian.'
+  A Hamiltonian whose ground states minimize the energy of each term is called a \textit{frustration-free} Hamiltonian.
+  A Hamiltonian whose terms commute and can be written as orthogonal projectors (i.e., with eigenvalues zero or one) is called \textit{commuting projector} Hamiltonian.
+
+
+protection: |
+  Often determined from the underlying physical properties of the Hamiltonian.
+
+  Ground states of many Hamiltonians can be easily written as tensor-network states or, in 1D, matrix product states (MPS).
+  A no-go theorem states that open-boundary MPS that form a degenerate ground-state space of a gapped local Hamiltonian yield codes with distance that is only constant in the number of qubits \(n\), so MPS excitation ansatze have to be used to achieve a distance scaling nontrivially with \(n\) \cite{arxiv:1902.02115} (see also Ref. \cite{arxiv:1407.3413}).
 
 features:
   encoders:
@@ -27,7 +35,7 @@ features:
 relations:
   parents:
     - code_id: qecc
-    
+
 
 # Begin Entry Meta Information
 _meta:
