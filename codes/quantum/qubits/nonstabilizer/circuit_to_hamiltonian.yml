@@ -24,7 +24,7 @@ features:
   encoders:
     - 'There exists a circuit of size polynomial in \(n\) whose terms act on at most \(\log (n)+2\) qubits \cite[Thm. 3.3]{arxiv:1811.00277}.'
   decoders:
-    - 'Local detection of Pauli errors can be done using circuits of depth \(\textit{polylog}(n)\) based on exact decoders for the Brown-Fawzi code \cite[Lemma 3.2]{arxiv:1811.00277}.'
+    - 'Local detection of Pauli errors can be done using circuits of depth \(O(\text{polylog}(n))\) based on exact decoders for the Brown-Fawzi code \cite[Lemma 3.2]{arxiv:1811.00277}.'
 
 
 relations:
@@ -32,7 +32,7 @@ relations:
     - code_id: qubits_into_qubits
     - code_id: approximate_qecc
     - code_id: hamiltonian
-      detail: 'Circuit-to-Hamiltonian approximate codes form the ground-state space of a non-commuting projector Hamiltonian whose projectors are constant weight, but such that each physical qubit is acted on by order \(O(\text{polylog}(n)\) projectors.'
+      detail: 'Circuit-to-Hamiltonian approximate codes form the ground-state space of a frustration-free non-commuting projector Hamiltonian whose projectors are constant weight, but such that each physical qubit is acted on by order \(O(\text{polylog}(n))\) projectors.'
   cousins:
     - code_id: qlwc
       detail: 'The circuit-to-Hamiltonian code construction yields approximate codes whose distance and logical-qubit number are both of order \(\Omega(n/\log^5 n)\) \cite[Thm. 3.1]{arxiv:1811.00277}.
