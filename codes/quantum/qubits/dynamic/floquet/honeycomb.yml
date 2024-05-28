@@ -12,12 +12,12 @@ introduced: '\cite{arxiv:2107.02194}'
 
 description: |
   Floquet code based on the Kitaev honeycomb model \cite{arxiv:cond-mat/0506438} whose logical qubits are generated through a particular sequence of measurements.
+  A CSS version of the code has been proposed which loosens the restriction of which sequences to use \cite{arxiv:2210.02468}.
+  The code has also been generalized to arbitrary non-chiral, Abelian topological order \cite{arxiv:2303.17664}.
 
   The code is defined on a hexagonal (honeycomb) lattice with a physical qubit located at each vertex. Edges are labeled \(x\), \(y\), and \(z\), such that one edge of each label meet at every vertex. Check operators are defined as \(XX\) acting on any two qubits joined by an \(x\) edge, and similarly for \(y\) and \(z\). The hexagonal lattice is 3-colorable, so the hexagons may be labeled 0, 1, 2 such that no two neighboring hexagons have the same label.
 
   The code-generating measurement pattern consists of measuring the check operators located on all of the \(r\)-labeled edges in round \(r\) mod 3. The code space is the \(+1\) eigenspace of the instantaneous stabilizer group (ISG). The ISG specifies the state of the system as a Pauli stabilizer state at a particular round of measurement, and it evolves into a (potentially) different ISG depending on the check operators measured.
-
-  A CSS version of the code has been proposed which loosens the restriction of which sequences to use \cite{arxiv:2210.02468}.
 
 #This code has dynamically generated logical qubits: although it has no logical qubits when viewed as a subsystem code, it is able to generate logical qubits through a measurement pattern.
 protection: 'Protective features similar to the surface code: on a torus geometry, the code protects two logical qubits with a code distance proportional to the linear size of the torus. Properties of the code with open boundaries are discussed in Refs. \cite{arxiv:2110.09545,arxiv:2110.05348}, and various other generalizations have been proposed \cite{arxiv:2203.11137}.'
