@@ -4,20 +4,21 @@
 #######################################################
 
 code_id: mps
-physical: qubits
-logical: qubits
+physical: spins
 
 name: 'Magnon code'
 introduced: '\cite{arxiv:1902.02115}'
 
 description: |
-  An \(n\)-qubit approximate code whose codespace of \(k=\Omega(\log n)\) qubits is efficiently described in terms of particular matrix product states or Bethe ansatz tensor networks.
+  An \(n\)-spin approximate code whose codespace of \(k=\Omega(\log n)\) qubits is efficiently described in terms of particular matrix product states or Bethe ansatz tensor networks.
+  Magnon codewords are low-energy excited states of the frustration-free Heisenberg-XXX model Hamiltonian \cite{arxiv:1902.02115}.
 
 protection: 'Distance \(d=\Omega(n^{1-\nu})\) for any \(\nu\in(0,1)\).'
 
 relations:
   parents:
-    - code_id: qubits_into_qubits
+    - code_id: spins_into_spins
+      detail: 'Magnon codewords are low-energy excited states of the frustration-free Heisenberg-XXX model Hamiltonian \cite{arxiv:1902.02115}.'
     - code_id: hamiltonian
       detail: 'Magnon codewords are low-energy excited states of the frustration-free Heisenberg-XXX model Hamiltonian \cite{arxiv:1902.02115}.'
     - code_id: approximate_qecc
