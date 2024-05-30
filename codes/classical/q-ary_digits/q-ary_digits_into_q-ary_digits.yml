@@ -15,18 +15,25 @@ description: 'Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates ov
 #the minimum Hamming distance between a pair of distinct codewords.
 
 protection: |
-  The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}. Detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.
+  The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}.
+  A code detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.
 
-  \begin{defterm}{Weight enumerator}
+  \begin{defterm}{Weight enumerator and four fundamental parameters}
   \label{topic:weight-enumerator}
-  Determining protection and bounds on code parameters can also be done using the code's \textit{weight enumerator} \cite{arxiv:quant-ph/9610040} (cf. \hyperref[topic:quantum-weight-enumerator]{quantum weight enumerators}),
+  Determining protection and bounds on code parameters can also be done using the code's \textit{weight enumerator} (cf. \hyperref[topic:quantum-weight-enumerator]{quantum weight enumerators}),
     \begin{align}
     \begin{split}
       A(x,y)&=\sum_{j=0}^{n}A_{j}x^{n-j}y^{j}\\
       A_{j}&=\text{number of wt-}j\text{ codewords}~.
     \end{split}
     \end{align}
-  The weight enumerator and its dual satisfy the \textit{MacWilliams identity} \cite{doi:10.1002/j.1538-7305.1963.tb04003.x}; see \cite[Ch. 5]{preset:MacSlo}.
+  The weight enumerator and it's Fourier transform the \textit{dual weight enumerator} satisfy the \textit{MacWilliams identity} \cite{doi:10.1002/j.1538-7305.1963.tb04003.x,doi:10.1002/j.1538-7305.1972.tb01947.x}; see \cite[Ch. 5]{preset:MacSlo}.
+
+  The distance of the code is the value of the first nonzero coefficient \(A_j\), while the \textit{dual distance} is the first nonzero coefficient of the dual weight enumerator.
+  The \textit{number} of the code is the number of nonzero \(A_j\)'s, corresponding to the number of distinct nonzero distances between codewords.
+  The \textit{external distance} is the number of nonzero coefficients of the dual weight enumerator.
+  The distance, dual distance, number and external distance make up the \textit{four fundamental parameters} of a code \cite{doi:10.1016/S0019-9958(73)80007-5}\cite[Ch. 5]{preset:MacSlo}.
+
   Other types of weight enumerators includes the Hamming weight enumerator, Lee weight enumerator, joint weight enumerator, split weight enumerator, and biweight enumerator \cite{preset:MacSlo}.
   \end{defterm}
 
