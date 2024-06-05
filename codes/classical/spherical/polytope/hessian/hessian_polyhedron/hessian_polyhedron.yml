@@ -10,12 +10,16 @@ logical: reals
 name: 'Hessian polyhedron code'
 introduced: '\cite{manual:{Gosset, Thorold. "On the regular and semi-regular figures in space of n dimensions." Messenger of Mathematics 29 (1900): 43-48.},manual:{Schoute, P. H. "On the relation between the vertices of a definite six-dimensional polytope and the lines of a cubic surface." Proc. Roy. Acad. Amsterdam. Vol. 13. 1910.}}'
 
-description: |
-  Also known as the \textit{Schlafli configuration}. Spherical \((6,27,3/2)\) code whose codewords are the vertices of the Hessian complex polyhedron and the \(2_{21}\) real polytope.
-  Two copies of the code yield the \((6,54,1)\) \textit{double Hessian polyhedron} code.
+alternative_names:
+  - 'Schlafli configuration'
 
-  The code can be obtained from the Schlafli graph \cite[Ch. 9]{preset:EricZin}. The points correspond to the 27 lines on a smooth cubic surface in the complex projective plane \cite{arxiv:math/0607446}.
-  See \cite[Exam. 1.2.5]{preset:EricZin} (\cite[pg. 119]{preset:coxeterComplex}) for a real (complex) realization of the 27 codewords.
+description: |
+  Spherical \((6,27,3/2)\) code whose codewords are the vertices of the Hessian complex polyhedron and the \(2_{21}\) real polytope.
+  Two copies of the code yield the \((6,54,1)\) \textit{double Hessian polyhedron} code.
+  The code can be obtained from the Schlafli graph \cite[Ch. 9]{preset:EricZin}.
+  The (antipodal pairs of) points of the (double) Hessian polyhedron correspond to the 27 lines on a smooth cubic surface in the complex projective plane \cite{doi:10.1112/plms/s2-35.1.23,manual:{Arnold, V. I. (1999). Symplectization, complexification and mathematical trinities. The Arnoldfest, 23-37.},arxiv:math/0607446,arxiv:1505.06742}.
+
+  See \cite[Exam. 1.2.5]{preset:EricZin}\cite{doi:10.1007/BF02417955} (\cite[pg. 119]{preset:coxeterComplex}) for a real (complex) realization of the 27 codewords.
   \begin{figure}
     \includegraphics{hessian_polyhedron.svg}
     \caption{Projection of the coordinates of the Hessian polytope.}
@@ -40,8 +44,8 @@ relations:
   cousins:
     - code_id: esix
       detail: 'The 27 Hessian polyhedron codewords are intimately related to the \(E_6\) Lie group \cite{arxiv:math/0507118}.'
-    - code_id: lattice_shell
-      detail: 'Double Hessian polyhedron codewords form the minimal lattice-shell code of the \(E_6^{\perp}\) lattice.'
+    - code_id: esix_shell
+      detail: 'Double Hessian polyhedron codewords form the minimal lattice-shell code of the \(E_6^{\perp}\) lattice \cite{doi:10.1007/978-3-642-76709-8_5}.'
 
 
 # Begin Entry Meta Information
