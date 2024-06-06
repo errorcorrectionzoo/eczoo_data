@@ -11,15 +11,19 @@ name: 'Hamiltonian-based code'
 description: |
   Code whose codespace corresponds to a set of energy eigenstates of a quantum-mechanical Hamiltonian.
   The codespace is typically a set of low-energy eigenstates or ground states, but can include subspaces of arbitrarily high energy.
+  Hamiltonians whose eigenstates are the canonical basis elements are called \textit{classical}; otherwise, a Hamiltonian is called \textit{quantum}.
+
+  A Hamiltonian whose ground states minimize the energy of each term is called a frustration-free Hamiltonian.
+  A Hamiltonian whose terms commute and can be written as orthogonal projectors (i.e., with eigenvalues zero or one) is called a commuting projector Hamiltonian.
+  A simple example of a non-commuting frustration-free Hamiltonian is the Heisenberg model.
+  A simple example of a commuting non-frustration-free Hamiltonian is a classical Ising model on a circle with an odd number of sites.
 
   For block quantum codes, the Hamiltonian can be \textit{local}, i.e., consisting of operators acting on a number of subsystems that is independent of the total number of subsystems (e.g., \hyperref[code:qldpc]{QLDPC codes}).
-  When the physical space is endowed with a geometry, the Hamiltonian is typically \textit{geometrically local}, consisting of operators acting on subsystems that occupy a region whose size is independent of the number of subsystems (e.g., \hyperref[code:topological]{topological codes}).
+  When the physical space is endowed with a geometry, the Hamiltonian is typically \textit{geometrically local}, consisting of operators acting on subsystems that occupy a region whose size is independent of the number of subsystems.
 
-  Ground states of infinite families geometrically local block-code Hamiltonians can sometimes be said to be a particular phase of (quantum) matter.
-  A phase is a "region in some parameter space in which the ... states possess properties that can be distinguished from those in other phases" \cite{doi:10.1063/PT.3.1641}.
+  Ground states of infinite families geometrically local block-code Hamiltonians on tesselations of Euclidean geometries can be said to be a particular \textit{phase of quantum matter}, i.e., a "region in some parameter space in which the ... states possess properties that can be distinguished from those in other phases" \cite{doi:10.1063/PT.3.1641}.
+  For example, \hyperref[code:topological]{topological code} Hamiltonians realize a type of phase called topological order.
 
-  A Hamiltonian whose ground states minimize the energy of each term is called a \textit{frustration-free} Hamiltonian.
-  A Hamiltonian whose terms commute and can be written as orthogonal projectors (i.e., with eigenvalues zero or one) is called \textit{commuting projector} Hamiltonian.
 
 
 protection: |
@@ -28,9 +32,6 @@ protection: |
   Ground states of many Hamiltonians can be easily written as tensor-network states or, in 1D, matrix product states (MPS).
   A no-go theorem states that open-boundary MPS that form a degenerate ground-state space of a gapped local Hamiltonian yield codes with distance that is only constant in the number of qubits \(n\), so MPS excitation ansatze have to be used to achieve a distance scaling nontrivially with \(n\) \cite{arxiv:1902.02115} (see also Ref. \cite{arxiv:1407.3413}).
 
-features:
-  encoders:
-    - 'Lindbladian-based dissipative encoding can be constructed for a codespace that is the ground-state subspace of a frustration-free Hamiltonian \cite{arxiv:0809.0613,arxiv:1112.4860,arxiv:0803.1447,arxiv:1802.00010}.'
 
 relations:
   parents:
