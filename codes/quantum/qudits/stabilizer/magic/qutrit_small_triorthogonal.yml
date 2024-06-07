@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qutrit_small_triorthogonal
+physical: qudits
+logical: qudits
+
+name: '\([[9m-k,k,2]]_3\) triorthogonal code'
+introduced: '\cite{arxiv:2403.06228}'
+
+description: |
+  Member of the \([[9m-k,k,2]]_3\) family of triorthogonal qutrit codes (for \(k\leq 3m-2\)) that admit a transversal diagonal gate in the third level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} and that are relevant for magic-state distillation.
+
+
+features:
+  magic_scaling_exponent: 'For \(k = 3m-2\), the family yields the magic-state yield parameter \(\gamma = \log_2 (2+\frac{6}{3m-2}) \to 1\) as \(m\to\infty\) \cite{arxiv:2403.06228}.'
+
+
+relations:
+  parents:
+    - code_id: qudit_triorthogonal
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-06-07'

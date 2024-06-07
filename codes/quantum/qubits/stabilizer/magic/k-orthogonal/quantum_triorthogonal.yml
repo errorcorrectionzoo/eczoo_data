@@ -11,7 +11,7 @@ name: 'Triorthogonal code'
 introduced: '\cite{arxiv:1209.2426}'
 
 description: |
-  A triorthogonal \(m \times n\) binary matrix is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\), where addition and multiplication are done on \(GF(2)\).
+  An \(m \times n\) binary matrix is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\), where addition and multiplication are done on \(GF(2)\).
   The triorthogonal CSS code associated with the matrix is constructed by mapping non-zero entries in even-weight rows to \(X\) operators, and \(Z\) operators for each row in the orthogonal complement.
 
   See \cite[Appx. D]{arxiv:1606.01904}\cite[Sec. 2.3]{arxiv:1709.02832} for generalized versions of triorthogonality.
@@ -39,6 +39,8 @@ relations:
   parents:
     - code_id: quantum_k-orthogonal
       detail: '\(k\)-orthogonal codes reduce to triorthogonal codes for \(k=3\).'
+    - code_id: qudit_triorthogonal
+      detail: 'Prime-qudit triorthogonal codes reduce to triorthogonal codes when \(p=2\).'
   cousins:
     - code_id: quantum_reed_muller
       detail: 'Classification of triorthogonal codes yields a connection to Reed-Muller polynomials \cite{arxiv:2107.09684}.'
