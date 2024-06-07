@@ -33,7 +33,7 @@ protection: |
   \begin{align}
     \Pi E_i^\dagger E_j \Pi = c_{ij}\, \Pi\qquad\text{for all \(i,j\),}
   \end{align}
-  where \(c_{ij}\) can be arbitrary numbers.
+  where the \textit{QEC matrix} elements \(c_{ij}\) are arbitrary complex numbers.
   \end{defterm}
   The Knill-Laflamme conditions can alternatively be expressed in terms of the \hyperref[topic:complementary-channel]{complementary channel}, or in an information-theoretic way via a data processing inequality \cite{arxiv:quant-ph/9604022}\cite[Eq. (29)]{arxiv:quant-ph/9604034}.
   They have been extended to sequences of multiple errors and rounds of correction \cite{arxiv:2405.17567}.
@@ -84,12 +84,13 @@ features:
   for some encoding channel \(\mathcal{U}\) and some recovery channel \(\mathcal{D}\).
   The quantum capacity \(Q\) of \(\mathcal{E}\) is defined as the supremum over \(n\) of achievable transmission rates~\cite{doi:10.1017/9781316848142}.'
 
-  general_gates:
-    - 'Universal gate set cannot be transversal for any code that detects single-qubit errors due to Eastin-Knill theorem \cite{arxiv:0811.4262}.'
 
   decoders:
-    - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the inverse of the encoder \(\cal{U}\), which does not correct errors.'
-    - 'Quantum machine-learning based decoders such as quantum convolutional neural networks \cite{arxiv:1810.03787} and quantum autoencoders \cite{arxiv:2202.00555}.'
+    - 'The operation \(\cal{D}\) in the definition of this code is called the decoder. However, the term \textit{decoder} can sometimes be used for the unencoder \(\cal{U}\) (i.e., the inverse of the encoder), which does not correct errors.'
+    - 'The \textit{Leung recovery map} \cite{doi:10.1103/PhysRevA.56.2567} for a noise channel whose Kraus operators \(E_j\) yield a diagonal QEC matrix, \(c_{ij}\propto\delta_{ij}\), has Kraus operators \(\Pi V_j^{\dagger}\), where \(\Pi\) is the codespace projection, and where \(V_j\) is the unitary from the polar decomposition of \(E_j \Pi\).
+    This is the recovery used in the proof of the Knill-Laflamme conditions \cite[Thm. 10.1]{doi:10.1017/CBO9780511976667}.'
+    - 'There are several recovery maps which work for noise that is not exacly correctable; see \hyperref[code:approximate_qecc]{AQECC} entry.'
+
 
   code_capacity_threshold:
     - 'Coherent information of the state under the action of a noise channel can be used to estimate the optimal threshold \cite{arxiv:2312.06664}.'
