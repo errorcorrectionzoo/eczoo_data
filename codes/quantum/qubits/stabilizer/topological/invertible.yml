@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: invertible
+physical: qubits
+logical: qubits
+
+name: 'Chen-Hsin invertible-order code'
+introduced: '\cite{arxiv:2110.14644}'
+
+description: |
+  A geometrically local commuting-projector code that realizes beyond-group-cohomology invertible topological phases in arbitrary dimensions.
+  An instance of the code in 4D realizes the 3D \(\mathbb{Z}_2\) gauge theory with fermionic charge and loop excitations (FcFl) at its boundary \cite{arxiv:2011.11165,arxiv:2110.14654}.
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: commuting_projector
+      detail: 'Chen-Hsin invertible-order codewords form ground-state subspaces of frustration-free commuting projector Hamiltonians.'
+    - code_id: frustration_free
+      detail: 'Chen-Hsin invertible-order codewords form ground-state subspaces of frustration-free commuting projector Hamiltonians.'
+    - code_id: topological
+      detail: 'Chen-Hsin invertible-order codes realize beyond-group-cohomology invertible topological phases of order two and four in arbitrary dimensions.'
+  cousins:
+    - code_id: topological_abelian
+      detail: 'An instance of the Chen-Hsin invertible-order code in 4D realizes the 3D \(\mathbb{Z}_2\) gauge theory with fermionic charge and loop excitations (FcFl) at its boundary \cite{arxiv:2110.14644}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-06-07'
