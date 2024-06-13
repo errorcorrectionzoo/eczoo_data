@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 3d_semion
+physical: qubits
+logical: qubits
+
+name: 'Chiral semion Walker-Wang model code'
+short_name: 'Chiral semion Walker-Wang model'
+introduced: '\cite{arxiv:2202.05442}'
+
+description: |
+  A 3D lattice stabilizer code whose low-energy excitations on boundaries realize the chiral semion topological order.
+  The corresponding phase can also be realized via a non-stabilizer Hamiltonian \cite{arxiv:1208.5128}.
+
+features:
+  encoders:
+    - 'A unitary QCA encoder applied to a \(\mathbb{Z}_{2N}^{(1)}\) Walker-Wang model (itself related to a 3D stack of 2D surface codes) realizes the 3D chiral semion Walker-Wang model code, which in turn admits 2D chiral semion topological order at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: 3d_stabilizer
+    - code_id: walker_wang
+      detail: 'The Walker-Wang model code reduces to the chiral semion model code when the input category \(\mathcal{C}=\mathbb{Z}_{2N}^{(1)}\) after condensing a boson \cite{arxiv:2202.05442}.'
+  cousins:
+    - code_id: semion
+      detail: 'A unitary QCA encoder applied to a \(\mathbb{Z}_{2N}^{(1)}\) Walker-Wang model (itself related to a 3D stack of 2D surface codes) realizes the 3D chiral semion Walker-Wang model code, which in turn admits 2D chiral semion topological order at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-03-28'
