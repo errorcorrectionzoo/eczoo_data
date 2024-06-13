@@ -12,12 +12,12 @@ short_name: 'Chiral semion Walker-Wang model'
 introduced: '\cite{arxiv:2202.05442}'
 
 description: |
-  A 3D lattice stabilizer code whose low-energy excitations on boundaries realize the chiral semion topological order.
+  A 3D lattice stabilizer code (non-Pauli for qubits, but Pauli for(\mathbb{Z}_{4}\) qudits) whose low-energy excitations on boundaries realize the chiral semion topological order.
   The corresponding phase can also be realized via a non-stabilizer Hamiltonian \cite{arxiv:1208.5128}.
 
 features:
   encoders:
-    - 'A unitary QCA encoder applied to a \(\mathbb{Z}_{2N}^{(1)}\) Walker-Wang model (itself related to a 3D stack of 2D surface codes) realizes the 3D chiral semion Walker-Wang model code, which in turn admits 2D chiral semion topological order at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
+    - 'A unitary QCA encoder applied to product state realizes the 3D chiral semion Walker-Wang model code, which in turn admits 2D chiral semion topological order if truncated at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
 
 
 relations:
@@ -25,10 +25,10 @@ relations:
     - code_id: qubit_stabilizer
     - code_id: 3d_stabilizer
     - code_id: walker_wang
-      detail: 'The Walker-Wang model code reduces to the chiral semion model code when the input category \(\mathcal{C}=\mathbb{Z}_{2N}^{(1)}\) after condensing a boson \cite{arxiv:2202.05442}.'
+      detail: 'The Walker-Wang model code reduces to the chiral semion model code when the input category is \(\mathcal{C}=\mathbb{Z}_{2}^{(1/2)}\), or alternatively \(\mathcal{C}=\mathbb{Z}_{4}^{(1)}\) after condensing a \(\mathbb{Z}_{2}\) transparent boson \cite{arxiv:2202.05442}.'
   cousins:
     - code_id: semion
-      detail: 'A unitary QCA encoder applied to a \(\mathbb{Z}_{2N}^{(1)}\) Walker-Wang model (itself related to a 3D stack of 2D surface codes) realizes the 3D chiral semion Walker-Wang model code, which in turn admits 2D chiral semion topological order at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
+      detail: 'The 3D chiral semion Walker-Wang model code admits 2D chiral semion topological order if at one of its surfaces \cite{arxiv:1907.02075,arxiv:2202.05442}.'
 
 
 # Begin Entry Meta Information
