@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_cluster_state
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit cluster-state code'
+introduced: '\cite{arxiv:quant-ph/0304054}'
+
+alternative_names:
+  - 'Modular-qudit graph-state code'
+
+description: |
+  A code based on a modular-qudit cluster state.
+
+  Modular-qudit cluster states are modular-qudit stabilizer states defined on a graph.
+  There is one modular-qudit stabilizer generator \(S_v\) per graph vertex \(v\) of the form \cite[Eq. (1)]{arxiv:quant-ph/0304054}
+  \begin{align}
+    S_v = X^{\dagger}_{v} \prod_{w\in N(v)} Z_w~,
+  \end{align}
+  where the neighborhood \(N(v)\) is the set of vertices which share an edge with \(v\).'
+
+features:
+  general_gates:
+    - '1D modular-qudit cluster states \cite{arxiv:quant-ph/0304054,arxiv:quant-ph/0512155} are resources for universal MBQC.'
+
+realizations:
+  - 'Quantum compututation with cluster states has been realized using photons in the time and frequency domains \cite{doi:10.1038/s41567-018-0347-x}.'
+
+
+relations:
+  parents:
+    - code_id: qudit_stabilizer
+      detail: 'Modular-qudit cluster-state codes are particular modular-qudit stabilizer codes.
+      Any modular-qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{Z}_q\) via a single-modular-qudit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).'
+    - code_id: group_cluster_state
+      detail: 'Group-based cluster-state codes reduce to cluster-state codes for \(G=\mathbb{Z}_q\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-06-13'
