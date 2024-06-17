@@ -24,6 +24,20 @@ description: |
   The two matrix blocks, \(H_{Z}\) and \(H_X\), correspond to the parity-check matrices of two \hyperref[code:q-ary_linear]{\(q\)-ary linear codes}, an \([n,k_X,d_X]_q\) code \(C_X\) and \([n,k_Z,d_Z]_q\) code \(C_Z\), respectively.
   For prime-dimensional qudits, code parameters and code basis states have been expressed in terms of only data associated with these two classical codes \cite{arxiv:quant-ph/0610153,arxiv:2311.18003}.
 
+  \begin{defterm}{Symplectic doubling}
+  \label{topic:symplectic-doubling}
+  Any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,\geq d]]_{\mathbb{Z}_q}\) subsystem CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003} (see also \cite{arxiv:1004.3791}\cite[Thm. 1]{arxiv:1212.6703}).
+  In the symplectic representation, the gauge-group generator matrix of the former is mapped into that of latter as follows,
+  \begin{align}
+    \begin{pmatrix}G_{X} & G_{Z}\end{pmatrix}\to\begin{pmatrix}G_{X} & G_{Z} & 0 & 0\\
+    0 & 0 & G_{Z} & -G_{X}
+    \end{pmatrix}~,
+  \end{align}
+  where the first two columns of the latter matrix correspond to the \(X\)-type part of the gauge-group generator matrix of the output subsystem CSS code.
+  In the case of a stabilizer code, the stabilizer generator matrix is mapped instead (see \cite[Thm. 1]{arxiv:1212.6703} for the case of qubit stabilizer codes).
+  For geometrically local 2D subsystem codes, this mapping yields a twisted double cover of the underlying qudit geometry \cite{arxiv:2406.09951}.
+  \end{defterm}
+
 features:
   decoders:
     - 'Steane-type decoder utilizing data from the underlying classical codes \cite{arxiv:2311.18003}.'
@@ -33,7 +47,7 @@ relations:
   parents:
     - code_id: qudit_subsystem_stabilizer
       detail: 'Subsystem modular-qudit CSS codes are subsystem modular-qudit stabilizer codes whose gauge groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
-      Additionally, any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,\geq d]]_{\mathbb{Z}_q}\) subsystem CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003}.
+      Any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,\geq d]]_{\mathbb{Z}_q}\) subsystem CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003}.
       Every subsystem prime-qudit stabilizer code can be constructed from two nested subsystem prime-qudit CSS codes satisfying certain constraints \cite{arxiv:2311.18003}.'
   cousins:
     - code_id: qudit_css
