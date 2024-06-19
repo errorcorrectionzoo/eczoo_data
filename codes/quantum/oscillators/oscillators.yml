@@ -16,7 +16,7 @@ alternative_names:
 
 description: |
   Encodes logical Hilbert space, finite- or infinite-dimensional, into a physical Hilbert space that contains at least one \textit{oscillator} (a.k.a. \textit{bosonic mode} or \textit{qumode}).
-  States of a single oscillator are elements of the Hilbert space of \(\ell^2\)-normalizable functions on \(\mathbb{R}\).
+  States of a single oscillator correspond to \(\ell^2\)-normalizable functions on \(\mathbb{R}\) that have finite energy, finite variance, and finite values of all other moments (where the energy operator is defined to be the harmonic oscillator Hamiltonian); such functions form \textit{Schwartz space}, a subspace of Hilbert space \cite{arxiv:2211.05714}.
   Ideal codewords may not be normalizable because the space is infinite-dimensional, so approximate versions have to be constructed in practice.
 
 protection: |
@@ -70,7 +70,7 @@ features:
 
 
 notes:
-  - 'For an introduction to continuous-variable quantum systems, see reviews \cite{arxiv:2211.05714,arxiv:2002.11008,arxiv:2008.13471,arxiv:2010.08699,arxiv:2103.09445,arxiv:2111.08894} and books \cite{doi:10.1142/p489,doi:10.1201/9781315118727,arxiv:2311.08445}.'
+  - 'For an introduction to continuous-variable quantum systems, see reviews \cite{arxiv:2002.11008,arxiv:2008.13471,arxiv:2010.08699,arxiv:2103.09445,arxiv:2111.08894,arxiv:2211.05714} and books \cite{doi:10.1142/p489,doi:10.1201/9781315118727,arxiv:2311.08445}.'
   - 'See video tutorial by \href{https://www.youtube.com/watch?v=zQQI3Ov6xyw}{V. V. Albert}.'
 
 
@@ -80,6 +80,9 @@ relations:
   parents:
     - code_id: group_quantum
       detail: 'Group quantum codes whose physical spaces are constructed using the group of the reals \(\mathbb{R}\) under addition are bosonic codes.'
+  cousins:
+    - code_id: t-designs
+      detail: 'The notion of quantum state designs has been extended to bosonic modes \cite{arxiv:2211.05127}.'
 
 
 # Begin Entry Meta Information
