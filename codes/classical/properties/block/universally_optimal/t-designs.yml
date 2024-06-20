@@ -5,23 +5,29 @@
 
 code_id: t-designs
 
-name: 'Design code'
-introduced: '\cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.}}'
+name: 'Design'
 
 alternative_names:
-  - 'Cubature code'
+  - 'Cubature'
+  - 'Averaging set'
 
 description: |
   A code whose codewords are uniformly distributed in a way that is useful for determining averages of polynomials over the code's underlying space \(X\).
   In that way, the codewords form an approximation of the space.
   A code is a design on \(X\) of \textit{strength} \(t\), i.e., a \(t\)-design on \(X\), if the average of any polynomial of degree up to \(t\) over its codewords is equal to the uniform average over all of \(X\).
 
-  Codes forming designs exist when \(X\) is Hamming space, Johnson space (fixed-weight subspace of Hamming space), or a compact connected two-point homogeneous space \cite{doi:10.1109/18.720545,preset:LevBounds,arXiv:1308.3188} (the sphere or the real, complex, quaternionic, or octonionic projective spaces \cite{doi:10.2307/1969427}).
+  Fixed-weight codewords of a binary code can form a design on \(X\) being a Johnson space \(J^n_w\), i.e., the space of length-\(n\) binary strings of weight \(w\).
+  Such a design is called a combinatorial design (a.k.a. block design or covering design) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.}}.
+  Designs on the full space of binary string (Hamming space) are called orthogonal arrays.
+
+  More generally, designs exist when \(X\) is \(q\)-ary Hamming space (where they are called orthogonal arrays), \(q\)-ary Johnson space (where they are called subspace designs), a sphere (where they are called spherical designs), or a compact connected two-point homogeneous space \cite{doi:10.1109/18.720545,preset:LevBounds,arXiv:1308.3188} (the sphere or the real, complex, quaternionic, or octonionic projective spaces \cite{doi:10.2307/1969427}).
   Complex projective designs are designs on the space of all quantum states \cite{arXiv:quant-ph/0310075,arxiv:quant-ph/0701126,doi:10.1017/9781139207010}.
 
+  Designs can also exist on groups.
   Designs on the unitary (projective unitary) group are called strong unitary (unitary) designs \cite{arXiv:quant-ph/0611002}, while \(t\)-designs on the permutation group are called \(t\)-wise independent permutations \cite{doi:10.1017/S0963548300001917}.
+
   Other notable designs include torus designs \cite{arXiv:math/0405366,arxiv:2311.13479}, simplex designs \cite{doi:10.2307/2002483,doi:10.2307/2002484,doi:10.4036/iis.2018.S.02,doi:10.18434/M32189}, and (exact) quadrature/cubature formulas for integration over the reals \cite{doi:10.1017/S0962492900002701,doi:10.1137/1015023,doi:10.1016/S0885-064X(03)00011-6,doi:10.18434/M3167}.
-  Existence of designs has been proven for general topological spaces \cite{doi:10.1016/0001-8708(84)90022-7}.
+  Existence has been proven for combinatorial designs \cite{doi:10.1016/0012-365X(87)90061-6}, subspace designs \cite{doi:10.1016/j.jcta.2014.06.001,arxiv:2212.00870}, as well as general continuous topological spaces \cite{doi:10.1016/0001-8708(84)90022-7}.
 
 
 relations:
