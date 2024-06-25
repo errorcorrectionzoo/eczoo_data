@@ -16,20 +16,33 @@ description: |
   In that way, the codewords form an approximation of the space.
   A code is a design on \(X\) of \textit{strength} \(t\), i.e., a \(t\)-design on \(X\), if the average of any polynomial of degree up to \(t\) over its codewords is equal to the uniform average over all of \(X\).
 
+  As such, a design can be used to determine the average of degree-\(\leq t\) polynomials \(p\) over \(X\),
+  \begin{align}
+    \int_{X}dxp(x)={\textstyle \frac{1}{|D|}}\sum_{x\in D}p(x)~,
+  \end{align}
+  where the integral is over \(X\) (given some measure \(d x\)), while the sum is over the design \(D\).
+  A \textit{weighted design} is a design for which each term \(p(x)\) in the above sum must be multiplied by a weight \(w(x)\) in order to be equal to the left-hand side.
+  The most well-known examples of designs are (exact) quadrature/cubature formulas for integration over the reals, \(X = \mathbb{R}^D\) (with appropriate measure) \cite{doi:10.1017/S0962492900002701,doi:10.1137/1015023,doi:10.1016/S0885-064X(03)00011-6,doi:10.18434/M3167}; these tend to be weighted designs.
+
   Fixed-weight codewords of a binary code can form a design on \(X\) being a Johnson space \(J^n_w\), i.e., the space of length-\(n\) binary strings of weight \(w\).
-  Such a design is called a combinatorial design (a.k.a. block design or covering design) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.}}.
-  Designs on the full space of binary string (Hamming space) are called orthogonal arrays.
+  Such a design is called a \hyperref[code:combinatorial_design]{combinatorial design} (a.k.a. block design or covering design, encompassing Steiner systems as a special case) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.}}.
+  Designs on the full space of binary string (Hamming space) are called \hyperref[code:orthogonal_array]{orthogonal arrays}.
 
-  More generally, designs exist when \(X\) is \(q\)-ary Hamming space (where they are called orthogonal arrays), ordered Hamming space \cite{doi:10.4153/CJM-1999-017-5,arXiv:cs/0702033}, \(q\)-Johnson space \cite{manual:{Cameron, Peter J. "Generalisation of Fisher’s inequality to fields with more than one element." Combinatorics, London Math. Soc. Lecture Note Ser 13 (1973): 9-13.},doi:10.1145/2488608.2488715} (where they are called subspace designs), a sphere \cite{doi:10.1007/BF03187604} (where they are called spherical designs), or a compact connected two-point homogeneous space \cite{doi:10.1109/18.720545,preset:LevBounds,arXiv:1308.3188} (the sphere or the real, complex, quaternionic, or octonionic projective spaces \cite{doi:10.2307/1969427}).
+  More generally, designs exist when \(X\) is \(q\)-ary Hamming space, ordered Hamming space \cite{doi:10.4153/CJM-1999-017-5,arXiv:cs/0702033}, \(q\)-Johnson space \cite{manual:{Cameron, Peter J. "Generalisation of Fisher’s inequality to fields with more than one element." Combinatorics, London Math. Soc. Lecture Note Ser 13 (1973): 9-13.},doi:10.1145/2488608.2488715} (where they are called \hyperref[code:subspace_design]{subspace designs}), a sphere \cite{doi:10.1007/BF03187604} (where they are called \hyperref[code:spherical_design]{spherical designs}), or a compact connected two-point homogeneous space \cite{doi:10.1109/18.720545,preset:LevBounds,arXiv:1308.3188} (the sphere or the real, complex, quaternionic, or octonionic projective spaces \cite{doi:10.2307/1969427}).
+
   Complex projective designs are designs on the space of all quantum states \cite{arXiv:quant-ph/0310075,arxiv:quant-ph/0701126,doi:10.1017/9781139207010}.
+  Symmetric informationally complete quantum measurements (SIC-POVMs) \cite{arXiv:quant-ph/0310075} and mutually unbiased bases (MUBs) \cite{arxiv:1004.3348,arxiv:1505.01123} are important examples of such designs.
 
-  Designs can also exist on groups.
+  Designs also exist on groups.
   Designs on the unitary (projective unitary) group are called strong unitary (unitary) designs \cite{arXiv:quant-ph/0611002}, while \(t\)-designs on the permutation group are called permutation \(t\)-designs \cite{doi:10.1017/S0963548300001917} (a.k.a. \(t\)-wise independent permutations).
 
-  Other notable designs include torus designs \cite{arXiv:math/0405366,arxiv:2311.13479}, simplex designs \cite{doi:10.2307/2002483,doi:10.2307/2002484,doi:10.4036/iis.2018.S.02,doi:10.18434/M32189}, Grassmanian designs \cite{doi:10.1016/S0012-365X(03)00151-1,arxiv:0712.1939,arxiv:1705.02978}, and (exact) quadrature/cubature formulas for integration over the reals \cite{doi:10.1017/S0962492900002701,doi:10.1137/1015023,doi:10.1016/S0885-064X(03)00011-6,doi:10.18434/M3167}.
-  Existence has been proven for combinatorial designs \cite{doi:10.1016/0012-365X(87)90061-6}, subspace designs \cite{doi:10.1016/j.jcta.2014.06.001,arxiv:2212.00870}, as well as designs on continuous topological spaces \cite{doi:10.1016/0001-8708(84)90022-7}.
+  Other notable designs include torus designs \cite{arXiv:math/0405366,arxiv:2311.13479}, simplex designs \cite{doi:10.2307/2002483,doi:10.2307/2002484,doi:10.4036/iis.2018.S.02,doi:10.18434/M32189}, and Grassmanian designs \cite{doi:10.1016/S0012-365X(03)00151-1,arxiv:0712.1939,arxiv:1705.02978}.
+  Existence has been proven for combinatorial designs \cite{doi:10.1016/0012-365X(87)90061-6}, subspace designs \cite{doi:10.1016/j.jcta.2014.06.001,arxiv:2212.00870}, as well as designs on continuous topological spaces \cite{doi:10.1016/0001-8708(84)90022-7,arxiv:1112.4900}.
 
 #  when restricted to act on distinct \(t\)-tuples; see \cite[Remarks 6-7]{arXiv:2404.14648}
+
+notes:
+  - 'See the handbook \cite{doi:10.1201/9781420010541} for tables of various designs.'
 
 relations:
   parents:
