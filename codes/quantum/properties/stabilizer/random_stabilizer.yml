@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: random_stabilizer
+
+name: 'Random stabilizer code'
+introduced: '\cite{arXiv:quant-ph/9605005,arxiv:quant-ph/9512032,arXiv:quant-ph/9705052}'
+
+alternative_names:
+  - 'Random Clifford-circuit code'
+
+description: |
+  An \(n\)-qubit, modular-qudit, or Galois-qudit stabilizer code whose construction is non-deterministic.
+  Since stabilizer encoders are Clifford circuits, such codes can be thought of as arising from random Clifford circuits.
+
+features:
+  rate: 'Random qubit stabilizer codes achieve the quantum GV bound \cite{arXiv:quant-ph/9605005,arXiv:quant-ph/9705052}; see notes \cite{preset:PreskillNotes}.
+  In fact, sampling random CSS codes is sufficient \cite{arxiv:quant-ph/9512032}.'
+
+relations:
+  parents:
+    - code_id: stabilizer
+    - code_id: random_circuit
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-06-30'
