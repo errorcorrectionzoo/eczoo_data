@@ -9,43 +9,14 @@ name: 'Holographic code'
 introduced: '\cite{arxiv:1503.06237}'
 
 description: |
-  Block quantum code whose features (typically, the encoding isometry) serve to model aspects of the AdS/CFT holographic duality.
+  Block quantum code whose features serve to model aspects of the AdS/CFT holographic duality.
 
-  The encoding map often models radial time evolution for a fixed time slice in Anti de Sitter (AdS) space, mapping operators in the bulk of AdS, represented by logical qudits, onto operators on the boundary of the corresponding Conformal Field Theory (CFT), represented by physical qudits.
-  Encoding can often be represented by a tensor network associated with a tiling of hyperbolic space. See Defn 4.3 of Ref. \cite{arxiv:2108.11402} for a technical formulation.
-
-  Typically, the encoding isometry \(U\) obeys the \textit{entanglement-wedge reconstruction condition}, which states that for any boundary region \(R\), any bulk operator \(O\) localized to the entanglement wedge of \(R\) must be implementable by some boundary operator \(\tilde{O}\) localized to \(R\). Formally, \(UO = \tilde{O}U\) and \([\tilde{O},UU^\dagger] = 0\). The entanglement wedge is the space enclosed within the Ryu–Takayanagi surface in the bulk (minimal surface) with boundary \(R\).
-
-protection: 'Protects against erasure errors on the boundary. Error-correction properties are often stated in the Heisenberg picture, i.e., in terms of which logical operators can be \textit{reconstructed} after erasures. Specifically, bulk operators outside the entanglement wedges of the erased boundary operators can be reconstructed using the remaining boundary operators. However, the protection can be nontrivial, and may only apply to a subalgebra of bulk operators \cite{arxiv:1411.7041,arxiv:1612.00017}.'
-
-features:
-  encoders:
-    - 'Quantum encoding maps are isometries, but non-isometric encodings are relevant to describing mappings into the interior of a black hole \cite{arxiv:2207.06536} and de Sitter time evolution \cite{arxiv:2201.11658}.'
-#  decoders:
-#    - 'Given only a fraction of the boundary operators, one can only decode (reconstruct) a portion of the bulk operators within the entanglement wedge.'
-
-  transversal_gates:
-    - 'There exist holographic approximate codes with arbitrary transversal gate sets for any compact Lie group \cite{arxiv:2108.11402}.
-    However, for sufficiently localized logical subsystems of holographic stabilizer codes, the set of transversally implementable logical operations is contained in the Clifford group \cite{arxiv:2103.13404}.'
-
-  code_capacity_threshold:
-    - 'The ideal holographic code (perfect representation of AdS/CFT) should be able to protect a central bulk operator against erasures of half of the physical qubits on the boundary, in line with AdS-Rindler reconstruction \cite{arxiv:1503.06237}.'
-    - 'Holographic codes are argued to have a \textit{algebraic threshold}, for which the error rate scales polynomially (as opposed to exponentially) in the thermodynamic limit \cite{arxiv:2202.04710}. Such a threshold is governed by the underlying conformal field theory describing the boundary.'
-
-notes:
-  - 'All Boundary global symmetries must be dual to bulk gauge symmetries, and vice versa \cite{arxiv:1810.05338}.'
 
 # SYK codes do not seem to be related to Lego, so parent is block quantum
 relations:
   parents:
-    - code_id: block_quantum
+    - code_id: qecc
   cousins:
-    - code_id: quantum_lego
-      detail: 'Quantum Lego codes codes whose encoders are tensor networks discretizing hyperbolic space can be thought of as holographic codes.
-      More generally, tensor-network codes are types of LEGO codes made from stabilizer codes where logical and physical legs are pre-assigned and logical legs are not contracted.
-      In other words, logical legs resulting from the conversion of codes to tensors must remain logical in the final tensor network, and the same for physical. Contracting logical legs is another word for gluing two logical legs together.'
-    - code_id: approximate_qecc
-      detail: 'Universal subspace approximate error correction is used to model black holes \cite{arxiv:1807.06041}.'
     - code_id: approximate_oaecc
       detail: 'Properties of holographic codes are often quantified in the Heisenberg picture, i.e., in terms of operator algebras \cite{arxiv:1411.7041,arxiv:1612.00017}.'
 
