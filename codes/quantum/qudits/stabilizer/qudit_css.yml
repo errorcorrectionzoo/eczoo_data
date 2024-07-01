@@ -46,13 +46,15 @@ relations:
   parents:
     - code_id: qudit_stabilizer
       detail: 'Modular-qudit CSS codes are modular-qudit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
-      Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]_{\mathbb{Z}_q}\) CSS code via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
+      Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]_{\mathbb{Z}_q}\) \hyperref[topic:two_block_quantum]{two-block CSS code} code via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: group_gkp
       detail: 'An \(n\) modular-qubit CSS code corresponds to the \(\mathbb{Z}_q^{k_1} \subseteq \mathbb{Z}_q^{k_2} \subset \mathbb{Z}_q^{n}\) group construction, where \(k=k_2/k_1\), and where the group operation is addition.
       This construction should be extendable to additive \(q\)-ary codes over \(\mathbb{Z}_q\) since those are also groups under addition.'
     - code_id: css
     # Add Leonid's reverse mapping to stabilizers
   cousins:
+    - code_id: two_block_quantum
+      detail: 'Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]_{\mathbb{Z}_q}\) \hyperref[topic:two_block_quantum]{two-block CSS code} code via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: q-ary_linear_over_zq
       detail: 'The modular-qudit CSS construction uses two related \(q\)-ary linear codes over \(\mathbb{Z}_q\), \(C_X\) and \(C_Z\).'
 
