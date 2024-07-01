@@ -6,14 +6,21 @@
 code_id: quantum_lego
 
 name: 'Quantum Lego code'
-introduced: '\cite{arxiv:2109.08158,arxiv:2308.05152}'
+introduced: '\cite{arxiv:2009.10329,arxiv:2109.08158,arxiv:2109.11996,arxiv:2308.05152}'
+
+alternative_names:
+  - 'Local tensor-network code'
+# 2109.11996
 
 #  Code constructed using the quantum LEGO method, which combines multiple codes that have been converted into tensors by tying together the input and outputs of those codes, in a way stacking them similar to LEGOs.
 
 description: |
-  Block quantum code constructed using a tensor-network-based graphical framework from \textit{quantum Lego blocks}, which are smaller quantum codes over qubits or qudits. The class of codes constructed using the framework depends on the choice of atomic Lego blocks.
+  Block quantum code constructed using a tensor-network-based graphical framework from \textit{quantum Lego blocks}, which are smaller quantum codes over qubits or qudits.
+  The class of codes constructed using the framework depends on the choice of atomic Lego blocks.
 
-  The individual Lego blocks and resulting quantum Lego codes can be stabilizer or non-stabilizer. However, both the logical and physical degrees of freedom must have the same local dimension.
+  The individual Lego blocks and resulting quantum Lego codes can be stabilizer \cite{arxiv:2009.10329,arxiv:2109.11996} or non-stabilizer \cite{arxiv:2109.08158,arxiv:2308.05152}.
+  They need not be isometries, meaning that this class of codes generalizes block-perfect tensor-network codes.
+  However, both the logical and physical degrees of freedom must have the same local dimension.
 
   For example, any stabilizer code can be built out of atomic blocks like the 2-site repetition code, single-site trivial stabilizer codes, and tensor products of the \(|0\rangle\) state.
   Specifically, the \hyperref[code:happy]{HaPPY} holographic code is a quantum Lego code whose atomic Lego block is the \hyperref[code:stab_5_1_3]{five-qubit perfect} qubit code.
@@ -28,7 +35,8 @@ description: |
   V = \sum_{i_j} V_{i_1 \ldots i_{n+k}} | i_{k+1} \ldots i_{k+n} \rangle \langle i_1 \ldots i_k |~.
   \end{align}
   We then look at the codes graphically, treating each \(i_j\) as an edge dangling out of the tensor vertex \(V_{i_1 \ldots i_{n+k}}\). These edges are either connected to another tensor vertex's edges or left dangling. If the block codes are stabilizer, then each local tensor has unitary product stabilizers (UPS). The goal is to push each UPS through the tensor network until each dangling edge has only trivial support. Otherwise, a matching value is pushed through the edge and the process is repeated on the next tensor. If a UPS can be pushed through the whole network, then a UPS for the larger network has been found. The dangling legs (edges) and UPS of the whole network can then be converted to physical/logical elements and stabilizers/logical operators for a new quantum code.
-#protection: 'Depends heavily on the code it constructs.'
+
+protection: 'Stabilizer code distance can be calculated by tensor contraction \cite{arxiv:2109.11996}.'
 
 features:
   encoders:
@@ -40,8 +48,12 @@ features:
 
   decoders:
     - 'The decoder is created by creating a decoding quantum circuit with dangling legs replaced with input/output wires, and tensors converted to unitary gates. Maximum likelihood decoding can be used when the tensors are stabilizer codes.'
-    - 'Tensor-network decoder when the tensor network is contractible via stabilizer isometries \cite{arxiv:2009.10329}.'
+    - 'Tensor-network decoder when the tensor network is contractible via stabilizer isometries \cite{arxiv:2009.10329}.
+    Independent logical qubits can be decoded in parallel \cite{arxiv:2012.07317}.'
     - 'Tensor-network-based decoder when the encoding unitary is known \cite{arxiv:1312.4578}.'
+
+notes:
+  - 'TensorNetworkCodes Julia library \cite{arxiv:2109.11996}.'
 
 relations:
   parents:
@@ -53,6 +65,10 @@ relations:
       detail: 'The \([[6,4,2]]\) error-detecting code can be constructed out of two \([[4,2,2]]\) codes in the quantum Lego code framework.'
     - code_id: stab_4_2_2
       detail: 'The Steane and \([[6,4,2]]\) error-detecting codes can be built from two \([[4,2,2]]\) codes in the quantum Lego code framework \cite{arxiv:2109.08158}.'
+    - code_id: rotated_surface
+      detail: 'A tensor-network based modification of the rotated surface code improves performance against depolarizing noise by \(\sim 2\%\) \cite{arxiv:2109.11996}.'
+    - code_id: triangular_color
+      detail: 'Larger triangular color codes can be constructed by contracting legs of tensors of smaller codes \cite[Fig. 5]{arxiv:2109.11996}.'
 
 
 # Begin Entry Meta Information

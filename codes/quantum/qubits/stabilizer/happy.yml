@@ -15,7 +15,7 @@ description: |
   Also known as a \textit{hyperbolic pentagon code (HyPeC)}.
   Holographic code constructed out of a network of hexagonal perfect tensors that tesselates hyperbolic space.
   Physical qubits are associated with uncontracted tensor legs at the boundary of the tesselation, while logical qubits are associated with uncontracted legs in the bulk.
-  The code serves as a minimal model for several aspects of the AdS/CFT holographic duality and potentially a dF/CFT duality \cite{arxiv:2201.11658}.
+  The code serves as a minimal model for several aspects of the AdS/CFT holographic duality \cite{arxiv:1706.08823} and potentially a dF/CFT duality \cite{arxiv:2201.11658}.
 
   The construction below is described for qubits, but straightforward generalizations exist to modular qudits, oscillators, and rotors \cite{arxiv:1902.07714}.
   Encoding is accomplished using a tensor network of five-qubit encoding isometries, which are six-legged perfect tensors (with five legs corresponding to the physical qubits and one for the encoded logical qubit).
@@ -54,7 +54,7 @@ features:
     - 'Lower bound of \(1/12 \approx 8.3\%\) for boundary erasure errors on the single-qubit HaPPY code under hierarchical recovery \cite{arxiv:1503.06237}.
     Numerical evidence indicates the threshold may be closer to \(50\%\).'
     - 'There is no threshold for the pentagon HaPPY code as a constant number of errors (four) can make bulk recovery impossible \cite{arxiv:1503.06237}.'
-    - '\(16.3\%\) for boundary Pauli errors on the single-qubit HaPPY code with 3 layers \cite{arxiv:2008.10206}.'
+    - '\(16.3\%\) for boundary Pauli errors on the single-qubit HaPPY code with 3 layers using integer optimization decoder \cite{arxiv:2008.10206}.'
     - 'A single-qubit HaPPY code has a \hyperref[topic:measurement-threshold]{measurement threshold} of one \cite{arxiv:2402.00145} (see also \cite{arxiv:2209.12903}).'
 
 
@@ -67,8 +67,6 @@ relations:
       detail: 'The HaPPY code is a stabilizer code because it is defined by a contracted network of stabilizer tensors; see Thm. 6 in Ref. \cite{arxiv:1503.06237}.'
     - code_id: holographic
   cousins:
-    - code_id: stab_5_1_3
-      detail: 'The five-qubit encoding isometry tiles various holographic codes because its corresponding tensor is perfect \cite{arxiv:1503.06237}.'
     - code_id: majorana_stab
       detail: 'HaPPY code Hamiltonian can be expressed in terms of mutually commuting weight-two (two-body) Majorana operators \cite{arxiv:1905.03268}.'
 
