@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: holographic_6_1_3
+physical: qubits
+logical: qubits
+
+name: 'Six-qubit-tensor holographic code'
+introduced: '\cite{arxiv:2009.10329}'
+
+description: |
+  Holographic tensor-network code constructed out of a network of encoding isometries of the \([[6,1,3]]\) six-qubit stabilizer code.
+  The structure of the isometry is similar to that of the heptagon holographic code since both isometries are rank-six tensors, but the isometry in this case is neither a \hyperref[topic:ame]{perfect tensor} nor a block-perfect tensor.
+
+
+features:
+  code_capacity_threshold:
+    - '\(18.8\%\) under depolarising using tensor-network decoder \cite{arxiv:2009.10329}.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: holographic_tensor
+      detail: 'The encoding of the six-qubit-tensor holographic code is a holographic tensor network consisting of encoding isometries for the \([[6,1,3]]\) six-qubit stabilizer code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-01'

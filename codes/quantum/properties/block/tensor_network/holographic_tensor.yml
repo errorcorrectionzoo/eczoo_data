@@ -6,10 +6,12 @@
 code_id: holographic_tensor
 
 name: 'Holographic tensor-network code'
+introduced: '\cite{arxiv:2009.10329,arxiv:2109.11996}'
 
 description: |
   Quantum Lego code whose encoding isometry forms a holographic tensor network, i.e., a tensor network  tiling hyperbolic space.
-  The number of layers emanating form the central point of the tiling is the radius of the code.
+  Physical qubits are associated with uncontracted tensor legs at the boundary of the tesselation, while logical qubits are associated with uncontracted legs in the bulk.
+  The number of layers emanating form the central point of the tiling is the \textit{radius} of the code.
 
   The encoding map often models radial time evolution for a fixed time slice in Anti de Sitter (AdS) space, mapping operators in the bulk of AdS, represented by logical qudits, onto operators on the boundary of the corresponding Conformal Field Theory (CFT), represented by physical qudits.
   Encoding can often be represented by a tensor network associated with a tiling of hyperbolic space.
@@ -39,7 +41,7 @@ features:
     - 'Holographic codes are argued to have a \textit{algebraic threshold}, for which the error rate scales polynomially (as opposed to exponentially) in the thermodynamic limit \cite{arxiv:2202.04710}. Such a threshold is governed by the underlying conformal field theory describing the boundary.'
 
 notes:
-  - 'All Boundary global symmetries must be dual to bulk gauge symmetries, and vice versa \cite{arxiv:1810.05338}.'
+  - 'Review of holographic tensor network codes \cite{arXiv:2102.02619}.'
 
 
 relations:
@@ -54,6 +56,10 @@ relations:
   cousins:
     - code_id: approximate_qecc
       detail: 'Universal subspace approximate error correction is used to model black holes \cite{arxiv:1807.06041}.'
+    - code_id: random_stabilizer
+      detail: 'Random holographic tensor-network codes reproduce many aspects of holography \cite{arxiv:1601.01694,arXiv:1801.05289,arxiv:2105.12067}.'
+    - code_id: hamiltonian
+      detail: 'Local Hamiltonians lying at the CFT boundary can be mapped into the AdS bulk using tools from Hamiltonian simulation theory \cite{arxiv:1810.08992}.'
 
 
 
