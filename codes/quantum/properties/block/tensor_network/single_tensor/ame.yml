@@ -5,25 +5,25 @@
 
 code_id: ame
 
-name: '\(((n,2,\lfloor(n+1)/2\rfloor))_q\) perfect-tensor code'
+# \(((n,q,\lfloor(n+1)/2\rfloor))_{\mathbb{Z}_q}\)
+name: 'Perfect-tensor code'
 
 alternative_names:
   - 'AME code'
 
 description: |
-  Block quantum code whose encoding isometry is a perfect tensor.
-  This code stems from an \(((n+1,1,\lfloor (n+1)/2 \rfloor + 1))_q\) \hyperref[topic:ame]{AME state}.
+  Block quantum code encoding one subsystem into \(n\) subsystems whose encoding isometry is a perfect tensor.
+  This code stems from an AME\((n,q)\) \hyperref[topic:ame]{AME state}, or equivalently, a \(((n+1,1,\lfloor (n+1)/2 \rfloor + 1))_{\mathbb{Z}_q}\) code.
 
   \begin{defterm}{Absolutely maximally entangled (AME) state}
   \label{topic:ame}
   A state on \(n\) subsystems is \(d\)\textit{-uniform} \cite{arXiv:quant-ph/0310137,arxiv:1404.3586} (a.k.a. \(d\)-maximally mixed \cite{arxiv:1211.4118}) if all reduced density matrices on up to \(d\) subsystems are maximally mixed.
-  A \(K\)-dimensional subspace of \(d-1\)-uniform states in \(q\)-dimensional qudits is equivalent to a \hyperref[topic:quantum-weight-enumerator]{pure} \(((n,K,d))_q\) code \cite{arxiv:0704.0251,arxiv:1907.07733}.
-  An AME state (a.k.a. maximally multi-partite entangled state \cite{arxiv:0710.2868,arxiv:1002.2592}) is a \(\lfloor n/2 \rfloor\)-uniform state, corresponding to a \hyperref[topic:quantum-weight-enumerator]{pure} \(((n,1,\lfloor n/2 \rfloor + 1))_q\) code.
-  The rank-\(n\) tensor formed by the basis-expansion coefficients of such states is a \textit{perfect tensor} (a.k.a. multi-unitary tensor), meaning that it is proportional to an isometry for any bipartition of its indices into a set \(A\) and a complementary set \(A^{\perp}\) such that \(|A|\leq|A^{\perp}|\).
-  A perfect-tensor code is obtained by picking one leg of this tensor to denote the logical qubit index, thus treating this tensor as an encoding isometry for the perfect-tensor code.
+  A \(K\)-dimensional subspace of \(d-1\)-uniform states of \(q\)-dimensional subsystems is equivalent to a \hyperref[topic:quantum-weight-enumerator]{pure} \(((n,K,d))_q\) code \cite{arxiv:0704.0251,arxiv:1907.07733}.
+  An AME state (a.k.a. maximally multi-partite entangled state \cite{arxiv:0710.2868,arxiv:1002.2592}) is a \(\lfloor n/2 \rfloor\)-uniform state, corresponding to a \hyperref[topic:quantum-weight-enumerator]{pure} \(((n,1,\lfloor n/2 \rfloor + 1))_{\mathbb{Z}_q}\) code.
+  The rank-\(n\) tensor formed by the encoding isometry of such codes is a \textit{perfect tensor} (a.k.a. multi-unitary tensor), meaning that it is proportional to an isometry for any bipartition of its indices into a set \(A\) and a complementary set \(A^{\perp}\) such that \(|A|\leq|A^{\perp}|\).
   \end{defterm}
 
-  Stabilizer perfect-tensor codes can be converted to \hyperref[topic:ame]{AME states} via established shortening/lengthening procedures.
+  Stabilizer Galois-qudit perfect-tensor codes can be converted to \hyperref[topic:ame]{AME states} via established shortening/lengthening procedures \cite[Table 1]{arxiv:quant-ph/0508070}\cite{arxiv:1502.05267}.
   For example, an \([[n,0,d]]\) AME state can be converted into an \([[n-1,1,d-1]]\) perfect-tensor code by tracing over one qubit \cite[Sec. 3.5]{arxiv:quant-ph/9705052}.
 
 
@@ -34,7 +34,7 @@ notes:
 relations:
   parents:
     - code_id: block_perfect
-      detail: 'A planar-perfect-tensor code whose encoding isometry is a perfect tensor is a perfect-tensor code.'
+      detail: '\hyperref[code:block_perfect]{Planar-perfect tensor}s are automatically \hyperref[code:block_perfect]{planar-perfect tensor}s.'
   cousins:
     - code_id: quantum_mds
       detail: '\hyperref[topic:ame]{AME states} for even \(n\) are examples of quantum MDS codes with no logical qubits \cite{arXiv:quant-ph/0310137,arxiv:1701.03359}.
@@ -44,7 +44,7 @@ relations:
     - code_id: orthogonal_array
       detail: 'Orthogonal arrays and \(d\)-uniform quantum states are related \cite{arXiv:1404.3586,arxiv:1708.05946}.'
     - code_id: qudit_cluster_state
-      detail: 'Since any modular-qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{Z}_q\) via a single-modular-qudit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}), \hyperref[topic:ame]{AME states} can be understood as qudit cluster states \cite{arxiv:1306.2879}.'
+      detail: 'Since any modular-qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{Z}_q\) via a single-modular-qudit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}), \hyperref[topic:ame]{stabilizer AME states} can be understood as modular-qudit cluster states \cite{arxiv:1306.2879}.'
 
 
 # Begin Entry Meta Information

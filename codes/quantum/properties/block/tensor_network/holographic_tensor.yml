@@ -6,15 +6,14 @@
 code_id: holographic_tensor
 
 name: 'Holographic tensor-network code'
-introduced: '\cite{arxiv:2009.10329,arxiv:2109.11996}'
+introduced: '\cite{arxiv:1503.06237,arxiv:1601.01694,arXiv:1801.05289,arxiv:2009.10329,arxiv:2109.11996}'
 
 description: |
-  Quantum Lego code whose encoding isometry forms a holographic tensor network, i.e., a tensor network  tiling hyperbolic space.
+  Quantum Lego code whose encoding isometry forms a holographic tensor network, i.e., a tensor network  associated with a tiling of hyperbolic space.
   Physical qubits are associated with uncontracted tensor legs at the boundary of the tesselation, while logical qubits are associated with uncontracted legs in the bulk.
   The number of layers emanating form the central point of the tiling is the \textit{radius} of the code.
 
-  The encoding map often models radial time evolution for a fixed time slice in Anti de Sitter (AdS) space, mapping operators in the bulk of AdS, represented by logical qudits, onto operators on the boundary of the corresponding Conformal Field Theory (CFT), represented by physical qudits.
-  Encoding can often be represented by a tensor network associated with a tiling of hyperbolic space.
+  The encoding map models radial time evolution for a fixed time slice in Anti de Sitter (AdS) space, mapping operators in the bulk of AdS, represented by logical qudits, onto operators on the boundary of the corresponding Conformal Field Theory (CFT), represented by physical qudits.
   See \cite[Defn. 4.3]{arxiv:2108.11402} for a technical formulation.
 
 protection: |
@@ -37,11 +36,11 @@ features:
     However, for sufficiently localized logical subsystems of holographic stabilizer codes, the set of transversally implementable logical operations is contained in the Clifford group \cite{arxiv:2103.13404}.'
 
   code_capacity_threshold:
-    - 'The ideal holographic code (perfect representation of AdS/CFT) should be able to protect a central bulk operator against erasures of half of the physical qubits on the boundary, in line with AdS-Rindler reconstruction \cite{arxiv:1503.06237}.'
-    - 'Holographic codes are argued to have a \textit{algebraic threshold}, for which the error rate scales polynomially (as opposed to exponentially) in the thermodynamic limit \cite{arxiv:2202.04710}. Such a threshold is governed by the underlying conformal field theory describing the boundary.'
+    - 'The ideal holographic tensor-network code (perfect representation of AdS/CFT) should be able to protect a central bulk operator against erasures of half of the physical qubits on the boundary, in line with AdS-Rindler reconstruction \cite{arxiv:1503.06237}.'
+    - 'Holographic tensor-network codes are argued to have a \textit{algebraic threshold}, for which the error rate scales polynomially (as opposed to exponentially) in the thermodynamic limit \cite{arxiv:2202.04710}. Such a threshold is governed by the underlying conformal field theory describing the boundary.'
 
 notes:
-  - 'Review of holographic tensor network codes \cite{arXiv:2102.02619}.'
+  - 'Review of holographic tensor-network codes \cite{arXiv:2102.02619}.'
 
 
 relations:
@@ -54,8 +53,6 @@ relations:
       In other words, logical legs resulting from the conversion of codes to tensors must remain logical in the final tensor network, and the same for physical.
       Contracting logical legs is another word for gluing two logical legs together.'
   cousins:
-    - code_id: approximate_qecc
-      detail: 'Universal subspace approximate error correction is used to model black holes \cite{arxiv:1807.06041}.'
     - code_id: random_stabilizer
       detail: 'Random holographic tensor-network codes reproduce many aspects of holography \cite{arxiv:1601.01694,arXiv:1801.05289,arxiv:2105.12067}.'
     - code_id: hamiltonian

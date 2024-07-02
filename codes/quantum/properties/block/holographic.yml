@@ -6,17 +6,19 @@
 code_id: holographic
 
 name: 'Holographic code'
+short_name: 'HQECC'
 introduced: '\cite{arxiv:1503.06237}'
 
 description: |
   Block quantum code whose features serve to model aspects of the AdS/CFT holographic duality and, more generally, quantum gravity.
-
 
 # SYK codes do not seem to be related to Lego, so parent is block quantum
 relations:
   parents:
     - code_id: qecc
   cousins:
+    - code_id: approximate_qecc
+      detail: 'Universal subspace approximate error correction is used to model black holes \cite{arxiv:1807.06041}.'
     - code_id: approximate_oaecc
       detail: 'Properties of holographic codes are often quantified in the Heisenberg picture, i.e., in terms of operator algebras \cite{arxiv:1411.7041,arxiv:1612.00017}.'
 
