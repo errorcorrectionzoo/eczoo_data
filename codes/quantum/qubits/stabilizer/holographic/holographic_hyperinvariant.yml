@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: holographic_hyperinvariant
+physical: qubits
+logical: qubits
+
+name: 'Hyperinvariant tensor-network (HTN) code'
+short_name: 'HTN'
+introduced: '\cite{arxiv:2304.02732}'
+
+description: |
+  Holographic tensor-network error-detecting code constructed out of a hyperinvariant tensor network \cite{arxiv:1704.04229}, a MERA-like network admitting a hyperbolic geometry.
+  The network is defined using two layers A and B, with constituent tensors satisfying isometry conditions (a.k.a. multitensor constraints).
+
+  This code produces boundary correlation functions that align with those expected from conformal field theory (CFT) boundary states.
+  HTN codes exhibit state-dependent breakdown of complementary recovery, consistent with quantum gravity corrections in AdS/CFT.
+
+protection: 'Certain HTN codes protect against single-site errors.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: holographic_tensor
+      detail: 'The encoding of an HTN code is a hyperinvariant tensor network.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-01'
