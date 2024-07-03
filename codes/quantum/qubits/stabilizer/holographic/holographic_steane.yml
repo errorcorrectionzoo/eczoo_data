@@ -15,14 +15,15 @@ alternative_names:
 
 description: |
   Holographic tensor-network code constructed out of a network of encoding isometries of the Steane code.
+  Depending on how the isometry tensors are contracted, there is a zero-rate and a finite-rate code family.
 
 features:
   decoders:
     - 'Optimal erasure decoder \cite{arxiv:1806.06472}.'
 
   threshold:
-    - '\(~33\%\) under erasure noise using optimal erasure decoder \cite{arxiv:1806.06472}.'
-    - '\(9.4\%\) under depolarizing noise using tensor-network decoder \cite{arxiv:2012.07317}.'
+    - '\(~33\%\) under erasures using optimal erasure decoder for the finite-rate family, and \(50\%\) for the zero-rate family \cite{arxiv:1806.06472}.'
+    - 'Depolarizing noise: \(9.4\%\) using tensor-network decoder, and \(\sim 7\%\) using integer optimization decoder \cite{arxiv:2012.07317}.'
 
 
 relations:
