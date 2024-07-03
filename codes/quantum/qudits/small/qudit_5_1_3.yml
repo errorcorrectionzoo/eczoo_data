@@ -14,7 +14,12 @@ introduced: '\cite{arxiv:quant-ph/9702033,arxiv:quant-ph/9703048}'
 
 description: |
   Modular-qudit stabilizer code that generalizes the five-qubit perfect code using properties of the multiplicative group \(\mathbb{Z}_q\) \cite{arxiv:quant-ph/9702033}; see also \cite[Thm. 13]{arxiv:quant-ph/9703048}. It has four stabilizer generators consisting of \(X Z Z^\dagger X^\dagger I\) and its cyclic permutations.
-  A concise expression for a set of codewords can be found in \cite[Sec. VI.B]{arxiv:1902.07714}.
+
+  The components of the encoding isometry in the computational basis (with \(a\) being the logical qubit index) are \cite[Sec. VI.B]{arxiv:1902.07714}
+  \begin{align}
+      T_{aklmnp}=\d_{a,k+l+m+n+p}^{\Z_{q}}\frac{1}{q^{2}}\omega^{km+kn+ln+lp+mp}~,
+  \end{align}
+  where \(\omega\) is a primitive \(q\)th root of unity, and where \(\delta^{\Z_{q}}\) is the \hyperref[topic:group-pauli]{\(\mathbb{Z}_q\) Kronecker-delta function}.
 
 protection: 'Protects against a single error on any one qudit. Detects two-qudit errors.'
 
