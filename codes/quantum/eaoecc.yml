@@ -11,13 +11,18 @@ name: 'Entanglement-assisted (EA) operator QECC'
 short_name: 'EAOQECC'
 introduced: '\cite{arxiv:0708.2142,doi:10.1109/ISIT.2007.4557160}'
 
-description: 'Subsystem QECC whose encoding and decoding utilizes pre-shared entanglement between sender and receiver.'
+description: |
+  Subsystem QECC whose encoding and decoding utilizes pre-shared entanglement between sender and receiver.
+
+  
 
 relations:
   parents:
-    - code_id: oecc
-      detail: 'EQ operator QECCs utilize additional ancillary subsystems in a pre-shared entangled state, but reduce to subsystem QECCs when said subsystems are interpreted as noiseless physical subsystems.'
     - code_id: eacq
+  cousins:
+    - code_id: oecc
+      detail: 'EQOQECCs utilize additional ancillary subsystems in a pre-shared entangled state, but reduce to subsystem QECCs when said subsystems are interpreted as noiseless physical subsystems.'
+
 
 
 # Begin Entry Meta Information
