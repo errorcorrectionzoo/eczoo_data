@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: kpt
+physical: qubits
+logical: qubits
+
+name: 'Kim-Preskill-Tang (KPT) code'
+short_name: 'KPT'
+introduced: '\cite{arxiv:2003.05451}'
+
+description: |
+  A quantum error-correcting code that protects the encoded interior of a black hole from computationally bounded exterior observers.
+  Under the assumption that the Hawking radiation emitted by an old black hole is pseudorandom, there exists a subspace of the radiation system that encodes the black hole interior, entangled with the late outgoing Hawking quanta.
+  The logical operators of this code commute with efficient operations acting on the radiation, protecting the interior up to corrections exponentially small in the black hole's entropy.
+
+  This code has been tested in various models of gravity \cite{arxiv:2003.05451,arxiv:2203.01961}.
+
+protection: |
+  Protection relies on the pseudorandomness of the radiation and the computational hardness of distinguishing the encoded state from a maximally mixed state.
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: holographic
+      detail: 'The robustness of KPT codes does not rely on arguments from holographic duality, but such codes do aim to describe interiors of black holes.'
+
+
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-02'
