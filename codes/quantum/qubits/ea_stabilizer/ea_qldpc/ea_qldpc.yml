@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ea_qldpc
+physical: qubits
+logical: qubits
+
+name: 'EA QLDPC code'
+
+description: |
+  EA stabilizer code for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\)
+
+features:
+  encoders:
+    - 'Encoder adapted for an all-optical impelementation \cite{doi:10.1364/OL.35.001464}.'
+  decoders:
+    - 'Decoder adapted for an all-optical impelementation \cite{doi:10.1364/OL.35.001464}.'
+
+notes:
+  - 'Review of EA QLDPC codes provided in Ref. \cite{doi:10.1109/ACCESS.2015.2503267}.'
+
+
+relations:
+  parents:
+    - code_id: eastab
+  cousins:
+    - code_id: qldpc
+    - code_id: ldpc
+      detail: 'There exist necessary and sufficient conditions for an EA QLDPC code consuming \(e=1\) ebit that is obtainable from a pair of LDPC codes \cite{arxiv:1108.0679}.'
+# Cousin of closest non-EA quantum code
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-04'

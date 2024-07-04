@@ -12,10 +12,10 @@ introduced: '\cite{arxiv:quant-ph/0608027,arxiv:quant-ph/0610092}'
 
 description: |
   Constructed using a variation of the stabilizer formalism designed to utilize pre-shared entanglement between sender and receiver.
-  A code is typically denoted as \([[n,k;c]]\) or \([[n,k,d;c]]\), where \(d\) is the distance of the underlying non-EA \([[n,k,d]]\) code, and \(c\) is the number of required pre-shared maximally entangled Bell states.
+  A code is typically denoted as \([[n,k;e]]\) or \([[n,k,d;e]]\), where \(d\) is the distance of the underlying non-EA \([[n,k,d]]\) code, and \(e\) is the number of required pre-shared maximally entangled Bell states (ebits).
   While other entangled states can be used, there is always a choice a generators such that the Bell state suffices while still using the fewest ebits.
 
-  An \([[n,k+c;c]]\) EA stabilizer code can be constructed from an ordinary \([[n,k]]\) stabilizer code with check matrix \(H=(A|B)\), where the required number of ebits is \(c = \text{rank}(AB^T+BA^T)\) \cite{arxiv:0804.1404}.
+  An \([[n,k+e;e]]\) EA stabilizer code can be constructed from an ordinary \([[n,k]]\) stabilizer code with check matrix \(H=(A|B)\), where the required number of ebits is \(e = \text{rank}(AB^T+BA^T)\) \cite{arxiv:0804.1404}.
 
 features:
   encoders:
@@ -33,13 +33,20 @@ relations:
     - code_id: ea_qubits_into_qubits
   cousins:
     - code_id: qubit_stabilizer
-      detail: 'EA qubit stabilizer codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to qubit stabilizer codes when said qubits are interpreted as noiseless physical qubits.'
+      detail: 'EA qubit stabilizer codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to qubit stabilizer codes when said qubits are interpreted as noiseless physical qubits.
+      Qubit stabilizer codes can be used to obtain shortened EA qubit stabilizer codes \cite{arxiv:2205.13732}.'
+    - code_id: hybrid_stabilizer
+      detail: 'EA hybrid stabilizer codes can be defined \cite{arxiv:0802.2414}.'
     - code_id: binary_linear
       detail: 'Any linear binary code can be used to construct an EA qubit stabilizer code.'
     - code_id: q-ary_linear
       detail: 'Any linear quaternary (\(q=4\)) code can be used to construct an EA qubit stabilizer code.'
     - code_id: qubit_css
       detail: 'As opposed to CSS codes, EA qubit stabilizer codes can be constructed from any linear binary code.'
+    - code_id: quantum_concatenated
+      detail: 'EA concatenated codes have been studied \cite{arxiv:2202.08084}.'
+    - code_id: ag
+      detail: 'Certain AG codes can be used to construct EA qubit stabilizer codes \cite{arxiv:2101.06461}.'
 
 
 # Begin Entry Meta Information
