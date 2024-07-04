@@ -5,17 +5,32 @@
 
 code_id: oaecc
 
-name: 'Operator-algebra error-correcting code'
-# short_name: 'Operator-algebra QECC'
+name: 'Operator-algebra QECC'
+short_name: 'OAQECC'
 introduced: '\cite{arxiv:quant-ph/0203105,arxiv:quant-ph/0608071,arxiv:0705.1574,arxiv:1005.0353,doi:10.1142/S0219749908003839,arxiv:2012.14001}'
 
+alternative_names:
+  - 'Hybrid QECC'
+
 description: |-
- Encodes quantum and/or classical information into a collection of subsystems of a Hilbert space \(\mathsf{H}\) that is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
- This \textit{logical algebra} induces a decomposition of the Hilbert space as
- \begin{align}\mathsf{H} = \bigoplus_\gamma A_\gamma \otimes B_\gamma,\end{align}
- with respect to which \(\mathcal{A}\) takes the form
- \begin{align}\mathcal{A} = \bigoplus_\gamma I_\gamma \otimes \mathcal{L}(B_\gamma),\end{align}
- where \(\mathcal{L}(B_\gamma)\) denotes the full set of linear maps on \(B_\gamma\).
+  Code that encodes quantum and/or classical information into a collection of subsystems of a Hilbert space \(\mathsf{H}\).
+
+  A simple example of an OAQECC encodes a single qubit and a single classical bit.
+  A different quantum code \(\mathsf{C}_j\) is associated with each of the two values \(j\in\{0,1\}\) of the classical bit.
+  The error words corresponding to correctable errors must satisfy the \term{Knill-Laflamme conditions} for each code \cite[Eq. (3)]{arxiv:1701.06963}, and error words beloning to different codes must be orthogonal to each other \cite[Eq. (4)]{arxiv:1701.06963}.
+  The corresponding decomposition of the hilbert space is
+  \begin{align}
+    \mathsf{C}_{1}\oplus\mathsf{C}_{2}\oplus\mathsf{C}^{\perp}~,
+  \end{align}
+  where \(\mathsf{C}^\perp\) is the combined error space of both codes.
+  Either quantum code can further be expanded into a subsystem code, yielding a more complicated OAQECC.
+
+  More generally, the code is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
+  This \textit{logical algebra} induces a decomposition of the Hilbert space as
+  \begin{align}\mathsf{H} = \bigoplus_\gamma A_\gamma \otimes B_\gamma,\end{align}
+  with respect to which \(\mathcal{A}\) takes the form
+  \begin{align}\mathcal{A} = \bigoplus_\gamma I_\gamma \otimes \mathcal{L}(B_\gamma),\end{align}
+  where \(\mathcal{L}(B_\gamma)\) denotes the full set of linear maps on \(B_\gamma\).
 
 protection: |
   Given an error operation \(\mathcal{E}\), one says that \(\mathcal{A}\) is \textit{correctable} for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that
@@ -30,6 +45,12 @@ protection: |
 
 features:
   rate: 'The quantum capacity for simultaneous transmission of classical and quantum information has been derived \cite{arXiv:quant-ph/0311131}.'
+
+relations:
+  parents:
+    - code_id: approximate_oaecc
+      detail: 'Approximate OAQECCs correcting a noise channel exactly reduce to OAQECCs.'
+
 
 # Begin Entry Meta Information
 _meta:
