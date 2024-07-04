@@ -10,7 +10,7 @@ logical: qubits
 # Allowed children only subsystem and OA codes; no quantum code children within kingdom
 name: 'Operator-algebra (OA) qubit stabilizer code'
 short_name: 'OA qubit stabilizer'
-introduced: '\cite{arxiv:1701.06963,arxiv:2304.11442}'
+introduced: '\cite{arxiv:2304.11442}'
 
 description: |-
   An OAQECC in which the commutant \(\mathcal{A}'\) of the logical algebra \(\mathcal{A}\) arises as the \hyperref[topic:group-algebra]{group algebra} of a subgroup \(\mathsf{G}\) of the \(n\)-qubit Pauli group \(\mathsf{P}_n\).
@@ -29,6 +29,9 @@ protection: |-
 relations:
   parents:
     - code_id: oaecc
+  cousins:
+    - code_id: bacon_shor
+      detail: 'The OA qubit stabilizer formalism yields hybrid Bacon-Shor codes \cite{arxiv:2304.11442}.'
 
 
 # Begin Entry Meta Information
