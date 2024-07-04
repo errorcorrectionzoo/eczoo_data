@@ -9,21 +9,17 @@ name: 'Operator-algebra QECC'
 short_name: 'OAQECC'
 introduced: '\cite{arxiv:quant-ph/0203105,arxiv:quant-ph/0608071,arxiv:0705.1574,arxiv:1005.0353,doi:10.1142/S0219749908003839,arxiv:2012.14001}'
 
-alternative_names:
-  - 'Hybrid QECC'
-
 description: |-
-  Code that encodes quantum and/or classical information into a collection of subsystems of a Hilbert space \(\mathsf{H}\).
+  A code that encompasses both subsystem codes and hybrid codes using an operator-algebraic framework.
 
-  A simple example of an OAQECC encodes a single qubit and a single classical bit.
-  A different quantum code \(\mathsf{C}_j\) is associated with each of the two values \(j\in\{0,1\}\) of the classical bit.
-  The error words corresponding to correctable errors must satisfy the \term{Knill-Laflamme conditions} for each code \cite[Eq. (3)]{arxiv:1701.06963}, and error words beloning to different codes must be orthogonal to each other \cite[Eq. (4)]{arxiv:1701.06963}.
-  The corresponding decomposition of the hilbert space is
+  A simple example of an OAQECC encodes both a single logical qubit in a subsystem code and a single classical bit in some Hilbert space \(\mathsf{H}\).
+  A different quantum subsystem code \(\mathsf{A}_j\otimes\mathsf{B}_j\), with \(\mathsf{A}_j\) the logical qubit factor and \(\mathsf{B}_j\) the gauge qubit factor, is associated with each of the two values \(j\in\{0,1\}\) of the classical bit.
+  The corresponding decomposition is
   \begin{align}
-    \mathsf{C}_{1}\oplus\mathsf{C}_{2}\oplus\mathsf{C}^{\perp}~,
+    \mathsf{H}=(\mathsf{A}_{1}\otimes\mathsf{B}_{1})\oplus(\mathsf{A}_{2}\otimes\mathsf{B}_{2})\oplus\mathsf{C}^{\perp}~,
   \end{align}
   where \(\mathsf{C}^\perp\) is the combined error space of both codes.
-  Either quantum code can further be expanded into a subsystem code, yielding a more complicated OAQECC.
+  The above code reduces to a subsystem code when \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) is trivial, and reduces to a hybrid code when \(\mathsf{B}_{1,2}\) are both trivial.
 
   More generally, the code is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
   This \textit{logical algebra} induces a decomposition of the Hilbert space as

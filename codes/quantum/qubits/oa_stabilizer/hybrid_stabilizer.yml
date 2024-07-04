@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hybrid_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'Hybrid stabilizer code'
+introduced: '\cite{arxiv:0802.2414,arxiv:1701.06963}'
+
+description: |
+  A qubit stabilizer code which stores both quantum and classical information.
+  Usually denoted as \([[n,k:c]]\) or \([[n,k:c,d]]\), where \(k\) (\(c\)) is the number of encoded qubits (classical bits), and where \(d\) is the distance.
+
+  The algebraic structure of a hybrid stabilizer code is the same as that of a USt code whose cosets are indexed by a linear binary code:
+  both codes utilize codewords of an inner \([[n,k]]\) qubit stabilizer code \(\mathsf{C}\) and its cosets \(t \mathsf{C}\) by \(2^c\) Pauli strings \(t\), with the coset index \(t\) corresponding to a codeword of the outer \([n,c]\) linear binary code.
+  However, the hybrid stabilizer code does not utilize superpositions of codewords of \(t \mathsf{C}\) and \(t^{\prime} \mathsf{C}\) for \(t \neq t^{\prime}\).
+  As such, a hybrid stabilizer code can be thought of as a particular USt code some of whose qubits are used for storing classical information.
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer_oaqecc
+      detail: 'An OA stabilizer code which has no gauge qubits but has a block structure that corresponds to a linear binary code is a hybrid stabilizer code.'
+    - code_id: hybrid_qubits_into_qubits
+      detail: 'An \([[n,k:c,d]]\) hybrid stabilizer code is an \(((n,2^k:2^c,d))\) hybrid qubit code.'
+  cousins:
+    - code_id: qubit_stabilizer
+      detail: 'Any qubit stabilizer code can be converted into a hybrid stabilizer code by using some its qubits to store only classical information \cite{arxiv:0802.2414}.'
+    - code_id: non_stabilizer
+      detail: 'The algebraic structure of a hybrid stabilizer code is the same as that of a USt code whose cosets are indexed by a linear binary code \cite{arxiv:0802.2414}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-04'

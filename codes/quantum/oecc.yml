@@ -29,14 +29,16 @@ protection: |
 notes:
   - 'See Ref. \cite{doi:10.1017/CBO9781139034807.008} for an introduction to operator QEC.'
 
+# 20240704 subsystem QECC, hybrid QECC, and QECC are three children of OAQECC
 relations:
   parents:
     - code_id: oaecc
+      detail: 'An OAQECC which has gauge qubits but no block structure is a subsystem QECC.'
     - code_id: quantum_into_quantum
   cousins:
     - code_id: qecc
       detail: 'A subsystem code reduces to an ordinary error-correcting code when the gauge subsystem is trivial, \(\mathsf{B} = \mathbb{C}\). Conversely, any QECC with a tensor-product logical subspace can be turned into a subsystem code by treating a logical tensor factor as a gauge subsystem.'
-# Inconsistent: qecc should be parent because other instances of subsystem codes were children of regular codes. Need another root code of subsystem type for qubit and qudit kingdom so that subsystem is separate from subspace.
+
 
 # Begin Entry Meta Information
 _meta:

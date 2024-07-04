@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hybridqecc
+physical: qubits
+logical: qubits
+
+name: 'Hybrid QECC'
+introduced: '\cite{arxiv:quant-ph/0608071,arxiv:0802.2414}'
+
+description: |
+  A quantum code which encodes both quantum and classical information.
+  Usually denoted as \(((n,K:M))\) or \(((n,K:M,d))\), where \(K\) is the dimension of the underlying quantum code, where \(M\) is the size of the classical code, and where \(d\) is the distance.
+
+  A simple example of a hybrid QECC encodes a single qubit and a single classical bit.
+  A different quantum code \(\mathsf{C}_j\) is associated with each of the two values \(j\in\{0,1\}\) of the classical bit.
+  The error words corresponding to correctable errors must satisfy the \term{Knill-Laflamme conditions} for each code \cite[Eq. (3)]{arxiv:1701.06963}, and error words beloning to different codes must be orthogonal to each other \cite[Eq. (4)]{arxiv:1701.06963}.
+  The corresponding decomposition of the hilbert space is
+  \begin{align}
+    \mathsf{C}_{1}\oplus\mathsf{C}_{2}\oplus\mathsf{C}^{\perp}~,
+  \end{align}
+  where \(\mathsf{C}^\perp\) is the combined error space of both codes.
+
+
+features:
+  rate: 'The existence of a hybrid code protecting against a channel depends on certain matricial ranges \cite{arxiv:1911.12744}.'
+
+# 20240704 subsystem QECC, hybrid QECC, and QECC are three children of OAQECC
+relations:
+  parents:
+    - code_id: oaecc
+      detail: 'An OAQECC which has no gauge qubits but has a block structure that corresponds to a classical code is a hybrid QECC.'
+    - code_id: quantum_into_quantum
+  cousins:
+    - code_id: qecc
+      detail: 'A hybrid QECC storing no classical information reduces to a QECC.
+      Conversely, any QECC can be converted into a hybrid QECC by using a portion of its logical subspace to store only classical information.'
+    - code_id: classical_into_quantum
+      detail: 'A hybrid QECC storing no quantum information reduces to a c-q code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-04'

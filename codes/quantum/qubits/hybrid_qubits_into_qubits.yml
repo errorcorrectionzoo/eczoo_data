@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hybrid_qubits_into_qubits
+physical: qubits
+logical: qubits
+
+name: 'Hybrid qubit code'
+introduced: '\cite{arxiv:0802.2414,arxiv:1701.06963}'
+
+description: |
+  A qubit code which stores both quantum and classical information.
+  Usually denoted as \(((n,K:M))\) or \(((n,K:M,d))\), where \(K\) is the dimension of the underlying quantum code, where \(M\) is the size of the classical code, and where \(d\) is the distance.
+
+protection: |
+  Any qubit code can be converted into a hybrid qubit code by using some its qubits to store only classical information \cite{arxiv:0802.2414}.
+  An \(((n,K:M))\) hybrid qubit code can detect more errors than an \(((n,KM))\) qubit code \cite{arxiv:1901.02913}.
+
+  Quantum weight enumerators, quantum MacWilliams identities, and linear programming bounds have been extended to hybrid qubit codes \cite{arxiv:1701.06963,arxiv:1901.02913,arxiv:1911.12260}
+
+
+relations:
+  parents:
+    - code_id: hybridqecc
+  cousins:
+    - code_id: qubits_into_qubits
+      detail: 'Any qubit code can be converted into a hybrid qubit code by using some its qubits to store only classical information \cite{arxiv:0802.2414}.'
+    - code_id: qubit_classical_into_quantum
+      detail: 'A hybrid qubit code storing no quantum information reduces to a qubit c-q code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-04'
