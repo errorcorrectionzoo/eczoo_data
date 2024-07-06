@@ -10,7 +10,18 @@ logical: q-ary_digits
 name: 'Wozencraft ensemble code'
 introduced: '\cite{manual:{J. L. Massey, Threshold Decoding. Cambridge, MA: M.I.T. Press, 1963.}}'
 
-description: 'Stub.'
+description: |
+  A code that is part of the Wozencraft ensemble, a set of codes most of whose members achieve the GV bound.
+
+  Each \([2k,k]_q\) code is defined by a parameter \(\alpha \in GF(q^k)\) and consists of codewords \((x,\alpha x)\) for each message \(x \in GF(q^k)\), where each element of \(GF(q^k)\) is expressed over \(GF(q)^k\) using a fixed basis.
+
+protection: |
+  Bounds and constructions with \(\Omega(\sqrt{k})\) distance are provided in Ref. \cite{arxiv:2305.02484}.
+
+features:
+  rate: 'Meets the GV bound for most choices of \(\alpha\).
+  Puncturing the code yields a higher rate with also meeting the GV bound; see Ref. \cite{arxiv:2305.02484}.
+  These codes can be used to asymptotically improve over the GV bound \cite{arxiv:0708.4164}.'
 
 relations:
   parents:
