@@ -8,13 +8,21 @@ physical: groups
 logical: q-ary_digits
 
 name: 'Binary permutation-based code'
-introduced: '\cite{doi:10.1016/S0019-9958(79)90076-7,doi:10.1016/j.ejc.2009.03.044}'
+introduced: '\cite{doi:10.1016/S0019-9958(79)90076-7}'
 
-description: 'Stub.'
+description: |
+  Encodes codewords into permutations of \(n\) objects.
+# If this is a perm rep, this it should be faithful so there should be group codes.
+
+notes:
+  - 'Review of parallels between linear binary codes and permutation groups \cite{doi:10.1016/j.ejc.2009.03.044}.'
 
 relations:
   parents:
     - code_id: group_classical
+  cousins:
+    - code_id: convolutional
+      detail: 'Permutation convolutional codes have been constructed \cite{doi:10.1109/TCOMM.2005.858683}.'
 
 
 # Begin Entry Meta Information
