@@ -3,24 +3,21 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: parallel_recovery
+code_id: sequential_recovery
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Parallel-recovery code'
-#introduced: ''
+name: 'Sequential-recovery code'
+introduced: '\cite{arxiv:1401.2422,arxiv:1812.02502}'
 
-description: 'Stub.'
+description: |
+  A \(t\)-erasure LRC whose coordinate erasures are recovered in sequential fashion.
 
-#protection: ''
-
-#notes:
-  #- ''
 
 relations:
   parents:
-    - code_id: sequential_recovery
-      detail: ''
+    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: multiple_erasure_lrc
 
 
 # Begin Entry Meta Information

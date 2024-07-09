@@ -79,7 +79,23 @@ description: |
 
 
 protection: |
-  Geometrically local 2D commuting-projector topological code Hamiltonians satisfy the two topological quantum order (TQO) conditions, TQO-1 and TQO-2 \cite{arxiv:1001.4363,arxiv:1001.0344,arxiv:1109.1588,arxiv:1810.02428,arxiv:2010.15337}.
+  Geometrically local 2D commuting-projector topological code Hamiltonians satisfy the two \hyperref[topic:tqo]{topological quantum order (TQO) conditions}, TQO-1 and TQO-2 \cite{arxiv:1001.4363,arxiv:1001.0344,arxiv:1109.1588,arxiv:1810.02428,arxiv:2010.15337}.
+
+  \begin{defterm}{TQO conditions}
+  \label{topic:tqo}
+  The TQO-1 condition states that the distance of the ground-state subspace, treated as a code, is macroscopic, i.e., grows as a positive power of the lattice size \cite{arxiv:1001.0344}.
+  The TQO-2 condition relates the ground states of restrictions of the Hamiltonian to some geometrically local region to those of the full Hamiltonian.
+  Let \(\Pi_{N(A)}\) be the ground-state subspace projector of the Hamiltonian that includes all terms with at least some support on a geometrically local region \(A\), with \(N(A)\) consisting of the smallest region containing the support of all included terms.
+  TQO-2 states that any operator \(O_A\) that annihilates the codespace projector \(\Pi\) also has to annihilate the local projector \(\Pi_{N(A)}\),
+  \begin{align}
+    O_{A}\Pi=0\quad\Rightarrow\quad O_{A}\Pi_{N(A)}=0~.
+  \end{align}
+  This condition implies that any operator supported solely on \(A\) cannot distinguish the global projector from the local one \cite{arxiv:1001.4363,arxiv:2405.19412}.
+  \end{defterm}
+
+  A notion of topological order generalizing both the \hyperref[topic:cleaning-lemma]{cleaning lemma} and the \hyperref[topic:tqo]{TQO conditions} is \textit{homogeneous topological order} \cite{arxiv:2009.13551}.
+  Related topological order definitions include equivalence under course-graining (i.e., renormalization group) \cite{arxiv:1406.5090,arxiv:1407.8203}.
+  See \cite[Sec. 4]{arxiv:2009.13551} for a discussion.
 
 
 features:
@@ -97,7 +113,7 @@ features:
 
 
 notes:
-  - 'Ref. \cite[Appx. F]{arxiv:cond-mat/0506438}\cite{doi:10.7907/5NDZ-W890,arxiv:0707.1889,doi:10.1017/9781009212717,arxiv:1508.02595,arxiv:1610.03911,arxiv:2205.05565} for introductions to topological phases.'
+  - 'Ref. \cite[Appx. F]{arxiv:cond-mat/0506438}\cite{doi:10.7907/5NDZ-W890,arxiv:0707.1889,arxiv:1508.02595,arxiv:1610.03911,doi:10.1017/9781316226308,arxiv:2205.05565} for introductions to topological phases.'
   - 'See \href{https://anyonwiki.github.io/}{AnyonWiki} for lists of categories relevant to anyons.'
 
 
@@ -111,6 +127,7 @@ relations:
       Logical qubits can also be created via lattice defects or by appropriately scheduling measurements of gauge generators (see Floquet codes).'
     - code_id: cluster_state
       detail: 'There exist necessary and sufficient conditions for a family of cluster states to exhibit the TQO-1 property \cite{arxiv:2112.02502}.'
+
 
 
 # Begin Entry Meta Information
