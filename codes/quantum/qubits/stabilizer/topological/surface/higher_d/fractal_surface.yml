@@ -8,10 +8,12 @@ physical: qubits
 logical: qubits
 
 name: 'Fractal surface code'
-introduced: '\cite{arxiv:2108.00018,arxiv:2201.03568}'
+introduced: '\cite{arxiv:1411.7046,arxiv:2108.00018,arxiv:2201.03568}'
 
 description: |
   Kitaev surface code on a fractal geometry, which is obtained by removing qubits from the surface code on a cubic lattice.
+  A related construction, the \textit{fractal product code}, is a hypergraph product of two classical codes defined on a Sierpinski carpet graph \cite{arxiv:1411.7046}. 
+  The underlying classical codes form classical self-correcting memories \cite{arxiv:cond-mat/0212497,arxiv:1002.1227,doi:10.1239/jap/1019737983}.
 
 relations:
   parents:
@@ -20,7 +22,11 @@ relations:
   cousins:
     - code_id: 3d_surface
       detail: 'Fractal surface codes are obtained by removing qubits from the 3D surface code on a cubic lattice.'
-# Not a parent because locality is different
+    # Not a parent because locality is different
+    - code_id: hypergraph_product
+      detail: 'The fractal product code is a hypergraph product of two classical codes defined on a Sierpinski carpet graph \cite{arxiv:1411.7046}.'
+    - code_id: self_correct
+      detail: 'The classical codes underlying the fractal product code form classical self-correcting memories \cite{arxiv:cond-mat/0212497,arxiv:1002.1227,doi:10.1239/jap/1019737983}.'
 
 
 # Begin Entry Meta Information
