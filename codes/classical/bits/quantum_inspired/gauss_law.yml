@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gauss_law
+physical: bits
+logical: bits
+
+name: 'Gauss'' law code'
+introduced: '\cite{arxiv:2112.05186,arxiv:2405.19293}'
+
+description: |
+  An \([m+Dm,Dm,3]\) linear binary code for \(m\geq 3^D\), defined by the Gauss'' law constraint of a \(D\)-dimensional fermionic \(\mathbb{Z}_2\) gauge theory \cite[Thm. 1]{arxiv:2405.19293}.
+  The code can be re-phrased as a distance-one stabilizer code whose stabilizers consist of gauge-group elements.
+  It can be concatenated to form a stabilizer code for fault-tolerant quantum simulation of the underlying gauge theory \cite{arxiv:2112.05186,arxiv:2405.19293}.
+
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: quantum_inspired
+  cousins:
+    - code_id: topological_abelian
+      detail: 'Gauge-group elements of a \(D\)-dimensional fermionic \(\mathbb{Z}_2\) gauge theory form a single-error-correcting linear binary code \cite[Thm. 1]{arxiv:2405.19293}.'
+    - code_id: fermion-into-qubit
+      detail: 'Gauge-group elements of a \(D\)-dimensional fermionic \(\mathbb{Z}_2\) gauge theory form a single-error-correcting linear binary code \cite[Thm. 1]{arxiv:2405.19293}.'
+    - code_id: quantum_concatenated
+      detail: 'The Gauss'' law code can be concatenated to form a stabilizer code for fault-tolerant quantum simulation of the underlying gauge theory \cite{arxiv:2112.05186,arxiv:2405.19293}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-10'
