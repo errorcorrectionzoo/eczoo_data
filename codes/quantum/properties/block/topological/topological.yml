@@ -19,7 +19,7 @@ description: |
   A topological phase may be \textit{bosonic} or \textit{fermionic}, i.e., constructed out of underlying subsystems whose operators commute or anti-commute with each other, respectively.
   Unless otherwise noted, the phases discussed are bosonic.
 
-  \subsection{2D bosonic topological codes}
+  \subsection{2D topological codes}
 
   The physical Hilbert space of 2D topological codes consists of \(n\) subsystems which lie on edges, vertices, or faces of a tesselation of a 2D surface \(\Sigma^2\).
   2D topological order requires weight-four (four-body) Hamiltonian terms, i.e., it cannot be stabilized via weight-two (two-body) or weight-three (three-body) terms on nearly Euclidean geometries of qubits or qutrits \cite{arxiv:quant-ph/0308021,arxiv:1102.0770,arxiv:1803.02213}.
@@ -58,18 +58,16 @@ description: |
 
   There is no 2D bosonic topological order at nonzero temperature \cite{arxiv:1106.6026}.
 
-  \subsection{3D bosonic topological codes}
+  \subsection{3D and higher-dimensional topological codes}
 
   The physical Hilbert space of 3D topological codes consists of \(n\) subsystems which lie on edges, vertices, or faces of a tesselation of a 3D surface.
-  3D topological phases can have point-like and loop-like excitations.
+  3D topological phases can have point-like and loop-like excitations, with the latter being created in paits by operators acting on a 2D membrane of subsystems.
 
   In the case when all point-like excitations satisfy bosonic braiding statistics, the topological phase can be realized by a Dijkgraaf-Witten gauge theory.
   Such cases are thus characterized by the gauge theory's underlying data, a finite group and a cohomological cycle (i.e., cocycle) \cite{arxiv:1704.04221,arxiv:1808.09394}.
 
   Phases with fermionic point-like excitations are examples of \textit{beyond-group-cohomology phases} \cite{arxiv:1403.1467}.
   They have been classified \cite{arXiv:1801.08530}, and some of them can be described by a two-gauge theory \cite{arxiv:2110.14644}.
-
-  \subsection{Higher dimensional topological codes}
 
   The classification of 4D \cite{arXiv:2104.04534} and higher-dimensional \cite{arXiv:1405.5858,arXiv:1702.00673,arxiv:2003.06663} topological phases is ongoing.
 
@@ -83,10 +81,10 @@ protection: |
 
   \begin{defterm}{TQO conditions}
   \label{topic:tqo}
-  The TQO-1 condition states that the distance of the ground-state subspace, treated as a code, is macroscopic, i.e., grows as a positive power of the lattice size \cite{arxiv:1001.0344}.
+  The TQO-1 condition states that the distance of the ground-state-subspace code is macroscopic, i.e., grows as a positive power of the lattice size \cite{arxiv:1001.0344}.
   The TQO-2 condition relates the ground states of restrictions of the Hamiltonian to some geometrically local region to those of the full Hamiltonian.
-  Let \(\Pi_{N(A)}\) be the ground-state subspace projector of the Hamiltonian that includes all terms with at least some support on a geometrically local region \(A\), with \(N(A)\) consisting of the smallest region containing the support of all included terms.
-  TQO-2 states that any operator \(O_A\) that annihilates the codespace projector \(\Pi\) also has to annihilate the local projector \(\Pi_{N(A)}\),
+  Let \(\Pi_{N(X)}\) be the ground-state subspace projector of the Hamiltonian that includes all terms with at least some support on a geometrically local region \(X\), with \(N(X)\) consisting of the smallest region containing the support of all included terms.
+  TQO-2 states that any operator \(O_X\) that annihilates the codespace projector \(\Pi\) also has to annihilate the local projector \(\Pi_{N(X)}\),
   \begin{align}
     O_{A}\Pi=0\quad\Rightarrow\quad O_{A}\Pi_{N(A)}=0~.
   \end{align}
@@ -106,7 +104,7 @@ features:
   \end{align}
   and a generalization of the formula to the non-orientable case can be found in Ref. \cite{arxiv:1612.07792}.'
   encoders:
-    - 'The unitary circuit depth required to initialize in a general topologically ordered state using geometrically local gates on an \(L\times L\) lattice is \(\Omega(L)\) \cite{arxiv:quant-ph/0603121,arxiv:quant-ph/0603114}, irrespective of whether the ground state admits Abelian or non-Abelian anyonic excitations.
+    - 'The unitary circuit depth required to initialize in a general 2D topologically ordered state using geometrically local gates on an \(L\times L\) lattice is \(\Omega(L)\) \cite{arxiv:quant-ph/0603121,arxiv:quant-ph/0603114}, irrespective of whether the ground state admits Abelian or non-Abelian anyonic excitations.
     However, only a finite-depth circuit and one round of measurements is required for non-Abelian topological orders with a Lagrangian subgroup \cite{arxiv:2209.03964}.'
   general_gates:
     - 'Ising anyon braiding and fusion were studied in a phenomenological model that was the first to study error correction with non-Abelian anyons \cite{arxiv:1311.0019}.'
