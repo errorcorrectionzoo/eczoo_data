@@ -15,9 +15,8 @@ alternative_names:
 #  Code constructed using the quantum LEGO method, which combines multiple codes that have been converted into tensors by tying together the input and outputs of those codes, in a way stacking them similar to LEGOs.
 
 description: |
-  Block quantum code constructed using a tensor-network-based graphical framework from \textit{quantum Lego blocks}, which are smaller quantum codes over qubits or qudits.
+  Block quantum code constructed using a tensor-network-based graphical framework from atomic tensors a.k.a. \textit{quantum Lego blocks} \cite{arxiv:2109.08158}, which can be encoding isometries for smaller quantum codes.
   The class of codes constructed using the framework depends on the choice of atomic Lego blocks.
-  The identification of encoding circuits with tensor networks was first made in Ref. \cite{arxiv:1312.4578}.
 
   The individual Lego blocks and resulting quantum Lego codes can be stabilizer \cite{arxiv:2009.10329,arxiv:2109.11996} or non-stabilizer \cite{arxiv:2109.08158,arxiv:2308.05152}.
   They need not be isometries, meaning that this class of codes generalizes \hyperref[code:block_perfect]{planar-perfect tensor}-network codes.
@@ -26,7 +25,7 @@ description: |
   For example, any stabilizer code can be built out of atomic blocks like the 2-site repetition code, single-site trivial stabilizer codes, and tensor products of the \(|0\rangle\) state.
   Specifically, the \hyperref[code:happy]{HaPPY} holographic code is a quantum Lego code whose atomic Lego block is the \hyperref[code:stab_5_1_3]{five-qubit perfect} qubit code.
 
-  Many known codes can be created using this code''s methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code.
+  Many known codes can be created using this code's methods in order to further their understanding, including a 6 qubit implementaion of the generalized Bacon-Shor code, the Toric code, and the \([[7,1,3]]\) Steane code.
   For example, a simple \( [[4,2,2]] \) stabilizer code can be written as a rank 6 tensor.
   Attaching two of these via gluing together one logical leg from each can produce a \([[6,4,2]]\) stabilizer code.
   Code optimization in this framework can be done using reinforcement learning \cite{arxiv:2305.06378,arxiv:2305.11470}.
