@@ -11,10 +11,10 @@ name: 'Subsystem spacetime circuit code'
 introduced: '\cite{arxiv:1411.3334,arxiv:2210.15844}'
 
 description: |
-  Subsystem stabilizer code obtained from a spacetime circuit code by gauging logical operators that correspond to circuit faults with trivial effect \cite[Sec. 5.4]{arxiv:2304.05943}.
+  Subsystem stabilizer code obtained from a spacetime circuit code by \hyperref[topic:gauging-out]{gauging out} logical operators that correspond to circuit faults with trivial effect \cite[Sec. 5.4]{arxiv:2304.05943}.
 
   An \([[n,k,d]]\) stabilizer code can be mapped into a sparse subsystem code with the same \(k\) and \(d\) as follows.
-  One can take the fault-tolerant syndrome extraction circuit associated with the stabilizer code, construct its spacetime circuit code, and then \hyperref[topic:gauging-out]{gauge} qubits corresponding to trivial faults.
+  One can take the fault-tolerant syndrome extraction circuit associated with the stabilizer code, construct its spacetime circuit code, and then \hyperref[topic:gauging-out]{gauge out} qubits corresponding to trivial faults.
   The subsystem code can be made geometrically local at the cost of more ancilla qubits \cite{arxiv:1411.3334}.
 
 features:
@@ -29,7 +29,7 @@ relations:
     - code_id: sparse_subsystem
   cousins:
     - code_id: spacetime_circuit
-      detail: 'Spacetime circuit codes can yield subsystem spacetime circuit codes by \hyperref[topic:gauging-out]{gauging} a subgroup of the logical Pauli group which causes trivial faults in the corresponding Clifford circuit.
+      detail: 'Spacetime circuit codes can yield subsystem spacetime circuit codes by \hyperref[topic:gauging-out]{gauging out} a subgroup of the logical Pauli group which causes trivial faults in the corresponding Clifford circuit.
       This construction is used to show the existance of geometrically local subsystem codes that nearly saturate the \hyperref[topic:subsystem-bt-bound]{subsystem BT bound} \cite{arxiv:1411.3334}.'
 
 
