@@ -70,6 +70,8 @@ features:
     Conversely, a code with parameters \(k\) and \(d\) requires a graph with \(\Omega(d)\) edges of length \(\Omega(d/n^{1/D})\) \cite{arxiv:2109.10982}.
     Random QLDPC codes found by solving certain constraint satisfaction problems (CSPs) practically achieve the capacity of the erasure channel \cite{arxiv:2207.03562}.
 
+    Qubit QLDPC codes cannot attain the capacity of the erasure channel \cite{arxiv:1205.7036}, but this capacity can be attained by code families with weight \(w = O(\text{polylog}n)\) \cite{arxiv:1703.00382}.
+
   encoders:
     - 'Fault-tolerant encodes utilizing pre-shared entanglement \cite{arxiv:2405.07242}.'
 
@@ -87,7 +89,7 @@ features:
     - 'BP guided decimation (BPGD) decoder \cite{arxiv:2312.10950}.'
     - 'Ambiguity clustering (AC) decoder, in which measurement data is divided into clusters and decoded independently \cite{arxiv:2406.14527}.'
     - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
-    - '2D geometrically local syndrome extraction circuits with bounded depth using order \(O(n^2)\) ancilla qubits \cite{arxiv:2109.14599}.'
+    - '2D geometrically local syndrome extraction circuits with bounded depth using order \(O(n^2)\) ancilla qubits \cite{arxiv:2109.14599}. For CSS codes, syndrome extraction can be implemented in constant depth \cite{arxiv:2109.14609}.'
     - 'Soft (i.e., analog) syndrome iterative belief propagation for CSS-type QLDPC codes, utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2205.02341}.'
     - 'Extension of the union-find decoder for qubit QLDPC codes, as well as a related heuristic decoder \cite{arxiv:2209.01180}.'
     - 'Sliding-window decoding \cite{arxiv:2311.03307}.'
