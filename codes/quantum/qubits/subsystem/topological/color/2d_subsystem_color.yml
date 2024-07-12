@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2d_subsystem_color
+physical: qubits
+logical: qubits
+
+name: '2D subsystem color code'
+introduced: '\cite{arxiv:0908.4246}'
+
+alternative_names:
+  - '2D gauge color code'
+
+description: |
+  A subsystem version of the 2D color code.
+
+protection: |
+  One family of subsystem codes has parameters \([[3m,2g,2m+2g-2,d]]\), where \(m\) is the number of vertices of the original embedded two-colex, where \(g\) is the genus of the surface embedding the two-colex, and where the distance is bounded from below by the length of the smallest nontrivial homological cycle of the two-colex \(\Gamma\) \cite[Construction B]{arxiv:1207.0479}\cite[Lemma 2]{arxiv:1805.12542}.
+
+
+features:
+  general_gates:
+    - 'Braiding twist defects \cite{arxiv:1006.5260}.'
+  code_capacity_threshold:
+    - 'The threshold under ML decoding under depolarizing noise corresponds to the value of a critical point of a disordered spin model, calculated to be \(5.5(2)\%\) in Ref. \cite{arxiv:1204.1838}.'
+    - 'Erasure noise: \(50\%\) noise threshold error rate under erasure noise using optimal erasure decoder \cite{doi:10.1109/TCOMM.2023.3277534}, and \(9.7\%\) and \(44\%\) using gauge-fixing decoders \cite{arxiv:2111.14594,doi:10.1109/ITW46852.2021.9457583}.'
+
+
+relations:
+  parents:
+    - code_id: subsystem_color
+    - code_id: translationally_invariant_subsystem
+  cousins:
+    - code_id: 2d_color
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-11'

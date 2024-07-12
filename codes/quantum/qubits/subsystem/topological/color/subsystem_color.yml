@@ -14,27 +14,17 @@ introduced: '\cite{arxiv:0908.4246,arxiv:1311.0879}'
 alternative_names:
   - 'Gauge color code'
 
-# https://www.wikiwand.com/en/Truncated_rhombic_dodecahedron
 description: |
   A subsystem version of the color code.
   One way to obtain it is by expanding the vertices of a two-colex embedded in a surface of genus \(g\).
   Vertex expansion consists of spl every vertex into a triangle and splitting every edge into a pair of edges.
 
-protection: |
-  One family of subsystem codes has parameters \([[3m,2g,2m+2g-2,d]]\), where \(m\) is the number of vertices of the original embedded two-colex, where \(g\) is the genus of the surface embedding the two-colex, and where the distance is bounded from below by the length of the smallest nontrivial homological cycle of the two-colex \(\Gamma\) \cite[Construction B]{arxiv:1207.0479}\cite[Lemma 2]{arxiv:1805.12542}.
 
 features:
-  general_gates:
-    - 'Braiding twist defects \cite{arxiv:1006.5260}.'
   decoders:
     - 'Clustering decoder \cite{arxiv:1503.08217}.'
     - 'Erasure decoder \cite{doi:10.1109/ITW46852.2021.9457583}.'
     - 'Gauge-fixing decoders \cite{arxiv:2111.14594,doi:10.1109/ITW46852.2021.9457583}.'
-  code_capacity_threshold:
-    - 'The threshold under ML decoding under depolarizing noise corresponds to the value of a critical point of a disordered spin model, calculated to be \(5.5(2)\%\) in Ref. \cite{arxiv:1204.1838}.'
-    - 'Erasure noise: \(50\%\) noise threshold error rate under erasure noise using optimal erasure decoder \cite{doi:10.1109/TCOMM.2023.3277534}, and \(9.7\%\) and \(44\%\) using gauge-fixing decoders \cite{arxiv:2111.14594,doi:10.1109/ITW46852.2021.9457583}.'
-  threshold:
-    - 'Phenomenological noise: \(0.31\%\) under clustering decoder \cite{arxiv:1503.08217}.'
 
 
 relations:
@@ -44,18 +34,6 @@ relations:
       detail: 'Modular-qudit subsystem color codes reduce to subsystem color codes for \(q=2\).'
   cousins:
     - code_id: color
-    - code_id: single_shot
-      detail: 'The subsystem color code defined on the cube-truncated rhombic dodecahedral honeycomb, i.e., a tesselation of cubes and chamfered cubes (a.k.a. tetratruncated rhombic dodecahedra) \cite[Fig. 1]{arxiv:1503.08217}, is a single-shot code \cite{arxiv:1404.5504,arxiv:1503.08217}.'
-    - code_id: symmetry_protected_self_correct
-      detail: 'A particular gauge-fixed version of a subsystem code on a 3D lattice yields a self-correcting memory protected by one-form symmetries \cite[Sec. IV D]{arxiv:1805.01474}\cite{arxiv:1805.01836}.
-      The symmetric energy barrier grows linearly with the length of a side of the lattice. When the system is coupled locally to a thermal bath respecting the symmetry and below a critical temperature, the memory time grows exponentially with the side length.
-      The subsystem color code is not a self-correcting quantum memory if symmetry protection is removed \cite{arxiv:2305.06389}.'
-    - code_id: yetter_gauge_theory
-      detail: 'The 3D subsystem color code can be ungauged \cite{arxiv:1202.3120,arxiv:1605.01640,arxiv:1806.08679,arxiv:1806.08679} to obtain six copies of \(\mathbb{Z}_2\) gauge theory with one-form symmetries \cite{arxiv:1805.01836}.'
-    - code_id: spt
-      detail: 'Different stabilizer Hamiltonians of the 3D subsystem color code correspond to different SPTs, one of which describes the RBH model \cite{arxiv:1805.01836}.'
-    - code_id: rbh
-      detail: 'Different stabilizer Hamiltonians of the 3D subsystem color code correspond to different SPTs, one of which describes the RBH model \cite{arxiv:1805.01836}.'
 
 
 # Begin Entry Meta Information
