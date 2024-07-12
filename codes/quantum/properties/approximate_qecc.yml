@@ -27,12 +27,12 @@ protection: |
     =f((\mathcal{N}\otimes\mathrm{id})\ket{\psi}\bra{\psi},(\mathcal{M}\otimes\mathrm{id})\ket{\psi}\bra{\psi})~,
   \end{align}
   where \(\ket{\psi}\) is a purification of the mixed state \(\rho\).
-  The worst-case entaglement fidelity is then defined as
+  The worst-case entanglement fidelity is then defined as
   \begin{align}
     F(\mathcal{N},\mathcal{M})=\min_{\rho} F_{\rho}(\mathcal{N},\mathcal{M})~.
   \end{align}
 
-  Now, based on the Bures distance and worst case entaglement fidelity, we define
+  Now, based on the Bures distance and worst case entanglement fidelity, we define
   \begin{align}
     d(\mathcal{N},\mathcal{M})=\sqrt{1-F(\mathcal{N},\mathcal{M})}
   \end{align}
@@ -45,6 +45,10 @@ protection: |
     d(\mathcal{D}\mathcal{E}\mathcal{U}(\rho),\rho)\leq \epsilon
   \end{align}
   for all logical states \(\rho\)~\cite{arxiv:0907.5391}.
+  When \(\epsilon=0\) we can derive the standard \term{Knill-Laflamme} conditions \cite{arXiv:1102.3809}.
+
+  Upper and lower bounds based on the average entanglement fidelity can be derived \cite[Eq. (10)]{arxiv:0907.5391}\cite[Eqs. (138-139)]{arXiv:0907.3386}\cite[Eq. (139)]{arXiv:1103.0649}.
+  Riemannian optimization techniques can be applied to optimized such quantities since the set of encoding maps \(U\) forms a Stiefel manifold \cite{arxiv:2407.08423}.
 
   \subsection{Complementary channel formulation}
 
@@ -52,7 +56,7 @@ protection: |
   \(F(\mathcal{D}\mathcal{E},\mathrm{id})=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
   for \hyperref[topic:complementary-channel]{complementary channel} \(\mathcal{E}^C\), \(F(\mathcal{E}^C,\mathcal{D}')=1-\epsilon\)
   and \(D'(\rho)=\rho_0\) for some fixed \(\rho_0\).
-  Note that \(F\) denotes worst case entaglement fidelity between channels.
+  Note that \(F\) denotes worst case entanglement fidelity between channels.
 
   We can generalize this by replacing \(\mathrm{id}\) with some channel \(M\). Given noise channel \(\mathcal{E}\),
   there exists a recovery channel \(\mathcal{D}\) such that
@@ -114,7 +118,7 @@ protection: |
 # Given a noise channel \(\mathcal{E}\), there exists a recovery channel \(\mathcal{D}\) such that
 # \(F(\mathcal{D}\mathcal{E},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
 # for complementary channels \(\mathcal{E}^C\) and \(\mathcal{M}^C\), \(F(\mathcal{E}^C,\mathcal{D}'\mathcal{M}^C)=1-\epsilon\).
-# Note that \(F\) denotes worst case entaglement fidelity between channels.
+# Note that \(F\) denotes worst case entanglement fidelity between channels.
 #
 # One example is that if \(\mathcal{M}\) is the projector onto some algebra \(\mathcal{A}\),
 # we can derive correctability conditions for that algebra under \(\mathcal{E}\)~\cite{arxiv:0907.5391}.
