@@ -11,8 +11,9 @@ name: 'Abelian topological code'
 description: |
   Code whose codewords realize topological order associated with an Abelian anyon theory.
   In 2D, this is equivalent to a unitary braided fusion category which is also an Abelian group under fusion \cite{arxiv:2004.12048}.
+  Unless otherwise noted, the phases discussed are bosonic.
 
-  \subsection{2D abelian bosonic topological codes}
+  \subsection{2D Abelian topological codes}
 
   A theory is defined by an Abelian group \(A\) of anyon types whose multiplication relations define the fusion rules, and a set of exchange statistics \(\theta(a)\in U(1)\) obtained by exchanging two anyons of type \(a\in A\).
   The exchange statistics in turn define braiding relations,
@@ -28,6 +29,9 @@ description: |
   Code states of this new stabilizer code correspond to a \hyperref[topic:code-switching]{condensed phase} of the parent topological phase.
   The remaining unidentified parent-phase anyons behave differently with respect to the new condensed-phase state.
   Some become \textit{confined} while the remaining ones pick up new braiding relations.
+
+  Gapped anyon theories admit a subgroup of bosons with trivial mutual statistics whose order squares to that of \(G\); see Ref. \cite{arxiv:2112.11394}.
+  In terms of their category theoretic structure, gapped anyon theories admit a Lagrangian subgroup \cite{arxiv:1008.0654,arxiv:2107.13091}.
 
   \subsection{3D abelian bosonic topological codes}
 
@@ -52,16 +56,18 @@ relations:
     - code_id: topological
   cousins:
     - code_id: hamiltonian
-      detail: 'Subsystem stabilizer code Hamiltonians described by an Abelian anyon theory do not always realize the corresponding anyonic topological order in their ground-state subspace and may exhibit a rich phase diagram.
-      For example, the Kitaev honeycomb Hamiltonian admits the anyon theories of the 16-fold way, i.e., all minimal modular extensions of the \(\mathbb{Z}_2^{(1)}\) Abelian non-chiral non-modular anyon theory \cite{arxiv:cond-mat/0506438}\cite[Footnote 25]{arxiv:2211.03798}.'
+      detail: |
+        Subsystem stabilizer code Hamiltonians described by an Abelian anyon theory do not always realize the corresponding anyonic topological order in their ground-state subspace and may exhibit a rich phase diagram.
+        For example, the Kitaev honeycomb Hamiltonian admits the anyon theories of the 16-fold way, i.e., all minimal modular extensions of the \(\mathbb{Z}_2^{(1)}\) Abelian non-chiral non-modular anyon theory \cite{arxiv:cond-mat/0506438}\cite[Footnote 25]{arxiv:2211.03798}.
     - code_id: walker_wang
       detail: 'Any Abelian anyon theory \(A\) can be realized at one of the surfaces of a 3D Walker-Wang model whose underlying theory is an Abelian TQD containing \(A\) as a subtheory \cite{arxiv:1907.02075,arxiv:2202.05442}\cite[Appx. H]{arxiv:2211.03798}.'
     - code_id: 3d_stabilizer
       detail: 'Qubit 3D stabilizer codes are conjectured to admit either fracton phases or abelian topological phases that are equivalent to multiple copies of the 3D surface code and/or the 3D fermionic surface code \cite{arxiv:1908.08049}.'
     - code_id: translationally_invariant_subsystem
-      detail: 'All 2D Abelian bosonic topological orders can be realized as modular-qudit lattice subsystem codes by starting with an Abelian quantum double model (slightly different from that of Ref. \cite{arxiv:2112.11394}) along with a family of Abelian TQDs that generalize the double semion anyon theory and \hyperref[topic:gauging-out]{gauging out} certain bosonic anyons \cite{arxiv:2211.03798}.
-      The stabilizer generators of the new subsystem code may no longer be geometrically local.
-      Non-Abelian topological orders are purported not to be realizable with Pauli stabilizer codes \cite{arxiv:1605.03601}.'
+      detail: |
+        All 2D Abelian bosonic topological orders can be realized as modular-qudit lattice subsystem codes by starting with an Abelian quantum double model (slightly different from that of Ref. \cite{arxiv:2112.11394}) along with a family of Abelian TQDs that generalize the double semion anyon theory and \hyperref[topic:gauging-out]{gauging out} certain bosonic anyons \cite{arxiv:2211.03798}.
+        The stabilizer generators of the new subsystem code may no longer be geometrically local.
+        Non-Abelian topological orders are purported not to be realizable with Pauli stabilizer codes \cite{arxiv:1605.03601}.
 
 
 # Begin Entry Meta Information

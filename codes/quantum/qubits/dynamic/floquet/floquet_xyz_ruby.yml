@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: floquet_xyz_ruby
+physical: qubits
+logical: qubits
+
+name: 'XYZ ruby Floquet code'
+introduced: '\cite{arxiv:2407.08566}'
+
+description: |
+  Floquet code whose qubits are placed on vertices of a ruby lattice.
+  Its weight-two check operators are placed on various edges.
+  Its ISG can be that of the 6.6.6 color code concatenated with a three-qubit repetition code.
+
+
+features:
+  decoders:
+    - 'Period-three and period-six measurement sequences utilizing two-qubit measurements \cite{arxiv:2407.08566}.'
+  threshold:
+    - 'Circuit-level noise: \(\approx 0.18\%\) using BP-OSD decoder \cite{arxiv:2407.08566}.'
+
+
+relations:
+  parents:
+    - code_id: floquet
+  cousins:
+    - code_id: triangular_color
+      detail: 'The ISG of the XYZ ruby Floquet code can be that of the 6.6.6 color code concatenated with a three-qubit repetition code.'
+    - code_id: quantum_repetition
+      detail: 'The ISG of the XYZ ruby Floquet code can be that of the 6.6.6 color code concatenated with a three-qubit repetition code.'
+    - code_id: hexagonal
+      detail: 'The XYZ ruby Floquet code is defined on the ruby lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-12'
