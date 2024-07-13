@@ -7,16 +7,19 @@ code_id: vt_single_deletion
 physical: bits
 logical: bits
 
-name: 'Binary Varshamov-Tenengolts (VT) code'
-short_name: 'Binary VT'
+name: 'Varshamov-Tenengolts (VT) code'
+short_name: 'VT'
 introduced: '\cite{manual:{R. R. Varshamov and G. M. Tenengolts, \emph{Codes which correct single asymmetric errors} (translated to English), Autom. Remote Control, 26(2), 286-290 (1965)},manual:{V. I. Levenshtein, \emph{Binary codes capable of correcting deletions, insertions and reversals} (translated to English), Soviet Physics Dokl., 10(8), 707-710 (1966).}}'
 
 description: |-
-  Nearly optimal binary deletion-correcting code. Given integers \(n\geq 1\) and \(a\in\{0,1,\dots,n\}\), the associated binary Varshamov-Tenengolts code \(C_{n,a}\) corresponds to the set
-
+  Nearly optimal binary deletion-correcting code and code for the asymmetric channel. 
+  
+  Given integers \(n\geq 1\) and \(a\in\{0,1,\dots,n\}\), the associated Varshamov-Tenengolts code \(C_{n,a}\) corresponds to the set
   \begin{align}
   C_{n,a}=\left\{x\in\{0,1\}^n: \sum_{i=1}^n i~x_i = a\mod (n+1) \right\}.
   \end{align}
+
+  VT codes can be generalized to the \(q\)-ary case \cite{doi:10.1109/TIT.1984.1056962}.
 
 protection: 'Corrects a single asymmetric error (a \(0\) mapped to a \(1\)), a single deletion, or a single insertion of an arbitrary bit in an arbitrary position for any choice of \(a\).'
 
@@ -28,11 +31,12 @@ features:
 
 relations:
   parents:
-    - code_id: bits_into_bits
+    - code_id: constantin_rao
+      detail: 'CR codes for \(G=\mathbb{Z}_{n+1}\) reduce to VT codes.'
     - code_id: insertion_deletion
   cousins:
     - code_id: binary_linear
-      detail: 'By adapting a construction of Tenengolts \cite{manual:{G. M. Tenengolts, \emph{Class of codes correcting bit loss and errors in the preceding bit} (translated to English), Automation and Remote Control, 37(5), 797–802 (1976).}}, binary VT codes can be modified to yield slightly longer linear codes \cite{arxiv:math/0207197}.'
+      detail: 'By adapting a construction of Tenengolts \cite{manual:{G. M. Tenengolts, \emph{Class of codes correcting bit loss and errors in the preceding bit} (translated to English), Automation and Remote Control, 37(5), 797–802 (1976).}}, VT codes can be modified to yield slightly longer linear codes \cite{arxiv:math/0207197}.'
 
 
 # Begin Entry Meta Information
