@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: self_complementary
+physical: qubits
+logical: qubits
+
+
+name: 'Self-complementary quantum code'
+introduced: '\cite{arxiv:quant-ph/0701065,arxiv:0712.2586}'
+
+description: |
+  A qubit code which admits a basis of codewords of the form \(|c\rangle+|\overline{c}\rangle\), where \(c\) is a bitstring and \(\overline{c}\) is its negation a.k.a. complement. 
+  Their codewords generalize the two-qubit Bell states and three-qubit GHz states and are often called \textit{(qubit) cat states} or \textit{poor-man's GHz states}.
+  Such codes were originally pointed out to perform well against amplitude damping \cite{arxiv:0712.2586}.
+
+
+protection: |
+  Self-complementary codes automatically protect against a single \(Z\) error \cite{arxiv:quant-ph/0701065}, and can protect against a single amplitude damping error \cite{arxiv:0907.5149}.
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+  cousins:
+    - code_id: linear_binary
+      detail: 'A linear binary code is called \textit{self-complementary} if, for each codeword \(c\), its negation \(\overline{c}\) is also a codeword.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-14'
