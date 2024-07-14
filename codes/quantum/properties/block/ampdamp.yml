@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ampdamp
+# Qubit or bosonic
+
+name: 'Amplitude-damping (AD) code'
+
+description: |
+  Block quantum code on either qubits or bosonic modes that is designed to detect and correct qubit or bosonic amplitude (AD) errors, respectively.
+
+  The \textit{amplitude damping channel} is a bosonic channel that models loss of particles in the bosonic mode (a.k.a. \textit{photon loss} or \textit{attenuation}).
+  Its Kraus operators are proportional to powers of a mode's annihilation operator \(a\), with the power signifying the number of particles lost during the error,
+  \begin{align}
+    E_{\ell}=\left(\frac{\gamma}{1-\gamma}\right)^{\ell/2}\frac{a^{\ell}}{\sqrt{\ell!}}\left(1-\gamma\right)^{\hat{n}/2}\,,
+  \end{align}
+  where \(\gamma\in[0,1)\) is the noise rate \cite{doi:10.1088/0954-8998/1/2/005,arxiv:1708.05010}.
+  Restricting the channel to the first two Fock states \(\{|0\rangle,|1\rangle\}) yields the non-Pauli qubit amplitude damping channel, which requires protecting against the loss error \(E_1\propto X+iY\) instead of \(X\) and \(Y\) Pauli errors individually.
+  Both channels are called AD since the context makes clear which one is being referred to.
+
+protection: |
+  A definition of distance associated with amplitude damping is the minimum weight of a tensor products of non-zero loss errors (\(\ell\neq 0\)) that implement a nontrivial logical operation in the code.
+  Certain codes also have intrinsic protection against AD, such as constant-excitation codes or self-complementary codes.
+
+relations:
+  parents:
+    - code_id: block_quantum
+  cousins:
+    - code_id: qubit_css
+      detail: 'An \([[n,k,d_Z=t+1,d_X=2t+1]]\) qubit CSS code protects against \(t\) amplitude damping errors \cite[Sec. 8.7]{arxiv:quant-ph/9705052}\cite{arxiv:1001.2356}.'
+    - code_id: quantum_concatenated
+      detail: 'Concatenated quantum codes can protect against amplitude damping \cite{arxiv:1601.07423}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-14'
