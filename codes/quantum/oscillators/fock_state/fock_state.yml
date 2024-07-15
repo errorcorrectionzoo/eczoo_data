@@ -10,7 +10,7 @@ logical: qudits
 name: 'Fock-state bosonic code'
 #introduced: '\cite{arxiv:quant-ph/9505011,arxiv:quant-ph/9610043}'
 
-description: 'Qudit-into-oscillator code whose protection against amplitude damping (i.e., photon loss) stems from the use of disjoint sets of Fock states for the construction of each code basis state. The simplest example is the dual-rail code, which has codewords consisting of single Fock states \(|10\rangle\) and \(|01\rangle\). This code can detect a single loss error since a loss operator in either mode maps one of the codewords to a different Fock state \(|00\rangle\). More involved codewords consist of several well-separated Fock states such that multiple loss events can be detected and corrected.'
+description: 'Qudit-into-oscillator code whose protection against \hyperref[topic:ad]{AD} noise (i.e., photon loss) stems from the use of disjoint sets of Fock states for the construction of each code basis state. The simplest example is the dual-rail code, which has codewords consisting of single Fock states \(|10\rangle\) and \(|01\rangle\). This code can detect a single loss error since a loss operator in either mode maps one of the codewords to a different Fock state \(|00\rangle\). More involved codewords consist of several well-separated Fock states such that multiple loss events can be detected and corrected.'
 
 protection: 'Code distance \(d\) is the minimum distance (assuming some metric) between any two labels of Fock states corresponding to different code basis states. For a single mode, \(d\) is the minimum absolute value of the difference between any two Fock-state labels; such codes can detect up to \(d-1\) loss events. Multimode distances can be defined analogously; see, e.g., \hyperref[code:chuang-leung-yamamoto]{Chuang-Leung-Yamamoto codes}. There are tradeoffs in how well a Fock-state code protects against loss/gain errors and dephasing noise \cite{arxiv:2008.12576}.'
 
@@ -21,7 +21,7 @@ relations:
   parents:
     - code_id: qudits_into_oscillators
     - code_id: ampdamp
-      detail: 'Fock-state codes are designed to protect against bosonic AD noise.'
+      detail: 'Fock-state codes are designed to protect against bosonic \hyperref[topic:ad]{AD} noise.'
   cousins:
     - code_id: bits_into_bits
       detail: 'Fock-state code distance is a natural extension of Hamming distance between binary strings.'

@@ -11,7 +11,7 @@ name: 'Jump code'
 introduced: '\cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0208140,doi:10.1023/A:1024188005329}'
 
 description: |
-  A CE code designed to detect and correct amplitude damping errors.
+  A CE code designed to detect and correct \hyperref[topic:ad]{AD} errors.
   An \(((n,K))\) jump code is denoted as \(((n,K,t))_w\) (which conflicts with modular-qudit notation), where \(t\) is the maximum number of qubits that can be corrected after each one has undergone a jump error \(|0\rangle\langle 1|\), and where each codeword is a uniform superposition of qubit basis states with Hamming weight \(w\).
 
 protection: |
@@ -28,11 +28,11 @@ relations:
   parents:
     - code_id: qubits_into_qubits
     - code_id: ampdamp
-      detail: 'Jump codes are designed to protect against qubit AD noise.'
+      detail: 'Jump codes are designed to protect against qubit \hyperref[topic:ad]{AD} noise.'
     - code_id: constant_excitation
   cousins:
     - code_id: stab_4_2_2
-      detail: 'The subcode \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} is a \(((4,2,1))_2\) jump code correcting a single amplitude damping error.
+      detail: 'The subcode \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} is a \(((4,2,1))_2\) jump code correcting a single \hyperref[topic:ad]{AD} error.
       This code can be extended to a \(((4,3,1))_2\) jump code \(\{|\overline{01}\rangle,|\overline{10}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0208140}.'
     - code_id: chuang-leung-yamamoto
       detail: 'Jump codes can be thought of as qubit analogues of uniform CLY codes.'

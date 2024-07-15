@@ -43,29 +43,31 @@ protection: |
 
   The code also protects against general ladder errors, which are defined as
   \begin{align}
-    L_{\mathbf{p},\mathbf{q}}(\mathbf{a}^{\dagger},\mathbf{a})=\prod_{j=1}^{n}a_{j}^{\dagger p_{j}}a_{j}^{q_{j}}~.
+    E_{\mathbf{p},\mathbf{q}}(\mathbf{a}^{\dagger},\mathbf{a})=\prod_{j=1}^{n}a_{j}^{\dagger p_{j}}a_{j}^{q_{j}}~.
   \end{align}
-  Any pure-loss ladder error \(L_{\mathbf{p}=\boldsymbol{0},\mathbf{q}}\) with \(|\mathbf{q}|<d_{\downarrow}\) is detectable.
-  Any ladder error \(L_{\mathbf{p},\mathbf{q}}\) with \(|\mathbf{p}|,|\mathbf{q}|<t_{\downarrow}\) is detectable, implying that up to \(t_{\downarrow}-1\) losses are correctable.
+  Any \hyperref[topic:ad]{AD} ladder error \(E_{\mathbf{p}=\boldsymbol{0},\mathbf{q}}\) with \(|\mathbf{q}|<d_{\downarrow}\) is detectable.
+  Any ladder error \(E_{\mathbf{p},\mathbf{q}}\) with \(|\mathbf{p}|,|\mathbf{q}|<t_{\downarrow}\) is detectable, implying that up to \(t_{\downarrow}-1\) losses are correctable.
   Any ladder error with degree \(|\mathbf{p}+\mathbf{q}|<d_{\updownarrow}\) is detectable.
 
+features:
+  decoders:
+    - 'Lindbladian scheme stabilizing all points in the constellation and protecting from the \hyperref[topic:ad]{AD} operator \(E_{0}^{\otimes n}\) \cite{arxiv:2302.11593}.'
 
 relations:
   parents:
     - code_id: coherent_constellation
       detail: 'Coherent-state QSCs are coherent-state constellation codes constrained to lie on a sphere.'
+    - code_id: ampdamp
+      detail: 'QSC codewords are superpositions of coherent states with the same energy, but coherent states are not eigenstates of the energy Hamiltonian. The \hyperref[topic:ad]{AD} Kraus operator \(E_{0}^{\otimes n}\) acts identically on each coherent state by shrinking the radius of the QSC''s sphere.'
   cousins:
     - code_id: group_representation
-      detail: 'QSCs should be able to be formulated as group-representation codes whose group is that formed by the permutation representation of the code polytope symmetry group.
-      It remains to show that the permutation representation is irreducible.'
+      detail: 'QSCs should be able to be formulated as group-representation codes whose group is that formed by the permutation representation of the code polytope symmetry group, but this representation may be reducible.'
     - code_id: points_into_spheres
       detail: 'QSCs are quantum analogues of spherical and constant-energy codes because they store information in quantum superpositions of points on a sphere in quantum phase space.'
     - code_id: spherical
       detail: 'QSCs are quantum analogues of spherical and constant-energy codes because they store information in quantum superpositions of points on a sphere in quantum phase space.'
     - code_id: single_spin
       detail: 'Single-spin codes whose codewords are expressed in terms of discrete sets of spin-coherent states may also be interpreted as QSCs.'
-    - code_id: paircat
-      detail: 'Pair-cat codes are QSCs embedded into the configuration space of pair-coherent states.'
     - code_id: qubit_css
       detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
     - code_id: oscillators_concatenated

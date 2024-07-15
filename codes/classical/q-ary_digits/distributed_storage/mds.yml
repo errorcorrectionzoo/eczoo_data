@@ -27,8 +27,9 @@ description: |
 protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error-correction properties.'
 
 realizations:
-  - 'The McEliece Public Key Cryptosystem \cite{manual:{McEliece, R.J.: A public-key cryptosystem based on algebraic coding theory. DSN Progress Report pp. 114–116 (1978).}} uses algebraic coding theory to secure communications against eavesdropping attack, in which private keys are generator matrices of linear codes, i.e., \(G\). Public Keys shared to outside world are scrambled and permutated versions of \(G\), i.e., \(G^\prime=SGP\). Data to be encrypted, \(u\), is multiplied by public key and added intentional errors \(e\), i.e., \(x=uG^\prime+e\). Upon receiving encrypted data, private key owner can apply inverse permutation \(P^{-1}\) to \(x\), decode the scrambled message given the presence of \(e\) errors, and finally unscramble to obtain \(u\). Security parameters of the system are \(n\) and \(e\), hence MDS codes, such as GRS codes may provide the same security level for shorter key sizes, and the private key owner can decode arguably fast enough using known decoding algorithms.'
   - 'Automatic repeat request (ARQ) data transmission protocols (\cite{doi:10.1109/9780470546345}, Ch. 7).'
+
+# - 'The McEliece Public Key Cryptosystem \cite{manual:{McEliece, R.J.: A public-key cryptosystem based on algebraic coding theory. DSN Progress Report pp. 114–116 (1978).}} uses algebraic coding theory to secure communications against eavesdropping attack, in which private keys are generator matrices of linear codes, i.e., \(G\). Public Keys shared to outside world are scrambled and permutated versions of \(G\), i.e., \(G^\prime=SGP\). Data to be encrypted, \(u\), is multiplied by public key and added intentional errors \(e\), i.e., \(x=uG^\prime+e\). Upon receiving encrypted data, private key owner can apply inverse permutation \(P^{-1}\) to \(x\), decode the scrambled message given the presence of \(e\) errors, and finally unscramble to obtain \(u\). Security parameters of the system are \(n\) and \(e\), hence MDS codes, such as GRS codes may provide the same security level for shorter key sizes, and the private key owner can decode arguably fast enough using known decoding algorithms.'
 
 notes:
   - 'See Ref. \cite{doi:10.1016/j.ffa.2014.10.006} for a review of MDS codes and the MDS conjecture.'
@@ -55,6 +56,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: MarkusGrassl
+      date: '2024-07-11'
+    - user_id: VictorVAlbert
+      date: '2024-07-11'
     - user_id: VictorVAlbert
       date: '2022-08-09'
     - user_id: VictorVAlbert

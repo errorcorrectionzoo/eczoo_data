@@ -7,13 +7,15 @@ code_id: ampdamp
 # Qubit or bosonic
 
 name: 'Amplitude-damping (AD) code'
-introduced: '\cite{arxiv:quant-ph/9704002}'
+introduced: '\cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}'
 
 description: |
-  Block quantum code on either qubits or bosonic modes that is designed to detect and correct qubit or bosonic amplitude damping (AD) errors, respectively.
+  Block quantum code on either qubits or bosonic modes that is designed to detect and correct qubit or bosonic \hyperref[topic:ad]{AD} errors, respectively.
 
 protection: |
-  The \textit{amplitude damping (AD) channel} is a bosonic channel that models loss of particles in a bosonic mode (a.k.a. \textit{photon loss} or \textit{attenuation}).
+  \begin{defterm}{Amplitude damping noise}
+  \label{topic:ad}
+  The amplitude damping (AD) channel is a bosonic channel that models loss of particles in a bosonic mode (a.k.a. photon loss or \textitattenuation).
   Its Kraus operators are proportional to powers of a mode's annihilation operator \(a\), with the power signifying the number of particles lost during the error,
   \begin{align}
     E_{\ell}=\left(\frac{\gamma}{1-\gamma}\right)^{\ell/2}\frac{a^{\ell}}{\sqrt{\ell!}}\left(1-\gamma\right)^{\hat{n}/2}\,,
@@ -21,27 +23,32 @@ protection: |
   where \(\gamma\in[0,1)\) is the noise rate \cite{doi:10.1088/0954-8998/1/2/005,arxiv:1708.05010}.
   For multiple modes, error set elements are tensor products of elements of the single-mode error set. 
 
-  Restricting the channel to the first two Fock states \(\{|0\rangle,|1\rangle\}\) yields the non-Pauli \textit{qubit amplitude damping channel}, which requires protecting against the loss error \(E_1\propto X+iY\) (instead of \(X\) and \(Y\) Pauli errors individually).
-  Both channels are called AD since the context makes clear which one is being referred to.
+  Restricting the channel to the first two Fock states \(\{|0\rangle,|1\rangle\}\) yields the non-Pauli qubit AD channel, which requires protecting against the loss error \(E_1\propto X+iY\) (instead of \(X\) and \(Y\) Pauli errors individually). Both channels are called AD since the context makes clear which one is being referred to.
+  Other extension to qudits are also known \cite{arxiv:2008.00477}.
+  \end{defterm}
 
-  Protection against AD noise is approximate in that the \(\ell=0\) Kraus operator is never corrected exactly, only up to some order in \(\gamma\) \cite{arxiv:quant-ph/9704002}.
-  For example, a qubit code that corrects a single AD error is one for which all tensor products \(E_{\ell_1}\otimes\cdots\otimes E_{\ell_n}\) with \(\ell_1+\cdots + \ell_n \leq 1\) are correctable (per the \term{Knill-Laflamme conditions}) up to order \(O(\gamma^2)\).
+  Protection against \hyperref[topic:ad]{AD} noise is typically approximate because the tensor product of Kraus operators with all \(\ell=0\) is typically corrected only up to some order in \(\gamma\) \cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}.
+  For example, a qubit code that corrects a single \hyperref[topic:ad]{AD} error is one for which all tensor products \(E_{\ell_1}\otimes\cdots\otimes E_{\ell_n}\) with \(\ell_1+\cdots + \ell_n \leq 1\) are correctable (per the \term{Knill-Laflamme conditions}) up to order \(O(\gamma^2)\).
    
-  Certain codes also have intrinsic protection against AD, such as constant-excitation codes or self-complementary codes.
+  Certain codes also have intrinsic protection against \hyperref[topic:ad]{AD}, such as constant-excitation codes (CE), QSCs, or self-complementary codes.
   Amplitude damping can be thought of as a quantum analogue to asymmetric noise \cite{arxiv:1310.7536}.
 
-# A definition of distance associated with amplitude damping is the minimum weight of a tensor products of loss errors that implement a nontrivial logical operation in the code.
+# A definition of distance associated with \hyperref[topic:ad]{AD} is the minimum weight of a tensor products of loss errors that implement a nontrivial logical operation in the code.
+
+features:
+  rate: 'The quantum capacity of the \hyperref[topic:ad]{AD} channel is \(\max\{0, \log \frac{1-\gamma}{\gamma}\} \) \cite{arxiv:quant-ph/0606132}.
+  Quantum capacities of the qubit \hyperref[topic:ad]{AD} channel are also determined \cite{arXiv:quant-ph/0405110,arXiv:1309.2219}, including for the case fo memory \cite{arXiv:1207.5612,arXiv:1510.05313}. Capacities of qudit extensions have also been studied \cite{arxiv:2008.00477}.'
 
 relations:
   parents:
     - code_id: block_quantum
     - code_id: approximate_qecc
-      detail: 'Protection against AD noise is approximate in that the \(\ell=0\) Kraus operator is never corrected exactly, only up to some order in \(\gamma\) \cite{arxiv:quant-ph/9704002}.'
+      detail: 'Protection against \hyperref[topic:ad]{AD} noise is typically approximate because the tensor product of Kraus operators with all \(\ell=0\) is typically corrected only up to some order in \(\gamma\) \cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}.'
   cousins:
     - code_id: qubit_css
-      detail: 'An \([[n,k,d_Z=t+1,d_X=2t+1]]\) qubit CSS code protects against \(t\) amplitude damping errors \cite[Sec. 8.7]{arxiv:quant-ph/9705052}\cite{arxiv:1001.2356}.'
+      detail: 'An \([[n,k,d_Z=t+1,d_X=2t+1]]\) qubit CSS code protects against \(t\) \hyperref[topic:ad]{AD} errors \cite[Sec. 8.7]{arxiv:quant-ph/9705052}\cite{arxiv:1001.2356}.'
     - code_id: quantum_concatenated
-      detail: 'Concatenated quantum codes can protect against amplitude damping \cite{arxiv:1601.07423}.'
+      detail: 'Concatenated quantum codes can protect against \hyperref[topic:ad]{AD} \cite{arxiv:1601.07423}.'
 
 
 # Begin Entry Meta Information

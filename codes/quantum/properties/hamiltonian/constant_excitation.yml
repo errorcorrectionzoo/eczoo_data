@@ -27,28 +27,33 @@ description: |
 
 
 protection: |
-  Fock-state CE codes are protected from identical amplitude damping acting on all modes because the damping acts on all codewords identically \cite{doi:10.1103/PhysRevA.56.1114}.
-  Similarly, qubit CE codes are protected from coherent noise in the form of transversal \(Z\)-rotations because such rotations act identically on all codewords \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
+  Fock-state CE codes are protected from identical \hyperref[topic:ad]{AD} acting on all modes because the damping acts on all codewords identically \cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}.
+  The all-zero \hyperref[topic:ad]{AD} Kraus operator acts identically on every state and so can be exactly correctable in the case of Fock-state CE codes.
+  For example, this operator's acting on a Fock state \(|\boldsymbol{m}\rangle\) depends only on the total occupation number \(|\boldsymbol{m}|=\sum_j m_j\) and not on the individual occupation numbers \(m_j\),
+  \begin{align}
+    E_{0}^{\otimes n}|\boldsymbol{m}\rangle=\left(1-\gamma\right)^{|\boldsymbol{m}|/2}|\boldsymbol{m}\rangle~.
+  \end{align}
+  This effect extends to the damping portion, \(\left(1-\gamma\right)^{\hat{n}/2}\), of any \(\ell\neq 0\) \hyperref[topic:ad]{AD} Kraus operators.
+
+  In similar fashion, qubit CE codes are protected from coherent noise in the form of transversal \(Z\)-rotations because such rotations act identically on all codewords \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
   In the case of CSS codes, all codes oblivious to such rotations are CE codes \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
   Stabilizer codes can be extended to codes that are protected against such coherent noise via an enlargement procedure \cite{arxiv:2011.00197}.
 
 features:
-  rate: 'Fock-state CE codes can be used in a protocol that achieves the two-way quantum capacity of the pure-loss Gaussian channel \cite{arxiv:2203.13924}.'
+  rate: 'Fock-state CE codes can be used in a protocol that achieves the two-way quantum capacity of the \hyperref[topic:ad]{AD} Gaussian channel \cite{arxiv:2203.13924}.'
 
 relations:
   parents:
     - code_id: hamiltonian
       detail: 'Constant-excitation codes are associated with a Hamiltonian governing the total excitations of the system.'
+    - code_id: ampdamp
+      detail: 'Fock-state (and qubit) CE codes exactly protect against the \hyperref[topic:ad]{AD} Kraus operator \(E_{0}^{\otimes n}\) because it acts identically on all Fock (and qubit) states with the same excitation number \cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}.'
   cousins:
     - code_id: qubit_css
       detail: |
         Qubit CE codes are protected from coherent noise in the form of transversal \(Z\)-rotations because such rotations act identically on all codewords \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
         In the case of qubit CSS codes, all codes oblivious to such rotations are CE codes \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
         Any \([[n,k,d]]\) CSS code can be made into an \([[mn,k,>d]]\) CE code \cite{doi:10.1109/ISIT45174.2021.9518206}.
-    - code_id: qsc
-      detail: 'QSC (CE) codewords are superpositions of coherent states (Fock states) with the same energy.'
-    - code_id: ampdamp
-      detail: 'Fock-state CE codes are protected from identical amplitude damping acting on all modes because the damping acts on all Fock states identically \cite{doi:10.1103/PhysRevA.56.1114}.'
 
 
 # Begin Entry Meta Information
