@@ -65,7 +65,7 @@ features:
     - 'As opposed to modular qudits for composite \(q\), Galois qudits inherit most of the properties of the prime-qudit Clifford group due to the correspondence between a \(q=p^m\) Galois qudit and \(m\) prime qudits of dimension \(p\) \cite{doi:10.1109/18.959288}.'
 
 notes:
-  - 'Tables of bounds and examples of Galois-qudit stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Refs. \cite{doi:10.1007/978-3-540-37634-7_13,arxiv:2405.15057}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}.'
+  - 'Tables of bounds and examples of Galois-qudit stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Refs. \cite{doi:10.1007/978-3-540-37634-7_13,arxiv:2405.15057}, are maintained by M. Grassl at this \href{http://codetables.markus-grassl.de/}{website}. A modular-qudit stabilizer code with composite dimension \(q\) contains a subcode that is isomorphic to a \(p\)-dimensional prime-qudit stabilizer code for every prime factor \(p\) of \(q\), and the distance of the full stabilizer code is upper bound by the distance of this subcode \cite{manual:{Markus Grassl, private communication, 2024}}.'
   - 'The number of Galois-qudit stabilizer codes was determined in Ref. \cite{arxiv:quant-ph/0602001}.'
   - 'See Quantum Codes qudit stabilizer database, maintained by N. Aydin, P. Liu, and B. Yoshino, at this \href{http://quantumcodes.info/}{website}.'
 
@@ -79,7 +79,7 @@ relations:
     - code_id: galois_cws
       detail: 'Galois-qudit CWS codes whose underlying classical code is a linear \(q\)-ary code are Galois-qudit stabilizer codes containing a cluster-state codeword.'
     - code_id: qudit_stabilizer
-      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{doi:10.1109/18.959288}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits.'
+      detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{doi:10.1109/18.959288}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits. A modular-qudit stabilizer code with composite dimension \(q\) contains a subcode that is isomorphic to a \(p\)-dimensional prime-qudit stabilizer code for every prime factor \(p\) of \(q\), and the distance of the full stabilizer code is bounded by the distance of this subcode \cite{manual:{Markus Grassl, private communication, 2024}}.'
     - code_id: q-ary_additive
       detail: 'Galois-qudit stabilizer codes are the closest quantum analogues of additive codes over \(GF(q)\) because addition in the field corresponds to multiplication of stabilizers in the quantum case.'
     - code_id: dual_additive
@@ -98,6 +98,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: MarkusGrassl
+      date: '2024-07-11'
     - user_id: VictorVAlbert
       date: '2022-07-22'
     - user_id: VictorVAlbert
