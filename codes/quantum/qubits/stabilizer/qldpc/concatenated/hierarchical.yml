@@ -19,7 +19,7 @@ features:
   rate: 'Rate vanishes as \(\Omega(1/\log(n)^2)\).'
 
   decoders:
-    - 'Decoding is performed as in a standard \hyperref[code:quantum_concatenated]{concatenated code} using a decoder for the inner code and outer code.
+    - 'Decoding is performed as in a standard \hyperref[code:qubit_concatenated]{concatenated code} using a decoder for the inner code and outer code.
     The syndrome extraction circuit depth for the outer code is optimized using a permutation routing algorithm \cite{doi:10.1145/97444.97707}.
     The bilayer architecture allows for logical entangling gates between logical surface-code patches.'
     - 'Soft output decoding \cite{arxiv:2405.07433}.'
@@ -39,7 +39,7 @@ relations:
   parents:
     - code_id: qubit_stabilizer
     - code_id: qldpc
-    - code_id: quantum_concatenated
+    - code_id: qubit_concatenated
       detail: 'Hierarchical codes are concatenations of constant-rate QLDPC (outer) codes with (inner) rotated surface codes. The block length of the inner code is picked to grow logarithmically with the block length of the outer code.'
 
 

@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_concatenated
+physical: qudits
+logical: qudits
+
+name: 'Concatenated qubit code'
+
+description: |
+  A concatenated code whose outer code is a qubit code. In other words, a qubit code that can be thought of as a concatenation of a possibly non-qubit inner code and another qubit outer code.
+
+  A combination of two qubit codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the inner code consists of the logical subspace of the outer code.
+  An inner \(C = ((n_1,K,d_1))\) and outer \(C^\prime = ((n_2,2,d_2))\) qubit code yield an \(((n_1 n_2, K, d \geq d_1d_2))\) concatenated qubit code.
+
+  Concatenating an \(((n,2,d))\) qubit code can be done recursively, with the \(r\)\textit{th level} of concatenation yielding an \(((n^r,2,d^r))\) code.
+
+
+protection: |
+  Concatenating stabilizer codes can help protect against catastrophic errors such as cosmic rays \cite{arxiv:2203.16488}.
+
+features:
+  decoders:
+    - 'The effective channel for a concatenation of codes is the composition of the codes'' effective channels \cite{arxiv:quant-ph/0206061}.'
+    - 'Message passing algorithm for concatenated codes can be equivalent to ML decoding \cite{arxiv:quant-ph/0606126}.'
+  threshold:
+    - 'The first methods to achieve a fault-tolerant \hyperref[topic:computational-threshold]{computational threshold} use concatenated qubit stabilizer codes \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0604090}. Such methods require constant-space and polylogarithmic time overhead, but concatentions using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826}.'
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: quantum_concatenated
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-16'

@@ -11,22 +11,17 @@ introduced: '\cite{arxiv:quant-ph/9608012}'
 description: |
   A combination of two quantum codes, an inner code \(C\) and an outer code \(C^\prime\), where the physical subspace used for the inner code consists of the logical subspace of the outer code.
   In other words, first one encodes in the inner code \(C^\prime\), and then one encodes each of the physical registers of \(C^\prime\) in an outer code \(C\).
-  An inner \(C = ((n_1,K,d_1))_{q_1}\) and outer \(C^\prime = ((n_2,q_1,d_2))\) block quantum code yield an \(((n_1 n_2, K, d \geq d_1d_2))_{q_2}\) concatenated block quantum code \cite{preset:GottesmanBook}.
+  An inner \(C = ((n_1,K,d_1))_{q_1}\) and outer \(C^\prime = ((n_2,q_1,d_2))_{q_2}\) block quantum code yield an \(((n_1 n_2, K, d \geq d_1d_2))_{q_2}\) concatenated block quantum code \cite{preset:GottesmanBook}.
 
   Concatenating an \(((n,q,d))_q\) block quantum code can be done recursively, with the \(r\)\textit{th level} of concatenation yielding an \(((n^r,q,d^r))_q\) code.
 
   A generalization of concatenation exists \cite{arxiv:0901.1319}.
 
-protection: |
-  Concatenating stabilizer codes can help protect against carastrophic errors such as cosmic rays \cite{arxiv:2203.16488}.
-
 features:
+  encoding:
+    - 'Standard encoding proceeds by first encoding the inner code and then encoding each physical register into the outer code.'
   decoders:
-    - 'The effective channel for a concatenation of codes is the composition of the codes'' effective channels \cite{arxiv:quant-ph/0206061}.'
-    - 'Message passing algorithm for concatenated codes can be equivalent to ML decoding \cite{arxiv:quant-ph/0606126}.'
-  threshold:
-    - 'The first methods to achieve a fault-tolerant \hyperref[topic:computational-threshold]{computational threshold} use concatenated stabilizer codes \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0604090}.
-    Such methods require constant-space and polylogarithmic time overhead, but concatentions using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826}.'
+    - 'Standard decoding proceeds by first decoding the outer code and then using the resulting data to decode the inner code.'
 
 notes:
   - 'See the book \cite{preset:GottesmanBook} for an introduction.'
