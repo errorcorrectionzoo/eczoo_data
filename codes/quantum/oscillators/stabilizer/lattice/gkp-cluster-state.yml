@@ -16,7 +16,7 @@ alternative_names:
 description: |
   This code can be thought of as a generalized analog cluster state that is initialized in GKP (resource) states for some of its physical modes. 
   Alternatively, it can be thought of as an oscillator-into-oscillator GKP code whose encoding consists of initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i \theta_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(\theta_{jk}\).
-  Provides a way to perform fault-tolerant MBQC, with \(n-k\) determined by the particular protocol \cite{arxiv:1310.7596,arxiv:2010.02905}.
+  Provides a way to perform fault-tolerant MBQC, with the required number \(n-k\) of GKP-encoded physical modes determined by the particular protocol \cite{arxiv:1310.7596,arxiv:2010.02905,arxiv:1712.00294,arxiv:2104.03241}.
 
   Logical Clifford gates are performed on the cluster state via a combination of linear-optical gates and homodyne measurements on subsets of vertices \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}. Magic-state distillation is required for universal computation. GKP error correction can be naturally combined with CV measurement-based protocols since the performance of both is quantified by a squeezing parameter.
 
@@ -25,7 +25,7 @@ features:
     - 'Initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i \theta_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(\theta_{jk}\).'
   general_gates:
     - 'Single-mode logical Clifford gates can be performed using Gaussian operations and measurements on a 1D GKP cluster state, while two-mode logical Clifford gates require a 2D cluster state. Magic-state distillation using photon-counting can be used for a non-Clifford logical \(\pi/8\) gate.'
-
+    - 'Gate teleportation and error correction can be performed without active squeezing \cite{arxiv:2008.12791}.'
   threshold:
     - 'A lower bound on the squeezing required to obtain a particular error rate can be formulated in terms of the displacement noise strength. This in turn determines how much squeezing is required in order to be below threshold for a particular concatenated code. A threshold of \(10^{-6}\) yields a required squeezing of 20.5 dB \cite{arxiv:1310.7596}. Anti-squeezing does not affect the threshold \cite{arxiv:1903.02162}.'
 
@@ -41,9 +41,9 @@ relations:
     - code_id: cv_cluster_state
       detail: 'GKP CV-cluster-state codes reduce to analog-cluster-state codes when all physical modes are initialized in momentum states.'
     - code_id: cluster_state
-      detail: 'GKP CV-cluster-state codes reduce to cluster-state codes concatenated with single-mode GKP codes when all physical modes are initialized in GKP states.'
-    - code_id: oscillators_concatenated
-      detail: 'GKP CV-cluster-state codes reduce to cluster-state codes concatenated with single-mode GKP codes when all physical modes are initialized in GKP states.'
+      detail: 'GKP CV-cluster-state codes reduce to cluster-state codes concatenated with single-mode GKP codes \cite{arxiv:1712.00294} when all physical modes are initialized in GKP states.'
+    - code_id: gkp_concatenated
+      detail: 'GKP CV-cluster-state codes reduce to cluster-state codes concatenated with single-mode GKP codes \cite{arxiv:1712.00294} when all physical modes are initialized in GKP states.'
 
 
 # Begin Entry Meta Information

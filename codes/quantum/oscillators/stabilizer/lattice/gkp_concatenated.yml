@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gkp_concatenated
+physical: oscillators
+
+name: 'Concatenated GKP code'
+introduced: '\cite{arxiv:1706.03011}'
+
+description: |
+  A concatenated code whose outer code is a GKP code.
+
+protection: |
+  The analog syndrome information of the outer GKP code can improve protection of the inner code. As an example, concatenating a three-qubit quantum repetition code with GKP codes can correct some two-bit-flip errors \cite{arxiv:1706.03011}.
+
+
+features:
+  rate: 'Recursively concatenating the \([[6,2,2]]\) and \([[4,2,2]]\) codes with GKP codes achieves the hashing bound of the displacement channel \cite{arxiv:1712.00294}.'
+  code_capacity_threshold:
+    - '\(0.599\) threshold displacement standard deviation for GKP-repetition code \cite{arxiv:2212.11397}.'
+
+
+notes:
+  - 'Bosonic Pauli+ model is a numerical simulation tool for concatenated GKP codes \cite{arxiv:2402.09333}.'
+
+relations:
+  parents:
+    - code_id: multimodegkp
+  cousins:
+    - code_id: cluster_state
+      detail: 'GKP codes have been concatenated with cluster-state codes \cite{arxiv:1712.00294}.'
+    - code_id: quantum_repetition
+      detail: 'Concatenating a three-qubit quantum repetition code with GKP codes can correct some two-bit-flip errors \cite{arxiv:1706.03011} (see also \cite{arxiv:2212.11397}).'
+    - code_id: stab_4_2_2
+      detail: 'Recursively concatenating the \([[6,2,2]]\) and \([[4,2,2]]\) codes with GKP codes achieves the hashing bound of the displacement channel \cite{arxiv:1712.00294}.'
+    - code_id: stab_6_2_2
+      detail: 'Recursively concatenating the \([[6,2,2]]\) and \([[4,2,2]]\) codes with GKP codes achieves the hashing bound of the displacement channel \cite{arxiv:1712.00294}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-17'
