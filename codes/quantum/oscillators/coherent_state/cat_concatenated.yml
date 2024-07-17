@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cat_concatenated
+physical: oscillators
+
+name: 'Concatenated cat code'
+introduced: '\cite{arxiv:1409.6759}'
+
+description: |
+  A concatenated code whose outer code is a cat code.
+
+protection: |
+  The cat code suppressed dephasing errors exponentially with the size of the coherent states, so the inner code (e.g., a quantum repetition code \cite{arxiv:1904.09474,arxiv:2009.10756,arxiv:2212.11927}) can be highly biased toward one type of noise while still ensuring good performance.
+
+
+relations:
+  parents:
+    - code_id: qsc
+  cousins:
+    - code_id: quantum_repetition
+      detail: 'Cat codes have been concatenated with quantum repetition codes \cite{arxiv:1904.09474,arxiv:2009.10756,arxiv:2212.11927}.'
+
+
+
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-17'
