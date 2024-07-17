@@ -1,0 +1,58 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cv_cluster_state
+physical: oscillators
+
+name: 'Analog-cluster-state code'
+introduced: '\cite{doi:10.1103/PhysRevA.73.032318,arxiv:quant-ph/0605198,arxiv:0903.3233}'
+
+alternative_names:
+  - 'CV-cluster-state code'
+  - 'CV-graph-state code'
+  - 'Bosonic-cluster-state code'
+
+description: |
+  A code based on a continuous-variable (CV), or analog, cluster state.
+  Such a state can be used to perform MBQC of logical modes, which substitutes the temporal dimension necessary for decoding a conventional code with a spatial dimension.
+  The exact analog cluster state is non-normalizable, so approximate constructs have to be considered.
+
+  Analog cluster states are analog stabilizer states defined on a graph.
+  There is one nullifier \(\eta_j\) per graph vertex \(j\) of the form
+  \begin{align}
+    \eta_j = \hat{p}_{j} - \sum_{k\in N(j)} V_{jk} \hat{x}_k~,
+  \end{align}
+  where the neighborhood \(N(j)\) is the set of vertices which share an edge with \(j\), and where \(V_{jk}\) is a weighed (real-valued) adjacency matrix of a graph \cite{arxiv:1912.06463}.
+
+  Analog cluster states, like cluster states, can be defined on various geometries.
+  Analog cluster states defined on a 1D ladder are sometimes called dual-rail, not to be confused with the dual-rail code.
+
+protection: |
+  Protection is related to the analog stabilizer code underlying the analog cluster state.
+
+features:
+  encoders:
+    - 'Initialization of all modes in momentum eigenstates and action of gates of the form \(\exp(iV_{jk}\hat{x}_{j}\hat{x}_{k})\). The normalizable version substitutes momentum eigenstates with finitely squeezed states.'
+
+  general_gates:
+    - 'Combination of linear-optical gates and homodyne measurements on subsets of vertices \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}.'
+    - 'Gaussian operations can be realized as operations acting on graphs underlying a cluster state. They can be done in any order, demonstrating parallelism \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}.'
+    - 'Magic-state distillation is required for universal computation \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}.'
+
+realizations:
+  - 'Analog cluster states on a number of modes ranging from tens to millions \cite{arxiv:1306.3366,arxiv:1311.2957,arxiv:1606.06688} have been synthesized in photonic degrees of freedom.'
+
+relations:
+  parents:
+    - code_id: analog_stabilizer
+      detail: 'CV-cluster-state codes are particular analog stabilizer codes. Relaxing the real weighted adjacency matrix of a CV cluster state to be complex yields a description of a general analog (i.e., Gaussian) stabilizer code state \cite{arxiv:1007.0725}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-17'

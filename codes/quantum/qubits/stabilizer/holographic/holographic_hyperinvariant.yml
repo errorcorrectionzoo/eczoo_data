@@ -11,6 +11,9 @@ name: 'Hyperinvariant tensor-network (HTN) code'
 short_name: 'HTN'
 introduced: '\cite{arxiv:2304.02732}'
 
+alternative_names:
+  - 'Evenbly code'
+
 description: |
   Holographic tensor-network error-detecting code constructed out of a hyperinvariant tensor network \cite{arxiv:1704.04229}, i.e., a MERA-like network admitting a hyperbolic geometry.
   The network is defined using two layers A and B, with constituent tensors satisfying isometry conditions (a.k.a. multitensor constraints).
@@ -18,7 +21,12 @@ description: |
   This code produces boundary correlation functions that align with those expected from conformal field theory (CFT) boundary states.
   HTN codes exhibit state-dependent breakdown of complementary recovery, consistent with quantum gravity corrections in AdS/CFT.
 
-protection: 'Certain HTN codes protect against single-site errors.'
+
+features:
+  code_capacity_threshold:
+    - '\(19.1\%\) under depolarizing noise and \(50\%\) under erasure noise for a \(\{5,4\}\) tiling \cite{arxiv:2407.11926}.'
+    - '\(40\%\) under erasure noise for constant-rate version of the code \cite{arxiv:2407.11926}.'
+
 
 relations:
   parents:

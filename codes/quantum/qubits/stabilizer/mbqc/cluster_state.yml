@@ -18,11 +18,11 @@ description: |
   This is done by encoding the computation into the features of the cluster state''s graph.
 
   Cluster states are stabilizer states defined on a graph.
-  There is one stabilizer generator \(S_v\) per graph vertex \(v\) of the form
+  There is one stabilizer generator \(S_j\) per graph vertex \(j\) of the form
   \begin{align}
-    S_v = X_{v} \prod_{w\in N(v)} Z_w~,
+    S_j = X_{j} \prod_{k\in N(j)} Z_k~,
   \end{align}
-  where the neighborhood \(N(v)\) is the set of vertices which share an edge with \(v\).
+  where the neighborhood \(N(j)\) is the set of vertices which share an edge with \(j\).
 
   An MBQC scheme can be constructed out of any qubit CSS code (via \textit{foliation} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
   The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (i.e., a cubic lattice with qubits on edges and faces).
@@ -39,10 +39,7 @@ features:
     - 'Initialization of all qubits in the \(|+\rangle\) state and action of \(CZ\) gates along the edges of the graph.'
 
   general_gates:
-    - 'The computation encoded in pre-determined fashion via topological features of the cluster state''s graph, such as boundaries, defects, or twists.
-    Such features can be created using \(Z\)-type measurements, which effectively cut a qubit off from the cluster state.
-    Non-Clifford gates are performed by inserting non-Clifford states into particular \textit{singular} qubits.
-    More generally, any gate protocol of a qubit stabilizer code yields an MBQC protocol \cite{arxiv:1811.11780}.
+    - 'The computation encoded in pre-determined fashion via topological features of the cluster state''s graph, such as boundaries, defects, or twists. Such features can be created using \(Z\)-type measurements, which effectively cut a qubit off from the cluster state. Non-Clifford gates are performed by inserting non-Clifford states into particular \textit{singular} qubits. More generally, any gate protocol of a qubit stabilizer code yields an MBQC protocol \cite{arxiv:1811.11780}.
 
     To perform the computation, subsets qubits are measured, e.g., along one two-dimensional slice of a 3D lattice for each time step.
     This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
@@ -50,7 +47,7 @@ features:
 
     The entire cluster state does not need to be created at the start of the computation. Instead, the portion of the cluster state in the extra dimension can be initialized as the computation progresses.'
 
-    - 'Clifford operations can be realized as operations acting on graphs underlying a cluster state \cite{arxiv:quant-ph/0308151}.'
+    - 'Clifford operations can be realized as operations acting on graphs underlying a cluster state \cite{arxiv:quant-ph/0308151}. They can be done in any order, demonstrating \textit{parallelism} \cite{arxiv:quant-ph/0108067}.'
 
     - '1D cluster states are resources for universal MBQC \cite{arxiv:quant-ph/0108118,arxiv:quant-ph/0301052,arXiv:1111.7173,arXiv:1301.0861}.'
 
@@ -86,7 +83,7 @@ features:
 # So information is effectively stored near the boundary of the 2D slice. Measuring slice by slice will teleport it to the next slice.
 
 realizations:
-  - 'Quantum compututation with cluster states has been realized in the polarizations of photons \cite{arxiv:quant-ph/0503126}.'
+  - 'Quantum compututation with cluster states has been realized in the polarizations of photons \cite{arxiv:quant-ph/0503126,arxiv:0906.2233}.'
 
 notes:
   - 'See Ref. \cite{arxiv:quant-ph/0602096} for a review of cluster states and their applications.'
@@ -111,8 +108,6 @@ relations:
     - code_id: xp_stabilizer
       detail: 'XP stabilizer states are in one-to-one correspondence with weighted hypergraph states \cite{arxiv:2203.00103,manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}, which generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
       The latter can also be utilized in MBQC schemes \cite{arxiv:1805.12093,doi:10.1038/s41598-019-49968-3}.'
-    - code_id: gkp-cluster-state
-      detail: 'The GKP cluster-state code is a concatenation of a cluster-state stabilizer code with a single-mode GKP code.'
     - code_id: dynamic_gen
       detail: 'MBQC is done using a measurement-based dynamical process.'
     - code_id: dual_rail
