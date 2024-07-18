@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lcd
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Linear code with complementary dual (LCD)'
+short_name: 'LCD'
+introduced: '\cite{doi:10.1016/0012-365X(92)90563-U}'
+
+description: |
+  A linear code \(C\) admits a complementary dual if \(C\) and its dual code \(C^{\perp}\) do not share any codewords.
+
+features:
+  rate: 'Asymptotically good LCD codes exist \cite{doi:10.1016/0012-365X(92)90563-U}.'
+  decoders:
+    - 'The decoding problem reduces to finding the nearest codeword in \(C\) given a word in \(C^{\perp}\) \cite{doi:10.1016/0012-365X(92)90563-U}.'
+
+
+relations:
+  parents:
+    - code_id: dual
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-07-18'

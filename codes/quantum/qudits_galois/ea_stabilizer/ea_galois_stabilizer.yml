@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ea_galois_stabilizer
+physical: galois
+logical: galois
+
+name: 'EA Galois-qudit stabilizer code'
+introduced: '\cite{arxiv:1606.00134}'
+
+description: |
+  A Galois-qudit stabilizer code constructed using a variation of the stabilizer formalism designed to utilize pre-shared entanglement between sender and receiver.
+  A code is typically denoted as \([[n,k;e]]_q\) or \([[n,k,d;e]]_q\), where \(d\) is the distance of the underlying non-EA \([[n,k,d]]_q\) code, and \(e\) is the number of required pre-shared maximally entangled Galois-qudit maximally entangled states.
+
+
+relations:
+  parents:
+    - code_id: ea_galois_into_galois
+  cousins:
+    - code_id: galois_stabilizer
+      detail: 'Pure Galois-qudit codes can be used to make EA QECCs \cite{arxiv:1105.5872}\cite[Thm. 10]{arxiv:2010.07902}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-07-18'

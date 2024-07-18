@@ -12,10 +12,21 @@ name: 'EA qubit code'
 description: |
   Qubit code designed to utilize pre-shared entanglement between sender and receiver.
 
+protection: |
+  The original EAQECC Singleton bound \cite{arxiv:quant-ph/0608027,arxiv:quant-ph/0610092} was shown to be erroneous \cite{arxiv:2007.01249} and corrected in Ref. \cite{arxiv:2010.07902}.
+
+features:
+  rate: 'There are EA versions of classical and quantum capacities \cite{arxiv:quant-ph/9904023}. EA hashing bounds on the minimum entanglement required to achieve the entanglement-assisted channel capacity are derived \cite{arXiv:quant-ph/0205117}.'
+  encoders:
+    - 'Encoding algorithm \cite{arxiv:0806.4214}.'
+  decoders:
+    - 'Decoding algorithm \cite{arxiv:0806.4214}.'
+
 
 relations:
   parents:
-    - code_id: eaqecc
+    - code_id: ea_galois_into_galois
+      detail: 'EA Galois-qudit codes reduce to EA qubit codes for \(q=2\).'
   cousins:
     - code_id: qubits_into_qubits
       detail: 'EA qubit codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to ordinary qubit codes when said qubits are interpreted as noiseless physical qubits.'
