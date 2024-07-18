@@ -12,14 +12,16 @@ description: |
   For finite dimensional codes, the dimension of the underlying subsystem is denoted by \(q\).
 
 protection: |
-  Block codes protect from errors acting on a few of the \(n\) subsystems. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) subsystems, and corrects erasure errors on up to \(d-1\) subsystems.
+  Block codes protect from erasures or, more generally, errors acting on a few of the \(n\) subsystems. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) subsystems, and corrects erasure errors on up to \(d-1\) subsystems.
 
   The \textit{weight} of an operator on a tensor-product Hilbert space is the number of subsystems on which the operator acts non-trivially.
   For example, an operator acting on two subsystem is called a weight-two operator or a two-body operator.
 
-  Noise models for block codes include \textit{stochastic noise}, in which every possible error is assigned a probability.
+  General noise models for block codes include \textit{stochastic noise}, in which every possible error is assigned a probability.
   In the case of \textit{local stochastic noise}, the probability decreases rapidly (typically, exponentially) with the number of subsystems that an error acts on.
   On the other hand, the \textit{adversarial noise} model consists of errors acting on at most a fixed number of subsystems.
+  Errors acting on subsystems in a geometrically local region are called \textit{burst errors} \cite{doi:10.1143/jpsj.69.3540,doi:10.1109/18.771250}.
+
 
 features:
   transversal_gates:
