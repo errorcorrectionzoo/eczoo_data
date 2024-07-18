@@ -11,10 +11,10 @@ name: 'Hybrid cat code'
 introduced: '\cite{arxiv:1112.0825,arxiv:2401.00450}'
 
 description: |
-  A hybrid qubit-oscillator code admitting codewords that are tensor products of either a cat or coherent state and a single-qubit (photon polarization) state.
+  A hybrid qubit-oscillator code admitting codewords that are tensor products of a single-qubit (e.g., photon polarization) state with either a cat state or a coherent state.
    
-  Codewords of the coherent-state version \cite{arxiv:1112.0825} are \(|\alpha\rangle|+\rangle\) and \(|-\alpha\rangle|-\rangle\), i.e., hyper-entangled states of the polarization \(|\pm\rangle\) and occupation-number degrees of freedom of a photon, with the latter being in a coherent state \(|\pm\alpha\rangle\).
-  Codewords of a cat-state version \cite{arxiv:1712.10206,arxiv:2401.00450} are \((\left|\alpha\right\rangle +\left|-\alpha\right\rangle )|+\rangle\) and \((\left|i\alpha\right\rangle -\left|-i\alpha\right\rangle )|-\rangle\)
+  Codewords of the coherent-state version \cite{arxiv:1112.0825} are \(|\alpha\rangle|+\rangle\) and \(|-\alpha\rangle|-\rangle\), i.e., hyper-entangled states \cite{doi:10.1080/09500349708231877} of the occupation-number and polarization degrees of freedom of a photon.
+  Codewords of the cat-state version \cite{arxiv:1712.10206,arxiv:2401.00450} are proportional to \((\left|\alpha\right\rangle +\left|-\alpha\right\rangle )|+\rangle\) and \((\left|i\alpha\right\rangle -\left|-i\alpha\right\rangle )|-\rangle\)
 
 features:
   fault_tolerance:
@@ -28,11 +28,11 @@ relations:
     - code_id: oscillators
       detail: 'The physical Hilbert space of a hybrid qubit-oscillator code contains at least one oscillator.'
   cousins:
-    - code_id: qudits_into_oscillators
-      detail: 'A hybrid qudit-oscillator code with \(n_1=0\) is a qudit-into-oscillator code.'
     - code_id: cat
       detail: 'Hybrid cat codewords consist of a bosonic mode in either coherent or cat states.'
     - code_id: rbh
+      detail: 'Hybrid cat codes can be concatenated with RBH codes \cite{arxiv:2401.00450}.'
+    - code_id: oscillators_concatenated
       detail: 'Hybrid cat codes can be concatenated with RBH codes \cite{arxiv:2401.00450}.'
 
 

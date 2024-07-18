@@ -14,28 +14,27 @@ alternative_names:
   - 'Hybrid cluster-state code'
 
 description: |
-  This code can be thought of as a generalized analog cluster state that is initialized in GKP (resource) states for some of its physical modes. 
-  Alternatively, it can be thought of as an oscillator-into-oscillator GKP code whose encoding consists of initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i \theta_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(\theta_{jk}\).
+  Cluster-state code can consists of a generalized analog cluster state that is initialized in GKP (resource) states for some of its physical modes. 
+  Alternatively, it can be thought of as an oscillator-into-oscillator GKP code whose encoding consists of initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i V_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(V_{jk}\).
   Provides a way to perform fault-tolerant MBQC, with the required number \(n-k\) of GKP-encoded physical modes determined by the particular protocol \cite{arxiv:1310.7596,arxiv:2010.02905,arxiv:1712.00294,arxiv:2104.03241}.
 
-  Logical Clifford gates are performed on the cluster state via a combination of linear-optical gates and homodyne measurements on subsets of vertices \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}. Magic-state distillation is required for universal computation. GKP error correction can be naturally combined with CV measurement-based protocols since the performance of both is quantified by a squeezing parameter.
 
 features:
   encoders:
     - 'Initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i \theta_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(\theta_{jk}\).'
   general_gates:
+    - 'Logical Clifford gates are performed on the cluster state via a combination of linear-optical gates and homodyne measurements on subsets of vertices \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}. Magic-state distillation is required for universal computation.'
     - 'Single-mode logical Clifford gates can be performed using Gaussian operations and measurements on a 1D GKP cluster state, while two-mode logical Clifford gates require a 2D cluster state. Magic-state distillation using photon-counting can be used for a non-Clifford logical \(\pi/8\) gate.'
     - 'Gate teleportation and error correction can be performed without active squeezing \cite{arxiv:2008.12791}.'
+  decoders:
+    - 'GKP error correction can be naturally combined with CV MBQC protocols since the performance of both is quantified by a squeezing parameter \cite{arxiv:1310.7596}.'
   threshold:
     - 'A lower bound on the squeezing required to obtain a particular error rate can be formulated in terms of the displacement noise strength. This in turn determines how much squeezing is required in order to be below threshold for a particular concatenated code. A threshold of \(10^{-6}\) yields a required squeezing of 20.5 dB \cite{arxiv:1310.7596}. Anti-squeezing does not affect the threshold \cite{arxiv:1903.02162}.'
 
-  fault_tolerance:
-    - 'First encoding demonstrating the possibility of fault-tolerant measurement-based computation with analog cluster states. A fault-tolerance threshold can be achieved by concatenating existing fault-tolerant schemes for qubit-based cluster-state encodings with the GKP code \cite{arxiv:1310.7596}.'
-
 relations:
   parents:
-    - code_id: quantum_lattice
-      detail: 'A GKP CV-cluster-state code can be created by initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i \theta_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(\theta_{jk}\).'
+    - code_id: gkp-stabilizer
+      detail: 'A GKP CV-cluster-state code can be created by initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i V_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(V_{jk}\).'
     - code_id: qudits_into_oscillators
   cousins:
     - code_id: cv_cluster_state
