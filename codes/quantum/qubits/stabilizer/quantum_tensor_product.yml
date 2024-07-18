@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_tensor_product
+physical: qubits
+logical: qubits
+
+name: 'Quantum tensor-product code'
+introduced: '\cite{arxiv:quant-ph/0703181,arxiv:1605.09598}'
+
+description: |
+  CSS code constructed from a tensor code. In some cases, only one of the classical codes forming the tensor code needs to be self-orthogonal. 
+
+relations:
+  parents:
+    - code_id: qubit_css
+  cousins:
+    - code_id: tensor
+    - code_id: reversible
+      detail: 'Reversible cyclic codes can be used to construct quantum tensor-product codes \cite{arxiv:1605.09598}.'
+    - code_id: q-ary_cyclic
+      detail: 'Reversible cyclic codes can be used to construct quantum tensor-product codes \cite{arxiv:1605.09598}.'
+    - code_id: mds
+      detail: 'MDS codes can be used to construct quantum tensor-product codes \cite{arxiv:1605.09598}.'
+    - code_id: galois_polynomial
+      detail: 'Product codes constructed from a self-orthogonal and an arbitrary RS code yields an RS code \cite{arxiv:quant-ph/0703181}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-18'
