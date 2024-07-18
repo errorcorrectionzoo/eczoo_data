@@ -22,8 +22,8 @@ protection: |
   An example of a noise-biased channel is a Pauli channel of independent \(X\) and \(Z\)-type noise with \(p_X \gg p_Z\) or visa versa.
 
   In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z)]]\) or \([[n,k,d_X/d_Z]]\), where \(d_{X,Z}\) are the \(X\)- and \(Z\)-distances, respectively \cite{arxiv:1207.6512}.
-  An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes have been formulated \cite{doi:10.1098/rspa.2008.0439}, as well as asymmetric quantum GV bounds \cite{arxiv:1705.04087}.
-  Such codes have been characterized \cite{arxiv:1006.1694}.
+  An asymmetric Singleton bound and linear programming bounds for asymmetric CSS codes have been formulated \cite{doi:10.1098/rspa.2008.0439}, as well as asymmetric quantum GV bounds \cite{arxiv:1705.04087} and Hamming and Singleton bounds for general asymmetric subsystem codes \cite{arxiv:0803.0764}.
+  Asymmetric MDS codes have been characterized \cite{arxiv:0803.0764,arxiv:1006.1694}.
 
 features:
   general_gates:
@@ -74,12 +74,12 @@ relations:
       detail: 'In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).'
     - code_id: quantum_reed_muller
       detail: 'Asymmetric quantum RM codes have been constructed \cite[Lemma 4.1]{doi:10.1098/rspa.2008.0439}.'
-    - code_id: quantum_bch
-      detail: 'Asymmetric quantum BCH codes have been constructed \cite[Lemma 4.4]{doi:10.1098/rspa.2008.0439}\cite{arxiv:quant-ph/0606107,doi:10.26421/QIC11.3-4-4}.'
+    - code_id: galois_bch
+      detail: 'Asymmetric quantum BCH codes have been constructed \cite[Lemma 4.4]{doi:10.1098/rspa.2008.0439}\cite{arxiv:quant-ph/0606107,doi:10.1109/ICCES.2008.4772987,doi:10.26421/QIC11.3-4-4}, including subsystem BCH codes \cite{arxiv:0803.0764}.'
     - code_id: pg_ldpc
       detail: 'EG-LDPC codes can be used to construct asymmetric CSS codes \cite[Lemma 4.1]{doi:10.1098/rspa.2008.0439}.'
     - code_id: galois_polynomial
-      detail: 'Asymmetric Galois-qudit RS codes have been constructed \cite{doi:10.1007/s11128-011-0269-3}.'
+      detail: 'Asymmetric Galois-qudit RS codes have been constructed \cite{manual:{La Guardia, G. G., R. Palazzo, and C. Lavor. "Nonbinary quantum Reed-Solomon codes." Int. J. Pure Applied Math 65.1 (2010): 55-63.},doi:10.1007/s11128-011-0269-3}.'
     - code_id: bacon_shor
       detail: 'Bacon-Shor code parameters against bit- and phase-noise can be optimized by changing the block geometry, yielding good performance against biased noise \cite{arxiv:1209.0794}.
       A fault-tolerant teleportation-based computation scheme for asymmetric Bacon-Shor codes is effective against highly biased noise \cite{arxiv:1211.1400}.'
