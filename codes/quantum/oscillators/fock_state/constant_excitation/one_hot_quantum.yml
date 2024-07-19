@@ -10,11 +10,19 @@ logical: qudits
 name: 'One-hot quantum code'
 introduced: '\cite{arxiv:2302.07357}'
 
+alternative_names:
+  - 'Single-excitation subspace code'
+  - 'Direct mapping'
+
 description: |
   Encoding of a \(q\)-dimensional qudit into the single-excitation subspace of \(q\) modes. The \(j\)th logical state is the multi-mode Fock state with one photon in mode \(j\) and zero photons in the other modes.
+  This code is useful for encoding qudits in multiple qubits \cite{arxiv:quant-ph/0512209,arxiv:1505.04990,arXiv:1811.04069,arxiv:1812.10495}.
+
+  Another name for this code \cite{arxiv:1903.05068}, not used here, is a unary code. This term is reserved for a mapping between the natural numbers \(N\) and binary strings with the first \(N\) coordinates being 1 and the rest 0.
 
 protection: |
   This is an error-detecting code against one photon loss event.
+
 
 features:
   general_gates:
