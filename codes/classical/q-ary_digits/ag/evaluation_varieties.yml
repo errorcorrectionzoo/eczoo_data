@@ -19,7 +19,15 @@ description: |
   \end{align}
   This is a linear binary or \(q\)-ary code since the functions \(f\) take values in \(GF(q)\) and form a vector space.
 
-  Examples of geometric objects \(\cal X\) include affine or projective spaces over \(GF(q)\) as well as subsets of those spaces determined by some constraints. Prominent subsets are \textit{algebraic varieties}, which, for algebraically closed fields, are sets of solutions of systems of polynomial equations in either affine or projective space. The functions \(f\) are typically polynomials or rational functions.
+  Examples of geometric objects \(\cal X\) include affine or projective spaces over \(GF(q)\) as well as subsets of those spaces determined by some constraints. Prominent subsets are \textit{algebraic varieties}, which, for algebraically closed fields, are sets of solutions of systems of polynomial equations in either affine or projective space. 
+  Algebraic curves are algebraic varieties of dimension one \cite{preset:HPAlgCodes}, and those used for this construction are sets of zeroes of one or more nontrivial polynomials forming a prime ideal.
+  
+  The functions \(f\) are typically polynomials for the case of algebraic varieties, but often need to be promoted to rational functions to either define codes on projective coordinates and/or to determine code properties using results from algebraic geometry.
+  To do the former, any degree-\(k\) univariate polynomial \(\sum_j^{k} p_j x^j\) is homogenized into a bivariate polynomial \(\sum_j^{k} p_j x^j y^{k-j}\) and divided by another bivariate polynomial of the same degree, giving rise to a \textit{homogeneous rational function}, or \textit{form}.
+  Such functions are the most general cases considered for evaluation codes since they encompass all polynomials via the reverse of the above procedure.
+
+  One can specify the space \(L\) by the number of variables input into the rational functions as well as their maximum degree. One can additionally select only functions that have zeroes at certain points with certain multiplicities. A bookkeeping device for this data is the divisor \(D\), and the corresponding vector space of functions defined using the variety \(\cal X\) and the divisor is the Riemann-Roch space \(L=L(D)\) \cite[pg. 313]{preset:HKSag}.
+
 
 protection: 'Properties of \(\cal X\) can be used to bound the code dimension \(k\) and distance \(d\). The order or Feng-Rao bound gives a lower bound on the distance of evaluation codes \cite{doi:10.1142/9789812794017_0004,doi:10.1109/18.179340,preset:HPAlgCodes}; see Ref. \cite{preset:HPAlgCodes}, Ch. 4 and Ref. \cite{arxiv:0802.2349} for more discussion.'
 
@@ -49,5 +57,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-23'
+    - user_id: AlexanderBarg
+      date: '2024-07-23'
     - user_id: VictorVAlbert
       date: '2022-08-12'

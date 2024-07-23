@@ -10,13 +10,11 @@ logical: q-ary_digits
 name: 'Polynomial evaluation code'
 
 description: |
-  Evaluation code of polynomials at points \({\cal P} = \left( P_1,P_2,\cdots,P_n \right)\) on an algebraic variety \(\cal X\). Codewords
+  Evaluation code of polynomials (or, more generally, rational functions) at points \({\cal P} = \left( P_1,P_2,\cdots,P_n \right)\) on an algebraic variety \(\cal X\). Codewords
   \begin{align}
     \left( f(P_1), f(P_2), \cdots, f(P_n) \right)
   \end{align}
-  are evaluations of a linear space \(L\) of polynomials \(f\). If the space is taken to be all polynomials up to some degree, the code is called a \textit{Reed-Muller-type code} or \textit{RM-type code} of that degree.
-
-  One can specify the space \(L\) by the number of variables input into the polynomials as well as the polynomials' maximum degree. One can additionally select only polynomials that have zeroes at certain points with certain multiplicities. A bookkeeping device for this data is the divisor \(D\), and the corresponding vector space of polynomials defined using the variety \(\cal X\) and the divisor is the Riemann-Roch space \(L=L(D)\) \cite[pg. 313]{preset:HKSag}.
+  are evaluations of a linear space \(L\) of rational functions \(f\). If the space is taken to be all polynomials up to some degree, the code is called a \textit{Reed-Muller-type code} or \textit{RM-type code} of that degree.
 
 notes:
   - 'See Refs. \cite{arxiv:0802.2349,arxiv:1907.13217} for reviews.'
@@ -25,10 +23,11 @@ notes:
 relations:
   parents:
     - code_id: evaluation_varieties
-      detail: 'Polynomial evaluation codes are evaluation codes of polynomials \(f\) for which \(\cal X\) is an algebraic variety of dimension greater than one.'
-  cousins:
-    - code_id: evaluation
-      detail: 'Evaluation AG codes are evaluation codes on algebraic curves. Polynomial evaluation codes are evaluation codes of polynomials. Evaluation AG codes of polynomials are equivalent to polynomial evaluation codes on algebraic curves.'
+      detail: 'Polynomial evaluation codes are evaluation codes for which \(\cal X\) is an algebraic variety of dimension greater than one.'
+
+# cousins:
+#   - code_id: evaluation
+#     detail: 'Evaluation AG codes are evaluation codes on algebraic curves. Polynomial evaluation codes are evaluation codes of polynomials. Evaluation AG codes of polynomials are equivalent to polynomial evaluation codes on algebraic curves.'
 
 
 # Begin Entry Meta Information
