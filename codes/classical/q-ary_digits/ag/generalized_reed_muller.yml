@@ -12,7 +12,7 @@ short_name: 'GRM'
 introduced: '\cite{doi:10.1109/TIT.1968.1054127,doi:10.1109/TIT.1968.1054128,doi:10.1016/S0019-9958(70)90214-7}'
 
 description: |
-  Reed-Muller code GRM\(_q(r,m)\) of length \(n=q^m\) over \(GF(q)\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at a set of distinct points \(\{\alpha_1,\cdots,\alpha_n\}\) in \(GF(q)\).
+  Reed-Muller code GRM\(_q(r,m)\) of length \(n=q^m\) over \(GF(q)\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at the points of \(GF(q)\).
 
   Since \(\beta^q=\beta\) for any \(\beta\in GF(q)\), the above definition is not injective. Replacing each factor in each polynomial as \(x^q\to x\), the above set reduces to the set of all degree-\(\leq r\) polynomials in \(m\) variables such that no term has an exponent \(q\) or higher on any variable.
 
@@ -38,9 +38,9 @@ relations:
       detail: 'Applying a special case of the matrix-product procedure yields GRM codes \cite{doi:10.1007/PL00004226}.'
     - code_id: q-ary_lcc
       detail: 'GRM codes are LDCs and LCCs \cite{doi:10.1561/0400000030,manual:{Gopi, Sivakanth. Locality in coding theory. Diss. Princeton University, 2018.}}.'
+  cousins:
     - code_id: group
       detail: 'GRM codes over prime-power fields are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.},doi:10.1007/BF00141972}\cite[Ex. 16.4.11]{preset:HKSalgebra}.'
-  cousins:
     - code_id: q-ary_cyclic
       detail: 'GRM codes with nonzero evaluation points are cyclic \cite[pg. 52]{doi:10.1007/978-94-011-3810-9}.'
     - code_id: q-ary_ltc

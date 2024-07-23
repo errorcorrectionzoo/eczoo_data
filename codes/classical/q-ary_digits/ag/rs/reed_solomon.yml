@@ -23,8 +23,8 @@ description: |
     \mu\to\left( f_{\mu}\left(\alpha_{1}\right),f_{\mu}\left(\alpha_{2}\right),\cdots,f_{\mu}\left(\alpha_{n}\right)\right) \,.
   \end{align}
 
-  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are \(i-1\)st powers of a primitive \(n\)th root of unity is a \textit{narrow-sense RS code}.
-  In an alternative convention (not used here), the primitive-root case is called an RS code, and the general-root case is a generalized RS code.
+  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are all \((i-1)\)st powers of a primitive element of \(GF(q)\) is a \textit{narrow-sense RS code}.
+  In an alternative convention (not used here), the primitive case is called an RS code, and the general-root case is a generalized RS code.
 
 
 protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it has less than \(k\) roots; this is called the \textit{degree mantra}.
@@ -43,11 +43,7 @@ features:
     - 'Berlekamp-Welch decoder with runtime of order \(O(n^3)\) \cite{manual:{E. R. Berlekamp and L. Welch, Error Correction of Algebraic Block Codes. U.S. Patent, Number 4,633,470 1986.}} (see exposition in Ref. \cite{doi:10.1016/0020-0190(92)90195-2}), assuming that \(t \geq (n+k)/2\).'
     - 'Gao decoder using extended Euclidean algorithm \cite{doi:10.1007/978-1-4757-3789-9_5}.'
     - 'Fast-Fourier-transform decoder with runtime of order \(O(n \text{polylog}n)\) \cite{doi:10.1109/TIT.1978.1055816}.'
-    - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaluation of \(Q(\alpha_i,y_i)\) and solving a homogenous linear equation (interpolation). Once this is done, one lists roots of \(y\) that agree at \(\geq t\) points. The breakthrough Sudan list-decoding algorithm corrects up to \(1-\sqrt{2R}\) fraction of errors \cite{doi:10.1006/JCOM.1997.0439}. Roth and Ruckenstein proposed a modified key equation that allows for correction of more than \(\left\lfloor (n-k)/2 \right\rfloor\) errors \cite{doi:10.1109/18.817522}.
-    The Guruswami-Sudan algorithm improved the Sudan algorithm to \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}, meaning that RS codes achieve list-decoding capacity; see Ref. \cite{doi:10.1109/TIT.2006.878164} for bounds.
-    It was later shown that generic Reed-Solomon codes achieve list-decoding capacity \cite{arxiv:2206.05256}.
-    A modification of the Guruswami-Sudan algorithm  by Koetter and Vardy is used for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332} (see also Ref. \cite{doi:10.1109/26.79287}).
-    Subcodes of RS codes whose evaluation points lie in a subfield can be decoded up to the \(1-R\) \cite{doi:10.1145/2488608.2488715}.'
+    - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaluation of \(Q(\alpha_i,y_i)\) and solving a homogenous linear equation (interpolation). Once this is done, one lists roots of \(y\) that agree at \(\geq t\) points. The breakthrough Sudan list-decoding algorithm corrects up to \(1-\sqrt{2R}\) fraction of errors asymptotically in \(n\) \cite{doi:10.1006/JCOM.1997.0439}. Roth and Ruckenstein proposed a modified key equation that allows for correction of more than \(\left\lfloor (n-k)/2 \right\rfloor\) errors \cite{doi:10.1109/18.817522}. The Guruswami-Sudan algorithm improved the Sudan algorithm to \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}, meaning that RS codes achieve list-decoding capacity; see Ref. \cite{doi:10.1109/TIT.2006.878164} for bounds. It was later shown that generic Reed-Solomon codes achieve list-decoding capacity \cite{arxiv:2206.05256}. A modification of the Guruswami-Sudan algorithm by Koetter and Vardy is used for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332} (see also Ref. \cite{doi:10.1109/26.79287}). Subcodes of RS codes whose evaluation points lie in a subfield can be decoded up to the \(1-R\) \cite{doi:10.1145/2488608.2488715}.'
     - 'The ubiquity of RS codes has yielded off-the-shelf VLSI intergrated-circuit decoding hardware \cite{doi:10.1109/92.953498} (see also Ref. \cite{doi:10.1109/9780470546345}, Ch. 5 and 10).'
 
 
@@ -59,7 +55,7 @@ realizations:
   - 'RS Product Code (RSPC) was used in DVDs (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 4).'
   - 'DSL technologies and their variants against impluse noise \cite{doi:10.1109/ICC.2012.6364040}.'
   - 'Cryptographic primitives based on the hardness of decoding RS codes for more than \(1-\sqrt{k/n}+\epsilon\) errors. This is equivalent to the polynomial reconstruction problem \cite{doi:10.1007/3-540-45465-9_21}.'
-  - 'RS codes as outer codes concatenated with convolutional codes are used indirectly in space exploration programs such as Voyager and Galileo. RS codes were part of a temetry channel coding standard issued by the Consultative Committee for Space Data Systems (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 3).'
+  - 'RS codes as outer codes concatenated with convolutional codes are used indirectly in space exploration programs such as Voyager and Galileo. RS codes were part of a telemetry channel coding standard issued by the Consultative Committee for Space Data Systems (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 3).'
   - 'Automatic repeat request (ARQ) data transmission protocols (see Ref. \cite{doi:10.1109/9780470546345}, Ch. 7).'
   - 'Slow-frequency-hop spread-spectrum transmission (see Ref. \cite{doi:10.1109/9780470546345}, Chs. 8-9).'
   - 'Coded sharding designs in blockchains to increase efficiency \cite{arxiv:1809.10361}.'
