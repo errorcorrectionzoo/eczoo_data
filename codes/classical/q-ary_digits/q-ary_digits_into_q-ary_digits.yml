@@ -58,8 +58,10 @@ description: |
 protection: |
   The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}.
   A code detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.
+  Often, the relative distance \(\delta=d/n\) is used to compare codes of different lengths.
 
-  \begin{defterm}{Weight enumerator and four fundamental parameters}
+  \subsection{Weight enumerator and four fundamental parameters}
+  \begin{defterm}{Weight enumerator}
   \label{topic:weight-enumerator}
   Determining protection and bounds on code parameters can also be done using the code's \textit{weight enumerator} (cf. \hyperref[topic:quantum-weight-enumerator]{quantum weight enumerators}),
     \begin{align}
@@ -78,7 +80,25 @@ protection: |
   Other types of weight enumerators includes the Hamming weight enumerator, Lee weight enumerator, joint weight enumerator, split weight enumerator, and biweight enumerator \cite{preset:MacSlo}.
   \end{defterm}
 
+  \subsection{Noise channels}
   Noise channels include the symmetric noise channel, asymmetric noise channels \cite{manual:{Varshamov, R. R. "Some features of linear codes that correct asymmetric errors." Soviet Physics Doklady. Vol. 9. 1965.},doi:10.1109/TIT.1973.1054954,doi:10.1016/S0019-9958(79)90329-2,manual:{Kløve, Torleiv. Error correcting codes for the asymmetric channel. Department of Pure Mathematics, University of Bergen, 1981.},doi:10.1142/6400}, and insertion/deletion noise.
+
+  \subsection{Bounds}
+  Bounds on the parameters of an \((n,K,d)_q\) code include the Hamming bound, Singleton bound, Gilbert-Varshamov (GV) bound, and various linear programming bounds.
+  A code saturating the Hamming bound (Singleton bound) is called a perfect code (an MDS code).
+
+  \begin{defterm}{Gilbert-Varshamov (GV) bound}
+  \label{topic:gv-bound}
+  The GV bound states that the maximum size \(K\) of a \(q\)-ary code with distance \(d\) satisfies
+  \begin{align}
+  K\sum_{j=0}^{d-1}{n \choose j}(q-1)^{j}\geq q^{n}~.
+  \end{align}
+  The bound can be converted into the \textit{asymptotic GV bound} (i.e., in the \(n\to\infty\) limit) on the achievable rate \(R\) of a code with relative distance \(\delta\),
+  \begin{align}
+    R\geq1-h_{q}(\delta)~,
+  \end{align}
+  where \(h_q\) is the \(q\)-ary entropy function.
+  \end{defterm}
 
 features:
   rate: The rate of a \(q\)-ary code is usually defined as \(R=\frac{1}{n}\log_q K\) dits per symbol.

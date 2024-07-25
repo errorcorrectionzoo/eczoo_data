@@ -17,7 +17,7 @@ description: |
 #protection: 'Random codes can protect against random errors, e.g. from Binary Symmetry Channel (BSC), discrete memoryless channel.'
 
 features:
-  rate: Typical random codes (TRC) or typical random linear codes (TLC) refer to codes in the respective ensemble that satisfy a certain minimum distance. The relative fraction of typical codes in the ensemble approaches one as \(N\) goes to infinity \cite{doi:10.1002/j.1538-7305.1948.tb01338.x} (see also Ref. \cite{doi:10.1109/TIT.2002.800480}). Asymptotically, given distance \(d\), the maximum rate for a TRC is given by \(R=\frac{1}{2}R_{GV}(\delta)\) where \(R_{GV}\) is the Gilbert–Varshamov (GV) bound \(R_{GV}=1-h(\delta)\), and \(h(\delta)=h(\frac{d}{n})\) is the binary entropy function. The maximum rate for a TLC is given by \(R=R_{GV}(d)\), meaning that TLCs achieve the asymoptic GV bound.
+  rate: Typical random codes (TRC) or typical random linear codes (TLC) refer to codes in the respective ensemble that satisfy a certain minimum distance. The relative fraction of typical codes in the ensemble approaches one as \(N\) goes to infinity \cite{doi:10.1002/j.1538-7305.1948.tb01338.x} (see also Ref. \cite{doi:10.1109/TIT.2002.800480}). Asymptotically, given distance \(d\), the maximum rate for a TRC is given by \(R=\frac{1}{2}R_{GV}(\delta)\) where \(R_{GV}\) is the Gilbert–Varshamov (GV) bound \(R_{GV}=1-h(\delta)\), and \(h(\delta)=h(\frac{d}{n})\) is the binary entropy function. The maximum rate for a TLC is given by \(R=R_{GV}(d)\), meaning that TLCs achieve the \hyperref[topic:gv-bound]{asymptotic GV bound}.
 
   decoders:
     - 'Ball-collision decoding \cite{doi:10.1007/978-3-642-22792-9_42}.'
@@ -29,7 +29,7 @@ realizations:
   - 'Random codes can be used to realize secure computation \cite{doi:10.1007/978-3-540-72540-4_17}.'
 
 notes:
-  - 'Shannon''s pioneering work \cite{doi:10.1002/j.1538-7305.1948.tb01338.x} analyzes the distance distribution of the code given a rate. Given \(N\) and the rate \(R\), the minimum distance of a TRC is given by the GV bound \(d=N\delta_{GV}(2R)\), where \(\delta_{GV} = h^{-1}(1-R)\), \(0\le R \le 1\), and \(\delta_{GV}(x)=0\) for all other \(R\). For a TLC, the minimum distance is given by \(d=N\delta_{GV}(R)\).'
+  - 'Shannon''s pioneering work \cite{doi:10.1002/j.1538-7305.1948.tb01338.x} analyzes the distance distribution of the code given a rate. Given \(N\) and the rate \(R\), the minimum distance of a TRC is given by the \hyperref[topic:gv-bound]{GV bound} \(d=N\delta_{GV}(2R)\), where \(\delta_{GV} = h^{-1}(1-R)\), \(0\le R \le 1\), and \(\delta_{GV}(x)=0\) for all other \(R\). For a TLC, the minimum distance is given by \(d=N\delta_{GV}(R)\).'
 
 relations:
   parents:
