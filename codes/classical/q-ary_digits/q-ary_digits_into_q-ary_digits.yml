@@ -12,17 +12,20 @@ short_name: '\(q\)-ary'
 #introduced: ''
 
 description: |
-  Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)=\mathbb{F}_q\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.
+  Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.
 
   \begin{defterm}{Finite fields}
   \label{topic:finite-fields}
-  Finite fields are finite sets of elements closed under multiplication and addition.
-  They are defined for all prime powers \(q=p^m\) for primes \(p\).
-  They come with a trace operation, the field trace, which maps elements of the field \(GF(q)\) to elements of \(GF(p)\) as
+  Finite fields, or Galois fields, \(GF(q)=\mathbb{F}_q\), are sets of \(q\) elements closed under multiplication, addition, subtraction, and division (except by zero).
+  They are defined for all prime powers \(q=p^m\) for primes \(p\), with the prime-field case being the \(\mathbb{Z}_p\), a group under addition, promoted to a field by adding in the extra operations.
+  They come with a trace operation, the field trace, which maps elements \(\gamma \in GF(q)\) to elements of \(GF(p)\) as
   \begin{align}
     \text{tr}(\gamma)=\sum_{k=0}^{m-1}\gamma^{p^{k}}~.
   \end{align}
   Any field \(GF(q)\) can be thought of as an \(m\)-dimensional vector space over \(GF(p)\).
+
+  An example is the quaternary Galois field \(GF(4) = \{0,1,\omega, \bar{\omega}\}\) with \(p=m=2\), where \(\omega\) can be interpreted as a third root of unity.
+  The field trace in this case is similar to taking the real part of a complex number, \(\text{tr}(\gamma) = \gamma + \gamma^2\).
   \end{defterm}
 
 
