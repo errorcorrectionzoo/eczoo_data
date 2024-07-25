@@ -16,16 +16,28 @@ description: |
 
   \begin{defterm}{Finite fields}
   \label{topic:finite-fields}
-  Finite fields, or Galois fields, \(GF(q)=\mathbb{F}_q\), are sets of \(q\) elements closed under multiplication, addition, subtraction, and division (except by zero).
-  They are defined for all prime powers \(q=p^m\) for primes \(p\), with the prime-field case being the \(\mathbb{Z}_p\), a group under addition, promoted to a field by adding in the extra operations.
-  They come with a trace operation, the field trace, which maps elements \(\gamma \in GF(q)\) to elements of \(GF(p)\) as
+  Galois or finite fields \(GF(q)=\mathbb{F}_q\) are sets of \(q\) elements closed under addition and multiplication.
+  They are finite analogues of the real or complex numbers, and a unique field exists for every prime power \(q=p^m\) with prime \(p\).
+  The prime-field case reduces to \(\mathbb{Z}_p\), a group under addition that is promoted to a field by defining multiplication modulo \(p\).
+  Every finite field comes with a zero element (additive identity), a one element (multiplicative identity), and additive (multiplicative) inverses for all (nonzero) elements.  
+  They come with a trace operation, the \textit{field trace}, which maps elements \(\gamma \in GF(q)\) to elements of \(GF(p)\) as
   \begin{align}
     \text{tr}(\gamma)=\sum_{k=0}^{m-1}\gamma^{p^{k}}~.
   \end{align}
-  Any field \(GF(q)\) can be thought of as an \(m\)-dimensional vector space over \(GF(p)\).
+  Any field \(GF(q)\) can be thought of as an \(m\)-dimensional vector space over \(GF(p)\) a.k.a. the \(m\)th \textit{extension} of \(GF(p)\).
+  Along those lines, elements of fields such as \(GF(p^{ml})\) can be written as \(m\)-dimensional vectors over \(GF(p^l)\) or \((m\times l)\)-dimensional matrices over \(GF(p)\); this is used to convert between ordinary block codes and matrix-based codes.
+  An element whose powers exhaust all nonzero field elements is called \textit{primitive}.
 
-  An example is the quaternary Galois field \(GF(4) = \{0,1,\omega, \bar{\omega}\}\) with \(p=m=2\), where \(\omega\) can be interpreted as a third root of unity.
-  The field trace in this case is similar to taking the real part of a complex number, \(\text{tr}(\gamma) = \gamma + \gamma^2\).
+  An example is the quaternary Galois field \(GF(4) = \{0,1,\omega, \omega^2=\bar{\omega}\}\) with \(p=m=2\).
+  In this case, \(\omega\) can be interpreted as a third root of unity, but more formally it is defined as a solution to the polynomial equation \(\1+x+x^2=0\).
+  The field trace in this case is similar to taking the real part of a complex number, \(\text{tr}(\gamma) = \gamma + \gamma^2\) for any element \(\gamma\).
+  Field elements can be represented as two-dimensional vectors with binary elements, \(GF(4)=GF(2^2)\), using the basis \(\omega\cong(1,0)\) and \(\bar{\omega}\cong(0,1)\):
+  \begin{align}
+    0&\leftrightarrow(0,0)\cong0\omega+0\bar{\omega}\\
+    1&\leftrightarrow(1,1)\cong1\omega+1\bar{\omega}\\
+    \omega&\leftrightarrow(1,0)\cong1\omega+0\bar{\omega}\\
+    \bar{\omega}&\leftrightarrow(0,1)\cong0\omega+1\bar{\omega}~.  
+  \end{align}
   \end{defterm}
 
 
