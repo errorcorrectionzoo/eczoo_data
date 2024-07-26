@@ -56,7 +56,9 @@ description: |
 # Logical subspace is the joint \(+1\) eigenspace of a set of \(p^{n-k}\) commuting qudit Pauli operators forming the code''s stabilizer group, which cannot contain \(-I\). The distance is the minimum weight of an error that implements a nontrivial logical operation in the code.'
 # Galois qudit codes have lifted stabiilizers, generally k=n-r/m; see Gottesmna's talk
 
-protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. Corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qudits.'
+protection: |
+  Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. Corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qudits.
+  There are established shortening/lengthening procedures for pure Galois-qudit stabilizer codes \cite[Table 1]{arxiv:quant-ph/0508070}\cite{arxiv:1502.05267}.
 
 features:
   encoders:
