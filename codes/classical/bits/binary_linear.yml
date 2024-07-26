@@ -27,6 +27,15 @@ protection: |
 
   The decision problem corresponding to finding the minimum distance is also \(NP\)-complete \cite{doi:10.1109/18.641542}, and approximating the weight enumerator is \(\#P\)-complete \cite{arxiv:cs/0304044}.
 
+  There are several standard procedures for increasing or decreasing the length of an \([n,k,d]\) code \cite[Ch. 1]{preset:MacSlo}:
+  \begin{enumerate}[(1)]
+  \item \textit{Puncturing}: removing a coordinate to yield a code whose length is shorter by one and whose distance is \(\geq d-1\).
+  \item \textit{Expurgating}: removing odd-weight codewords of a non-even-weight code to yield a code whose dimension is \(k-1\).
+  \item \textit{Augmenting}: adding the all-ones codeword to a code without it to yield a code whose dimension is \(k+1\).
+  \item \textit{Lengthening}: adding a the all-ones codeword and then adding a parity check to yield a code whose size and dimension increase by one.
+  \item \textit{Shortening}: keeping only codewords which have a zero in a fixed coordinate and removing that coordinate to yield a code whose length is shorter by one.
+  \end{enumerate}
+
 features:
   rate: 'A family of linear codes \(C_i = [n_i,k_i,d_i]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive. Nearly all good linear binary codes for the asymmetric channel are also good for the symmetric channel \cite{manual:{Varshamov, R. R. "Some features of linear codes that correct asymmetric errors." Soviet Physics Doklady. Vol. 9. 1965.}}; this is not the case for non-binary codes \cite{arxiv:1310.7536}.'
 
