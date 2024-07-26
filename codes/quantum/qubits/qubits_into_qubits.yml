@@ -46,14 +46,14 @@ protection: |
   Codes whose distance is greater than the diagonal distance are \hyperref[topic:degeneracy]{degenerate}.
   \hyperref[topic:degeneracy]{Degenerate} codes admit undetectable Pauli errors (i.e., errors whose projection into the codespace is nonzero) of weight less than the code distance (i.e., the projection satisfies the \term{Knill-Laflamme conditions}).
 
+  \subsection{Noise channels}
+
   A quantum channel whose Kraus operators are Pauli strings is called a \textit{Pauli channel}, and such channels are typically more tractable than general, non-Pauli channels.
   Relevant Pauli channels include dephasing noise and depolarizing noise (a.k.a. Werner-Holevo channel \cite{arxiv:quant-ph/0203003}).
   Relevant non-Pauli channels are \hyperref[topic:ad]{AD} noise, erasure (which maps all qubit states into a third state \(|e\rangle\) outside of the qubit Hilbert space), and biased erasure (in which case only the \(|1\rangle\) qubit state is mapped to \(|e\rangle\)).
   Noise can be correlated in space or in time, with the latter being an example of a non-Markovian phenomenon \cite{arxiv:quant-ph/0505153,arxiv:2012.01894}.
 
-  \subsection{Bounds on code parameters}
-  Bounds on code performance include the quantum Singleton bound \cite{arxiv:quant-ph/9604034,arxiv:quant-ph/9702031,arxiv:quant-ph/9703048}, quantum Hamming bound \cite{arxiv:quant-ph/9602022}, and quantum GV bound \cite{arxiv:quant-ph/9602022}.
-  Linear programming bounds also exist \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}.
+  \subsection{Quantum weight enumerators}
 
   \begin{defterm}{Quantum weight enumerator}
   \label{topic:quantum-weight-enumerator}
@@ -65,6 +65,8 @@ protection: |
     \end{split}
     \end{align}
   where \(\Pi\) is the code projection, and where the sum is over the Pauli group modulo the subgroup of phases (hence, the dagger below is necessary in case the coset representative is not Hermitian).
+  \end{defterm}
+
   The dual quantum weight enumerator is
     \begin{align}
     \begin{split}
@@ -73,14 +75,15 @@ protection: |
     \end{split}
     \end{align}
   The weight enumerator and its dual satisfy the \textit{quantum MacWilliams identity} \cite{arxiv:quant-ph/9610040}; see \cite[Ch. 7]{preset:GottesmanBook}.
+  It gives rise to quantum linear programming (LP) bounds \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}; see the book \cite{preset:GottesmanBook}.
+
   The distance \(d\) of a code is the smallest \(j=d\) at which \(A_j \neq B_j\) \cite{arxiv:quant-ph/9906126}.
   Such a code is called \textit{pure} if \(A_j = B_j = 0\) for all \(j < d\); otherwise, the code is called \textit{impure}.
   \hyperref[topic:degeneracy]{Degeneracy} is sufficient but not necessary for impurity \cite{preset:GottesmanBook}.
+
   Other types of quantum weight enumerators are the Rains \textit{shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}).
   There are techniques to compute them for general codes \cite{arxiv:2308.05152}.
   These notions can be generalized to qudit codes and other error bases \cite{doi:10.1016/j.aam.2020.102085,arxiv:2211.02756,arxiv:2308.05152}.
-  \end{defterm}
-
 
 features:
   rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}.'

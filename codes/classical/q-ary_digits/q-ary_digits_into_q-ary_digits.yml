@@ -57,6 +57,10 @@ protection: |
   A code detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.
   Often, the relative distance \(\delta=d/n\) is used to compare codes of different lengths.
 
+  \subsection{Noise channels}
+
+  Noise channels include the symmetric noise channel, asymmetric noise channels \cite{manual:{Varshamov, R. R. "Some features of linear codes that correct asymmetric errors." Soviet Physics Doklady. Vol. 9. 1965.},doi:10.1109/TIT.1973.1054954,doi:10.1016/S0019-9958(79)90329-2,manual:{Kløve, Torleiv. Error correcting codes for the asymmetric channel. Department of Pure Mathematics, University of Bergen, 1981.},doi:10.1142/6400}, and insertion/deletion noise.
+
   \subsection{Weight enumerator and four fundamental parameters}
   \begin{defterm}{Weight enumerator}
   \label{topic:weight-enumerator}
@@ -77,28 +81,29 @@ protection: |
   Other types of weight enumerators includes the Hamming weight enumerator, Lee weight enumerator, joint weight enumerator, split weight enumerator, and biweight enumerator \cite{preset:MacSlo}.
   \end{defterm}
 
-  \subsection{Noise channels}
-  Noise channels include the symmetric noise channel, asymmetric noise channels \cite{manual:{Varshamov, R. R. "Some features of linear codes that correct asymmetric errors." Soviet Physics Doklady. Vol. 9. 1965.},doi:10.1109/TIT.1973.1054954,doi:10.1016/S0019-9958(79)90329-2,manual:{Kløve, Torleiv. Error correcting codes for the asymmetric channel. Department of Pure Mathematics, University of Bergen, 1981.},doi:10.1142/6400}, and insertion/deletion noise.
-
-  \subsection{Bounds}
-  Bounds on the parameters of an \((n,K,d)_q\) code include the Hamming bound, Singleton bound, Gilbert-Varshamov (GV) bound, and various linear programming bounds.
-  A code saturating the Hamming bound (Singleton bound) is called a perfect code (an MDS code).
+  \subsection{Bounds on code parameters}
+  Bounds on the parameters of an \((n,K,d)_q\) code include the Hamming a.k.a. sphere-packing bound, Singleton bound, Gilbert-Varshamov (GV) bound, Griesmer bound, Plotkin bound, Johnson bound, and various linear programming (LP) bounds; see \cite{preset:HKSbasics}.
+  A code whose parameters attain the Hamming bound (Singleton bound, Griesmer bound, Johnson bound, Delsarte LP bound) is called a perfect code (an MDS code, a Griesmer code, a nearly perfect code, an \hyperref[code:univ_opt_q-ary]{LP universally optimal code}).
 
   \begin{defterm}{Gilbert-Varshamov (GV) bound}
   \label{topic:gv-bound}
-  The GV bound states that the maximum size \(K\) of a \(q\)-ary code with distance \(d\) satisfies
+  The Gilbert-Varshamov \cite{doi:10.1002/j.1538-7305.1952.tb01393.x,manual:{R. R. Varshamov, Estimate of the number of signals in error correcting codes, Dokl. Akad. Nauk SSSR Soviet Math. - Doklady 117 (1957), 739–741.}}, or Gilbert-Shannon-Varshamov, bound states that the maximum size \(K\) of a \(q\)-ary code with distance \(d\) satisfies
   \begin{align}
   K\sum_{j=0}^{d-1}{n \choose j}(q-1)^{j}\geq q^{n}~.
   \end{align}
-  The bound can be converted into the \textit{asymptotic GV bound} (i.e., in the \(n\to\infty\) limit) on the achievable rate \(R\) of a code with relative distance \(\delta\),
+  In other words, if the left-hand side of the above is less than or equal to the right-hand side, then a code with such parameters exists.
+  The GV bound gives rise to the \textit{asymptotic GV bound} (i.e., GV bound in the \(n\to\infty\) limit), expressed in terms of the maximum achievable rate \(R\) and relative distance \(\delta\),
   \begin{align}
-    R\geq1-h_{q}(\delta)~,
+    R\geq 1-h_{q}(\delta)~,
   \end{align}
-  where \(h_q\) is the \(q\)-ary entropy function.
+  where \(h_q\) is the \(q\)-ary entropy function,
+  \begin{align}
+    h_{q}(\delta)=-\delta\log_{q}\frac{\delta}{q-1}-(1-\delta)\log_{q}(1-\delta)~.
+  \end{align}
   \end{defterm}
 
 features:
-  rate: The rate of a \(q\)-ary code is usually defined as \(R=\frac{1}{n}\log_q K\) dits per symbol.
+  rate: 'The rate of a \(q\)-ary code is usually defined as \(R=\frac{1}{n}\log_q K\) dits per symbol. The maximum rate of a \(q\)-ary code with linear distance is upper bounded by the \(q\)-ary version of the MRRW bound \cite{doi:10.1016/0012-365X(90)90002-Y}.'
   decoders:
     - 'For small \(n\), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
     - 'Given a received string \(x\) and an error bound \(e\), a \textit{list decoder} returns a list of all codewords that are at most \(e\) from \(x\). The number of codewords in a neighborhood of \(x\) has to be polynomial in \(n\) in order for this decoder to run in time polynomial in \(n\).'
