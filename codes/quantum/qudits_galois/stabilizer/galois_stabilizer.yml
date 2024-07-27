@@ -20,7 +20,7 @@ description: |
 
   \begin{defterm}{Galois symplectic representation}
   \label{topic:galois-symplectic-representation}
-  The single Galois-qudit Pauli string \(X_{a} Z_{b}\) for \(a,b\in GF(q)\) is converted to the vector \(a|b\).
+  The single Galois-qudit Pauli string \(X_{a} Z_{b}\) for \(a,b\in GF(q)\) is converted to the vector \((a|b)\in GF(q)^2\).
   The multi Galois-qudit version follows naturally.
   \end{defterm}
 
@@ -36,6 +36,7 @@ description: |
   \begin{defterm}{\(GF(q^2)\) representation}
   \label{topic:gfqsq-representation}
   An \(n\)-qubit Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(GF(q^2)\) using the one-to-one correspondence between the \(q^2\) Galois-qudit Pauli matrices and elements of \(GF(q^2)\).
+  Given a \hyperref[topic:finite-fields]{basis} \((\beta,\beta^q)\) for \(GF(q^2)\) over \(GF(q)\), the vector \((a|b)\in GF(q)^2\) (representing a Galois-qudit Pauli string in the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation}) is in one-to-one correspondence with element \(a \beta + b \beta^q \in \(GF(q^2)\)\) \cite{arxiv:arxiv:quant-ph/0508070}.
   \end{defterm}
 
   The sets of \(GF(q^2)\)-represented vectors for all generators yield a trace-alternating self-orthogonal additive code over \(GF(q^2)\).
@@ -90,6 +91,7 @@ relations:
     - code_id: dual_additive
       detail: 'Galois-qudit stabilizer codes are in one-to-one correspondence with trace-symplectic self-orthogonal additive codes of length \(2n\) over \(GF(q)\) via the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} \cite{doi:10.1109/18.959288}.
       They are also in one-to-one correspondence with trace-alternating self-orthogonal additive codes of length \(n\) over \(GF(q^2)\) via the \hyperref[topic:gfqsq-representation]{\(GF(q^2)\) representation}.'
+
 
 # non_stabilizer
 # A non-stabilizer code is also a stabilizer code if its Fourier description \(\mathsf{B}\) is a subgroup of some stabi subgroup \(\mathsf{S}\). When \(\mathsf{B}\) is just a subset, the code is explicitly not a stabilizer code.

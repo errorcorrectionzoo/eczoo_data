@@ -14,7 +14,7 @@ short_name: '\(q\)-ary'
 description: |
   Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.
 
-  \subsection{Finite fields}
+  \subsection{Finite-field alphabet}
   \begin{defterm}{Finite fields}
   \label{topic:finite-fields}
   Galois or finite fields \(GF(q)=\mathbb{F}_q\) are sets of \(q\) elements closed under addition and multiplication.
@@ -35,7 +35,8 @@ description: |
   \end{defterm}
 
   Any field \(GF(q)\) can be thought of as an \(m\)-dimensional vector space over \(GF(p)\) a.k.a. the \(m\)th \textit{extension} of \(GF(p)\) (similar to the complex numbers being an extension of the reals).
-  More generally, elements of fields such as \(GF(p^{ml})\) can be written as \(m\)-dimensional vectors over \(GF(p^l)\) or \((m\times l)\)-dimensional matrices over \(GF(p)\).
+  Certain field elements are chosen to be the \textit{basis} of \(GF(q)\) over \(GF(p)\), and all other elements are expressed as linear combinations of these basis elements.
+  More generally, elements of fields such as \(GF(p^{ml})\) can be written as \(m\)-dimensional vectors over \(GF(p^l)\) or \((m\times l)\)-dimensional matrices over \(GF(p)\). 
   This idea is used to convert between ordinary block codes and matrix-based codes.
   The field norm and field trace can likewise be defined for fields \(GF(q^m)\) that are extensions of \(GF(q)\) for non-prime \(q\).
 
