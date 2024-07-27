@@ -20,7 +20,13 @@ description: |
   This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\).
   \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(n-k\) logical qudits, with \(K=p^{n-k}\).
 
-  Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \(q\)-ary symplectic representation of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
+  \begin{defterm}{Modular symplectic representation}
+  \label{topic:modular-symplectic-representation}
+  The single modular-qudit Pauli string \(X_{a} Z_{b}\) for \(a,b\in \mathbb{Z}_q\) is converted to the vector \((a|b)\in \mathbb{Z}_q^2\).
+  The multi modular-qudit version follows naturally.
+  \end{defterm}
+
+  Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \hyperref[topic:galois-symplectic-representation]{modular symplectic representation} of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
   One can switch between stabilizer codes by appending another Abelian subgroup of the Pauli group to the stabilizer group and taking the center of the resulting larger group.
 
