@@ -33,7 +33,7 @@ features:
   decoders:
     - 'Reed decoder with \(r+1\)-step majority decoding corrects \(\frac{1}{2}(2^{m-r}-1)\) errors \cite{doi:10.1109/irepgelc.1954.6499441} (see also Ch. 13 of Ref. \cite{preset:MacSlo}).'
     - 'Sequential code-reduction decoding \cite{doi:10.1109/TIT.1973.1055023}.'
-    - 'Matrix factorization is equivalent to decoding an RM\((n,n-3)\) code \cite{doi:10.1137/0209059}; see \cite{arxiv:1606.01904}.'
+    - 'Matrix factorization can be used to decode an RM\((n,n-3)\) code \cite{doi:10.1137/0209059}; see \cite{arxiv:1606.01904}.'
 
 
 realizations:
@@ -56,7 +56,7 @@ relations:
       detail: 'RM codes are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.}}\cite[Ex. 16.4.11]{preset:HKSalgebra}. Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary Abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_2 G_m \), where \(\mathbb{F}_2=GF(2)\). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
   cousins:
     - code_id: bch
-      detail: 'RM\(^*(r,m)\) codes are equivalent to subcodes of BCH codes of designed distance \(2^{m-r}-1\) while RM\((r,m)\) are subcodes of extended BCH codes of the same designed distance \cite[Ch. 13]{preset:MacSlo}.'
+      detail: 'RM\(^*(r,m)\) codes are equivalent to subcodes of BCH codes of designed distance \(2^{m-r}-1\), while RM\((r,m)\) are subcodes of extended BCH codes of the same designed distance \cite[Ch. 13]{preset:MacSlo}.'
     - code_id: quaternary_over_z4
       detail: 'RM codes are images of linear quaternary codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{preset:HKSrings}.'
     - code_id: gray
@@ -70,7 +70,7 @@ relations:
     - code_id: binary_ltc
       detail: 'RM codes can be LTCs in the low- \cite{doi:10.1109/TIT.2005.856958,doi:10.1137/S0097539704445615} and high-error \cite{arxiv:math/0604353} regimes; see also \cite{arxiv:0910.0641}.'
     - code_id: qubits_into_qubits
-      detail: 'Optimizing T gates in a qubit circuit that uses CNOT and T gates is equivalent decoding a paricular RM code \cite{arxiv:1601.07363}.'
+      detail: 'Optimizing T gates in a qubit circuit that uses CNOT and T gates is equivalent to decoding a particular RM code \cite{arxiv:1601.07363}.'
     - code_id: orthogonal_array
       detail: 'RM codes are related to orthogonal arrays \cite[Exam. 10.57]{doi:10.1007/b97564}.'
 
