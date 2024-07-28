@@ -16,7 +16,7 @@ alternative_names:
 description: |
   Let \( G(x) \)  be a polynomial describing a projective-plane curve with coefficients from \( GF(q^m) \) for some fixed integer \(m\). Let \( L \) be a finite subset of the extension field \( GF(q^m) \)  where \(q\) is prime, meaning \( L  = \{\alpha_1, \cdots, \alpha_n\} \) is a subset of nonzero elements of \( GF(q^m) \). A Goppa code \( \Gamma(L,G) \) is an \([n,k,d]_q\) linear code consisting of all vectors \(a = a_1, \cdots, a_n\) such that \( R_a(x) =0 \) modulo \(G(x)\), where \( R_a(x) = \sum_{i=1}^n \frac{a_i}{z - \alpha_i} \).
 
-  Goppa codes are residue AG codes \cite[Thm. 15.3.28]{preset:HKSag}. Their duals are evaluation codes that are sometimes called \textit{geometric Reed Solomon codes} \cite[Thm. 2.71]{preset:HPAlgCodes}.
+  Goppa codes are residue AG codes \cite[Thm. 15.3.28]{preset:HKSag}. Their duals are evaluation codes that are sometimes called \textit{geometric RS codes} \cite[Thm. 2.71]{preset:HPAlgCodes}.
 
 protection: 'The length \( n = |L| \) , dimension \( k \geq n-mr \) where \( r = \text{deg} G(x) \), and the minimum distance \( d \geq r +1 \).'
 
@@ -24,7 +24,7 @@ features:
   decoders:
     - 'Algebraic decoding algorithms \cite{doi:10.1109/TIT.1975.1055350}. If \( \text{deg} G(x) = 2t \) , then there exists a \(t\)-correcting algebraic decoding algorithm for \( \Gamma(L,G) \).'
     - 'Sugiyama et al. modification of the extended Euclidean algorithm \cite{doi:10.1016/S0019-9958(75)90090-X,doi:10.1017/CBO9780511606267}.'
-    - 'Binary Goppa codes can be decoded using a RS-based decoder \cite{manual:{Daniel J. Bernstein, "Understanding binary-Goppa decoding." Cryptology ePrint Archive (2022).}}.'
+    - 'Binary Goppa codes can be decoded using an RS-based decoder \cite{manual:{Daniel J. Bernstein, "Understanding binary-Goppa decoding." Cryptology ePrint Archive (2022).}}.'
     - 'List decoder for binary Goppa codes \cite{doi:10.1109/TIT.2013.2243800}.'
 
 realizations:
