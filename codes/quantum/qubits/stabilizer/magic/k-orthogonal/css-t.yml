@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: css-t
+physical: qubits
+logical: qubits
+
+name: 'CSS-T code'
+introduced: '\cite{arxiv:2001.04887}'
+
+description: |
+  A CSS code for which a physical transversal \(T\) gate is either the identity (up to a global phase) or a logical gate when projected into the code space.
+  CSS-T codes are constructed from a pair of linear binary codes via the CSS construction, with the pair satisfying certain conditions \cite{arxiv:2312.17518}.
+
+features:
+  transversal_gates:
+    - 'A physical transversal \(T\) gate is either the identity (up to a global phase) or a logical gate when projected into the code space \cite{arxiv:1910.09333}.'
+    - 'Triorthogonality is necessary for physical \(T\) gates on each qubit to realize the identity logical gate \cite[Thm. 12]{arxiv:1910.09333}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+  cousins:
+    - code_id: linear_binary
+      detail: 'CSS-T codes are constructed from a pair of linear binary codes via the CSS construction, with the pair satisfying certain conditions \cite{arxiv:2312.17518}.'
+    - code_id: binary_cyclic
+      detail: 'Binary cyclic and extended cyclic codes can be used to construct CSS-T codes via the CSS construction \cite{arxiv:2312.17518}.'
+    - code_id: quantum_reed_muller
+      detail: 'Certain quantum RM codes are CSS-T codes \cite{arxiv:2305.06423,arxiv:2310.16504,arxiv:2312.17518}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-28'
+    - user_id: NarayananRengaswamy
+      date: '2024-07-28'

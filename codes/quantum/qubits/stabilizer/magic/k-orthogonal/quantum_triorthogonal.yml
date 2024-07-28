@@ -11,6 +11,8 @@ name: 'Triorthogonal code'
 introduced: '\cite{arxiv:1209.2426}'
 
 description: |
+  Qubit CSS code whose \(X\)-type logicals and generators form a triorthogonal matrix (defined below) in the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.
+
   An \(m \times n\) binary matrix is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\), where addition and multiplication are done on \(GF(2)\).
   The triorthogonal CSS code associated with the matrix is constructed by mapping non-zero entries in even-weight rows to \(X\) operators, and \(Z\) operators for each row in the orthogonal complement.
 
@@ -25,9 +27,9 @@ features:
 
   transversal_gates:
     - 'Admits transversal \(T\) gates \cite{arxiv:1209.2426} and controlled-controlled-\(Z\) gate \cite{arxiv:1304.3709}.
-    The \(T\) gates are realized via physical \(T\) gates on each qubit; this is an if-and-only-if condition \cite{arxiv:1910.09333}.
+    The \(T\) gates are realized via physical \(T\) gates on each qubit; this is an if-and-only-if condition for CSS codes \cite{arxiv:1910.09333}.
     The CCZ gates are realized via physical CCZ gates on three code blocks.'
-    - 'Triorthogonality is necessary for physical \(T\) gates on each qubit to realize the identity logical gate \cite[Thm. 12]{arxiv:1910.09333}.'
+    - 'Triorthogonality is necessary for physical transversal \(T\) gates on each qubit to realize the identity logical gate \cite[Thm. 12]{arxiv:1910.09333}.'
 
   fault_tolerance:
     - 'Universal fault-tolerant gates can be performed without magic-state distillation \cite{arxiv:1304.3709,arxiv:2210.14074}.'
@@ -37,6 +39,8 @@ notes:
 
 relations:
   parents:
+    - code_id: css-t
+      detail: 'CSS-T codes reduce to triorthogonal codes when the logical action of the physical transversal \(T\) gate is a logical \(T\) gate on all encoded qubits. Triorthogonality is necessary for physical transversal \(T\) gates on each qubit to realize the identity logical gate \cite[Thm. 12]{arxiv:1910.09333}. The \(X\)-type stabilizer generator matrix for a CSS-T code is always triorthogonal \cite[Corr. 5{arxiv:2312.17518}.'
     - code_id: quantum_k-orthogonal
       detail: '\(k\)-orthogonal codes reduce to triorthogonal codes for \(k=3\).'
     - code_id: qudit_triorthogonal
