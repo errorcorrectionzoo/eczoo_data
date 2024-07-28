@@ -36,6 +36,8 @@ protection: |
   \end{align}
   where \(\text{tr}\) is the \hyperref[topic:finite-fields]{field trace}.
   For multiple Galois qudits, error set elements are tensor products of elements of the single-qudit error set.
+  Tensor products of \(X\) (\(Z\)) Galois-qudit Paulis acting on different qudits are called \(X\)\textit{-type} (\(Z\)\textit{-type}) Galois-qudit Pauli strings.
+  Combining the \(X\)-type and \(Z\)-type strings with a \(p\)th root of unity forms a group called the \textit{Galois-qudit Pauli group} (on \(n\) Galois qudits.
   \end{defterm}
 
   The Galois-qudit Pauli error set is a unitary basis for linear operators on the multi-qudit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a \hyperref[topic:nice-error-basis]{nice error basis}. The distance associated with this set is often the minimum weight of a Galois qudit Pauli string that implements a nontrivial logical operation in the code.
@@ -60,7 +62,7 @@ protection: |
 
 features:
   general_gates:
-    - 'The normalizer of the Galois-qudit Pauli group is the Galois-qudit Clifford group \cite{arxiv:quant-ph/0211014}.'
+    - 'The normalizer of the \hyperref[topic:galois-pauli]{Galois-qudit Pauli group}  is the Galois-qudit Clifford group \cite{arxiv:quant-ph/0211014}.'
   decoders:
     - 'For few-qudit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood} (ML) decoder.'
 

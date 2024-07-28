@@ -15,7 +15,7 @@ introduced: '\cite{arxiv:2310.10278}'
 description: |
   Encodes quantum information in a (logical, \(k\)-qubit) subspace \(\mathsf{C}\) of a (physical, \(n\)-qubit) Hilbert space \(\mathsf{H}\) such that recovery is possible from a set of physical errors occurring \textit{up to} a pre-specified (smaller, but non-empty) admissible set of logical errors.
   This is relevant to, e.g., simulation of noisy systems.
-  Most QETCs are stabilizer codes: \(\mathsf{C}\) is the subspace stabilised by an abelian subgroup \(\mathsf{S} \subset \mathcal{G}_n\) of the Pauli group on \(n\) qubits.
+  Most QETCs are stabilizer codes: \(\mathsf{C}\) is the subspace stabilised by an abelian subgroup \(\mathsf{S} \subset \mathcal{G}_n\) of the \hyperref[topic:pauli]{Pauli group} on \(n\) qubits.
 
 
 protection: |
@@ -27,7 +27,7 @@ protection: |
   \begin{align}
           \mathcal{G}_k \xrightarrow[]{\mathcal{A}} \mathsf{N(S)}/\mathsf{S}
   \end{align}
-  is a choice of isomorphism, \textit{i.e.} an identification of the logical Pauli group with elements of the physical Pauli group. \(\mathsf{N(S)}\) denotes the normaliser of \(\mathsf{S}\) in \(\mathcal{G}_n\).
+  is a choice of isomorphism, \textit{i.e.} an identification of the logical \hyperref[topic:pauli]{Pauli group} with elements of the physical \hyperref[topic:pauli]{Pauli group}. \(\mathsf{N(S)}\) denotes the normaliser of \(\mathsf{S}\) in \(\mathcal{G}_n\).
 
   Equivalently, this can be rephrased in terms of a generalization of the \term{Knill-Laflamme conditions} for error-correction.
   Label the cosets of \(\mathsf{N(S)}\) in \(\mathcal{G}_n\) by \(\mathfrak{n}\), and the physical errors in a given coset by \(E_{\mathfrak{n}} := \{E_{\mathfrak{n},i}\}\). Then \(\mathsf{C}\) is a QETC for a pair \(\{E, \overline{M}\}\) if and only if there exists an isomorphism \(\mathcal{A}: \overline{\mathcal{G}}_k \rightarrow \mathsf{N(S)}/\mathsf{S}\), such that for each \(\mathfrak{n}\) there exists a map:
@@ -49,7 +49,7 @@ relations:
     - code_id: quantum_into_quantum
   cousins:
     - code_id: qubit_stabilizer
-      detail: 'Most QETCs are stabilizer codes: \(\mathsf{C}\) is the subspace stabilised by an abelian subgroup \(\mathsf{S} \subset \mathcal{G}_n\) of the Pauli group on \(n\) qubits.'
+      detail: 'Most QETCs are stabilizer codes: \(\mathsf{C}\) is the subspace stabilised by an abelian subgroup \(\mathsf{S} \subset \mathcal{G}_n\) of the \hyperref[topic:pauli]{Pauli group} on \(n\) qubits.'
     - code_id: qecc
       detail: 'QETCs are quantum codes which satisfy a generalization of the \term{Knill-Laflamme conditions}. QETCs for which the admissible logical error set consists solely of the identity are QECCs.'
     - code_id: oecc

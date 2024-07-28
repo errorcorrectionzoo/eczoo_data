@@ -19,7 +19,7 @@ description: |
   Subsystem codes are denoted by \([[n,k,r,d]]\), similar to stabilizer codes, but with an extra parameter \(r\) denoting the number of gauge qubits.
 
   To create these codes proceed as follows.
-  Choose \(2n\) operators \(\{ \tilde{X}_j,\tilde{Z}_j\}_{j=1}^n\) from \(\mathsf{P}_n\), the Pauli group on \(n\) qubits, such that they obey the same commutation relations as the regular \(n\)-qubit Pauli generators \( \{X_j,Z_j\}_{j=1}^n \) (the subscript on these latter operators indicates the single qubit the Pauli matrix acts on).
+  Choose \(2n\) operators \(\{ \tilde{X}_j,\tilde{Z}_j\}_{j=1}^n\) from \(\mathsf{P}_n\), the \hyperref[topic:pauli]{Pauli group} on \(n\) qubits, such that they obey the same commutation relations as the regular \(n\)-qubit Pauli generators \( \{X_j,Z_j\}_{j=1}^n \) (the subscript on these latter operators indicates the single qubit the Pauli matrix acts on).
   The tilde operators might act on more than one physical (or \textit{bare}) qubit but they behave as if they acted only on a single qubit.
   WLOG we can choose a stabilizer group as \( \mathsf{S} = \langle Z_1,\dots,Z_s \rangle \). It follows that the normalizer of \(\mathsf{S} \) is \( N(\mathsf{S}) = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_n, \tilde{X}_{s+1},\dots, \tilde{X}_n \rangle \).
   We now choose a gauge group as \( \mathsf{G} = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_s, \tilde{X}_{s+1}, \tilde{Z}_{s+1}, \dots, \tilde{X}_{s+r}, \tilde{Z}_{s+r} \rangle \) with \( s + r \leq n \).

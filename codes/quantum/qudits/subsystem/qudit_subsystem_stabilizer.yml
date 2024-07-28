@@ -18,7 +18,7 @@ description: |
   Can be obtained by taking a modular qudit stabilizer code and assigning some of its logical qubits to be gauge qubits.
   For composite qudit dimensions, such codes need not encode an integer number of qudits.
 
-  Subsystem stabilizer codes are defined by a gauge group \(\mathsf{G}\) and a stabilizer group \(\mathsf{S}\), both subgroups of the \(n\)-qudit Pauli group \(\mathsf{P}_n\) that satisfy \(\mathsf{Z}(\mathsf{G})=\mathsf{S}\), where \(\mathsf{Z}\) denotes taking the center of a group.
+  Subsystem stabilizer codes are defined by a gauge group \(\mathsf{G}\) and a stabilizer group \(\mathsf{S}\), both subgroups of the \(n\)-\hyperref[topic:qudit-pauli]{modular-qudit Pauli group} \(\mathsf{P}_n\) that satisfy \(\mathsf{Z}(\mathsf{G})=\mathsf{S}\), where \(\mathsf{Z}\) denotes taking the center of a group.
 
   A code can be constructed by starting with either group.
   Given an \(\mathsf{S}\), one can pick any \(\mathsf{G}\) satisfying \(\mathsf{S}\subseteq\mathsf{G}\subseteq\mathsf{N(S)}\), where \(\mathsf{N(S)}\) is the normalizer of the stabilizer group within \(\mathsf{P}_n\).
@@ -42,7 +42,7 @@ description: |
   Gauge fixing can be used to switch between different stabilizer codes that yield different gauge sets in a process known as \textit{gauge switching}.
   Gauge fixing also encompasses lattice surgery and code deformation \cite{arxiv:1810.10037}.
 
-  One can also gauge out a subgroup \(\mathsf{F}\) of the Pauli group by adding it to the gauge group.
+  One can also gauge out a subgroup \(\mathsf{F}\) of the \hyperref[topic:qudit-pauli]{modular-qudit Pauli group} by adding it to the gauge group.
   \begin{defterm}{Gauging out}
   \label{topic:gauging-out}
   Gauging out is a map between subsystem codes that is done using a subgroup \(\mathsf{F}\subseteq\mathsf{P}_n\),
@@ -54,7 +54,7 @@ description: |
   \end{align}
   The stabilizer group of the output subsystem code is a subgroup of that of the input code, \(\mathsf{Z}\left(\left\langle \mathsf{G},\mathsf{F}\right\rangle \right)\subseteq\mathsf{Z}\left(\mathsf{G}\right)\).
   When \(\mathsf{F}\) is a subgroup of the logical Pauli group, this is also called \textit{gauging}.
-  If \(\mathsf{F}\) is itself a Pauli group of \(m\) logical qubits of the original subsystem code, then gauging out those qubits is equivalent to treating them as gauge qubits.
+  If \(\mathsf{F}\) is itself a Pauli group of \(m\) logical qudits of the original subsystem code, then gauging out those qudits is equivalent to treating them as gauge qubits.
   Gauging out should not be confused with \textit{gauging} (or ungauging) symmetries \cite{arxiv:1202.3120,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679}, a different process rooted in gauge theory which can be done to stabilizer or subsystem codes and which can change \(n\).
   \end{defterm}
 
