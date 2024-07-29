@@ -21,15 +21,12 @@ description: |
 protection: 'Weight \(t\) Pauli errors, where \(t\) depends on the family. For example, Ref. \cite{arxiv:1209.2426} provides a family of distance \(2\) codes.'
 
 features:
-
   encoders:
     - 'Encoder for magic states for the code constructed in \cite{arxiv:1209.2426}.'
 
   transversal_gates:
-    - 'Admits transversal \(T\) gates \cite{arxiv:1209.2426} and controlled-controlled-\(Z\) gate \cite{arxiv:1304.3709}.
-    The \(T\) gates are realized via physical \(T\) gates on each qubit; this is an if-and-only-if condition for CSS codes \cite{arxiv:1910.09333}.
-    The CCZ gates are realized via physical CCZ gates on three code blocks.'
-    - 'Triorthogonality is necessary for physical transversal \(T\) gates on each qubit to realize the identity logical gate \cite[Thm. 12]{arxiv:1910.09333}.'
+    - 'Triorthogonality is necessary for physical transversal \(T\) gates on each qubit to realize the identity logical gate \cite[Thm. 12]{arxiv:1910.09333}. It is not sufficient, however, and transversal \(T\) gates realize transversal logical \(T\) gates when an additional condition on logical-\(X\) operators is satisfied \cite[Thm. 14]{arxiv:1910.09333}.'
+    - 'Certain codes realize controlled-controlled-\(Z\) gates \cite{arxiv:1304.3709}, realized via physical CCZ gates on three code blocks.'
 
   fault_tolerance:
     - 'Universal fault-tolerant gates can be performed without magic-state distillation \cite{arxiv:1304.3709,arxiv:2210.14074}.'
@@ -54,6 +51,12 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-29'
+    - user_id: ShubhamPJain
+      date: '2024-07-29'
+    - user_id: NarayananRengaswamy
+      date: '2024-07-29'
     - user_id: VictorVAlbert
       date: '2021-12-16'
     - user_id: BenjaminQuiring
