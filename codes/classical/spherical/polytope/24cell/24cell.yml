@@ -14,7 +14,7 @@ description: |
   Codewords form the minimal lattice-shell code of the \(D_4\) lattice.
 
   A realization of the codewords consists of the 24 permutations of the four vectors \((0,0,\pm 1,\pm 1)\); see \cite[Table 3]{doi:10.3390/sym2031423} for another realization.
-  A realization in terms of quaternions yields the 24 elements of the binary tetrahedral group \(2T\) \cite{arxiv:2205.04965}.
+  A realization in terms of quaternion coordinates yields the 24 elements of the binary tetrahedral group \(2T\) \cite{arxiv:2205.04965}.
   \begin{figure}
     \includegraphics{24cell.svg}
     \caption{Projection of the coordinates of the 24-cell.}
@@ -32,15 +32,17 @@ relations:
   parents:
     - code_id: dual_polytope
       detail: 'The 24-cell is self-dual.'
-    - code_id: 600cell
-      detail: 'Vertices of a 600-cell can be split up into vertices of five 24-cells \cite{manual:{Schoute, P. H. (1903). Mehrdimensionale Geometrie, Vol. 2 (Die Polytope).},preset:coxeter,arxiv:0911.2289}.'
-    - code_id: disphenoidal288cell
-      detail: 'Vertices of a disphenoidal 288-cell can be split up into vertices of a 24-cell and its dual 24-cell \cite[Sec. 8.6]{arxiv:2205.04965}.'
     - code_id: sidelnikov
       detail: 'The 24-cell code is equivalent to the real Clifford subgroup-orbit code for \(n=4\).'
     - code_id: spherical_design
       detail: 'The 24-cell code is a spherical 5-design \cite{arxiv:math/0607447}.'
   cousins:
+    - code_id: 600cell
+      detail: 'Vertices of a 600-cell can be split up into vertices of five 24-cells \cite{manual:{Schoute, P. H. (1903). Mehrdimensionale Geometrie, Vol. 2 (Die Polytope).},preset:coxeter,arxiv:0911.2289}.'
+    - code_id: 120cell
+      detail: 'Vertices of a 120-cell can be split up into vertices of five 600-cells \cite{preset:coxeter,arxiv:1309.7530}, and vertices of a 600-cell can be split up into vertices of five 24-cells \cite{manual:{Schoute, P. H. (1903). Mehrdimensionale Geometrie, Vol. 2 (Die Polytope).},preset:coxeter,arxiv:0911.2289}. Therefore, vertices of a 120-cell can be split up into vertices of 25 24-cells.'
+    - code_id: disphenoidal288cell
+      detail: 'Vertices of a disphenoidal 288-cell can be split up into vertices of a 24-cell and its dual 24-cell \cite[Sec. 8.6]{arxiv:2205.04965}.'
     - code_id: univ_opt_spherical
       detail: 'The 24-cell code is not universally optimal \cite{arxiv:math/0607447}, but comes quite close \cite[Ex. 12.4.29]{preset:HKSbounds}.'
 
