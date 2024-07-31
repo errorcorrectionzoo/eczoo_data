@@ -42,23 +42,6 @@ protection: |
 
   The Galois-qudit Pauli error set is a unitary basis for linear operators on the multi-qudit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a \hyperref[topic:nice-error-basis]{nice error basis}. The distance associated with this set is often the minimum weight of a Galois qudit Pauli string that implements a nontrivial logical operation in the code.
 
-  \subsection{Bounds on code parameters}
-  Bounds on code performance include the quantum Singleton bound, quantum Hamming bound, \hyperref[topic:quantum-gv-bound]{quantum GV bound}, various quantum linear programming (LP) bounds \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049} (see the book \cite{preset:GottesmanBook}), and other bounds \cite{doi:10.1109/TIT.2005.862086}.
-  A code whose parameters attain the quantum Hamming bound (quantum Singleton bound) is called a perfect quantum code (a quantum MDS code).
-
-  \begin{defterm}{Quantum GV bound}
-  \label{topic:quantum-gv-bound}
-  The \hyperref[topic:quantum-gv-bound]{quantum GV bound} \cite{doi:10.1109/TIT.2004.838088} (see also Refs. \cite{arxiv:quant-ph/9602022,arxiv:quant-ph/9906131,doi:10.1109/18.959288,doi:10.1016/j.jmaa.2007.08.023}) for Galois qudits states that a \hyperref[topic:quantum-weight-enumerator]{pure} \([[n,k,d]]_q\) Galois-qudit stabilizer code exists if 
-  \begin{align}
-    \frac{q^{n-k+2}-1}{q^{2}-1}>\sum_{j=1}^{d-1}(q^{2}-1)^{j-1}\binom{n}{j}~.
-  \end{align}
-  The quantum GV bound gives rise to the \textit{asymptotic quantum GV bound} (i.e., quantum GV bound in the \(n\to\infty\) limit), expressed in terms of the maximum achievable rate \(R\) and relative distance \(\delta\),
-  \begin{align}
-    R\geq 1-\delta\log_q(q+1) - h_{q}(\delta)~,
-  \end{align}
-  where \(h_q\) is the \hyperref[topic:gv-bound]{\(q\)-ary entropy function}.
-  \end{defterm}
-
 
 features:
   general_gates:
