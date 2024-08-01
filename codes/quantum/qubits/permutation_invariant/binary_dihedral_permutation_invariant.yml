@@ -15,10 +15,11 @@ description: |
   Can also be interpreted as a single-spin code.
   The codespace projection is a projection onto an irrep of the \textit{binary dihedral group} \( \mathsf{BD}_{2N} = \langle\omega I, X, P\rangle \) of order \(8N\), where \( \omega \) is a \( 2N \)th root of unity, and \( P = \text{diag} ( 1, \omega^2) \).
 
-  The construction includes three families.
+  The construction includes three families and a handful of particular codes.
   The first family has parameters \(((2m+3,2,3))\) for \(m\) not a power of two, realizing binary dihedral transversal gates that are not possible to realize in any qubit stabilizer code \cite[Prop. 1]{arxiv:2310.17652}.
   The second family is the case of \(m\) being a power of two, corresponding to \(((2^{m-1}+3,2,3))\) codes, each realizing a member of the \term{Clifford hierarchy} transversally.
   The third family consists of \(((n,2,d))\) codes with \(n = \frac{1}{4}(3d^2+6d-7+2(d\text{ mod }8))\), realizing \(S\) and \(T\) gates transversally.
+  The handful of codes have distance 5 (7, 9, 11, 13) and encode in 27 (49, 73, 107, 147) qubits, all realizing transversal \(T\) gates.
 
 features:
   transversal_gates:
@@ -43,6 +44,8 @@ relations:
       detail: 'The \(((27,2,5))\) binary dihedral PI code realizes the \(T\) gate transversally, but requires fewer qubits than the \([[49,1,5]]\) triorthogonal code.'
     - code_id: stab_15_1_3
       detail: 'The \(((11,2,3))\) binary dihedral PI code realizes the \(T\) gate transversally, but requires fewer qubits than the \([[15,1,3]]\) quantum Reed-Muller code.'
+    - code_id: quantum_triorthogonal
+      detail: 'There exist binary dihedral PI codes that have distance 5 (7, 9, 11, 13) and encode in 27 (49, 73, 107, 147) qubits, all realizing transversal \(T\) gates.'
 
 
 # Begin Entry Meta Information
