@@ -39,7 +39,7 @@ protection: |
   There is a general upper bound on the relaxation rate of a qubit stabilizer or qubit subsystem stabilizer quantum memory interacting with a Markovian environment \cite{arxiv:0907.2807}.
 
   An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858,arxiv:1601.01324,arxiv:2107.01628}.
-  Two-dimensional stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have admit such a barrier.
+  2D stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have an energy barrier.
   No-go theorems for 3D models are much more restrictive, e.g., a 3D lattice stabilizer code with a locality-preserving non-Clifford gate cannot have a microscopic energy barrier \cite{arxiv:1408.1720}.
   There exist several candidates for self-correction as well as several partially self-correcting memories (see cousins below).
 
@@ -52,6 +52,8 @@ relations:
     - code_id: symmetry_protected_self_correct
       detail: 'A self-correcting quantum memory does not require symmetry for self correction.'
   cousins:
+    - code_id: 2d_stabilizer
+      detail: '2D stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have an energy barrier.'
     - code_id: 3d_stabilizer
       detail: '3D translationally-invariant qubit stabilizer code families with constant \(k\) support logical string operators and thus cannot be self-correcting \cite{arxiv:1103.1885}. For non-constant \(k\), such families can support at most a logarithmic energy barrier \cite{arxiv:1101.1962}.'
     - code_id: 3d_surface
@@ -71,6 +73,8 @@ relations:
       detail: 'Constant-rate random (quantum) expander codes are self-correcting (quantum) memories, but have no thermodynamic phase transitions \cite{arxiv:2403.10599}.'
     - code_id: quantum_expander
       detail: 'Constant-rate random (quantum) expander codes are self-correcting (quantum) memories, but have no thermodynamic phase transitions \cite{arxiv:2403.10599}.'
+    - code_id: hypergraph_product
+      detail: 'There are bounds on the energy barrier of hypergraph product codes \cite{arxiv:2407.20526}.'
 
 
 #Cubic codes were discovered during a search for 3D encodings with no logical string operators, a likely necessary condition for a self-correcting quantum memory.
