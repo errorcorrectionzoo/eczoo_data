@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: berlekamp
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Berlekamp code'
+introduced: '\cite[Ch. 9]{doi:10.1142/9407}'
+
+description: |
+  A linear \(p\)-ary code that has Lee distance 5 and whose construction resembles that of RS codes.
+  It is obtained by first constructing an RS-like parity-check matrix out of a certain \hyperref[topic:finite-fields]{field extension} of \(GF(p)\) and then taking the \hyperref[topic:finite-fields]{subfield} subcode of the corresponding code; see \cite[Ch. 10.6]{doi:10.1017/CBO9780511808968}.
+
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: constacyclic
+      detail: 'Berlekamp codes are negacyclic \cite[Ch. 9]{doi:10.1142/9407}.'
+  cousins:
+    - code_id: alternant
+      detail: 'Berlekamp codes reduce to narrow-sense alternant codes for \(p=2\) \cite[Ch. 10.6]{doi:10.1017/CBO9780511808968}.'
+    - code_id: reed_solomon
+      detail: 'Berlekamp codes are obtained by first constructing an RS-like parity-check matrix out of a certain \hyperref[topic:finite-fields]{field extension} of \(GF(p)\) and then taking the \hyperref[topic:finite-fields]{subfield} subcode of the corresponding code; see \cite[Ch. 10.6]{doi:10.1017/CBO9780511808968}..'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-09'

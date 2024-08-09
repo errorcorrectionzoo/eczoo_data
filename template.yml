@@ -41,33 +41,33 @@ description: |
 
 
 
-# Long fields such as this one can be written in other YML formats, such as the one using the pipe symbol
+# Long keys such as this one can be written in other YML formats, such as the one using the pipe symbol
 # protection: |
 #   text...
 #   more text...
 protection: 'Protects against ... Pauli noise. Approximate code with parameters ... for noise model ... .'
 
-# This field starts a list of specific labeled subfields; do not leave it
+# This key starts a list of specific labeled subkeys; do not leave it
 # empty. If empty, comment out. Also, indentations are important!
 features:
 
   # The fields below relate to specific properties of the code that are worth
   # noting. In some cases (see below), there might be multiple pieces of
-  # information associated with a field (e.g., mutliple encoders/decoders,
-  # multiple facts about fault tolerance, etc.); in such cases, the field
+  # information associated with a key (e.g., mutliple encoders/decoders,
+  # multiple facts about fault tolerance, etc.); in such cases, the key
   # accepts a list of text entries, with one item per piece of information.
   #
-  # Any fields below should be omitted if they do not apply.
+  # Any keys below should be omitted if they do not apply.
 
   rate: 'k/n, usually listed for a family of codes, but can be notable for a single one. Discussed alongside other parameters such as check operator weight, distance, etc.'
 
-  # This field that starts a list of strings, indexed by a dash and a space; do not leave it
+  # This key that starts a list of strings, indexed by a dash and a space; do not leave it
   # empty. If empty, comment out.
   encoders:
     - 'Specific description of a process that makes the states, usually for quantum codes.'
     - 'Unitary circuit of depth ... \cite{arxiv:old-paper}.'
     - 'Measurement-based preparation ... with ancilla overhead of ... .'
-    - 'Leave discussion of fault tolerance to fault-tolerance field.'
+    - 'Leave discussion of fault tolerance to fault-tolerance key.'
 
   transversal_gates:
     - 'Transversal ... gates \cite{doi:ok-paper}. Comment out if doesn''t apply.'
@@ -98,8 +98,8 @@ features:
     - '\(4.5\%\) asymptotic lower bound on fault-tolerant threshold with ... noise, ... overhead, and ... complexity.'
     - '\(6.7\%\) threshold using magic-state distillation protocols assuming ... Clifford gates.'
 
-  # Propose a field that you feel is applicable to a large and interesting class of codes
-  #some_other_field:
+  # Propose a key that you feel is applicable to a large and interesting class of codes
+  #some_other_key:
   # - 'detail'
 
 realizations:
@@ -114,7 +114,7 @@ notes:
   - 'Bounds on \(n\), \(k\), or \(d\) for this class, unless mentioned in desciption.'
   - 'Links to code tables, github, GAP algebra packages, more papers \cite{arxiv:####.#####}.'
   - 'Connections to physics; based on \(H^4(\mathcal{BG},\mathbb{Z})\)'
-  - 'Can reference other codes, but try to put such connections in the relations fields below.'
+  - 'Can reference other codes, but try to put such connections in the relations keys below.'
   - 'Anything noteworthy that''s not above or below.'
 
 relations:
