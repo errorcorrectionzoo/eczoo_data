@@ -8,7 +8,16 @@ code_id: quantum_cyclic
 name: 'Cyclic quantum code'
 introduced: '\cite{arxiv:1007.1697}'
 
-description: 'A block quantum code such that cyclic permutations of the subsystems leave the codespace invariant. In other words, the automorphism group of the code contains the cyclic group \(\mathbb{Z}_n\).'
+description: |
+  A block quantum code such that cyclic permutations of the subsystems leave the codespace invariant. In other words, the automorphism group of the code contains the cyclic group \(\mathbb{Z}_n\).
+
+  An example \([[17,9,4]]\) cyclic Hermitian qubit code
+  is spanned by cyclic shifts of the Pauli operators
+  \(XXYIXYZZYXIYXXIII\) and \(ZZXIZXYYXZIXZZIII\).
+  An example \([[17,1,7]]\) Hermitian qubit code 
+  is spanned by cyclic shifts of the Pauli operators
+  \(XYYIZZIYYXIIIIIII\) and \(ZXXIYYIXXZIIIIIII\).
+
 #'Define a shift operator, \(\mathcal{N}\), such that \(\mathcal{N}\ket{x_1 x_2 \dots x_n}=\ket{x_n x_1 \dots x_{n-1}}\). A quantum code \(C\) on \(n\) subsystems is a quantum cyclic code if for every codeword \(\ket{\psi}\in C\), the cyclically shifted vector \(\mathcal{N}\ket{\psi}\in C\).'
 
 protection: 'Cyclic symmetry guarantees that if a single subsystem is protected against some noise, then all other subsystems are also.'
@@ -31,6 +40,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: SimonBurton
+      date: '2024-08-12'
+    - user_id: VictorVAlbert
+      date: '2024-08-12'
     - user_id: VictorVAlbert
       date: '2021-12-16'
     - user_id: NolanCoble
