@@ -27,7 +27,7 @@ features:
   rate: 'Random linear fountain codes approach the Shannon limit as the file size \(K\) increases. However, they do not have a fixed encoding rate.'
 
   decoders:
-    - 'Invert the fragment generator matrix resulting from the continuous encoding process. If exactly \(K\) packets are received, then the probability of decoding correctly is \(0.289\). Extra packets increase this probability exponentially. The decoding runtime is dominated by the matrix inversion step, which takes order \(O(n^3)\) time.'
+    - 'Invert the fragment generator matrix resulting from the continuous encoding process. If exactly \(K\) packets are received, then the probability of decoding correctly is \(0.289\). Extra packets increase this probability exponentially. The decoding runtime is dominated by the matrix inversion step, which takes \hyperref[topic:asymptotics]{order} \(O(n^3)\) time.'
 
 realizations:
   - 'Designed for servers sending data to many recipients, such as during broadcasting or file distribution \cite{doi:10.1109/TIT.2006.874390,doi:10.1109/MASS.2012.6502540}.'

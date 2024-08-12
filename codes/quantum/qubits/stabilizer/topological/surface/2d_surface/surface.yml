@@ -81,16 +81,16 @@ features:
 
   decoders:
     - 'Using data from multiple syndrome measurements prior to decoding allows for correcting syndrome measurement errors.
-    The surface code requires order \(O(d)\) extraction rounds in order to gain a reliable estimate.
+    The surface code requires \hyperref[topic:asymptotics]{order} \(O(d)\) extraction rounds in order to gain a reliable estimate.
     Syndrome measurements are distance-preserving because syndrome extraction circuits can be designed to avoid hook errors \cite{arxiv:quant-ph/0110143}.'
     - 'Expanding diamonds decoder correcting errors of some maximum fractal dimension \cite{manual:{Andrew Landahl, private communication, 2023}}.
     The sub-threshold failure probability scales as \((p/p_{\text{th}})^{d^\beta}\), where \(p_{\text{th}}\) is the threshold and \(\beta = \log_3 2\).'
     - 'Minimum weight perfect-matching (MWPM) \cite{arxiv:quant-ph/0110143,arxiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}), which takes time up to polynomial in \(n\) for the surface code.
     For the case of the surface code, minimum-weight decoding reduces to MWPM \cite{arxiv:quant-ph/0110143,doi:10.4153/CJM-1965-045-4,doi:10.1088/0305-4470/15/2/033}. MWPM solves the MPE decoding problem exactly for independent \(X\) and \(Z\) noise. MPE decoding is \(NP\)-hard in general for the surface code \cite{arxiv:2309.10331}.'
-    - 'Bravyi-Suchara-Vargo (BSV) tensor network decoder \cite{arxiv:1405.4883} approximately solves the ML decoding problem under independent \(X,Z\) noise for the surface code and takes time of order \(O(n^2)\) \cite{arxiv:1405.4883}.
+    - 'Bravyi-Suchara-Vargo (BSV) tensor network decoder \cite{arxiv:1405.4883} approximately solves the ML decoding problem under independent \(X,Z\) noise for the surface code and takes time of \hyperref[topic:asymptotics]{order} \(O(n^2)\) \cite{arxiv:1405.4883}.
     ML decoding \cite{arxiv:quant-ph/0110143} is \(\#P\)-hard in general for the surface code \cite{arxiv:2309.10331}.'
     - 'Union-find decoder \cite{arxiv:1709.06218} uses the \textit{union-find data structure} \cite{doi:10.1145/364099.364331,doi:10.1137/0202024,doi:10.1145/62.2160}, solving the MPE decoding problem exactly for low-weight errors under depolarizing noise. A subsequent modification utilizes the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}. Belief union find is a combination of belief-propagation and union-find \cite{arxiv:2203.04948}.
-    Strictly local (as opposed to partially local) union find \cite{arxiv:2305.18534} has a worst-case runtime of order \(O(d^3)\) in the distance \(d\).'
+    Strictly local (as opposed to partially local) union find \cite{arxiv:2305.18534} has a worst-case runtime of \hyperref[topic:asymptotics]{order} \(O(d^3)\) in the distance \(d\).'
     - 'Modified MWPM decoders: pipeline MWPM (accounting for correlations between events) \cite{arxiv:1310.0863,arxiv:2205.09828}; modification tailored to asymmetric noise \cite{arxiv:1812.01505}; parity blossom MWPM and fusion blossom MWPM \cite{arxiv:2305.08307}, a modification utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}; belief perfect matching (a combination of belief-propagation and MWPM) \cite{arxiv:2203.04948}; spanning tree matching (STM) and rapid-fire (RFire) decoders \cite{arxiv:2405.01151}; ordered decoding based on MWPM \cite{arxiv:2408.01393}.
     Combinining, or \textit{harmonizing}, various decoders can improve performance \cite{arxiv:2401.12434}.'
     - 'Renormalization group (RG) \cite{arxiv:0911.0581,arxiv:1304.6100,arxiv:1411.3028}; see Ref. \cite{arxiv:1310.2393} for the planar surface code.'

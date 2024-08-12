@@ -17,6 +17,27 @@ description: |
 
   An alternative more stringent definition (not used here) is in terms of a map encoding logical information from \(\Sigma^k\) into \(\Sigma^n\), yielding an \((n,k,d)_{\Sigma}\) block code, where \(d\) is the code distance.
 
+  \begin{defterm}{Asymptotic notation}
+  \label{topic:asymptotics}
+  We are often interested in how parameters of particular infinite block-code families scale with increasing block length \(n\), necessitating the use of asymptotic or Bachmann–Landau notation. The table below summarizes the notation used throughout the EC Zoo for relating functions \(f,g\) that both grow with \(n\).
+  \begin{table}
+    \begin{cells}
+    \celldata<c H, c H>{relation & behavior}
+    \celldata<c, c>{
+    \(f(n)=O(g(n))\) & \(\phantom{c_{2}\geq}{\displaystyle \underset{n\to\infty}{\lim}\frac{|f(n)|}{|g(n)|}}\leq c\)
+        \\
+    \(f(n)=\Omega(g(n))\) & \(0<{\displaystyle \underset{n\to\infty}{\lim}\frac{|f(n)|}{|g(n)|}}\phantom{\leq c_{2}}\)
+        \\
+    \(f(n)=\Theta(g(n))\) & \(c_{1}\leq{\displaystyle \underset{n\to\infty}{\lim}\frac{|f(n)|}{|g(n)|}}\leq c_{2}\)
+    }
+    \end{cells}
+    \caption{Asymptotic notation relating functions \(f,g\) that both grow with system size \(n\); \(c,c_1,c_2\) are positive \(n\)-independent constants. In some cases, \(\lim\) should be replaced with \(\limsup\).}
+    \label{table:asymptotics}
+  \end{table}
+  \end{defterm}
+
+
+
 # A common family of codes are the \textit{block codes}, intended to encode a piece, or block, of a data stream.
 # A block code encodes strings of length \(k\), where each character in the string an element of some fixed alphabet \(\Sigma\), into strings of length \(n\). In other words, a block code encoding is a map from \(\Sigma^k\) to \(\Sigma^n\), where \(N = |\Sigma|^n\), \(K=|\Sigma|^k\), and \(|\Sigma|\) is the number of elements in the alphabet.
 
