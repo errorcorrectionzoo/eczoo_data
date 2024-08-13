@@ -92,8 +92,16 @@ features:
   transversal_gates:
     - 'A qubit code is \(U\)-\textit{quasi-transversal} if it can realize the logical gate \(U\) in the third level of the \term{Clifford hierarchy} using the physical gate \(C T^{\otimes n}\), where \(C\) is some Clifford gate \cite[Def. 4]{arxiv:1606.01904}.'
   general_gates:
-    - 'The normalizer of the \hyperref[topic:complementary-channel]{Pauli group} is the Clifford group; see Refs. \cite{arxiv:quant-ph/0304125,arxiv:0811.0898,arxiv:1310.6813} for generators, relations, and normal form. The Clifford group permutes Pauli operators amongst themselves, and, up to any phases, is equivalent to the symplectic group \(Sp(2n,\mathbb{Z}_2)\).
-    The combined Pauli and Clifford group cannot be expressed as a semidirect product of those two constituents \cite{arxiv:2406.09951}.'
+    - |
+      \begin{defterm}{Clifford group}
+      \label{topic:clifford}
+      The Clifford group is the normalizer of the \hyperref[topic:pauli]{Pauli group}. 
+      The group consists of the Pauli group as well as elements that permute Pauli operators amongst themselves.
+      Up to any phases and Pauli strings, the group is equivalent to the symplectic group \(Sp(2n,\mathbb{Z}_2)\). 
+      See Refs. \cite{arxiv:quant-ph/0304125,arxiv:0811.0898,arxiv:1310.6813,preset:GottesmanBook} for generators, relations, and normal form. 
+      The group cannot be expressed as a semidirect product of the Pauli and symplectic groups \cite{arxiv:2406.09951}.
+      Restricting the group to real-valued elements yields the \textit{real Clifford group}.
+      \end{defterm}
     - 'Computing using Clifford gates only can be efficiently simulated on a classical computer, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,manual:{E. Knill, private communication, ca. 1998.}}.
     Universal quantum computing can be achieved using Clifford gates and a single type of non-Clifford gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
     More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/rm1997v052n06abeh002155,doi:10.1090/gsm/047} states that any subset of gates the generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by Clifford gates and a fixed set of non-Clifford gates is called \textit{gate compilation} or \textit{circuit synthesis}.'
@@ -106,7 +114,7 @@ features:
       \begin{align}
         C_k = \{ U | U P U^{\dagger} \in C_{k-1} \}~,
       \end{align}
-      where \(P\) is any Pauli matrix, and \(C_1\) is the \hyperref[topic:complementary-channel]{Pauli group}.
+      where \(P\) is any Pauli matrix, and \(C_1\) is the \hyperref[topic:pauli]{Pauli group}.
       \end{defterm}'
     - 'Arbitrary \(n\)-qubit circuits can be implemented fault-tolerantly in a 3D architecture using \(O(n^{3/2}\log^3 n)\) qubits, and in a 2D architecture using only \(O(n^2 \log^3 n)\) qubits \cite{arxiv:2402.13863}.'
   decoders:
