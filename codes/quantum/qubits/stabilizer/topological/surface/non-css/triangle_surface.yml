@@ -59,9 +59,9 @@ features:
     To do this, triangle ancilla qubits are required outside of the triangle patches that hold the data.
     That is, the ancilla patches must be empty of data and be adjacent to the side that contains the logical Pauli that needs to be measured or initialized.'
 # The method uses fewer qubits than the CC method to convert a basis state from the surface code to the triangle code. It also uses fewer qubits than the CC method to measure the basis-state transversally. This method preps a basis state in a \(d \times d\) surface code as the CC method except now instead of treating the surface code as \(1/3\) of a triangle patch, it is \(2/3\). To convert to the surface code, stop measuring the bottom loop operators of the patch and measure the stabilizers of a \((d+1)/2 \times (d+1)/2 \times d\) triangle code \(O(d)\) times. Then, symmetrize the triangle code by measuring the stabilizers and not measuring the stabilizers in the topmost rows.
-    - 'The CAT states (CS) initialization and measurement method uses a row of \(d\) ancilla qubits along some edge of a triangle code with distance \(d\) to create and verify a GHz state that is used to measure the logical operator along the same edge.
-    Creating this GHz state takes \(O(d)\) time steps.
-    To relaibly measure the logical state, the GHz state must be measured \(O(d)\) times, resuling in \(O(d^2)\) time for logical measurement.
+    - 'The CAT states (CS) initialization and measurement method uses a row of \(d\) ancilla qubits along some edge of a triangle code with distance \(d\) to create and verify a GHZ state that is used to measure the logical operator along the same edge.
+    Creating this GHZ state takes \(O(d)\) time steps.
+    To relaibly measure the logical state, the GHZ state must be measured \(O(d)\) times, resuling in \(O(d^2)\) time for logical measurement.
     Initialization is a similar procedure that requires \(O(d^2)\) time for logical-operator measurements that occur \(O(d)\) times as well as \(O(d^2)\) time to project the code onto a logical state \cite{arxiv:1612.04795}.'
 
   transversal_gates:
