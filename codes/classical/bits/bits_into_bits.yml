@@ -32,6 +32,9 @@ features:
   rate: 'The rate of a binary code is usually defined as \(R=\frac{1}{n}\log_{2}K\) bits per symbol.
   The maximum rate of a binary code with linear distance is upper bounded by the McEliece, Rodemich, Rumsey and Welch (MRRW) bound \cite{doi:10.1109/TIT.1977.1055688} (see Refs. \cite{doi:10.1007/s00454-008-9128-0,doi:10.1137/S0895480102408353,arxiv:2104.14587,arxiv:2303.16619} for other proofs).'
 
+  general_gates:
+    - 'The group of reversible binary operations is the permutation group \(S_{2^n}\) of all possible \(n\)-bit strings. Reversible gate sets have been classified \cite{arxiv:1504.05155}.'
+
   decoders:
     - 'For few-bit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood decoder}.'
     - 'Given a received string \(x\) and an error bound \(e\), a \textit{list decoder} returns a list of all codewords that are at most \(e\) from \(x\) in Hamming distance. The number of codewords in a neighborhood of \(x\) has to be polynomial in \(n\) in order for this decoder to run in time polynomial in \(n\).'
