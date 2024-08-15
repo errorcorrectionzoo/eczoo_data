@@ -24,6 +24,7 @@ description: |
   A code is \textit{near MDS} (NMDS) if the code and its dual are mode AMDS.
 
   The codes \( [n,1,n]_q, [n,n-1,2]_q, [n,n,1]_q \) for any \(q\) are MDS codes. These are called the \textit{trivial} MDS codes. The only binary MDS codes are the trivial ones.
+  Many, but not all, \(q\)-ary MDS codes are related to RS codes and their extensions; see, e.g., \cite[Prob. 11.11]{doi:10.1017/CBO9780511808968}.
 
 
 protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error-correction properties.'
@@ -34,7 +35,7 @@ realizations:
 # - 'The McEliece Public Key Cryptosystem \cite{manual:{McEliece, R.J.: A public-key cryptosystem based on algebraic coding theory. DSN Progress Report pp. 114–116 (1978).}} uses algebraic coding theory to secure communications against eavesdropping attack, in which private keys are generator matrices of linear codes, i.e., \(G\). Public Keys shared to outside world are scrambled and permutated versions of \(G\), i.e., \(G^\prime=SGP\). Data to be encrypted, \(u\), is multiplied by public key and added intentional errors \(e\), i.e., \(x=uG^\prime+e\). Upon receiving encrypted data, private key owner can apply inverse permutation \(P^{-1}\) to \(x\), decode the scrambled message given the presence of \(e\) errors, and finally unscramble to obtain \(u\). Security parameters of the system are \(n\) and \(e\), hence MDS codes, such as GRS codes may provide the same security level for shorter key sizes, and the private key owner can decode arguably fast enough using known decoding algorithms.'
 
 notes:
-  - 'See Ref. \cite{doi:10.1016/j.ffa.2014.10.006} for a review of MDS codes and the MDS conjecture.'
+  - 'See Refs. \cite{doi:10.1016/j.ffa.2014.10.006}\cite[Sec. 11.4 notes]{doi:10.1017/CBO9780511808968}\cite[Ch. 11 notes]{preset:MacSlo} for more on MDS codes and the MDS conjecture.'
 
 relations:
   parents:
