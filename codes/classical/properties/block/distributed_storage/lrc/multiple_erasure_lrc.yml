@@ -3,49 +3,19 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: locally_recoverable
+code_id: multiple_erasure_lrc
 
-name: 'Locally recoverable code (LRC)'
-short_name: 'LRC'
-#introduced: '\cite{arxiv:1311.3284}'
+name: '\(t\)-erasure LRC'
 
 alternative_names:
-  - 'Locally repairable code'
+  - 'Multiple-erasure LRC'
 
 description: |
-  An LRC is a block code for which one can recover any coordinate of a codeword from at most \(r\) other coordinates of the codeword.
-  In other words, an LRC of locality \(r\) is a block code for which, given a codeword \(x\) and coordinate \(i\), \(x_i\) can be recovered from at most \(r\) other coordinates of \(x\).
-  An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC code.
-  The definition can be generalized to \(t\)-LRC code, if every coordinate is recoverable from \(t\) disjoint subsets of coordinates.
-
-protection: |
-  A study on the parameters of \(t\)-LRC codes, together with known bounds, can be found in Ref. \cite{doi:10.1109/TIT.2016.2518663}.
-  See Ref. \cite{arxiv:1408.4862} for more bounds on locally recoverable distributed storage codes.
-
-# More technically, a \(q\)-ary code \(C\) with length \(n\) is \(r\)-locally recoverable, or \textit{has locality} \(r\), if \(\forall i \in [n]\), there exists \(I_i \subset [n]\setminus i\) such that \(|I_i|\leq r\), and the projection of the set \(\mathcal{C}(i,a)=\{x\in C : x_i=a\}\) on to the coordinates in \(I_i\), i.e., \(\mathcal{C}_{I_i}(i,a)\) is disjoint from \(\mathcal{C}_{I_i}(i,a^\prime)\) where \(a\neq a^\prime\).
-
-
-features:
-  rate: |
-    The rate \(r\) of an \((n,k,r)\) LRC code satisfies 
-    \begin{align} 
-    \frac{k}{n}\leq\frac{r}{r+1}~. 
-    \end{align}
-    Various asymptotic lower \cite{arxiv:1603.08876,doi:10.1109/TIT.2015.2477406} and upper bounds \cite{arxiv:1702.02685} exist.
-
-realizations:
-  - 'An \((18,14,7)\) LRC code has beed used in the Windows Azure cloud storage system \cite{manual:{C. Huang, H. Simitci, Y. Xu, A. Ogus, B. Calder, P. Gopalan, J. Li, and S. Yekhanin. \emph{Erasure coding in Windows Azure Storage}. In Proc. USENIX Annual Technical Conference (ATC), pgs. 15-26, Boston, Massachusetts, June 2012.}}; see also \cite[31.3.1.2]{preset:HKSdist}.'
-  - 'Facebook f4 BLOB cloud storage system \cite{manual:{Muralidhar, S., Lloyd, W., Roy, S., Hill, C., Lin, E., Liu, W., Pan, S., Shankar, S., Sivakumar, V., Tang, L. and Kumar, S., 2014. f4: Facebook''s warm {BLOB} storage system. In 11th USENIX Symposium on Operating Systems Design and Implementation (OSDI 14) (pp. 383-398).}}'
-
+  A code which admits local recoverability against more than one coordinate erasure. 
 
 relations:
   parents:
-    - code_id: multiple_erasure_lrc
-  cousins:
-    - code_id: q-ary_linear
-      detail: 'A \(q\)-ary linear code is an LRC of locality \(r\) if each coordinate participates in at least one parity check of weight \(\leq r\) \cite{arxiv:2311.08653}.'
-
-# LDCs are similar in nature to LRC, but work in another regime. Namely, given a heavily corrupted codeword within the decoding radius, you need to recover any given bit of the message using a small number of queries
+    - code_id: distributed_storage
 
 
 # Begin Entry Meta Information
@@ -53,6 +23,4 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2022-04-28'
-    - user_id: MustafaDoger
-      date: '2022-04-03'
+      date: '2024-07-08'

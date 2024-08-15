@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: code_with_locality
+
+name: 'Code with locality'
+
+description: |
+  A code with \((r,\delta)\) locality is a code that encodes each codeword coordinate into an \([r+\delta-1,r,\delta]\) MDS code \cite[Sec. 31.3.4.5]{preset:HKSdist}. 
+  In other words, given a codeword \(c\) and coordinate \(c_i\), there exists a coordinate set \(S_i\) of size \(\leq r+\delta-1\) such that the restriction \(C_{|S_i}\) of the code to that set is a code with minimum distance \(\delta\). 
+
+protection: |
+  There is a generalized Singleton minimum distance bound \cite{arxiv:1202.2414},
+  \begin{align}
+       d\leq n-k+1-(\left\lceil k/r\right\rceil -1)(\delta-1)~,
+  \end{align}
+  with codes saturating this bound being \textit{optimal codes with locality}.
+  The \(\delta=2\) case recovers optimal LRCs.
+
+
+relations:
+  parents:
+    - code_id: distributed_storage
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'

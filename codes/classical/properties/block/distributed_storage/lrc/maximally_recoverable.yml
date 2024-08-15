@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: maximally_recoverable
+
+name: 'Maximally recoverable (MR) code'
+short_name: 'MR'
+introduced: '\cite{arxiv:1205.0997,arxiv:1307.4150}'
+
+alternative_names:
+  - 'Partial MDS code'
+
+description: |
+  A code with \((r,\delta)\) locality such that puncturing it on any \(\delta-1\) coordinates of the local \([r+\delta-1,r,\delta]\) codes yields an MDS code. 
+
+
+realizations:
+  - 'RAID storage \cite{doi:10.1145/2560013}.'
+
+
+relations:
+  parents:
+    - code_id: code_with_locality
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'

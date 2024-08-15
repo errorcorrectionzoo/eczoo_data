@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pyramid
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Pyramid code'
+introduced: '\cite{doi:10.1145/2435204.2435207}'
+
+description: |
+  An LRC whose generator matrix is that of an RS code in standard form, but some of whose columns are split into multiple columns; see \cite[Sec. 31.3.1.1]{preset:HKSdist} for an example. 
+
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+    - code_id: optimal_lrc
+  cousins:
+    - code_id: reed_solomon
+      detail: 'A pyramid code is an LRC whose generator matrix is that of an RS code in standard form, but some of whose columns are split into multiple columns'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'
