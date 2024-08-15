@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nadler
+physical: bits
+logical: bits
+
+name: 'Nadler code'
+introduced: '\cite{manual:{W. W. Peterson, “Some new results on finite fields with applications to BCH codes,” in Combinatorial Mathematics and Its Applications, R. C. Bose and T. A. Dowlinr. Eds. Chaoel Hill. N.C.: Univ. North Carolina Press, 1969.}}'
+
+description: |
+  A nonlinear \((12,35,5)\) binary code that is the largest double-error-correcting code; see construction due to Van Lint \cite{doi:10.1109/TIT.1972.1054904} presented in \cite[Ch. 2, Sec. 8]{preset:MacSlo}.
+
+  Its automorphism group is a subgroup of \(S_3\times S_4\) \cite{doi:10.1109/TIT.1972.1054904}.
+
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+  cousins:
+    - code_id: nordstrom_robinson
+      detail: 'The NR code is an extension of the Nadler code \cite{doi:10.1109/TIT.1972.1054904}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'
