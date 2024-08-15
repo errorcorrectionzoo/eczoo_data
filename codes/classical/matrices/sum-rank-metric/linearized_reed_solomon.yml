@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: linearized_reed_solomon
+physical: matrices
+logical: matrices
+
+name: 'Linearized RS code'
+introduced: '\cite{doi:10.1007/s10623-012-9704-4,doi:10.1109/CWIT.2015.7255141,arxiv:1710.03109}'
+
+description: |
+  A linearized version of a skew RS code, i.e., an RS code constructed by evaluating skew polynomials \cite{doi:10.1007/s10623-012-9704-4,doi:10.1109/CWIT.2015.7255141}.
+
+protection: 'Linearized RS codes achieve the Singleton bound in the sum-rank metric \cite{arxiv:1710.03109}.'
+
+features:
+  decoders:
+    - 'Berlekamp-Welch-type decoder \cite{doi:10.1109/CWIT.2015.7255141} and its sum-rank version \cite{arxiv:1805.03789}.'
+
+
+realizations:
+  - 'Network coding \cite{arxiv:1805.03789}.'
+  - 'Code-based cryptography \cite{manual:{Hörmann, F., Bartz, H., & Horlemann, A. L. (2022). Security considerations for Mceliece-like cryptosystems based on linearized Reed-Solomon codes in the sum-rank metric.},arxiv:2304.00627}.'
+
+
+relations:
+  parents:
+    - code_id: maximum_sum_rank_distance
+  cousins:
+    - code_id: reed_solomon
+      detail: 'RS codes are particular cases of linearized RS codes because the sum-rank metric generalizes the Hamming metric \cite{arxiv:1710.03109}.'
+    - code_id: gabidulin
+      detail: 'Gabidulin codes are particular cases of linearized RS codes because the sum-rank metric generalizes the rank metric \cite{arxiv:1710.03109}.'
+    - code_id: locally_recoverable
+      detail: 'Linearized RS codes can be used to construct locally recoverable codes \cite{arxiv:1809.11158}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'

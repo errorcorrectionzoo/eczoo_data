@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: maximum_sum_rank_distance
+physical: matrices
+logical: matrices
+
+name: 'Maximum-sum-rank distance (MSRD) code'
+short_name: 'MSRD'
+introduced: '\cite{arxiv:1710.03109}'
+
+alternative_names:
+  - 'Optimal sum-rank-distance code'
+
+description: |
+  An \([n\times m,k,d]_q\) rank-metric code whose parameters are such that the sum-rank-metric Singleton bound \cite[Prop. 34]{arxiv:1710.03109}
+  \begin{align}
+  d_{\text{SR}}(C) \leq n - k + 1
+  \end{align}
+  becomes an equality, where \(d_{\text{SR}}\) is the sum-rank metric.
+
+
+relations:
+  parents:
+    - code_id: sum_rank_metric
+  cousins:
+    - code_id: mds
+    - code_id: maximum_rank_distance
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'
