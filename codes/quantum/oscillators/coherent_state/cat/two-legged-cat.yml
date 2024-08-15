@@ -21,11 +21,11 @@ description: |
 
   A closely related approximate cat code is called \textit{T4C code} \cite{arxiv:2004.09322}.
 
-protection: 'Two-legged cat codes for large \(\alpha\) provide protection against modal dephasing, i.e., diffusion of the angular degree of freedom of the mode. They do not protect against photon loss events, but there exist modifications based on sign alternation \cite{arxiv:1901.05358}, squeezing \cite{arxiv:2201.02570,arxiv:2210.13406,arxiv:2210.13359}, and detuning \cite{arxiv:2211.03689} that can add such protection.'
+protection: 'Two-legged cat codes for large \(\alpha\) provide protection against modal dephasing, i.e., diffusion of the angular degree of freedom of the mode. They do not protect against photon loss events, but there exist modifications based on sign alternation \cite{arxiv:1901.05358}, squeezing (yielding squeezed cat codes) \cite{arxiv:2201.02570,arxiv:2210.13406,arxiv:2210.13359}, and detuning \cite{arxiv:2211.03689} that can add such protection.'
 
 features:
   encoders:
-    - 'Lindbladian-based dissipative encoding \cite{arxiv:1312.2017} utilizing two-photon absorption \cite{doi:10.1103/PhysRevLett.60.1836,doi:10.1103/PhysRevA.50.4330,doi:10.1103/PhysRevA.49.490,doi:10.1103/PhysRevA.49.2785}. Encoding passively protects against cavity dephasing, suppressing dephasing noise exponentially with \(|\alpha|^2\) \cite{arxiv:1312.2017} (see also Refs. \cite{arXiv:2012.04108,arxiv:2407.17299}).'
+    - 'Lindbladian-based dissipative encoding \cite{arxiv:1312.2017} utilizing two-photon absorption \cite{doi:10.1103/PhysRevLett.60.1836,doi:10.1103/PhysRevA.50.4330,doi:10.1103/PhysRevA.49.490,doi:10.1103/PhysRevA.49.2785,doi:10.1103/PhysRevLett.77.4728}. Encoding passively protects against cavity dephasing, suppressing dephasing noise exponentially with \(|\alpha|^2\) \cite{arxiv:1312.2017} (see also Refs. \cite{arXiv:2012.04108,arxiv:2407.17299}).'
     - 'Hamiltonian-based ''Kerr-cat'' encoding utilizing the Kerr-effect Hamiltonian \cite{arxiv:1605.09408} (see also Ref. \cite{arxiv:1510.02566}).'
     - 'Colored dissipation \cite{arxiv:2107.09198}.'
     - 'Combined dissipative and Hamiltonian-based encoding utilizing two-photon exchange with an ancillary qubit \cite{arxiv:2112.05545}.'
@@ -50,6 +50,7 @@ realizations:
   A holonomic gate has been repurposed as a logical measurement \cite{arxiv:1503.00194}.
   The ''Kerr-cat'' encoding and a \(\pi/2\) gate have been realized with the help of a band-block filter, yielding a bit-flip lifetime of 1 ms in the 10-photon regime \cite{arxiv:2404.16697}.'
   - 'T4C code realized in a superconducting circuit device by the Wang group \cite{arxiv:2004.09322}.'
+  - 'Squeezed cat code has been realized in superconducting circuit device by the Gao group \cite{arxiv:2212.01271}.'
 #  - 'Approximate ("kitten") optical realization of the odd cat state \cite{doi:10.1126/science.1122858}.'
 
 notes:
@@ -59,6 +60,8 @@ relations:
   parents:
     - code_id: cat
       detail: 'The cat code reduces to its two-component version for \(S=0\).'
+    - code_id: squeezed_cat
+      detail: 'The squeezed cat code reduces to the two-component cat code when there is no squeezing.'
   cousins:
     - code_id: hamiltonian
       detail: 'The two-legged cat code forms the ground-state subspace of a Kerr Hamiltonian \cite{arxiv:1605.09408}.'

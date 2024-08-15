@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: squeezed_cat
+physical: oscillators
+logical: qubits
+
+name: 'Squeezed cat code'
+introduced: '\cite{arxiv:2201.02570,arxiv:2210.13406,arxiv:2210.13359'
+
+description: |
+  Two-component cat code whose two coherent states have been squeezed in a direction perpendicular to the segment formed by the two coherent state values \(\pm\alpha\).
+
+projection: |
+  Squeezing of coherent states allows for approximate protection against a single photon loss.
+
+realizations:
+  - 'Squeezed cat code has been realized in a superconducting circuit device by the Gao group \cite{arxiv:2212.01271}.'
+
+
+relations:
+  parents:
+    - code_id: single-mode
+    - code_id: ampdamp
+      detail: 'Squeezing of coherent states allows for approximate protection against a single photon loss.'
+    - code_id: approximate_qecc
+      detail: 'Squeezing of coherent states allows for approximate protection against a single photon loss.'
+  cousins:
+    - code_id: squeezed_fock_state
+      detail: 'Squeezed Fock-state codes and squeezed cat codes both utilize squeezing to approximately protect against loss errors.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'

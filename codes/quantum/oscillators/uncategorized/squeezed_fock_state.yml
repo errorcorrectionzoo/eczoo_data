@@ -11,7 +11,7 @@ name: 'Squeezed fock-state code'
 introduced: '\cite{arxiv:2312.16000}'
 
 description: |
-  Approximate boosnic code that encodes a qubit into the same Fock state, but one which is squeezed in opposite directions.
+  Approximate bosonic code that encodes a qubit into the same Fock state, but one which is squeezed in opposite directions.
 
   Taking the Fock state \(|1\rangle\), the codewords are
   \begin{align}
@@ -27,6 +27,8 @@ protection: 'The code approximately protects against loss and dephasing errors, 
 relations:
   parents:
     - code_id: single-mode
+    - code_id: ampdamp
+      detail: 'The squeezed Fock-state code approximately protects against loss and dephasing errors, becoming exact in the \(r\to\infty\) limit.'
     - code_id: approximate_qecc
       detail: 'The squeezed Fock-state code approximately protects against loss and dephasing errors, becoming exact in the \(r\to\infty\) limit.'
 
