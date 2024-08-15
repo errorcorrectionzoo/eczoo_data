@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quaternary_reed_muller
+physical: rings
+logical: rings
+
+name: 'Quaternary RM (QRM) code'
+short_name: 'QRM'
+introduced: '\cite{arxiv:math/0207208}'
+
+description: |
+  A quaternary linear code over \(\mathbb{Z}_4\) that is a quaternary version of the RM code in that its binary image under the Gray map is an RM code.
+  This code subsumes the quaternary images of the Kerdock and Preparata codes under the Gray map.
+  The code is usually noted as QRM\((r,m)\), with its image under the Gray map yielding the RM code RM\((r,m)\) \cite[Thm. 19]{arxiv:math/0207208}.
+
+
+relations:
+  parents:
+    - code_id: quaternary_over_z4
+  cousins:
+    - code_id: reed_muller
+      detail: 'The image of the QRM\((r,m)\) code under the Gray map is the RM\((r,m)\) code \cite[Thm. 19]{arxiv:math/0207208}.'
+    - code_id: gray
+      detail: 'The image of the QRM\((r,m)\) code under the Gray map is the RM\((r,m)\) code \cite[Thm. 19]{arxiv:math/0207208}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-15'
