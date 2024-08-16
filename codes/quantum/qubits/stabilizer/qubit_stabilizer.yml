@@ -123,6 +123,7 @@ features:
     - 'For codes encoding a single logical qubit, logical information can be extracted by single-qubit operations and classical communication \cite{arxiv:2308.14054}.'
     - 'Correlated decoding can improve performance of Clifford and non-Clifford entangling gates \cite{arxiv:2403.03272}.'
     - 'Detector graphs \cite{arxiv:2103.02202,arxiv:2303.15933} and detector error models \cite{arxiv:2407.13826} can be used to design syndrome extraction circuits and logical measurements.'
+    - 'Fault-tolerant constant-depth unencoder transforming logical states into physical states using single-qubit measurements \cite{arxiv:2408.06299}.'
 
   fault_tolerance:
     - 'Gates in the \term{Clifford hierarchy} can be done using \textit{gate teleportation}, in which a gate can be obtained from a particular \textit{magic state} \cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0002039}.
@@ -135,6 +136,7 @@ features:
     - 'Fault-tolerant error correction using flag qubits for codes satisfying certain conditions \cite{arxiv:1708.02246}.'
     - 'GHZ state distillation for Steane error correction \cite{arxiv:2109.06248}.'
     - 'Syndrome extraction using flag qubits and classical codes \cite{arxiv:2212.10738}.'
+    - 'Fault-tolerant constant-depth unencoder transforming logical states into physical states using single-qubit measurements \cite{arxiv:2408.06299}.'
 
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arxiv:1208.2317,arxiv:1311.7688,arxiv:1809.10704}. The AQEC relative entropy is related to the resulting threshold \cite{arxiv:2312.16991}.'
@@ -179,10 +181,12 @@ relations:
       detail: 'CWS codes whose underlying classical code is a linear binary code are qubit stabilizer codes containing a cluster-state codeword \cite{arxiv:0708.1021,arxiv:1407.2777}.
       Since any stabilizer state is equivalent to a cluster state under a single-qubit Clifford circuit \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}, any stabilizer code is similarly equivalent to a CWS code.'
     - code_id: binary_linear
-      detail: 'Qubit stabilizer codes are the closest quantum analogues of binary linear codes because addition modulo two corresponds to multiplication of stabilizers in the quantum case.
-      Any binary linear code can be thought of as a qubit stabilizer code with \(Z\)-type stabilizer generators \cite[Table I]{arxiv:quant-ph/0610088}.
-      The stabilizer generators are extracted from rows of the parity-check matrix, while logical \(X\) Paulis correspond to rows of the generator matrix.
-      States close to the equal superposition of all bit strings within Hamming distance \(b\) of a binary linear code can be prepared efficiently \cite{arxiv:2404.16129}.'
+      detail: |
+        Qubit stabilizer codes are the closest quantum analogues of binary linear codes because addition modulo two corresponds to multiplication of stabilizers in the quantum case. 
+        Any binary linear code can be thought of as a qubit stabilizer code with \(Z\)-type stabilizer generators \cite[Table I]{arxiv:quant-ph/0610088}. 
+        The stabilizer generators are extracted from rows of the parity-check matrix, while logical \(X\) Paulis correspond to rows of the generator matrix.
+        States close to the equal superposition of all bit strings within Hamming distance \(b\) of a binary linear code can be prepared efficiently \cite{arxiv:2404.16129}.
+        Binary linear codes can be used for error-corrected entanglement distillation protocols \cite{arxiv:2408.06299}.
     - code_id: dual
       detail: 'Qubit stabilizer codes are in one-to-one correspondence with symplectic self-orthogonal binary linear codes of length \(2n\) via the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.'
     - code_id: dual_additive

@@ -74,6 +74,7 @@ features:
 
   encoders:
     - 'Fault-tolerant encoders utilizing pre-shared entanglement \cite{arxiv:2405.07242}.'
+    - 'Fault-tolerant constant-depth encoder and unencoder \cite{arxiv:2408.06299}.'
 
   general_gates:
     - 'Fault-tolerant logical measurements that generalize a previous construction \cite{arxiv:2110.10794} and that require an \hyperref[topic:asymptotics]{order} \(O(d/\beta)\) ancilla qubits, where \(\beta\) is the Cheeger constant of the Tanner subgraph supporting the logical operator to be measured.'
@@ -100,6 +101,7 @@ features:
     - 'Closed-branch decoder \cite{arxiv:2402.01532}.'
     - 'BP with guided decimation guessing (GDG) sliding-window decoder for CSS qubit codes \cite{arxiv:2403.18901}.'
     - 'Performing \(d\) syndrome extraction rounds obtains an effective distance of \(d\) for a qubit QLDPC code \cite{arxiv:1310.2984}.'
+    - 'Fault-tolerant constant-depth encoder and unencoder \cite{arxiv:2408.06299}.'
   fault_tolerance:
     - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794,arxiv:2308.08648}.
     In one such technique, one first performs a logical measurement by \hyperref[topic:code-switching]{code switching} into a code whose stabilizer group includes the original stabilizers together with the logical Paulis that are to be measured.
@@ -107,6 +109,7 @@ features:
     - 'Fault-tolerance with constant overhead can be performed on certain QLDPC codes \cite{arxiv:1310.2984}, e.g., quantum expander codes \cite{arxiv:1808.03821}.'
     - 'GHZ state distillation for Steane error correction \cite{arxiv:2210.14143}.'
     - 'Fault-tolerant logical measurements that generalize a previous construction \cite{arxiv:2110.10794} and that require an \hyperref[topic:asymptotics]{order} \(O(d/\beta)\) ancilla qubits, where \(\beta\) is the Cheeger constant of the Tanner subgraph supporting the logical operator to be measured.'
+    - 'Fault-tolerant constant-depth encoder and unencoder \cite{arxiv:2408.06299}.'
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arxiv:1208.2317,arxiv:1311.7688}.'
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1412.6172}.'
@@ -121,7 +124,6 @@ notes:
 
 relations:
   parents:
-    - code_id: stabilizer
     - code_id: qlwc
       detail: 'QLDPC codes are QLWC codes for which the number of stabilizer generators that each site participates in is bounded by a constant as \(n\to\infty\).'
     - code_id: quantum_locally_recoverable
