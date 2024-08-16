@@ -8,14 +8,15 @@ physical: galois
 logical: galois
 
 name: 'Quantum Goppa code'
-introduced: '\cite{arxiv:quant-ph/0501074,doi:10.1007/s11128-006-0047-9}'
+introduced: '\cite{arxiv:quant-ph/0006061,arxiv:quant-ph/0501074,doi:10.1007/s11128-006-0047-9}'
 
 alternative_names:
   - 'Quantum AG code'
 
 description: |
-  Binary quantum Goppa codes are a family of \( [[n,k,d]]_q \) CSS codes for \( q=2^m \), generated using classical Goppa codes.
-
+  A Galois-qudit CSS code constructed using two Goppa codes.
+  
+  Binary quantum Goppa codes are a family of \( [[n,k,d]]_q \) CSS codes for \( q=2^m \), constructed using classical Goppa codes.
   Let \( F/GF(q) \) be an algebraic function field of one variable, \(\sigma \) be an automorphism of order 2
   of \(F\) which leaves \(GF(q)\) invariant, and \(P_1, \cdots, P_n \) be pairwise distinct places of degree one such that \( \sigma P_i = P_j\) for all
   \(i,j = 1, \cdots, n\). A place \( P_i \) of \( F/ GF(q) \) is the unique maximal ideal of a discrete valuation ring of the function field. Let \( \nu \) be a  differential
@@ -30,6 +31,10 @@ description: |
 protection: 'Protects against weight \(t\) errors where \( 0 < t \leq  \lfloor \frac{d^*-g-1}{2} \rfloor \) where \( d^* = \text{deg} G + 2 -2g \) and \(g\) is the genus of the function field and \(d \geq n - \lfloor \frac{deg G}{2} \rfloor\). Such codes can exceed the \hyperref[topic:quantum-gv-bound]{quantum GV bound} \cite{doi:10.1007/s11128-006-0047-9}.'
 
 features:
+  magic_scaling_exponent: 'By defining a generalization of triorthogonal matrices to Galois qudits of dimension \(q=2^m\), one can construct an asymptotically good family of quantum Goppa codes that admits a transversal \(T\) gate and attains a zero magic-state yield parameter, \(\gamma = 0\) \cite{arxiv:2408.07764}. This code can be treated as a qubit code by decomposing each Galois qudit into a Kronecker product of \(m\) qubits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}.'
+
+  rate: 'Quantum Goppa codes \cite{arxiv:quant-ph/0006061} and other quantum codes constructed from AG codes \cite{arxiv:quant-ph/0107129} can be asymptotically good.'
+
   encoders:
     - 'Encoding defined in Ref. \cite{arxiv:quant-ph/0107129} uses a technique from Ref. \cite{arxiv:quant-ph/0005008} to encode quantum stabilizer codes.'
 
@@ -43,6 +48,8 @@ relations:
   cousins:
     - code_id: goppa
       detail: 'Classical Goppa codes are used to construct their quantum versions.'
+    - code_id: quantum_triorthogonal
+      detail: 'By defining a generalization of triorthogonal matrices to Galois qudits of dimension \(q=2^m\), one can construct an asymptotically good family of quantum Goppa codes that admits a transversal \(T\) gate and attains a zero magic-state yield parameter, \(\gamma = 0\) \cite{arxiv:2408.07764}. This code can be treated as a qubit code by decomposing each Galois qudit into a Kronecker product of \(m\) qubits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}.'
 
 
 # Begin Entry Meta Information
