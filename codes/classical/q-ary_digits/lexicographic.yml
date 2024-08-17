@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lexicographic
+physical: bits
+logical: bits
+
+name: 'Lexicographic code'
+short_name: 'Lexicode'
+introduced: '\cite{manual:{Levenshtein, V. I. (1960). A class of systematic codes. In Doklady Akademii Nauk (Vol. 131, No. 5, pp. 1011-1014). Russian Academy of Sciences.},doi:10.1109/TIT.1986.1057187}'
+
+
+description: |
+  A \(q\)-ary code whose codewords are constructed greedily and iteratively by starting with zero and adding codewords whose distance is the desired minimum distance of the code.
+
+relations:
+  parents:
+    - code_id: q-ary_digits_into_q-ary_digits
+  cousins:
+    - code_id: linear_binary
+      detail: 'Binary lexicodes are linear \cite{doi:10.1109/TIT.1986.1057187}.'
+    - code_id: points_into_lattices
+      detail: 'Lexicographic codes are \(q\)-ary analogues of laminated lattices \cite[pg. 162]{preset:MacSlo}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-16'
