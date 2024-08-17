@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cascaded_reed_solomon
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Hyperbolic evaluation code'
+introduced: '\cite{doi:10.1007/3-540-56686-4_51,doi:10.1109/18.476241,doi:10.1007/3-540-45624-4_17}'
+
+alternative_names:
+  - 'Hyperbolic cascaded RS code'
+
+description: |
+  An evaluation code over polynomials in two variables. 
+  Generator matrices are determined in Ref. \cite{doi:10.1007/3-540-45624-4_17} following initial formulations of the codes as generalized concatenations of RS codes \cite{doi:10.1007/3-540-56686-4_51,doi:10.1109/18.476241}; see \cite[Ex. 4.26]{doi:HPAlgCodes}. 
+
+protection: |
+  Minimum distance is determined by an order bound \cite{doi:10.1007/3-540-45624-4_17,doi:10.1109/18.825832}.
+
+
+relations:
+  parents:
+    - code_id: evaluation_polynomial
+  cousins:
+    - code_id: reed_solomon
+      detail: 'Hyperbolic evaluation codes were initially formulated as generalized concatenations (a.k.a. cascades) of RS codes \cite{doi:10.1007/3-540-56686-4_51,doi:10.1109/18.476241}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-17'
