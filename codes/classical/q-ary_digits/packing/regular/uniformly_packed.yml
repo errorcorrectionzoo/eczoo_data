@@ -1,0 +1,28 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: uniformly_packed
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Uniformly packed code'
+introduced: '\cite{manual:{N. V. Semakov, V. A. Zinov''ev, G. V. Zaitsev, “Uniformly Packed Codes”, Probl. Peredachi Inf., 7:1 (1971), 38–50; Problems Inform. Transmission, 7:1 (1971), 30–39},manual:{H. C. A. van Tilborg. Uniformly packed codes. Technische Hogeschool Eindhoven, 1976.},manual:{J. M. Goethals and H. C. A. Van Tilborg. “Uniformly packed codes”. In Philips Research Reports 30.1 (1975)}}'
+
+description: |
+  An \((n,K,2t+1)_q\) code is uniformly packed if its \hyperref[topic:weight-enumerator]{external distance} is equal to \(t+1\) \cite{preset:MacSlo}; see \cite[Def. 2.5]{arxiv:1703.08684} for the case of even distance and other generalizations.
+
+
+relations:
+  parents:
+    - code_id: completely_regular
+      detail: 'Uniformly packed codes are completely regular \cite{manual:{J. M. Goethals and H. C. A. Van Tilborg. “Uniformly packed codes”. In Philips Research Reports 30.1 (1975)}}\cite[Prop. 2.6]{arxiv:1703.08684}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-16'
