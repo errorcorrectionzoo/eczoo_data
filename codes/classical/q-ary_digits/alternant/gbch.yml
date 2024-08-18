@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gbch
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Chien-Choy generalized BCH (GBCH) code'
+short_name: 'GBCH'
+introduced: '\cite{doi:10.1109/TIT.1975.1055336}'
+
+description: |
+  An \([n,k\geq n-rm, d\geq r+1]_q\) alternant code defined using two polynomials \(P(x),G(x)\) that are relatively prime to \(x^n-1\), with \(\deg P \leq n-1\) and \(r = \deg G \leq n-1\).
+
+  See \cite[Ch. 12]{preset:MacSlo} for the parity-check matrix.
+
+
+relations:
+  parents:
+    - code_id: alternant
+      detail: 'GBCH codes are a special case of alternant codes \cite[Ch. 12]{preset:MacSlo}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-18'

@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: srivastava
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Srivastava code'
+introduced: '\cite{doi:10.1142/9407,doi:10.1109/TIT.1972.1054760}'
+
+description: |
+  A special case of a generalized Srivastava code for \(z_j = \alpha_j^{\mu}\) for some \(\mu\) and \(t=1\).
+
+  The code's parity-check matrix is
+  \begin{align}
+    H=\begin{pmatrix}\frac{\alpha_{1}^{\mu}}{\alpha_{1}-w_{1}} & \frac{\alpha_{2}^{\mu}}{\alpha_{2}-w_{1}} & \cdots & \frac{\alpha_{n}^{\mu}}{\alpha_{n}-w_{1}}\\
+    \frac{\alpha_{1}^{\mu}}{\alpha_{1}-w_{2}} & \frac{\alpha_{2}^{\mu}}{\alpha_{1}-w_{2}} & \cdots & \frac{\alpha_{n}^{\mu}}{\alpha_{n}-w_{2}}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \frac{\alpha_{1}^{\mu}}{\alpha_{1}-w_{s}} & \frac{\alpha_{2}^{\mu}}{\alpha_{2}-w_{s}} & \cdots & \frac{\alpha_{n}^{\mu}}{\alpha_{n}-w_{s}}
+    \end{pmatrix}~.
+  \end{align}
+
+protection: |
+  Dimension and minimum distance are found in Refs. \cite{doi:10.1109/TIT.1972.1054760,doi:10.1016/S0019-9958(72)80007-X}.
+
+
+relations:
+  parents:
+    - code_id: generalized_srivastava
+      detail: 'A Srivastava code is a special case of a generalized Srivastava code for \(z_j = \alpha_j^{\mu}\) for some \(\mu\) and \(t=1\).'
+    - code_id: goppa
+      detail: 'Generalized Srivastava codes are a special case of Goppa codes \cite[Ch. 12]{preset:MacSlo}.'
+    - code_id: gbch
+      detail: 'Generalized Srivastava codes are a special case of GBCH codes \cite[Ch. 12]{preset:MacSlo}.'
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-18'

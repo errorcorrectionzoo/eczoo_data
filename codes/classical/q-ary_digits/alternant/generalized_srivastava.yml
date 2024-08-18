@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: generalized_srivastava
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Generalized Srivastava code'
+introduced: '\cite{doi:10.1109/TIT.1972.1054760}'
+
+description: |
+  An \([n,k \geq n-mst,d \geq st+1 ]_q) alternant code defined for \(n+s\) distinct elements \(\alpha_1,\alpha_2,\cdots,\alpha_n,w_1,w_2,\cdots,w_s\) and \(n\) nonzero elements \(z_1,z_2,\cdots,z_n\) of \(GF(q^m)\).
+
+  The code's parity-check matrix is \cite[Ch. 12]{preset:MacSlo}
+  \begin{align}
+    H=\begin{pmatrix}\frac{z_{1}}{\alpha_{1}-w_{1}} & \frac{z_{2}}{\alpha_{2}-w_{1}} & \cdots & \frac{z_{n}}{\alpha_{n}-w_{1}}\\
+    \frac{z_{1}}{\left(\alpha_{1}-w_{2}\right)^{2}} & \frac{z_{2}}{\left(\alpha_{1}-w_{2}\right)^{2}} & \cdots & \frac{z_{n}}{\left(\alpha_{n}-w_{2}\right)^{2}}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \frac{z_{1}}{\left(\alpha_{1}-w_{s}\right)^{t}} & \frac{z_{2}}{\left(\alpha_{2}-w_{s}\right)^{t}} & \cdots & \frac{z_{n}}{\left(\alpha_{n}-w_{s}\right)^{t}}
+    \end{pmatrix}~.
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: alternant
+      detail: 'Generalized Srivastava codes are a special case of alternant codes \cite[Ch. 12]{preset:MacSlo}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-18'

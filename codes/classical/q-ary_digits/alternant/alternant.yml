@@ -8,9 +8,9 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Alternant code'
-introduced: '\cite{doi:10.1016/S0019-9958(74)80005-7}'
+introduced: '\cite{doi:10.1016/S0019-9958(72)80007-X,doi:10.1016/S0019-9958(74)80005-7,doi:10.1016/S0019-9958(75)90099-6,doi:10.1109/TIT.1975.1055435}'
 
-description: 'Given a length-\(n\) GRS code \(C\) over \(GF(q^m)\), an alternant code is the \(GF(q)\)-\hyperref[topic:finite-fields]{subfield} subcode of the dual of \(C\).'
+description: 'Given a length-\(n\) GRS code \(C\) over \(GF(q^m)\), an alternant code is the \(GF(q)\)-\hyperref[topic:finite-fields]{subfield} subcode of the dual of \(C\); see \cite[Ch. 12]{preset:MacSlo}. Its parity-check matrix is an alternant matrix.'
 
 # More precisely, an \([n, k \geq n-tm, d \geq t + 1]\) code with parity check matrix with \(n\) columns and \(t\) rows of the form:
 # \begin{align}
@@ -31,6 +31,7 @@ description: 'Given a length-\(n\) GRS code \(C\) over \(GF(q^m)\), an alternant
 features:
   decoders:
     - 'Variation of the Berlekamp-Welch algorithm \cite{doi:10.1109/TIT.1977.1055730}.'
+    - 'Euclidean algorithm; see \cite[Ch. 12]{preset:MacSlo} for more details.'
     - 'Guruswami-Sudan list decoder \cite{doi:10.1109/18.782097,doi:10.1109/SFCS.1998.743426}.'
 
 notes:
@@ -41,7 +42,7 @@ relations:
     - code_id: q-ary_linear
   cousins:
     - code_id: generalized_reed_solomon
-      detail: 'Alternant codes are \hyperref[topic:finite-fields]{subfield} subcodes of GRS codes.'
+      detail: 'Alternant codes are \hyperref[topic:finite-fields]{subfield} subcodes of GRS codes \cite{doi:10.1109/TIT.1975.1055435}.'
 
 #Classic (L,G)-Goppa codes are a subclass of alternant codes, and they are also cousins of AG codes. Alternant codes as such don't qualify as cousins of AG codes. They are in fact \hyperref[topic:finite-fields]{subfield} subcodes of GRS codes and as such are cousins of BCH codes and children of GRS codes.
 #A \hyperref[topic:finite-fields]{subfield} subcode is a subset of the code formed of the vectors all of whose coordinates are in a \hyperref[topic:finite-fields]{subfield} (or even just a subset, they have considered subset subcodes, where this subalphabet does not have to be a field, e.g., 49 -> 46).
