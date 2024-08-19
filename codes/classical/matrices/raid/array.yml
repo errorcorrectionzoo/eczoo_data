@@ -18,13 +18,16 @@ description: |
   Matrix code designed for use in an RAID-type array of hard-drives such that information is protected against erasure of one or more hard drives.
 
 notes:
-  - 'See \cite{preset:HPArray}\cite[Ch. 14]{doi:10.1002/0471792748}\cite{preset:BlaumArray} for introductions.'
+  - 'See \cite{preset:HPArray}\cite[Ch. 14]{doi:10.1002/0471792748}\cite{preset:HPArray} for introductions.'
 
 
 relations:
   parents:
     - code_id: matrices_into_matrices
     - code_id: distributed_storage
+  cousins:
+    - code_id: reed_solomon
+      detail: 'RS codes over \(q=2^m\) are used in RAID 6 \cite{manual:{Anvin, H. Peter. "The mathematics of RAID-6." (2007).},manual:{S. T. Position. (2009) Common raid disk data format specification. [Online]. Available: http://www.snia.org/tech activities/standards/curr standards/ddf}}; see \cite{preset:HPArray}.'
 
 
 # Begin Entry Meta Information
