@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: narrow_sense_q-ary_bch
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Primitive narrow-sense BCH code'
+introduced: '\cite{doi:10.1137/0109020}'
+
+description: |
+  BCH codes for \(b=1\) and for \(n=q^r-1\) for some \(r\geq 2\).
+
+
+relations:
+  parents:
+    - code_id: q-ary_bch
+      detail: 'BCH codes are called narrow-sense when \(b=1\), and are called primitive when \(n=q^r-1\) for some \(r\geq 2\).'
+    - code_id: goppa
+      detail: 'Primitive narrow-sense BCH codes are Goppa codes with \(L=\{1,\alpha^{-1},\cdots,\alpha^{1-n}\}\) and \(G(x)=x^{\delta-1}\) \cite[pg. 522]{doi:10.1017/CBO9780511807077}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-13'
