@@ -23,9 +23,6 @@ description: |
     \mu\to\left( f_{\mu}\left(\alpha_{1}\right),f_{\mu}\left(\alpha_{2}\right),\cdots,f_{\mu}\left(\alpha_{n}\right)\right) \,.
   \end{align}
 
-  An RS code with length \(n=q-1\) whose points \(\alpha_i\) are all \((i-1)\)st powers of a primitive element of \(GF(q)\) is a \textit{narrow-sense RS code}.
-  In an alternative convention (not used here), the primitive case is called an RS code, and the general-root case is a generalized RS code.
-
 
 protection: 'Since each polynomial \(f_{\mu}\) is of degree less than \(k\), it has less than \(k\) roots; this is called the \textit{degree mantra}.
 Therefore, the polynomial can be determined from its values at \(k\) points. This means that RS codes can correct erasures on up to \(n-k\) registers. The resulting distance, \(d=n-k+1\), saturates the Singleton bound.'
@@ -89,9 +86,7 @@ relations:
       detail: 'RS codes have distance \(n-k+1\), saturating the Singleton bound.
       If \(k \leq p\), then all linear MDS codes \( [n,k,n-k+1]_{p^m} \) are RS codes \cite{doi:10.4171/JEMS/316}.'
     - code_id: q-ary_bch
-      detail: 'Narrow-sense RS codes are BCH codes \cite[Remark 15.3.21]{preset:HKSag}\cite[Thms. 5.2.1 and 5.2.3]{doi:10.1017/CBO9780511807077}.
-      Their minimal distance is equal to their designed distance \cite[pg. 81]{doi:10.1007/978-1-4757-6568-7}.
-      Moreover, an RS code can be represented as a union of cosets, with each coset being an interleaver of several binary BCH codes \cite{doi:10.1109/26.79287}.'
+      detail: 'An RS code can be represented as a union of cosets, with each coset being an interleaver of several binary BCH codes \cite{doi:10.1109/26.79287}.'
     - code_id: q-ary_cyclic
       detail: 'If the length divides \(q-1\), then it is possible to construct a cyclic RS code.
       Such codes a Abelian group-algebra codes \cite[Example 16.4.9]{preset:HKSalgebra}.'
