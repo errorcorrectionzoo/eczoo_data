@@ -17,14 +17,22 @@ description: |
   Certain DCS codes satisfy more redundant constraints than Gallager codes and thus can outperform them \cite{doi:10.1007/978-1-4613-0165-3_6}.
 
 notes:
-  - 'See book \cite{doi:10.1142/9283} for a general theory of linear codes made from difference sets.'
+  - 'See book \cite[Ch. 6]{doi:10.1142/9283} for a general theory of linear codes made from difference sets.'
 
 
 relations:
   parents:
     - code_id: qc_ldpc
     - code_id: algebraic_ldpc
-    - code_id: cyclic
+    - code_id: binary_cyclic
+  cousins:
+    - code_id: hadamard
+      detail: '\textit{Hadamard difference sets} are difference sets constructed from Hadamard matrices \cite[Ch. 6]{doi:10.1142/9283}.'
+    - code_id: hyperoval
+      detail: 'Hyperoval difference sets yield DSC codes \cite{doi:10.1023/A:1008264606494}\cite[Ch. 6]{doi:10.1142/9283}.'
+    - code_id: generalized_reed_muller
+      detail: 'DSC codes can be \hyperref[topic:finite-fields]{subfield} subcodes of GRM codes, and visa versa \cite[Thm. 6.14]{doi:10.1142/9283}.'
+
 
 
 # Begin Entry Meta Information
