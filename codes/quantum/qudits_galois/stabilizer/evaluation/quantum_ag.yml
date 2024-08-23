@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_ag
+physical: galois
+logical: galois
+
+name: 'Quantum AG code'
+introduced: '\cite{arxiv:quant-ph/0107129}'
+
+description: |
+  A Galois-qudit CSS code constructed using two linear AG codes.
+  
+
+features:
+  rate: 'Quantum AG codes \cite{arxiv:quant-ph/0107129} can be asymptotically good. There exist three such families \cite{arxiv:2408.07764,arxiv:2408.09254,arxiv:2408.10140} that admit a diagonal transversal gate at the third level of the \term{Clifford hierarchy}.'
+
+  magic_scaling_exponent: 'By defining a generalization of triorthogonal matrices to Galois qudits of dimension \(q=2^m\), one can construct an asymptotically good family of quantum AG codes that admits a diagonal transversal gate at the third level of the \term{Clifford hierarchy} and attains a zero magic-state yield parameter, \(\gamma = 0\) \cite{arxiv:2408.07764}. This code can be treated as a qubit code by decomposing each Galois qudit into a Kronecker product of \(m\) qubits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}. Two other such asymptotically good families exist \cite{arxiv:2408.09254,arxiv:2408.10140}, admitting a different diagonal gate at the third level of the \term{Clifford hierarchy}.'
+
+
+  encoders:
+    - 'Encoding defined in Ref. \cite{arxiv:quant-ph/0107129} uses a technique from Ref. \cite{arxiv:quant-ph/0005008} to encode quantum stabilizer codes.'
+
+  transversal_gates:
+    - 'There exist three asymptotically good code families \cite{arxiv:2408.07764,arxiv:2408.09254,arxiv:2408.10140} that admit a diagonal transversal gate at the third level of the \term{Clifford hierarchy}.'
+
+relations:
+  parents:
+    - code_id: galois_css
+      detail: 'Quantum AG codes can be realized in the CSS code construction \cite{doi:10.1007/s11128-006-0047-9}.'
+  cousins:
+    - code_id: ag
+    - code_id: quantum_triorthogonal
+      detail: 'By defining a generalization of triorthogonal matrices to Galois qudits of dimension \(q=2^m\), one can construct an asymptotically good family of quantum AG codes that admits a diagonal transversal gate at the third level of the \term{Clifford hierarchy} and attains a zero magic-state yield parameter, \(\gamma = 0\) \cite{arxiv:2408.07764}. This code can be treated as a qubit code by decomposing each Galois qudit into a Kronecker product of \(m\) qubits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}. Two other such asymptotically good families exist \cite{arxiv:2408.09254,arxiv:2408.10140}, admitting a different diagonal gate at the third level of the \term{Clifford hierarchy}.'
+    - code_id: shimura
+      detail: 'The AG codes used in an asymptotically good construction of quantum AG codes with non-Clifford transversal gates \cite{arxiv:2408.09254} are those of the TVZ codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-23'
