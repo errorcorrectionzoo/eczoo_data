@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subspace
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Subspace code'
+introduced: \cite{doi:10.1109/TIT.2008.926449}
+
+description: |
+  A code that is a set of subspaces of a projective space \(PG(n-1,q)\).
+
+protection: |
+  Subspace codes are quantified with respect to the subspace distance \cite{doi:10.1109/TIT.2008.926449} or injection distance \cite{arxiv:0805.3824}.'
+  
+  Generalizations of various bounds for ordinary \(q\)-ary codes have been developed for subspace codes; see \cite{preset:HKSnetwork}.
+
+features:
+  decoders:
+    - 'List decoding up to the Singleton bound \cite{doi:10.1145/2488608.2488715}.'
+
+realizations:
+  - 'Packet-based transmission over networks \cite{preset:HKSnetwork}.'
+
+relations:
+  parents:
+    - code_id: projective
+  cousins:
+    - code_id: gabidulin
+      detail: 'Gabidulin codes can be used to construct asymptotically good subspace codes \cite{doi:10.1109/TIT.2003.809567,doi:10.1109/TIT.2008.926449}.'
+    - code_id: rank_metric
+      detail: 'Subspace and rank-metric codes are closely related \cite{doi:10.1109/TIT.2008.928291}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-23'
