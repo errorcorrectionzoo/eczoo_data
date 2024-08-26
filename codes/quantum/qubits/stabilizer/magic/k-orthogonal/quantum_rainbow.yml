@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_rainbow
+physical: qubits
+logical: qubits
+
+name: 'Quantum rainbow code'
+introduced: '\cite{arxiv:2408.13130}'
+
+description: |
+  A CSS code whose qubits are associated with vertices of a simplex graph with \(m+1\) colors.
+
+features:
+  magic_scaling_exponent: 'Hypergraph products of color codes yield quantum rainbow codes with growing distance and transversal gates in the \term{Clifford hierarchy}. In particular, utilizing this construction for quasi-hyperbolic color codes \cite{arxiv:2310.16982} yields an \([[n,O(n),O(\log n)]]\) triorthogonal code family with magic-state yield parameter \(\gamma\to 0\) \cite{arxiv:2408.13130}.'
+
+  transversal_gates:
+    - 'Hypergraph products of color codes yield quantum rainbow codes with growing distance and transversal gates in the \term{Clifford hierarchy} \cite{arxiv:2408.13130}.'
+
+relations:
+  parents:
+    - code_id: qubit_generalized_homological_product_css
+      detail: 'Quantum pin codes are defined for simplicial complexes that admit certain colorings \cite{arxiv:2408.13130}.'
+  cousins:
+    - code_id: hypergraph_product
+      detail: 'Hypergraph products of color codes yield quantum rainbow codes with growing distance and transversal gates in the \term{Clifford hierarchy}. In particular, utilizing this construction for quasi-hyperbolic color codes yields an \([[n,O(n),O(\log n)]]\) triorthogonal code family with magic-state yield parameter \(\gamma\to 0\) \cite{arxiv:2408.13130}.'
+    - code_id: quantum_triorthogonal
+      detail: 'Hypergraph products of color codes yield quantum rainbow codes with growing distance and transversal gates in the \term{Clifford hierarchy}. In particular, utilizing this construction for quasi-hyperbolic color codes \cite{arxiv:2310.16982} yields an \([[n,O(n),O(\log n)]]\) triorthogonal code family with magic-state yield parameter \(\gamma\to 0\) \cite{arxiv:2408.13130}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-26'
