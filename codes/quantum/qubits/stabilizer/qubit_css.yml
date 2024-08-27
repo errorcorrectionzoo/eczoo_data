@@ -36,11 +36,13 @@ description: |
   The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
   The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
-  Specializing to the case when \(C_Z=[n,k,d]\) is dual-containing yields an \([[n,2k-n,\geq d_Z]]\) \textit{weakly self-dual qubit CSS code} with \(C_X = C_Z^\perp\).
   Basis states for the code are, for \(\gamma \in C_X\),
   \begin{align}
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
+
+  Specializing to the case when \(C_Z=[n,k,d]\) is dual-containing yields an \([[n,2k-n,\geq d_Z]]\) \textit{self-dual qubit CSS code} (a.k.a. weakly self-dual qubit CSS code) with \(C_X = C_Z^\perp\).
+  Its \(X\)-type and \(Z\)-type stabilizers are identically supported.
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
   In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric qubit CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
@@ -170,14 +172,15 @@ relations:
     - code_id: movassagh_ouyang
       detail: 'Movassagh-Ouyang codes stem from a prescription that converts an \textit{arbitrary} classical code into a quantum code.'
     - code_id: qudit_css
-      detail: 'Modular-qudit CSS codes for \(q=2\) are (qubit) CSS codes.'
+      detail: 'Modular-qudit CSS codes for \(q=2\) are qubit CSS codes.'
     - code_id: galois_css
-      detail: 'Galois-qudit CSS codes for \(q=2\) are (qubit) CSS codes.'
+      detail: 'Galois-qudit CSS codes for \(q=2\) are qubit CSS codes.'
   cousins:
     - code_id: qubit_stabilizer
       detail: 'Qubit CSS codes are qubit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
+      Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via the \textit{Bravyi-Leemhuis-Terhal mapping} \cite[Corr. 1]{arxiv:1004.3791}, which preserves geometric locality of a code up to a constant factor.
       Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
-      For any non-CSS code \(\mathsf{C}\), there exists a CSS code \(\mathsf{C}^{\prime}\) such that \(\mathsf{C} = DQ\mathsf{C}^{\prime}\), where \(D\) is a diagonal Clifford operator and \(Q\) is an element of an XP stabilizer group \cite[Prop. B.3.1]{manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.'
+      For any non-CSS code \(\mathsf{C}\), there exists a CSS code \(\mathsf{C}^{\prime}\) such that \(\mathsf{C} = DQ\mathsf{C}^{\prime}\), where \(D\) is a diagonal Clifford operator, and where \(Q\) is an element of an XP stabilizer group \cite[Prop. B.3.1]{manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.'
     - code_id: two_block_quantum
       detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: binary_linear
