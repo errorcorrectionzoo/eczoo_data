@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quasi_hyperbolic_color
+physical: qubits
+logical: qubits
+
+name: 'Quasi-hyperbolic color code'
+introduced: '\cite{arxiv:2310.16982}'
+
+description: |
+  An extension of the color code construction to quasi-hyperbolic manifolds, e.g., a product of a 2D hyperbolic surface and a circle.
+
+protection: |
+  There exists a family with rate of \hyperref[topic:asymptotics]{order} \(O(1/\log n)\) and minimum distance of \hyperref[topic:asymptotics]{order} \(\Omega(\log n)\) which supports fault-tolerant non-Clifford gates \cite{arxiv:2310.16982}.
+  A construction based on the Torelli mapping yields a code with constant rate with similar gates \cite{arxiv:2310.16982}.
+
+features:
+  rate: 'A construction based on the Torelli mapping yields a code with constant rate with similar gates \cite{arxiv:2310.16982}.'
+
+  fault_tolerance:
+    - 'There exists a family with rate of \hyperref[topic:asymptotics]{order} \(O(1/\log n)\) and minimum distance of \hyperref[topic:asymptotics]{order} \(\Omega(\log n)\) which supports fault-tolerant non-Clifford gates \cite{arxiv:2310.16982}. A construction based on the Torelli mapping yields a code with constant rate with similar gates \cite{arxiv:2310.16982}.'
+
+
+relations:
+  parents:
+    - code_id: color
+  cousins:
+    - code_id: higher_dimensional_surface
+      detail: 'Quasi-hyperbolic color codes are related to quasi-hyperbolic surface codes via a constant-depth Clifford circuit \cite{arxiv:2310.16982}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: GuanyuZhu
+      date: '2024-08-27'
+    - user_id: VictorVAlbert
+      date: '2024-08-27'
