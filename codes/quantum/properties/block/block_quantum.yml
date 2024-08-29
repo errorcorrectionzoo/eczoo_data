@@ -8,28 +8,28 @@ code_id: block_quantum
 name: 'Block quantum code'
 
 description: |
-  A code constructed in a multi-partite quantum system, i.e., a physical space consisting of a tensor product of \(n > 1\) identical factors called \textit{subsystems} or \textit{parties}.
+  A code constructed in a multi-partite quantum system, i.e., a physical space consisting of a tensor product of \(n > 1\) identical factors called \textit{subsystems}, \textit{parties}, or \textit{bodies}.
   The subsystems include qubits, modular qudits, Galois qudits, oscillators, or more general groups.
   For finite dimensional codes, the dimension of the underlying subsystem is denoted by \(q\) and is sometimes called the \textit{local dimension}.
 
-  While codewords of block codes are elements of \(\Sigma^n\) for some alphabet \(\Sigma\), quantum states of block quantum codes are functions on said alphabet.
-  Put differently, the configuration space of the canonical (a.k.a. computational) basis states of a block quantum system corresponds to the alphabet of a classical code.
+  While codewords \(c\) of block codes are elements of \(\Sigma^n\) for some alphabet \(\Sigma\), quantum states of block quantum codes are functions on said alphabet.
+  Put differently, the configuration space of the canonical (a.k.a. computational) basis states \(|c\rangle\) of an \(n\)-body quantum system is the classical \(n\)-coordinate alphabet \(\Sigma^n\).
   The table below lists the most common alphabets used in block quantum codes, along with names of the corresponding subsystems.
     \begin{table}
       \begin{cells}
-      \celldata<c H, c H>{alphabet \(\Sigma\) & quantum states (functions on \(\Sigma\))}
+      \celldata<c H, c H>{alphabet \(\Sigma\) & subsystem}
       \celldata<c, c>{
-      \(\mathbb{Z}_{2}=GF(2)\) & qubits
+      \(\mathbb{Z}_{2}=GF(2)\) & qubit
           \\
-      \(GF(q)\) & Galois qudits
+      \(GF(q)\) & Galois qudit
           \\
-      \(\mathbb{Z}_{q}\) & modular qudits
+      \(\mathbb{Z}_{q}\) & modular qudit
           \\
-      \(\mathbb{R}\) & bosonic modes
+      \(\mathbb{R}\) & bosonic mode
           \\
-      \(G\) & group-valued qudits
+      \(G\) & group-valued qudit
           \\
-      \(\mathcal{C}\) & category-valued qudits
+      \(\mathcal{C}\) & category-valued qudit
       }
       \end{cells}
       \caption{Table listing the most common alphabets (a.k.a. configuration spaces) used in block quantum codes. Here, \(GF(q)\) is a \hyperref[topic:finite-fields]{finite field}, \(G\) is a finite or infinite group, and \(\mathcal{C}\) is a category.}
