@@ -17,6 +17,7 @@ description: |
   A \([[23, 1, 7]]\) self-dual CSS code with eleven stabilizer generators of each type, and with each generator being weight eight.
 
   The code's 11-by-23 stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both the generator matrix of the Golay code.
+  It can be punctured twice to obtain a \([[21,3,5]]\) code \cite{arxiv:1703.07847}.
 
   The automorphism group of the code is \(M_{23}\) \cite{arxiv:2109.12735}.
 
@@ -26,7 +27,7 @@ features:
   encoders:
     - 'Fault-tolerant depth-7 circuit consisting of 57 CNOT gates and preparing a logical-zero state \cite{arxiv:1106.2190}.'
 
-  # magic_scaling_exponent: 'Magic-state distillation scailing exponent \(\gamma=\log_2 23 \approx 4.52\)\cite{arxiv:2003.02717}.'
+  magic_scaling_exponent: 'Magic-state distillation scailing exponent \(\gamma=\log_2 23 \approx 4.52\)\cite{arxiv:2003.02717}. Various magic-state distillation protocols have been developed for this code \cite{arxiv:quant-ph/0411036,arxiv:1703.07847} and its \([[21,3,5]]\) doubly punctured version \cite{arxiv:1703.07847}.'
 
   transversal_gates:
     - '\hyperref[topic:clifford]{Single-qubit Clifford group} by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\) \cite{arxiv:1106.2190}.'
@@ -58,6 +59,8 @@ relations:
     - code_id: qutrit_golay
     - code_id: quantum_triorthogonal
       detail: 'A \([[95,1,7]]\) triorthogonal code with a transversal \(T\) gate can be obtained from the qubit Golay code via the doubling transformation \cite{arxiv:2307.14425}.'
+    - code_id: small_distance_quantum
+      detail: 'The quantum Golay code can be punctured twice to obtain a \([[21,3,5]]\) code.'
 
 
 # Begin Entry Meta Information

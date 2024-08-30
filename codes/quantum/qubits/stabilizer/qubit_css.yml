@@ -124,10 +124,9 @@ features:
 
   transversal_gates:
     - 'Transversal Pauli gates since qubit CSS codes are qubit stabilizer codes.'
-    - 'Transversal CNOT gates iff a code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}.
-    Self-dual CSS codes admit a transversal Hadamard gate.'
-    - '\textit{Fold-transversal} \cite{arxiv:2202.06647} Clifford gates are transversal gates combined with qubit permutations.
-    Some of these can be obtained from automorphism groups of the underlying classical codes \cite[Thms. 2-3]{arxiv:1302.1035}.'
+    - 'Transversal CNOT gates preserve the logical subspace iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}.'
+    - 'Self-dual CSS codes admit a transversal Hadamard gate.'
+    - '\textit{Fold-transversal} \cite{arxiv:2202.06647} Clifford gates are transversal gates combined with qubit permutations. Some of these can be obtained from automorphism groups of the underlying classical codes \cite[Thms. 2-3]{arxiv:1302.1035}.'
     - 'Necessary and sufficient conditions for a CSS code to yield a transversal gate in the \term{Clifford hierarchy} have been formulated \cite[Thm. 9]{arxiv:2109.13481}\cite[Thm. 5]{arxiv:2204.13176}\cite{arxiv:2406.00425}.
     There are routines that can determine what diagonal gates in the \term{Clifford hierarchy} are realized by a code \cite{arxiv:2303.15615,manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.'
   general_gates:
@@ -177,17 +176,18 @@ relations:
       detail: 'Galois-qudit CSS codes for \(q=2\) are qubit CSS codes.'
   cousins:
     - code_id: qubit_stabilizer
-      detail: 'Qubit CSS codes are qubit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
-      Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via the \textit{Bravyi-Leemhuis-Terhal mapping} \cite[Corr. 1]{arxiv:1004.3791}, which preserves geometric locality of a code up to a constant factor.
-      Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
-      For any non-CSS code \(\mathsf{C}\), there exists a CSS code \(\mathsf{C}^{\prime}\) such that \(\mathsf{C} = DQ\mathsf{C}^{\prime}\), where \(D\) is a diagonal Clifford operator, and where \(Q\) is an element of an XP stabilizer group \cite[Prop. B.3.1]{manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.'
+      detail: |
+        Qubit CSS codes are qubit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings. 
+        Transversal CNOT gates preserve the logical subspace iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}.
+        Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via the \textit{Bravyi-Leemhuis-Terhal mapping} (a.k.a. the Majorana mapping, named as such because it is done via an intermediate Majorana stabilizer code) \cite[Corr. 1]{arxiv:1004.3791}\cite{arxiv:1703.07847}, which preserves geometric locality of a code up to a constant factor. 
+        Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
+        For any non-CSS qubit stabilizer code \(\mathsf{C}\), there exists a CSS code \(\mathsf{C}^{\prime}\) such that \(\mathsf{C} = DQ\mathsf{C}^{\prime}\), where \(D\) is a diagonal Clifford operator, and where \(Q\) is an element of an XP stabilizer group \cite[Prop. B.3.1]{manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}.'
     - code_id: two_block_quantum
       detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: binary_linear
       detail: 'The CSS construction uses two related binary linear codes, \(C_X\) and \(C_Z\).'
     - code_id: dual
-      detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{self-orthogonal} or \textit{homogeneous} \cite{doi:10.1109/TCOMM.2022.3231879} since \(C^{\perp} \subseteq C\).
-      The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'
+      detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{self-orthogonal} or \textit{homogeneous} \cite{doi:10.1109/TCOMM.2022.3231879} since \(C^{\perp} \subseteq C\). The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'
     - code_id: alternant
       detail: 'Alternant codes used in the CSS construction yield quantum codes that asymptotically achieve the \hyperref[topic:quantum-gv-bound]{quantum GV bound} \cite{doi:10.1109/TIT.2022.3201239}.'
     - code_id: random_stabilizer
