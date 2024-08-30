@@ -15,24 +15,51 @@ alternative_names:
 
 description: |
   A stabilizer code with some of its logical qubits denoted as \textit{gauge} qubits and not used for storage of logical information.
-  Note that this doesnt lead to new codes but does lead to new error correction and fault tolerance procedures.
-  Subsystem codes are denoted by \([[n,k,r,d]]\), similar to stabilizer codes, but with an extra parameter \(r\) denoting the number of gauge qubits.
+  Note that this doesn't lead to new codes but does lead to new error correction and fault tolerance procedures.
+  Subsystem codes are denoted by \([[n,k,g,d]]\), similar to stabilizer codes, but with an extra parameter \(g\) denoting the number of gauge qubits.
+
+  Subsystem qubit stabilizer codes are defined by a gauge group and a stabilizer group that, up to phase, forms the centralizer of the gauge group.
+  The table below summarizes the relevant groups and their sizes for a subsystem qubit stabilizer code.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H>{purpose & symbol & size}
+      \celldata<c, c, c>{
+      gauge group & \(\mathsf{G}\) & \(4\cdot 2^{n-k+g}\)
+          \\
+      stabilizer group & \(\mathsf{S}\) & \(2^{n-k-g}\)
+          \\
+      code-preserving Paulis & \(\mathsf{N}(\mathsf{S})\) & \(4\cdot 2^{n+k+g}\)
+          \\
+      logical Paulis & \(\mathsf{N}(\mathsf{S})/\mathsf{G}\) & \(4^{k}\)
+          \\
+      gauge Paulis & \(\frac{\mathsf{N}(\mathsf{S})}{\mathsf{N}(\mathsf{S})/\mathsf{G}\times\left\langle i,\mathsf{S}\right\rangle }=\mathsf{G}/\left\langle i,\mathsf{S}\right\rangle\) & \(4^{g}\)
+          \\
+      gauge-preserving Paulis & \(\mathsf{N}(\mathsf{G})\) & \(4\cdot 2^{n+k-g}\)
+          \\
+      bare logicals & \(\mathsf{N}(\mathsf{G})/\left\langle i,\mathsf{S}\right\rangle\) & \(4^{k}\)
+      }
+      \end{cells}
+      \caption{Groups relevant to subsystem qubit stabilizer codes. The normalizer \(\mathsf{N}(\mathsf{S})\) (technically, the centralizer, but these are equivalent for this case) is the group formed by all elements of the \(n\)-qubit Pauli group that commute with all elements in \(\mathsf{S}\). The gauge group and the normalizer are defined so as to include \(i\) and its powers as elements, while the stabilizer group is not.}
+      \label{table:subsystem-groups}
+    \end{table}
 
   To create these codes proceed as follows.
   Choose \(2n\) operators \(\{ \tilde{X}_j,\tilde{Z}_j\}_{j=1}^n\) from \(\mathsf{P}_n\), the \hyperref[topic:pauli]{Pauli group} on \(n\) qubits, such that they obey the same commutation relations as the regular \(n\)-qubit Pauli generators \( \{X_j,Z_j\}_{j=1}^n \) (the subscript on these latter operators indicates the single qubit the Pauli matrix acts on).
   The tilde operators might act on more than one physical (or \textit{bare}) qubit but they behave as if they acted only on a single qubit.
-  WLOG we can choose a stabilizer group as \( \mathsf{S} = \tilde{Z}_1,\dots, \tilde{Z}_s \rangle \). It follows that the normalizer of \(\mathsf{S} \) is \( N(\mathsf{S}) = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_n, \tilde{X}_{s+1},\dots, \tilde{X}_n \rangle \).
-  We now choose a gauge group as \( \mathsf{G} = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_s, \tilde{X}_{s+1}, \tilde{Z}_{s+1}, \dots, \tilde{X}_{s+r}, \tilde{Z}_{s+r} \rangle \) with \( s + r \leq n \).
-  The logical group is chosen as \( \mathsf{L} = N(\mathsf{S})/\mathsf{G} \simeq \langle \tilde{X}_{s+r+1},\tilde{Z}_{s+r+1}, \dots, \tilde{X}_n,\tilde{Z}_n \rangle \).
+  WLOG we can choose a stabilizer group as \( \mathsf{S} = \tilde{Z}_1,\dots, \tilde{Z}_s \rangle \). It follows that the normalizer of \(\mathsf{S} \) is \( \mathsf{N}(\mathsf{S}) = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_n, \tilde{X}_{s+1},\dots, \tilde{X}_n \rangle \).
+  We now choose a gauge group as \( \mathsf{G} = \langle i, \tilde{Z}_1,\dots, \tilde{Z}_s, \tilde{X}_{s+1}, \tilde{Z}_{s+1}, \dots, \tilde{X}_{s+g}, \tilde{Z}_{s+g} \rangle \) with \( s + g \leq n \).
+  The logical group is chosen as \( \mathsf{L} = \mathsf{N}(\mathsf{S})/\mathsf{G} \simeq \langle \tilde{X}_{s+g+1},\tilde{Z}_{s+g+1}, \dots, \tilde{X}_n,\tilde{Z}_n \rangle \).
   Now the codespace \( C \) is as usual the \(+1\) eigenspace of the stabilizer \( \mathsf{S} \).
-  But the gauge and logical groups have further decomposed this space into \( C = A \otimes B \simeq (\mathbb{C}^2)^{\otimes k} \otimes (\mathbb{C}^2)^{\otimes r} \).
-  Thus the Hilbert space is partitioned into 3 sets; \(k\) logical qubits, \(r\) gauge qubits, and \(s\) stabilizer qubits, with \(s+r+k=n\).
+  But the gauge and logical groups have further decomposed this space into \( C = A \otimes B \simeq (\mathbb{C}^2)^{\otimes k} \otimes (\mathbb{C}^2)^{\otimes g} \).
+  Thus the Hilbert space is partitioned into 3 sets; \(k\) logical qubits, \(g\) gauge qubits, and \(s\) error-syndrome qubits, with \(s+g+k=n\).
+
+
 
 protection: |
   Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.
 
   There is the following analogue of the \term{Knill-Laflamme conditions} for subsystem qubit stabilizer codes.
-  A set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in N(\mathsf{S}) \setminus \mathsf{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( N(\mathsf{S}) \setminus \mathsf{G}\).
+  A set of errors \( \{ E_a \} \) is correctable iff \( E_aE_b \not\in \mathsf{N}(\mathsf{S}) \setminus \mathsf{G} \) for all pairs \(a,b\). The distance of the code is the minimal weight of operators in \( \mathsf{N}(\mathsf{S}) \setminus \mathsf{G}\).
 
   Entropic conditions have been formulated for random projective measurement noise \cite{arxiv:2402.00145}.
 

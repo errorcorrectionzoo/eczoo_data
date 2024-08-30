@@ -14,7 +14,8 @@ description: |
 
   The coding theory motivation for stabilizer codes came from linear binary codes, whose codewords form a closed subspace in the space of binary strings.
   Stabilizer codes extend this property, in various ways, to quantum error correction.
-  The stabilizer formalism is applicable to almost all quantum-code kingdoms; see \href{https://errorcorrectionzoo.org/list/stabilizer}{list of stabilizer codes} for a list of all stabilizer codes in the zoo.
+  Stabilizer codes can be defined succinctly using the stabilizer group generators and without explicitly writing out a basis of codewords.
+  The stabilizer formalism is applicable to almost all quantum-code kingdoms; see \href{https://errorcorrectionzoo.org/list/stabilizer}{list of stabilizer codes} for a list of all stabilizer codes.
 
   Stabilizer codes were originally defined for qubits, where the relevant commuting operators are tensor products of Pauli matrices.
   The Pauli stabilizer structure is useful in providing standardized encoding, gates, decoding, and performance bounds.
@@ -27,6 +28,13 @@ description: |
 #  Stabilizer codes have been defined for qubits, modular qudits, Galois qudits, and oscillators using their respective Pauli-type groups.
 # An important property of qubit and qudit stabilizer codes is the QLDPC property, which means (roughly) that working with them remains not too hard as number of qudits grows; these remain as the primary ingredients for a quantum memory.
 
+protection: |
+  The group of all Pauli-type operators typically serves as the set of noise operators for stabilizer codes.
+
+
+features:
+  decoders:
+    - 'The structure of stabilizer codes allows for straightforward syndrome-based decoding because the stabilizer generators serve as the code''s check operators, and their eigenvalues serve as the error syndromes. The error correction process involves measuring the stabilizer generators and applying correcting Pauli-type operators based on the measurement outcomes.'
 
 relations:
   parents:
