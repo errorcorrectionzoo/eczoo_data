@@ -36,7 +36,10 @@ description: |
   \end{align}
   We then look at the codes graphically, treating each \(i_j\) as an edge dangling out of the tensor vertex \(V_{i_1 \ldots i_{n+k}}\). These edges are either connected to another tensor vertex's edges or left dangling. If the block codes are stabilizer, then each local tensor has unitary product stabilizers (UPS). The goal is to push each UPS through the tensor network until each dangling edge has only trivial support. Otherwise, a matching value is pushed through the edge and the process is repeated on the next tensor. If a UPS can be pushed through the whole network, then a UPS for the larger network has been found. The dangling legs (edges) and UPS of the whole network can then be converted to physical/logical elements and stabilizers/logical operators for a new quantum code.
 
-protection: 'Stabilizer code distance can be calculated by tensor contraction \cite{arxiv:2109.11996}.'
+protection: |
+  Stabilizer code distance can be calculated by tensor contraction \cite{arxiv:2109.11996}.
+  \hyperref[topic:quantum-weight-enumerator]{Quantum weight enumerators} are related to tensor-network structures like correlation tensor norms \cite{arxiv:1106.5756,arxiv:1110.4108}.
+
 
 features:
   encoders:
