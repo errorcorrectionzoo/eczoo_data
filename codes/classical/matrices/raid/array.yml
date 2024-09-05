@@ -7,15 +7,24 @@
 code_id: array
 physical: matrices
 
-name: 'Disk array code'
+name: 'Array code'
 
 alternative_names:
   - 'RAID code'
-  - 'Array code'
+  - 'Disk array code'
 
 
 description: |
-  Matrix code designed for use in an RAID-type array of hard-drives such that information is protected against erasure of one or more hard drives.
+  Matrix code over \(GF(q)\) designed for use in distributed storage, with the first such applicaiton being a RAID-type array of hard-drives such that information is protected against erasure of one or more hard drives.
+
+protection: |
+  Since they are designed to protect against corruption of nodes in a distributed storage network, many array codes are analyzed in terms of their erasure capabilities.
+
+  An analogue of the Hamming metric for array codes comes from the Hamming distance between two codewords whose columns of length \(m\) are converted into values in \(GF(q)^m\) by treating the latter as the \(m\)th \hyperref[topic:finite-fields]{extension} of \(GF(q)\). 
+  This converts a matrix codeword over \(GF(q)\) into a vector over \(GF(q)^m\).
+  Linear array codes are those codes that are linear w.r.t. \(GF(q)^m\), i.e., that are closed under addition and multiplication by elements of said field when in vector form.
+
+  There are other notions of distance for array codes, including the rank metric and its generalization the sum-rank metric.
 
 notes:
   - 'See \cite{preset:HPArray}\cite[Ch. 14]{doi:10.1002/0471792748}\cite{preset:HPArray} for introductions.'
