@@ -1,0 +1,202 @@
+name: 'devsite-build-and-deploy'
+
+on:
+  workflow_dispatch:
+    inputs:
+      eczoo_data_repo:
+        description: 'eczoo_data repo:'
+        required: true
+        type: string
+        default: 'errorcorrectionzoo/eczoo_data'
+
+      eczoo_data_commit:
+        description: 'eczoo_data branch/ref/commit:'
+        required: true
+        type: string
+        default: 'main'
+
+      eczoo_sitegen_repo:
+        description: 'eczoo_sitegen repo:'
+        required: true
+        type: string
+        default: 'errorcorrectionzoo/eczoo_sitegen'
+
+      eczoo_sitegen_commit:
+        description: 'eczoo_sitegen branch/ref/commit:'
+        required: true
+        type: string
+        default: 'main'
+
+jobs:
+  build-and-deploy-site:
+    runs-on: 'ubuntu-latest'
+
+    environment: 's3-deploy'
+
+    env:
+      AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+      AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+    
+    steps:
+      - name: 'Message & devsite info'
+        run: |
+          echo 'DATA:    ${{ inputs.eczoo_data_repo }} \t- ${{ inputs.eczoo_data_commit }}' >>ECZOO_DEVSITE_INFO.txt
+          echo 'SITEGEN: ${{ inputs.eczoo_sitegen_repo }} \t- ${{ inputs.eczoo_sitegen_commit }}' >>ECZOO_DEVSITE_INFO.txt
+          cat ECZOO_DEVSITE_INFO.txt
+
+      - name: 'Check out eczoo_data code'
+        run: |
+          git clone https://github.com/${{ inputs.eczoo_data_repo }} eczoo_data
+          (cd eczoo_data && git checkout '${{ inputs.eczoo_data_commit }}')
+
+      # Check out site generation code
+      - name: 'Check out eczoo_sitegen code'
+        run: |
+          git clone https://github.com/${{ inputs.eczoo_sitegen_repo }} eczoo_sitegen
+          (cd eczoo_sitegen && git checkout '${{ inputs.eczoo_sitegen_commit }}')
+
+      # --------------------------------
+
+      # Install NodeJS
+      - uses: actions/setup-node@v3
+        with:
+          #cache: 'yarn'
+          node-version: '20'
+
+      - name: 'Enable Yarn (corepack enable)'
+        run: 'corepack enable'
+        working-directory: ./eczoo_sitegen/
+
+      - name: 'Inspect Yarn version'
+        run: 'yarn --version'
+        working-directory: ./eczoo_sitegen/
+
+      # --------------------------------
+
+      #
+      # SET UP CACHES
+      #
+
+      # Cache Yarn Modules
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        shell: bash
+        working-directory: ./eczoo_sitegen
+
+      - name: Restore yarn modules cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
+
+      # Cache citation information (downloaded information & compiled citations)
+
+      - name: Restore citations information cache
+        uses: actions/cache@v3
+        with:
+          path: eczoo_sitegen/_zoodb_citations_cache_LOCAL
+          key: devsite-zoodb-citations-cache-LOCAL-${{ hashFiles('ECZOO_DEVSITE_INFO.txt') }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            devsite-zoodb-citations-cache-LOCAL-
+
+      - name: Initialize local citation information cache if applicable
+        run: |
+          if [ ! -e _zoodb_citations_cache_LOCAL/cache_downloaded_info.json ]; then
+            mkdir -p _zoodb_citations_cache_LOCAL/
+            cp _zoodb_citations_cache/*.json _zoodb_citations_cache_LOCAL/
+          fi
+        working-directory: ./eczoo_sitegen
+
+      # --------------------------------
+
+      #
+      # Install any missing modules via yarn
+      #
+
+      - name: Yarn install
+        run: 'yarn'
+        working-directory: ./eczoo_sitegen/
+
+
+
+      # --------------------------------
+
+      #
+      # Build the site!
+      #
+
+      - name: Build Site (yarn buildall)
+        run: 'yarn buildall'
+        working-directory: ./eczoo_sitegen/
+        env:
+          ECZOO_CITATIONS_CACHE_DIR: "_zoodb_citations_cache_LOCAL"
+
+
+      # ## To Debug S3 deployment w/o building the full site ...
+      # 
+      # - name: 'DUMMY CREATE SITE FILES'
+      #   run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+      #   working-directory: ./eczoo_sitegen/
+
+
+      # --------------------------------
+
+      # ### Old deploy script command, results in crude cache management
+      # - name: 'Deploy site to S3/Cloudfront'
+      #   uses: reggionick/s3-deploy@v3
+      #   with:
+      #     folder: _site
+      #     bucket: '${{ secrets.DEVSITE_S3_BUCKET }}'
+      #     bucket-region: '${{ secrets.DEVSITE_S3_BUCKET_REGION }}'
+      #     dist-id: '${{ secrets.DEVSITE_CLOUDFRONT_DISTRIBUTION_ID }}'
+      #     invalidation: /
+      #     delete-removed: true
+      #     private: true
+      #     #no-cache: true
+      #     cache: 86400
+
+      - name: 'Deploy versioned assets to S3 with durable cache'
+        working-directory: ./eczoo_sitegen/
+        run: |-
+          yarn s3-deploy  \
+              "./site/_site/vv/**"  \
+              --bucket '${{ secrets.DEVSITE_S3_BUCKET }}'  \
+              --region '${{ secrets.DEVSITE_S3_BUCKET_REGION }}'  \
+              --cwd "./site/_site/"  \
+              --etag  \
+              --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
+              --cacheControl 'max-age=31536000, s-max-age=31536000'  \
+              --private
+
+      - name: 'Deploy site to S3/Cloudfront'
+        working-directory: ./eczoo_sitegen/
+        run: |-
+          yarn s3-deploy  \
+              "./site/_site/**"  \
+              --bucket '${{ secrets.DEVSITE_S3_BUCKET }}'  \
+              --region '${{ secrets.DEVSITE_S3_BUCKET_REGION }}'  \
+              --cwd ./site/_site  \
+              --distId '${{ secrets.DEVSITE_CLOUDFRONT_DISTRIBUTION_ID }}'  \
+              --etag  \
+              --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
+              --cacheControl 'max-age=7200, s-max-age=31536000'  \
+              --invalidate "/*"  \
+              --private
+
+
+
+      # --------------------------------
+
+      - name: Make archive of zoo files
+        run: 'zip -r ../../../eczoo_devsite_website_files.zip ./'
+        working-directory: ./eczoo_sitegen/site/_site/
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: eczoo_devsite_website_files
+          path: ./eczoo_devsite_website_files.zip
+          retention-days: 5
