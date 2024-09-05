@@ -40,8 +40,8 @@ jobs:
     steps:
       - name: 'Message & devsite info'
         run: |
-          echo 'DATA:    ${{ inputs.eczoo_data_repo }} \t- ${{ inputs.eczoo_data_commit }}' >>ECZOO_DEVSITE_INFO.txt
-          echo 'SITEGEN: ${{ inputs.eczoo_sitegen_repo }} \t- ${{ inputs.eczoo_sitegen_commit }}' >>ECZOO_DEVSITE_INFO.txt
+          echo 'DATA:    ${{ inputs.eczoo_data_repo }}  -  ${{ inputs.eczoo_data_commit }}' >>ECZOO_DEVSITE_INFO.txt
+          echo 'SITEGEN: ${{ inputs.eczoo_sitegen_repo }}  -  ${{ inputs.eczoo_sitegen_commit }}' >>ECZOO_DEVSITE_INFO.txt
           cat ECZOO_DEVSITE_INFO.txt
 
       - name: 'Check out eczoo_data code'
