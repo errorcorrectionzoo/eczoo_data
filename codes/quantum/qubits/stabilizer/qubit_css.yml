@@ -124,7 +124,7 @@ features:
 
   transversal_gates:
     - 'Transversal Pauli gates since qubit CSS codes are qubit stabilizer codes.'
-    - 'Transversal CNOT gates preserve the logical subspace iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}.'
+    - 'Transversal CNOT gates preserve the logical subspace, up to \(X\)-type Paulis, iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}. The Paulis are necessary for when the code is stabilized by stabilizers with a minus in front of them, e.g., \(-XXXX\) and \(ZZZZ\).'
     - 'Self-dual CSS codes admit a transversal Hadamard gate.'
     - '\textit{Fold-transversal} \cite{arxiv:2202.06647} Clifford gates are transversal gates combined with qubit permutations. Some of these can be obtained from automorphism groups of the underlying classical codes \cite[Thms. 2-3]{arxiv:1302.1035}.'
     - 'Necessary and sufficient conditions for a CSS code to yield a transversal gate in the \term{Clifford hierarchy} have been formulated \cite[Thm. 9]{arxiv:2109.13481}\cite[Thm. 5]{arxiv:2204.13176}\cite{arxiv:2406.00425}.
@@ -203,6 +203,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: MichaelGullans
+      date: '2024-09-09'
     - user_id: ChrisPattison
       date: '2023-08-12'
     - user_id: balopat
