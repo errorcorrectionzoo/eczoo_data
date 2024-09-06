@@ -129,18 +129,18 @@ jobs:
       # Build the site!
       #
 
-      - name: Build Site (yarn buildall)
-        run: 'yarn buildall'
-        working-directory: ./eczoo_sitegen/
-        env:
-          ECZOO_CITATIONS_CACHE_DIR: "_zoodb_citations_cache_LOCAL"
-
-
-      # ## To Debug S3 deployment w/o building the full site ...
-      # 
-      # - name: 'DUMMY CREATE SITE FILES'
-      #   run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+      # - name: Build Site (yarn buildall)
+      #   run: 'yarn buildall'
       #   working-directory: ./eczoo_sitegen/
+      #   env:
+      #     ECZOO_CITATIONS_CACHE_DIR: "_zoodb_citations_cache_LOCAL"
+
+
+      ## To Debug S3 deployment w/o building the full site ...
+      
+      - name: 'DUMMY CREATE SITE FILES'
+        run: 'mkdir -p site/_site/ && echo "<html>TEST</html>" >site/_site/index.html'
+        working-directory: ./eczoo_sitegen/
 
 
       # --------------------------------
