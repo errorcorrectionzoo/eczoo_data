@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: mds_array
+physical: matrices
+
+name: 'MDS array code'
+
+
+description: |
+  An \((n,k,m)\) array code whose codewords can be recovered by any \(k\) out of \(n\) nodes, where each node stores a length-\(m\) column of the codeword. MDS array codes are MDS codes when each matrix codeword is treated as a vector by converting each column into a single coordinate via subpacketization.
+
+
+relations:
+  parents:
+    - code_id: array
+  cousins:
+    - code_id: mds
+      detail: 'MDS array codes are MDS codes when each matrix codeword is treated as a vector by converting each column into a single coordinate via subpacketization.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-09'
