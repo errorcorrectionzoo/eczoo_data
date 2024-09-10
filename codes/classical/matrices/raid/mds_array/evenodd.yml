@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: evenodd
+physical: matrices
+
+
+name: 'EVENODD code'
+introduced: '\cite{doi:10.1109/12.364531}'
+
+description: |
+  A binary array code that can correct any two disk failures (i.e., two erasures). See \cite{preset:HPArray} for more details.
+
+features:
+  decoders:
+    - 'Efficient decoding algorithm against two erasures \cite{doi:10.1109/12.364531}.'
+
+
+relations:
+  parents:
+    - code_id: bbv
+      detail: 'Generalized EVENODD codes reduce to EVENODD codes for \(r=2\) \cite{preset:HPArray}.'
+    - code_id: mds_array
+      detail: 'EVENODD codes are examples of MDS array codes \cite{arxiv:1112.0371}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-19'
