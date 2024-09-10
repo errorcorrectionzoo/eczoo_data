@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_16_6_4
+physical: qubits
+logical: qubits
+
+name: '\([[16,6,4]]\) Tesseract color code'
+introduced: '\cite{arxiv:2008.05051,arxiv:2112.01446}'
+
+description: |
+  A 4D color code defined on a tesseract, with stabilizer generators of both types supported on each cube. 
+
+
+features:
+  decoders:
+    - 'Fault-tolerant syndrome extraction \cite{arxiv:2008.05051,arxiv:2112.01446}.'
+  fault_tolerance:
+    - 'Fault-tolerant syndrome extraction \cite{arxiv:2008.05051,arxiv:2112.01446}.'
+
+realizations:
+  - 'Trappen-ion devices: logical graph and GHZ states of up to 12 logical qubits constructed using three copies of the tesseract color code, along with five rounds of error correction in a device by Quantinuum \cite{arxiv:2409.04628}.'
+
+relations:
+  parents:
+    - code_id: color
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: stab_15_7_3
+      detail: 'The \([[15,7,3]]\) quantum Hamming code can be obtained by puncturing the tesseract color code \cite{arxiv:2008.05051}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-09-10'
