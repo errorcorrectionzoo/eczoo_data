@@ -7,12 +7,10 @@ code_id: q-ary_digits_into_q-ary_digits
 physical: q-ary_digits
 logical: q-ary_digits
 
-name: 'Galois-field \(q\)-ary code'
-short_name: '\(q\)-ary'
-#introduced: ''
+name: '\(q\)-ary code'
 
 description: |
-  Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The distance is the minimum number of coordinates where two strings in the code differ.
+  Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)\) and has distance \(d\). Usually denoted as \((n,K,d)_q\). The (Hamming) distance is the minimum number of coordinates where two strings in the code differ.
 
   \subsection{Finite-field alphabet}
   \begin{defterm}{Finite fields}
@@ -58,7 +56,7 @@ description: |
 # The group of isometries of \(q\)-ary Hamming space is a combination of the monomial group, the Galois group of \(GF(q)\), and the group formed by the action of the space on itself (under addition) \cite{preset:HKSclass}.
 
 protection: |
-  The standard metric for Galois-field \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431}.
+  The standard metric for \(q\)-ary codes is the Hamming metric, but other metrics also exist \cite{arxiv:2212.00431,preset:HKSmetrics}.
   A code detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.
   Often, the relative distance \(\delta=d/n\) is used to compare codes of different lengths.
 
