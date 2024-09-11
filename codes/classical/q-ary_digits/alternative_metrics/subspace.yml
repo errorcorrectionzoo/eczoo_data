@@ -8,13 +8,13 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: 'Subspace code'
-introduced: \cite{doi:10.1109/TIT.2008.926449}
+introduced: '\cite{doi:10.1109/TIT.2008.926449}'
 
 description: |
-  A code that is a set of subspaces of a projective space \(PG(n-1,q)\).
+  A code that is a set of subspaces of \(GF(q)^n\).
 
 protection: |
-  Subspace codes are quantified with respect to the subspace distance \cite{doi:10.1109/TIT.2008.926449} or injection distance \cite{arxiv:0805.3824}.'
+  Subspace codes are quantified with respect to the subspace distance \cite{doi:10.1109/TIT.2008.926449} or injection distance \cite{arxiv:0805.3824}.
   
   Generalizations of various bounds for ordinary \(q\)-ary codes have been developed for subspace codes; see \cite{preset:HKSnetwork}.
 
@@ -25,9 +25,11 @@ features:
 realizations:
   - 'Packet-based transmission over networks \cite{preset:HKSnetwork}.'
 
+
+# 20240911: Codewords are subspaces, not elements of field, so q-ary is not parent
 relations:
   parents:
-    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: ecc_finite
   cousins:
     - code_id: projective
       detail: 'Subspace codes are sets of subspaces of a projective space \(PG(n-1,q)\).'
