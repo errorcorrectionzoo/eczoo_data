@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_color
+physical: galois
+logical: galois
+
+name: 'Galois-qudit color code'
+introduced: '\cite{doi:10.1109/CIG.2010.5592860}'
+
+alternative_names:
+  - '\(\mathbb{F}_q\)-qudit color code'
+
+description: |
+  Extension of the color code to 2D lattices of Galois qudits.
+
+relations:
+  parents:
+    - code_id: galois_css
+    - code_id: 2d_stabilizer
+    - code_id: generalized_homological_product_css
+    - code_id: quantum_double
+      detail: 'A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}. Galois-qudit color codes yield Abelian quantum-double codes with Abelian-group topological order via this decomposition.'
+  cousins:
+    - code_id: quantum_double_abelian
+      detail: 'A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}. Galois-qudit color codes yield Abelian quantum-double codes with Abelian-group topological order via this decomposition.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-27'
