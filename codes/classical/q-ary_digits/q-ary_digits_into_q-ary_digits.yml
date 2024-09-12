@@ -11,9 +11,14 @@ name: '\(q\)-ary code'
 
 description: |
   Encodes \(K\) states (codewords) in \(n\) \(q\)-ary coordinates over the field \(GF(q)\), i.e., \(q\)-ary strings.
-  Their error-correcting performance is quantified by some distance \(d\), which in turn is defined using a metric.
+  Error-correcting performance is quantified by some distance \(d\), which in turn is defined using a metric.
   The default distance is the Hamming distance \(d\), the weight (i.e., number of nonzero coordinates) of the lowest-weight nonzero codeword; such codes are usually denoted as \((n,K,d)_q\).
   The corresponding Hamming metric between two \(q\)-ary strings is the number of coordinates in which they differ.
+  Unless stated otherwise, the distance for this class is the Hamming distance.
+
+  Two \(q\)-ary codes are \textit{equivalent} if the codewords of one code can be mapped into those of the other under a combination of a coordinate permutation and a permutation of the elements of each coordinate. 
+  The full group of such composite permutations is \(S_q \wr S_n\) \cite[Def. 1.8.8]{preset:HKSbasics}\cite{preset:HKSclass}.
+
 
 protection: |
   A code detects errors on up to \(d-1\) coordinates, corrects erasure errors on up to \(d-1\) coordinates, and corrects general errors on up to \(\left\lfloor (d-1)/2 \right\rfloor\) coordinates.

@@ -10,17 +10,17 @@ name: 'Linear code over \(G\)'
 introduced: '\cite{doi:10.1109/49.29613,doi:10.1109/18.133243,doi:10.1109/18.104333}'
 
 description: |
-  Encodes \(K\) states (codewords) in \(n\) coordinates over a group \(G\) such that the codewords form a subgroup of \(G^n\). In other words, the set of codewords is closed under the group operation.
+  Block code that encodes \(K\) states (codewords) in \(n\) coordinates over a group \(G\) such that the codewords form a subgroup of \(G^n\). In other words, the set of codewords is closed under the group operation.
 
-  The \textit{automorphism group} of such codes is the group \(G^n\) formed by the action of \(G\) on each coordinate as well as the coordinate permutation group \(S_n\).
+  For finite groups that are not finite fields, the \textit{automorphism group} of such codes is the group \(G^n\) formed by the action of \(G\) on each coordinate as well as the coordinate permutation group \(S_n\).
 
 relations:
   parents:
     - code_id: group_classical
     - code_id: group_orbit
-      detail: 'The set of codewords of a linear code over \(G\) can be thought of as an orbit of a particular codeword under the group formed by the code.
-      However, group orbit codes do not have to be linear \cite[Remark 8.4.3]{preset:EricZin}.'
+      detail: 'The set of codewords of a linear code over \(G\) can be thought of as an orbit of a particular codeword under the group formed by the code. However, group orbit codes do not have to be linear \cite[Remark 8.4.3]{preset:EricZin}.'
     - code_id: block
+      detail: 'Linear codes over \(G\) are linear block codes with \(\Sigma=G\).'
   cousins:
     - code_id: group_gkp
 

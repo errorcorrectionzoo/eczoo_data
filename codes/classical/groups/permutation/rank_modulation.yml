@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rank_modulation
+physical: groups
+
+name: 'Rank-modulation code'
+introduced: '\cite{doi:10.1109/ISIT.2008.4595285,arxiv:1110.2557}'
+
+description: |
+  A family of codes in permutations derived from \(q\)-ary linear codes, such as Lee-metric codes, RS codes \cite{arxiv:1110.2557}, quadratic residue codes, and most binary codes.
+
+features:
+  rate: 'Rank modulation codes with code distance of \hyperref[topic:asymptotics]{order} \(d=\Theta(n^{1+\epsilon})\) for \(\epsilon\in[0,1]\) achieve a rate of \(1-\epsilon\) \cite{doi:10.1109/ISIT.2010.5513604}.'
+
+realizations:
+  - 'Electronic devices where charges can either increase in an individual cell or decrease in a block of adjacent cells, e.g., flash memories \cite{doi:10.1109/TIT.2009.2018336}.'
+
+relations:
+  parents:
+    - code_id: binary_permutation
+  cousins:
+    - code_id: gray
+      detail: 'The rank-modulation Gray code is an extension of the original binary Gray code to a code on the permutation group \cite{doi:10.1109/TIT.2009.2018336}.'
+    - code_id: q-ary_linear
+      detail: 'Almost all linear \(q\)-ary codes can be converted to rank-modulation codes \cite{arxiv:1110.2557}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-07'
+    - user_id: VictorVAlbert
+      date: '2022-04-12'
+    - user_id: JiaxinHuang
+      date: '2022-04-08'
