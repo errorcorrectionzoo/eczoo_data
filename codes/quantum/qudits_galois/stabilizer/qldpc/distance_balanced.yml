@@ -8,7 +8,7 @@ physical: galois
 logical: galois
 
 name: 'Distance-balanced code'
-introduced: '\cite{arxiv:1611.03790,arxiv:2004.07935}'
+introduced: '\cite{arxiv:1611.03790,arxiv:2102.10030,arxiv:2004.07935}'
 
 description: |
   Galois-qudit CSS code constructed from a CSS code and a classical code using a distance-balancing procedure based on a generalized homological product.
@@ -19,6 +19,14 @@ description: |
   \label{topic:weight-reduction}
   A related procedure called \textit{weight reduction} \cite{arxiv:1611.03790,arxiv:2402.05228} takes in a CSS stabilizer code and outputs a longer CSS code that admits a set of stabilizer generators whose weight is independent of the number of qubits \(n\).
   \end{defterm}
+
+features:
+  decoders:
+    - 'The effective distance of single-ancilla syndrome extraction QLDPC code circuits can be preserved under weight reduction \cite{arxiv:2409.02193}. The distance balancing technique of Ref. \cite{arxiv:2004.07935} preserves the \hyperref[topic:effective-distance]{effective distance} of single-ancilla syndrome extraction circuits \cite{arxiv:2409.02193}.'
+  fault_tolerance:
+    - 'Single-ancilla syndrome extraction circuits that, for the most part, preserve the \hyperref[topic:effective-distance]{effective distance} of weight-reduced qLDPC codes \cite{arxiv:2409.02193}. The distance balancing technique of Ref. \cite{arxiv:2004.07935} preserves \hyperref[topic:effective-distance]{effective distance} \cite{arxiv:2409.02193}.'
+
+
 
 relations:
   parents:
@@ -31,7 +39,7 @@ relations:
     - code_id: gkp-cluster-state
       detail: '\hyperref[topic:weight-reduction]{Weight reduction} has been studied in the context of GKP CV-cluster-state codes \cite{arxiv:2402.05228}.'
     - code_id: qldpc
-      detail: 'Lattice surgery techniques for QLDPC codes \cite{arxiv:2110.10794,arxiv:2308.08648} utilize \hyperref[topic:weight-reduction]{weight reduction}.'
+      detail: 'Lattice surgery techniques for QLDPC codes \cite{arxiv:2110.10794,arxiv:2308.08648} utilize \hyperref[topic:weight-reduction]{weight reduction}. Single-ancilla syndrome extraction circuits that, for the most part, preserve the \hyperref[topic:effective-distance]{effective distance} of weight-reduced qLDPC codes \cite{arxiv:2409.02193}.'
 
 
 # Begin Entry Meta Information
