@@ -41,6 +41,7 @@ features:
     - 'Hadamard (up to logical SWAP gates) and control-\(Z\) on all logical qubits \cite{arxiv:2204.10812}.'
     - 'Patch-transversal gates inherited from the automorphism group of the underlying classical codes \cite[Appx. D]{arxiv:2309.11719}.'
   decoders:
+    - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
     - 'ReShape decoder that uses minimum weight decoders for the classical codes used in the hypergraph construction \cite{arxiv:2105.02370}.'
     - '2D geometrically local syndrome extraction circuits with depth \hyperref[topic:asymptotics]{order} \(O(\sqrt{n})\) using \hyperref[topic:asymptotics]{order} \(O(n)\) ancilla qubits \cite{arxiv:2109.14599}.'
     - 'Improved BP-OSD decoder \cite{arxiv:2206.03122}.'
@@ -52,6 +53,8 @@ features:
   code_capacity_threshold:
     - 'Some thresholds were determined in Ref. \cite{arxiv:1208.2317}.'
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:1804.01950}. For example, a threshold of \(7\%\) was obtained under independent \(X\) and \(Z\) noise for codes obtained from random \((3,4)\)-regular Gallager codes.'
+  fault_tolerance:
+    - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
   threshold:
     - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599} and DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047} combined with non-local gates \cite{arxiv:2409.05818}.
     No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
