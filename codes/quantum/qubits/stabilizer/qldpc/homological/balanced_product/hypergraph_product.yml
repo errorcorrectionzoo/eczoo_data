@@ -19,7 +19,8 @@ description: |
   A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear codes.
   Codes from hypergraph products in higher dimension are called \textit{higher-dimensional HGP codes} \cite{arxiv:1810.01519}.
 
-  The \([[n,k,d]]\) CSS code's construction is based on two binary linear \textit{seed} codes, \(i\in\{1,2\}\) \(C_i\) with parameters \([n_i, k_i, d_i]\) defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
+  More technically, the \(x\)- and \(Z\)-type stabilizer generator matrices of a hypergraph product code are, respectively, the boundary and coboundary operators of the 2-complex obtained from the tensor product of a chain complex and cochain complex corresponding to two classical linear binary linear \textit{seed} codes.
+  Let the two seed codes be \(C_i\) for \(i\in\{1,2\}\) with parameters \([n_i, k_i, d_i]\), defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
   The hypergraph product yields two classical codes \(C_{X,Z}\) with parity-check matrices
   \begin{align}
     H_{X}&=\begin{pmatrix}H_{1}\otimes I_{n_{2}} & \,\,I_{r_{1}}\otimes H_{2}^{T}\end{pmatrix}\\
@@ -27,6 +28,8 @@ description: |
   \end{align}
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
+
+  In general, the stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with the 1-complex corresponding to some classical linear code.
 
 # Could be expanded to include Tanner graphs
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
@@ -82,6 +85,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-19'
+    - user_id: ShiJieSamuelTan
+      date: '2024-08-19'
     - user_id: ChrisPattison
       date: '2023-10-25'
     - user_id: VictorVAlbert
