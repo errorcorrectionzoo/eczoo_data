@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_synchronizable
+physical: qubits
+logical: qubits
+
+name: 'Quantum synchronizable code'
+introduced: '\cite{arxiv:1206.0260}'
+
+description: |-
+  A qubit stabilizer code designed to protect against synchronization errors (a.k.a. misalignment), which are errors that misalign the code block in a larger block by one or more locations. 
+
+  In such a setting, the qubits are arranged in a line and embedded into a larger block that represents a stream of information coming into the receiver.
+  The receiver may not properly identify the first qubit in the desired code block, leading to a misalignment of the block.
+  A quantum synchronizable code is denoted by \((a_l,a_r)-[[n+a_l+a_r,k,d]]\), correcting misalignment by up to \(a_l\) (\(a_r\)) qubits to the left (right).
+
+  The initial construction of quantum synchronizable codes was based on the CSS construction \cite{arxiv:1206.0260}, but later work extended it to non-CSS stabilizer codes \cite{arxiv:2409.11312}.
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+  cousins:
+    - code_id: bch
+      details: 'BCH codes can be used to construct quantum synchronizable codes via the CSS construction \cite{arxiv:1206.0260}.'
+    - code_id: quad_residue
+      details: 'Binary QR codes can be used to construct quantum synchronizable codes via the CSS construction \cite{arxiv:1403.6192}.'
+    - code_id: qubit_stabilizer_oaqecc
+      detail: 'Quantum synchronizable versions of qubit subsystem codes, hybrid codes, and OA qubit stabilizer codes have been constructed \cite{arxiv:2409.11312}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-09-20'
