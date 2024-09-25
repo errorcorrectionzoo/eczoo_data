@@ -40,6 +40,10 @@ description: |
       \label{table:stabilizer-groups}
     \end{table}
 
+  Two qubit stabilizer codes codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of elements of the \hyperref[topic:clifford]{single-qubit Clifford group} and a qubit permutation.
+  Equivalence under single-qubit Clifford operations is not the same as the equivalence under a tensor product of arbitrary single-qubit unitary operations \cite{arxiv:0709.1266}.
+  A qubit stabiilzer code is \textit{decomposable} if there exists a permutation that maps the stabilizer group into a tensor product of two stabilizer groups acting on disjoint sets of qubits.
+
   \begin{defterm}{Symplectic representation}
   \label{topic:binary-symplectic-representation}
   In the symplectic representation, the single-qubit identity, \(X\), \(Y\), or \(Z\) Pauli matrices represented using two bits as \((0|0)\), \((1|0)\), \((1|1)\), and \((0|1)\), respectively.
@@ -65,6 +69,7 @@ description: |
 
   The sets of \(GF(4)\)-represented vectors for all generators yield a trace-Hermitian self-orthogonal additive quaternary code.
   This classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
+  In the case of stabilizer states, the correspondence is between such states and trace-Hermitian self-dual quaternary codes; such codes, and therefore such states, have been classified up to equivalence for \(n \leq 12\) \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}.
 
   Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(GF(2)\) using three bits \cite{arxiv:2305.17505}.
 
