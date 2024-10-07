@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ampdamp_post_selected
+physical: qubits
+logical: qubits
+
+name: 'Post-selected PI code'
+introduced: '\cite{arxiv:2410.00155}'
+
+description: |
+  PI qubit code whose recovery succeeds at protecting against \hyperref[topic:ad]{AD} errors with a success probability less than one.
+
+  The simplest code admits a codeword basis of
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle&=\frac{1}{\sqrt{3}}\left(|100\rangle+|010\rangle+|001\rangle\right)\\|\overline{1}\rangle&=|111\rangle~.
+  \end{split}
+  \end{align}
+  The code violates the diagonal part of the \term{Knill-Laflamme conditions}.
+  Nevertheless, the code admits a probabilistic recovery that protects against single losses and yields an infidelity of \hyperref[topic:asymptotics]{order} \(O(\gamma^2)\) in the noise rate \(\gamma\).
+  The failure probability of the recovery is of the same \hyperref[topic:asymptotics]{order} as the probability of the single loss errors, i.e., \(O(\gamma)\).
+
+
+relations:
+  parents:
+    - code_id: qubit_permutation_invariant
+    - code_id: ampdamp
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-10-05'
+    - user_id: SouravDutta
+      date: '2024-10-05'
+    - user_id: AdityaJain
+      date: '2024-10-05'
+    - user_id: PrabhaMandayam
+      date: '2024-10-05'
