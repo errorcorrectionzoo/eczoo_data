@@ -27,6 +27,10 @@ description: |
   An MBQC scheme can be constructed out of any qubit CSS code (via \textit{foliation} \cite{arxiv:1607.02579}) or qubit stabilizer code \cite{arxiv:1811.11780}.
   The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (i.e., a cubic lattice with qubits on edges and faces).
 
+  Since they are stabilizer states, two cluster states are considered equivalent if they can be mapped into each other under a tensor product of arbitrary \hyperref[topic:clifford]{single-qubit Clifford} operations.
+  Such operations can sometimes be done via local complementation (LC) of the underlying graph \cite{arxiv:quant-ph/0307130,arxiv:quant-ph/0308151}.
+  Cluster states on \(8 \leq n \leq 27\) qubits are single-qubit Clifford equivalent iff they are LC equivalent \cite{arxiv:0709.1266,arxiv:0812.4625,arxiv:1910.03969}.
+
 protection: |
   Protection is related to the stabilizer code underlying the cluster state.
   There is no physical error correction, and decoding output is simply used to update the Pauli frame.
