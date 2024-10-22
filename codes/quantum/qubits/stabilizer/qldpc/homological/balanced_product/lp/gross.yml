@@ -10,6 +10,10 @@ logical: qubits
 name: '\([[144,12,12]]\) gross code'
 introduced: '\cite{arxiv:2308.07915}'
 
+alternative_names:
+  - '\((3,3)\) BB code'
+  # \cite{arxiv:2410.11942}
+
 description: |
   A BB QLDPC code which requires less physical and ancilla qubits (for syndrome extraction) than the surface code with the same number of logical qubits and distance.
   The name stems from the fact that a gross is a dozen dozen.
@@ -33,6 +37,10 @@ features:
 relations:
     parents:
       - code_id: qcga
+    cousins:
+      - code_id: 2d_stabilizer
+        detail: 'Boundary operators on the gross code correspond to anyons of 8 copies of the surface code \cite{arxiv:2410.11942}.'
+
 
 
 # Begin Entry Meta Information
