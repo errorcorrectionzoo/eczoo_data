@@ -16,10 +16,10 @@ alternative_names:
   - 'Tillich-Zemor product code'
 
 description: |
-  A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear codes.
+  A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear binary codes.
   Codes from hypergraph products in higher dimension are called \textit{higher-dimensional HGP codes} \cite{arxiv:1810.01519}.
 
-  More technically, the \(x\)- and \(Z\)-type stabilizer generator matrices of a hypergraph product code are, respectively, the boundary and coboundary operators of the 2-complex obtained from the tensor product of a chain complex and cochain complex corresponding to two classical linear binary linear \textit{seed} codes.
+  More technically, the \(x\)- and \(Z\)-type stabilizer generator matrices of a hypergraph product code are, respectively, the boundary and coboundary operators of the 2-complex obtained from the tensor product of a chain complex and cochain complex corresponding to two classical linear binary \textit{seed} codes.
   Let the two seed codes be \(C_i\) for \(i\in\{1,2\}\) with parameters \([n_i, k_i, d_i]\), defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
   The hypergraph product yields two classical codes \(C_{X,Z}\) with parity-check matrices
   \begin{align}
@@ -29,7 +29,7 @@ description: |
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
 
-  In general, the stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with the 1-complex corresponding to some classical linear code.
+  In general, the stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with the 1-complex corresponding to some classical linear binary code.
 
 # Could be expanded to include Tanner graphs
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
@@ -67,18 +67,18 @@ features:
 relations:
   parents:
     - code_id: homological_product
-      detail: 'A homological product of chain complexes corresponding to two classical codes is a hypergraph product code \cite{arxiv:2009.03921}.'
-    - code_id: lifted_product
-      detail: 'Lifted-product codes for trivial lift are hypergraph-product codes.'
+      detail: 'A homological product of chain complexes corresponding to two linear binary codes is a hypergraph product code \cite{arxiv:2009.03921}.'
     - code_id: sc_qldpc
       detail: 'Hypergraph-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
+    - code_id: galois_hypergraph_product
+      detail: 'Hypergraph product codes are Galois-qudit hypergraph-product codes for qudit dimension \(q=2\).'
   cousins:
     - code_id: ltc
       detail: 'Applying the hypergraph product to an LTC yields a code which provides an explicit example of \textit{No Low-Error Trivial States (NLETS)} \cite{arxiv:1510.02082}.'
     - code_id: xyz_product
       detail: 'Hypergraph (XYZ) product codes are constructed out of hypergraph products of two (three) classical linear codes.'
     - code_id: binary_linear
-      detail: 'Hypergraph product codes are constructed out of two classical linear binary codes.'
+      detail: 'Hypergraph product codes are constructed out of two linear binary codes.'
 
 
 # Begin Entry Meta Information

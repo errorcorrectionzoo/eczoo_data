@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: galois_expander
+physical: galois
+logical: galois
+
+name: 'Galois-qudit quantum expander code'
+introduced: '\cite{arxiv:2410.14662}'
+
+alternative_names:
+  - 'Galois-qudit Sipser-Spielman code'
+
+description: |
+  Galois-qudit CSS code constructed from a hypergraph product of expander codes.
+
+  Expander codes with RS inner codes contain GRM codewords because tensor products of univariate polynomials (corresponding to RS codewords) yield multivariate polynomials (corresponding to GRM codewords) \cite{arxiv:2410.14662}. This \textit{multiplication property} allows for QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates while maintaining distance \cite{arxiv:2410.14662}.
+
+features:
+  magic_scaling_exponent: 'Hypergraph products of expander codes with RS inner codes yield \([[n,k\geq n^{1-\epsilon},d\geq n^{1/r}/\text{poly}(\log n)]]_q\) QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates \cite{arxiv:2410.14662}. This construction allows for arbitrarily small magic-state yield parameter \(\gamma).'
+
+  transversal_gates:
+    - 'Hypergraph products of expander codes with RS inner codes yield \([[n,k\geq n^{1-\epsilon},d\geq n^{1/r}/\text{poly}(\log n)]]_q\) QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates \cite{arxiv:2410.14662}.'
+
+
+relations:
+  parents:
+    - code_id: galois_hypergraph_product
+  cousins:
+    - code_id: reed_solomon
+      detail: 'Hypergraph products of expander codes with RS inner codes yield \([[n,k\geq n^{1-\epsilon},d\geq n^{1/r}/\text{poly}(\log n)]]_q\) QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates \cite{arxiv:2410.14662}.'
+    - code_id: generalized_reed_muller
+      detail: 'Expander codes with RS inner codes contain GRM codewords because tensor products of univariate polynomials (corresponding to RS codewords) yield multivariate polynomials (corresponding to GRM codewords) \cite{arxiv:2410.14662}.'
+    - code_id: balanced_product
+      detail: 'Balanced products of expander codes with RS inner codes yield \([q^{\text{polylog}(q)},k\geq n^{1-\epsilon},n/\text{poly}(\log n)]_q\) LTCs exhibiting the multiplication property \cite{arxiv:2410.14662}.'
+    - code_id: q-ary_ltc
+      detail: 'Balanced products of expander codes with RS inner codes yield \([q^{\text{polylog}(q)},k\geq n^{1-\epsilon},n/\text{poly}(\log n)]_q\) LTCs exhibiting the multiplication property \cite{arxiv:2410.14662}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-10-23'
