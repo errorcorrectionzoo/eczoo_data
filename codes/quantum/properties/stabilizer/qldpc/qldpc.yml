@@ -132,11 +132,14 @@ relations:
   cousins:
     - code_id: ldpc
     - code_id: topological
-      detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace is the ground-state subspace of a geometrically local Hamiltonian. In this sense, topological codes are QLDPC codes.'
+      detail: 'Topological codes are not generally defined using Pauli strings. However, for appropriate tesselations, the codespace is the ground-state subspace of a geometrically local Hamiltonian. In this sense, topological codes are QLDPC codes. Geometrically local commuting-projector code Hamiltonians on Euclidean manifolds are stable with respect to small perturbations when they satisfy the \hyperref[topic:tqo]{TQO conditions}, meaning that a notion of a phase can be defined \cite{arxiv:1001.4363,arxiv:1001.0344,arxiv:1109.1588,arxiv:1810.02428,arxiv:2010.15337}.
+      This notion can be extended to semi-hyperbolic manifolds \cite{arxiv:2405.19412} and non-geometrically local QLDPC exhibiting check soundness \cite{arxiv:2411.01002}.'
     - code_id: dynamic_gen
       detail: 'QLDPC codes can arise from a dynamical process \cite{arxiv:2004.09560}.'
     - code_id: hamiltonian
       detail: 'QLDPC code Hamiltonians can be simulated, with the help of perturbation theory, by two-dimensional Hamiltonians with non-commuting terms whose interactions scale with \(n\) \cite{arxiv:2308.13277}.'
+    - code_id: commuting_projector
+      detail: 'QLDPC codes with  check soundness, meaning that every weight-\(m\) stabilizer can be written as a product of \hyperref[topic:asymptotics]{order} \(O(m)\) stabilizer generators, are robust against few-body perturbations. This means that phases of matter can be defined from certain non-geometrically local QLDPC code Hamiltonians \cite{arxiv:2411.01002}.'
     - code_id: single_shot
       detail: 'Qubit QLDPC codes satisfying linear confinement are single shot \cite{arxiv:2009.11790}. Any code that admits a local greedy decoder also satisfies linear confinement, and so is single shot \cite{arxiv:2308.08648}.'
     - code_id: ldgm
