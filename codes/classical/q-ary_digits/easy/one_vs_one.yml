@@ -14,22 +14,26 @@ alternative_names:
   - 'One-against-one (1A1) code'
 
 description: |
-  A length-\(n\) ternary code over \(\{\om 1,0\}\) whose whose generator matrix has columns with one \(+1\), one \(-1\), and with the rest of the entries zero.
+  A length-\(n\) ternary code over \(\{\pm 1,0\}\) whose whose generator matrix has columns with one \(+1\), one \(-1\), and with the rest of the entries zero.
 
   See \cite[Tab. 6.3]{doi:10.1142/7238} for an example, whose generator matrix is
   \begin{align}
+  \left[
   \begin{array}{cccccc}
   1 & 1 & 1 & 0 & 0 & 0 \\
   -1 & 0 & 0 & 1 & 1 & 0 \\
   0 & -1 & 0 & -1 & 0 & 1 \\
   0 & 0 & -1 & 0 & -1 & -1 \\
-  \end{array}~.
+  \end{array}
+  \right]~.
   \end{align}
 
 relations:
   parents:
     - code_id: q-ary_digits_into_q-ary_digits
     - code_id: constant_weight
+    - code_id: ecoc
+      detail: 'One-vs-one codes are often used in multiclass classification because they separate the muilticlass task into several two-class tasks  \cite{doi:10.1142/7238}.'
 
 
 # Begin Entry Meta Information

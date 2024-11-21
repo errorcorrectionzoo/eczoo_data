@@ -11,6 +11,7 @@ introduced: '\cite{arxiv:cs/9501101,manual:{Allwein, Erin L., Robert E. Schapire
 description: |
   A length-\(n\) binary or ternary (over \(\{\pm 1,0\}\)) block code used to convey information about classes to classifiers in multiclass machine learning.
   Rows of the code's generator matrix denote different classes, while columns correspond to classifiers.
+  The \(\pm 1\) elements can be used to distinguish between a pair of chosen classes, while a zero entry correspond to a classifier ignoring that particular class.
 
   A \textit{data-driven ECOC (DECOC)} \cite{doi:10.1016/j.patcog.2007.05.020} is an ECOC whose design takes into account features of the data that is to be classified.
   Not always decoded using the Hamming metric.
@@ -39,10 +40,6 @@ relations:
       detail: 'Hadamard codes and subcodes can be used as ECOCs \cite{arxiv:cs/9501101,doi:10.1145/307400.307429,doi:10.1007/978-3-540-45080-1_51}.'
     - code_id: bch
       detail: 'BCH codes can be used as ECOCs \cite{arxiv:cs/9501101}.'
-    - code_id: one_hot
-      detail: 'One-hot codes are the primary codes used in multiclass classification \cite{doi:10.1142/7238,arxiv:0711.2914,doi:10.5120/ijca2017915495,doi:10.1162/08997660151134334}.'
-    - code_id: one_vs_one
-      detail: 'One-vs-one codes are often used in multiclass classification because they separate the muilticlass task into several two-class tasks  \cite{doi:10.1142/7238}.'
 
 
 # Begin Entry Meta Information
