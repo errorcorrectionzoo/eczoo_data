@@ -7,13 +7,27 @@ code_id: eeight
 physical: reals
 logical: reals
 
-name: '\(E_8\) Gosset lattice code'
+name: '\(E_8\) Gosset lattice'
 short_name: '\(E_8\)'
 introduced: '\cite{manual:{Gosset, Thorold. "On the regular and semi-regular figures in space of n dimensions." Messenger of Mathematics 29 (1900): 43-48.}}'
 
 description: |
   Unimodular even BW lattice in dimension \(8\), consisting of the Cayley integral octonions rescaled by \(\sqrt{2}\).
   The lattice corresponds to the \([8,4,4]\) Hamming code via \term{Construction A}.
+
+  A generator matrix is
+  \begin{align}
+    M = \begin{bmatrix}
+    2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    -1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & -1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -1 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & -1 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & -1 & 1 & 0 \\
+    \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+    \end{bmatrix}.
+  \end{align}
 
 protection: |
   The \(E_8\) lattice has a nominal coding gain of \(2\).
