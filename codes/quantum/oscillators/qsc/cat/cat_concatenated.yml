@@ -10,23 +10,16 @@ name: 'Concatenated cat code'
 introduced: '\cite{arxiv:1409.6759}'
 
 description: |
-  A concatenated code whose outer code is a cat code. In other words, a qubit code that can be thought of as a concatenation of an arbitrary inner code and another cat outer code. Most examples encode physical qubits of an inner stabilizer code into the two-component cat code.
+  A concatenated code whose outer code is a cat code. In other words, a qubit code that can be thought of as a concatenation of an arbitrary inner code and another cat outer code. Most examples encode physical qubits of an inner stabilizer code into the two-component cat code in its cat-state basis.
 
 protection: |
   The cat code suppresses dephasing errors exponentially with the size of its coherent states, so the inner code (e.g., a quantum repetition code \cite{arxiv:1904.09474,arxiv:1905.00450,arxiv:2009.10756,arxiv:2212.11927}) can be highly biased toward one type of noise while still ensuring good performance.
-
-  A concatenation of the repetition code with the two-component cat code is a candidate for a memory that may be self-correcting, but only in the limit of infinite energy per mode \cite{arxiv:2205.09767}.
-
-realizations:
-  - 'Superconducting circuit devices: a repetition code out of two-component cat qubits has been realized for distances 3 and 5 \cite{arxiv:2409.13025}.'
 
 
 relations:
   parents:
     - code_id: qsc
   cousins:
-    - code_id: quantum_repetition
-      detail: 'Two-component cat codes have been concatenated with quantum repetition codes \cite{arxiv:1904.09474,arxiv:1905.00450,arxiv:2009.10756,arxiv:2012.04108,arxiv:2212.11927}.'
     - code_id: rotated_surface
       detail: 'Cat codes have been concatenated with rotated surface codes \cite{arxiv:2012.04108}.'
     - code_id: ldpc
@@ -37,8 +30,6 @@ relations:
       detail: 'Two-component cat codes concatenated with Steane and Golay codes are estimated to be fault tolerant against photon loss noise with rate \(\eta < 5\times 10^{-4}\) provided that \(\alpha > 1.2\) \cite{arxiv:0707.0327}.'
     - code_id: qubit_golay
       detail: 'Two-component cat codes concatenated with Steane and Golay codes are estimated to be fault tolerant against photon loss noise with rate \(\eta < 5\times 10^{-4}\) provided that \(\alpha > 1.2\) \cite{arxiv:0707.0327}.'
-    - code_id: self_correct
-      detail: 'A concatenation of the repetition code with the two-component cat code is a candidate for a memory that may be self-correcting, but only in the limit of infinite energy per mode \cite{arxiv:2205.09767}.'
 
 
 # Begin Entry Meta Information
