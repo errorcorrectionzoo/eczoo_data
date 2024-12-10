@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_dodecahedron
+physical: qubits
+logical: qubits
+
+name: '\([[16,4,3]]\) dodecahedral code'
+introduced: '\cite{arxiv:2411.14448}'
+
+description: |
+  A \([[16,4,3]]\) qubit stabilizer code defined whose \hyperref[topic:encoder-respecting]{encoder-respecting form} is the graph of vertices of a dodecahedron \cite{arxiv:2411.14448}..
+
+features:
+  rate: 'The code has a rate of \(1/4\), higher than that of the five-qubit perfect code.'
+
+  encoders:
+    - 'Low-depth encoding circuit \cite{arxiv:2411.14448}.'
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-13'

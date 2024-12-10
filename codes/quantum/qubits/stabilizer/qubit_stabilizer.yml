@@ -82,7 +82,14 @@ description: |
   This classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
   In the case of stabilizer states, the correspondence is between such states and trace-Hermitian self-dual quaternary codes; such codes, and therefore such states, have been classified up to equivalence for \(n \leq 12\) \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}.
 
-  There exist two representations \cite{arxiv:2205.02009,arxiv:2411.14448} that utilize ZX calculus.
+  ZX calculus is complete, sound, and universal for qubit stabilizer codes \cite{arxiv:1307.7025}.
+  Any stabilizer code can be represented by a \textit{ZX canonical form} (ZXCF) \cite{arxiv:2411.14448}, and there exist two other representations \cite{arxiv:2205.02009,arxiv:2411.14448} that utilize ZX calculus.
+  \begin{defterm}{Encoder-respecting form}
+  \label{topic:encoder-respecting}
+  In an \textit{encoder-respecting form}, each qubit stabilizer code \cite{arxiv:2411.14448} (see also Ref. \cite{arxiv:2109.10210}) is represented by a bipartite graph with \(k\) input and \(n\) output nodes in which the \(k\) input nodes are not connected to each other.
+  Conversion between stabilizer tableaus and graphs is achieved using ZX calculus and takes time that is polynomial in \(n\). 
+  Properties of the underlying graph are related to properties of the code \cite{arxiv:2411.14448}.
+  \end{defterm}
 
   Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(GF(2)\) using three bits \cite{arxiv:2305.17505}.
   Qubit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_2^n\) \cite{arxiv:quant-ph/0304125}.
@@ -94,6 +101,7 @@ protection: |
   Detects errors on up to \(d-1\) qubits, and corrects erasure errors on up to \(d-1\) qubits.
   There are algorithms to calculate the minimum distance \cite{arxiv:2109.11996,arxiv:2408.10743,arxiv:2409.13017}.
   Computing the distance exactly or approximately is generally \(NP\)-complete, and is \(NP\)-hard for \hyperref[topic:degeneracy]{non-degenerate} codes \cite{arxiv:2203.04262}.
+  Distance approximation and stabilizer \hyperref[topic:weight-reduction]{weight reduction} are approximately optimal strategies for various quantum lights-out (QLO) games that can be played on the codes'' \hyperref[topic:encoder-respecting]{encoder-respecting form} \cite{arxiv:2411.14448}.
 
   There is the following analogue of the \term{Knill-Laflamme conditions} for qubit stabilizer codes.
   Define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\).
@@ -148,7 +156,7 @@ features:
     - 'Clifford stabilizer circuits can be compiled using tableau manipulation \cite{arxiv:2404.19408}.'
     - 'A teleported version of the CPC construction can reduce noise in Clifford circuits with Pauli measurements with at most a three-fold overhead in the number of qubits and gates \cite{arxiv:2407.06583}. There is a simple formula for the probability that a Clifford circuit contains a logical error \cite{arxiv:2009.07752}.'
   decoders:
-    - 'The size of the circuit extracting the syndrome depends on the weight of its corresponding stabilizer generator. Syndrome extraction circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}) and there are many general schemes for generating them \cite{arxiv:2408.01339} (see also \cite{arxiv:2402.04093}).'
+    - 'The size of the circuit extracting the syndrome depends on the weight of its corresponding stabilizer generator. Syndrome extraction circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}) and there are many general schemes for generating them \cite{arxiv:2408.01339} (see also \cite{arxiv:2402.04093}). Decoding of qubit stabilizer codes is an approximately optimal strategy for various quantum lights-out (QLO) games that can be played on the codes'' \hyperref[topic:encoder-respecting]{encoder-respecting form} \cite{arxiv:2411.14448}.'
     - 'DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047}.'
     - 'Greedy syndrome measurement schedule \cite{arxiv:2409.14283}.'
     - 'Dynamical weight reduction (DWR) scheme in which measurements of smaller-weight Paulis yield the outcome of a larger-weight Pauli via the use of ZX calculus and ancillary qubits \cite{arxiv:2410.12527}.'
