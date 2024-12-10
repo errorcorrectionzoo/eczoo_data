@@ -7,7 +7,7 @@ code_id: eacq
 #physical: bits
 #logical: qubits
 
-name: 'Entanglement-assisted (EA) hybrid quantum code'
+name: 'Entanglement-assisted (EA) hybrid QECC'
 short_name: 'EA hybrid'
 introduced: '\cite{arxiv:0802.2414,arxiv:0807.2080,arxiv:1911.12260}'
 
@@ -18,7 +18,7 @@ introduced: '\cite{arxiv:0802.2414,arxiv:0807.2080,arxiv:1911.12260}'
 description: |
   Code that encodes quantum and classical information and requires pre-shared entanglement for transmission.
 
-  EQ hybrid block quantum codes on \(n\) Galois qubits of dimensional \(q\) are denoted by \(((n,k:c,d;e))_q\), where \(k\) (\(c\)) is the number of encoded qubits (classical bits), where \(d\) is the distance, and where \(e\) is the required number of pre-shared ebits.
+  EA hybrid block quantum codes on \(n\) Galois qubits of dimensional \(q\) are denoted by \(((n,k:c,d;e))_q\), where \(k\) (\(c\)) is the number of encoded qubits (classical bits), where \(d\) is the distance, and where \(e\) is the required number of pre-shared ebits.
   Similarly, block codes on \(n\) modular qudits are denoted by \(((n,k:c,d;e))_{\mathbb{Z}_q}\).
 
   In alternative conventions (not used here), EA hybrid codes are called entanglement-assisted classical-quantum (EACQ) codes.
@@ -27,17 +27,18 @@ description: |
 # arxiv:1701.06963,arxiv:1911.12260 uses union and CWS
 
 protection: |
-  The EQ hybrid Singleton bound represents a triple trade-off region in the combined classical-bit, qubit, and e-bit space \cite{arxiv:2202.02184}.
+  The EA hybrid Singleton bound represents a triple trade-off region in the combined classical-bit, qubit, and e-bit space \cite{arxiv:2202.02184}.
 
 features:
   rate: 'Tradeoff between classical communication, quantum communication, and entanglement distribution has been examined \cite{arxiv:0811.4227,arxiv:0901.3038,arxiv:0903.3920}; see also Ref. \cite{arXiv:quant-ph/0501045}.'
 
 relations:
   parents:
-    - code_id: quantum_into_quantum
+    - code_id: eaoaecc
+      detail: 'An EAOAQECC that has no gauge structure (e.g., gauge qubits), that has a block structure that corresponds to a classical code, and that utilizes pre-shared entanglement is an EA hybrid QECC.'
   cousins:
     - code_id: hybridqecc
-      detail: 'EQ hybrid codes utilize additional ancillary subsystems in a pre-shared entangled state, but reduce to hybrid QECCs when said subsystems are interpreted as noiseless physical subsystems.'
+      detail: 'EA hybrid codes utilize additional ancillary subsystems in a pre-shared entangled state, but reduce to hybrid QECCs when said subsystems are interpreted as noiseless physical subsystems.'
 
 
 # Begin Entry Meta Information
