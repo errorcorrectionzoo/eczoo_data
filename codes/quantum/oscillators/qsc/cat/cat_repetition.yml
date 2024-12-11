@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cat_repetition
+physical: oscillators
+logical: qubits
+
+name: 'Cat-repetition code'
+introduced: '\cite{arxiv:1904.09474,arxiv:1905.00450}'
+
+description: |
+  A concatenated \(n\)-mode code whose outer code is a quantum repetition code and whose inner code is the cat code in its cat basis. 
+  
+  A basis of codewords for the two-component case,
+  \begin{align}
+    |\overline{\pm}\rangle\propto\left(\left|\alpha\right\rangle \pm\left|-\alpha\right\rangle \right)^{\otimes n}
+  \end{align}
+  for any complex \(\alpha\).
+
+
+protection: |
+  The code can detect arbitrary losses in up to \(n/2\) modes.  
+  The cat-repetition code on a 2D mode lattice is a candidate for a memory that may be self-correcting, but only in the limit of infinite energy per mode \cite{arxiv:2205.09767}.
+
+realizations:
+  - 'Superconducting circuit devices: a repetition code out of two-component cat qubits has been realized for distances 3 and 5 \cite{arxiv:2409.13025}.'
+
+
+relations:
+  parents:
+    - code_id: cat_concatenated
+      detail: 'The cat repetition code is a concatenation whose inner code is the cat code in its cat basis.'
+  cousins:
+    - code_id: quantum_repetition
+      detail: 'Two-component cat codes in the cat-state basis have been concatenated with quantum repetition codes \cite{arxiv:1904.09474,arxiv:1905.00450,arxiv:2009.10756,arxiv:2012.04108,arxiv:2212.11927}.'
+    - code_id: self_correct
+      detail: 'The cat-repetition code on a 2D mode lattice is a candidate for a memory that may be self-correcting, but only in the limit of infinite energy per mode \cite{arxiv:2205.09767}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-06'

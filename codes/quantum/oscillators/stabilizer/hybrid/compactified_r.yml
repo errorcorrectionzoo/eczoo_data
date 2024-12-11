@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: compactified_r
+physical: oscillators
+logical: oscillators
+
+name: 'Compactified \(\mathbb{R}\) gauge theory code'
+introduced: '\cite{arxiv:2411.04993}'
+
+description: |
+  An integer-homology bosonic CSS code realizing 2D \(U(1)\) gauge theory on bosonic modes.
+  The code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}. 
+  This results in a pinning of each mode to the space of periodic functions, which make up a physical rotor, and can be thought of as compactification of the 2D \(\mathbb{R}\) gauge theory phase realized by the analog surface code.
+  
+  
+relations:
+  parents:
+    - code_id: homological_cv
+      detail: 'The compactified \(\mathbb{R}\) gauge theory code realizes \(U(1)\) gauge theory on bosonic modes.'
+    - code_id: 2d_stabilizer
+  cousins:
+    - code_id: analog_surface
+      detail: 'The compactified \(\mathbb{R}\) gauge theory code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}. This results in a pinning of each mode to the space of periodic functions, which make up a physical rotor, and can be thought of as compactification of the 2D \(\mathbb{R}\) gauge theory phase realized by the analog surface code.'
+    - code_id: topological_abelian
+      detail: 'The compactified \(\mathbb{R}\) gauge theory code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}. This results in a pinning of each mode to the space of periodic functions, which make up a physical rotor, and can be thought of as compactification of the 2D \(\mathbb{R}\) gauge theory phase realized by the analog surface code.'
+    - code_id: qudit_surface
+      detail: 'The tiger surface code can be thought of as a realization of the \(q\to\infty\) \(U(1)\) rotor limit \cite{arxiv:1709.04460} of the qudit surface code as a bosonic stabilizer code.'
+
+
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-04'

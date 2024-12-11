@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: coherent_state_repetition
+physical: oscillators
+logical: qubits
+
+name: 'Coherent-state repetition code'
+introduced: '\cite{arxiv:quant-ph/0109077,arxiv:quant-ph/0306004}'
+
+description: |
+  A concatenated \(n\)-mode code (for odd \(n\)) whose outer code is a quantum repetition code and whose inner code is the two-component cat code in its coherent-state basis. 
+  
+  A basis of codewords is
+  \begin{align}
+    |\overline{\pm}\rangle\propto\left|\pm\alpha\right\rangle ^{\otimes n}
+  \end{align}
+  for any complex \(\alpha\).
+
+protection: |
+  The code cannot protect against losses and has a minimum Euclidean distance \(d_Z = 4n\) \cite{arxiv:2411.09668}.
+
+
+relations:
+  parents:
+    - code_id: cat_concatenated
+      detail: 'The coherent-state repetition code is a concatenation whose inner code is the cat code in its coherent-state basis.'
+    - code_id: tiger
+      detail: 'The coherent-state repetition code is a tiger code whose matrix \(G\) is a generator matrix of the repetition code (over the integers), and whose matrix \(H\) is zero \cite{arxiv:2411.09668}.'
+  cousins:
+    - code_id: cat_repetition
+      detail: 'The cat (coherent-state) repetition code is a concatenation whose inner code is the (two-component) cat code in its cat (coherent-state) basis. For the two-component case, both reduce to the two-component cat code at \(n=1\).'
+    - code_id: quantum_repetition
+      detail: 'Two-component cat codes in the coherent-state basis have been concatenated with quantum repetition codes \cite{arxiv:quant-ph/0109077,arxiv:quant-ph/0306004}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-06'

@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dodecahedron
+physical: spheres
+logical: reals
+
+name: 'Dodecahedron code'
+
+description: |
+  Spherical \((3,20,2-2\sqrt{5}/3)\) code whose codewords are the vertices of the dodecahedron (alternatively, the centers of the faces of a icosahedron, the dodecahedron's dual polytope).
+
+
+relations:
+  parents:
+    - code_id: polyhedron
+    - code_id: spherical_design
+      detail: 'The dodecahedron code forms a spherical 5-design \cite{arxiv:2302.11593}.'
+  cousins:
+    - code_id: dual_polytope
+      detail: 'The icosahedron and dodecahedron are dual to each other.'
+    - code_id: icosahedron
+      detail: 'The icosahedron and dodecahedron are dual to each other.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-10'

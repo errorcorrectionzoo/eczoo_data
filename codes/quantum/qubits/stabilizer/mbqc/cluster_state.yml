@@ -14,7 +14,7 @@ alternative_names:
   - 'Graph-state code'
 
 description: |
-  A code based on a cluster state and often used in measurement-based quantum computation (MBQC) \cite{arxiv:quant-ph/0108118} (a.k.a. one-way quantum processing), which substitutes the temporal dimension necessary for decoding a conventional code with a spatial dimension.
+  A code based on a cluster state and often used in measurement-based quantum computation (MBQC) \cite{arxiv:quant-ph/0108118,doi:10.1103/PhysRevLett.86.5188} (a.k.a. one-way quantum processing), which substitutes the temporal dimension necessary for decoding a conventional code with a spatial dimension.
   This is done by encoding the computation into the features of the cluster state''s graph.
 
   Cluster states are stabilizer states defined on a graph.
@@ -42,10 +42,10 @@ features:
   encoders:
     - 'Initialization of all qubits in the \(|+\rangle\) state and action of \(CZ\) gates along the edges of the graph.'
     - 'A cluster-like state, or a state that is in the same SPT phase as a cluster state, can be prepared in finite time \cite{arxiv:2107.04019}.'
+    - 'ZX calculus based encoder representation \cite{arxiv:2304.08363}.'
 
   general_gates:
     - 'The computation encoded in pre-determined fashion via topological features of the cluster state''s graph, such as boundaries, defects, or twists. Such features can be created using \(Z\)-type measurements, which effectively cut a qubit off from the cluster state. Non-Clifford gates are performed by inserting non-Clifford states into particular \textit{singular} qubits. More generally, any gate protocol of a qubit stabilizer code yields an MBQC protocol \cite{arxiv:1811.11780}.
-
     To perform the computation, subsets qubits are measured, e.g., along one two-dimensional slice of a 3D lattice for each time step.
     This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
     The computation terminates after all qubits are measured.
@@ -53,8 +53,6 @@ features:
     The entire cluster state does not need to be created at the start of the computation. Instead, the portion of the cluster state in the extra dimension can be initialized as the computation progresses.'
 
     - 'Clifford operations can be realized as operations acting on graphs underlying a cluster state \cite{arxiv:quant-ph/0308151}. They can be done in any order, demonstrating \textit{parallelism} \cite{arxiv:quant-ph/0108067}.'
-
-    - '1D cluster states are resources for universal MBQC \cite{arxiv:quant-ph/0108118,arxiv:quant-ph/0301052,arXiv:1111.7173,arXiv:1301.0861}.'
 
   decoders:
     - 'MBQC syndrome extraction is performed by multiplying certain single-qubit \(X\)-type measurements, which yield syndrome values.'
@@ -118,13 +116,33 @@ relations:
     - code_id: dual_rail
       detail: 'The KLM protocol can be combined with cluster states in various ways to yield MBQC protocols \cite{arxiv:quant-ph/0303008,arxiv:quant-ph/0402005,arxiv:quant-ph/0405157}.'
     - code_id: spt
-      detail: 'States realizing various SPT phases are universal resources for MBQC \cite{arxiv:1009.3491,arXiv:1009.2840,arXiv:1111.7173,arXiv:1102.5064,arXiv:1201.4877,arXiv:1301.0861,arXiv:1310.5100,arXiv:1509.02947}. A cluster-like state, or a state that is in the same SPT phase as a cluster state, can be prepared in finite time \cite{arxiv:2107.04019}.'
+      detail: |
+        Cluster states defined on various lattices are representatives of SPT phases, and states realizing these phases can be resources for MBQC. 
+        In 1D, cluster states are examples of SPT phases with global symmetries \cite{arxiv:quant-ph/0301052,arxiv:1009.3491,arxiv:1111.7173,arXiv:1201.4877,arXiv:1301.0861} and enable MBQC on a single qubit \cite{arxiv:quant-ph/0108118,doi:10.1103/PhysRevLett.86.5188}. 
+        The square-lattice cluster state, which is the prototypical resource for universal MBQC \cite{arxiv:quant-ph/0108118,doi:10.1103/PhysRevLett.86.5188}, and other 2D cluster states \cite{arXiv:1806.08780,arxiv:1806.04663,arxiv:1907.13279} have SPT order protected by subsystem symmetries \cite{arxiv:1803.02369,arxiv:1803.00095,arxiv:1806.08780}.
+        States like AKLT states and SPT fixed-point states can be efficiently converted into cluster states using local measurements and subsequently used as resources for MBQC \cite{arxiv:1002.1567,arxiv:1009.3491,arXiv:1009.2840,arxiv:1102.5064,arXiv:1310.5100,arXiv:1509.02947}.
+        In 3D, cluster states belong to SPT phases protected by higher-form symmetries \cite{arxiv:1611.05450} and enable universal fault-tolerant MBQC \cite{arxiv:quant-ph/0703143}.
+        A cluster-like state, or a state that is in the same SPT phase as a cluster state, can be prepared in finite time \cite{arxiv:2107.04019}. Cluster states can be created on various lattices \cite{arxiv:1909.11817}.
+    - code_id: translationally_invariant_stabilizer
+      detail: |
+        Cluster states defined on various lattices are representatives of SPT phases, and states realizing these phases can be resources for MBQC. 
+        In 1D, cluster states are examples of SPT phases with global symmetries \cite{arxiv:quant-ph/0301052,arxiv:1009.3491,arxiv:1111.7173,arXiv:1201.4877,arXiv:1301.0861} and enable MBQC on a single qubit \cite{arxiv:quant-ph/0108118,doi:10.1103/PhysRevLett.86.5188}. 
+        The square-lattice cluster state, which is the prototypical resource for universal MBQC \cite{arxiv:quant-ph/0108118,doi:10.1103/PhysRevLett.86.5188}, and other 2D cluster states \cite{arXiv:1806.08780,arxiv:1806.04663,arxiv:1907.13279} have SPT order protected by subsystem symmetries \cite{arxiv:1803.02369,arxiv:1803.00095,arxiv:1806.08780}.
+        States like AKLT states and SPT fixed-point states can be efficiently converted into cluster states using local measurements and subsequently used as resources for MBQC \cite{arxiv:1002.1567,arxiv:1009.3491,arXiv:1009.2840,arxiv:1102.5064,arXiv:1310.5100,arXiv:1509.02947}.
+        In 3D, cluster states belong to SPT phases protected by higher-form symmetries \cite{arxiv:1611.05450} and enable universal fault-tolerant MBQC \cite{arxiv:quant-ph/0703143}.
+        A cluster-like state, or a state that is in the same SPT phase as a cluster state, can be prepared in finite time \cite{arxiv:2107.04019}. Cluster states can be created on various lattices \cite{arxiv:1909.11817}.
 
+
+# In 1D, cluster states are examples of SPT phases with global symmetries and allow MBQC on a single qubit. In 2D, cluster states with subsystem symmetries are universal resources for MBQC. In 3D, cluster states with higher-form symmetries enable universal fault-tolerant MBQC.
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: DavidTStephen
+      date: '2024-12-07'
+    - user_id: VictorVAlbert
+      date: '2024-12-07'
     - user_id: VictorVAlbert
       date: '2023-03-01'
     - user_id: YaronJarach

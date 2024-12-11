@@ -77,10 +77,11 @@ features:
     - |
       Certain gates can be performed adiabatically \cite{arxiv:1406.2690,arxiv:1411.4248}, yielding an instance of holonomic quantum computation \cite{arxiv:quant-ph/9904011}.
       Fault-tolerant gates should be interpretable as monodromies under a particular notion of parallel transport \cite{arxiv:1309.7062}.
+    - |
+      A combination of fold-transversal gates, Dehn twists and single-shot logical Pauli measurements generates the logical \hyperref[topic:clifford]{Clifford group} \cite{arxiv:2411.18287}.
 
   fault_tolerance:
-    - 'Transversal (non-Clifford) CCZ gate by bringing 2D surface codes together and using just-in-time decoding \cite{arxiv:1903.11634}.
-    Gate can be simulated by taking 2D slices out of 3D surface codes \cite{arxiv:2012.08536}.'
+    - 'Transversal (non-Clifford) CCZ gate by bringing 2D surface codes together and using just-in-time decoding \cite{arxiv:1903.11634}. Gate can be simulated by taking 2D slices out of 3D surface codes \cite{arxiv:2012.08536}.'
     - 'Flag fault-tolerant syndrome extraction \cite{arxiv:1708.02246}.'
     - 'Homomorphic measurement protocols for arbitrary surface codes \cite{arxiv:2211.03625}.'
     - 'Non-geometrically local connectivity can reduce overhead cost \cite{arxiv:2211.15465}.'
@@ -110,7 +111,7 @@ features:
     - 'Neural network \cite{arxiv:1610.04238,arxiv:1802.06441,arxiv:2208.05758}, reinforcement learning \cite{arxiv:1810.07207,arxiv:2212.11890,arxiv:2101.07285}, and transformer-based \cite{arxiv:2310.05900,arxiv:2311.16082} decoders.'
     - 'Lightweight low-latency look-up table (LILLIPUT) decoder for small surface codes \cite{arxiv:2108.06569}.'
     - 'Decoders can be augmented with a pre-decoder \cite{arxiv:2001.11427,arxiv:2208.04660}, which can allow for some processing to be done inside the cryogenic environment of the quantum system \cite{arxiv:2208.08547}.'
-    - 'Sliding-window \cite{arxiv:2209.09219,arxiv:2209.08552} and parallel-window \cite{arxiv:2209.09219} parallelizable decoders, designed to overcome the backlog problem, can be combined with many inner decoders, such as MWPM or union-find.'
+    - 'Sliding-window \cite{arxiv:2209.09219,arxiv:2209.08552}, parallel-window \cite{arxiv:2209.09219}, and predictive-window \cite{arxiv:2412.05115} parallelizable decoders, designed to overcome the backlog problem, can be combined with many inner decoders, such as MWPM or union-find.'
     - 'Modifications of BP:
       generalized belief propagation (GBP) \cite{arxiv:2212.03214}, based on a classical version \cite{manual:{J. S. Yedidia, W. T. Freeman, and Y. Weiss, Generalized belief propagation, in NIPS, Vol. 13 (2000) pp. 689–695.}};
       AMBP4, a quaternary version \cite{arxiv:2202.06612} of the MBP decoder \cite{arxiv:2104.13659} of complexity \(O(n\log\log n)\);
@@ -120,6 +121,8 @@ features:
     - 'A color-code decoder can be used for the surface code \cite{arxiv:2306.16476}.'
     - 'Progressive-Proximity Bit-Flipping (PPBF) decoder \cite{arxiv:2402.15924}.'
     - 'Collision clustering decoder \cite{arxiv:2309.05558}.'
+    - 'Quasi-local decoder \cite{arxiv:2404.07251}.'
+    - 'Exclusive decoder family incorporating post-selection on decoding instances deemed not too difficult \cite{arxiv:2405.03766}.'
 
   threshold:
     - 'Circuit-level noise: \(1.8\%\) under correlated CNOT-gate errors and single-qubit-gate depolarizing noise \cite{arxiv:0905.0531} with optimal decoder \cite{arxiv:1609.06373}, and
@@ -152,7 +155,7 @@ notes:
   - 'Review of surface code decoders \cite{arxiv:2307.14989}.'
 
   - |
-    Hardware requirements for implementing surface code QEC can be reduced by utilizing structure in the time slices of the QEC circuits \cite{arxiv:2209.06673}.
+    Hardware requirements for implementing surface code QEC can be reduced by utilizing structure in the time slices of the QEC circuits \cite{arxiv:2209.06673}. Various optimization and calibration routines exist \cite{arxiv:2412.02036}.
 
 # - '\textit{Surfmap} framework provides a way to stitch the surface code to various superconducting-circuit geometries by assigning each superconducting qubit to be either a physical or ancilla qubit, designing stabilizer measurement circuits, and scheduling stabilizer measurements \cite{arxiv:2111.13729}.'
 
@@ -185,6 +188,8 @@ relations:
       detail: 'While codewords of the surface code form ground states of the code''s stabilizer Hamiltonian, they can also be ground states of other gapless Hamiltonians \cite{arxiv:1111.5817}.'
     - code_id: self_correct
       detail: 'Various candidates for self-correcting quantum memories have been constructed by coupling neighboring anyons so as to prevent them from spreading \cite{arxiv:0812.4622,arxiv:0908.4264,arxiv:1101.6028,arxiv:1406.2338,arxiv:1512.04528}'
+    - code_id: t-designs
+      detail: 'Unitary \(t\)-designs can be generated via coherent errors, syndrome extraction, and correction \cite{arxiv:2412.04414}.'
 
 
 

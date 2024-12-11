@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: chern_simons_gkp
+physical: oscillators
+logical: qudits
+
+name: '\(U(1)_{2n} \times U(1)_{-2m}\) Chern-Simons GKP code'
+introduced: '\cite{arxiv:2411.04993}'
+
+description: |
+  A non-CSS multimode GKP code defined on a 2D mode lattice that encodes a qudit logical space and whose excitations are characterized by the \(U(1)_{2n} \times U(1)_{-2m}\) Chern-Simons theory.
+  The code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}. 
+
+  The \(U(1)_{2} \times U(1)_{-4}\) case admits a topological order that is Witt non-trivial, i.e., that does not admit a gapped boundary. This order is not chiral (i.e., chiral central charge is zero) and does not admit a bosonic anyon.
+
+relations:
+  parents:
+    - code_id: multimodegkp
+    - code_id: 2d_stabilizer
+  cousins:
+    - code_id: topological_abelian
+      detail: 'The \(U(1)_{2n} \times U(1)_{-2m}\) Chern-Simons GKP code realizes \(U(1)_{2n} \times U(1)_{-2m}\) Chern-Simons theory on bosonic modes. The code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}.'
+    - code_id: analog_surface
+      detail: 'The \(U(1)_{2n} \times U(1)_{-2m}\) Chern-Simons GKP code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}.'
+
+
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-04'

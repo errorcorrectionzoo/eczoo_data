@@ -57,8 +57,8 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-          restore-keys: |
-            yarn-cache-folder-
+          #restore-keys: |
+          #  yarn-cache-folder-
 
       # Cache citation information (downloaded information & compiled citations)
 
@@ -66,9 +66,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: eczoo_sitegen/_zoodb_citations_cache_LOCAL
-          key: zoodb-citations-cache-LOCAL-${{ github.sha }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            zoodb-citations-cache-LOCAL-
+          #key: zoodb-citations-cache-LOCAL-${{ github.sha }}-${{ hashFiles('**/yarn.lock') }}
+          key: zoodb-citations-cache-LOCAL
+          #restore-keys: |
+          #  zoodb-citations-cache-LOCAL-
 
       - name: Initialize local citation information cache if applicable
         run: |

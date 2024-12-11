@@ -1,0 +1,88 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qsc
+physical: oscillators
+logical: qubits
+
+name: 'Quantum spherical code (QSC)'
+short_name: 'QSC'
+introduced: '\cite{arxiv:2302.11593}'
+
+description: |
+  Code whose codewords are superpositions of points on an \(n\)-dimensional real or complex sphere.
+  Such codes can in principle be defined on any configuration space housing a sphere, but the focus of this entry is on QSCs constructed out of coherent-state constellations.
+
+  More technically, a QSC is a collection \(\{\mathcal{C}_k\}_{k=1}^K\) of \textit{logical constellations}, each of which yields a codeword by taking a quantum superposition of all points \(\mathbf{x}\in \mathcal{C}_k\).
+  Taken together, the logical constellations yield the \textit{code constellation}, \(\mathcal{C}=\bigcup_{k=1}^{K}\mathcal{C}_{k}\).
+
+  Codewords of coherent-state QSCs of uniform superposition are defined as
+  \begin{align}
+    |\mathcal{C}_{k}\rangle\sim\frac{1}{\sqrt{|{\mathcal{C}}_{k}|}}\sum_{\boldsymbol{\alpha}\in\mathcal{C}_{k}}|\sqrt{\bar{N}}\boldsymbol{\alpha}\rangle~,
+  \end{align}
+  where \( |\boldsymbol{\alpha} \rangle = |\alpha_1,\alpha_2,...\alpha_n \rangle \) is an \(n\)-mode coherent state.
+  This asymptotic expression is valid in the limit of large energy \(\bar{N}\to\infty\).
+
+  Coherent-state QSCs on \(n\) modes are denoted by
+  \(((n,K,d_E,\langle t_{\downarrow},d_{\updownarrow},d_{\downarrow}\rangle))\),
+  where \(K\) is codespace dimension, \(d_E\) is the \textit{squared minimum distance}, i.e., the smallest Euclidean distance between pairs of distinct points across all codewords, and \( t_{\downarrow},d_{\updownarrow},d_{\downarrow} \) are the number of \textit{correctable} losses (plus 1), the degree distance, and the number of \textit{detectable} losses (plus 1), respectively.
+
+protection: |
+  The \textit{resolution} \(d_E\) of the code is defined as
+    \begin{align}
+      d_E = \min_{\boldsymbol{\alpha},\boldsymbol{\beta}\in\mathcal{C}} \Vert\boldsymbol{\alpha}-\boldsymbol{\beta}\Vert^2~.
+    \end{align}
+  The code protects against passive Gaussian transformations, which manifest as rotations on the sphere, \( |\boldsymbol{\alpha}\rangle \rightarrow |\mathbf{R}\boldsymbol{\alpha}\rangle \) for all \(\mathbf{R}\).
+  Detectable transformations corresponds to rotations for which
+    \begin{align}
+      \Vert \mathbf{R}\boldsymbol{\alpha} - \boldsymbol{\alpha}\Vert^2 < d_E~,
+    \end{align}
+  in the large \(\bar{N}\) limit.
+
+  The code also protects against general ladder errors, which are defined as
+  \begin{align}
+    E_{\mathbf{p},\mathbf{q}}(\mathbf{a}^{\dagger},\mathbf{a})=\prod_{j=1}^{n}a_{j}^{\dagger p_{j}}a_{j}^{q_{j}}~.
+  \end{align}
+  Any \hyperref[topic:ad]{AD} ladder error \(E_{\mathbf{p}=\boldsymbol{0},\mathbf{q}}\) with \(|\mathbf{q}|<d_{\downarrow}\) is detectable.
+  Any ladder error \(E_{\mathbf{p},\mathbf{q}}\) with \(|\mathbf{p}|,|\mathbf{q}|<t_{\downarrow}\) is detectable, implying that up to \(t_{\downarrow}-1\) losses are correctable.
+  Any ladder error with degree \(|\mathbf{p}+\mathbf{q}|<d_{\updownarrow}\) is detectable.
+
+features:
+  decoders:
+    - 'Lindbladian scheme stabilizing all points in the constellation and protecting from the \hyperref[topic:ad]{AD} operator \(E_{0}^{\otimes n}\) \cite{arxiv:2302.11593}.'
+
+relations:
+  parents:
+    - code_id: coherent_constellation
+      detail: 'Coherent-state QSCs are coherent-state constellation codes constrained to lie on a sphere.'
+    - code_id: ampdamp
+      detail: 'QSC codewords are superpositions of coherent states with the same energy, but coherent states are not eigenstates of the energy Hamiltonian. The \hyperref[topic:ad]{AD} Kraus operator \(E_{0}^{\otimes n}\) acts identically on each coherent state by shrinking the radius of the QSC''s sphere.'
+  cousins:
+    - code_id: group_representation
+      detail: 'QSCs should be able to be formulated as group-representation codes whose group is that formed by the permutation representation of the code polytope symmetry group, but this representation may be reducible.'
+    - code_id: points_into_spheres
+      detail: 'QSCs are quantum analogues of spherical and constant-energy codes because they store information in quantum superpositions of points on a sphere in quantum phase space.'
+    - code_id: spherical
+      detail: 'QSCs are quantum analogues of spherical and constant-energy codes because they store information in quantum superpositions of points on a sphere in quantum phase space.'
+    - code_id: single_spin
+      detail: 'Single-spin codes whose codewords are expressed in terms of discrete sets of spin-coherent states may also be interpreted as QSCs.'
+    - code_id: qubit_css
+      detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
+    - code_id: cat_concatenated
+      detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
+    - code_id: two-legged-cat
+      detail: 'CSS codes concatenated with two-component cat codes form QSCs which have a weight-based notion of distance.'
+    - code_id: polytope
+      detail: 'QSCs can be constructed by using vertices of polytopes for logical constellations. The logical constellations form the vertices of the code constellation, a polytope compound.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ShubhamPJain
+      date: '2023-02-23'
+    - user_id: VictorVAlbert
+      date: '2023-02-23'

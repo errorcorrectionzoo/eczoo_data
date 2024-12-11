@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tiger_surface
+physical: oscillators
+logical: oscillators
+
+name: 'Tiger surface code'
+introduced: '\cite{arxiv:2411.09668}'
+
+description: |
+  A tiger-code variant of the Kitaev surface code that is constructed from a hypergraph product of two repetition codes over the integers.
+  The code is conjectured to realize phases of \(U(1)\) gauge theory. 
+
+protection: |
+  Both loss and Euclidean distances scale as the square root of the number of modes for particular rectangular geometries.
+  The Euclidean distance goes to zero for the case of a square lattice.
+  
+relations:
+  parents:
+    - code_id: tiger
+      detail: 'The tiger surface code is constructed from a hypergraph product of two repetition codes over the integers.'
+  cousins:
+    - code_id: compactified_r
+      detail: 'Both the compactified \(\mathbb{R}\) gauge theory and tiger surface code are constructed from a hypergraph product of two repetition codes over the integers.'
+    - code_id: topological_abelian
+      detail: 'The tiger surface code is conjectured to realize phases of \(U(1)\) gauge theory.'
+    - code_id: qudit_surface
+      detail: 'The tiger surface code can be thought of as a realization of the \(q\to\infty\) \(U(1)\) rotor limit \cite{arxiv:1709.04460} of the qudit surface code as a tiger code.'
+    - code_id: hypergraph_product
+      detail: 'The tiger surface code is constructed from a hypergraph product of two repetition codes over the integers.'
+
+
+
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-04'

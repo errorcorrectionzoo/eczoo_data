@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pentakis_dodecahedron
+physical: spheres
+logical: reals
+
+name: 'Pentakis dodecahedron code'
+
+description: |
+  Spherical \((3,32,(9-\sqrt{5})/6)\) code whose codewords are the vertices of the pentakis dodecahedron, the convex hull of the icosahedron and dodecahedron.
+
+
+relations:
+  parents:
+    - code_id: polyhedron
+    - code_id: spherical_design
+      detail: 'Vertices of the pentakis dodecahedron form a weighted spherical 9-design \cite{doi:10.1007/978-1-4612-5648-9_13,doi:10.1016/j.laa.2020.08.010}\cite[Exam. 2.5]{arxiv:2403.07457}.'
+  cousins:
+    - code_id: icosahedron
+      detail: 'The pentakis dodecahedron is the convex hull of the icosahedron and dodecahedron.'
+    - code_id: dodecahedron
+      detail: 'The pentakis dodecahedron is the convex hull of the icosahedron and dodecahedron.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-11-28'

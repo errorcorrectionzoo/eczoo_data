@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quasi_cyclic_qldpc
+# includes both Galois, modular, and oscillator
+# physical: galois
+# logical: galois
+
+name: 'Quasi-cyclic QLDPC code'
+introduced: '\cite{arxiv:quant-ph/0701020,arxiv:1007.1778}'
+
+description: |
+  A QLDPC code such that cyclic shifts of the subsystems by \(\ell\geq 1\) leave the codespace invariant.
+  Such codes have circulant stabilizer generator matrices \cite{arxiv:quant-ph/0701020,arxiv:1007.1778}. 
+
+
+relations:
+  parents:
+    - code_id: qldpc
+    - code_id: quantum_quasi_cyclic
+  cousins:
+    - code_id: qc_ldpc
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-08-01'

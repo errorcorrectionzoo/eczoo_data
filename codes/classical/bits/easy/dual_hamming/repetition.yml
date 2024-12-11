@@ -22,7 +22,7 @@ features:
 
   decoders:
     - 'Calculate the Hamming weight \(d_H\) of the code. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
-    - 'Automaton-like decoders for the repetition code on a 2D lattice, otherwise known as the classical 2D Ising model, were developed by Toom \cite{manual:{A. L. Toom, “Nonergodic Multidimensional System of Automata”, Probl. Peredachi Inf., 10:3 (1974), 70–79; Problems Inform. Transmission, 10:3 (1974), 239–246},doi:10.1007/978-1-4612-2168-5_18}. An automaton by Gacs yields a decoder for a 1D lattice \cite{doi:10.1023/A:1004823720305}.'
+    - 'Automaton-like decoders for the repetition code on a 2D lattice, otherwise known as the classical 2D Ising model, were developed by Toom \cite{manual:{A. L. Toom, “Nonergodic Multidimensional System of Automata”, Probl. Peredachi Inf., 10:3 (1974), 70–79; Problems Inform. Transmission, 10:3 (1974), 239–246},doi:10.1007/978-1-4612-2168-5_18}. An automaton by Gacs \cite{arxiv:math/0003117,doi:10.1023/A:1004823720305} and Tsirelson \cite{doi:10.1007/BFb0070081} yield local decoders for a 1D lattice.'
 
   threshold:
     - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then one can always increase the probability of success by increasing the number of physical bits \(n\); see section 2.2.1 Ref. \cite{arxiv:2111.08894} for a pedagogical explanation.'

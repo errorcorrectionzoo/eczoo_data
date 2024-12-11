@@ -1,0 +1,150 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: steane
+physical: qubits
+logical: qubits
+
+name: '\([[7,1,3]]\) Steane code'
+short_name: 'Steane'
+introduced: '\cite{doi:10.1098/rspa.1996.0136}'
+
+description: |
+  A \([[7,1,3]]\) self-dual CSS code that is the smallest qubit CSS code to correct a single-qubit error \cite{arxiv:0803.1495}.
+  The code is constructed using the classical binary \([7,4,3]\) Hamming code for protecting against both \(X\) and \(Z\) errors.
+
+  The code's stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both the parity-check matrix for the \([7,4,3]\) Hamming code,
+  \begin{align}
+    H_{X} = H_{Z} = \left(\begin{matrix}
+      0&0&0&1&1&1&1\\
+      0&1&1&0&0&1&1\\
+      1&0&1&0&1&0&1
+    \end{matrix}\right).
+  \end{align}
+
+  The stabilizer group for the Steane code has six generators, three \(X\)-type and three \(Z\)-type, which can be thought of as lying on the three trapezoids of the following tiling of the triangle.
+  \ref{figure:steane-operators}.
+  \begin{figure}
+    \includegraphics{steane}
+    \caption{
+    Stabilizer generators of the Steane code.
+    }
+    \label{figure:steane-operators}
+  \end{figure}
+  The Steane code can also be thought of as a code on all corners of a cube except one \cite{doi:10.1098/rsta.2011.0494,arxiv:1306.4532}, and the code''s \hyperref[topic:encoder-respecting]{encoder-respecting form} is the graph of the full cube \cite{arxiv:2411.14448}.
+
+  Logical codewords are
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle&=\frac{1}{\sqrt{8}}\Big(|0000000\rangle+|1010101\rangle+|0110011\rangle+|1100110\rangle\\&\,\,\,\,\,\,\,\,+|0001111\rangle+|1011010\rangle+|0111100\rangle+|1101001\rangle\Big)\\|\overline{1}\rangle&=\frac{1}{\sqrt{8}}\Big(|1111111\rangle+|0101010\rangle+|1001100\rangle+|0011001\rangle\\&\,\,\,\,\,\,\,\,+|1110000\rangle+|0100101\rangle+|1000011\rangle+|0010110\rangle\Big)~.
+  \end{split}
+  \end{align}
+
+  The automorphism group of the code is \(PGL(3,2)\) \cite{arxiv:2109.12735}.
+  It is one of sixteen distinct \([[7,1,3]]\) codes \cite{arxiv:0709.1780}.
+
+# and the check matrix for the Steane code is therefore
+# \begin{align}
+#   \left(\begin{matrix}
+#     0&H\\
+#     H&0
+#   \end{matrix}\right).
+# \end{align}
+
+protection: 'The Steane code is a distance 3 code. It detects errors on 2 qubits, corrects errors on 1 qubit.'
+
+features:
+  encoders:
+    - 'Nine CNOT and four Hadamard gates (\cite{doi:10.1201/9781420012293}, Fig. 10.14).'
+    - 'Fault-tolerant logical zero and logical plus state preparation on all-to-all and 2D grid qubit connectivity \cite{arxiv:2402.17761}.'
+
+  transversal_gates:
+    - 'The \hyperref[topic:clifford]{single-qubit Clifford group} \cite{arxiv:quant-ph/9605011,arxiv:0706.1382}.'
+
+  general_gates:
+    - 'Fault-tolerant logical zero and magic state preparation \cite{doi:10.1038/srep19578}. Magic-state preparation converts unbiased noise into biased noise \cite{arxiv:2401.10982}.'
+    - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
+
+  decoders:
+    - 'Shor error correction fidelity calculation \cite{arxiv:1101.1950,arxiv:1109.1714}.'
+
+  fault_tolerance:
+    - 'A fault-tolerant universal gate set can be done via \hyperref[topic:code-switching]{code switching} between the Steane code and the \([[15,1,3]]\) code \cite{arxiv:1304.3709,arxiv:1403.2734,arxiv:1703.03860,arxiv:2210.14074}.'
+    - 'A fault-tolerant universal gate set can be done via \hyperref[topic:code-switching]{code switching} between the Steane code and the \([[10,1,2]]\) code \cite{arxiv:2403.13732}.'
+    - 'Fault-tolerant logical zero and magic state preparation \cite{doi:10.1038/srep19578}.
+    Magic-state preparation converts unbiased noise into biased noise \cite{arxiv:2401.10982}.'
+    - 'Fault-tolerant logical zero and logical plus state preparation on all-to-all and 2D grid qubit connectivity \cite{arxiv:2402.17761}.'
+    - 'Pieceable fault-tolerant CCZ gate \cite{arxiv:1603.03948}.'
+    - 'Syndrome measurement can be done with ancillary flag qubits \cite{arxiv:1612.04795,arxiv:1705.02329} or with no extra qubits \cite{doi:10.1088/2058-9565/abc6f4}.
+    The depth of syndrome extraction circuits can be lowered by using past syndrome values \cite{arxiv:2305.00784}.'
+
+realizations:
+  - 'Trapped-ion devices: seven-qubit device in Blatt group \cite{arxiv:1403.5426}.
+  Ten-qubit QCCD device by Quantinuum \cite{arxiv:2107.07505} realizing repeated syndrome extraction, real-time look-up-table decoding (yielding lower logical SPAM error rate than physical SPAM), and non-fault-tolerant magic-state distillation (see APS Physics Synopsis \cite{doi:10.1103/Physics.14.184}).
+  Fault-tolerant universal two-qubit gate set using T injection by Monz group \cite{arxiv:2111.12654}.
+  Logical CNOT gate and Bell-pair creation between two logical qubits (yielding a logical fidelity higher than physical), including rounds of correction and fault-tolerant primitives such as flag qubits and pieceable fault tolerance, on a 20-qubit device by Quantinuum \cite{arxiv:2208.01863}; logical fidelity interval of the combined preparation-CNOT-measurement procedure was higher than that of the unencoded physical qubits.
+  Multiple rounds of Steane error correction \cite{arxiv:2312.09745}.
+  Fault-tolerant universal gate set via \hyperref[topic:code-switching]{code switching} between the Steane code and the \([[10,1,2]]\) code \cite{arxiv:2403.13732}.
+  Post-selected fault-tolerant logical Bell-state preparation with logical error rates at least 10 times lower than physical rate on a device by Quantinuum \cite{arxiv:2404.02280}.
+  The quantum Fourier transform on three code blocks \cite{arxiv:2404.08616}.
+  Fault-tolerant transversal and lattice-surgery state teleportation protocols as well as Knill error correction \cite{arxiv:2404.16728}.
+  Rains shadow enumerators have been measured \cite{arxiv:2408.16914}.'
+  - 'Rydberg atom arrays: Lukin group \cite{arxiv:2112.03923}; ten logical qubits, transversal CNOT gate performed, logical ten-qubit GHZ state initialized with break-even fidelity, and fault-tolerant logical two-qubit GHZ state initialized \cite{arxiv:2312.03982}.'
+
+
+relations:
+  parents:
+    - code_id: triangular_color
+      detail: 'Steane code is a 2D color code defined on a seven-qubit patch of the 6.6.6 tiling.'
+    - code_id: diagonal_clifford
+    - code_id: quantum_hamming_css
+    - code_id: single_qubit_clifford
+    - code_id: galois_quad_residue
+      detail: 'The Steane code is a qubit quantum QR code \cite{arxiv:0712.0103,arxiv:1907.01393}.'
+    - code_id: data_syndrome
+      detail: 'There exists a set of stabilizer generators for the Steane code that make it a QDS code \cite{arxiv:1409.2559}.'
+    - code_id: pg_qldpc
+      detail: 'The Steane code is the \(m=1\) member of the \([[2^{2m}+2^{m}+1,1,>2^{m}]]\) PG-QLDPC code family that is constructed from codes corresponding to lines and affine charts in \(PG(2,2^m)\) via the CSS construction \cite[Def. 4.9]{arxiv:1512.07081}.'
+    - code_id: group_representation
+      detail: 'The Steane code is a group-representation code with \(G\) being the \(2O\) subgroup of \(SU(2)\) \cite{arxiv:2306.11621}.'
+    - code_id: concatenated_steane
+      detail: 'The concatenated Steane code at level \(m=1\) is the Steane code.'
+    - code_id: block_perfect
+      detail: 'The Steane code is the smallest heptagon holographic code.
+      The encoding of more general heptagon holographic codes is a holographic tensor network consisting of the encoding isometry for the Steane code, which is a \hyperref[code:block_perfect]{planar-perfect tensor}.'
+  cousins:
+    - code_id: quantum_cyclic
+      detail: 'The Steane code is equivalent to a cyclic code via qubit permutations \cite[Exam. 1]{arxiv:1108.5490}.'
+    - code_id: cws
+      detail: 'The Steane code is equivalent via a single-qubit Clifford unitary to a CWS code for a particular graph and classical code \cite[Exam. 4]{arxiv:1108.5490}.'
+    - code_id: graph_quantum
+      detail: 'Four non-isomorphic graphs yield graph quantum codes that are equivalent to the Steane code under a single-qubit-Clifford circuit \cite{arxiv:quant-ph/0703112}.'
+    - code_id: eastab
+      detail: 'The Steane code is globally equivalent to a \([[6,1,3;1]]\) code, which is the smallest EA CSS code with that distance \cite{arxiv:0803.1495}.'
+
+# Mentioned via concatenated_steane already
+# - code_id: holographic_steane
+#   detail: 'The Steane code is the smallest heptagon holographic code.
+#   The encoding of more general heptagon holographic codes is a holographic tensor network consisting of the encoding isometry for the Steane code, which is a \hyperref[code:block_perfect]{planar-perfect tensor}.'
+
+
+#      detail: 'Steane code is the smallest member of a family of Reed-Muller-based CSS codes.'
+#      detail: 'Steane code is the smallest member of a family of quantum Hamming codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: remmyzen
+      date: '2024-07-15'
+    - user_id: EricHuang
+      date: '2024-03-18'
+    - user_id: VictorVAlbert
+      date: '2022-08-04'
+    - user_id: VictorVAlbert
+      date: '2022-03-14'
+    - user_id: JosephTIosue
+      date: '2021-12-19'

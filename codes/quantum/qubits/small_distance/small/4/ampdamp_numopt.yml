@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ampdamp_numopt
+physical: qubits
+logical: qubits
+
+name: 'Numerically optimized four-qubit AD code'
+introduced: '\cite{arxiv:2411.12952}'
+
+description: |
+  Four-qubit code that can (approximately) correct a single \hyperref[topic:ad]{AD} error with higher entanglement fidelity than the \([[4,1,2]]\) subcodes of the \([[4,2,2]]\) code.
+  The code was obtained by a biconvex optimization of the entanglement fidelity.
+
+  The admits a codeword basis of
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle&=\sqrt{1-\frac{1}{2(1-\gamma)^{2}}}|0000\rangle+\frac{1}{\sqrt{2}(1-\gamma)}|1111\rangle\\|\overline{1}\rangle&=\frac{1}{2}(|0011\rangle+|0101\rangle-|1010\rangle+|1100\rangle)\end{split}
+  \end{align}
+  for \hyperref[topic:ad]{AD} error rate \(\gamma\).
+
+features:
+  encoders:
+    - 'Analytical encoding channel \cite{arxiv:2411.12952}.'
+  decoders:
+    - 'Analytical recovery channel \cite{arxiv:2411.12952}.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: ampdamp
+    - code_id: numopt
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: stab_4_2_2
+      detail: 'The numerically optimized four-qubit AD code that can correct a single \hyperref[topic:ad]{AD} error with higher entanglement fidelity than the \([[4,1,2]]\) Leung-Nielsen-Chuang-Yamamoto code subcode of the \([[4,2,2]]\) code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-11-21'

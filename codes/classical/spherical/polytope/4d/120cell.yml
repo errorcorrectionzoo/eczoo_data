@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 120cell
+physical: spheres
+logical: reals
+
+name: '120-cell code'
+introduced: '\cite{doi:10.1007/978-3-0348-4117-7_8}'
+
+description: |
+  Spherical \((4,600,(7-3\sqrt{5})/4)\) code whose codewords are the vertices of the 120-cell.
+  See \cite[Table 1]{arxiv:1309.7530}\cite{preset:coxeter}\cite[Table 3]{doi:10.3390/sym2031423} for realizations of the 600 codewords.
+
+notes:
+  - 'The 120-cell code yields improved proofs of the Bell-Kochen-Specker (BKS) theorem \cite{arxiv:1309.7530}.'
+
+relations:
+  parents:
+    - code_id: polytope
+    - code_id: spherical_design
+      detail: 'The code forms a spherical 11-design because its vertices can be divided into five 600-cells, each of which forms said design.'
+  cousins:
+    - code_id: dual_polytope
+      detail: 'The 600-cell and 120-cell are dual to each other.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-23'

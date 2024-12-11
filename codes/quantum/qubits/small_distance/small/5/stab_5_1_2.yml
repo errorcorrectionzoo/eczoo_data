@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_5_1_2
+physical: qubits
+logical: qubits
+
+name: '\([[5,1,2]]\) rotated surface code'
+introduced: '\cite[Exam. 5]{arxiv:1202.0928}'
+
+description: |
+  Rotated surface code on one rung of a ladder, with one qubit on the rung, and four qubits surrounding it.
+
+  Admits generators \(\{ZZZII,IIZZZ,XIXXI,IXXIX\} \).
+
+features:
+  general_gates:
+    - 'Fault-tolerant implementation of the \hyperref[topic:clifford]{Clifford group} based on transversal gates and SWAPs \cite{arxiv:2112.01446}.'
+  fault_tolerance:
+    - 'Fault-tolerant implementation of the \hyperref[topic:clifford]{Clifford group} based on transversal gates and SWAPs \cite{arxiv:2112.01446}.'
+
+
+relations:
+  parents:
+    - code_id: rotated_surface
+    - code_id: holographic_5_1_2
+      detail: 'The \([[5,1,2]]\) rotated surface code is the smallest SCF holographic code.
+      The encoding of more general SCF holographic codes is a holographic tensor network consisting of the encoding isometry for the \([[5,1,2]]\) rotated surface code, which is a \hyperref[code:block_perfect]{planar-perfect tensor}.'
+    - code_id: block_perfect
+      detail: 'The \([[5,1,2]]\) rotated surface code is the smallest SCF holographic code.
+      The encoding of more general SCF holographic codes is a holographic tensor network consisting of the encoding isometry for the \([[5,1,2]]\) rotated surface code, which is a \hyperref[code:block_perfect]{planar-perfect tensor}.'
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: steane
+      detail: 'The \([[5,1,2]]\) rotated surface code can be obtained by morphing the Steane code \cite{arxiv:2112.01446}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-07-01'
