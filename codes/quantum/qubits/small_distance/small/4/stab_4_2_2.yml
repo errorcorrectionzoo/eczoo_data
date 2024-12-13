@@ -36,13 +36,13 @@ description: |
   This code can be thought of as a concatenation of a two-qubit bit-flip with a two-qubit phase-flip code.
 
 
-
 protection: |
   Detects a single-qubit error \cite{arxiv:quant-ph/9603031} or single erasure \cite{arxiv:quant-ph/9610042}.
   Not able to correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
 
   The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single \hyperref[topic:ad]{AD} error, with the latter being a constant excitation code.
 
+  An equivalent version of this code can suppress errors in adiabatic quantum computation by being used as an excited-state space of a particular Hamiltonian \cite{arxiv:2412.07764}.
 
 features:
   magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \([[6,2,2]]\) \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
@@ -52,6 +52,9 @@ features:
     - 'Transversal Pauli, Hadamard, and two-qubit \(S=\sqrt{Z}\) \cite{arxiv:1610.03507} (see also \cite{arxiv:1912.10063}).'
     - 'A transversal \(CZ\) gate is realized by the rotation \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\).'
     - 'Adding \(XYZI\) to the stabilizer group produces a \([[4,1,2]]\) subcode that admits weight-two transversal logical Pauli operations \cite{arxiv:quant-ph/0512170}.'
+
+  general_gates:
+    - 'Some inter-block gates can be weight-two (two-body) with the help of perturbative gadgets, making it possible to suppress errors in adiabatic quantum computation \cite{arxiv:2412.07764}.'
 
   fault_tolerance:
     - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.
