@@ -1,0 +1,39 @@
+#######################################################
+This is a code entry in the error correction zoo.
+https://github.com/errorcorrectionzoo
+#######################################################
+
+code_id: trapezoid
+physical: qubits
+logical: qubits
+
+name: 'Trapezoid subsystem code'
+introduced: '\cite{arxiv:1911.01354,arXiv:2412.06744}'
+
+description: |
+  A member of a family of BBS codes with weight-two (two-body) gauge generators designed to suppress errors in adiabatic quantum computation.
+  
+  The codes consist of the family of \([[4k+2l, 2k, g, 2]]\) BBS codes for even numbers of logical qubits and the family of \([[4k+2l-2, 2k-1, g, 2]]\) BBS codes for odd numbers of logical qubits, where \(k\) and \(l\) are integers satisfying \(l \leq \lceil (m-1)/2 \rceil\) with \(m\) either \(2k+1\) or \(2k\). 
+
+features:
+  general_gates:
+    - 'Single-qubit and two-qubit logical operators are two-local.'
+
+
+relations:
+  parents:
+    - code_id: bravyi_bacon_shor
+  cousins:
+    - code_id: iceberg
+      detail: 'The trapezoid code family can be obtained from the \([[2m,2m-2,2]]\) error-detecting code by using some logical qubits as gauge qubits and imposing a two-dimensional qubit geometry \cite{arXiv:2412.06744}.'
+    - code_id: goy
+      detail: 'The even-logical-qubit trapezoid family at \(l=k\) \cite{arxiv:1911.01354} is a subsystem version of the \([[6k,2k,2]]\) Ganti-Onunkwo-Young code. '
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-13'

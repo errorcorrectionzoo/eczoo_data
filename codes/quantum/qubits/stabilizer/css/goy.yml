@@ -1,0 +1,32 @@
+#######################################################
+This is a code entry in the error correction zoo.
+https://github.com/errorcorrectionzoo
+#######################################################
+
+code_id: goy
+physical: qubits
+logical: qubits
+
+name: '\([[6k,2k,2]]\) Ganti-Onunkwo-Young code'
+introduced: '\cite{arXiv:1309.1674}'
+
+description: |
+  A member of the family of \([[6k,2k,2]]\) CSS codes designed to suppress errors in adiabatic quantum computation.
+  All but two of its stabilizer generators are weight-two (two-body), and the remaining two are weight-\(4k\).
+
+features:
+  general_gates:
+    -  'The code supports weight-two logical operators and maintains a planar connectivity graph with only a small increase in graph degree.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-13'
