@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bravyi_bacon_shor_6
+physical: qubits
+logical: qubits
+
+name: '\([[6,2,3,2]]\) BBS code'
+introduced: '\cite{arxiv:1008.1029}'
+
+description: |
+  Error-detecting six-qubit BBS code that can suppress errors in adiabatic quantum computation \cite{arxiv:1511.01997}.
+  See Ref. \cite{arxiv:1511.01997} for its gauge generators.
+
+features:
+  general_gates:
+    - 'Certain two-qubit logical operations are two-local \cite{arxiv:1511.01997}.'
+
+
+relations:
+  parents:
+    - code_id: trapezoid
+      detail: 'The even-logical-qubit trapezoid family at \(l=k=1\) reduces to the \([[6,2,3,2]]\) BBS code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-13'

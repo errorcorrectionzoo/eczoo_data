@@ -42,9 +42,10 @@ protection: |
 
   The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single \hyperref[topic:ad]{AD} error, with the latter being a constant excitation code.
 
+  An equivalent version of this code can suppress errors in adiabatic quantum computation by being used as an excited-state space of a particular Hamiltonian \cite{arxiv:2412.07764}.
 
 features:
-  magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \([[6,2,2]]\) \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
+  magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
   transversal_gates:
@@ -52,15 +53,19 @@ features:
     - 'A transversal \(CZ\) gate is realized by the rotation \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\).'
     - 'Adding \(XYZI\) to the stabilizer group produces a \([[4,1,2]]\) subcode that admits weight-two transversal logical Pauli operations \cite{arxiv:quant-ph/0512170}.'
 
+  general_gates:
+    - 'Some inter-block gates can be weight-two (two-body) with the help of perturbative gadgets, making it possible to suppress errors in adiabatic quantum computation \cite{arxiv:2412.07764}.'
+
   fault_tolerance:
     - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.
     Magic states can be injected into surface and color codes since the code is a small instance of both \cite{arxiv:2305.13581}.'
-    - 'Concatenations of \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
-    - 'Concatenations of quantum Hamming codes with the \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826,arxiv:2402.09606}.'
+    - 'Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
+    - 'Concatenations of quantum Hamming codes with the \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826,arxiv:2402.09606}.'
     - 'Fault-tolerant implementation of the Deutsch-Josza algorithm \cite{arxiv:2412.04791}.'
 
 
 realizations:
+  - 'See also \cite[Tab. I]{arxiv:2412.07670} for more details on each experimental realization.'
   - '\([[4,1,2]]\) subcodes implemented in linear optical networks \cite{arxiv:0804.2268,arxiv:1404.5498}.'
   - 'Trapped-ion device by IonQ \cite{arxiv:1611.06946}.'
   - 'Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices by IBM \cite{arxiv:1705.09259,arxiv:1705.08957,arxiv:1806.02359,arxiv:2110.04285}.'
@@ -71,7 +76,7 @@ realizations:
   - 'Logical Clifford gates for a twist-defect surface code that is single-qubit Clifford equivalent to a \([[4,1,2]]\) realized in a trapped ion device by Quantinuum \cite{arxiv:2406.09951}.'
   - 'CPC gadgets for the \([[4,2,2]]\) code have been implemented on the IBM 5Q superconducting device \cite{arxiv:1709.01866}.'
   - 'An FPGA implementation of the collision clustering decoder \cite{arxiv:2309.05558} realized on a Rigetti supercondutcing device \cite{arxiv:2410.05202}.'
-  - 'Rydberg atomic devices: error detection, erasure correction, and post-selected fault-tolerant circuits demonstrated on 24 logical qubits on a 256-qubit device by Atom Computing, with each qubit encoded in the \([[4,2,2]]\) code \cite{arxiv:2411.11822}. '
+  - 'Rydberg atomic devices: error detection, erasure correction, and post-selected fault-tolerant circuits demonstrated on 24 logical qubits on a 256-qubit device by Atom Computing, with each qubit encoded in the \([[4,2,2]]\) code \cite{arxiv:2411.11822}. The device also ran the Bernstein-Vazirani algorithm on up to 28 logical qubits encoded in a \([[4,1,2]]\) subcode \cite{arxiv:2411.11822}. Post-selected fault-tolerant realization of a benchmarking protocol \cite{arxiv:1610.03507}, preparation of the ground state of the single-impurity Anderson impurity model, and post-selected fault-tolerant logical Bell-state preparation demonstrated on one copy of the \([[4,2,2]]\) code on a device by Infleqtion \cite{arxiv:2412.07670}.'
 
 
 relations:
@@ -112,8 +117,8 @@ relations:
     - code_id: qubit_concatenated
       detail: |
         The \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \([[4,1,2]]\) subcode is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
-        Concatenations of \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} (see also Ref. \cite{arxiv:quant-ph/0612073}).
-        Concatenations of quantum Hamming codes with the \([[4,2,2]]\) and \([[6,2,2]]\) \(C_6\) codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826,arxiv:2402.09606}.'
+        Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} (see also Ref. \cite{arxiv:quant-ph/0612073}).
+        Concatenations of quantum Hamming codes with the \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826,arxiv:2402.09606}.'
         Concatenating the \([[4,2,2]]\) code with the surface code is equivalent to removing stabilizer generators from the 4.8.8 color code \cite{arxiv:1604.04062}.
         The \([[4,2,2]]\) code can be concatenated with two copies of the surface code to yield the 4.6.12 color code \cite{arxiv:1604.04062}.
         An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of the \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) (constant-excitation) subcode of the \([[4,2,2]]\) code with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}. More generally, an \([[m^2,1,m]]\) QPC corrects \(m-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.
