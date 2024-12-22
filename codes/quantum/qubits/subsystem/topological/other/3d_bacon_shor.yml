@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 3d_bacon_shor
+physical: qubits
+logical: qubits
+
+name: '3D Bacon-Shor code'
+introduced: '\cite{arxiv:quant-ph/0506023}'
+
+description: |
+  Generalization of the Bacon-Shor code to three dimensions that was conjectured to be a self-correcting memory.
+  It is defined on a cubic lattice and admits sheet-like stabilizer generators.
+
+
+
+features:
+  transversal_gates:
+    - 'Logical CCZ gates on three codeblocks of different orientations \cite{arxiv:1705.01686}.'
+  threshold:
+    - 'The 3D Bacon-Shor code has two entanglement transitions \cite{arxiv:2405.14927}.'
+
+
+relations:
+  parents:
+    - code_id: bravyi_bacon_shor
+    - code_id: translationally_invariant_subsystem
+  cousins:
+    - code_id: hypercubic
+      detail: '3D Bacon-Shor codes are defined on a hypercubic lattice.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-22'
