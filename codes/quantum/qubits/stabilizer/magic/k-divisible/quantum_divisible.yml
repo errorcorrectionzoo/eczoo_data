@@ -15,8 +15,16 @@ description: |
   A level-\(\nu\) quantum divisible code is a CSS code whose \(X\)-type stabilizers form a \(\nu\)-even linear binary code in the \hyperref[topic:binary-symplectic-representation]{symplectic representation} and which admits a transversal gate at the \(\nu\)th level of the \term{Clifford hierarchy}.
   A CSS code is \textit{doubly even} (\textit{triply even}) if all \(X\)-type stabilizers have weight divisible by four (eight), i.e., if they form a doubly even (triply even) linear binary code.
 
-  More formally \cite{arxiv:2109.13481,arxiv:2204.13176}, a quantum divisible code is a CSS code defined from two linear binary codes \(C_{1,2}\) such that all weights in \(C_2\) share a common divisor \(\Delta > 1\), and all weights in each coset of \(C_2\) in \(C_1\) are congruent to \(\Delta\).
-  For example \cite{arxiv:2204.13176}, if \(C_2\) is the first-order RM\((1,m)\) code, and \(C_1/ C_2\) consists of quadratic forms with a bounded rank, then \([[n = 2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) is a family of quantum divisible codes.
+  The definition can be generalized to \textit{weakly} \(\nu\)-\textit{divisible} (see, e.g., Ref. \cite{arxiv:2408.12752}), which means that there exist some disjoint qubit subsets \(M^{\pm}\) such that 
+  \begin{align}
+    | x \cap M^{+} | - | x \cap M^{-} | \equiv 0 \mod \nu
+  \end{align}
+  for all rows \(x\) of the code's \(X\)-type stabilizer generator matrix.
+  CSS codes satisfying the above with \(\nu = 2\) (\(\nu = 4\), \(\nu = 8\)) are called \textit{weak even} (\textit{weak doubly even}, \textit{weak triply even}).
+  This generalization reduces to the original definition when \(M^{+}\) is the full set of qubits, and \(M^{-}\) the empty set.
+
+  An alternative definition \cite{arxiv:2109.13481,arxiv:2204.13176}, not used here, is a CSS code defined from two linear binary codes \(C_{1,2}\) such that it is quantum divisible with \(\nu > 1\), and all weights in each coset of \(C_2\) in \(C_1\) are congruent to \(\nu\).
+  For example \cite{arxiv:2204.13176}, if \(C_2\) is the first-order RM\((1,m)\) code, and \(C_1/ C_2\) consists of quadratic forms with a bounded rank, then \([[n = 2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) is a family of such codes.
 
 
 # application of T and Tdag is for generalized divisible codes
@@ -27,7 +35,7 @@ features:
 
 
   general_gates:
-    - 'The \([[2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), 3]]\) quantum divisible code family can serve as outer codes of either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code to realize a \(T\) gate on the inner code.
+    - 'The \([[2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), 3]]\) quantum divisible code family can serve as outer codes of either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code to realize a \(T\) gate on the inner code \cite{arxiv:2204.13176}.
     For example, when \(m=5\) (\(m=6\)), the resulting \([[31,5,3]]\) (\([[63,7,3]]\)) code yields the \(T\) gate on the inner five-qubit (Steane) code.'
 
   fault_tolerance:
