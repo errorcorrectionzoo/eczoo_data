@@ -38,7 +38,12 @@ protection: |
   \end{enumerate}
 
 features:
-  rate: 'A family of linear codes \(C_i = [n_i,k_i,d_i]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive. Nearly all good linear binary codes for the asymmetric channel are also good for the symmetric channel \cite{manual:{Varshamov, R. R. "Some features of linear codes that correct asymmetric errors." Soviet Physics Doklady. Vol. 9. 1965.}}; this is not the case for non-binary codes \cite{arxiv:1310.7536}.'
+  rate: |
+    A family of linear codes \(C_i = [n_i,k_i,d_i]\) is \textit{asymptotically good} if the asymptotic rate \(\lim_{i\to\infty} k_i/n_i\) and asymptotic distance \(\lim_{i\to\infty} d_i/n_i\) are both positive. Nearly all good linear binary codes for the asymmetric channel are also good for the symmetric channel \cite{manual:{Varshamov, R. R. "Some features of linear codes that correct asymmetric errors." Soviet Physics Doklady. Vol. 9. 1965.}}; this is not the case for non-binary codes \cite{arxiv:1310.7536}.
+
+    Binary linear codes on \(D\)-dimensional Euclidean lattices are limited by the \textit{classical Bravyi-Poulin-Terhal (BPT) bound} \cite{arxiv:0909.5200,arxiv:2309.16411}, which states that \(d = O(n^{1-1/D})\) and that \(k d^{1/D} = O(n)\) (using \hyperref[topic:asymptotics]{asymptotic notation}). 
+    This bound is the classical analogue of the \hyperref[topic:bpt-bound]{BPT bound} for qubit stabilizer codes and the \hyperref[topic:subsystem-bt-bound]{subsystem BT bound} for subsystem qubit stabilizer codes.
+
 
   decoders:
     - 'Decoding an arbitary linear binary code is \(NP\)-complete \cite{doi:10.1109/TIT.1978.1055873}.'
