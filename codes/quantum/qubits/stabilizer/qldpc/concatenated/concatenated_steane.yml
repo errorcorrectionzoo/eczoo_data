@@ -11,7 +11,7 @@ name: 'Concatenated Steane code'
 introduced: '\cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9809054}'
 
 description: |
-  A member of the family of \([[7^m,1,3^m]]\) CSS codes, each of which is a recursive level-\(m\) concatenatenation of the Steane code.
+  A member of the family of \([[7^m,1,3^m]]\) CSS codes, each of which is a recursive level-\(m\) concatenation of the Steane code.
   This family is one of the first to admit a \hyperref[topic:computational-threshold]{concatenated threshold} \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9809054,arxiv:quant-ph/0207119,arxiv:quant-ph/0410047,arxiv:quant-ph/0604090}.
 
 protection: 'Code performance against general Pauli channels has been worked out \cite{arxiv:quant-ph/0111003,arxiv:quant-ph/0206061}.'
@@ -22,6 +22,7 @@ features:
       - 'Randomized compiling helps reduce logical error rate for some noise models \cite{arxiv:2303.06846}.'
     fault_tolerance:
       - 'There exist fault-tolerant syndrome extraction protocols for the concatenated Steane code \cite{arxiv:2403.09978}.'
+      - 'The combination of the concatenated Steane code and QLDPC codes with non-vanishing rate yield fault-tolerant quantum computation with constant space and polylogarithmic time overheads, even when classical computation time is taken into account \cite{arxiv:2411.03683}.'
     code_capacity_threshold:
       - 'This family is one of the first to admit a \hyperref[topic:computational-threshold]{concatenated threshold} \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9809054,arxiv:quant-ph/0207119,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0604090}; see the book \cite{preset:GottesmanBook}.'
     threshold:
@@ -34,6 +35,11 @@ relations:
     - code_id: qubit_concatenated
     - code_id: holographic_steane
       detail: 'A recursively concatenated Steane code is a heptagon holographic code on a tree tensor network.'
+  cousins:
+    - code_id: qldpc
+      detail: 'The combination of the concatenated Steane code and QLDPC codes with non-vanishing rate yield fault-tolerant quantum computation with constant space and polylogarithmic time overheads, even when classical computation time is taken into account \cite{arxiv:2411.03683}.'
+    - code_id: qubit_concatenated
+      detail: 'The combination of the concatenated Steane code and QLDPC codes with non-vanishing rate yield fault-tolerant quantum computation with constant space and polylogarithmic time overheads, even when classical computation time is taken into account \cite{arxiv:2411.03683}.'
 
 
 # Begin Entry Meta Information
