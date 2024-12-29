@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cliffopauli_qscrd_qsc
+physical: oscillators
+logical: qubits
+
+name: 'Pauli group-representation QSC'
+introduced: '\cite{arxiv:2410.18713}'
+
+description: |
+  Non-uniform QSC whose projection is onto a copy of an irreducible representation of a \hyperref[topic:pauli]{single-qubit Pauli group}, the symmetry group of the \(\{2,2,4\}\) tesselation of the sphere.
+  Each codeword is a quantum superposition of vertices of a tetrahedron with \(\pm 1\) coefficients.
+
+features:
+  general_gates:
+    - 'The \hyperref[topic:pauli]{single-qubit Pauli group} can be realized via Gaussian rotations.'
+
+
+relations:
+  parents:
+    - code_id: qsc
+      detail: 'The Pauli group-representation QSC has non-uniform coefficients.'
+    - code_id: group_representation
+      detail: 'The Pauli group-representation QSC is a group-representation code with \(G\) being the single-qubit Pauli group.'
+  cousins:
+    - code_id: simplex_spherical
+      detail: 'Each codeword of the Pauli group-representation QSC is a quantum superposition of vertices of a tetrahedron with \(\pm 1\) coefficients.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-12-29'
