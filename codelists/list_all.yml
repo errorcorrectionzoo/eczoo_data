@@ -10,6 +10,15 @@ intro: |
   Here are a gigantic list of all the codes, sorted alphabetically, that were
   included in the error correction zoo.
 
+  All codes belonging to a particular domain are collected in the
+  following lists:
+  \begin{itemize}
+  \item \hyperref[codelist:classical]{List of all classical codes};
+  \item \hyperref[codelist:quantum]{List of all quantum codes}; and
+  \item \hyperref[codelist:classical_into_quantum]{List of all
+    classical-into-quantum codes}.
+  \end{itemize}
+
 
 # # example of additional metainfo, to be used e.g. in the list of lists.
 # # Property names and possible values under 'metainfo:' are not constrained.
@@ -25,27 +34,55 @@ display:
     show_description: true
     description_first_paragraph: true
 
-
-# sort: any key
-
-# descendant_of: 'code_id'
-# any_descendant_of: ['code_id_1', 'code_id_2', ...]
-# all_descendant_of: ['code_id_1', 'code_id_2', ...]
-# not_descendant_of: 'code_id'
-# not_any_descendant_of: ['code_id_1', 'code_id_2', ...]
-# not_all_descendant_of: ['code_id_1', 'code_id_2', ...]
-
 codes:
   select:
     # all quantum codes
     - {}
 
-    # Each list element of the 'codes:' list specifies a set of codes.  The set of
-    # codes consists of the codes that satisfy all the given conditions
-    # (e.g. property_set: rate AND child_of: quantum_code).
+    # Each list element of the 'codes: select:' list specifies a set of
+    # codes.  The set of codes consists of the codes that satisfy all the
+    # given conditions.  E.g.:
+    #
+    #  - property_set: rate
+    #    child_of: quantum_code
+    #
+    # specifies the set of codes which both have the 'rate' property set and
+    # are a direct child of 'quantum_code'.
     #
     # The final codes selected for the code list is the union of all the sets
-    # associated with each list element of 'codes:'.
+    # associated with each object in the list given here ('codes: select: (list)').
+
+    # Possible predicate types to be included in each "select" code set include:
+    #
+    # manual_code_ids: ['code_id_1', 'code_id_2', ...]
+    #
+    # exclude: ['code_id_1', 'code_id_2', ...]
+    #
+    # property_set: 'property_name'
+    #
+    # property:
+    #   name: property_name
+    #   value: some_value
+    #
+    # descendant_of: 'code_id'
+    # any_descendant_of: ['code_id_1', 'code_id_2', ...]
+    # all_descendant_of: ['code_id_1', 'code_id_2', ...]
+    # not_descendant_of: 'code_id'
+    # not_any_descendant_of: ['code_id_1', 'code_id_2', ...]
+    # not_all_descendant_of: ['code_id_1', 'code_id_2', ...]
+    #
+    # cousin_of: 'code_id'
+    # any_cousin_of: ['code_id_1', 'code_id_2', ...]
+    # all_cousin_of: ['code_id_1', 'code_id_2', ...]
+    # not_cousin_of: 'code_id'
+    # not_any_cousin_of: ['code_id_1', 'code_id_2', ...]
+    # not_all_cousin_of: ['code_id_1', 'code_id_2', ...]
+    #
+    # domain: 'domain_identifier'
+    # not_domain: 'domain_identifier'
+    # any_domain: ['domain_identifier', '...']
+    # not_any_domain: ['domain_identifier', '...']
+    #
 
 
 sort:
