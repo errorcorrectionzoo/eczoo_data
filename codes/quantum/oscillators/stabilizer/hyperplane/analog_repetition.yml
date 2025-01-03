@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: analog_repetition
+physical: oscillators
+logical: oscillators
+
+name: 'Analog repetition code'
+introduced: '\cite{doi:10.1103/PhysRev.47.777}'
+
+alternative_names:
+  - 'Gaussian repetition code'
+  - 'Einstein-Podolsky-Rosen (EPR) repetition code'
+
+description: |
+  An \([[n,1]]_{\marhbb{R}}\) analog stabilizer version of the quantum repetition code, encoding the position states of one mode into an odd number of \(n\) modes.
+
+  There are two variants, a bit- and a phase-flip code, whose encoding for \(n=3\) is
+  \begin{align}
+    |\overline{x}_{\text{bit}}\rangle&\rightarrow|x,x,x\rangle\\
+    |\overline{x}_{\text{phase}}\rangle&\rightarrow \int dx_{1}dx_{2}dx_{3}\delta(x_{1}+x_{2}+x_{3}-x)|x_{1},x_{2},x_{3}\rangle~.
+  \end{align}
+
+  Nullifiers for the bit-flip analog repetition code are differences \(\hat{x}_{j+1} - \hat{x}_{j}\).
+  Bit-flip codewords can be superposed to yield the logical momentum basis
+  \begin{align}
+    |\overline{p}\rangle=\int dx e^{ipx}|x\rangle^{\otimes n}~,
+  \end{align}
+  a bosonic analogue of GHZ states.
+  At \(p=0\), the above is an analog stabilizer state nullified by the bit-flip nullifiers and the total momentum operator \(\hat{p}_1+\hat{p}_2+\cdots+\hat{p}_n\).
+  For \(n=2\), this state is known as an EPR pair \cite{doi:10.1103/PhysRev.47.777}, an infinitely squeezed version of the two-mode squeezed (TMS) a.k.a. twin-beam state. 
+
+
+realizations:
+  - 'EPR states and their associated quantum teleportation protocols have been realized \cite{doi:10.1038/nature02858}.'
+
+notes:
+  - 'EPR states and their \(n\)-mode extensions are useful for quantum teleportation \cite{arxiv:quant-ph/9906021}.'
+
+relations:
+  parents:
+    - code_id: analog_stabilizer
+    - code_id: group_quantum_repetition
+      detail: 'Group-based quantum repetition codes reduce to analog repetition codes for \(G = \mathbb{R}\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-03'
