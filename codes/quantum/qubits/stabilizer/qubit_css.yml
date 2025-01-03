@@ -16,7 +16,6 @@ alternative_names:
 description: |
   An \([[n,k,d]]\) stabilizer code admitting a set of stabilizer generators that are either \(Z\)-type or \(X\)-type Pauli strings.
   Codes can be defined from two classical codes and/or chain complexes over \(\mathbb{Z}_2\) per the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} below.
-  \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
 
   The stabilizer generator matrix is of the form
   \begin{align}
@@ -45,9 +44,10 @@ description: |
   Its \(X\)-type and \(Z\)-type stabilizers are identically supported.
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
+  \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
   In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric qubit CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
   The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to \hyperref[topic:degeneracy]{degeneracy} \cite{preset:GottesmanBook}.
-
+  
   To find the minimum distance of \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
   Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:
   \begin{align}
