@@ -1,0 +1,88 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: sphere_packing
+physical: reals
+logical: reals
+
+name: 'Sphere packing'
+
+description: |
+  An analog code whose points can be thought of as forming centers of (real or complex) spheres that pack (real or complex) space.
+  Sphere packings provide ways of encoding digital or analog information into the frequency, amplitude, and phase of one or more analog waveforms for transmission through, e.g., an optical fiber or free space.
+  This is due to Kotelnikov's \cite{manual:{V. A. Kotelnikov, “The theory of optimum noise immunity,” PhD Thesis, Molotov Energy Institute, Moscow, Jan. 1947}} and Shannon's \cite{doi:10.1109/JRPROC.1949.232969} fundamental observation that a discretized electromagnetic signal of finite bandwidth and average power \(P\) can be represented as a vector in \(\mathbb{R}^n\) with norm \(nP\).
+  Questions of capacity of electromagnetic communication channels then translate to packing problems in \(\mathbb{R}^n\) \cite{doi:10.1007/978-1-4757-6568-7}.
+
+  In the electromagnetic context, the information stored in the code is called the \textit{bitstream}, coordinates used for encoding are often called \textit{signal points} and form a \textit{constellation}, and \(\mathbb{R}^n\) is called the \textit{signal space}.
+
+#  There are various ways to encode a set of points in \(\mathbb{R}^n\) into an electromagnetic signal.
+
+
+protection: |
+  Sphere packings can be used to transmit information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive Gaussian white-noise channel (AGWN)}, which adds a random Gaussian-distributed displacement with variance \(\sigma^2\) to each signal point.
+  Protection of a constellation thus depends on how far apart its points are in terms of the Euclidean distance.
+  As usual, there is a tradeoff between packing of space and level of protection.
+  For a given \(n,M,P\), the \textit{Gaussian channel coding problem} asks to find a set of \(M\) codewords of norm \(\leq nP\) that minimizes the error probability during transmission; see \cite[Ch. 3]{doi:10.1007/978-1-4757-6568-7}.
+
+  The \textit{minimum distance} \(d\) of a constellation is the infimum over distances between any two of it''s points.
+  The \textit{density} \(\Delta\) is the fraction of the total volume of space that is occupied by spheres of an optimal radius centered at each point in the sphere packing.
+  Defining a density for infinite constellations can be done using a limit \cite[pg. 349]{preset:EricZin}.
+
+  The Kabatiansky-Levenshtein bound \cite{manual:{G. A. Kabatiansky, V. I. Levenshtein, “On Bounds for Packings on a Sphere and in Space”, Probl. Peredachi Inf., 14:1 (1978), 3–25; Problems Inform. Transmission, 14:1 (1978), 1–17}} says that any sphere packing must satistfy \(\frac{1}{n}\log_{2}\Delta\lesssim-0.5990\) asymptotically with dimension \(n\).
+  Other bounds include the Rogers bound \cite{doi:10.1112/plms/s3-8.4.609}, its recent improvement \cite{arxiv:2312.10026}, and Cohn-Elkies linear programming bounds \cite{arxiv:math/0110009}.
+  For more details, see \cite[Ch. 10.4]{preset:EricZin}\cite[Ch. 1]{doi:10.1007/978-1-4757-6568-7}.
+
+  The \textit{covering problem} asks how one can cover all of space by overlapping spheres in the most efficient way.
+  The \textit{thickness} \(\Theta\) (a.k.a. covering density or sparsity) of a covering is defined in the same way as the (packing) density, but with the spheres' \textit{covering radius} now being the smallest one such that the spheres cover all space.
+
+  There is an upper bound on the thickness of a covering in dimensions \(n>3\) \cite{doi:10.1112/S0025579300001030} as well as an asymptotic lower bound \cite{doi:10.1112/S0025579300002059},
+  \begin{align}
+    \frac{n}{e\sqrt{e}}\lesssim\Theta\leq n\ln n+n\ln\ln n+5n~.
+  \end{align}
+
+  Sphere packings can be used as \textit{quantizers} or \textit{analog-to-digital converters}, which perform data compression by rounding a vector of real numbers to the point in the packing that is closest to the vector.
+  The set of all points closest to a point \(x\) is called the \textit{Voronoi cell of \(x\)}.
+  The \textit{quantizer problem} asks to find a sphere packing that yields that minimizes a dimensionless dimension-dependent quantity proportional to the average mean squared error per dimension; see \cite[Sec. 3.2]{doi:10.1007/978-1-4757-6568-7}.
+  For dimension \(n\), this minimum is known as \(G_n\). It is known only for \(n=1,2\) and is attained by the integer and triangular lattices, respectively.
+
+
+features:
+  rate: |
+    The rate of a code consisting of \(M\) codewords that represent a signal of bandwidth \(W\) and duration \(T\) is defined as
+    \begin{align}
+      R=\frac{1}{T}\log_{2}M\quad\quad\text{bits/s}~.
+    \end{align}
+
+    The Shannon capacity of the AGWN channel for a signal whose power is \(P\) is
+    \begin{align}
+      C=W\log_{2}\left(1+\frac{P}{\sigma^{2}}\right)\,.
+    \end{align}
+    Random sphere packings achieve this capacity \cite{doi:10.1002/j.1538-7305.1959.tb03905.x}; see the book \cite{doi:10.1007/978-1-4757-6568-7} for more details.
+    Tradeoffs between various parameters have been analyzed \cite{doi:10.1002/j.1538-7305.1963.tb04013.x}. Deterministic sets of constellations from quadrature rules can also achieve capacity \cite{doi:10.1109/ALLERTON.2010.5706965}.
+
+  decoders:
+    - 'Each signal point is assigned its own Voronoi cell, and a received point is mapped back to the center of the Voronoi cell in which it is located upon reception.'
+
+notes:
+  - 'Database of sphere packings \cite{manual:{Agrell, E. "Database of sphere packings, 2019." Online: https://codes. se/packings. Accessed (2015).}}.'
+  - 'See Refs. \cite{doi:10.1109/18.720549,arxiv:cs/0611112} for reviews of sphere packing.'
+
+
+relations:
+  parents:
+    - code_id: analog
+  cousins:
+    - code_id: hamiltonian
+      detail: 'The Cohn-Elkies linear programming bound is related to the conformal bootstrap, which is a way of utilizing symmetry to constrain correlation functions of conformal field theories \cite{arxiv:1905.01319}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-02'
+    - user_id: VictorVAlbert
+      date: '2022-02-16'
