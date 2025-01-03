@@ -91,7 +91,7 @@ protection: |
   Semidefinite programming (SDP) hierarchies and a quantum Delsarte bound have been developed \cite{arxiv:2408.10323}.
 
 features:
-  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}.'
+  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}. There are many bounds on the quantum capacity of the depolarizing channel (e.g., \cite{arxiv:quant-ph/0607039}); see review \cite{arxiv:1801.02019}.'
   transversal_gates:
     - 'A qubit code is \(U\)-\textit{quasi-transversal} if it can realize the logical gate \(U\) in the third level of the \term{Clifford hierarchy} using the physical gate \(C T^{\otimes n}\), where \(C\) is some Clifford gate \cite[Def. 4]{arxiv:1606.01904}.'
   general_gates:
@@ -139,14 +139,18 @@ features:
     - 'Arbitrary \(n\)-qubit circuits can be implemented fault-tolerantly in a 3D architecture using \(O(n^{3/2}\log^3 n)\) qubits, and in a 2D architecture using only \(O(n^2 \log^3 n)\) qubits \cite{arxiv:2402.13863}.'
     - 'Fault-tolerant gates can be done for any code supporting a transversal implementation of Pauli gates using generalized gate teleportation \cite{arxiv:2409.11616}.'
   threshold:
-    - '\begin{defterm}{Computational threshold}
-      \label{topic:computational-threshold}
-      A fault-tolerant computational threshold is the maximum noise rate in a particular single-parameter noise model below which any logical computation of size \(M\) can be executed on a physical-qubit architecture to arbitrary accuracy and with an overhead of \hyperref[topic:asymptotics]{order} \(O(M\text{polylog}M)\).
-      The first methods to achieve a computational threshold use recursively concatenated stabilizer code families \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0604090}; such a threshold is called a \textit{concatenated threshold}.
-      Such methods require constant-space and polylogarithmic-time overhead, but concatenations using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826}.
-      Subsequently, thresholds were determined for infinite families of lattice stabilizer codes, starting with the toric code \cite{arxiv:quant-ph/0110143}; such a threshold is colloquially called a \textit{topological threshold}.
-      Fault-tolerant computations with no notion of locality can be made local on a 2D or 3D geometry with minimal overhead \cite{arxiv:2402.13863}.
-      \end{defterm}'
+    - |
+        \begin{defterm}{Computational threshold}
+        \label{topic:computational-threshold}
+        A fault-tolerant computational threshold is the maximum noise rate in a particular single-parameter noise model below which any logical computation of size \(M\) can be executed on a physical-qubit architecture to arbitrary accuracy and with an overhead of \hyperref[topic:asymptotics]{order} \(O(M\text{polylog}M)\).
+        The first methods to achieve a computational threshold use recursively concatenated stabilizer code families \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0604090}; such a threshold is called a \textit{concatenated threshold}.
+        Initially proven under local stochastic noise, the concatenated threshold theorem also holds for various types of non-Markovian noise \cite{arxiv:quant-ph/0402104,arxiv:quant-ph/0504218,arxiv:quant-ph/0510231}.
+        The resulting concatenated code is highly \hyperref[topic:degeneracy]{degenerate}, with all but an exponentially small fraction of generators having small weights. 
+        Circuit and measurement designs have to take care of the few stabilizer generators with large weights in order to be fault tolerant.
+        Concatenated methods require constant-space and polylogarithmic-time overhead, but concatenations using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826,arxiv:2402.09606}, and concatenations of the Steane code and certain QLDPC codes further improve this to polylogarithmic time \cite{arxiv:2411.03683}.
+        Subsequently, thresholds were determined for infinite families of lattice stabilizer codes, starting with the toric code \cite{arxiv:quant-ph/0110143}; such a threshold is colloquially called a \textit{topological threshold}.
+        Fault-tolerant computations with no notion of locality can be made local on a 2D or 3D geometry with minimal overhead \cite{arxiv:2402.13863}.
+        \end{defterm}
     - '\begin{defterm}{Measurement threshold}
       \label{topic:measurement-threshold}
       One can derive conditions quantifying how many random single-qubit measurements can be made without destroying the logical information \cite{arxiv:2402.00145}.
