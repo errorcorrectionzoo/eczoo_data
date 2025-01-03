@@ -11,12 +11,12 @@ name: 'Heavy-hexagon code'
 introduced: '\cite{arxiv:1907.09528}'
 
 description: |
-  Subsystem stabilizer code on the heavy-hexagonal lattice that combines Bacon-Shor and surface-code stabilizers.
+  Subsystem stabilizer code on the heavy-hexagonal point set that combines Bacon-Shor and surface-code stabilizers.
   Encodes one logical qubit into \(n=(5d^2-2d-1)/2\) physical qubits with distance \(d\).
-  The heavy-hexagonal lattice allows for low degree (at most 3) connectivity between all the data and ancilla qubits, which is suitable for fixed-frequency transom qubits subject to frequency collision errors.
+  The heavy-hexagonal point set allows for low degree (at most 3) connectivity between all the data and ancilla qubits, which is suitable for fixed-frequency transom qubits subject to frequency collision errors.
   The code can be split into a surface and a Bacon-Shor code, with the idling qubits of one code serving as the physical qubits of the other \cite{arxiv:2404.15989}.
 
-  Data qubits and ancillas of the code are placed on a heavy-hexagonal lattice (vertices and edges of a tilling of hexagons). A subset of the ancilla qubits are flag qubits used for detecting high-weight errors arising from fewer faults. The code stabilizers for detecting \(X\)-type errors are measured by measuring weight-two \(Z\)-type gauge operators whose product produces stabilizers of the surface code. \(X\)-type stabilizers are column operators corresponding to stabilizers of the Bacon-Shor code, which are measured by taking products of weight-four and weight-two \(X\)-type gauge operators.
+  Data qubits and ancillas of the code are placed on a heavy-hexagonal point set (vertices and edges of a tilling of hexagons). A subset of the ancilla qubits are flag qubits used for detecting high-weight errors arising from fewer faults. The code stabilizers for detecting \(X\)-type errors are measured by measuring weight-two \(Z\)-type gauge operators whose product produces stabilizers of the surface code. \(X\)-type stabilizers are column operators corresponding to stabilizers of the Bacon-Shor code, which are measured by taking products of weight-four and weight-two \(X\)-type gauge operators.
 
 
 protection: 'Protects against Pauli noise. The code has no threshold for \(Z\)-type Pauli errors since they are detected by Bacon-Shor-type stabilizers.'
@@ -64,8 +64,6 @@ relations:
       There are various ways to embed the surface code into the heavy-hex lattice \cite{arxiv:2402.02185}.'
     - code_id: bacon_shor
       detail: 'Bacon-Shor stabilizers are used to measure the X-type stabilizers of the code.'
-    # - code_id: stab_4_2_2
-    #   detail: 'The \(d=2\) heavy-hexagonal code is closely related to the \([[4,1,2]]\) subcode.'
 
 
 # Begin Entry Meta Information

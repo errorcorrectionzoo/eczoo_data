@@ -7,12 +7,15 @@ code_id: hexagonal
 physical: reals
 logical: reals
 
-name: '\(A_2\) hexagonal lattice'
+name: '\(A_2\) triangular lattice'
+
+alternative_names:
+  - '\(A_2\) hexagonal lattice'
 
 description: |
-    Two-dimensional lattice that exhibits optimal packing, solving the packing, kissing, covering and quantization problems.
-    Its dual is the \textit{honeycomb tiling}, which is not a lattice (since the points do not form a group under addition) but which consists of two hexagonal lattices.
-    The \textit{ruby lattice} is a fattened honeycomb tiling interpolating between the honeycomb tiling and hexagonal lattice. 
+    Two-dimensional lattice corresponding to the triangular tiling that exhibits optimal packing, solving the packing, kissing, covering and quantization problems.
+    As a tiling, its dual (whose points lie at the centers of each triangle) is the \textit{honeycomb tiling} (a.k.a. hexagonal tiling), which is not a lattice (since the points do not form a group under addition) but which consists of two triangular lattices.
+    The \textit{ruby lattice} is a fattened honeycomb tiling interpolating between the honeycomb tiling and triangular lattice. 
 
     It's generator matrix is
     \begin{align}
@@ -23,7 +26,7 @@ description: |
     All possible sublattices are characterized in Refs. \cite{doi:10.1016/0012-365X(95)00354-Y,doi:10.1515/zna-1995-0802} from the point of view of information transmission over the AGWN channel.
 
 protection: |
-  The hexagonal lattice exhibits the densest packing with density \(\Delta = \pi/\sqrt{12} \approx 0.9069\) \cite[Sec. 1.4]{doi:10.1007/978-1-4757-6568-7}, the highest kissing number of 6, and the thinnest covering with thickness \(\Theta = 2\pi/3\sqrt{3}\approx 1.2092\) \cite{doi:10.2307/2371320} in two dimensions.
+  The triangular lattice exhibits the densest packing with density \(\Delta = \pi/\sqrt{12} \approx 0.9069\) \cite[Sec. 1.4]{doi:10.1007/978-1-4757-6568-7}, the highest kissing number of 6, and the thinnest covering with thickness \(\Theta = 2\pi/3\sqrt{3}\approx 1.2092\) \cite{doi:10.2307/2371320} in two dimensions.
   It solves the quantizer problem in two dimensions with \(G_2 = \frac{5}{36\sqrt{3}}\) \cite{manual:{L. Fejes Toth, Sur Ia representation d' une population infinie par une nombre fini d'elements, AMAH 10 (1959), 299-304},doi:10.1007/978-3-642-65234-9,doi:10.1109/TIT.1979.1056067,doi:10.1109/TIT.1982.1056492}.
   It also solves the Gaussian channel coding problem \cite{doi:10.1007/978-3-642-65234-9}.
 
@@ -35,7 +38,7 @@ relations:
     - code_id: an
   cousins:
     - code_id: polygon
-      detail: 'The Voronoi cell of the hexagonal lattice is the hexagon.'
+      detail: 'The Voronoi cell of the triangular lattice is the hexagon.'
 
 
 # Begin Entry Meta Information
