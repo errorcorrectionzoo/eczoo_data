@@ -128,7 +128,7 @@ features:
     - 'Arbitrary \(n\)-qubit circuits can be implemented fault-tolerantly in a 3D architecture using \(O(n^{3/2}\log^3 n)\) qubits, and in a 2D architecture using only \(O(n^2 \log^3 n)\) qubits \cite{arxiv:2402.13863}.'
     - 'Fault-tolerant gates can be done for any code supporting a transversal implementation of Pauli gates using generalized gate teleportation \cite{arxiv:2409.11616}.'
   decoders:
-    - 'Incorporating faulty syndrome measurements can be done using the \textit{phenomenological noise model}, which simulates errors during syndrome extraction by flipping some of the bits of the measured syndrome bitstring. In the more involved \textit{circuit-level noise model}, every component of the syndrome extraction circuit can be faulty.'
+    - 'Syndrome measurements are assumed to be perfect in the \textit{code-capacity model}. Incorporating faulty syndrome measurements can be done using the \textit{phenomenological noise model}, which simulates errors during syndrome extraction by flipping some of the bits of the measured syndrome bitstring. In the more involved \textit{circuit-level noise model}, every component of the syndrome extraction circuit can be faulty.'
     - 'The decoder determining the most likely error given a noise channel is called the \textit{maximum probability error} (MPE) decoder. For few-qubit codes (\(n\) is small), MPE decoding can be based by creating a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used.'
     - '\begin{defterm}{Effective distance and hook errors}
       \label{topic:effective-distance}
