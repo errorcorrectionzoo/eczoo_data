@@ -24,6 +24,7 @@ description: |
 
   Admits a basis such that each codeword is a superposition of a computational basis state labeled by an even-weight bitstring \(b\) and a state labeled by the negation of \(b\).
   Its all-zero logical state is a conventional GHZ state.
+  Removing the \(Z\)-type generator expands the number of codewords to include superpositions of odd-weight bitstrings and their negations.
 
   All of its automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Thm. 13]{arxiv:quant-ph/9704043}.
 
@@ -40,6 +41,9 @@ features:
     - 'Logical SWAP gates can be performed fault tolerantly using an ancilla qubit \cite[Sec. VII]{arxiv:quant-ph/9702029}.'
     - 'Universal set of gates, each of which is supported on two qubits \cite{arxiv:2211.06703}.'
     - 'Fault-tolerant Clifford Trotter circuits that are linear in \(k\) using flag qubits via a solve-and-stitch algorithm and application of a logical identity circuit \cite{arxiv:2404.11953}.'
+
+  decoders:
+    - 'The \([[2m,2m-2,2]]\) error-detecting code \cite{arxiv:quant-ph/0402067} and its relative the code with single stabilizer \(XX\cdots X\) \cite{arxiv:quant-ph/0302006} admit continuous-time QEC against single \hyperref[topic:ad]{AD} errors.'
 
   fault_tolerance:
     - 'Logical SWAP gates can be performed fault tolerantly using an ancilla qubit \cite[Sec. VII]{arxiv:quant-ph/9702029}.'
@@ -73,6 +77,8 @@ relations:
       detail: 'The \([[2m,2m-2,2]]\) error-detecting code is constructed via the CSS construction from an SPC code and its dual repetition code \cite[Sec. III]{arxiv:1803.06987}.'
     - code_id: 4612_color
       detail: 'The \([[2m,2m-2,2]]\) error-detecting code for \(m=4\) is a color code defined on a single octagon of the 6.6.6 or 4.6.12 tilings.'
+    - code_id: ampdamp
+      detail: 'The \([[2m,2m-2,2]]\) error-detecting code \cite{arxiv:quant-ph/0402067} and its relative the code with single stabilizer \(XX\cdots X\) \cite{arxiv:quant-ph/0302006} admit continuous-time QEC against single \hyperref[topic:ad]{AD} errors.'
 
 
 # Begin Entry Meta Information
