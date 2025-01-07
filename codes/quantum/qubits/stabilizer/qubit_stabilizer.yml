@@ -126,7 +126,7 @@ features:
   rate: 'The \textit{hashing bound} states that there is a qubit stabilizer code achieving a rate \(R = 1 - H(\mathbf{p})\) for a Pauli noise channel with Pauli error probabilities \(\mathbf{p}=(p_I,p_X,p_Y,p_Z)\), where \(H(\mathbf{p})\) is the entropy of the argument \cite[Thm. 23.6.2]{doi:10.1017/CBO9781139525343}. Finite block length bounds and a refinement of the hashing bound have been developed \cite{arxiv:2408.15202}.'
   encoders:
     - |
-      Clifford circuits, i.e., those consisting of CNOT, Hadamard, and certain phase gates, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arxiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}.
+      Clifford circuits, i.e., those consisting of CNOT, Hadamard, and certain phase gates \cite{arxiv:quant-ph/9607030}, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arxiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}.
       \begin{defterm}{Destabilizers}
       \label{topic:destabilizers}
       A Clifford encoding circuit maps the first \(r = n-k\) qubits to the logical qubits of the code, and the Pauli \(Z\) operators of those first \(r\) qubits are mapped into a set of stabilizer generators. 
@@ -180,7 +180,7 @@ features:
     - 'Gates in the \term{Clifford hierarchy} can be done using \textit{gate teleportation}, in which a gate can be obtained from a particular \textit{magic state} \cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0002039}. Such protocols can be made fault tolerant with the help of magic-state distillation \cite{arxiv:quant-ph/0403025}. See review on magic-state distillation \cite{doi:10.1002/qua.24856}.'
     - 'Logical Bell measurements can be done transversally, and thus fault tolerantly, by performing bitwise Bell measurements for each pair of qubits (with each member of the pair taken from one of the two code blocks) and processing the result.'
     - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit Clifford gates has a universal set of non-transversal fault-tolerant gates \cite{arxiv:1603.03948}.'
-    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031}, in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
+    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031} (see also Steane''s ancilla factory \cite{arxiv:quant-ph/9708021}), in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
     - 'Generalization of Steane error correction stabilizer codes \cite[Sec. 3.6]{manual:{Yoder, Theodore., \emph{DSpace@MIT} Practical Fault-Tolerant Quantum Computation (2018)}}.'
     - 'Fault-tolerant error correction scheme by Knill (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), which is based on teleportation \cite{arxiv:quant-ph/0410199,arxiv:quant-ph/0312190}. A variant of it has been termed the Fibonacci scheme \cite{arxiv:0809.5063}.'
     - 'Fault-tolerant error correction using flag qubits for codes satisfying certain conditions \cite{arxiv:1708.02246}.'
