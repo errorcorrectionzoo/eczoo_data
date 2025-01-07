@@ -167,8 +167,10 @@ jobs:
         run: 'zip -r ../../../eczoo_website_files.zip ./'
         working-directory: ./eczoo_sitegen/site/_site/
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: eczoo_website_files
           path: ./eczoo_website_files.zip
           retention-days: 5
+          include-hidden-files: true
+
