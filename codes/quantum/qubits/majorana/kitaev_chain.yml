@@ -10,9 +10,14 @@ logical: qubits
 name: 'Kitaev chain code'
 introduced: '\cite{arxiv:cond-mat/0010440}'
 
+alternative_names:
+  - 'Majorana repetition code'
+# 2411.08955
+
 description: |
   An \([[n,1,1]]_{f}\) Majorana stabilizer code forming the ground-state of the Kitaev Majorana chain (a.k.a. Kitaev Majorana wire) in its fermionic topological phase, which is unitarily equivalent to the 1D quantum Ising model in the symmetry-breaking phase via the Jordan-Wigner transformation.
   The code is usually defined using the algebra of two anti-commuting Majorana operators called \textit{Majorana zero modes (MZMs)} or \textit{Majorana edge modes (MEMs)}.
+  It can be thought of as the Majorana stabilizer analogue of the quantum repetition code \cite{arxiv:2411.08955}.
 
   Codewords have different values of the fermionic parity.
   As a result, this code is considered unphysical because, in the fermionic context, fermion parity conservation prevents one from realizing coherent superpositions between them.
@@ -22,6 +27,13 @@ protection: |
   In the fermionic context, code states are insensitive to any local Majorana operator product that respects fermion parity symmetry.
   However, the distance is one because the code does not protect against single Majorana operators, which do not commute with the parity symmetry.
   Disorder may help with protection \cite{arxiv:1108.3845}.
+
+features:
+  general_gates:
+    - 'Braiding gates, fermionic \(S\) gates, braid-based fermionic \(T\) gates, and fermion and hybrid qubit-fermion \(CZ\) gates \cite{arxiv:2411.08955}.'
+  decoders:
+    - 'Syndrome extraction can be performed by interfacing with a qubit ancilla and a hybrid qubit-fermion gate \cite{arxiv:2411.08955}.'
+
 
 realizations:
   - 'Photonic systems: braiding of defects has been simulated in a device that has a different notion of locality than a bona-fide fermionic system \cite{arxiv:1411.7751}.'
@@ -36,6 +48,10 @@ relations:
   parents:
     - code_id: mbq
       detail: 'Kitaev chain codewords can be obtained by restricting to only one Kitaev chain out of the two chains that define the tetron Majorana code.'
+  cousins:
+    - code_id: quantum_repetition
+      detail: 'The Kitaev chain code can be thought of as the Majorana stabilizer analogue of the quantum repetition code \cite{arxiv:2411.08955}.'
+
 
 # Begin Entry Meta Information
 _meta:
