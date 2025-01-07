@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qutrit_pauli_gkp_subcode
+physical: oscillators
+logical: qubits
+
+name: 'Qutrit-Pauli group-representation code'
+introduced: '\cite{arxiv:2410.18713}'
+
+description: |
+  A subcode of a two-mode GKP code whose projection is onto a copy of an irreducible representation of the \hyperref[topic:qudit-pauli]{single-qutrit Pauli group}, the symmetry group of the \(\{3,3,3\}\) tesselation of real space.
+  The code admits the corresponding gates via displacements and phase-space rotations.
+
+
+relations:
+  parents:
+    - code_id: oscillators
+    - code_id: group_representation
+      detail: 'The qutrit-Pauli group-representation code is a group-representation code with \(G\) being the \hyperref[topic:qudit-pauli]{single-qutrit Pauli group}.'
+  cousins:
+    - code_id: multimodegkp
+      detail: 'The qutrit-Pauli group-representation code is a subcode of a two-mode GKP code \cite{arxiv:2410.18713}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-11-28'
