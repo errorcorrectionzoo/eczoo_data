@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qudit_sign
+physical: qudits
+logical: qudits
+
+name: 'Modular-qudit shift-resistant code'
+introduced: '\cite{arxiv:0705.1099}'
+
+
+description: |
+  Monolithic code encoding a qubit into a single modular qudit and protecting against either \(Z\)-type or \(X\)-type modular-qudit Pauli shifts.
+  The modular-qudit shift-resistant code is not a block code, but it is perfect in the sense that each correctable error maps the logical space into a distinct error space.
+
+  The simplest example requires a 6-dimensional qudit.
+  The bit-flip version admits codewords \(|0\rangle\) and \(|3\rangle\) and corrects a single \(X\)-type shift.
+  The phase-flip version admits codewords 
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle&=\frac{1}{\sqrt{6}}\sum_{j=0}^{5}|j\rangle\\|\overline{1}\rangle&=\frac{1}{\sqrt{6}}\sum_{j=0}^{5}(-1)^{j}|j\rangle\,.
+  \end{split}
+  \end{align}
+  Both codes are modular-qudit CSS codes with stabilizer generators \(Z^2\) and \(X^2\), respectively.
+
+
+relations:
+  parents:
+    - code_id: qudit_css
+    - code_id: single_subsystem
+  cousins:
+    - code_id: qudit_gkp
+      detail: 'The modular-qudit shift-resistant code requires a smaller physical qudit dimension but protects against only one type of error \cite{arxiv:0705.1099}.'
+    - code_id: quantum_perfect
+      detail: 'The modular-qudit shift-resistant code is not a block code, but it is perfect in the sense that each correctable error maps the logical space into a distinct error space \cite{arxiv:0705.1099}.'
+    - code_id: quantum_repetition
+      detail: 'Both the quantum repetition and modular-qudit shift-resistant codes protect against only one type of noise.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-07'
