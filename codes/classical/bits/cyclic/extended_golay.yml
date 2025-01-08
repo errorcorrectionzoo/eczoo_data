@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: extended_golay
+physical: bits
+logical: bits
+
+name: '\([24, 12, 8]\) Extended Golay code'
+introduced: '\cite{manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
+
+description: |
+  A self-dual \([24, 12, 8]\) code that is obtained from the Golay code by adding a parity check.
+  Up to equivalence, it is unique for its parameters \cite{doi:10.1016/0012-365X(75)90047-3}.
+
+  The automorphism group of the extended Golay code is the Mathieu group \(\mathcal{M}_{24}\), a sporadic simple group.
+
+features:
+#  rate: 'The perfect binary Golay code has a rate of \(12/23 = 0.522\). The extended binary Golay code has a rate of \(12/24 = 0.5\).'
+
+  decoders:
+    - 'Majority decoding \cite{doi:10.1016/0097-3165(71)90043-4}.'
+    - 'Decoder using the hexacode \cite{doi:10.1109/TIT.1986.1057197}.'
+    - 'The extended Golay code has a trellis representation and can thus be decoded using trellis decoding \cite{doi:10.1142/9789814287517_0004,doi:10.1049/el:19931456}.'
+
+realizations:
+  - 'Voyager 1 and 2 spacecraft, transmitting hundreds of color pictures of Jupiter and Saturn in their 1979, 1980, and 1981 fly-bys \cite{doi:10.1029/JA092iA13p14873}.'
+  - 'American military standards for automatic link establishment in high frequency radio systems \cite{manual:{E. E. Johnson. An Efficient Golay Codec For MIL-STD-188-141A and FED-STD-1045. Department of Electrical and Computer Engineering, New Mexico State University, 1991.}}.'
+
+
+relations:
+  parents:
+    - code_id: nearly_perfect
+      detail: 'The extended Golay code is nearly perfect.'
+    - code_id: self_dual
+      detail: 'The extended Golay code is the unique code at its parameters and happens to be self-dual \cite{doi:10.1016/0012-365X(75)90047-3}\cite[Remark 4.3.11]{preset:HPRainsSloane}.'
+    - code_id: group
+      detail: 'The extended Golay code is a group-algebra code for various groups \cite{doi:10.1109/TIT.2008.928260,doi:10.1007/s10623-017-0440-7,doi:10.1016/0097-3165(90)90069-9}; see \cite[Exam. 16.5.1]{preset:HKSalgebra}.'
+    - code_id: lexicographic
+      detail: 'The extended Golay code is a lexicode \cite{manual:{M. J. T. Guy, unpublished.},doi:10.1109/TIT.1986.1057187}\cite[pg. 327]{preset:MacSlo}.'
+    - code_id: univ_opt_q-ary
+      detail: 'The Golay code and several of its extended, shortened, and punctured versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
+  cousins:
+    - code_id: icosahedron
+      detail: 'The parity bits of the extended Golay code can be visualized to lie on the vertices of the icosahedron; see \href{https://blogs.ams.org/visualinsight/2015/12/01/golay-code/}{post} by J. Baez for more details. To construct the Golay code, one can use the great dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the inner icosahedron.'
+    - code_id: dodecahedron
+      detail: 'The parity bits of the extended Golay code can be visualized to lie on the vertices of the icosahedron; see \href{https://blogs.ams.org/visualinsight/2015/12/01/golay-code/}{post} by J. Baez for more details. To construct the Golay code, one can use the great dodecahedron to generate codewords by placing message bits on the faces and calculating the parity bits that live on the 12 vertices of the inner icosahedron.'
+    - code_id: golay
+      detail: 'The extended Golay code is an extension of the Golay code by a parity-check bit.'
+
+
+# The Golay code can be constructed as a cyclic code with the generator polynomial \(x^{11} + x^{10} + x^6 + x^5 + x^4 + x^2 + 1\) over \(GF(2)\).
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VikramAmin
+      date: '2025-01-07'
