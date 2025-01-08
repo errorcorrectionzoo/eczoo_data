@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: karlin
+physical: bits
+logical: bits
+
+name: 'Karlin double circulant code'
+short_name: 'Karlin'
+introduced: '\cite{doi:10.1109/TIT.1969.1054261}'
+
+description: |
+  Member of the family of \([2m+2,m+1]\) double circulant codes such that \(m\) is prime of the form \(8k+3\) for some \(k\), and \(2m+2\) is a multiple of eight.
+  See \cite[Ch. 16]{preset:MacSlo} for their generator matrix.
+
+
+relations:
+  parents:
+    - code_id: binary_linear
+    - code_id: quasi_cyclic
+    - code_id: self_dual
+      detail: 'Karlin codes are self-dual doubly even codes \cite[Ch. 16]{preset:MacSlo}'
+  cousins:
+    - code_id: q-ary_cyclic
+      detail: 'Karlin codes can be mapped to extended cyclic codes over \(GF(4)\) \cite[Ch. 16]{preset:MacSlo}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-08'
