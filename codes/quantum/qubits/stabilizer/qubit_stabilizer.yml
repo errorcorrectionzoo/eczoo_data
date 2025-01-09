@@ -107,6 +107,12 @@ protection: |
   Define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\).
   A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
 
+  There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}, but they are resolved for stabilizer codes.
+  A stabilizer code is a \hyperref[topic:degeneracy]{degenerate} with respect to \(\mathcal{E}\) if and only if \(E^\dagger F \in \mathsf{N(S)}\) for some Pauli strings \(E,F \in \mathcal{E}\).
+  As a distance-\(d\) code, a stabilizer code is degenerate if it admits a non-identity stabilizer whose weight is lower than the distance \cite{preset:GottesmanBook}.
+  Since that stabilizer is in the normalizer, a stabilizer code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
+  The \hyperref[topic:quantum-weight-enumerator]{pure distance} of a stabilizer code is the minimum weight of a non-identity stabilizer. 
+
   \begin{defterm}{Cleaning lemma}
   \label{topic:cleaning-lemma}
   If all logical operators act trivially on some subset of qubits in a stabilizer code, then any logical Pauli operator can be represented on the complementary qubit subset via a stabilizer.
