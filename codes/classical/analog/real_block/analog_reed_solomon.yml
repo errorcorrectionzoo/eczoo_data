@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: analog_reed_solomon
+physical: reals
+logical: reals
+
+name: 'Analog RS code'
+introduced: '\cite{doi:10.1109/TCOM.1983.1095820,doi:10.1109/JSAC.1984.1146063}'
+
+
+description: |
+  A block code over the real or complex numbers, called a real RS or complex RS (CRS) code respectively, whose encoding generalizes the RS code encoding over finite fields.
+
+
+features:
+  decoders:
+    - 'Syndrome repairing (SR) decoder \cite{doi:10.4028/www.scientific.net/AMR.341-342.514}.'
+
+notes:
+  - 'CRS codes are useful for compressed sensing \cite{doi:10.1109/ICASSP.2008.4518494,manual:{M. Mohamed, S. Rizkalla, H. Zoerlein and M. Bossert, "Deterministic Compressed Sensing with Power Decoding for Complex Reed-Solomon Codes," SCC 2015; 10th International ITG Conference on Systems, Communications and Coding, Hamburg, Germany, 2015, pp. 1-6.}}.'
+  - 'CRS codes are potentially useful for Orthogonal Frequency-Division Multiplexing (OFDM) \cite{manual:{Henkel, W. (2000). Analog codes for peak-to-average ratio reduction. ITG FACHBERICHT, 151-156.}}.'
+
+
+
+relations:
+  parents:
+    - code_id: real_block
+  cousins:
+    - code_id: reed_solomon
+      detail: 'Analog RS codes are versions of RS codes over the real and complex numbers.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-10'
