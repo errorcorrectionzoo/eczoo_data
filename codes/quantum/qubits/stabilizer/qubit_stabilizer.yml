@@ -107,6 +107,12 @@ protection: |
   Define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\).
   A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).
 
+  There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}, but they are resolved for stabilizer codes.
+  A stabilizer code is a \hyperref[topic:degeneracy]{degenerate} with respect to \(\mathcal{E}\) if and only if \(E^\dagger F \in \mathsf{N(S)}\) for some Pauli strings \(E,F \in \mathcal{E}\).
+  As a distance-\(d\) code, a stabilizer code is degenerate if it admits a non-identity stabilizer whose weight is lower than the distance \cite{preset:GottesmanBook}.
+  Since that stabilizer is in the normalizer, a stabilizer code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
+  The \hyperref[topic:quantum-weight-enumerator]{pure distance} of a qubit stabilizer code is the minimum weight of a non-identity stabilizer. 
+
   \begin{defterm}{Cleaning lemma}
   \label{topic:cleaning-lemma}
   If all logical operators act trivially on some subset of qubits in a stabilizer code, then any logical Pauli operator can be represented on the complementary qubit subset via a stabilizer.
@@ -206,7 +212,7 @@ notes:
   - 'See Quantum Codes qubit stabilizer database, maintained by N. Aydin, P. Liu, and B. Yoshino \cite{arxiv:2106.12065,arxiv:2108.03567}, at this \href{https://quantumcodes.info/}{website}.'
   - 'Entanglement purification protocols with qubit stabilizer codes are related to quantum key distribution (QKD) \cite{arxiv:quant-ph/0209091}. There is a correspondence between stabilizer codes and bilocal Clifford entanglement distillation circuits \cite{arxiv:2303.11465}.'
   - 'The overlap between any stabilizer codeword and any \(n\)-qubit product state is at most \(2/2^d\) \cite[Thm. 2]{arxiv:2405.01332}.'
-  - 'Qubit stabilizer codes can be used to estimate Pauli noise \cite{arxiv:2107.14252}.'
+  - 'Qubit stabilizer codes can be used to estimate physical Pauli noise up to their \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2107.14252}, and logical Pauli noise for any correctable physical noise \cite{arxiv:2209.09267}.'
   - 'The stabilizer formalism has been gamified \cite{arxiv:2405.06795}.'
   - 'Codes can be found via genetic algorithms \cite{arxiv:2409.13017}.'
 

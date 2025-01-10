@@ -25,11 +25,11 @@ protection: |
   As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers, where \(R = \log_2 K/n\) is the code rate.
 
   \subsection{Pauli-string error basis}
+  \label{topic:pauli}
 
   A convenient and often considered error set is the \textit{Pauli error} or \textit{Pauli string} basis.
 
   \begin{defterm}{Pauli strings}
-  \label{topic:pauli}
   For a single qubit, this set consists of products of powers of the Pauli matrices
   \begin{align}
     X=\begin{pmatrix}0 & 1\\
@@ -46,10 +46,6 @@ protection: |
   The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical \hyperref[topic:nice-error-basis]{nice error basis}.
   The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
-  The minimum weight of a Pauli error that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arxiv:0712.1979,arxiv:2107.11286} (see also pure distance \cite{arxiv:2107.14252}).
-  Codes whose distance is greater than the diagonal distance are \hyperref[topic:degeneracy]{degenerate}.
-  \hyperref[topic:degeneracy]{Degenerate} codes admit undetectable Pauli errors (i.e., errors whose projection into the codespace is nonzero) of weight less than the code distance (i.e., the projection satisfies the \term{Knill-Laflamme conditions}).
-
   \subsection{Noise channels}
 
   A quantum channel that admits a set of Pauli strings as its Kraus operators is called a \textit{Pauli channel}, and such channels are typically more tractable than the more general, non-Pauli channels.
@@ -57,10 +53,10 @@ protection: |
   Relevant non-Pauli channels are \hyperref[topic:ad]{AD} noise, erasure (which maps all qubit states into a third state \(|e\rangle\) outside of the qubit Hilbert space), and biased erasure (in which case only the \(|1\rangle\) qubit state is mapped to \(|e\rangle\)).
   Noise can be correlated in space or in time, with the latter being an example of a non-Markovian phenomenon \cite{arxiv:quant-ph/0505153,arxiv:2012.01894}.
 
-  \subsection{Quantum weight enumerators}
+  \subsection{Quantum weight enumerators and pure distance}
+  \label{topic:quantum-weight-enumerator}
 
   \begin{defterm}{Quantum weight enumerator}
-  \label{topic:quantum-weight-enumerator}
   Determining protection and bounds on code parameters can also be done using the code's Shor-Laflamme \textit{quantum weight enumerator} \cite{arxiv:quant-ph/9610040} (cf. \hyperref[topic:weight-enumerator]{weight enumerators})
     \begin{align}
     \begin{split}
@@ -81,14 +77,24 @@ protection: |
   The weight enumerator and its dual satisfy the \textit{quantum MacWilliams identity} \cite{arxiv:quant-ph/9610040}; see \cite[Ch. 7]{preset:GottesmanBook}.
   It gives rise to quantum linear programming (LP) bounds \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}; see the book \cite{preset:GottesmanBook}.
 
-  The distance \(d\) of a code is the smallest \(j=d\) at which \(A_j \neq B_j\) \cite{arxiv:quant-ph/9906126}.
-  Such a code is called \textit{pure} if \(A_j = B_j = 0\) for all \(j < d\); otherwise, the code is called \textit{impure}.
-  \hyperref[topic:degeneracy]{Degeneracy} is sufficient but not necessary for impurity \cite{preset:GottesmanBook}.
+  The distance \(d\) of a code is the smallest \(1<j=d\) at which \(A_j \neq B_j\) \cite{arxiv:quant-ph/9906126}.
+  A code is called \textit{pure} if \(A_j = 0\) for all \(1 < j < d\); otherwise, the code is called \textit{impure}.
+  The \textit{pure distance} \cite{arxiv:2107.14252} (cf. diagonal distance \cite{arxiv:0712.1979,arxiv:2107.11286}) \(d_{\smallsetminus}\) is the smallest \(1 < j=d_{\smallsetminus}\) at which \(A_j > 0\).
+  Codes for which \(d_{\smallsetminus} < d\) are impure, otherwise they are pure.
+  For impure codes, there exists a Pauli error of weight less than the \(d\) that has a non-zero expectation value with respect to a code state.
 
-  Other types of quantum weight enumerators are the Rains unitary enumerators \cite{ arXiv:quant-ph/9612015} and the \textit{Rains shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}), with the latter related to Bell sampling \cite{arxiv:2408.16914}.
+  Degenerate qubit codes are impure, but impure codes may not be degenerate \cite{preset:GottesmanBook}.
+  There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}.
+
+  Other types of quantum weight enumerators are the Rains unitary enumerators \cite{arXiv:quant-ph/9612015} and the \textit{Rains shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}), with the latter related to Bell sampling \cite{arxiv:2408.16914}.
   These notions can be generalized to qudit codes and other error bases \cite{doi:10.1016/j.aam.2020.102085,arxiv:2211.02756,arxiv:2308.05152}.
   There are techniques to compute them for general codes \cite{arxiv:2308.05152}.
   Semidefinite programming (SDP) hierarchies and a quantum Delsarte bound have been developed \cite{arxiv:2408.10323}.
+
+# The minimum weight of a Pauli error with nonzero diagonal entries that has a non-zero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arxiv:0712.1979,arxiv:2107.11286} (see also pure distance \cite{arxiv:2107.14252}).
+# Codes whose distance is greater than the diagonal distance are \hyperref[topic:degeneracy]{degenerate}.
+# \hyperref[topic:degeneracy]{Degenerate} codes admit undetectable Pauli errors (i.e., errors whose projection into the codespace is nonzero) of weight less than the code distance (i.e., the projection satisfies the \term{Knill-Laflamme conditions}).
+
 
 features:
   rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}. There are many bounds on the quantum capacity of the depolarizing channel (e.g., \cite{arxiv:quant-ph/0607039}); see review \cite{arxiv:1801.02019}.'
