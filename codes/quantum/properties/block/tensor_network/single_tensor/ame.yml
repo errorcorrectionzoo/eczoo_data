@@ -9,7 +9,7 @@ code_id: ame
 name: 'Perfect-tensor code'
 
 alternative_names:
-  - 'AME code'
+  - 'Absolutely maximally entangled (AME) code'
 
 description: |
   Block quantum code encoding one subsystem into an odd number \(n\) subsystems whose encoding isometry is a perfect tensor.
@@ -17,7 +17,7 @@ description: |
 
   \begin{defterm}{Absolutely maximally entangled (AME) state}
   \label{topic:ame}
-  A state on \(n\) subsystems is \(d\)\textit{-uniform} \cite{arXiv:quant-ph/0310137,arxiv:1404.3586} (a.k.a. \(d\)-undetermined \cite{arxiv:0809.3081} or \(d\)-maximally mixed \cite{arxiv:1211.4118}) if all reduced density matrices on up to \(d\) subsystems are maximally mixed.
+  A state on \(n\) subsystems is \(d\)\textit{-uniform} \cite{arxiv:quant-ph/0005031,arXiv:quant-ph/0310137,arxiv:1404.3586} (a.k.a. \(d\)-undetermined \cite{arxiv:0809.3081} or \(d\)-maximally mixed \cite{arxiv:1211.4118}) if all reduced density matrices on up to \(d\) subsystems are maximally mixed.
   A \(K\)-dimensional subspace of \(d-1\)-uniform states of \(q\)-dimensional subsystems is equivalent to a \hyperref[topic:quantum-weight-enumerator]{pure} \(((n,K,d))_q\) code \cite{arxiv:0704.0251,arxiv:1907.07733}.
   An AME state (a.k.a. maximally multi-partite entangled state \cite{arxiv:0710.2868,arxiv:1002.2592}) is a \(\lfloor n/2 \rfloor\)-uniform state, corresponding to a \hyperref[topic:quantum-weight-enumerator]{pure} \(((n,1,\lfloor n/2 \rfloor + 1))_{\mathbb{Z}_q}\) code.
   The rank-\(n\) tensor formed by the encoding isometry of such codes is a \textit{perfect tensor} (a.k.a. multi-unitary tensor), meaning that it is proportional to an isometry for any bipartition of its indices into a set \(A\) and a complementary set \(A^{\perp}\) such that \(|A|\leq|A^{\perp}|\).
@@ -41,18 +41,18 @@ relations:
     - code_id: quantum_mds
       detail: '\hyperref[topic:ame]{AME states} for even \(n\) are examples of quantum MDS codes with no logical qubits \cite{arXiv:quant-ph/0310137,arxiv:1701.03359,arxiv:1907.11253}.
       A family of conjectured perfect-tensor codes is quantum MDS \cite{arxiv:quant-ph/0312164}.'
-    - code_id: mds
-      detail: 'MDS codes can be used to obtain perfect-tensor codes with minimal support \cite{arxiv:1306.2536,arxiv:1506.08857,arxiv:1701.03359,arxiv:1706.08318}.'
     - code_id: combinatorial_design
       detail: 'Combinatorial designs and \(d\)-uniform quantum states are related \cite{arXiv:1506.08857}.'      
     - code_id: orthogonal_array
       detail: 'Orthogonal arrays and \(d\)-uniform quantum states are related \cite{arXiv:1404.3586,arxiv:1708.05946}.'
+    - code_id: mds
+      detail: 'MDS codes can be used to obtain cluster states that are AME with minimal support \cite{manual:{A. V. Thapliyal, Multipartite maximally entangled states, minimal entanglement generating states and entropic inequalities unpublished presentation (2003).},arxiv:1306.2536,arxiv:1306.2879,arxiv:1506.08857,arxiv:1701.03359,arxiv:1706.08318}.'
     - code_id: qudit_cluster_state
-      detail: 'Since any modular-qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{Z}_q\) via a single-modular-qudit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}), \hyperref[topic:ame]{stabilizer AME states} can be understood as modular-qudit cluster states \cite{arxiv:1306.2879}.'
-    - code_id: galois_grs
-      detail: 'GRS codes can yield perfect tensors via a generalized Hermitian construction \cite{arxiv:1801.09623,arxiv:1812.04057}.'
+      detail: 'MDS codes can be used to obtain cluster states that are AME with minimal support \cite{manual:{A. V. Thapliyal, Multipartite maximally entangled states, minimal entanglement generating states and entropic inequalities unpublished presentation (2003).},arxiv:1306.2536,arxiv:1306.2879,arxiv:1506.08857,arxiv:1701.03359,arxiv:1706.08318}.'
+    - code_id: galois_polynomial
+      detail: '\hyperref[topic:ame]{AME states} for even \(n\) are examples of quantum MDS codes with no logical qubits \cite{arXiv:quant-ph/0310137,arxiv:1701.03359,arxiv:1907.11253}. MDS RS codes can yield perfect tensors via the CSS and Hermitian constructions \cite{arxiv:quant-ph/0312164} (see also Refs. \cite{arxiv:1801.09623,arxiv:1812.04057}).'
     - code_id: quantum_secret_sharing
-      detail: 'Perfect tensors are useful for quantum secret sharing and state teleportation \cite{arxiv:1204.2289}.'
+      detail: 'Perfect tensors are useful for quantum secret sharing and state teleportation \cite{arxiv:1204.2289,arxiv:1306.2536}.'
     - code_id: qubit_stabilizer
       detail: 'The codespace of a qubit stabilizer code with \hyperref[topic:quantum-weight-enumerator]{pure distance} \(d_{\textnormal{pure}}\) is a \((d_{\textnormal{pure}}-1)\)-uniform space.'
 
