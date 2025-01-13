@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ring_cpc
+physical: qubits
+logical: qubits
+
+name: '\([[2^r+r, 2^r-r-2, 3]]\) Ring CPC code'
+short_name: 'Ring CPC'
+introduced: '\cite{arxiv:1611.08012}'
+
+# shortening removes all-ones vector
+description: |
+  A family of \([[2^r+r, 2^r-r-2, 3]]\) CPC codes for \(r \geq 3\) whose matrices are based on the shortened version of the \([2^r-1,2^r-r-1,3]\) Hamming code.
+  See \cite[Thm. 4]{arxiv:1611.08012} for their stabilizer generator matrix.
+
+
+
+relations:
+  parents:
+    - code_id: cpc
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: 'The ring CPC code is obtained from the shortened Hamming code via the CPC construction \cite{arxiv:1611.08012}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-13'
