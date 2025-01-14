@@ -23,26 +23,29 @@ description: |
   \end{align}
 
   Nullifiers for the bit-flip analog repetition code are differences \(\hat{x}_{j+1} - \hat{x}_{j}\).
-  Bit-flip codewords can be superposed to yield the logical momentum basis
+  Bit-flip codewords can be superposed to yield the logical momentum basis of \textit{analog GHZ states}
   \begin{align}
     |\overline{p}\rangle=\int dx e^{ipx}|x\rangle^{\otimes n}~,
   \end{align}
-  a bosonic analogue of GHZ states.
+  a bosonic version of GHZ states.
   At \(p=0\), the above is an analog stabilizer state nullified by the bit-flip nullifiers and the total momentum operator \(\hat{p}_1+\hat{p}_2+\cdots+\hat{p}_n\) \cite{doi:10.1002/1521-3978(200212)50:12<1177::AID-PROP1177>3.0.CO;2-T}.
-  For \(n=2\), this state is known as an EPR pair \cite{doi:10.1103/PhysRev.47.777}, an infinitely squeezed version of the two-mode squeezed (TMS) a.k.a. twin-beam state. 
+  For \(n=2\), this state is known as an \textit{EPR pair} \cite{doi:10.1103/PhysRev.47.777}, an infinitely squeezed version of the two-mode squeezed (TMS) a.k.a. twin-beam state. 
 
 
 realizations:
-  - 'EPR states and their associated quantum teleportation protocols have been realized \cite{doi:10.1038/nature02858}.'
+  - 'Quantum teleportation \cite{doi:10.1038/nature02858}, secret sharing \cite{arxiv:quant-ph/0311015}, and superdense coding \cite{arxiv:quant-ph/0210132} protocols have been realized with analog GHZ states states for \(n=2,3\).'
 
 notes:
-  - 'EPR states and their \(n\)-mode extensions are useful for quantum teleportation \cite{arxiv:quant-ph/9906021}.'
+  - 'Analog GHZ states are useful for quantum teleportation \cite{arxiv:quant-ph/9906021}.'
 
 relations:
   parents:
     - code_id: analog_stabilizer
     - code_id: group_quantum_repetition
       detail: 'Group-based quantum repetition codes reduce to analog repetition codes for \(G = \mathbb{R}\).'
+  cousins:
+    - code_id: niset_andersen_cerf
+      detail: 'EPR pairs are used in an encoding of the Niset-Andersen-Cerf code \cite{arxiv:0710.4858}.'
 
 
 # Begin Entry Meta Information
