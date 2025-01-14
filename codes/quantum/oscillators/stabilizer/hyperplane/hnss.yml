@@ -11,7 +11,7 @@ name: 'Hayden-Nezami-Salton-Sanders bosonic code'
 introduced: '\cite{arxiv:1601.02544}'
 
 description: |
-  An \([[n,1]]_{\mathbb{R}}\) \hyperref[code:analog_stabilizer]{analog CSS code} defined using homological structres associated with an \(n-1\) simplex. Relevant to the study of spacetime replication of quantum information \cite{arxiv:1210.0913}.
+  An \([[n,1]]_{\mathbb{R}}\) analog CSS code defined using homological structures associated with an \(n-1\) simplex. Relevant to the study of spacetime replication of quantum information \cite{arxiv:1210.0913}.
 
   Stabilizer generators are defined by two orthogonal subspaces of the \(C_1\) in the chain complex. \(C_X = \partial_2 C_2\) and \(C_P = \partial_1^T Q\) for some \(Q \subset C_0\). The standard approach would use \(Q = C_0\), which would mean the logical dimension would be the dimension of the 1st homology group \(H^1\). However, \(H^1\) is trivial for the \(n-1\) simplex, so one chooses \(Q \neq C_0\) such that exactly one stabilizer is removed, yielding a stabilizer code instead of a single stabilized state.
 
@@ -26,12 +26,12 @@ features:
     - 'Decoding requires a different circuit for each possible erasure error, with no general circuit decoding any possible erasure error. Every circuit relies on a generalized conditional rotation, which Ref. \cite{arxiv:1601.02544} calls the \textit{QND Gate} and which is defined as \(QND_c | x , y \rangle = |x + c y, y \rangle\).'
 
 notes:
-  - 'Proposed experimental optical procedure for realizing the simplest non-trival code with 5 modes \cite{arxiv:1601.02544}.'
+  - 'Proposed experimental optical procedure for realizing the simplest non-trivial code with 5 modes \cite{arxiv:1601.02544}.'
 
 relations:
   parents:
     - code_id: analog_stabilizer
-#      detail: 'Hayden-Nezami-Salton-Sanders codes are analog CSS codes.'
+    - code_id: oscillator_css
   cousins:
     - code_id: generalized_homological_product_css
       detail: 'Hayden-Nezami-Salton-Sanders codes utilize chain complexes in code construction, but the complexes have trivial homology.'

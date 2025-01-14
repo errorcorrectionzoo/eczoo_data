@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: oscillator_css
+physical: oscillators
+
+name: 'Bosonic CSS code'
+
+alternative_names:
+  - 'CV CSS code'
+  - 'Oscillator CSS code'
+
+description: |
+  Bosonic stabilizer code admitting a set of stabilizer generators that are either position or momentum displacements.
+
+
+relations:
+  parents:
+    - code_id: oscillator_stabilizer
+    - code_id: group_gkp
+      detail: |
+        The group-GKP construction encompasses all bosonic CSS codes.
+        A single-mode qubit GKP CSS code corresponds to the \(2\mathbb{Z}\subset\mathbb{Z}\subset\mathbb{R}\) group construction, and multimode GKP CSS codes can be similarly described.
+        Oscillator-into-oscillator GKP CSS codes for \(n\) modes correspond to subgroups \(\mathbb{Z}^m\) for \(m<n\).
+        An \([[n,k,d]]_{\mathbb{R}}\) analog CSS code corresponds to the \(\mathbb{R}^{ k_1} \subseteq \mathbb{R}^{ k_2} \subset \mathbb{R}^{n}\) group construction, where \(k=k_2-k_1\).
+    - code_id: css
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorV5Albert
+      date: '202-01-14'
