@@ -12,7 +12,7 @@ short_name: 'LRESC'
 introduced: '\cite{arxiv:2309.11719}'
 
 description: |-
-  Code constructed using the hypergraph product of two copies of a concatenated LDPC-repetition seed code.
+  Code constructed using a hypergraph product of two copies of a concatenated LDPC-repetition seed code.
   This family interpolates between surface codes and hypergraph codes since the hypergraph product of two repetition codes yields the planar surface code.
   The construction uses small \([3,2,2]\) and \([6,2,4]\) LDPC codes concatenated with \([4,1,4]\) and \([2,1,2]\) repetition codes, respectively.
   An example using a \([5,2,3]\) code is also presented.
@@ -27,11 +27,17 @@ realizations:
 relations:
   parents:
     - code_id: hypergraph_product
-      detail: 'LRESCs are constructed using the hypergraph product a concatenated LDPC-repetition code with itself.'
+      detail: 'LRESCs are constructed using a hypergraph product a concatenated LDPC-repetition code with itself.'
   cousins:
     - code_id: lacross
       detail: 'La-cross codes yield LRESCs for \(k=2\).
       La-cross codes have a number of long-range stabilizers that scales linearly with code size, while the number of LRESC long-range stabilizers can be tuned to scale between the square-root of the size and linearly in the size.'
+    - code_id: ldpc
+      detail: 'LRESCs are constructed constructed using a hypergraph product of two copies of a concatenated LDPC-repetition seed code.'
+    - code_id: repetition
+      detail: 'LRESCs are constructed constructed using a hypergraph product of two copies of a concatenated LDPC-repetition seed code.'
+    - code_id: concatenated
+      detail: 'LRESCs are constructed constructed using a hypergraph product of two copies of a concatenated LDPC-repetition seed code.'
 
 
 _meta:

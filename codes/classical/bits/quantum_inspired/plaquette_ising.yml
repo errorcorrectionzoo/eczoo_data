@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: plaquette_ising
+physical: bits
+logical: bits
+
+name: 'Plaquette Ising code'
+introduced: '\cite{manual:{Ziman, John M. Models of disorder: the theoretical physics of homogeneously disordered systems. Cambridge university press, 1979.},arxiv:cond-mat/0309717,arxiv:cond-mat/0312587}'
+
+alternative_names:
+  - 'Right-angle water ice code'
+  - 'Xu-Moore code'
+# first Ziman, second is 2410.16250
+
+description: |
+  Classical code defined on a two-dimensional square lattice whose parity checks are applied on the four vertices of each square.
+  
+protection: |
+  The code has parameters \([L^2,2L-1,L]\) on a square lattice of size \(L\) \cite{arxiv:2410.16250}.
+
+relations:
+  parents:
+    - code_id: topological_classical
+  cousins:
+    - code_id: rotated_surface
+      detail: 'The plaquette Ising model can be thought of as the rotated surface code whose \(X\)-type stabilizer generators have been converted to \(Z\)-type stabilizer generators.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-16'
