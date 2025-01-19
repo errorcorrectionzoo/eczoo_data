@@ -110,8 +110,9 @@ protection: |
   There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}, but they are resolved for stabilizer codes.
   A stabilizer code is a \hyperref[topic:degeneracy]{degenerate} with respect to \(\mathcal{E}\) if and only if \(E^\dagger F \in \mathsf{N(S)}\) for some Pauli strings \(E,F \in \mathcal{E}\).
   As a distance-\(d\) code, a stabilizer code is degenerate if it admits a non-identity stabilizer whose weight is lower than the distance \cite{preset:GottesmanBook}.
-  Since that stabilizer is in the normalizer, a stabilizer code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
+  Since that stabilizer is in the normalizer, a stabilizer code is \hyperref[topic:degeneracy]{degenerate} if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
   The \hyperref[topic:quantum-weight-enumerator]{pure distance} of a qubit stabilizer code is the minimum weight of a non-identity stabilizer. 
+  There is a toolkit for studying \hyperref[topic:degeneracy]{degenerate} codes for Pauli channels \cite{arxiv:quant-ph/0604107}.
 
   \begin{defterm}{Cleaning lemma}
   \label{topic:cleaning-lemma}
@@ -167,6 +168,7 @@ features:
     - 'DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047}.'
     - 'Greedy syndrome measurement schedule \cite{arxiv:2409.14283}.'
     - 'Dynamical weight reduction (DWR) scheme in which measurements of smaller-weight Paulis yield the outcome of a larger-weight Pauli via the use of ZX calculus and ancillary qubits \cite{arxiv:2410.12527}.'
+    - 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
     - 'MPE decoding, i.e., the process of finding the most likely error, is \(NP\)-complete in general \cite{arxiv:1009.1319,manual:{Kuo, Kao-Yueh, and Chung-Chin Lu. "On the hardness of decoding quantum stabilizer codes under the depolarizing channel." 2012 International Symposium on Information Theory and its Applications. IEEE, 2012.}}. If the noise model is such that the most likely error is the lowest-weight error, then ML decoding is called \textit{minimum-weight} decoding. Maximum-likelihood (ML) decoding (a.k.a.\ degenerate maximum-likelihood decoding), i.e., the process of finding the most likely error class (up to degeneracy of errors), is \(\#P\)-complete in general \cite{arxiv:1310.3235}.'
     - 'Incorporating faulty syndrome measurements can be done by performing spacetime decoding, i.e., using data from past rounds for decoding syndromes in any given round. If a decoder does not process syndrome data sufficiently quickly, it can lead to the \textit{backlog problem} \cite{arxiv:1302.3428}, slowing down the computation.'
     - 'Splitting decoders \cite{arxiv:2309.15354}.'
@@ -261,6 +263,8 @@ relations:
       detail: 'Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538} that protects against \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
     - code_id: ampdamp
       detail: 'Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538} that protects against \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
+    - code_id: two-legged-cat
+      detail: 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
 
 
 # Begin Entry Meta Information
