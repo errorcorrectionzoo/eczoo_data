@@ -13,7 +13,9 @@ introduced: '\cite{arxiv:quant-ph/9608006}'
 alternative_names:
   - 'Calderbank-Rains-Shor-Sloane (CRSS) code'
   - '\(GF(4)\)-linear code'
+  - '\(M_{3}\) code'
 #   - 'Stabilizer code over \(GF(4)\)'
+# M3 <-- 1702.06990
 
 description: |
   An \([[n,k,d]]\) stabilizer code constructed from a Hermitian self-orthogonal linear quaternary code using the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}.
@@ -37,9 +39,13 @@ protection: |
   where \(H\) is the parity-check matrix of the classical code.
 
 features:
+
   transversal_gates:
-    - 'Transversal \(SH\) and \(HS\) "facet" gates which cyclically permute Paulis as \(X \to Y\), \(Y \to Z\), and \(Z \to X\) \cite[Sec. 8.2]{arxiv:quant-ph/9705052}.'
+    - 'Transversal \(SH\) and \(HS\) "facet" gates (a.k.a. \(M_3\) gates) which cyclically permute Paulis as \(X \to Y\), \(Y \to Z\), and \(Z \to X\) \cite[Sec. 8.2]{arxiv:quant-ph/9705052}.'
     - 'The three-block transversal gate mapping each physical \(X \to XYZ\) and each \(Z \to ZXY\) implements a logical gate \cite{arxiv:quant-ph/9702029}\cite[Exam. 2]{arxiv:quant-ph/9703048}.'
+
+  general_gates:
+    - 'Signed weight enumerators \cite{arxiv:1702.06990} determine performance of magic \(T\)-state distillation protocols \cite{arxiv:2501.10163}.'
 
   fault_tolerance:
     - 'Characterizing fault-tolerant multi-qubit gates under the \hyperref[topic:gf4-representation]{\(GF(4)\) representation} may involve characterizing all global automorphisms of some number of copies of a code that preserve the symplectic inner product \cite[pg. 9]{arxiv:quant-ph/9703048}.'
@@ -62,6 +68,8 @@ relations:
       detail: 'Bounds on self-dual \([[n,0,d]]\) Hermitian codes based on graphs have been derived \cite{doi:10.1016/S0012-365X(02)00513-7}.'
     - code_id: ame
       detail: 'The sole codeword of some \([[n,0,d]]\) Hermitian codes is an \hyperref[topic:ame]{AME state} \cite{arxiv:2005.01426}.'
+    - code_id: self_dual
+      detail: 'Hermitian qubit codes are constructed from Hermitian self-orthogonal linear codes over \(GF(4)\) via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}. This relation yields bounds on self-dual codes over \(GF(4)\) \cite{arxiv:2501.10163}.'
 
 
 # Begin Entry Meta Information
