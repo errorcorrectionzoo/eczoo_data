@@ -14,9 +14,10 @@ description: |
   Code whose codewords lie in an excited-state eigenspace of a Hamiltonian governing the total energy or total number of excitations of the underlying quantum system.
   For qubit codes, such a Hamiltonian is often the \textit{total spin Hamiltonian}, \(H=\sum_i Z_i\).
   For spin-\(S\) codes, this generalizes to \(H=\sum_i J_z^{(i)}\), where \(J_z\) is the spin-\(S\) \(Z\)-operator.
-  For bosonic codes, such as Fock-state codes, codewords are often in an eigenspace with eigenvalue \(N>0\) of the \textit{total excitation} or \textit{energy Hamiltonian}, \(H=\sum_i \hat{n}_i\).
+  For bosonic (and, similarly, for fermion) codes, such as Fock-state codes, codewords are often in an eigenspace with eigenvalue \(N>0\) of the \textit{total excitation} or \textit{energy Hamiltonian}, \(H=\sum_i \hat{n}_i\).
 
 protection: |
+  CE codewords have to lie in the same excitation subspace in order to protect against changes in the total excitation number.
   Fock-state CE codes are protected from identical \hyperref[topic:ad]{AD} acting on all modes because the damping acts on all codewords identically \cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}.
   The all-zero \hyperref[topic:ad]{AD} Kraus operator acts identically on every state and so can be exactly correctable in the case of Fock-state CE codes.
   For example, this operator's acting on a Fock state \(|\boldsymbol{m}\rangle\) depends only on the total occupation number \(|\boldsymbol{m}|=\sum_j m_j\) and not on the individual occupation numbers \(m_j\),
