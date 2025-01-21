@@ -12,6 +12,7 @@ introduced: '\cite{arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
 
 alternative_names:
   - 'Pauli stabilizer code'
+  - 'Symplectic code'
   - 'Additive quantum code'
   - 'Additive CWS code'
   - 'Clifford code'
@@ -81,7 +82,7 @@ description: |
   The sets of \(GF(4)\)-represented vectors for all generators yield a trace-Hermitian self-orthogonal additive quaternary code.
   This classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
   In the case of stabilizer states, the correspondence is between such states and trace-Hermitian self-dual quaternary codes; such codes, and therefore such states, have been classified up to equivalence for \(n \leq 12\) \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}.
-  There is a complete set of invariants characterizing stabilizer states up to equivalence \cite{arxiv:quant-ph/0410165}.
+  There is a complete set of invariants characterizing stabilizer states up to equivalence \cite{arxiv:quant-ph/0410165,arxiv:quant-ph/0404106}.
 
   ZX calculus is complete, sound, and universal for qubit stabilizer codes \cite{arxiv:1307.7025}.
   Any stabilizer code can be represented by a \textit{ZX canonical form} (ZXCF) \cite{arxiv:2411.14448}, and there exist two other representations \cite{arxiv:2205.02009,arxiv:2411.14448} that utilize ZX calculus.
@@ -173,6 +174,7 @@ features:
     - 'Greedy syndrome measurement schedule \cite{arxiv:2409.14283}.'
     - 'Dynamical weight reduction (DWR) scheme in which measurements of smaller-weight Paulis yield the outcome of a larger-weight Pauli via the use of ZX calculus and ancillary qubits \cite{arxiv:2410.12527}.'
     - 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
+    - 'Continuous-time QEC protocol \cite{arxiv:quant-ph/0402017}.'
     - 'MPE decoding, i.e., the process of finding the most likely error, is \(NP\)-complete in general \cite{arxiv:1009.1319,manual:{Kuo, Kao-Yueh, and Chung-Chin Lu. "On the hardness of decoding quantum stabilizer codes under the depolarizing channel." 2012 International Symposium on Information Theory and its Applications. IEEE, 2012.}}. If the noise model is such that the most likely error is the lowest-weight error, then ML decoding is called \textit{minimum-weight} decoding. Maximum-likelihood (ML) decoding (a.k.a.\ degenerate maximum-likelihood decoding), i.e., the process of finding the most likely error class (up to degeneracy of errors), is \(\#P\)-complete in general \cite{arxiv:1310.3235}.'
     - 'Incorporating faulty syndrome measurements can be done by performing spacetime decoding, i.e., using data from past rounds for decoding syndromes in any given round. If a decoder does not process syndrome data sufficiently quickly, it can lead to the \textit{backlog problem} \cite{arxiv:1302.3428}, slowing down the computation.'
     - 'Splitting decoders \cite{arxiv:2309.15354}.'
@@ -219,7 +221,7 @@ notes:
   - 'Introductions to stabilizer codes can be found in \cite{arxiv:quant-ph/9705052,preset:PreskillNotes,doi:10.1002/9783527618637.ch1}.'
   - 'Tables of bounds and examples of stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Ref. \cite{doi:10.1007/978-3-540-37634-7_13}, are maintained by M. Grassl at this \href{https://codetables.markus-grassl.de/}{website}. A Magma implementation exists at this \href{https://magma.maths.usyd.edu.au/magma/handbook/text/1976}{website}.'
   - 'See Quantum Codes qubit stabilizer database, maintained by N. Aydin, P. Liu, and B. Yoshino \cite{arxiv:2106.12065,arxiv:2108.03567}, at this \href{https://quantumcodes.info/}{website}.'
-  - 'Entanglement purification protocols with qubit stabilizer codes are related to quantum key distribution (QKD) \cite{arxiv:quant-ph/0209091}. There is a correspondence between stabilizer codes and bilocal Clifford entanglement distillation circuits \cite{arxiv:2303.11465}.'
+  - 'Entanglement purification protocols with qubit stabilizer codes are related to quantum key distribution (QKD) \cite{arxiv:quant-ph/0209091}. There is a correspondence between stabilizer codes and bilocal Clifford entanglement distillation circuits \cite{arxiv:2303.11465}. Purification protocols using two-way classical channels can exceed the quantum Hamming and quantum Singleton bounds \cite{arxiv:quant-ph/0310097}.'
   - 'The overlap between any stabilizer codeword and any \(n\)-qubit product state is at most \(2/2^d\) \cite[Thm. 2]{arxiv:2405.01332}.'
   - 'Qubit stabilizer codes can be used to estimate physical Pauli noise up to their \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2107.14252}, and logical Pauli noise for any correctable physical noise \cite{arxiv:2209.09267}.'
   - 'The stabilizer formalism has been gamified \cite{arxiv:2405.06795}.'
