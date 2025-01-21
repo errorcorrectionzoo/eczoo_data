@@ -24,7 +24,7 @@ description: |
   Quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (\cite[Thm. 9.10.3]{doi:10.1017/CBO9780511807077}).
   In other words, if the underlying quaternary code is linear, then the \hyperref[topic:finite-fields]{field trace} can be removed from the definition of inner product.
 
-  All of its automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}.
+  All code automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}.
 
 protection: |
   A Hermitian self-orthogonal linear \([n,k,d]_{4}\) code yields an \([[n,n-2k]]\) qubit stabilizer code with distance no less than \(d\); this is the \textit{qubit Hermitian construction}.
@@ -41,10 +41,12 @@ protection: |
 features:
 
   transversal_gates:
+    - 'All code automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}, so transversal physical gates implement only Clifford logical gates.'
     - 'Transversal \(SH\) and \(HS\) "facet" gates (a.k.a. \(M_3\) gates) which cyclically permute Paulis as \(X \to Y\), \(Y \to Z\), and \(Z \to X\) \cite[Sec. 8.2]{arxiv:quant-ph/9705052}.'
     - 'The three-block transversal gate mapping each physical \(X \to XYZ\) and each \(Z \to ZXY\) implements a logical gate \cite{arxiv:quant-ph/9702029}\cite[Exam. 2]{arxiv:quant-ph/9703048}.'
 
   general_gates:
+
     - 'Signed weight enumerators \cite{arxiv:1702.06990} determine performance of magic \(T\)-state distillation protocols \cite{arxiv:2501.10163}.'
 
   fault_tolerance:
