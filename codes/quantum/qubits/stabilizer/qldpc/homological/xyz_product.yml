@@ -11,7 +11,7 @@ name: 'XYZ product code'
 introduced: '\cite{manual:{Maurice, Denise. Codes correcteurs quantiques pouvant se décoder itérativement. Diss. Université Pierre et Marie Curie-Paris VI, 2014.},arxiv:2011.09746}'
 
 description: >
-  A non-CSS QLDPC code constructed from a particular hypergraph product of three classical codes.
+  A non-CSS QLDPC code constructed from a particular hypergraph product of three linear binary codes.
   The idea is that rather than taking a product of only two classical codes to produce a CSS code, a third classical code is considered, acting with Pauli-\(Y\) operators.
 
   When the underlying classical codes are 1D (e.g., repetition codes), the XYZ product yields a 3D code. Higher dimensional versions have been constructed \cite{arxiv:2408.03123}.
@@ -30,7 +30,11 @@ relations:
       detail: 'XYZ product codes result from a tensor product of three classical-code chain complexes.'
     - code_id: sc_qldpc
       detail: 'XYZ product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
-# Warning: non-CSS
+    # Warning: non-CSS
+  cousins:
+    - code_id: binary_linear
+      detail: 'The XYZ product code is constructed using a particular hypergraph product of three linear binary codes'
+
 
 # Begin Entry Meta Information
 _meta:

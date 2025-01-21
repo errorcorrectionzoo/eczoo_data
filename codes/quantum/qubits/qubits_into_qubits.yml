@@ -88,7 +88,8 @@ protection: |
   There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}.
   \end{defterm}
 
-  Other types of quantum weight enumerators are the Rains unitary enumerators \cite{arXiv:quant-ph/9612015} and the \textit{Rains shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}), with the latter related to Bell sampling \cite{arxiv:2408.16914}.
+  Other types of quantum weight enumerators are the Rains unitary enumerators \cite{arxiv:quant-ph/9612015} and the \textit{Rains shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}), and \textit{signed weight enumerators} taking into account the sign of the expectation value of a Pauli string \cite{arxiv:1702.06990}. 
+  Rains shadow enumerators are related to Bell sampling \cite{arxiv:2408.16914}.
   These notions can be generalized to qudit codes and other error bases \cite{doi:10.1016/j.aam.2020.102085,arxiv:2211.02756,arxiv:2308.05152}.
   There are techniques to compute them for general codes \cite{arxiv:2308.05152}.
   Semidefinite programming (SDP) hierarchies and a quantum Delsarte bound have been developed \cite{arxiv:2408.10323}.
@@ -127,7 +128,7 @@ features:
     There is a threshold against depolarizing noise for any single-qubit gate that determines if the gate enables universal quantum computation \cite{arxiv:0907.3189,arxiv:1011.2497}.'
     - '\begin{defterm}{Clifford hierarchy}
       \label{topic:clifford-hierarchy}
-      The Clifford hierarchy \cite{arxiv:quant-ph/9908010,arxiv:1608.06596,arxiv:1902.04022,arXiv:2212.05398,arxiv:2410.11818} is a tower of gate sets which includes Pauli and Clifford gates at its first two levels, and non-Clifford gates at higher levels.
+      The Clifford hierarchy \cite{arxiv:quant-ph/9908010,arxiv:1608.06596,arxiv:1902.04022,arxiv:2212.05398,arxiv:2410.11818} is a tower of gate sets which includes Pauli and Clifford gates at its first two levels, and non-Clifford gates at higher levels.
       The \(k\)th level is defined recursively by
       \begin{align}
         C_k = \{ U | U P U^{\dagger} \in C_{k-1} \}~,
@@ -154,9 +155,10 @@ features:
         \label{topic:computational-threshold}
         A fault-tolerant computational threshold is the maximum noise rate in a particular single-parameter noise model below which any logical computation of size \(M\) can be executed on a physical-qubit architecture to arbitrary accuracy and with an overhead of \hyperref[topic:asymptotics]{order} \(O(M\text{polylog}M)\).
         The first methods to achieve a computational threshold use recursively concatenated stabilizer code families \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0703230,arxiv:quant-ph/0604090}; such a threshold is called a \textit{concatenated threshold}.
-        Initially proven under local stochastic noise, the concatenated threshold theorem also holds for various types of non-Markovian noise \cite{arxiv:quant-ph/0402104,arxiv:quant-ph/0504218,arxiv:quant-ph/0703230,arxiv:quant-ph/0510231}.
+        Initially proven under local stochastic noise, the concatenated threshold theorem also holds for various types of non-Markovian noise \cite{arxiv:quant-ph/0402104,arxiv:quant-ph/0504218,arxiv:quant-ph/0703230,arxiv:quant-ph/0510231} and leakage errors \cite{arxiv:quant-ph/0511065}.
+        This theorem can be rephrased in terms of Bernoulli site percolation \cite{arxiv:quant-ph/0307166}.
         The resulting concatenated code is highly \hyperref[topic:degeneracy]{degenerate}, with all but an exponentially small fraction of generators having small weights. 
-        Circuit and measurement designs have to take care of the few stabilizer generators with large weights in order to be fault tolerant.
+        Circuit and measurement designs have to take care of the few stabilizer generators with large weights in order to be fault tolerant, but measurement duration may not pose a threat to scalability \cite{arxiv:quant-ph/0607047}.
         Concatenated methods require constant-space and polylogarithmic-time overhead, but concatenations using quantum Hamming codes improve this to quasi-polylogarithmic time \cite{arxiv:2207.08826,arxiv:2402.09606}, and concatenations of the Steane code and certain QLDPC codes further improve this to polylogarithmic time \cite{arxiv:2411.03683}.
         Subsequently, thresholds were determined for infinite families of lattice stabilizer codes, starting with the toric code \cite{arxiv:quant-ph/0110143}; such a threshold is colloquially called a \textit{topological threshold}.
         Fault-tolerant computations with no notion of locality can be made local on a 2D or 3D geometry with minimal overhead \cite{arxiv:2402.13863}.

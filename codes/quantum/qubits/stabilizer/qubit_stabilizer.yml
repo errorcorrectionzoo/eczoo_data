@@ -12,6 +12,7 @@ introduced: '\cite{arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
 
 alternative_names:
   - 'Pauli stabilizer code'
+  - 'Symplectic code'
   - 'Additive quantum code'
   - 'Additive CWS code'
   - 'Clifford code'
@@ -81,6 +82,7 @@ description: |
   The sets of \(GF(4)\)-represented vectors for all generators yield a trace-Hermitian self-orthogonal additive quaternary code.
   This classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
   In the case of stabilizer states, the correspondence is between such states and trace-Hermitian self-dual quaternary codes; such codes, and therefore such states, have been classified up to equivalence for \(n \leq 12\) \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}.
+  There is a complete set of invariants characterizing stabilizer states up to equivalence \cite{arxiv:quant-ph/0410165,arxiv:quant-ph/0404106}.
 
   ZX calculus is complete, sound, and universal for qubit stabilizer codes \cite{arxiv:1307.7025}.
   Any stabilizer code can be represented by a \textit{ZX canonical form} (ZXCF) \cite{arxiv:2411.14448}, and there exist two other representations \cite{arxiv:2205.02009,arxiv:2411.14448} that utilize ZX calculus.
@@ -91,8 +93,9 @@ description: |
   Properties of the underlying graph are related to properties of the code \cite{arxiv:2411.14448}.
   \end{defterm}
 
+  Qubit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_2^n\) \cite{arxiv:quant-ph/0304125,arxiv:quant-ph/0408190,arxiv:0811.0898}.
   Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(GF(2)\) using three bits \cite{arxiv:2305.17505}.
-  Qubit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_2^n\) \cite{arxiv:quant-ph/0304125,arxiv:0811.0898}.
+
 
 # More technically, let \(\phi\) be a bijection from a linear binary subspace to \(GF(4)^n\). Let \(C\) be a trace-Hermitian self-orthogonal additive subcode over \(GF(4)\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(GF(4)\).
 
@@ -110,8 +113,9 @@ protection: |
   There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}, but they are resolved for stabilizer codes.
   A stabilizer code is a \hyperref[topic:degeneracy]{degenerate} with respect to \(\mathcal{E}\) if and only if \(E^\dagger F \in \mathsf{N(S)}\) for some Pauli strings \(E,F \in \mathcal{E}\).
   As a distance-\(d\) code, a stabilizer code is degenerate if it admits a non-identity stabilizer whose weight is lower than the distance \cite{preset:GottesmanBook}.
-  Since that stabilizer is in the normalizer, a stabilizer code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
+  Since that stabilizer is in the normalizer, a stabilizer code is \hyperref[topic:degeneracy]{degenerate} if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
   The \hyperref[topic:quantum-weight-enumerator]{pure distance} of a qubit stabilizer code is the minimum weight of a non-identity stabilizer. 
+  There is a toolkit for studying \hyperref[topic:degeneracy]{degenerate} codes for Pauli channels \cite{arxiv:quant-ph/0604107}.
 
   \begin{defterm}{Cleaning lemma}
   \label{topic:cleaning-lemma}
@@ -143,10 +147,12 @@ features:
     - 'Circuits obtained by first constructing the CWS form of the code \cite{arxiv:0803.3232,arxiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
     - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arxiv:1310.1036}, for which codespace is steady-state space of a Lindbladian. This does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}.'
 
+    - 'Algorithm for fault-tolerant magic-state initialization \cite{arxiv:2501.10291}.'
+
   transversal_gates:
     - 'All stabilizer codes realize Pauli transformations transversally; for a single logical qubit, these realize a dicyclic subgroup of \(SU(2)\).
     Several algorithms exist for finding logical Pauli operators \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.'
-    - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite{arxiv:quant-ph/9705052}.'
+    - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite[Exam. 1]{arxiv:quant-ph/9703048}\cite{arxiv:quant-ph/9705052}.'
     - 'Transversal logical gates are in a finite level of the \term{Clifford hierarchy}, which is shown using stabilizer \textit{disjointness} \cite{arxiv:1710.07256} (see also \cite{arxiv:0706.1382,arxiv:1409.8320}).
     Transversal gates for \(n\in\{1,2\}\) are semi-Clifford \cite{arxiv:0712.2084}.'
     - 'No stabilizer code can implement a classical universal gate set transversally \cite{arxiv:1704.07798}.'
@@ -167,6 +173,8 @@ features:
     - 'DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047}.'
     - 'Greedy syndrome measurement schedule \cite{arxiv:2409.14283}.'
     - 'Dynamical weight reduction (DWR) scheme in which measurements of smaller-weight Paulis yield the outcome of a larger-weight Pauli via the use of ZX calculus and ancillary qubits \cite{arxiv:2410.12527}.'
+    - 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
+    - 'Continuous-time QEC protocol \cite{arxiv:quant-ph/0402017}.'
     - 'MPE decoding, i.e., the process of finding the most likely error, is \(NP\)-complete in general \cite{arxiv:1009.1319,manual:{Kuo, Kao-Yueh, and Chung-Chin Lu. "On the hardness of decoding quantum stabilizer codes under the depolarizing channel." 2012 International Symposium on Information Theory and its Applications. IEEE, 2012.}}. If the noise model is such that the most likely error is the lowest-weight error, then ML decoding is called \textit{minimum-weight} decoding. Maximum-likelihood (ML) decoding (a.k.a.\ degenerate maximum-likelihood decoding), i.e., the process of finding the most likely error class (up to degeneracy of errors), is \(\#P\)-complete in general \cite{arxiv:1310.3235}.'
     - 'Incorporating faulty syndrome measurements can be done by performing spacetime decoding, i.e., using data from past rounds for decoding syndromes in any given round. If a decoder does not process syndrome data sufficiently quickly, it can lead to the \textit{backlog problem} \cite{arxiv:1302.3428}, slowing down the computation.'
     - 'Splitting decoders \cite{arxiv:2309.15354}.'
@@ -198,6 +206,8 @@ features:
     - 'Flag-Proxy Networks (FPNs) \cite{arxiv:2409.14283}.'
     - 'A logical Pauli can be \hyperref[topic:gauging-out]{gauged out} to yield a fault-tolerant measurement that requires a qubit overhead linear in the Pauli''s support \cite{arxiv:2410.02213}.'
     - 'Automated fault-tolerant circuit synthesis using boolean satisfiability \cite{arxiv:2501.05527}.'
+    - 'Algorithm for fault-tolerant magic-state initialization \cite{arxiv:2501.10291}.'
+
 
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arxiv:1208.2317,arxiv:1311.7688,arxiv:1809.10704}. The AQEC relative entropy is related to the resulting threshold \cite{arxiv:2312.16991}.'
@@ -208,14 +218,16 @@ features:
 # and various \textit{gadgets} (encoders, gates, measurements, decoders, etc.)
 
 notes:
-  - 'Introductions to stabilizer codes can be found in \cite{arxiv:quant-ph/9705052,preset:PreskillNotes,doi:10.1002/9783527618637.ch1}.'
+  - 'Introductions to stabilizer codes can be found in \cite{arxiv:quant-ph/9705052,arxiv:quant-ph/0304016,preset:PreskillNotes,doi:10.1002/9783527618637.ch1}.'
   - 'Tables of bounds and examples of stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Ref. \cite{doi:10.1007/978-3-540-37634-7_13}, are maintained by M. Grassl at this \href{https://codetables.markus-grassl.de/}{website}. A Magma implementation exists at this \href{https://magma.maths.usyd.edu.au/magma/handbook/text/1976}{website}.'
   - 'See Quantum Codes qubit stabilizer database, maintained by N. Aydin, P. Liu, and B. Yoshino \cite{arxiv:2106.12065,arxiv:2108.03567}, at this \href{https://quantumcodes.info/}{website}.'
-  - 'Entanglement purification protocols with qubit stabilizer codes are related to quantum key distribution (QKD) \cite{arxiv:quant-ph/0209091}. There is a correspondence between stabilizer codes and bilocal Clifford entanglement distillation circuits \cite{arxiv:2303.11465}.'
+  - 'Entanglement purification protocols with qubit stabilizer codes are related to quantum key distribution (QKD) \cite{arxiv:quant-ph/0209091}. There is a correspondence between stabilizer codes and bilocal Clifford entanglement distillation circuits \cite{arxiv:2303.11465}. Purification protocols using two-way classical channels can exceed the quantum Hamming and quantum Singleton bounds \cite{arxiv:quant-ph/0310097}.'
   - 'The overlap between any stabilizer codeword and any \(n\)-qubit product state is at most \(2/2^d\) \cite[Thm. 2]{arxiv:2405.01332}.'
   - 'Qubit stabilizer codes can be used to estimate physical Pauli noise up to their \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2107.14252}, and logical Pauli noise for any correctable physical noise \cite{arxiv:2209.09267}.'
   - 'The stabilizer formalism has been gamified \cite{arxiv:2405.06795}.'
   - 'Codes can be found via genetic algorithms \cite{arxiv:2409.13017}.'
+  - 'Stim Python software package for simulating and analyzing qubit stabilizer circuits \cite{arxiv:2103.02202,manual:{Craig Gidney. Stim. https://github.com/quantumlib/Stim, 2021.}}.'
+  - 'PanQEC Python software package for simulating and visualizing qubit stabilizer codes \cite{arxiv:2211.02116,manual:{Eric Huang and Arthur Pesah. PanQEC. https://github.com/panqec/panqec, 2023.}}.'
 
 
 relations:
@@ -254,11 +266,13 @@ relations:
     - code_id: single_shot
       detail: 'Any stabilizer code can be single shot if sufficiently non-local high-weight stabilizer generators are used for syndrome measurements.  These can be obtained with a Gaussian elimination procedure \cite{arxiv:1805.09271}.'
     - code_id: t-designs
-      detail: 'Stabilizer states on \(n\) qubits form complex projective 3-designs \cite{arxiv:1510.02767}, while the \hyperref[topic:clifford]{Clifford group} is a unitary 3-design \cite{arXiv:1510.02619,arXiv:1510.02769}.'
+      detail: 'Stabilizer states on \(n\) qubits form complex projective 3-designs \cite{arxiv:1510.02767}, while the \hyperref[topic:clifford]{Clifford group} is a unitary 3-design \cite{arxiv:1510.02619,arxiv:1510.02769}.'
     - code_id: constant_excitation
       detail: 'Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538} that protects against \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
     - code_id: ampdamp
       detail: 'Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538} that protects against \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
+    - code_id: two-legged-cat
+      detail: 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
 
 
 # Begin Entry Meta Information

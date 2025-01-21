@@ -8,27 +8,27 @@ physical: matrices
 logical: matrices
 
 name: 'Quantum Gabidulin code'
-introduced: '\cite{arXiv:2411.09173}'
+introduced: '\cite{arxiv:2411.09173}'
 
 
 description: |
   A Galois-qudit stabilizer code over \(n\) Galois qudits of dimension \(q = 2^n \) that is useful in protecting against faults in qubit Clifford circuits acting on stacked quantum memories.
   This code can be treated as a code on an \(n\times n\) qubit stacked memory by decomposing each Galois qudit into a Kronecker product of \(n\) qubits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook}.
 
-  A quantum Gabidulin code is defined using two Gabidulin codes with associated parameters \(r,s\), respectively, such that \(r+s = n\) \cite{arXiv:2411.09173}.
+  A quantum Gabidulin code is defined using two Gabidulin codes with associated parameters \(r,s\), respectively, such that \(r+s = n\) \cite{arxiv:2411.09173}.
 
 protection: |
   The code distance is the minimum rank distance --- the rank of the field element of the lowest-rank undetectable Galois-qudit Pauli error, with the rank calculated by writing the element as an \(n\times n\) binary matrix.
   The code is useful in protecting against faults in \(n\)-qubit Clifford circuits with \(n\) layers, which preserve the minimum rank distance.
 
 
-#       detail: 'Quantum Gabidulin code parameters can be calculated by mapping them into qubit stabilizer codes \cite{arXiv:2411.09173}.'
+#       detail: 'Quantum Gabidulin code parameters can be calculated by mapping them into qubit stabilizer codes \cite{arxiv:2411.09173}.'
 relations:
   parents:
     - code_id: galois_true_stabilizer
   cousins:
     - code_id: gabidulin
-      detail: 'A quantum Gabidulin code is defined using two Gabidulin codes with associated parameters \(r,s\), respectively, such that \(r+s = n\) \cite{arXiv:2411.09173}.'
+      detail: 'A quantum Gabidulin code is defined using two Gabidulin codes with associated parameters \(r,s\), respectively, such that \(r+s = n\) \cite{arxiv:2411.09173}.'
     - code_id: rank_metric
       detail: 'Quantum Gabidulin code and (classical) rank-metric code distances are based on ranks of the matrix representations of their corresponding errors.'
 

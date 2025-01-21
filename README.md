@@ -9,7 +9,7 @@ it!  Here's a BibTeX blurb you could use:
 ```bibtex
 @book{ErrorCorrectionZoo,
   title={The Error Correction Zoo},
-  year={2023},
+  year={2025},
   editor={Victor V. Albert and Philippe Faist},
   url={https://errorcorrectionzoo.org/}
 }
