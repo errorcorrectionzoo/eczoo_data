@@ -8,13 +8,15 @@ physical: oscillators
 logical: qubits
 
 name: 'Dual-rail quantum code'
-introduced: '\cite{arxiv:quant-ph/9505011,arxiv:quant-ph/9604031}'
+introduced: '\cite{arxiv:quant-ph/9505011,arxiv:quant-ph/9604031,arxiv:quant-ph/9702001}'
 
 description: |
   Two-mode bosonic code encoding a logical qubit in Fock states with one excitation.
   The logical-zero state is represented by \(|10\rangle\), while the logical-one state is represented by \(|01\rangle\).
   This encoding is often realized in temporal or spatial modes, corresponding to a \textit{time-bin} or \textit{frequency-bin} encoding.
   Two different types of photon polarization can also be used.
+
+  This code is a DFS \cite{arxiv:quant-ph/9807004,arxiv:quant-ph/9902041,arxiv:quant-ph/9908064,arxiv:quant-ph/0007013} with respect to phase errors \cite{arxiv:quant-ph/0210072}.
 
 protection: |
   This is an error-detecting code against one photon loss event; it is often used in photonic quantum devices because of its ease of realization. A single loss event can be detected because, after the loss occurs, the output state \(|00\rangle\) is orthogonal to the codespace. Recovery is not possible, so a successful run of a quantum circuit is conditioned on not losing a photon during the circuit.
@@ -25,8 +27,9 @@ features:
   encoders:
     - 'Optimal control pulses \cite{arxiv:2311.04423}'
   general_gates:
-    - 'General gates are performed using beamsplitters \cite{doi:10.1038/s41467-023-41104-0} and Kerr nonlinearities.
-    Universal quantum computing can be achieved using the KLM protocol \cite{doi:10.1038/35051009} with only linear optical elements and photon detectors.'
+    - 'General gates are performed using two-body Hamiltonian rotations \cite{arxiv:quant-ph/0210072}.'
+    - 'Bosonic gates include beamsplitters \cite{doi:10.1038/s41467-023-41104-0} and Kerr nonlinearities. Universal quantum computing can be achieved using the KLM protocol \cite{doi:10.1038/35051009} with only linear optical elements and photon detectors.'
+    - 'Bang-bang dynamical decoupling protocol \cite{arxiv:quant-ph/0210072}.'
     - 'A probabilistic CZ gate via a non-linear sign-shift gate, which transforms the Fock states \( \alpha|0\rangle+\beta|1\rangle+\gamma|2\rangle\) into \(\alpha|0\rangle+\beta|1\rangle-\gamma|2\rangle \), followed by measurement \cite{arxiv:quant-ph/0307015}.'
     - 'Error-detecting \(CCZ\) and \(cSWAP\) gates using three-level ancilla \cite{arxiv:2212.11196}.'
 
