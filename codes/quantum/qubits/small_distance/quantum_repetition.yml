@@ -23,7 +23,7 @@ description: |
     \end{split}
   \end{align}
   showing that the phase-flip code stores information in the total parity of the qubits.
-  For example, an early code realized in devices is the 2-qubit phase-flip code, which encodes a logical qubit into Bell states \(|00\rangle+|11\rangle\) and \(|01\rangle+|10\rangle\).
+  For example, an early code realized in devices is the 2-qubit phase-flip code \cite{arxiv:quant-ph/0006088}, which encodes a logical qubit into Bell states \(|00\rangle+|11\rangle\) and \(|01\rangle+|10\rangle\).
 
 protection: |
   Bit-flip code detects bit-flip errors \(X\) on \(\left\lfloor (n-1)/2\right\rfloor\) qubits and does not detect any phase-flip errors \(Z\).
@@ -34,6 +34,7 @@ protection: |
 
 features:
   encoders:
+    - 'Non-deterministic encoders for various specific states of the 2-qubit phase-flip code \cite{arxiv:quant-ph/0408064}.'
     - 'Unitary circuit of depth logarithmic in \(n\) \cite{arxiv:1807.05572}. Any circuit has to have range \(n\) because Ghz states are locally indistinguishable \cite{arxiv:1910.08980}.'
     - 'Adaptive constant-depth circuit with geometrically local gates and measurements throughout \cite{arxiv:1906.08890,arxiv:2112.03061}.'
     - 'Lindbladian-based dissipative encoding passively protecting against bit flips \cite{arxiv:quant-ph/0110111,arxiv:1702.08673}.'
