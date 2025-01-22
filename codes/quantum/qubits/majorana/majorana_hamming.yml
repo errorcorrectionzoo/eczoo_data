@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: majorana_hamming
+physical: qubits
+logical: qubits
+
+name: '\([[2^{m-1},2^{m-1}-m-1,4]]_{f}\) Hamming Majorana code'
+introduced: '\cite{arxiv:1703.00612}'
+
+# n is number of fermionic modes, so mult by 2 to get number of Majorana modes
+description: |
+  A member of the \([[2^{m-1},2^{m-1}-m-1,4]]_{f}\) family of Majorana stabilizer codes for \(m \geq 3\) that is closely related to the Hamming code.
+  The logical subspace of the \([[8,3,4]]_{f}\) Hamming Majorana code is a Cartan subspace of the \(E_8\) Lie algebra \cite{arxiv:1801.06998}.
+
+
+relations:
+  parents:
+    - code_id: majorana_stab
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: hamming
+    - code_id: eeight
+      detail: 'The logical subspace of the \([[8,3,4]]_{f}\) Hamming Majorana code is a Cartan subspace of the \(E_8\) Lie algebra \cite{arxiv:1801.06998}.'
+    - code_id: stab_4_2_2
+      detail: 'The \([[8,3,4]]_{f}\) Hamming Majorana code is a Majorana stabilizer code obtained by combining two four-qubit codes \cite{arxiv:1801.06998}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-27'

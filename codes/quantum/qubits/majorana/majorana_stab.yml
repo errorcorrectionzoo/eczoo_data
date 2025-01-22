@@ -10,6 +10,7 @@ logical: qubits
 name: 'Majorana stabilizer code'
 introduced: '\cite{arxiv:1004.3791}'
 
+# n is number of fermionic modes, so mult by 2 to get number of Majorana modes
 description: |
   A stabilizer code whose stabilizers are products of an even number of Majorana fermion operators, analogous to Pauli strings for a traditional stabilizer code and referred to as \textit{Majorana stabilizers}.
   The codespace is the mutual \(+1\) eigenspace of all Majorana stabilizers.
@@ -56,8 +57,6 @@ relations:
       detail: 'Majorana stabilizer codes can be constructed by self-orthogonal RM codes \cite{arxiv:1703.00459}. These codes have the additional property that the global fermion parity is fixed in the codespace. In this family of codes, logical measurements are reduced to parity measurements of some subset of Majorana fermions in the code.'
     - code_id: stabilizer
       detail: 'Majorana stabilizer codes are useful for Majorana-based architectures, where the degrees of freedom are electrons, and the notion of locality is different than all other code kingdoms.'
-    - code_id: hamming
-      detail: 'Majorana Hamming codes are codes closely related to the classical Hamming codes \cite{arxiv:1703.00612}.'
     - code_id: qudit_stabilizer
       detail: 'Majorana stabilizer codes can be extended to modular qudits, yielding parafermion stabilizer codes \cite{arxiv:1409.4724}.'
 
