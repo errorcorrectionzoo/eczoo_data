@@ -27,6 +27,7 @@ description: |
   where the neighborhood \(N(j)\) is the set of vertices which share an edge with \(j\), and where \(V_{jk}\) is a weighted (real-valued) adjacency matrix of a graph \cite{arxiv:1912.06463}.
 
   Analog cluster states, like cluster states, can be defined on various geometries.
+  Analog cluster states defined on a 1D array of modes are called quantum wires \cite{arxiv:0804.4468,arxiv:0811.2799}, not to be confused with the Kitaev quantum wire, a fermion code.
   Analog cluster states defined on a 1D ladder are sometimes called dual-rail, not to be confused with the dual-rail code.
 
 protection: |
@@ -35,14 +36,14 @@ protection: |
 features:
   encoders:
     - 'Initialization of all modes in momentum eigenstates and action of gates of the form \(\exp(iV_{jk}\hat{x}_{j}\hat{x}_{k})\). The normalizable version substitutes momentum eigenstates with finitely squeezed states.'
-
+    - 'Squeezers and beam-splitters \cite{arxiv:1007.3434}.'
   general_gates:
     - 'Combination of linear-optical gates and homodyne measurements on subsets of vertices \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}.'
     - 'Gaussian operations can be realized as operations acting on graphs underlying a cluster state. They can be done in any order, demonstrating parallelism \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}.'
     - 'Magic-state distillation is required for universal computation \cite{arxiv:quant-ph/0605198,arxiv:0903.3233}.'
 
 realizations:
-  - 'Analog cluster states on a number of modes ranging from tens to millions \cite{arxiv:1306.3366,arxiv:1311.2957,arxiv:1606.06688} have been synthesized in photonic degrees of freedom.'
+  - 'Analog cluster states on a number of modes ranging from tens to millions \cite{arxiv:1306.3366,arxiv:1311.2957,arxiv:1606.06688} have been synthesized in photonic degrees of freedom. An \(12\times N\) mode cluster state, where \(N\) is the number of clock cycles of the experiment, has been realized in a photonic device by Xanadu \cite{doi:10.1038/s41586-024-08406-9}.'
   - 'Required primitives for Gaussian gates have been realized \cite{arxiv:0906.3141}.'
 
 notes:
