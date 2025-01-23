@@ -97,6 +97,7 @@ description: |
   \end{defterm}
 
   Qubit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_2^n\) \cite{arxiv:quant-ph/0304125,arxiv:quant-ph/0408190,arxiv:0811.0898}.
+  There are efficient ways to compute their inner products and other functions \cite{arxiv:1711.07848}.
   Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(GF(2)\) using three bits \cite{arxiv:2305.17505}.
 
 
@@ -173,7 +174,7 @@ features:
     - 'Clifford stabilizer circuits can be compiled using tableau manipulation \cite{arxiv:2404.19408}.'
     - 'A teleported version of the CPC construction can reduce noise in Clifford circuits with Pauli measurements with at most a three-fold overhead in the number of qubits and gates \cite{arxiv:2407.06583}. There is a simple formula for the probability that a Clifford circuit contains a logical error \cite{arxiv:2009.07752}.'
   decoders:
-    - 'The size of the circuit extracting the syndrome depends on the weight of its corresponding stabilizer generator. Syndrome extraction circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}) and there are many general schemes for generating them \cite{arxiv:2408.01339} (see also \cite{arxiv:2402.04093}). Decoding of qubit stabilizer codes is an approximately optimal strategy for various quantum lights-out (QLO) games that can be played on the codes'' \hyperref[topic:encoder-respecting]{encoder-respecting form} \cite{arxiv:2411.14448}.'
+    - 'The size of the circuit extracting the syndrome depends on the weight of its corresponding stabilizer generator. Syndrome extraction circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}) and there are many general schemes for generating them \cite{arxiv:2408.01339} (see also \cite{arxiv:2402.04093}). Noise can be characterized without interrupting syndrome extraction \cite{arxiv:1710.03636}. Decoding of qubit stabilizer codes is an approximately optimal strategy for various quantum lights-out (QLO) games that can be played on the codes'' \hyperref[topic:encoder-respecting]{encoder-respecting form} \cite{arxiv:2411.14448}.'
     - 'DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047}.'
     - 'Greedy syndrome measurement schedule \cite{arxiv:2409.14283}.'
     - 'Dynamical weight reduction (DWR) scheme in which measurements of smaller-weight Paulis yield the outcome of a larger-weight Pauli via the use of ZX calculus and ancillary qubits \cite{arxiv:2410.12527}.'
