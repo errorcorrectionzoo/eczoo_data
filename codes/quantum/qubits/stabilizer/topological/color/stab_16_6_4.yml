@@ -16,6 +16,8 @@ description: |
 
 
 features:
+  transversal_gates:
+    - 'Global transversal \(S\) implements a logical circuit composed of \(CZ\) and \(Z\) gates \cite{arxiv:2410.07595,doi:10.1109/JSAIT.2020.3012914,arxiv:2410.07595}'
   decoders:
     - 'Post-selected fault-tolerant syndrome extraction \cite{arxiv:2008.05051,arxiv:2112.03785}.'
   fault_tolerance:
@@ -32,8 +34,13 @@ relations:
   cousins:
     - code_id: stab_15_7_3
       detail: 'The \([[15,7,3]]\) quantum Hamming code can be obtained by puncturing the tesseract color code \cite{arxiv:2008.05051}.'
+    - code_id: stab_8_3_2
+      detail: 'Applying CNOT gates to the tesseract color code disentangles it into two \([[8,3,2]]\) color codes \cite{arxiv:2409.04628}.'
+    - code_id: stab_4_2_2
+      detail: 'The \([[16,4,2,4]]\) tesseract subsystem color code with particular gauge fixing can be obtained from four copies of the \([[4,2,2]]\) code \cite{arxiv:2409.04628}.'
     - code_id: hypercube
       detail: 'Stabilizer generators of both types of the tesseract color code are supported on each cube of a tesseract \cite{arxiv:2008.05051,arxiv:2112.03785}.'
+
 
 
 # Begin Entry Meta Information
@@ -42,3 +49,5 @@ _meta:
   changelog:
     - user_id: VictorVAlbert
       date: '2024-09-10'
+    - user_id: 'NolanJCoble'
+      date: '2025-01-23'
