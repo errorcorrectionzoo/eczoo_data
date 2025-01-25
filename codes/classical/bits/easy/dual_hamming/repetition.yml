@@ -22,9 +22,10 @@ features:
 
   decoders:
     - 'Calculate the Hamming weight \(d_H\) of an error word. If \(d_H\leq \frac{n-1}{2}\), decode the code as 0. If \(d_H\geq \frac{n+1}{2}\), decode the code as 1.'
-    - 'Local automaton decoder for the repetition code on a 2D lattice based on Toom''s rule \cite{manual:{A. L. Toom, “Nonergodic Multidimensional System of Automata”, Probl. Peredachi Inf., 10:3 (1974), 70–79; Problems Inform. Transmission, 10:3 (1974), 239–246},manual:{Toom, Andrei L. "Stable and attractive trajectories in multicomponent systems." Multicomponent random systems 6 (1980): 549-575.},doi:10.1007/978-1-4612-2168-5_18}.'
+    - 'Local automaton decoder for the repetition code on a 2D lattice based on Toom''s rule \cite{manual:{A. L. Toom, “Nonergodic Multidimensional System of Automata”, Probl. Peredachi Inf., 10:3 (1974), 70–79; Problems Inform. Transmission, 10:3 (1974), 239–246},manual:{Toom, Andrei L. "Stable and attractive trajectories in multicomponent systems." Multicomponent random systems 6 (1980): 549-575.},doi:10.1007/978-1-4612-2168-5_18,doi:10.1147/rd.481.0005}.'
     - 'Local automaton decoder for the repetition code on a 1D lattice by Gacs that is translation-invariant, that does not require synchronization of local clocks, and that has a constant encoding rate \cite{doi:10.1145/800061.808730,arxiv:math/0003117}.'
     - 'Local automaton decoder for the repetition code on a 1D lattice by Tsirelson \cite{doi:10.1007/BFb0070081}.'
+    - 'Local automaton decoder obtained from reinforcement learning \cite{arxiv:2408.09524}.'
 
   threshold:
     - 'Suppose each bit has probability \(p\) of being received correctly, independent for each bit. The probability that a repetition code is received correctly is \(\sum_{k=0}^{(n-1)/2}\frac{n!}{k!(n-k)!}p^{n-k}(1-p)^{k}\). If \(\frac{1}{2}\leq p\), then one can always increase the probability of success by increasing the number of physical bits \(n\); see section 2.2.1 Ref. \cite{arxiv:2111.08894} for a pedagogical explanation.'

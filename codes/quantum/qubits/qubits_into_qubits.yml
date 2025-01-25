@@ -112,7 +112,6 @@ features:
       Up to any phases and Pauli strings, the group is equivalent to the symplectic group \(Sp(2n,\mathbb{Z}_2)\). 
       See Refs. \cite{arxiv:quant-ph/0304125,arxiv:0811.0898,arxiv:1310.6813,arxiv:1810.10259,preset:GottesmanBook} for generators, relations, and normal form. 
       The group cannot be expressed as a semidirect product of the Pauli and symplectic groups \cite{arxiv:2406.09951}.
-      There is a canonical form for Clifford circuits \cite{arxiv:2003.09412,arxiv:2408.15202}.
       Restricting the group to real-valued elements yields the \textit{real Clifford group}.
       Single-qubit Clifford gates, together with Paulis, realize a group with \(192\) elements.
       Modding out phases yields the \(48\)-element \(2O\) binary octahedral subgroup of \(SU(2)\).
@@ -120,6 +119,7 @@ features:
       Subgroups of the two-qubit Clifford group have been classified \cite{arxiv:2409.14624}.
       \end{defterm}
     - 'Computing using Clifford gates only can be efficiently simulated on a classical computer, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,manual:{E. Knill, private communication, ca. 1998.}}.
+    There is a canonical form for Clifford circuits \cite{arxiv:2003.09412,arxiv:2408.15202} and many algorithms for simulating them \cite{arxiv:quant-ph/0406196,arxiv:1712.03554,arxiv:2301.02356}.
     Universal quantum computing can be achieved using Clifford gates and a single type of non-Clifford gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
     More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/rm1997v052n06abeh002155,doi:10.1090/gsm/047} states that any subset of gates the generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by Clifford gates and a fixed set of non-Clifford gates is called \textit{gate compilation} or \textit{circuit synthesis}.'
     - 'Non-Clifford gates are typically more difficult to implement than Clifford gates and so are treated as a resource. Optimizing T-gate count in circuit synthesis is \(NP\)-hard \cite{arxiv:2310.05958} and can be done using various procedures \cite{arxiv:1303.2042,arxiv:1308.4134,arxiv:1601.07363,arxiv:1710.07345,arxiv:1712.01557,arxiv:2110.10292}, e.g., \textit{ZX calculus} (a.k.a. Penrose spin calculus) \cite{arxiv:1903.10477,arxiv:1911.09039,arxiv:2004.05164,arxiv:2109.01076} or reinforcement learning \cite{arxiv:2402.14396}.
