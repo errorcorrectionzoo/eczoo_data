@@ -8,13 +8,14 @@ physical: qubits
 logical: qubits
 
 name: 'Majorana color code'
-introduced: '\cite{arxiv:1004.3791,arxiv:1703.00612,arxiv:1801.08143}'
+introduced: '\cite{arxiv:1004.3791,arxiv:1703.00612,arxiv:1704.01589,arxiv:1708.05012,arxiv:1801.08143}'
 
 description: |
-  Majorana analogue of the color code defined on a 2D tricolorable lattice and constructed out of Majorana box qubit codes placed on patches of the lattice.
+  Majorana analogue of the color code defined on a 2D tricolorable lattice and constructed out of Majorana box qubit codes or other small Majorana stabilizer codes placed on patches of the lattice.
 
 features:
   general_gates:
+    - 'Color-to-surface-code lattice surgery \cite{arxiv:1708.05012}.'
     - 'Ordinary and twist-based lattice surgery \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
   fault_tolerance:
     - 'Ordinary and twist-based lattice surgery can be made fault tolerant \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
@@ -23,11 +24,16 @@ features:
 relations:
   parents:
     - code_id: majorana_stab
+    - code_id: qubit_concatenated
+      detail: 'The Majorana color code is a concatenation of the 2D color code with a small Majorana stabilizer code.'
   cousins:
     - code_id: 2d_color
-      detail: 'The Majorana color code is a Majorana stabilizer analogue of the 2D color code. Each subsystem in the Majorana (2D color) code is a Majorana box qubit (qubit).'
+      detail: 'The Majorana color code is a concatenation of the 2D color code with a small Majorana stabilizer code.'
     - code_id: mbq
       detail: 'Majorana box qubits, such as hexons, tetrons, octons, and decons, are placed onto patches of a 2D lattice to form Majorana color codes \cite[Table I]{arxiv:1801.08143}.'
+    - code_id: majorana_hamming
+      detail: 'The \([[8,3,4]]_{f}\) Hamming Majorana code can be placed onto patches of a 2D lattice to form a Majorana color code \cite[Table I]{arxiv:1801.08143}.'
+
 
 
 # Begin Entry Meta Information
