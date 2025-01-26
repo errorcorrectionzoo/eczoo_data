@@ -32,7 +32,9 @@ description: |
   The above condition guarantees that the \(X\)-stabilizer generators, defined in the \hyperref[topic:binary-symplectic-representation]{symplectic representation} as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
 
   Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\).
-  The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\), where \(\min\{d_X,d_Z\}\) is the CSS code's \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2209.13474}.
+  The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\), where \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance}.
+  This worst-case minimum distance is often less than the true distance due to \hyperref[topic:degeneracy]{degeneracy} \cite{preset:GottesmanBook}, and the code is \hyperref[topic:quantum-weight-enumerator]{pure} with respect to its worst-case minimum distance (i.e., \(\min\{d_X,d_Z\}\) is the code's \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2209.13474}).
+
   The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
   Basis states for the code are, for \(\gamma \in C_X\),
@@ -46,7 +48,6 @@ description: |
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
   \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
   In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric qubit CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
-  The quantity \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance} and is often less than the actual code distance due to \hyperref[topic:degeneracy]{degeneracy} \cite{preset:GottesmanBook}.
   
   To find the minimum distance of \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
   Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:

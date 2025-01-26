@@ -19,6 +19,16 @@ protection: |
   Many of the state fidelity conditions that hold exactly for \hyperref[code:qecc_finite]{(exact) QECCs} can be shown to hold up to some error \(\epsilon\) for approximate QECCs.
   Approximate correction has been formulated for certain types of correlated noise \cite{arxiv:0909.1466}.
 
+  \subsection{Input-output fidelity}
+
+  This is the primary notion of closeness between states before and after error correction. 
+  It is defined as
+  \begin{align}
+    \langle\psi|\mathcal{N}(|\psi\rangle\langle\psi|)|\psi\rangle~,
+  \end{align}
+  where \(\mathcal{N}\) is the combination of encoding, noise, and recovery channels.
+  This quantity is difficult to compute, and there exist other quantities that are easier to work with and that also become 1 in the limit of perfect error correction.
+
   \subsection{Entanglement fidelity}
 
   Let \(f(\rho_1,\rho_2)\) be the fidelity between quantum states.
@@ -91,8 +101,6 @@ protection: |
   \begin{align}\Pi U_m^{\dagger}U_n \Pi =\delta_{mn} \Pi  \land p_n(1-\lambda_n)\le O(f(\epsilon))\end{align}
   we have a fidelity \(F \geq 1-O(f(\epsilon))\) after recovery~\cite{arxiv:quant-ph/9704002}.
 
-  If parts of the \term{Knill-Laflamme conditions} are violated, a deterministic recovery operation is not possible. However, a probabilistic recovery and a modified version of the conditions can still be constructed \cite{arxiv:2410.00155}.
-
   \subsection{Universal subspace AQECCs and alpha-bits}
 
   Universal subspace approximate error correction is a type of approximate error correction that quantifies protection of information stored in (strict) subspaces of a logical space.
@@ -158,6 +166,7 @@ features:
     In the case of topological codes, the Petz infidelity is related to the topological entanglement entropy \cite{arxiv:2408.00857}.
     Modifications include the Petz-like decoder \cite{arxiv:2405.06051}.'
     - 'The Yoshida-Kitaev decoder for the Hayden-Preskill protocol \cite{arxiv:1710.03363} can be extended to general QECCs \cite{arxiv:2405.06051}.'
+    - 'If parts of the \term{Knill-Laflamme conditions} are violated, a deterministic recovery operation is not possible. However, a probabilistic recovery and a modified version of the conditions can still be constructed \cite{arxiv:2410.00155}.'
 
 notes:
   - 'See review \cite{arxiv:2208.00365}.'
