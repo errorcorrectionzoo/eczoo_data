@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: irregular_convolutional
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Irregular convolutional code (IRCC)'
+short_name: 'IRCC'
+introduced: '\cite{manual:{M. Tuchler and J. Hagenauer, “EXIT charts of irregular codes,” in Proc. 36th Annual Conference on Information Sciences and Systems (CDROM), Princeton, NJ, USA, Mar. 2002.},doi:10.1109/TCOMM.2003.822697}'
+
+description: |
+  A convolutional code whose parity-check matrix has a variable number of entries in each row or column.
+
+features:
+  decoders:
+    - 'Extrinsic information transfer (EXIT) charts \cite{doi:10.1109/TCOMM.2003.822697}.'
+
+relations:
+  parents:
+    - code_id: convolutional
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-01-26'

@@ -22,7 +22,14 @@ description: |
   Analog stabilizer codes admit continuous stabilizer group of displacements.  This group can equivalently be defined in terms of its Lie algebra. The codespace is equivalently the common \(0\)-eigenvalue eigenspace of the Lie algebra generators, which are mutually commuting linear combinations of oscillator position and momentum operators called \textit{nullifiers} \cite{arxiv:0903.3233} or \textit{annihilators}.
   An analog stabilizer code admitting a set of nullifiers such that each nullifier consists of either position or momentum operators is called an \textit{analog CSS code}.
 
-protection: 'Protect against erasures of at most \(d-1\) modes, or arbitrarily large dispalcements on those modes. If an error operator does not commute with a nullifier, then that error is detectable. Protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:0811.3128,arxiv:1810.00047} (see also \cite{arxiv:quant-ph/0204052,arxiv:quant-ph/0204085}). There are no such restrictions for non-Gaussian noise \cite{arxiv:0811.3616}.'
+protection: |
+  Protects against erasures of or any errors on at most \(d-1\) modes. 
+  If an error operator does not commute with a nullifier, then that error is detectable. 
+  There are conditions on the encoding circuit which guarantee that the code can correct errors \cite{doi:10.1103/PhysRevA.81.062305}.
+  The code can be further optimized to increase resolution between syndrome spaces for certain noise \cite{doi:10.1103/PhysRevA.81.062305}.
+
+  Protection of logical modes against small displacements or other errors acting in every physical mode cannot be done using only Gaussian resources \cite{arxiv:0811.3128,arxiv:1810.00047} (see also \cite{arxiv:quant-ph/0204052,arxiv:quant-ph/0204085}). 
+  There are no such restrictions for non-Gaussian noise \cite{arxiv:0811.3616,doi:10.1103/PhysRevA.81.062305}.
 
 features:
   encoders:
