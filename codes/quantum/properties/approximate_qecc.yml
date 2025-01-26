@@ -64,7 +64,7 @@ protection: |
   \(F(\mathcal{D}\mathcal{E},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
   for \hyperref[topic:complementary-channel]{complementary channel} \(\mathcal{E}^C\), \(F(\mathcal{E}^C,\mathcal{D}'\mathcal{M}^C)=1-\epsilon\) \cite{arxiv:0907.5391}.
 
-  \subsection{Necessary and sufficient approximate error-correction conditions}
+  \subsection{Approximate error-correction conditions}
   Analogously to the \term{Knill-Laflamme conditions} for (exact) QECCs, there exist various formulations of necessary and sufficient conditions for approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
 
   Necessary and sufficient conditions for approximate error correction can also be expressed in terms of
@@ -111,13 +111,17 @@ protection: |
   The \(\alpha\)-bit capacity \(Q\) of \(\mathcal{E}\)
   is defined as the supremum of achievable transmission rates~\cite{arxiv:1706.09434}.
 
-  \subsection{Circuit complexity}
+  \subsection{Other metrics of approximate error correction}
 
-  \begin{defterm}{Code space complexity}
+  \begin{enumerate}[(1)]
+  \item \begin{defterm}{Code space complexity}
   \label{topic:codespace-complexity}
   One can relate robustness of an approximate quantum code to the quantum \textit{circuit complexity} \cite{arxiv:1210.1281,arxiv:1402.5674,arxiv:1301.1363,arxiv:1607.05256} of creating states in the codespace.
   For a family of block codes, scaling as \hyperref[topic:asymptotics]{order} \(O(k/n)\) of a code parameter called the \textit{subsystem variance} characterizes the transition between code subspaces with low and high circuit complexity \cite{arxiv:2310.04710}.
   \end{defterm}
+  \item \textit{Integrity} measures how well a code state \(\psi\) and an orthogonal state can be distinguished in trace distance after noise and recovery are applied \cite{arxiv:1707.09951}.
+  \end{enumerate}
+
 
 
 
