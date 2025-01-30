@@ -11,6 +11,7 @@ name: 'Qubit stabilizer code'
 introduced: '\cite{arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
 
 alternative_names:
+  - 'Binary stabilizer code'
   - 'Pauli stabilizer code'
   - 'Symplectic code'
   - 'Additive quantum code'
@@ -41,12 +42,13 @@ description: |
       \label{table:stabilizer-groups}
     \end{table}
 
-  Two qubit stabilizer codes codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of elements of the \hyperref[topic:clifford]{single-qubit Clifford group} and a qubit permutation.
+  Two qubit stabilizer codes codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of elements of the \hyperref[topic:clifford]{single-qubit Clifford group} and a qubit permutation (see Ref. \cite{arxiv:2501.17447}).
   Equivalence under single-qubit Clifford operations is not the same as equivalence under a tensor product of arbitrary single-qubit unitary operations \cite{arxiv:0709.1266} (see also Ref. \cite{arxiv:0707.4000} about this false LC-LU conjecture).
   Any qubit stabilizer code is equivalent to a graph quantum code via a single-qubit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).
   There are algorithms that determine whether two stabilizer states are equivalent that work by checking whether their corresponding cluster states are equivalent \cite{arxiv:1805.05305,arxiv:1805.05306,arxiv:1805.04559}.
 
   A qubit stabilizer code is \textit{decomposable} if there exists a permutation that maps the stabilizer group into a tensor product of two stabilizer groups acting on disjoint sets of qubits.
+  Otherwise, the code is indecomposable.
 
   \subsection{Code representations}
 
@@ -235,6 +237,7 @@ notes:
   - 'Stim Python software library for simulating and analyzing qubit stabilizer circuits \cite{arxiv:2103.02202,manual:{Craig Gidney. Stim. https://github.com/quantumlib/Stim, 2021.}}.'
   - 'PanQEC Python software library for simulating and visualizing qubit stabilizer codes \cite{arxiv:2211.02116,manual:{Eric Huang and Arthur Pesah. PanQEC. https://github.com/panqec/panqec, 2023.}}.'
   - 'QuantumSavory Julia software library that includes stabilizer formalism tools, symbolic manipulation, and a tool for drawing quantum circuits \cite{manual:{QuantumSavory. https://github.com/QuantumSavory, 2025.},doi:10.5281/zenodo.5208167}.'
+  - 'Qubit stabilizer codes for \(n < 10\) have been classified \cite{arxiv:2501.17447}.'
 
 relations:
   parents:

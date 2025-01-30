@@ -28,6 +28,7 @@ description: |
 
 protection: |
   A Hermitian self-orthogonal linear \([n,k,d]_{4}\) code yields an \([[n,n-2k]]\) qubit stabilizer code with distance no less than \(d\); this is the \textit{qubit Hermitian construction}.
+  The parameters satisfy \(k \equiv n\) mod 2 \cite{arxiv:2501.17447}.
 
   The stabilizer generator matrix is of the form
   \begin{align}
@@ -43,6 +44,7 @@ features:
     - 'All code automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}, so transversal physical gates implement only Clifford logical gates.'
     - 'Transversal \(SH\) and \(HS\) "facet" gates (a.k.a. \(M_3\) gates) which cyclically permute Paulis as \(X \to Y\), \(Y \to Z\), and \(Z \to X\) \cite[Sec. 8.2]{arxiv:quant-ph/9705052}.'
     - 'The three-block transversal gate mapping each physical \(X \to XYZ\) and each \(Z \to ZXY\) implements a logical gate \cite{arxiv:quant-ph/9702029}\cite[Exam. 2]{arxiv:quant-ph/9703048}.'
+    - 'A qubit stabilizer code is Hermitian if and only if a transversal \(R\) gate leaves the stabilizer group invariant \cite{arxiv:2501.17447}.'
 
   general_gates:
 
@@ -55,6 +57,7 @@ features:
 notes:
   - 'Tables of \([[n,0,d]]\) Hermitian codes \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}, corresponding to a self-dual \(GF(4)\) representation, at \href{https://www.ii.uib.no/~larsed/vncorbits/}{this website}.
   Bounds on self-dual \([[n,0,d]]\) Hermitian codes based on graphs have been derived \cite{doi:10.1016/S0012-365X(02)00513-7}.'
+  - 'Qubit Hermitian codes for \(n < 10\) have been classified \cite{arxiv:2501.17447}.'
 
 relations:
   parents:
@@ -71,6 +74,8 @@ relations:
       detail: 'The sole codeword of some \([[n,0,d]]\) Hermitian codes is an \hyperref[topic:ame]{AME state} \cite{arxiv:2005.01426}.'
     - code_id: self_dual
       detail: 'Hermitian qubit codes are constructed from Hermitian self-orthogonal linear codes over \(GF(4)\) via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}. This relation yields bounds on self-dual codes over \(GF(4)\) \cite{arxiv:2501.10163}.'
+    - code_id: qubit_css
+      detail: 'A Hermitian qubit code that can be put into CSS form via single-qubit Clifford operations remains Hermitian \cite{arxiv:2501.17447}.'
 
 
 # Begin Entry Meta Information
