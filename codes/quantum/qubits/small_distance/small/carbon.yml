@@ -11,8 +11,11 @@ name: '\([[12,2,4]]\) carbon code'
 short_name: 'Carbon'
 introduced: '\cite{arxiv:2404.02280}'
 
+alternative_names:
+  - '\(C_{12}\) code'
+
 description: |
-  Twelve-qubit CSS code resulting from the concatenation of the \([[4,2,2]]\) code and the \([[6,2,2]]\) code (also known as \(C_4\) and \(C_6\)), as proposed by Knill \cite{arXiv:quant-ph/0410199}. The resulting code is denoted \(C_{12}\), or Carbon. By treating the 12-qubit code monolitically, the fault-tolerant state preparation circuits for the \(00\) and \(++\) states can be greatly simplified. 
+  Twelve-qubit CSS code resulting from the concatenation of the \([[4,2,2]]\) code and the \(C_6\) code that has simplified fault-tolerant state preparation circuits for the \(00\) and \(++\) states. 
 
 features:
   transversal_gates:
@@ -31,14 +34,20 @@ realizations:
 relations:
   parents:
     - code_id: qubit_css
-    - code_id: small_distance_qubit_stabilizer
     - code_id: qubit_concatenated
+      details: 'The carbon code is a concatenation of the \([[4,2,2]]\) code and the \(C_6\) code.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
     - code_id: stab_4_2_2
+      details: 'The carbon code is a concatenation of the \([[4,2,2]]\) code and the \(C_6\) code.'
     - code_id: stab_6_2_2
+      details: 'The carbon code is a concatenation of the \([[4,2,2]]\) code and the \(C_6\) code.'
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2025-02-04'
     - user_id: MarcusPS
       date: '2025-02-04'
     - user_id: VictorVAlbert
