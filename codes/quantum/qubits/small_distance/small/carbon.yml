@@ -12,16 +12,16 @@ short_name: 'Carbon'
 introduced: '\cite{arxiv:2404.02280}'
 
 description: |
-  Twelve-qubit CSS code for which \(H_X\) and \(H_Z\) are equal up to qubit permutations.
+  Twelve-qubit CSS code resulting from the concatenation of the \([[4,2,2]]\) code and the \([[6,2,2]]\) code (also known as \(C_4\) and \(C_6\)), as proposed by Knill \cite{arXiv:quant-ph/0410199}. The resulting code is denoted \(C_{12}\), or Carbon. By treating the 12-qubit code monolitically, the fault-tolerant state preparation circuits for the \(00\) and \(++\) states can be greatly simplified. 
 
 features:
   transversal_gates:
     - 'Two-block CNOT gates are transversal because the code is CSS.'
     - 'Automorphism groups of the underlying classical codes can yield transversal Clifford gates when combined with qubit permutations \cite{arxiv:1302.1035}.
-    In particular, logical Hadamard is realized by a transversal physical Hadamard followed by a qubit permutation, and a logical one-block CNOT is implemented by a qubit permutation \cite{arxiv:2404.02280}.'
+    In particular, logical Hadamard is realized by a transversal physical Hadamard followed by a qubit permutation, and a logical one-block CNOT is implemented by a qubit permutation \cite{arXiv:quant-ph/0410199,arxiv:2404.02280}.'
 
   decoders:
-    - 'Syndrome extraction circuit based on Knill error correction (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), but using only two code blocks instead of three \cite[Fig. 5]{arxiv:2404.02280}.'
+    - 'Syndrome extraction circuit based on Knill error correction (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), but using only one ancillary code block instead of two \cite[Fig. 5]{arxiv:2404.02280}.'
 
 
 realizations:
@@ -32,11 +32,15 @@ relations:
   parents:
     - code_id: qubit_css
     - code_id: small_distance_qubit_stabilizer
-
+    - code_id: qubit_concatenated
+    - code_id: stab_4_2_2
+    - code_id: stab_6_2_2
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: MarcusPS
+      date: '2025-02-04'
     - user_id: VictorVAlbert
       date: '2024-04-04'
     - user_id: vtomole
