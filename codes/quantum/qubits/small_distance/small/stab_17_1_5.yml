@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_17_1_5
+physical: qubits
+logical: qubits
+
+name: '\([[17,1,5]]\) 4.8.8 color code'
+introduced: '\cite{arxiv:quant-ph/0605138}'
+
+
+description: |
+  Seventeen-qubit doubly even 2D color code that admits a transversal implementation of the logical Clifford group.
+
+
+features:
+  encoders:
+    - 'Fault-tolerant logical zero state preparation using reinforcement learning \cite{arxiv:2402.17761}.'
+  transversal_gates:
+    - 'Transversal implementation of the logical Clifford group.'
+  fault_tolerance:
+    - 'Fault-tolerant logical zero state preparation using reinforcement learning \cite{arxiv:2402.17761}.'
+
+
+relations:
+  parents:
+    - code_id: 488_color
+    - code_id: quantum_divisible
+    - code_id: small_distance_qubit_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-02-06'
