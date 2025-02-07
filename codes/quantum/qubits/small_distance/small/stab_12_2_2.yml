@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_12_2_2
+physical: qubits
+logical: qubits
+
+name: '\([[12,2,2]]\) CSS code'
+introduced: '\cite{arxiv:2303.15615}'
+
+description: |
+  CSS code that admits a logical \(CS\) gate via application of physical \(T\) and \(T^{\dagger}\) gates.
+
+features:
+  transversal_gates:
+    - 'Logical \(CS\) gate via application of physical \(T\) and \(T^{\dagger}\) gates \cite{arxiv:2303.15615}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: stab_8_3_2
+      detail: 'The \([[12,2,2]]\) CSS code can be obtained by joining two copies of the \([[8,3,2]]\) code at a common face \cite{arxiv:2303.15615}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-02-07'
