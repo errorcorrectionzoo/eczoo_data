@@ -37,27 +37,18 @@ description: |
 
   The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
-  Basis states for the code are, for \(\gamma \in C_X\),
+  Basis states for the code are, for coset representatives \(\gamma \in C_X/C_Z^\perp\),
   \begin{align}
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
 
-  Specializing to the case when \(C_Z=[n,k,d]\) is dual-containing yields an \([[n,2k-n,\geq d_Z]]\) \textit{self-dual qubit CSS code} (a.k.a. weakly self-dual qubit CSS code) with \(C_X = C_Z^\perp\) and with \(n\) necessarily odd.
+  Specializing to the case when \(C_Z=[n,k,d]\) is dual-containing yields an \([[n,2k-n,\geq d]]\) \textit{self-dual qubit CSS code} (a.k.a. weakly self-dual qubit CSS code) with \(C_X = C_Z\) and with \(n\) necessarily odd.
   Its \(X\)-type and \(Z\)-type stabilizers are identically supported.
 
   A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
   \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
   In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric qubit CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
   
-  To find the minimum distance of \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
-  Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:
-  \begin{align}
-  d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
-  d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
-  d&=\min\{d_X,d_Z\}~,
-  \end{align}
-  where \(w_H\) is the Hamming weight of a codeword.
-
   \subsection{CSS-to-homology correspondence}
 
   \begin{defterm}{Qubit CSS-to-homology correspondence}
@@ -85,6 +76,14 @@ description: |
     |C_{Z}||C_{Z}^{\perp}| \geq 2^{n}\,.
   \end{align}
 
+# To find the minimum distance of \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
+# Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:
+# \begin{align}
+# d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
+# d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
+# d&=\min\{d_X,d_Z\}~,
+# \end{align}
+# where \(w_H\) is the Hamming weight of a codeword.
 
 #  The reverse mapping is as follows \cite{arxiv:1311.0885,arxiv:1807.09783}. Given a CSS code with parity check matrices \(H_X\) and \(H_Z\), let both boundary operators be \(\partial = H_Z^TUH_X\) for an arbitrary invertible matrix \(U\). The fact that the stabilizer generators commute ensures that the boundary operator satisfies \(\partial^2=0\), yielding a chain complex.
 #  Then, the normalizer of the stabilizers \({\mathsf{N}}(C_X)\) and \({\mathsf{N}}(C_Z)\) is \(\text{Ker}(\partial_2^T)\) and \(\text{Ker}(\partial_1)\), respectively.

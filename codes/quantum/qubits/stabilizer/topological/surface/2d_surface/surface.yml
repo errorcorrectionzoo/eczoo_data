@@ -113,7 +113,7 @@ features:
     The sub-threshold failure probability scales as \((p/p_{\text{th}})^{d^\beta}\), where \(p_{\text{th}}\) is the threshold and \(\beta = \log_3 2\).'
     - 'Minimum weight perfect-matching (MWPM) \cite{arxiv:quant-ph/0110143,arxiv:1110.5133,arxiv:1202.5602,arxiv:1307.1740} (based on work by Edmonds on finding a matching in a graph \cite{doi:10.4153/CJM-1965-045-4,doi:10.6028/jres.069B.013}), which takes time up to polynomial in \(n\) for the surface code.
     For the case of the surface code, minimum-weight decoding reduces to MWPM \cite{arxiv:quant-ph/0110143,doi:10.4153/CJM-1965-045-4,doi:10.1088/0305-4470/15/2/033}. MWPM solves the MPE decoding problem exactly for independent \(X\) and \(Z\) noise. MPE decoding is \(NP\)-hard in general for the surface code \cite{arxiv:2309.10331}. PyMatching is a Python software library for implementing MWPM \cite{arxiv:2105.13082}.'
-    - 'Bravyi-Suchara-Vargo (BSV) tensor network decoder \cite{arxiv:1405.4883} exactly solves the ML decoding problem under independent \(X,Z\) noise for the surface code, and an approximate tensor network decoder for general noise takes time of \hyperref[topic:asymptotics]{order} \(O(n^2)\) \cite{arxiv:1405.4883}.
+    - 'The Bravyi-Suchara-Vargo (BSV) tensor network decoder \cite{arxiv:1405.4883} exactly solves the ML decoding problem under independent \(X,Z\) noise for the surface code and has complexity of \hyperref[topic:asymptotics]{order} \(O(n^2)\); the decoder provides an efficient tensor-network contraction for the partition function resulting from the statistical mechanical mapping, which is known to be solvable for an Ising model on a planar graph \cite{doi:10.1103/PhysRev.88.1332}.
     ML decoding \cite{arxiv:quant-ph/0110143} is \(\#P\)-hard in general for the surface code \cite{arxiv:2309.10331}.'
     - 'Union-find decoder \cite{arxiv:1709.06218} uses the \textit{union-find data structure} \cite{doi:10.1145/364099.364331,doi:10.1137/0202024,doi:10.1145/62.2160}, solving the MPE decoding problem exactly for low-weight errors under depolarizing noise. A subsequent modification utilizes the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2107.13589}. Belief union find is a combination of belief-propagation and union-find \cite{arxiv:2203.04948}.
     Strictly local (as opposed to partially local) union find \cite{arxiv:2305.18534} has a worst-case runtime of \hyperref[topic:asymptotics]{order} \(O(d^3)\) in the distance \(d\).'
@@ -217,6 +217,10 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: BaileyGu
+      date: '2025-02-13'
+    - user_id: VictorVAlbert
+      date: '2025-02-13'
     - user_id: VictorVAlbert
       date: '2023-03-29'
     - user_id: MarcusPS
