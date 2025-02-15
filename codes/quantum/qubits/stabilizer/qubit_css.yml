@@ -32,8 +32,16 @@ description: |
   The above condition guarantees that the \(X\)-stabilizer generators, defined in the \hyperref[topic:binary-symplectic-representation]{symplectic representation} as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
 
   Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,d_X]\) code \(C_X\) and \([n,k_Z,d_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\).
-  The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\), where \(\min\{d_X,d_Z\}\) is often called the \textit{worst-case minimum distance}.
-  This worst-case minimum distance is often less than the true distance due to \hyperref[topic:degeneracy]{degeneracy} \cite{preset:GottesmanBook}, and the code is \hyperref[topic:quantum-weight-enumerator]{pure} with respect to its worst-case minimum distance (i.e., \(\min\{d_X,d_Z\}\) is the code's \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2209.13474}).
+  The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits.
+  The quantity \(\min\{d_X,d_Z\}\) is the code's \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2209.13474}, and it is equal to the code distance for a \hyperref[topic:degeneracy]{non-degenerate} code.
+  To find the code distance of a \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
+  The general formulae are
+  \begin{align}
+  d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
+  d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
+  d&=\min\{d_X,d_Z\}~,
+  \end{align}
+  where \(w_H\) is the Hamming weight of a codeword.
 
   The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
@@ -76,14 +84,6 @@ description: |
     |C_{Z}||C_{Z}^{\perp}| \geq 2^{n}\,.
   \end{align}
 
-# To find the minimum distance of \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
-# Thus the general formulae for the minimum distances \(d, d_Z, d_X\) for an \([[n,k,d]]\) or \([[n,k,(d_X,d_Z)]]\) \(CSS(C_X, C_Z)\) code are:
-# \begin{align}
-# d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
-# d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
-# d&=\min\{d_X,d_Z\}~,
-# \end{align}
-# where \(w_H\) is the Hamming weight of a codeword.
 
 #  The reverse mapping is as follows \cite{arxiv:1311.0885,arxiv:1807.09783}. Given a CSS code with parity check matrices \(H_X\) and \(H_Z\), let both boundary operators be \(\partial = H_Z^TUH_X\) for an arbitrary invertible matrix \(U\). The fact that the stabilizer generators commute ensures that the boundary operator satisfies \(\partial^2=0\), yielding a chain complex.
 #  Then, the normalizer of the stabilizers \({\mathsf{N}}(C_X)\) and \({\mathsf{N}}(C_Z)\) is \(\text{Ker}(\partial_2^T)\) and \(\text{Ker}(\partial_1)\), respectively.
