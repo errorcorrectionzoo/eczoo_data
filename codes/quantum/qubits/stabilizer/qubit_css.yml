@@ -33,20 +33,6 @@ description: |
 
   Encoding is based on two related \hyperref[code:binary_linear]{binary linear codes}, an \([n,k_X,\delta_X]\) code \(C_X\) and \([n,k_Z,\delta_Z]\) code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\).
   The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits.
-  The quantity \(\min\{\delta_X,\delta_Z\}\) is the code's \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2209.13474}, and it is equal to the code distance for a \hyperref[topic:degeneracy]{non-degenerate} code.
-  To find the code distance of a \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
-  The general formulae are
-  \begin{align}
-  d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
-  d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
-  d&=\min\{d_X,d_Z\}~,
-  \end{align}
-  where \(w_H\) is the Hamming weight of a codeword.
-
-  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
-  \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
-  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric qubit CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
-
   The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parity} is the parity-check matrix of the code \(C_Z\) (\(C_X\)).
   The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:comm} and also implies  \(C_Z^\perp \subseteq C_X \).
   Basis states for the code are, for coset representatives \(\gamma \in C_X/C_Z^\perp\),
@@ -54,7 +40,7 @@ description: |
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
 
-  Specializing to the case when \(C_Z=[n,k,\delta]\) is dual-containing yields an \([[n,2k-n,\geq \delta]]\) \textit{self-dual qubit CSS code} (a.k.a. weakly self-dual qubit CSS code) with \(C_X = C_Z\) and with \(n\) necessarily odd.
+  Specializing to the case when \(C_Z=[n,k]\) is dual-containing yields an \([[n,2k-n]]\) \textit{self-dual qubit CSS code} (a.k.a. weakly self-dual qubit CSS code) with \(C_X = C_Z\) and with \(n\) necessarily odd.
   Its \(X\)-type and \(Z\)-type stabilizers are identically supported.
 
   
@@ -74,6 +60,7 @@ description: |
   \label{eq:chain}
   \end{align}
   One constructs a CSS code by associating a physical qubit to every basis element of \(A_1\), and defining parity-check matrices \(H_X=\partial_1\) and \(H_Z=\partial_2^T\)). That way, the spaces \(A_0\) and \(A_2\) can be associated with \(X\)-type and \(Z\)-type Pauli operators, respectively, and boundary operators determine the Paulis making up the stabilizer generators. The requirement \(\partial_1 \partial_2 = 0\) guarantees that the \(X\)-stabilizer generators associated with \(H_X\) commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
+  The number of encoded logical qubits is equal to the dimension of the first \(\mathbb{Z}_2\)-homology of the chain complex, \(H_1(\partial, \mathbb{Z}_2) = \frac{\text{Ker}(\partial_1)}{\text{Im}(\partial_2)}\).
   See \cite[Table 3.2]{arxiv:1504.01444} for a Rosetta stone comparing statistical mechanical models, CSS codes, and chain complexes.
 
   Usually, the chain complex \eqref{eq:chain} used in the construction comes from the chain complex associated with a cellulation of a manifold. When the manifold is a two-dimensional surface, its entire chain is used.
@@ -92,11 +79,20 @@ description: |
 # condition Then, the code derived from a chain with this boundary operator yields classical codes \(C_X\) and \(C_Z\) with codewords in \(\text{Im}(\partial^T)\) and \(\text{Im}(\partial)\), respectively.
 
 protection: |
-  Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.
+  The quantity \(\min\{\delta_X,\delta_Z\}\) is the code's \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2209.13474}, and it is equal to the code distance for a \hyperref[topic:degeneracy]{non-degenerate} code.
+  To find the code distance of a \hyperref[topic:degeneracy]{degenerate} CSS code, we have to first remove the codewords of the smaller codes as those codewords correspond to stabilizer generators instead of logical operators.
+  The general formulae are
+  \begin{align}
+  d_{X}&=\min\{ w_H(c) | c \in C_X \setminus C_Z^\perp \} \\
+  d_{Z}&=\min\{ w_H(c) | c \in C_Z \setminus C_X^\perp \} \\
+  d&=\min\{d_X,d_Z\}~,
+  \end{align}
+  where \(w_H\) is the Hamming weight of a codeword.
+  In the homology correspondence, the code distance is equal to the minimum of the combinatorial (\(d-1\))-systole of the cellulated \(d\)-dimensional manifold and its dual.
 
-  Using the relation to chain complexes, the number of encoded logical qubits is equal to the dimension of the first \(\mathbb{Z}_2\)-homology of the chain complex, \(H_1(\partial, \mathbb{Z}_2) = \frac{\text{Ker}(\partial_1)}{\text{Im}(\partial_2)}\).
-
-  The distance of the CSS code is equal to the minimum of the combinatorial (\(d-1\))-systole of the cellulated \(d\)-dimensional manifold and its dual.
+  A CSS code has \textit{stabilizer weight} \(w\) if the highest weight of any stabilizer generator is \(w\), i.e., any row of \(H_X\) and \(H_Z\) has weight at most \(w\).
+  \textit{Strong CSS codes} are codes for which there exists a set of \(X\) and \(Z\) stabilizer generators of equal weight.
+  In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric qubit CSS codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).
 
   CSS codes have a \textit{CSS lower bound} against depolarizing noise because CSS decoding does not take into account correlations between \(X\)- and \(Z\)-type noise \cite{doi:10.1109/ISIT.2013.6620358}.
   An upper bound is formulated in Ref. \cite{arxiv:2308.07915}.
