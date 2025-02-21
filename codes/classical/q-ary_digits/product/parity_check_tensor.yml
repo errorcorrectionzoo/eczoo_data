@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: parity_check_tensor
+physical: q-ary_digits
+
+name: 'Parity-check tensor-product code'
+introduced: '\cite{doi:10.1109/TIT.1965.1053771}'
+
+description: |
+  A matrix-based code constructed out of two linear binary or \(q\)-ary codes with parity-check matrices \(H_A,H_B\) such its parity-check matrix is \(H_A \otimes H_B\).  
+  Its dual has parity-check matrix \(G_A\otimes G_B\), where \(G_{A,B}\) are the generator matrices of the two underlying codes \cite{arxiv:2209.13474}.
+
+
+notes:
+  - 'See Ref. \cite{doi:10.1109/ITW2.2006.323741} for an exposition.'
+
+relations:
+  parents:
+    - code_id: q-ary_linear
+  cousins:
+    - code_id: tensor
+      detail: 'Tensor-product codewords (parity-check tensor-product parity-check matrices) are constructed via an outer product of the underlying codes (parity-check matrices).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-02-20'
