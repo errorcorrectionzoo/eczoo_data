@@ -12,19 +12,33 @@ short_name: 'SHYPS'
 introduced: '\cite{arxiv:2502.07150}'
 
 description: |
-  A member of the family of \([(2^r − 1)^2, r^2, 2^{r−1}]\) SHP codes for \(r \geq 3\) with weight-three gauge generators constructed from a hypergraph product of simplex codes.
+    Family of quantum LDPC codes obtained by combining the \hyperref[code:subsystem_quantum_parity]{subsystem hypgergraph product code} construction with classical \hyperref[code:simplex]{simplex codes}. 
+    The result are CSS subsystem codes with weight-three gauge generators and code parameters \([n=(2^r − 1)^2, k=r^2, d=2^{r-1}]\) for \(r \geq 3\).
 
-  Their automorphism group is \(GL_{r}(\mathbb{F}_2)\), inherited from the automorphism group of the simplex codes.
+  Due to their symmetric structure, SHYPS codes inherit the large authomorphism group of the underlying classical simplex codes. More precisely, \(|Aut(SHYPS(r))| \geq |GL_{r}(\mathbb{F}_2)|^2\), which is exponential in the number of logical qubits. 
+  This large authomorphism group can be leveraged to obtain a depth-one fault-tolerant implementation for a large set of logical Clifford operators. 
+  This set of depth-one Clifford generators is sufficiently large to allow for efficient compilation, i.e., any \(m\)-qubit Clifford operator can be executed in depth \(O(m)\). 
+  Due to single-shot properties of this code family, this means only \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit Clifford circuit.
+
+
+protection: |
+  Simulations of \emph{clifford logic} on two code blocks of the [49, 9, 4] SHYPS code show a 0.018% \hyperref[topic:pseudo-threshold]{pseudo-threshold} under circuit-level noise with a BP-OSD decoder \cite{arxiv:2502.07150}.
+
+  Memory simulations of the [49, 9, 4] and [225, 16, 8] SHYPS codes under circuit level noise with a sliding window decoder using BPOSD were also performed in \cite{arxiv:2502.07150}.
+
 
 features:
   transversal_gates:
-    - 'Fold-transversal Hadamard gate on all logical qubits and various phase-type gates \cite{arxiv:2502.07150}.'
+    - 'Cross-block transversal CNOT gates \(\prod_{i=1}^n CNOT_{i, n+(\sigma_1\otimes\sigma_2)(i)}\) for \(\sigma_1, \sigma_2\) authomorphisms of the classical simplex code. These operators implement a generating set of cross-block logical CNOT gates.'
+    - 'In-block phase-type fold-transversal gates with \(SP_{2k}(\mathbb{F}_2)\) representation \(\begin{bmatrix} I & (\sigma \otimes \sigma^T)\tau \\ 0 & 1\end{bmatrix}\) for \(\sigma\) an authomorphism of the classical simplex code and \(\tau\) a self-inverse ZX duality of the code\footnote{\(\tau\) is a self-inverse permutation which acts like \(\tau (e_i \otimes e_j) = e_j \otimes e_i\) for the canonical basis \(\{e_i\}\) of \(\mathbb{F}_2^\sqrt{n}\)}. These operators implement a generating set of logical in-block diagonal gates \cite{arxiv:2502.07150}.'
+    - 'Cross-block phase-type fold-transversal gates \(\prod_{i=1}^n CZ_{i, n+(\sigma_1\otimes\sigma_2)\tau(i)}\) for \(\sigma_1, \sigma_2\) authomorphisms of the classical simplex code and \(\tau\) as above. These operators implement a generating set of logical cross-block diagonal gates \cite{arxiv:2502.07150}.'
+    - 'Fold-transversal Hadamard gate \(H^{\otimes n} \tau \), with \(\tau\) as above. Implements logical Hadamard-SWAP operator \(H^{\otimes k} \tau_k \), with \(\tau_k\) defined analogously to \(\tau\) \cite{arxiv:2502.07150}.'
+
   general_gates:
     - 'Roughly \(4m\) cycles of depth-one physical Clifford operations followed by syndrome extraction yield arbitrary \(m\)-qubit logical Clifford gates \cite{arxiv:2502.07150}.'
-    - 'Logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth roughly \(4b r^2\) \cite{arxiv:2502.07150}.'
+    - 'Worst-case logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth \(4bk(1+o(1))\) using at most \(b\) auxiliary code blocks \cite{arxiv:2502.07150}.'
   fault_tolerance:
     - 'Logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth roughly \(4b r^2\) \cite{arxiv:2502.07150}.'
-
 
 relations:
   parents:
@@ -39,4 +53,6 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2025-03-14'
+      date: '2025-02-14'
+    - user_id: AlexisSchotte
+      date: '2025-02-26'
