@@ -12,9 +12,13 @@ short_name: 'SHYPS'
 introduced: '\cite{arxiv:2502.07150}'
 
 description: |
-    Family of quantum LDPC codes obtained by combining the \hyperref[code:subsystem_quantum_parity]{subsystem hypgergraph product code} construction with classical \hyperref[code:simplex]{simplex codes}. The result are CSS subsystem codes with weight-three generators and code parameters \([n=(2^r − 1)^2, k=r^2, d=2^{r-1}]\) for \(r \geq 3\).
+    Family of quantum LDPC codes obtained by combining the \hyperref[code:subsystem_quantum_parity]{subsystem hypgergraph product code} construction with classical \hyperref[code:simplex]{simplex codes}. 
+    The result are CSS subsystem codes with weight-three gauge generators and code parameters \([n=(2^r − 1)^2, k=r^2, d=2^{r-1}]\) for \(r \geq 3\).
 
-  Due to their symmetric structure, SHYPS codes inherit the large authomorphism group of the underlying classical simplex codes. More precisely, \(|Aut(SHYPS(r))| \geq |GL_{r}(\mathbb{F}_2)|^2\), which is exponential in the number of logical qubits. This large authomorphism group can be leveraged to obtain a depth-one fault-tolerant implementation for a large set of logical Clifford operators. This set of depth-one Clifford generators is sufficiently large to allow for efficient compilation, i.e., any \(m\)-qubit Clifford operator can be executed in depth \(O(m)\). Due to single-shot properties of this code family, this means only \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit Clifford circuit.
+  Due to their symmetric structure, SHYPS codes inherit the large authomorphism group of the underlying classical simplex codes. More precisely, \(|Aut(SHYPS(r))| \geq |GL_{r}(\mathbb{F}_2)|^2\), which is exponential in the number of logical qubits. 
+  This large authomorphism group can be leveraged to obtain a depth-one fault-tolerant implementation for a large set of logical Clifford operators. 
+  This set of depth-one Clifford generators is sufficiently large to allow for efficient compilation, i.e., any \(m\)-qubit Clifford operator can be executed in depth \(O(m)\). 
+  Due to single-shot properties of this code family, this means only \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit Clifford circuit.
 
 
 protection: |
@@ -26,12 +30,8 @@ protection: |
 features:
   transversal_gates:
     - 'Cross-block transversal CNOT gates \(\prod_{i=1}^n CNOT_{i, n+(\sigma_1\otimes\sigma_2)(i)}\) for \(\sigma_1, \sigma_2\) authomorphisms of the classical simplex code. These operators implement a generating set of cross-block logical CNOT gates.'
-
     - 'In-block phase-type fold-transversal gates with \(SP_{2k}(\mathbb{F}_2)\) representation \(\begin{bmatrix} I & (\sigma \otimes \sigma^T)\tau \\ 0 & 1\end{bmatrix}\) for \(\sigma\) an authomorphism of the classical simplex code and \(\tau\) a self-inverse ZX duality of the code\footnote{\(\tau\) is a self-inverse permutation which acts like \(\tau (e_i \otimes e_j) = e_j \otimes e_i\) for the canonical basis \(\{e_i\}\) of \(\mathbb{F}_2^\sqrt{n}\)}. These operators implement a generating set of logical in-block diagonal gates \cite{arxiv:2502.07150}.'
-
-    - 'Cross-block phase-type fold-transversal gates
-\(\prod_{i=1}^n CZ_{i, n+(\sigma_1\otimes\sigma_2)\tau(i)}\) for \(\sigma_1, \sigma_2\) authomorphisms of the classical simplex code and \(\tau\) as above. These operators implement a generating set of logical cross-block diagonal gates \cite{arxiv:2502.07150}.'
-
+    - 'Cross-block phase-type fold-transversal gates \(\prod_{i=1}^n CZ_{i, n+(\sigma_1\otimes\sigma_2)\tau(i)}\) for \(\sigma_1, \sigma_2\) authomorphisms of the classical simplex code and \(\tau\) as above. These operators implement a generating set of logical cross-block diagonal gates \cite{arxiv:2502.07150}.'
     - 'Fold-transversal Hadamard gate \(H^{\otimes n} \tau \), with \(\tau\) as above. Implements logical Hadamard-SWAP operator \(H^{\otimes k} \tau_k \), with \(\tau_k\) defined analogously to \(\tau\) \cite{arxiv:2502.07150}.'
 
   general_gates:
