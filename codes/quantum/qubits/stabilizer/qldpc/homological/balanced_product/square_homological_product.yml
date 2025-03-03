@@ -1,0 +1,49 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: square_homological_product
+physical: qubits
+logical: qubits
+
+name: 'Square homological product code'
+introduced: '\cite{arxiv:1311.0885}'
+
+alternative_names:
+  - 'Single-sector homological code'
+  - 'Square tensor product code'
+
+description: |
+  Homological product code whose underlying boundary operators (i.e., classical-code parity-check matrices) are square matrices (see \ref{topic:CSS-to-homology-correspondence}).
+
+  Each base code is associated with the chain complex \( C_i \longrightarrow C_i\longrightarrow C_i\) such that the boundary operator satisfies \(\partial_{a}^{2}=0\). 
+  The image \(im\partial\) forms the parity-check space, and any basis for this space corresponds to the \(Z\)-type stabilizer group generators. 
+  The same rule holds for \(im\partial^{T}\), which gives \(X\)-type stabilizer generators. 
+
+  Conversely, \(\ker\partial\setminus \text{im}\partial\) (or \(\partial^{T}\)) correspond to all undetectable \(Z\)-type (\(X\)-type) errors. Finally, the \(Z\)-type logical operators are just elements in the homological group \(\ker\partial/\text{im}\partial\), and \(X\)-type logical operators are just elements in the cohomological group \(ker\partial^{T}/im\partial^{T}\).
+
+# Given two classical codes, \(C_i=[n_i,k_i,d_i]\) with \(i\in\{1,2\}\), whose parity-check matrices \(H_i\) satisfy \(H_i^2 = 0\), their homological product yields two classical codes with \(C_{X,Z}\) with parity-check matrices
+# \begin{align}
+#   H_X = H_Z^T = H_1 \otimes I + I \otimes H_2~,
+# \end{align}
+# where \(I\) is the identity.
+# These two codes then yield a homological product code via the CSS construction.
+
+
+protection: |
+  Square homological-product admit very different properties than those with rectangular boundary operators.
+
+
+relations:
+  parents:
+    - code_id: homological_product
+      detail: 'Square homological product codes are homological product codes whose boundary operators are square matrices.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-03-03'
