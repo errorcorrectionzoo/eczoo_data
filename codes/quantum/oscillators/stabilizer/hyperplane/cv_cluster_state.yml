@@ -6,18 +6,18 @@
 code_id: cv_cluster_state
 physical: oscillators
 
-name: 'Analog-cluster-state code'
+name: 'Analog cluster-state code'
 introduced: '\cite{doi:10.1103/PhysRevA.73.032318,arxiv:quant-ph/0605198,arxiv:0903.3233}'
 
 alternative_names:
-  - 'CV-cluster-state code'
-  - 'CV-graph-state code'
-  - 'Bosonic-cluster-state code'
+  - 'CV cluster-state code'
+  - 'CV graph-state code'
+  - 'Bosonic cluster-state code'
 
 description: |
   A code based on a continuous-variable (CV), or analog, cluster state.
   Such a state can be used to perform MBQC of logical modes, which substitutes the temporal dimension necessary for decoding a conventional code with a spatial dimension.
-  The exact analog cluster state is non-normalizable, so approximate constructs have to be considered.
+  The exact analog cluster state is non-normalizable, so approximate constructions have to be considered.
 
   Analog cluster states are analog stabilizer states defined on a graph.
   There is one nullifier \(\hat{\eta}_j\) per graph vertex \(j\) of the form
@@ -54,9 +54,12 @@ notes:
 relations:
   parents:
     - code_id: analog_stabilizer
-      detail: 'Analog-cluster-state codes are particular analog stabilizer codes. Relaxing the real weighted adjacency matrix of an analog cluster state to be complex yields a description of a general analog (i.e., Gaussian) stabilizer code state \cite{arxiv:1007.0725}. Pure Gaussian states, which are normalizable approximate versions of analog stabilizer states, are not equivalent to finitely squeezed analog cluster states via Gaussian local unitaries \cite{arxiv:1912.06463}.'
+      detail: 'Analog cluster-state codes are particular analog stabilizer codes. Any analog stabilizer state is equivalent to an analog cluster state under a single-mode Gaussian circuit \cite{arxiv:2503.15698}. Relaxing the real weighted adjacency matrix of an analog cluster state to be complex yields a description of a general analog (i.e., Gaussian) stabilizer state \cite{arxiv:1007.0725}. Pure Gaussian states, which are normalizable approximate versions of analog stabilizer states, are not equivalent to finitely squeezed analog cluster states via Gaussian local unitaries \cite{arxiv:1912.06463}.'
     - code_id: group_cluster_state
       detail: 'Analog cluster states are group-based cluster states for \(G=\mathbb{R}\).'
+  cousins:
+    - code_id: ame
+      detail: 'Analog cluster states are generically CV AME, and explicit constructions exist for any number of modes \cite{arxiv:2503.15698}.'
 
 
 # Begin Entry Meta Information
