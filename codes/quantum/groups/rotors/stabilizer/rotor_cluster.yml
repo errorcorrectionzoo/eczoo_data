@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: rotor_cluster
+physical: groups
+
+name: 'Rotor cluster-state code'
+introduced: '\cite{arxiv:2503.15698}'
+
+description: |
+  Rotor analogue of the qubit and analog cluster-state codes.
+  The exact rotor cluster state is non-normalizable, so approximate constructions have to be considered.
+  Defined from an real-valued weighed adjacency matrix of a graph \cite{arxiv:2503.15698}.
+
+
+relations:
+  parents:
+    - code_id: rotor_stabilizer
+      detail: 'Rotor cluster-state codes are particular rotor stabilizer codes.' 
+    - code_id: group_cluster_state
+      detail: 'Rotor cluster states are group-based cluster states for \(G=\mathbb{Z}\).'
+  cousins:
+    - code_id: ame
+      detail: 'Rotor cluster states exist for any number of modes \cite{arxiv:2503.15698}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2023-04-12'

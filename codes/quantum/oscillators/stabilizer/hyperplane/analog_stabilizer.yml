@@ -8,16 +8,18 @@ physical: oscillators
 logical: oscillators
 
 name: 'Analog stabilizer code'
-introduced: '\cite{arxiv:quant-ph/0405064}'
+introduced: '\cite{arxiv:quant-ph/0405064,arxiv:2503.15698}'
 
 alternative_names:
   - 'Gaussian stabilizer code'
   - 'Linear stabilizer code'
   - 'Symplectic stabilizer code'
   - 'Wavepacket code'
+  - 'Infinitely squeezed state code'
 
 description: |
   An oscillator-into-oscillator stabilizer code encoding \(k\) logical modes into \(n\) physical modes. An \(((n,k,d))_{\mathbb{R}}\) analog stabilizer code is denoted as \([[n,k,d]]_{\mathbb{R}}\), where \(d\) is the code's distance.
+  Any analog stabilizer state can be thought of as a pure Gaussian state that has been infinitely squeezed on all modes \cite{arxiv:2503.15698}.
 
   Analog stabilizer codes admit continuous stabilizer group of displacements.  This group can equivalently be defined in terms of its Lie algebra. The codespace is equivalently the common \(0\)-eigenvalue eigenspace of the Lie algebra generators, which are mutually commuting linear combinations of oscillator position and momentum operators called \textit{nullifiers} \cite{arxiv:0903.3233} or \textit{annihilators}.
   An analog stabilizer code admitting a set of nullifiers such that each nullifier consists of either position or momentum operators is called an \textit{analog CSS code}.
@@ -33,7 +35,7 @@ protection: |
 
 features:
   encoders:
-    - 'Gaussian circuit applied to \(k\) modes storing logical information and \(n-k\) modes initialized in a position state.'
+    - 'Gaussian circuit applied to \(k\) modes storing logical information and \(n-k\) modes initialized in a position state \cite{arxiv:1810.00047}.'
   decoders:
     - 'Homodyne measurement of nullifiers yields real-valued syndromes, and recovery can be performed by displacements conditional on the syndromes.'
 
@@ -53,6 +55,10 @@ relations:
       detail: 'Prime-qudit stabilizer codes can be converted into analog stabilizer codes whose distance is at least as large as that of the original code \cite{arxiv:2303.17000}.'
     - code_id: stab_8_3_3
       detail: 'The eight-qubit Gottesman code has been extended to an analog stabilizer code \cite{arxiv:quant-ph/0405064}.'
+    - code_id: ame
+      detail: 'Analog stabilizer states are generically CV AME, and explicit constructions exist for any number of modes \cite{arxiv:2503.15698}. The codespace of an analog stabilizer code with \hyperref[topic:quantum-weight-enumerator]{pure distance} \(d_{\textnormal{pure}}\) is a \((d_{\textnormal{pure}}-1)\)-uniform space \cite{arxiv:2503.15698}.'
+    - code_id: real_block
+      detail: 'Analog stabilizer codes are quantum versions of real block codes.'
 
 
 # Begin Entry Meta Information
