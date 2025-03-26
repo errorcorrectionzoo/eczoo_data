@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: pseudo_golay
+physical: rings
+logical: rings
+
+name: 'Pseudo Golay code'
+introduced: '\cite{doi:10.1109/18.661525,doi:10.1023/A:1008335912135,doi:10.1016/S0012-365X(98)00358-6}'
+# Different from quaternary Golay, which is not self dual 2309.02382
+
+description: |
+  Any one of 13 quaternary Type II self-dual linear codes over \(\mathbb{Z}_4\) whose mod-two reduction (mapping \(0,1,2,3\) to \(0,1,0,1\)) yields the Golay code \cite[Thm. 11]{doi:10.1016/S0012-365X(98)00358-6}.
+  Each code has Lee distance 12, Hamming distance 8, and Euclidean distance 16 \cite[Thm. 9]{doi:10.1016/S0012-365X(98)00358-6}. 
+
+relations:
+  parents:
+    - code_id: quaternary_over_z4
+    - code_id: self_dual_over_rings
+      detail: 'Pseudo Golay codes are Type II self-dual codes over \(\mathbb{Z}_4\) \cite[Thm. 9]{doi:10.1016/S0012-365X(98)00358-6}.'
+  cousins:
+    - code_id: extended_golay
+      detail: 'The mod-two reduction (mapping \(0,1,2,3\) to \(0,1,0,1\)) of all pseudo Golay codes yields the extended Golay code; see Ref. \cite{arxiv:2309.02382}.'
+    - code_id: leech
+      detail: 'The Leech lattice can be constructed from pseudo Golay codes via Construction \(A_4\) \cite{doi:10.1016/S0012-365X(98)00358-6,arxiv:2309.02382}.'
+    - code_id: combinatorial_design
+      detail: 'Supports of codewords of any fixed symmetrized type of pseudo Golay codes form a 5-design \cite{doi:10.1016/S0012-365X(98)00035-1,doi:10.1002/(SICI)1520-6610(1998)6:3<225::AID-JCD4>3.0.CO;2-H,doi:10.1016/S0378-3758(99)00117-2}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-03-26'

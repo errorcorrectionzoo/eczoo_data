@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quaternary_golay
+physical: rings
+logical: rings
+
+name: 'Quaternary Golay code'
+introduced: '\cite{doi:10.1109/18.370138}'
+
+alternative_names:
+  - '\(mathbb{Z}_4\) Golay code'
+
+description: |
+  An extended quadratic residue quaternary linear code over \(\mathbb{Z}_4\) that is a quaternary version of the Golay code.
+  The code has Lee distance 12, Hamming distance 8, and Euclidean distance 16 \cite{doi:10.1109/18.370138}. 
+  The code maps to a binary code under the Gray map whose distance distribution is equal to the MacWilliams transform of the distance distribution of its dual code.
+
+
+relations:
+  parents:
+    - code_id: quaternary_over_z4
+  cousins:
+    - code_id: extended_golay
+      detail: 'Codewords of the quaternary Golay code with entries 0 and 2 are of the form \(2c\), where \(c\) is a codeword of the extended Golay code. Its mod-two reduction (mapping \(0,1,2,3\) to \(0,1,0,1\)) also yields the extended Golay code; see Ref. \cite{arxiv:2309.02382}.'
+    - code_id: combinatorial_design
+      detail: 'Supports of codewords of any fixed symmetrized type of the quaternary Golay code form a 5-design \cite{doi:10.1016/S0012-365X(98)00035-1,doi:10.1002/(SICI)1520-6610(1998)6:3<225::AID-JCD4>3.0.CO;2-H,doi:10.1016/S0378-3758(99)00117-2}.'
+    - code_id: leech
+      detail: 'The Leech lattice can be constructed from the quaternary Golay code \cite{doi:10.1109/18.370138,arxiv:2309.02382}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-03-26'
