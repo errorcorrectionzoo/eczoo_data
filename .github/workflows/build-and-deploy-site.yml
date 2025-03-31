@@ -24,7 +24,7 @@ jobs:
       # Check out site generation code
       - name: 'Check out eczoo_sitegen code'
         run: |
-          git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen
+          git clone https://github.com/errorcorrectionzoo/eczoo_sitegen.git --depth=1 eczoo_sitegen && (cd eczoo_sitegen && git log -1)
 
       # --------------------------------
 
@@ -47,6 +47,9 @@ jobs:
       #
       # SET UP CACHES
       #
+      # !!!! Make sure "key:" is unique to the setting!  A cache hit from the primary key
+      # causes the cache not to be saved back, as Github assumes that the cache was already
+      # computed.
 
       # Cache Yarn Modules
 
@@ -61,8 +64,8 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-          #restore-keys: |
-          #  yarn-cache-folder-
+          restore-keys: |
+            yarn-cache-folder-
 
       # Cache citation information (downloaded information & compiled citations)
 
@@ -70,14 +73,14 @@ jobs:
         uses: actions/cache@v3
         with:
           path: eczoo_sitegen/_zoodb_citations_cache_LOCAL
-          #key: zoodb-citations-cache-LOCAL-${{ github.sha }}-${{ hashFiles('**/yarn.lock') }}
-          key: zoodb-citations-cache-LOCAL
-          #restore-keys: |
-          #  zoodb-citations-cache-LOCAL-
+          key: zoodb-citations-cache-LOCAL-${{ github.sha }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            zoodb-citations-cache-LOCAL-
 
       - name: Initialize local citation information cache if applicable
         run: |
           if [ ! -e _zoodb_citations_cache_LOCAL/cache_downloaded_info.json ]; then
+            echo "No citations cache found from github action cache, using sitegen repo cache"
             mkdir -p _zoodb_citations_cache_LOCAL/
             cp _zoodb_citations_cache/*.json _zoodb_citations_cache_LOCAL/
           fi
