@@ -53,7 +53,21 @@ protection: |
 #  - 'Links to code tables, github, GAP algebra packages, more papers \cite{arxiv:####.#####}.'
 
 features:
-  rate: 'The quantum channel capacity, i.e., the regularized coherent information, is the highest rate of quantum information transmission through a quantum channel with arbitrarily small error rate \cite{arxiv:quant-ph/9604015,preset:ShorMSRI,arxiv:quant-ph/0304127}. See \cite[Ch. 24]{arxiv:1106.1445} for definitions and a history. The fault-tolerant capacity is the capacity for the more general case where the encoding and decoding maps are also assumed to undergo noise \cite{arxiv:2009.07161}.'
+  rate: |
+    The quantum channel capacity, i.e., the regularized coherent information, is the highest rate of quantum information transmission through a quantum channel with arbitrarily small error rate \cite{arxiv:quant-ph/9604015,preset:ShorMSRI,arxiv:quant-ph/0304127}. 
+    In other words, the capacity formula implies that one can achieve a transmission rate
+    \(r\) over a quantum channel \(\mathcal{E}\) iff, for sufficiently large \(n\), \(m=\lfloor r n \rfloor\),
+    and for all \(\epsilon>0\),
+    \begin{align}
+      ||\mathcal{D}\mathcal{E}\mathcal{U}-I^{\otimes m}||_1\leq \epsilon
+    \end{align}
+    for some encoding channel \(\mathcal{U}\) and some recovery channel \(\mathcal{D}\).
+    The quantum capacity \(Q\) of \(\mathcal{E}\) is defined as the supremum over \(n\) of achievable transmission rates \cite{doi:10.1017/9781316848142}.
+    See \cite[Ch. 24]{arxiv:1106.1445} for definitions and a history.     
+    
+    The fault-tolerant capacity is the capacity for the more general case where the encoding and decoding maps are also assumed to undergo noise \cite{arxiv:2009.07161}.
+
+    Doublin coefficients \cite{manual:{Doeblin, W. (1937). Sur les propriétés asymptotiques de mouvement régis par certains types de chaines simples. Bulletin mathématique de la Société roumaine des sciences, 39(1), 57-115.}} for quantum channels have been studied \cite{arxiv:2309.08475}.
 
   decoders:
     - 'The effect of an error is a mapping of the code subspace into another, potentially overlapping, subspace. To determine, or diagnose, the effect of the error in what is known as \textit{syndrome-based decoding}, one can measure one or more operators called \textit{check operators}, which resolve code and error spaces without collapsing the quantum information inside the spaces. The eigenvalues of check operators are called \textit{error syndromes}. One \textit{round} or \textit{cycle} of quantum error correction proceeds by extracting syndromes and performing correcting operations to map the error space containing the logical information back into the codespace. For some codes, correcting operations are not necessary because one can instead track which error space contains the logical information.'
