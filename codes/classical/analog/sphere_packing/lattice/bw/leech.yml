@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: leech
+physical: reals
+logical: reals
+
+name: '\(\Lambda_{24}\) Leech lattice'
+short_name: 'Leech'
+introduced: '\cite{doi:10.4153/CJM-1967-017-0}'
+
+description: |
+    Even unimodular lattice in 24 dimensions that exhibits optimal packing.
+    Its automorphism group is the Conway group \(.0\) a.k.a. Co\(_0\).
+
+protection: |
+  The Leech lattice has a nominal coding gain of \(4\). It exhibits the densest packing \cite{arxiv:1603.06518} and highest kissing number of 196560 in 24 dimensions.
+
+notes:
+  - 'Popular summary of solution to the sphere-packing problem in \href{https://www.quantamagazine.org/sphere-packing-solved-in-higher-dimensions-20160330/}{Quanta Magazine}.'
+
+
+relations:
+  parents:
+    - code_id: niemeier
+      detail: 'The Leech lattice is the Niemeier lattice with minimal norm 4 \cite{doi:10.1006/eujc.1999.0360}. Every Niemeier lattice is a sublattice of the Leech lattice \cite{arxiv:q-alg/9607013,doi:10.1006/eujc.1999.0360}.'
+    - code_id: construction_a4
+      detail: 'The Leech lattice can be constructed from pseudo Golay codes via \term{Construction \(A_4\)} \cite{doi:10.1016/S0012-365X(98)00358-6,arxiv:2309.02382}. The Leech lattice can be obtained by lifting the Golay code to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}, appending a parity check, and applying \term{Construction \(A_4\)} \cite{doi:10.1007/3-540-57843-9_20} (see also \cite{doi:10.1098/rspa.1982.0071,doi:10.1007/978-1-4757-6568-7}). Half of the lattice can be obtained in a different construction \cite[Exam. 10.7.3]{preset:EricZin}.'
+    - code_id: univ_opt_analog
+      detail: 'The Leech lattice is universally optimal \cite{arxiv:1902.05438}.'
+  cousins:
+    - code_id: golay
+      detail: 'The Leech lattice can be obtained by lifting the Golay code to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}, appending a parity check, and applying \term{Construction \(A_4\)} \cite{doi:10.1007/3-540-57843-9_20} (see also \cite{doi:10.1098/rspa.1982.0071,doi:10.1007/978-1-4757-6568-7}). Half of the lattice can be obtained in a different construction \cite[Exam. 10.7.3]{preset:EricZin}.'
+    - code_id: ternary_golay
+      detail: 'The Leech lattice can be obtained by from the ternary Golay code \cite{doi:10.1098/rspa.1982.0071}.'
+    - code_id: sharp_config
+      detail: 'Several spherical sharp configrations are derived from the Leech lattice \cite{arxiv:math/0607446}.'
+    - code_id: octacode
+      detail: 'The Leech lattice can be constructed via the Turyn construction and the holy construction using the octacode as the glue code \cite{doi:10.1109/18.391252}.'
+    - code_id: modulation
+      detail: 'Codewords of the Leech lattice have been proposed to be used for a modulation scheme \cite{doi:10.1109/49.29618}.'
+    - code_id: pseudo_golay
+      detail: 'The Leech lattice can be constructed from pseudo Golay codes via \term{Construction \(A_4\)} \cite{doi:10.1016/S0012-365X(98)00358-6,arxiv:2309.02382}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-08'
