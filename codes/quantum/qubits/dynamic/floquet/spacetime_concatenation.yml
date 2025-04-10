@@ -7,22 +7,12 @@ code_id: tensor
 physical: matrices
 
 name: 'Spacetime-concatenation code'
-introduced: 
 
-alternative_names:
+description: |
+Spacetime concatenation is an explicit framework for the compilation of stabilizer codes as efficient Floquet codes. This is done by structuring measurement gadgets using low-weight measurements while ensuring the preservation of logical information. In particular, spacetime concatenation reformulates the notion of dynamical code associated with a stabilizer code in terms of code concatenation for every qubit (spatial concatenation) and measurements between these codes (temporal concatenation), leading to a temporal evolution of the stabilizer state. 
 
-description: |Spacetime concatenation is an explicit framework for the compilation of stabilizer codes as efficient Floquet codes. This is done by structuring measurement gadgets using low-weight measurements while ensuring the preservation of logical information. In particular, spacetime concatenation reformulates the notion of dynamical code associated with a stabilizer code in terms of code concatenation for every qubit (spatial concatenation) and measurements between these codes (temporal concatenation), leading to a temporal evolution of the stabilizer state. 
+protection: |
+A matrix rank condition on the bond operators connecting the gadgets, called the Bond-Kernel-Rank Condition, and a strict locality preservation condition (SLPC), along with preservation of the operator algebra of the stabilizer code under the gadget action, leads to preservation of the space-time distance of the code and hence, provide fault-tolerance
 
-  
-
-protection: |A matrix rank condition on the bond operators connecting the gadgets, called the Bond-Kernel-Rank Condition, and a strict locality preservation condition (SLPC), along with preservation of the operator algebra of the stabilizer code under the gadget action, leads to preservation of the space-time distance of the code and hence, provide fault-tolerance
-
-features: compiles any LDPC stabilizer code fault-tolerantly as a Floquet code 
-  
-realizations:
-  
-notes:
- 
-relations:
-  parents:
-    
+features: |
+compiles any LDPC stabilizer code fault-tolerantly as a Floquet code 
