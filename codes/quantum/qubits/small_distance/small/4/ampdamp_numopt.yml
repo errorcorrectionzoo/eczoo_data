@@ -11,16 +11,21 @@ name: 'Numerically optimized four-qubit AD code'
 introduced: '\cite{arxiv:2411.12952}'
 
 description: |
-  Four-qubit code that can (approximately) correct a single \hyperref[topic:ad]{AD} error with higher entanglement fidelity than the \([[4,1,2]]\) subcodes of the \([[4,2,2]]\) code.
-  The code was obtained by a biconvex optimization of the entanglement fidelity.
-  A similar code was obtained from a machine-learning optimization \cite{arxiv:2503.11783}.
+  One of several four-qubit codes that can (approximately) correct a single \hyperref[topic:ad]{AD} error with higher fidelity than the \([[4,1,2]]\) subcodes of the \([[4,2,2]]\) code.
 
-  The admits a codeword basis of
+  A code obtained by a biconvex optimization of the entanglement fidelity admits a codeword basis of
   \begin{align}
   \begin{split}
   |\overline{0}\rangle&=\sqrt{1-\frac{1}{2(1-\gamma)^{2}}}|0000\rangle+\frac{1}{\sqrt{2}(1-\gamma)}|1111\rangle\\|\overline{1}\rangle&=\frac{1}{2}(|0011\rangle+|0101\rangle-|1010\rangle+|1100\rangle)\end{split}
   \end{align}
   for \hyperref[topic:ad]{AD} error rate \(\gamma\).
+  Another code, obtained from a machine-learning optimization \cite{arxiv:2503.11783}, admits a codeword basis of
+  \begin{align}
+  \begin{split}
+  |\bar{0}\rangle&=\sqrt{\frac{1}{1+(1-\gamma)^{-4}}}\left(|0000\rangle+(1-\gamma)^{-2}|1111\rangle\right)\\
+  |\bar{1}\rangle&=\sqrt{\frac{1}{2}}\left(|0011\rangle+|1100\rangle\right).
+  \end{split}
+  \end{align}
 
 features:
   encoders:
