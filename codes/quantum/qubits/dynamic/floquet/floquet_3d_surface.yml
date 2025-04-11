@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: floquet_3d_surface
+physical: qubits
+logical: qubits
+
+name: 'Floquet 3D surface code'
+introduced: '\cite{arxiv:2307.13668}'
+
+description: |
+  3D Floquet code whose physical qubit pairs are placed on vertices of a truncated cubic honeycomb.
+  The code is constructed by coupling three 2D surface codes on three interweaving 4.8.8 (square-octagon) tilings oriented along the \(x\), \(y\), and \(z\) axes, respectively, via a coupled layer construction \cite{arxiv:1701.00747}.
+  Its ISG is that of the 3D surface code.
+
+
+features:
+  decoders:
+    - 'Period-six rewinding measurement sequence \cite{arxiv:2307.13668}.'
+
+
+relations:
+  parents:
+    - code_id: floquet
+  cousins:
+    - code_id: 3d_surface
+      detail: 'The ISG of the Floquet 3D surface code is that of the 3D surface code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ArpitDua
+      date: '2025-04-11'
+    - user_id: VictorVAlbert
+      date: '2025-04-11'

@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 3d_fermionic_surface
+physical: qubits
+logical: qubits
+
+name: 'Floquet 3D fermionic surface code'
+introduced: '\cite{arxiv:2307.13668}'
+
+description: |
+  3D Floquet code whose physical qubits are placed on vertices of a particular trivalent honeycomb.
+  Its weight-two check operators are those of the 3D Kitaev honeycomb model \cite{arxiv:0801.0229}.
+  Its ISGs are equivalent to that of the 3D fermionic surface code via a constant-depth circuit with ancillas.
+  The code encodes a single logical qubit for periodic boundary conditions. 
+
+
+features:
+  decoders:
+    - 'Period-sixteen measurement sequence \cite{arxiv:2307.13668}.'
+
+
+relations:
+  parents:
+    - code_id: floquet
+  cousins:
+    - code_id: 3d_fermionic_surface
+      detail: 'The ISGs of the Floquet 3D fermionic surface code are equivalent to that of the 3D fermionic surface code via a constant-depth circuit with ancillas.'
+    - code_id: 3d_kitaev_honeycomb
+      detail: 'The weight-two check operators of the Floquet 3D fermionic surface code are those of the 3D Kitaev honeycomb model \cite{arxiv:0801.0229}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: ArpitDua
+      date: '2025-04-11'
+    - user_id: VictorVAlbert
+      date: '2025-04-11'
