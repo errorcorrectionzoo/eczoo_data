@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: approximate_log_depth
+physical: qubits
+logical: qubits
+
+name: 'Random 1D Clifford-circuit approximate code'
+introduced: '\cite{arxiv:2503.17759}'
+
+description: |
+  An \([[n,k]]\) stabilizer code whose encoder is a random Clifford circuit of log depth \(O(\log^3 n)\) on a 1D Euclidean geometry.
+
+features:
+  rate: 'Log-depth Clifford circuits on a 1D geometry yield approximate codes whose encoding rate achieves the hashing bound for Pauli noise and the channel capacity for erasure errors \cite{arxiv:2503.17759}.'
+  encoders:
+    - 'Random \(\log\)-depth Clifford circuit on a 1D Euclidean geometry.'
+
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+    - code_id: random_stabilizer
+      detail: 'Log-depth Clifford circuits on a 1D geometry yield approximate codes whose encoding rate achieves the hashing bound for Pauli noise and the channel capacity for erasure errors \cite{arxiv:2503.17759}.'
+    - code_id: translationally_invariant_stabilizer
+      detail: 'Log-depth Clifford circuits on a 1D geometry yield approximate codes whose encoding rate achieves the hashing bound for Pauli noise and the channel capacity for erasure errors \cite{arxiv:2503.17759}.'
+    - code_id: approximate_qecc
+      detail: 'Log-depth Clifford circuits on a 1D geometry yield approximate codes whose encoding rate achieves the hashing bound for Pauli noise and the channel capacity for erasure errors \cite{arxiv:2503.17759}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-12'
