@@ -10,7 +10,8 @@ logical: rings
 name: 'Linear code over \(\mathbb{Z}_q\)'
 
 description: |
-  A code encoding \(K\) states (codewords) in \(n\) coordinates over the ring \(\mathbb{Z}_q\) of integers modulo \(q\) that is closed under codeword addition and scalar multiplication.
+  A code encoding \(K\) states (codewords) in \(n\) coordinates over the ring \(\mathbb{Z}_q\) of integers modulo \(q\) that forms an Abelian subgroup of \(\mathbb{Z}_q^n\) under addition.
+  Since addition of \(m\) identical elements is equivalent to multiplying by \(m\), linear codes over \(\mathbb{Z}_q\) are automatically closed under scalar multiplication.
   More technically, linear codes over \(\mathbb{Z}_q\) are submodules of \(\mathbb{Z}_q^n\).
 
 protection: |
@@ -18,8 +19,7 @@ protection: |
 
 relations:
   parents:
-    - code_id: q-ary_additive_over_zq
-      detail: 'For \(q>2\), additive codes need not be linear since linearity also requires closure under multiplication.'
+    - code_id: q-ary_over_zq
     - code_id: rings_linear
 
 
