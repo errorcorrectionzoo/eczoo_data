@@ -11,8 +11,9 @@ name: 'Majorana box qubit'
 introduced: '\cite{arxiv:cond-mat/0010440,arxiv:1609.01697,arxiv:1610.05289}'
 
 description: |
-  An \([[n,1,2]]_{f}\) Majorana stabilizer code forming the even-fermion-parity ground-state subspace of two parallel Kitaev Majorana chains in their fermionic topological phase.
-  The \([[2,1,2]]_{f}\) version is called the tetron Majorana code.
+  A Majorana stabilizer code which forms a fixed-parity subspace of the ground-state subspace of one or more Kitaev Majorana chain Hamiltonians.
+  The \([[n,1,2]]_{f}\) Majorana box qubit forms the even-fermion-parity ground-state subspace of two parallel Kitaev Majorana chains in their fermionic topological phase.
+  Its \([[2,1,2]]_{f}\) version is called the tetron Majorana code.
   An \([[3,2,2]]_{f}\) extension using three Kitaev chains and housing two logical qubits of the same parity is called the \textit{hexon Majorana code}.
   Similarly, \textit{octon}, \textit{decon}, and \textit{dodecon} are codes defined by the positive-parity subspace of \(4\), \(5\), and \(6\) fermionic modes, respectively \cite{arxiv:1801.08143}.
 
@@ -35,10 +36,14 @@ relations:
     - code_id: majorana_stab
     - code_id: small_distance_qubit_stabilizer
     - code_id: topological_abelian
-      detail: 'When treated as ground states of the code Hamiltonian, surface codewords realize, codewords of a single Kitaev chain realize \(\mathbb{Z}_2\) fermionic topological order. The MZMs used to define the tetron code act as Ising anyons, which are non-Abelian.'
+      detail: 'When treated as ground states of the code Hamiltonian, codewords of a single Kitaev chain realize \(\mathbb{Z}_2\) fermionic topological order.'
+    - code_id: majorana_surface
+      detail: 'Concatenations of surface codes with Majorana box qubits are examples of Majorana surface codes.'
+    - code_id: majorana_color
+      detail: 'Concatenations of color codes with Majorana box qubits are examples of Majorana color codes.'
   cousins:
     - code_id: hamiltonian
-      detail: 'The tetron code forms the ground-state subspace of two Kitaev Majorana chain Hamiltonians.'
+      detail: 'A Majorana box qubit form a fixed-parity subspace of the ground-state subspace of one or more Kitaev Majorana chain Hamiltonians.'
 
 
 # Begin Entry Meta Information
