@@ -11,16 +11,19 @@ name: 'Tetron code'
 introduced: '\cite{arxiv:quant-ph/0205004,arxiv:cond-mat/0506438,arxiv:1004.3791,arxiv:1610.05289}'
 
 alternative_names:
-  - 'Kitaev-Wen Majorana code'
+  - 'Kitaev-Wen Majorana mapping'
+  - 'Kitaev honeycomb mapping'
+  - 'Bravyi-Leemhuis-Terhal (BLT) Majorana mapping'
 
 description: |
   A \([[2,1,2]]_{f}\) Majorana box qubit, encoding two fixed-fermion states into the four-dimensional ground-state space of two Kitaev chains, each of length two.
   The code encodes a logical qubit into four Majorana modes (i.e., two physical fermions), allowing it to be concatenated with various qubit codes such as surface codes and color codes via what is known as the Kitaev-Wen Majorana mapping.
+  
+  Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[2n,k,2d]]_{f}\) Majorana stabilizer code by concatenating with the tetron code \cite{arxiv:cond-mat/0506438}\cite[Lemma 1]{arxiv:1004.3791}.
+  Embedding each physical qubit into two fermions via the tetron code is useful for exactly solving the Kitaev honeycomb model Hamiltonian \cite{arxiv:cond-mat/0506438} and other qubit Hamiltonians on certain graphs \cite{arxiv:2003.05465,arxiv:2012.07857}.
 
-  \begin{defterm}{Kitaev-Wen Majorana mapping (a.k.a. tetron-code concatenation or Bravyi-Leemhuis-Terhal (BLT) Majorana mapping)}
-  .
-  \end{defterm}
-
+  
+  
 
 protection: |
   Tetrons can correct some odd-weight errors \cite{arxiv:2311.01779}.
@@ -30,6 +33,13 @@ relations:
   parents:
     - code_id: mbq
       detail: 'The Majorana box qubit for \(n=2\) is the tetron code.'
+  cousins:
+    - code_id: hamiltonian
+      detail: 'Embedding each physical qubit into two fermions via the tetron code is useful for exactly solving the Kitaev honeycomb model Hamiltonian \cite{arxiv:cond-mat/0506438} and other qubit Hamiltonians on certain graphs \cite{arxiv:2003.05465,arxiv:2012.07857}.'
+    - code_id: qubit_stabilizer
+      detail: |
+        Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[2n,k,2d]]_{f}\) Majorana stabilizer code by concatenating with the tetron code \cite{arxiv:cond-mat/0506438}\cite[Lemma 1]{arxiv:1004.3791}.
+        Embedding each physical qubit into two fermions via the tetron code is useful for exactly solving the Kitaev honeycomb model Hamiltonian \cite{arxiv:cond-mat/0506438} and other qubit Hamiltonians on certain graphs \cite{arxiv:2003.05465,arxiv:2012.07857}.
 
 
 # Begin Entry Meta Information

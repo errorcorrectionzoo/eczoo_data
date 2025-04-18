@@ -12,7 +12,6 @@ introduced: '\cite{arxiv:cond-mat/0506438,arxiv:1012.0425,arxiv:1701.05052}'
 
 description: |
   Code whose logical subspace is labeled by different fusion outcomes of Ising anyons present in the Ising-anyon topological phase of the Kitaev honeycomb model \cite{arxiv:cond-mat/0506438}.
-  Each logical qubit is constructed out of four Majorana operators, which admit braiding-based gates due to their non-Abelian statistics and which can be used for topological quantum computation.
   Ising anyons also exist in other phases, such as the fractional quantum Hall phase \cite{arxiv:quant-ph/0511178}.
 
   The Kitaev honeycomb model can be formulated as a qubit subsystem stabilizer code based on the \(\mathbb{Z}_2^{(1)}\) Abelian anyon theory, which is non-chiral and non-modular \cite[Sec. 7.3]{arxiv:2211.03798}.
@@ -40,13 +39,16 @@ relations:
     - code_id: qudit_znone
       detail: 'The Kitaev honeycomb model can be formulated as a qubit subsystem stabilizer code \cite[Sec. 3.2]{arxiv:1012.0425} based on the \(\mathbb{Z}_{q=2}^{(1)}\) Abelian anyon theory, which is non-chiral and non-modular \cite[Sec. 7.3]{arxiv:2211.03798}.'
   cousins:
-    - code_id: fermions_into_qubits
-      detail: 'While the Kitaev honeycomb model is bosonic, a fermion-into-qubit mapping is useful for solving and understanding the model.
-      Logical subspace of the Kitaev honeycomb code can be formulated as a joint eigenspace of certain Majorana operators \cite[Sec. 4.1]{arxiv:1701.05052}.
-      Logical Paulis are also be constructed out of Majorana operators.'
+    - code_id: tetron
+      detail: |
+        Embedding each physical qubit into two fermions via the tetron code is useful for exactly solving the Kitaev honeycomb model Hamiltonian \cite{arxiv:cond-mat/0506438} and other qubit Hamiltonians on certain graphs \cite{arxiv:2003.05465,arxiv:2012.07857}.
+        It also allows the logical subspace of the Kitaev honeycomb model to be formulated as a joint eigenspace of certain Majorana operators \cite[Sec. 4.1]{arxiv:1701.05052}, which admit braiding-based gates due to their non-Abelian statistics and which can be used for topological quantum computation.
+        When done in reverse, this embedding can be thought of as a 2D bosonization fermion-into-qubit encoding by converting to a relabeled square lattice and performing single-qubit rotations \cite{arxiv:1711.00515}\cite[Sec. IV.B]{arxiv:2201.05153}.
     - code_id: 2d_bosonization
-      detail: 'While the Kitaev honeycomb model is bosonic, a fermion-into-qubit mapping is useful for solving and understanding the model.
-      This fermion-into-qubit encoding that can be converted to a 2D bosonization code by converting to a relabeled square lattice and performing single-qubit rotations \cite{arxiv:1711.00515}\cite[Sec. IV.B]{arxiv:2201.05153}.'
+      detail: |
+        Embedding each physical qubit into two fermions via the tetron code is useful for exactly solving the Kitaev honeycomb model Hamiltonian \cite{arxiv:cond-mat/0506438} and other qubit Hamiltonians on certain graphs \cite{arxiv:2003.05465,arxiv:2012.07857}.
+        It also allows the logical subspace of the Kitaev honeycomb model to be formulated as a joint eigenspace of certain Majorana operators \cite[Sec. 4.1]{arxiv:1701.05052}, which admit braiding-based gates due to their non-Abelian statistics and which can be used for topological quantum computation.
+        When done in reverse, this embedding can be thought of as a 2D bosonization fermion-into-qubit encoding by converting to a relabeled square lattice and performing single-qubit rotations \cite{arxiv:1711.00515}\cite[Sec. IV.B]{arxiv:2201.05153}.
     - code_id: surface
       detail: 'The Kitaev honeycomb model can be formulated as a qubit subsystem stabilizer code.
       This code can be obtained from the square-lattice surface code by \hyperref[topic:gauging-out]{gauging out} the anyon \(em\) \cite[Sec. 7.3]{arxiv:2211.03798}.
