@@ -11,10 +11,15 @@ name: 'Gray code'
 introduced: '\cite{manual:{Gray, Frank. "Pulse code communication." United States Patent Number 2632058 (1953).},doi:10.1002/j.1538-7305.1958.tb03887.x,doi:10.1137/0209013}'
 
 description: |
-  The first Gray code \cite{manual:{Gray, Frank. "Pulse code communication." United States Patent Number 2632058 (1953).}}, now called the \textit{binary reflected Gray code}, is a trivial \([n,n,1]\) code that orders length-\(n\) binary strings such that nearest-neighbor strings differ by only one digit.
+  The first Gray code \cite{manual:{Gray, Frank. "Pulse code communication." United States Patent Number 2632058 (1953).}}, now called the \textit{binary reflected Gray code}, is a trivial \([n,n,1]\) code that orders length-\(n\) binary strings such that nearest-neighbor strings differ by only one digit via the \term{Gray map}.
 
-  A simple example is the case \(n=2\), also known as the \textit{Gray map}, which produces the ordering \(0\to 00\), \(1\to 01\), \(2\to 11\), and \(3\to 10\).
-  The Gray map differs in the last two numbers from the usual binary expansion of the natural numbers, which maps \(0\to 00\), \(1\to 01\), \(2\to 10\), and \(3\to 11\).
+  \begin{defterm}{Gray map}
+  The Gray map converts a quaternary string over \(\mathbb{Z}_4\) into a binary string such that the Hamming distance of the binary representation is one between any two consecutive quaternary digits. 
+  For a single digit, the mapping is \(0\to 00\), \(1\to 01\), \(2\to 11\), and \(3\to 10\).
+  This differs from the usual binary expansion of the natural numbers, which maps \(0\to 00\), \(1\to 01\), \(2\to 10\), and \(3\to 11\).
+  A linear code \(C\) over \(\mathbb{Z}_4\) can be mapped, via the Gray map, to a binary code. 
+  The binary code is linear if and only if doubling the component-wise product of any two codewords in \(C\) yields another codeword in \(C\) \cite[Thm. 12.2.3]{doi:10.1017/CBO9780511807077}.
+  \end{defterm}
 
   Gray codes have been generalized such that nearest-neighbor strings differ by only one digit when the strings are arranged in higher-dimensional hypercubes \cite{doi:10.1002/j.1538-7305.1958.tb03887.x}.
   Further generalizations called \textit{combinatorial Gray codes} \cite{doi:10.1137/0209013} refer to methods to organize combinatorial objects such that successive objects differ in some particular way.
@@ -34,9 +39,12 @@ notes:
 relations:
   parents:
     - code_id: binary_linear
+      detail: 'A linear code \(C\) over \(\mathbb{Z}_4\) can be mapped, via the \term{Gray map}, to a binary code. The binary code is linear if and only if doubling the component-wise product of any two codewords in \(C\) yields another codeword in \(C\) \cite[Thm. 12.2.3]{doi:10.1017/CBO9780511807077}.'
   cousins:
     - code_id: qubits_into_qubits
       detail: 'Gray codes are useful for optimizing qubit unitary circuits \cite{arxiv:quant-ph/0312218} and for encoding qudits in multiple qubits \cite{arxiv:1909.12847}.'
+    - code_id: quaternary_over_z4
+      detail: 'A linear code \(C\) over \(\mathbb{Z}_4\) can be mapped, via the \term{Gray map}, to a binary code. The binary code is linear if and only if doubling the component-wise product of any two codewords in \(C\) yields another codeword in \(C\) \cite[Thm. 12.2.3]{doi:10.1017/CBO9780511807077}.'
 
 
 # Begin Entry Meta Information
