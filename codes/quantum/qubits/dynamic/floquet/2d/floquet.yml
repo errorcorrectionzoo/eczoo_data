@@ -36,6 +36,12 @@ relations:
       detail: 'Both Floquet and monitored random circuit codes can have an instantaneous stabilizer group which evolves through unitary evolution and measurements. However, Floquet codewords are generated via a specific periodic sequence of measurements, while random-circuit codes maintain a stabilizer group after any measurement. Floquet codes have the additional capability of detecting errors induced during the measurement process; see Appx. A of Ref. \cite{arxiv:2107.02194}.'
     - code_id: majorana_stab
       detail: 'Floquet codes are viable candidates for storage in Majorana-qubit devices \cite{arxiv:2202.11829}.'
+    - code_id: qubit_stabilizer
+      detail: |
+        Using ZX calculus, an \([[n,k,d]]\) qubit stabilizer code admitting stabilizer generators of weight no more than \(m\) can be \textit{Floquetified} into an \([[n+\lceil m/2 \rceil+\ell,k,d^{\prime}]]\) dynamical code with single- and two-qubit operations, where \(\ell \leq \log_{2} m\) and \(d^{\prime} \geq d\) \cite{arxiv:2410.17240} (see also Ref. \cite{arxiv:2307.11136}). 
+        A more general locality-preserving \textit{spacetime concatenation} procedure yields a dynamical code out of any qubit stabilizer code by structuring measurement gadgets using low-weight measurements while ensuring the preservation of logical information \cite{arxiv:2504.08918}. 
+        In particular, spacetime concatenation reformulates the notion of a dynamical code associated with a stabilizer code in terms of code concatenation for every qubit (spatial concatenation) and measurements between these codes (temporal concatenation), leading to a temporal evolution of the stabilizer state \cite{arxiv:2504.08918}. 
+        A matrix rank condition on the bond operators connecting the gadgets, called the Bond-Kernel-Rank Condition, and a strict locality preservation condition (SLPC), along with preservation of the operator algebra of the stabilizer code under the gadget action, preserves fault-tolerance and the spacetime distance of the code \cite{arxiv:2504.08918}.
 
 
 # Begin Entry Meta Information
