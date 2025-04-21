@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: floquet
+physical: qubits
+logical: qubits
+
+name: 'Hastings-Haah Floquet code'
+introduced: '\cite{arxiv:2107.02194}'
+
+alternative_names:
+  - 'Periodic Floquet code'
+
+description: |
+  2D dynamical code whose sequence of check-operator measurements is periodic.
+  The first instance of a dynamical code.
+
+# In addition, the number of logical qubits is larger than when the code is viewed as a static subsystem stabilizer code.
+
+protection: 'Protects against single-qubit Pauli noise and check operator measurement errors.'
+
+features:
+  fault_tolerance:
+    - 'Periodic Floquet codes on tri-colorable lattices can be made fault-tolerant in the presence of dead qubits \cite{arxiv:2307.03715,arxiv:2405.15854}.'
+
+relations:
+  parents:
+    - code_id: da
+      detail: 'Periodic Floquet codes are dynamical codes with periodic measurement sequences.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-07-12'
+    - user_id: VictorVAlbert
+      date: '2022-01-01'
