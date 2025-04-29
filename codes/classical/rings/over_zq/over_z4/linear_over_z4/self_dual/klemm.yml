@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: klemm
+physical: rings
+logical: rings
+
+name: 'Klemm code'
+introduced: '\cite{doi:10.1007/BF01198572}'
+
+description: |
+  A member of a family of self-dual linear \((4m,4^1 2^{4m-2})_{\mathbb{Z}_4}\) codes.
+  
+  A generator matrix for this code is
+  \begin{align}
+    \begin{pmatrix}
+    1 & 1 & 1 & \cdots & 1 & 1\\
+    0 & 2 & 0 & \cdots & 0 & 2\\
+    0 & 0 & 2 & \cdots & 0 & 2\\
+    0 & 0 & 0 & \ddots & \vdots & \vdots\\
+    0 & 0 & 0 & \cdots & 2 & 2
+    \end{pmatrix}\,.
+  \end{align}
+
+relations:
+  parents:
+    - code_id: quaternary_over_z4
+    - code_id: self_dual_over_zq
+      detail: 'The Klemm code is self-dual over \(\mathbb{Z}_4\) \cite{doi:10.1007/3-540-30731-1}.'
+  cousins:
+    - code_id: hamming844
+      detail: 'The image of the \(m=1\) Klemm code under the \term{Gray map} is the \([8,4,4]\) extended Hamming code \cite[Exam. 3.2]{doi:10.1142/3603}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-04-29'
