@@ -10,12 +10,34 @@ logical: rings
 name: 'Linear code over \(\mathbb{Z}_4\)'
 
 description: |
-  A code encoding \(K\) states (codewords) in \(n\) coordinates over the ring \(\mathbb{Z}_4\) of integers modulo four that is an additive group.
+  A code that forms a subgroup of \(\mathbb{Z}_4^n\) under addition.
   More technically, linear codes over \(\mathbb{Z}_4\) are submodules of \(\mathbb{Z}_4^n\).
 
+  Linear codes over \(\mathbb{Z}_4\) can be defined in terms of a \textit{generator matrix} \(G\), whose rows generate the \(k\)-dimensional codespace.
+  Given a message (i.e., logical string) \(x\), the corresponding encoded codeword is \(G^T x\). 
 
+  A code's generator matrix can be reduced via coordinate permutations to its \textit{standard form} 
+  \begin{align}
+    G=\left[\begin{array}{ccc}
+    I_{k_{1}} & A & B\\
+    0 & 2I_{k_{2}} & 2C
+    \end{array}\right]~,
+  \end{align}
+  where \(A,C\) are binary matrices, and where \(B\) is a quaternary matrix. 
+  Such a code encodes \(4^{k_1} 2^{k_2}\) codewords, consisting of \(k_1\) logical quaternary digits and \(k_2\) logical bits.
+  It is called an \((n,4^{k_1} 2^{k_2})_{\mathbb{Z}_4}\) linear code over \(\mathbb{Z}_4\) of \textit{type} \(4^{k_1} 2^{k_2}\).
+  The generator matrix forms a basis when there are no logical bits, i.e., the submodule is free if and only if \(k_2=0\) \cite{doi:10.1142/3603}.
 
+protection: |
+  Quaternary codes over \(\mathbb{Z}_4\) come with a Hamming distance, which is the minimum number of nonzero coordinates of a nonzero codeword.
+  They also protect from cyclic shifts in each quaternary digit, which are quantified by the Lee metric.
+  The Lee weight of a digit is given by \(w_L(0)=0\), \(w_L(1)=1\), \(w_L(2)=2\), and \(w_L(3)=1\), and the Lee weight of a string is the integral sum of the Lee weights of its digits.
+  The code's \textit{Lee distance} of a code is the minimum Lee weight of a nonzero codeword.
 
+  The Lee distance \(d_L\) between two strings \(a,b\in\mathbb{Z}_4\) governs how many cyclic shifts it takes to connect the two strings, and is thus related to the Euclidean distance between \(i^a\) and \(i^b\) as \(2d_L(a,b) = \|i^a - i^b\|^2\).
+  Quaternary codes over the Lee metric are thus naturally mapped to QPSK codes.
+
+  \hyperref[topic:weight-enumerator]{Weight enumerators} have also been extended to the Lee metric \cite{doi:10.1007/BF01198572}.
 
 notes:
   - 'Code \href{https://quantumcodes.info/Z4/}{Database}, including quasi-cyclic and quasi-twisted codes \cite{arxiv:2208.06832}.'
@@ -25,6 +47,11 @@ relations:
   parents:
     - code_id: q-ary_linear_over_zq
       detail: 'Linear binary codes are linear \(q\)-ary codes over \(\mathbb{Z}_q\) for \(q=4\).'
+  cousins:
+    - code_id: qpsk
+      detail: |
+        The Lee distance \(d_L\) between two strings \(a,b\in\mathbb{Z}_4\) governs how many cyclic shifts it takes to connect the two strings, and is thus related to the Euclidean distance between \(i^a\) and \(i^b\) as \(2d_L(a,b) = \|i^a - i^b\|^2\).
+        Quaternary codes over the Lee metric are thus naturally mapped to QPSK codes.
 
 
 # Begin Entry Meta Information
