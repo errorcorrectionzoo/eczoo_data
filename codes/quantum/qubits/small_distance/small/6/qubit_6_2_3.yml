@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_6_2_3
+physical: qubits
+logical: qubits
+
+name: '\(((6,2,3))\) \(\mathbb{Z}_{10}\) code'
+introduced: '\cite{arxiv:2504.20847}'
+
+
+description: |
+  Six-qubit code that realizes gates from the group \(\mathbb{Z}_{10}\) transversally.
+  This is the smallest distance-three code supporting a transversal gate outside of the \hyperref[topic:clifford]{Clifford group}.
+  See Ref. \cite{arxiv:2504.20847} for the codewords.
+
+
+features:
+  transversal_gates:
+    - 'The \(\mathbb{Z}_{10}\) group can be realized transversally \cite{arxiv:2504.20847}. This is the smallest distance-three code supporting a transversal gate outside of the \hyperref[topic:clifford]{Clifford group}.'
+
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: small_distance_quantum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-04-30'
