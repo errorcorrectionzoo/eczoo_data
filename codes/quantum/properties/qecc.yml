@@ -15,16 +15,18 @@ description: |
   Encodes quantum information in a (\textit{logical}) subspace of a
   (\textit{physical}) Hilbert space such that it is possible to recover said
   information from errors that act as linear maps on the physical space.
+  The state space of a QECC is contained in the space of complex \(L^2\)-normalizable functions of some configuration space, which usually corresponds to the alphabet of a classical code.
 
   Since quantum information is encoded in quantum superpositions, an additional source of noise (not relevant to classical encodings) can affect the relative phase of such superpositions.
   Quantum error-correcting codes have to protect against such \textit{phase-flip noise} while also protecting against conventional classical \textit{bit-flip} noise.
   Codes are not expected to protect against both types of noise perfectly, and there is generally a tradeoff.
 
-  The
-  logical subspace is spanned by a basis comprised of \textit{code basis states}
+  The logical subspace is spanned by a basis comprised of \textit{code basis states}
   or \textit{codewords}. Codewords may not be normalizable if the physical
   Hilbert space in infinite, so approximate versions have to be constructed in
   practice.
+
+  While all considered QECC states are complex functions, real or quaternionic function spaces can also be considered for QEC \cite{arxiv:quant-ph/9911074,arxiv:2504.19833}. 
 
 protection: |
   Denoting Hilbert spaces by the letter \(\mathsf{H}\), a quantum code

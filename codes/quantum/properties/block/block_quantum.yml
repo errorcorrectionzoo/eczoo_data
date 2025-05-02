@@ -9,32 +9,11 @@ name: 'Block quantum code'
 
 description: |
   A code constructed in a multi-partite quantum system, i.e., a physical space consisting of a tensor product of \(n > 1\) identical factors called \textit{subsystems}, \textit{parties}, or \textit{bodies}.
-  The subsystems include qubits, modular qudits, Galois qudits, oscillators, or more general groups.
+  The subsystems include qubits, modular qudits, Galois qudits, oscillators, groups, or categories.
   For finite dimensional codes, the dimension of the underlying subsystem is denoted by \(q\) and is sometimes called the \textit{local dimension}.
 
-  While codewords \(c\) of block codes are elements of \(\Sigma^n\) for some alphabet \(\Sigma\), quantum states of block quantum codes are \(L^2\)-normalizable functions on said alphabet.
+  While codewords \(c\) of block codes are elements of \(\Sigma^n\) for some alphabet \(\Sigma\), quantum states of block quantum codes are \(L^2\)-normalizable functions on \(\Sigma^n\).
   Put differently, the configuration space of the canonical (a.k.a. computational) basis states \(|c\rangle\) of an \(n\)-body quantum system is the classical \(n\)-coordinate alphabet \(\Sigma^n\).
-  The table below lists the most common alphabets used in block quantum codes, along with names of the corresponding subsystems.
-    \begin{table}
-      \begin{cells}
-      \celldata<c H, c H>{alphabet \(\Sigma\) & subsystem}
-      \celldata<c, c>{
-      \(\mathbb{Z}_{2}=GF(2)\) & qubit
-          \\
-      \(GF(q)\) & Galois qudit
-          \\
-      \(\mathbb{Z}_{q}\) & modular qudit
-          \\
-      \(\mathbb{R}\) & bosonic mode
-          \\
-      \(G\) & group-valued qudit
-          \\
-      \(\mathcal{C}\) & category-valued qudit
-      }
-      \end{cells}
-      \caption{Table listing the most common alphabets (a.k.a. configuration spaces) used in block quantum codes. Here, \(GF(q)\) is a \hyperref[topic:finite-fields]{finite field}, \(G\) is a finite or infinite group, and \(\mathcal{C}\) is a category.}
-      \label{table:quantum-alphabets}
-    \end{table}
 
 protection: |
   Block codes protect from erasures or, more generally, errors acting on a few of the \(n\) subsystems. A block code with \textit{distance} \(d\) detects errors acting on up to \(d-1\) subsystems, and corrects erasure errors on up to \(d-1\) subsystems.

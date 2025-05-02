@@ -13,6 +13,30 @@ description: |
   Code designed for transmission of quantum and/or classical information through a quantum channel for the purposes of robust storage, communication, or sensing. 
   Transmission can be performed with side information or entanglement.
 
+  While codewords \(c\) of an ECC are elements of some alphabet \(\Sigma\), quantum codewords are \(L^2\)-normalizable complex functions on \(\Sigma\).
+  Put differently, the configuration space of the canonical (a.k.a. computational) basis states \(|c\rangle\) of a quantum system is the classical alphabet \(\Sigma\).
+  The table below lists the most common alphabets used in quantum codes, along with names of the corresponding systems.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H>{alphabet \(\Sigma\) & system}
+      \celldata<c, c>{
+      \(\mathbb{Z}_{2}=GF(2)\) & qubit
+          \\
+      \(GF(q)\) & Galois qudit
+          \\
+      \(\mathbb{Z}_{q}\) & modular qudit
+          \\
+      \(\mathbb{R}\) & bosonic mode
+          \\
+      \(G\) & group-valued qudit
+          \\
+      \(\mathcal{C}\) & category-valued qudit
+      }
+      \end{cells}
+      \caption{Table listing the most common alphabets (a.k.a. configuration spaces) used in quantum codes. Here, \(GF(q)\) is a \hyperref[topic:finite-fields]{finite field}, \(G\) is a group, and \(\mathcal{C}\) is a category.}
+      \label{table:quantum-alphabets}
+    \end{table}
+
 
 # Begin Entry Meta Information
 _meta:
