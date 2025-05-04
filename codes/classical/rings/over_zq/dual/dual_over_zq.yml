@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual_over_zq
+physical: rings
+logical: rings
+
+name: 'Dual code over \(\mathbb{Z}_q\)'
+
+description: |
+  For any linear code \(C\) over \(\mathbb{Z}_q\), the dual code is the set of \(q\)-ary strings over \(\mathbb{Z}_q\) that are orthogonal to the codewords of \(C\) under the standard inner product modulo \(q\).
+
+  The dual code over \(\mathbb{Z}_q\) is
+  \begin{align}
+  C^\perp = \{ y\in \(\mathbb{Z}_q\)^{n} ~|~ x \cdot y=0 \mod q \forall x\in C\}~.
+  \end{align}
+
+protection: |
+  For \(q=4\), the dual of a code \(C=(n,4^{k_1} 2^{k_2})_{\mathbb{Z}_4}\) is \(C^{\perp} = (n,4^{n-k_1-k_2} 2^{k_2})\), whose generator matrix can be written in terms of the standard form of \(C\) \cite[Prop. 1.2]{doi:10.1142/3603}.
+
+
+
+relations:
+  parents:
+    - code_id: dual_over_rings
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-04-29'
