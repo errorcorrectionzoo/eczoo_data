@@ -17,13 +17,13 @@ description: |
   A \([[30,8,3]]\) hyperbolic surface code on a quotient of the \(\{5,5\}\) hyperbolic tiling called Bring's curve.
   Its qubits and stabilizer generators lie on the vertices of the small stellated dodecahedron. Admits a set of weight-five stabilizer generators.
 
-  Better fault-tolerant parity-check schedules have been developed in Ref. 
-  \cite{manual:{J. Q. Broshuis, "The Small Stellated Dodecahedron Code: Finding Interleaved Measurement Schedules", Master's thesis. \href{https://resolver.tudelft.nl/uuid:4e6852c1-b18d-4b6b-8cc4-dc4587bff260}{report-link} \href{https://github.com/MarcSerraPeralta/ssd-scheduler}{GitHub-link}}}
-  resulting in a logical performance similar as Surface-17, with the small stellated dodecahedron code having less qubit overhead (reduced by a factor 2.6).
-
+  
 features:
   transversal_gates:
     - '\hyperref[topic:clifford]{Clifford group} of four of the eight logical qubits can be done by transversal gates combined with qubit permutations \cite{arxiv:2202.06647}.'
+  decoders:
+    - 'Fault-tolerant parity-check schedules whose performance is similar to those of the surface-17 code, but with qubit overhead reduced by a factor 2.6 \cite{manual:{J. Q. Broshuis, "The Small Stellated Dodecahedron Code: Finding Interleaved Measurement Schedules", Master''s thesis. \href{https://resolver.tudelft.nl/uuid:4e6852c1-b18d-4b6b-8cc4-dc4587bff260}{report-link} \href{https://github.com/MarcSerraPeralta/ssd-scheduler}{GitHub-link}}}.'
+
 
 relations:
   parents:
@@ -42,5 +42,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: MarcSerraPeralta
+      date: '2025-05-09'
+    - user_id: VictorVAlbert
+      date: '2025-05-09'
     - user_id: VictorVAlbert
       date: '2023-02-05'
