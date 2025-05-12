@@ -17,10 +17,12 @@ protection: 'As a stabilizer code with boundaries, protects a single qubit with 
 features:
   decoders:
     - 'Maximum-likelihood decoding using the EWD decoder \cite{arxiv:2112.01977}.'
+    - 'Sequential decoder \cite{arxiv:2505.03691}.'
   code_capacity_threshold:
     - '\(50\%\) for pure \(Z\), \(Y\), or \(Z\) noise under maximum-likelihood decoding.'
     - 'Threshold matches that of the \(XZZX\) code for various bias levels of \(X\), \(Y\), or \(Z\) biased noise  under maximum-likelihood decoding.'
     - '\(\approx 18\%\) for depolarizing noise under maximum-likelihood decoding.'
+    - '\(18.3\%\) under biased noise \cite{arxiv:2505.03691}.'
 
 notes:
   - 'Isolated \(X\), \(Y\), and \(Z\) errors lead to unidirectional pairs of plaquette defects along the three directions of the honeycomb tiling.'
@@ -28,6 +30,13 @@ notes:
 relations:
   parents:
     - code_id: matching
+    - code_id: qubit_concatenated
+      detail: 'The XYZ\(^2\) hexagonal stabilizer code can be viewed as a concatenation of the \(YZZY\) surface code with the \([[2,1]]\) phase-flip repetition code \cite{arxiv:2505.03691}.'
+  cousins:
+    - code_id: xzzx
+      detail: 'The XYZ\(^2\) hexagonal stabilizer code can be viewed as a concatenation of the \(YZZY\) surface code with the \([[2,1]]\) phase-flip repetition code \cite{arxiv:2505.03691}.'
+    - code_id: quantum_repetition
+      detail: 'The XYZ\(^2\) hexagonal stabilizer code can be viewed as a concatenation of the \(YZZY\) surface code with the \([[2,1]]\) phase-flip repetition code \cite{arxiv:2505.03691}.'
 
 
 # Begin Entry Meta Information
