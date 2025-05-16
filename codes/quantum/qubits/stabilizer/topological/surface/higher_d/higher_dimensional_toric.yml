@@ -14,7 +14,8 @@ description: |
   Extension of the Kitaev toric code to higher-dimensional lattices with regular or shifted (a.k.a. twisted) boundary conditions.
   Such boundary conditions yields quibit geometries that are tori \(\mathbb{R}^D/\Lambda\), where \(\Lambda\) is an arbitrary \(D\)-dimensional lattice.
   Picking a hypercubic lattice yields the ordinary \(D\)-dimensional toric code.
-  It is conjectured that appropriate twisted boundary conditions yield multi-dimensional toric code families with linear distance and logarithmic-weight stabilizer generators \cite{arxiv:1608.05089}.
+  It is conjectured that appropriate twisted boundary conditions yield multi-dimensional toric code families with linear distance and logarithmic-weight stabilizer generators \cite{arxiv:1608.05089,arxiv:2505.10403}.
+  At finite \(n\), twisting boundary conditions can reduce qubit overhead for a fixed distance \cite{arxiv:2505.10403}.
 
 protection: |
   In two dimensions, different choices for the periodic boundary conditions yield higher-rate codes with parameters \([[L^2+1,2,L]]\) for odd \(L\) \cite{arXiv:quant-ph/0605094}, and \([[L^2,2,L]]\) for even \(L\) \cite{manual:{C. D. Albuquerque et al., On Toric Quantum Codes, Int. J. Pure Appl. Math. 50, 221–-226 (2009).}}.
@@ -22,6 +23,8 @@ protection: |
 
 
 features:
+  encoders:
+    - 'Entangled logical states can be prepared by single-shot techniques \cite{arxiv:2505.10403} for twisted toric codes.'
   general_gates:
     - 'Higher-dimensional toric codes can admit a cup product structure and can thus have logical gates in the \term{Clifford hierarchy} implemented by constant-depth Clifford circuits \cite{arxiv:2410.16250}.'
 
