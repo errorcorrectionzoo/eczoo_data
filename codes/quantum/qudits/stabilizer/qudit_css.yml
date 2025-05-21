@@ -30,11 +30,15 @@ description: |
   \end{align}
   The above condition guarantees that the \(X\)-stabilizer generators, defined in the \hyperref[topic:galois-symplectic-representation]{modular symplectic representation} as rows of \(H_X\), commute with the \(Z\)-stabilizer generators associated with \(H_Z\).
 
-  For composite \(q\), such codes need not encode an integer number of qudits, but the relation to homology allows for a general structure theorem \cite[Thm. 8.1.1]{arxiv:2405.03559}.
-  For prime \(q=p\), properties reminiscent of qubit CSS codes are restored: encoding is based on two related \hyperref[code:q-ary_linear]{\(p\)-ary linear codes}, an \([n,k_X,d_X]_p \) code \(C_X\) and \([n,k_Z,d_Z]_p \) code \(C_Z\),
+  For composite \(q\), such codes need not encode an integer number of qudits, but there are general structure theorems \cite[Thm. 3.3]{doi:10.1142/S0219749914500208}\cite[Thm. 8.1.1]{arxiv:2405.03559}, with the latter relating to homology.
+  An \((n,K_X,d_X)_{\mathbb{Z}_q}\) linear code \(C_X\) and an \((n,K_Z,d_Z)_{\mathbb{Z}_q}\) linear code \(C_Z\), satisfying \(C_X^\perp \subseteq C_Z\), yield an \(((n,K_X K_Z / q^n))_{\mathbb{Z}_q}\) modular-qudit CSS code with distance \(d\geq\min\{d_X,d_Z\}\).
+  Specializing to the case when \(C_Z=(n,K,d)_{\mathbb{Z}_q}\) is dual-containing yields an \(((n,K^2 / q^n))_{\mathbb{Z}_q}\) \textit{self-dual modular-qudit CSS code} with \(C_X = C_Z\) \cite[Corr. 3.4]{doi:10.1142/S0219749914500208}.
+
+  For prime \(q=p\), the logical dimension returns to being a power of \(q\): encoding is based on two related \hyperref[code:q-ary_linear]{\(p\)-ary linear codes}, an \([n,k_X,d_X]_p \) code \(C_X\) and \([n,k_Z,d_Z]_p \) code \(C_Z\),
   satisfying \(C_X^\perp \subseteq C_Z\). The resulting CSS code has \(k=k_X+k_Z-n\) logical qubits and distance \(d\geq\min\{d_X,d_Z\}\).
   Specializing to the case when \(C_Z=[n,k,d]_p\) is dual-containing yields an \([[n,2k-n,\geq d_Z]]_p\) \textit{self-dual prime-qudit CSS code} with \(C_X = C_Z\).
-  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parityq} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:commQ}.
+  The \(H_X\) (\(H_Z\)) block of \(H\) \eqref{eq:parityq} is the parity-check matrix of the code \(C_X\) (\(C_Z\)). 
+  The requirement \(C_X^\perp \subseteq C_Z\) guarantees \eqref{eq:commQ}.
   Basis states for the code are, for coset representatives \(\gamma \in C_X/C_Z^\perp\),
   \begin{align}
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
