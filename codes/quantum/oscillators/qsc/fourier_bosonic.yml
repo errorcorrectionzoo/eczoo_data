@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fourier_bosonic
+physical: oscillators
+logical: qubits
+
+name: 'Bosonic quantum Fourier code'
+introduced: '\cite{arxiv:2505.16618}'
+
+description: |
+  Two-mode non-uniform QSC encoding two logical qubits whose projection is onto a copy of an irreducible representation of the \hyperref[topic:pauli]{single-qubit Pauli group}.
+  This code is an extension of the single-logical-qubit code in \cite[Eq. (10)]{arxiv:2306.11621}, storing an extra logical qubit in the multiplicity space of the Pauli group.
+
+  The code admits the following basis of codewords for complex \(\alpha > 0\), up to normalization:
+  \begin{align}
+  \begin{split}
+  |\overline{0,0}\rangle&\propto\left(\left|\alpha\right\rangle -\left|-\alpha\right\rangle \right)\left(\left|i\alpha\right\rangle +\left|-i\alpha\right\rangle \right)\\
+  |\overline{0,1}\rangle&\propto\left(\left|i\alpha\right\rangle -\left|-i\alpha\right\rangle \right)\left(\left|\alpha\right\rangle +\left|-\alpha\right\rangle \right)\\
+  |\overline{1,0}\rangle&\propto\left(\left|i\alpha\right\rangle +\left|-i\alpha\right\rangle \right)\left(\left|\alpha\right\rangle -\left|-\alpha\right\rangle \right)\\
+  |\overline{1,1}\rangle&\propto\left(\left|\alpha\right\rangle +\left|-\alpha\right\rangle \right)\left(\left|i\alpha\right\rangle -\left|-i\alpha\right\rangle \right)
+  \end{split}
+  \end{align}
+
+
+features:
+  general_gates:
+    - 'The \hyperref[topic:pauli]{single-qubit Pauli group} can be realized via Gaussian rotations \cite{arxiv:2505.16618}.'
+    - 'Kerr interactions yield some Clifford gates. There is a Hadamard gate, up to a global rotation \cite{arxiv:2505.16618}.'
+    - 'A logical \(ZZ\)-gate can be performed using squeezing operators and quantum Zeno effect \cite{arxiv:2505.16618}.'
+  decoders:
+    - 'The code is stabilized by the two-mode parity operator and annihilated by the operators \(\hat{a}_1^4 - \alpha^4\) and \(\hat{a}_1^2 \hat{a}_2^2 + \alpha^4\) \cite{arxiv:2505.16618}.'
+
+relations:
+  parents:
+    - code_id: qsc
+      detail: 'The bosonic quantum Fourier code has non-uniform \(\pm 1\) coefficients.'
+    - code_id: group_representation
+      detail: 'The bosonic quantum Fourier code is a group-representation code with \(G\) being the single-qubit Pauli group.'
+  cousins:
+    - code_id: pauli_qsc
+      detail: 'The bosonic quantum Fourier code and the Pauli group-representation QSC are both group-representation codes with \(G\) being the single-qubit Pauli group.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-05-23'
