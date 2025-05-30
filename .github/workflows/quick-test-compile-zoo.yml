@@ -40,6 +40,11 @@ jobs:
 
       # --------------------------------
 
+      # Install Ruby Gems for the 'anystyle' command-line utility.
+      - uses: ruby/setup-ruby@v1
+      - name: Install AnyStyle.io for parsing manually-formatted citations
+        run: 'gem install anystyle-cli'
+
       #
       # SET UP CACHES
       #
