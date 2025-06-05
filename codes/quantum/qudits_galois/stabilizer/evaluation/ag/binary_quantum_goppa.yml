@@ -11,7 +11,7 @@ name: 'Quantum Goppa code'
 introduced: '\cite{arxiv:quant-ph/0006061,arxiv:quant-ph/0501074,doi:10.1007/s11128-006-0047-9}'
 
 description: |
-  A Galois-qudit CSS code constructed using two Goppa codes.
+  A quantum AG code constructed using two Goppa codes via the Galois-qudit CSS construction.
   
   Binary quantum Goppa codes are a family of \( [[n,k,d]]_q \) CSS codes for \( q=2^m \), constructed using classical Goppa codes.
   Let \( F/GF(q) \) be an algebraic function field of one variable, \(\sigma \) be an automorphism of order 2
@@ -25,7 +25,7 @@ description: |
   that \(H\) is a subgroup of \(G\), we can construct a classical Goppa code \(C(D,G)\), where \(D\) is the sum of all \(P_i\). Using \(C(D,G)\), we can construct a \([[n,k,d]]_q\) quantum stabilizer code such that
   \(k  = \text{dim} G - \text{dim}(G-P_1 - \cdots - P_n - \sigma P_1 - \cdots  - \sigma P_n) - n~.\)
 
-protection: 'Protects against weight \(t\) errors where \( 0 < t \leq  \lfloor \frac{d^*-g-1}{2} \rfloor \) where \( d^* = \text{deg} G + 2 -2g \) and \(g\) is the genus of the function field and \(d \geq n - \lfloor \frac{deg G}{2} \rfloor\). Such codes can exceed the \hyperref[topic:quantum-gv-bound]{quantum GV bound} \cite{doi:10.1007/s11128-006-0047-9}.'
+protection: 'Protects against weight \(t\) errors where \( 0 < t \leq  \lfloor \frac{d^*-g-1}{2} \rfloor \) where \( d^* = \text{deg} G + 2 -2g \) and \(g\) is the genus of the function field and \(d \geq n - \lfloor \frac{deg G}{2} \rfloor\).'
 
 features:
   rate: 'Quantum Goppa codes \cite{arxiv:quant-ph/0006061} can be asymptotically good.'
@@ -38,6 +38,7 @@ features:
 
 relations:
   parents:
+    - code_id: galois_css
     - code_id: quantum_ag
   cousins:
     - code_id: goppa

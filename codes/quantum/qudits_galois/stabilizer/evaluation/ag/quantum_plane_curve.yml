@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_plane_curve
+physical: galois
+logical: galois
+
+name: 'Quantum plane-curve code'
+introduced: '\cite{arxiv:2506.03397}'
+
+description: |
+  Quantum AG code constructed from plane-curve codes via the Galois-qudit Hermitian construction.
+  Code parameters are \([[q^3,q^3+q^2-3q-2r,r+2q-q^2]]_q\), where \(r\) is an integer satisfying \(q^2 - 2 \leq r \leq q^2 + q - 3\), and where the underlying plane curve is \(y^q + y = x^{q-1}\).
+  
+
+relations:
+  parents:
+    - code_id: stabilizer_over_gfqsq
+    - code_id: quantum_ag
+  cousins:
+    - code_id: plane_curve
+    - code_id: small_distance_quantum
+      detail: 'The quantum plane-curve code for the Hermitian curve \(y^3 + y = x^4\) is a \([[27,13,4]]_3\) qutrit code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-06-05'

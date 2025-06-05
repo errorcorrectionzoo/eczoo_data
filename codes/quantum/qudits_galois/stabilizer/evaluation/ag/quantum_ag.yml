@@ -11,8 +11,8 @@ name: 'Quantum AG code'
 introduced: '\cite{arxiv:quant-ph/0107102,arxiv:quant-ph/0107129}'
 
 description: |
-  A Galois-qudit CSS code constructed using two linear AG codes.
-  
+  True Galois-qudit stabilizer code constructed from evaluation AG codes via the Galois-qudit Hermitian construction or the Galois-qudit CSS construction.
+
 
 features:
   rate: 'Quantum AG codes can be asymptotically good \cite{arxiv:quant-ph/0107102,arxiv:quant-ph/0107129}. There exist three such families \cite{arxiv:2408.07764,arxiv:2408.09254,arxiv:2408.10140} that admit a diagonal transversal gate at the third level of the \term{Clifford hierarchy}.'
@@ -30,10 +30,10 @@ features:
 
 relations:
   parents:
-    - code_id: galois_css
-      detail: 'Quantum AG codes can be realized in the CSS code construction \cite{doi:10.1007/s11128-006-0047-9}.'
+    - code_id: galois_true_stabilizer
+      detail: 'Quantum AG codes can be constructed via the Galois-qudit CSS construction or the Galois-qudit Hermitian construction.'
   cousins:
-    - code_id: ag
+    - code_id: evaluation
     - code_id: quantum_triorthogonal
       detail: 'By defining a generalization of triorthogonal matrices to Galois qudits of dimension \(q=2^m\), one can construct an asymptotically good family of quantum AG codes that admits a diagonal transversal gate at the third level of the \term{Clifford hierarchy} and attains a zero magic-state yield parameter, \(\gamma = 0\) \cite{arxiv:2408.07764}. This code can be treated as a qubit code by decomposing each Galois qudit into a Kronecker product of \(m\) qubits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook,arxiv:2408.10140,arxiv:2408.09254}. Two other such asymptotically good families exist \cite{arxiv:2408.09254,arxiv:2408.10140}, admitting a different diagonal gate at the third level of the \term{Clifford hierarchy}.'
     - code_id: shimura
