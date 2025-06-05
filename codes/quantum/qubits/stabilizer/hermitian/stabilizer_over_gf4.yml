@@ -18,18 +18,14 @@ alternative_names:
 # M3 <-- 1702.06990
 
 description: |
-  An \([[n,k,d]]\) stabilizer code constructed from a Hermitian self-orthogonal linear quaternary code using the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}.
+  A qubit stabilizer code constructed from a Hermitian self-orthogonal linear quaternary code using the Hermitian construction.
   
   Hermitian codes are in one-to-one correspondence with Hermitian self-orthogonal additive codes via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}.
   Quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (\cite[Thm. 9.10.3]{doi:10.1017/CBO9780511807077}).
   In other words, if the underlying quaternary code is linear, then the \hyperref[topic:finite-fields]{field trace} can be removed from the definition of inner product.
 
-  All code automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}.
-
-protection: |
-  A Hermitian self-orthogonal linear \([n,k,d]_{4}\) code yields an \([[n,n-2k]]\) qubit stabilizer code with distance no less than \(d\); this is the \textit{qubit Hermitian construction}.
+  The \textit{Hermitian construction} takes in a Hermitian self-orthogonal \([n,k,d_C]_{4}\) code and yields an \([[n,n-2k,d]]\) qubit stabilizer code with distance \(d \geq d_C\).
   The parameters satisfy \(k \equiv n\) mod 2 \cite{arxiv:2501.17447}.
-
   The stabilizer generator matrix is of the form
   \begin{align}
   H=\begin{pmatrix}H\\
@@ -37,6 +33,12 @@ protection: |
   \end{pmatrix}~,
   \end{align}
   where \(H\) is the parity-check matrix of the classical code.
+
+  All code automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}.
+
+protection: |
+  The distance \(d_C\) of the classical code is the Hermitian code's \hyperref[topic:quantum-weight-enumerator]{pure distance}, and it is equal to the code distance for a \hyperref[topic:degeneracy]{non-degenerate} code \cite{arxiv:2312.06504}.
+
 
 features:
 
@@ -76,6 +78,8 @@ relations:
       detail: 'Hermitian qubit codes are constructed from Hermitian self-orthogonal linear codes over \(GF(4)\) via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}. This relation yields bounds on self-dual codes over \(GF(4)\) \cite{arxiv:2501.10163}.'
     - code_id: qubit_css
       detail: 'A Hermitian qubit code that can be put into CSS form via single-qubit Clifford operations remains Hermitian \cite{arxiv:2501.17447}.'
+    - code_id: projective
+      detail: 'The is an equivalence between \hyperref[topic:quantum-weight-enumerator]{pure} \([[n,n-2k]]\) Hermitian qubit codes and certain sets of points in projective space \(PG(k-1,4)\) \cite[Thm. 2.8]{doi:10.2140/iig.2008.6.53}.'
 
 
 # Begin Entry Meta Information
