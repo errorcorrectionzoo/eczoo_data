@@ -7,14 +7,15 @@ code_id: quantum_reed_muller
 physical: qubits
 logical: qubits
 
-name: 'Quantum Reed-Muller code'
+name: 'Quantum Reed-Muller (RM) code'
+short_name: 'Quantum RM code'
 introduced: '\cite{arxiv:quant-ph/9608026,arxiv:quant-ph/9703045}'
 
 description: |
-  A CSS code formed from a classical Reed-Muller (RM) code or its punctured/shortened versions.
+  A CSS code formed from a classical RM code or its punctured/shortened versions.
   Such codes often admit transversal logical gates in the \term{Clifford hierarchy}.
 
-  Ordinary, punctured, or shortened RM codes can be used to construct quantum Reed-Muller codes.
+  Ordinary, punctured, or shortened RM codes can be used to construct quantum RM codes.
   For example, the original construction \cite{arxiv:quant-ph/9608026} uses a general RM\((r,m)\) code for the \(X\)-type stabilizers, and an RM\((r-1,m)\) code for the \(Z\)-type stabilizers.
 
   Non-CSS codes can be derived from such codes by modifying the \(X\)-type stabilizers \cite{arxiv:quant-ph/9608026}.
@@ -31,7 +32,7 @@ features:
   with parameters \([[\sum_{i=w+1}^m \binom{m}{i}, \sum_{i=0}^{w} \binom{m}{i}, \sum_{i=w+1}^{r+1} \binom{r+1}{i}]]\) for integers \(m > 2r\) and \(r > w \geq 0\) yields protocols with an exponent of \(\gamma < 0.678\), with the fewest resource protocol with \(\gamma < 1\) requiring a code with parameters \(\{r,w,m\} = \{19,14,3r+1\}\) such that \(n \approx 2^{58}\) qubits \cite[Corr. 1]{arxiv:1709.03543}.
   This refutes a conjecture that no protocol could achieve \(\gamma < 1\) \cite{arxiv:1209.2426}.'
 
-  rate: '\(\frac{k}{n}\), where \(k = 2^r - {r \choose t} + 2 \sum_{i=0}^{t-1} {r \choose i}\). Additionally, CSS codes formed from binary Reed-Muller codes achieve channel capacity on erasure channels \cite{doi:10.1109/ISIT.2016.7541599}.'
+  rate: '\(\frac{k}{n}\), where \(k = 2^r - {r \choose t} + 2 \sum_{i=0}^{t-1} {r \choose i}\). Additionally, CSS codes formed from RM codes achieve channel capacity on erasure channels \cite{doi:10.1109/ISIT.2016.7541599}.'
 
   fault_tolerance:
     - 'Gate switching protocol for universal computation \cite{arxiv:1403.2734}.'
@@ -40,13 +41,14 @@ features:
 relations:
   parents:
     - code_id: quantum_pin
-      detail: 'Quantum Reed-Muller codes are special cases of quantum pin codes \cite[Sec. II.D]{arxiv:1906.11394}.'
+      detail: 'Quantum RM codes are special cases of quantum pin codes \cite[Sec. II.D]{arxiv:1906.11394}.'
     - code_id: qudit_reed_muller
       detail: 'Prime-qudit RM codes reduce to quantum RM codes when \(q=p=2\).'
   cousins:
     - code_id: reed_muller
+      detail: 'Quantum RM codes are constructed from RM codes via the CSS construction. There is a relation between RM code performance against correlated generalizations of multiple-access channels (MACs) and quantum RM code performance against Pauli channels \cite{arxiv:2506.08651}.'
     - code_id: quantum_convolutional
-      detail: 'Quantum convolutional codes can be derived from quantum Reed-Muller codes \cite{arxiv:quant-ph/0701037}.'
+      detail: 'Quantum convolutional codes can be derived from quantum RM codes \cite{arxiv:quant-ph/0701037}.'
     - code_id: eastab
       detail: 'EA versions of quantum RM codes and their quantum tensor-product variants can be constructed \cite{arxiv:2303.08294}.'
     - code_id: quantum_tensor_product
