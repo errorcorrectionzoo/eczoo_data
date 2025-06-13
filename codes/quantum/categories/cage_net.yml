@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cage_net
+physical: categories
+logical: categories
+
+name: 'Cage-net code'
+introduced: '\cite{arxiv:1806.04687,arxiv:1812.01613,arxiv:2505.13604}'
+
+alternative_names:
+  - 'String-membrane-net code'
+
+description: |
+  A non-stabilizer commuting-projector code obtained by coupling layers of \(G\)-graded string-net models \cite{arxiv:2505.13604}. 
+  Originally introduced independently, cage-net and string-membrane-net models are equivalent under local unitary circuits \cite{arxiv:1812.01613}.
+  The cage-net construction can be used to realize various fracton phases, stabilizer and otherwise.
+
+relations:
+  parents:
+    - code_id: category_quantum
+    - code_id: commuting_projector
+      detail: 'Cage-net codewords form ground-state subspaces of frustration-free commuting projector Hamiltonians.'
+    - code_id: frustration_free
+      detail: 'Cage-net codewords form ground-state subspaces of frustration-free commuting projector Hamiltonians.'
+  cousins:
+    - code_id: fracton
+      detail: 'The cage-net construction can be used to realize various fracton phases, stabilizer and otherwise.'
+    - code_id: string_net
+      detail: 'The cage-net code is a non-stabilizer commuting-projector code obtained by coupling layers of \(G\)-graded string-net models \cite{arxiv:2505.13604}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-06-13'
