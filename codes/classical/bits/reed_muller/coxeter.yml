@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: coxeter
+physical: bits
+logical: bits
+
+name: 'Coxeter code'
+introduced: '\cite{arxiv:2502.14746}'
+
+description: |
+  A member of a family of codes that generalizes RM codes by observing that the columns of the generator matrix of an RM code can be grouped into indicators of vertices of \(r\)-subcubes lying in an \(m\)-cube. 
+  Each grouping into a subcube is equivalent to a coset of \(\mathbb{Z}_2^r\) in \(\mathbb{Z}_2^m\), and Coxeter code generator matrices are constructed accordingly using coset partitions of more general Coxeter groups.
+
+protection: |
+  The distance of an \(r\)th order Coxeter code is at least \(2^{m-r}\).
+
+relations:
+  parents:
+    - code_id: binary_linear
+  cousins:
+    - code_id: qubit_css
+      detail: 'Coxeter codes can be used to make qubit CSS codes \cite{arxiv:2502.14746}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-06-20'
