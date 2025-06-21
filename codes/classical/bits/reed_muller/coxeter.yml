@@ -10,12 +10,23 @@ logical: bits
 name: 'Coxeter code'
 introduced: '\cite{arxiv:2502.14746}'
 
+# , where \(m \leq 2 and -1 ≤ r ≤ m (the code RM(-1,m)=\{0^{2^m}\}). 
 description: |
-  A member of a family of codes that generalizes RM codes by observing that the columns of the generator matrix of an RM code can be grouped into indicators of vertices of \(r\)-subcubes lying in an \(m\)-cube. 
-  Each grouping into a subcube is equivalent to a coset of \(\mathbb{Z}_2^r\) in \(\mathbb{Z}_2^m\), and Coxeter code generator matrices are constructed accordingly using coset partitions of more general Coxeter groups.
+  A member of a family of codes that generalizes RM codes in a group-theoretic sense. 
+
+  A binary RM\((r,m)\) code is spanned by indicators of all subcubes of dimension \(m-r\) in the \(m\)-dimensional cube (this is a redundant generating set \cite{arXiv:2410.07595}), i.e., by the cosets of rank-\((m-r)\) subgroups of \(\mathbb{Z}_2^m\).
+  For a finite Coxeter group \(W\) with \(m\) generators, a binary linear code \(C_W(r)\) of order \(r\) with \(-1 \leq r \leq m\) is similarly spanned by indicators of all the cosets of rank-\((m-r)\) parabolic subgroups of \(W\).
+
+  The dimension \(dim(C_W(r))=\sum_{i=0}^r 
+  \left\langle \begin{smallmatrix}W\\ i \end{smallmatrix}\right\rangle \), 
+  where \(\left\langle \begin{smallmatrix}W\\ i \end{smallmatrix}\right\rangle \) is the \(W\)-Eulerian number, i.e., the count of elements in \(W\) with descent number equal to \(i\).
+
 
 protection: |
-  The distance of an \(r\)th order Coxeter code is at least \(2^{m-r}\).
+  The family of Coxeter codes is closed under duality, \((C_W(r))^{\perp}=C_W(m-r-1)\).
+  For \(q < r\), \(C_W(q) \subsetneq C_W(r)\).
+  The distance \(d(C_W(r)) \geq 2^{m-r}\).
+
 
 relations:
   parents:
@@ -30,4 +41,6 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
+      date: '2025-06-20'
+    - user_id: AlexanderBarg
       date: '2025-06-20'
