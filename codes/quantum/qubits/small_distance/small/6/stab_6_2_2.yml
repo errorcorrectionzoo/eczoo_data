@@ -18,12 +18,21 @@ features:
   magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
+  general_gates:
+    - 'Fault-tolerant magic-state preparation \cite{arxiv:2506.14688}.'
+
   fault_tolerance:
     - 'Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} admitting a post-selected threshold \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
     - 'Concatenations of quantum Hamming codes with the \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2207.08826,arxiv:2402.09606}. This scheme can be augmented to fit on a 1D qubit lattice with nearest-neighbor connectivity \cite{arxiv:2502.16132}.'
+    - 'Fault-tolerant magic-state preparation \cite{arxiv:2506.14688}.'
+
+realizations: 
+    - 'Trapped ions: fault-tolerant magic-state preparation demonstrated on a 20-qubit H1-1 device by Quantinuum \cite{arxiv:2506.14688}.'
 
 relations:
   parents:
+    - code_id: quantum_h
+      detail: 'The \([[k+4,k,2]]\) H code for \(k=2\) is the \(C_6\) code.'
     - code_id: goy
       detail: 'The Ganti-Onunkwo-Young code for \(r=1\) is the \(C_6\) code.'
     - code_id: kls
