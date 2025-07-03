@@ -22,6 +22,21 @@ description: |
   Elements of this structure remain in qudit extensions, in particular for prime-dimensional modular qudits and Galois qudits.
   Infinite-dimensional Pauli-type bases yield the bosonic stabilizer and rotor stabilizer codes.
 
+  One can switch between stabilizer codes by appending another stabilizer group and taking the center of the resulting larger group.
+  \begin{defterm}{Stabilizer code switching, code deformation, update rule, or code rewiring}
+  \label{topic:code-switching}
+  Stabilizer code switching is a map between stabilizer codes that is done using a stabilizer group \(\mathsf{F}\),
+  \begin{align}
+  \mathsf{S}\to\mathsf{N}_{\left\langle \mathsf{S},\mathsf{F}\right\rangle }\left(\mathsf{F}\right)~,
+  \end{align}
+  where \(\mathsf{N}\) denotes taking the normalizer of a group (e.g., see \cite{doi:10.1017/CBO9780511976667,arxiv:2402.00145} for proofs).
+  Code switching may not preserve the logical information and instead implement logical measurements; conditions on \(\mathsf{S}\) and \(\mathsf{F}\) such that qubit stabilizer \hyperref[topic:code-switching]{code switching} preserves logical information are derived in \cite[Prop. II.1]{arxiv:2304.01277}.
+  The stabilizer rewiring algorithm (SRA) allows for code switching between a pair of compatible stabilizer codes \cite{arxiv:1707.09403} (see also Ref. \cite{arxiv:1311.0879,arxiv:1511.02596}), and ancillary qubits may be used to maintain minimum distance of any intermediate codes \cite{arxiv:1709.09282}.
+  Clifford operations and Pauli measurements can be expressed as sequences of \hyperref[topic:code-switching]{code switching} \cite{arxiv:2401.12017}.
+  In the context of stabilizer codes realizing Abelian topological phases, \hyperref[topic:code-switching]{code switching} implements \textit{anyon condensation} of any anyons represented by operators in the group \(\mathsf{F}\).
+  Code switching can be done using only transversal gates for qubit stabilizer codes \cite{arxiv:2409.13465}.
+  \end{defterm}
+
   Extensions of the stabilizer formalism, such as \hyperref[code:xs_stabilizer]{XS} and \hyperref[code:xp_stabilizer]{XP} stabilizer codes, relax the mutual commutation property.
   Other extensions, such as \hyperref[code:cws]{CWS} and \hyperref[code:non_stabilizer]{union stabilizer} codes, enlarge the codespace by re-assigning error words as codewords.
 
