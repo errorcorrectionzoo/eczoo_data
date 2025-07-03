@@ -14,7 +14,6 @@ description: |
   Modular-qudit stabilizer code whose codewords realize 2D modular gapped Abelian topological order.
   The corresponding anyon theory is defined by an Abelian group and a Type-III group cocycle that can be decomposed as a product of Type-I and Type-II group cocycles; see \cite[Sec. IV.A]{arxiv:2112.11394}.
   Abelian TQDs realize all modular gapped Abelian topological orders \cite{arxiv:2112.11394}.
-  Many Abelian TQD code Hamiltonians were originally formulated as commuting-projector models \cite{arxiv:2001.11516}.
 
 features:
   encoders:
@@ -23,6 +22,7 @@ features:
     - 'Fault-tolerant circuits for all non-chiral abelian topological phases and the \(\mathbb{Z}_2^3\) code with a type-III cocycle \cite{arxiv:2403.12119}.'
 
 
+# mismatch between stabilizer abelian TQD and group-valued nonabelian TQD; TQD should be cousin but need to go through all children. alternatively, can make new entry for TQD phase
 relations:
   parents:
     - code_id: qudit_stabilizer
@@ -36,6 +36,9 @@ relations:
       detail: |
         The anyon theory corresponding to (Abelian) TQD codes is defined by an (Abelian) group and a Type III cocycle.
         Abelian TQDs realize all modular gapped Abelian topological orders \cite{arxiv:2112.11394}.
+  cousins:
+    - code_id: commuting_projector
+      detail: 'Many Abelian TQD code Hamiltonians were originally formulated as commuting-projector models \cite{arxiv:2001.11516}.'
 
 
 # Begin Entry Meta Information
