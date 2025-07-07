@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: double_semion_string_net
+physical: qudits
+logical: qudits
+
+name: 'Double-semion string-net code'
+introduced: '\cite{arxiv:cond-mat/0404617,arxiv:1202.3120,arxiv:1208.5128,arxiv:1404.5327}'
+
+description: |
+  An \(XS\) stabilizer code that realizes the 2D double semion topological phase.
+  The model can be extended to other spatial dimensions \cite{arxiv:1507.05676}.
+  
+
+relations:
+  parents:
+    - code_id: xs_stabilizer
+      detail: 'The double-semion string-net code is an \(XS\) stabilizer code \cite[Fig. 1]{arxiv:1404.5327}.'
+    - code_id: tqd_abelian
+      detail: 'When treated as ground states of the code Hamiltonian, the double-semion string-net code states realize 2D double-semion topological order, a topological phase of matter that exists as the deconfined phase of the 2D twisted \(\mathbb{Z}_2\) gauge theory \cite{doi:10.1007/BF02096988}.'
+    - code_id: string_net
+      detail: 'The string-net model code for the category \(\text{Vec}^{\omega}\mathbb{Z}_2\) for nontrivial cocycle is the double semion string-net code.'
+  cousins:
+    - code_id: double_semion
+      detail: 'The double-semion stabilizer code and the double-semion string-net code both realize the double semion topological phase, but the former is a modular-qudit stabilizer code, while the latter is an \(XS\) stabilizer code. A commuting-projector version of the double-semion string-net code can also be derived \cite{arxiv:1810.08204,arxiv:2001.11516}.'
+    - code_id: surface
+      detail: 'There is a logical basis for both the toric and double-semion string-net codes where each codeword is a superposition of states corresponding to all noncontractible loops of a particular homotopy type. The superposition is equal for the toric code, whereas an odd number of loops appear with a \(-1\) coefficient for the double semion.'
+    - code_id: commuting_projector
+      detail: 'A commuting-projector version of the double-semion string-net code can also be derived \cite{arxiv:1810.08204,arxiv:2001.11516}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-07-03'

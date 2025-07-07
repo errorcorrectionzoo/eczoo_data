@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: brickwork
+physical: qudits
+logical: qudits
+
+name: 'Brickwork \(XS\) stabilizer code'
+introduced: '\cite{arxiv:2503.15751}'
+
+description: |
+  An \(XS\) stabilizer code that realizes the topological order of the \(G=\mathbb{Z}^3_2\) TQD model \cite{arxiv:1508.03468,arxiv:2405.11719}, which is the same topological order as the \(G=D_4\) quantum double \cite{arxiv:hep-th/9511195,arxiv:2112.12757}.
+  Its qubits are placed on a 2D square lattice, and the stabilizers are defined using two overlapping rectangular tilings.
+  
+
+features:
+  decoders:
+    - 'Just-in-time decoder \cite{arxiv:2503.15751}.'
+
+relations:
+  parents:
+    - code_id: xs_stabilizer
+      detail: 'The brickwork \(XS\) stabilizer code is an \(XS\) stabilizer code \cite{arxiv:2503.15751}.'
+    - code_id: tqd_abelian
+      detail: 'The ground-state subspace of the brickwork \(XS\) stabilizer code realizes the topological order of the \(G=\mathbb{Z}^3_2\) TQD model \cite{arxiv:1508.03468,arxiv:2405.11719}, which is the same topological order as the \(G=D_4\) quantum double \cite{arxiv:hep-th/9511195,arxiv:2112.12757}.'
+  cousins:
+    - code_id: quantum_double_dihedral
+      detail: 'The ground-state subspace of the brickwork \(XS\) stabilizer code realizes the topological order of the \(G=\mathbb{Z}^3_2\) TQD model \cite{arxiv:1508.03468,arxiv:2405.11719}, which is the same topological order as the \(G=D_4\) quantum double \cite{arxiv:hep-th/9511195,arxiv:2112.12757}.'
+    - code_id: 3d_color
+      detail: 'The brickwork \(XS\) stabilizer code can be obtained from a 3D color code \cite{arxiv:2503.15751}.'
+    - code_id: hexagonal_cz
+      detail: 'The brickwork \(XS\) stabilizer code and the hexagonal \(CZ\) code realize the same topological phases and are equivalent via a local unitary \cite{arxiv:2503.15751,manual:{Benjamin J. Brown, private communication, 2025}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-07-03'
+    - user_id: BenjaminBrown
+      date: '2025-07-03'
+

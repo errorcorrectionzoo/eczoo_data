@@ -29,22 +29,6 @@ description: |
 
   Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \hyperref[topic:galois-symplectic-representation]{modular symplectic representation} of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
-  One can switch between stabilizer codes by appending another Abelian subgroup of the \hyperref[topic:qudit-pauli]{modular-qudit Pauli group} to the stabilizer group and taking the center of the resulting larger group.
-
-  \begin{defterm}{Stabilizer code switching, code deformation, update rule, or code rewiring}
-  \label{topic:code-switching}
-  Code switching is a map between stabilizer codes that is done using a stabilizer group \(\mathsf{F}\) of the \(n\)-\hyperref[topic:qudit-pauli]{modular-qudit Pauli group},
-  \begin{align}
-  \mathsf{S}\to\mathsf{N}_{\left\langle \mathsf{S},\mathsf{F}\right\rangle }\left(\mathsf{F}\right)~,
-  \end{align}
-  where \(\mathsf{Z}\) denotes taking the center of a group (e.g., see \cite{doi:10.1017/CBO9780511976667,arxiv:2402.00145} for proofs).
-  Code switching may not preserve the logical information and instead implement logical measurements; conditions on \(\mathsf{S}\) and \(\mathsf{F}\) such that qubit stabilizer \hyperref[topic:code-switching]{code switching} preserves logical information are derived in \cite[Prop. II.1]{arxiv:2304.01277}.
-  The stabilizer rewiring algorithm (SRA) allows for code switching between a pair of compatible stabilizer codes \cite{arxiv:1707.09403} (see also Ref. \cite{arxiv:1311.0879,arxiv:1511.02596}), and ancillary qubits may be used to maintain minimum distance of any intermediate codes \cite{arxiv:1709.09282}.
-  Clifford operations and Pauli measurements can be expressed as sequences of \hyperref[topic:code-switching]{code switching} \cite{arxiv:2401.12017}.
-  In the context of stabilizer codes realizing Abelian topological phases, \hyperref[topic:code-switching]{code switching} implements \textit{anyon condensation} of any anyons represented by operators in the group \(\mathsf{F}\).
-  Code switching can be done using only transversal gates for qubit stabilizer codes \cite{arxiv:2409.13465}.
-  \end{defterm}
-
   Modular-qudit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_q^n\) \cite{arxiv:quant-ph/0408190}.
   There exists an analogue of the Wigner function for modular qudits \cite{arxiv:quant-ph/0401155,arxiv:quant-ph/0410117}, and modular-qudit stabilizer states correspond to the set of states with positive Wigner functions \cite{arxiv:quant-ph/0602001,arxiv:quant-ph/0702004} (see \cite[Thm. 8.4]{arxiv:1712.08628} for a robust version of Hudson's theorem for odd prime-dimensional qudits).
   Stabilizer states saturate various uncertainty relations \cite{arxiv:2403.13632}.
