@@ -1,0 +1,26 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tillichzemor
+physical: qubits
+logical: qubits
+
+name: \([[n^2 + m^2, (n - \text{rank}([C \mid M]))^2 + (m - \text{rank}([C \mid M]^\top))^2, d]]\) quantum Tillich-Zémor code
+short_name: Quantum Tillich-Zémor Code
+
+description: |-
+  A family of quantum LDPC codes from classical \((n, m, r)\)-structured LDPC seed codes \cite{manual:{J. -p. Tillich and G. Zemor, "On the minimum distance of structured LDPC codes with two variable nodes of degree 2 per parity-check equation," 2006 IEEE International Symposium on Information Theory, Seattle, WA, USA, 2006, pp. 1549-1553, doi: 10.1109/ISIT.2006.262128. keywords: {Parity check codes;Equations;Iterative decoding;Bit error rate;Channel capacity;Turning;Error correction codes;Turbo codes;H infinity control;Encoding},}}, whose parity-check matrices \(H = [C \mid M]\) consist of an \(m \times m\) circulant core \(C\) with column weight \(2\) (enabling linear-time encoding) and an \(m \times (n-m)\) matrix \(M\) with column weight \(r \geq 3\) and no zero rows. The resulting quantum Tillich-Zémor code has block length \(N = n^2 + m^2\) and dimension \(K = (n - \text{rank}([C \mid M]))^2 + (m - \text{rank}([C \mid M]^\top))^2\). This construction inherits the classical seed code's sub-linear distance scaling (\(d = O(n^{\frac{r-2}{r-1}+\epsilon})\) \cite{arxiv:2501.19125}) while preserving efficient encoding.
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: qldpc
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: FerozAhmedMian
+      date: '2025-23-07'
