@@ -18,6 +18,8 @@ description: |
  
   The boundary maps \(\breve{\delta}_j\) are constructed using tensor products of the original boundary maps, ensuring the chain condition \(\breve{\delta}_{j+1} \breve{\delta}_j = 0\).  
   
+  The construction method allows for the use of two different classical codes as inputs. However, \cite{arxiv:1805.09271} assumes identical input codes for simplicity.
+  
   The code supports metachecks to detect measurement errors, enabling single-shot error correction.  
 
 protection: |
@@ -34,6 +36,8 @@ relations:
   cousins:
     - code_id: higher_dimensional_toric
       detail: While topological codes like the \(2D\) or \(2D\) toric codes offer intuitive geometric structures, they face fundamental trade-offs in code parameters (e.g., rate vs. distance). The double homological product code, though more abstract, shares key advantages with high-dimensional topological codes—such as single-shot error correction—while circumventing these limitation.
+    - code_id: hypergraph_product
+      detail: Notational conventions for chain complexes permit some flexibility. \cite{arxiv:1805.09271} select conventions ensuring that the multi-sector homological product construction directly corresponds to the hypergraph product of \cite{arxiv:0903.0566}.
 
 features:
   fault_tolerance:
