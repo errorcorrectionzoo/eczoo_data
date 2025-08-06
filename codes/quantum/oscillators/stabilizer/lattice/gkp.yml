@@ -33,7 +33,6 @@ description: |
 protection: 'For stabilizer \(\hat{S}_q(2\alpha),\hat{S}_p(2\beta)\), code can correct displacement errors up to \(\alpha/2\) in the \(q\)-direction and \(\beta/2\) at \(p\)-direction. Approximately protects against \hyperref[topic:ad]{photon loss} errors \cite{arxiv:1506.05033,arxiv:1708.05010}, outperforming most other codes designed to explicitly protect against loss \cite{arxiv:1708.05010}. An analytical expression can be derived for the effective logical channel after loss \cite{arxiv:2504.13497}. Very sensitive to dephasing errors \cite{arxiv:2106.12989}. A biased-noise GKP error correcting code can be prepared by choosing \(\alpha\neq \beta\).'
 
 features:
-
   encoders:
     - 'Dissipative stabilization of finite-energy square-lattice GKP states using stabilizers conjugated by a \textit{cooling} (\cite{arxiv:1310.7596}, Appx. B) or \textit{damping} operator, i.e., a damped exponential of the total occupation number \cite{arxiv:2009.07941,arxiv:2010.09681}. Preparation of approximate square-lattice GKP states has been studied both theoretically and experimentally \cite{arxiv:1506.05033,arxiv:1709.08580,doi:10.1038/s41586-020-2603-3,arxiv:1910.03673}. Various damped versions of GKP states are equivalent \cite{arxiv:1910.08301,arxiv:2012.12488}, and there exists a Fock-state expansion \cite[Appx. A]{arxiv:2002.11008}.'
     - 'Two Josephson junctions coupled by a gyrator \cite{arxiv:2002.07718}.'
@@ -44,7 +43,7 @@ features:
   general_gates:
     - 'By applying square-lattice GKP error correction to Gaussian input states, universality can be achieved without non-Gaussian elements \cite{arxiv:1903.00012}.'
     - 'Square-root of the Hadamard gate performed via a Kerr interaction \cite{arxiv:2507.09684}.'
-
+    - '\(\sqrt{T}\) gate using a quadratic potential \cite{arxiv:2507.19713}.'
   fault_tolerance:
     - 'Clifford gates can be realized by performing linear-optical operations, sympletic transformations and displacements, all of which are Gaussian operations. Pauli gates can be performed using displacement operators. Clifford gates are fault tolerant in the sense that they map bounded-size errors to bounded-size errors \cite{arxiv:quant-ph/0008040}.' #for the qubit square-lattice GKP code performed by occupation-number-preserving Gaussian operations
     - 'Error correction scheme is fault-tolerant to displacement noise as long as all input states have displacement errors less than \(\sqrt{\pi}/6\) \cite{arxiv:quant-ph/0510107}.'
