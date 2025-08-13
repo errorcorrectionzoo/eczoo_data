@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: cubic_surface
+physical: qubits
+logical: qubits
+
+name: '\([[8,3,2]]\) Cubic surface code'
+introduced: '\cite{arxiv:2010.06628}'
+
+alternative_names:
+  - 'Surface code on a cube'
+
+description: |
+  An \([[8,3,2]]\) twist-defect surface code whose qubits lie on the vertices of a cube. 
+  It is obtained by three-coloring the faces of a cube and placing \(X\), \(Y\), and \(Z\) stabilizers generators on each pair of faces of the same color.
+
+
+relations:
+  parents:
+    - code_id: twist_defect_surface
+      detail: 'The cubic surface code is a twist-defect surface code whose degree-three vertices can be interpreted as disclination twists \cite{arxiv:2010.06628}.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: hypercube
+      detail: 'The cubic surface code, whose qubits lie on the vertices of a cube, is obtained by three-coloring the faces of a cube and placing \(X\), \(Y\), and \(Z\) stabilizers generators on each pair of faces of the same color.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-08-13'
