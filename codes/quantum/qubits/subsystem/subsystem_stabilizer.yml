@@ -39,7 +39,10 @@ description: |
       bare logicals & \(\mathsf{N}(\mathsf{G})/\left\langle i,\mathsf{S}\right\rangle\) & \(4^{k}\)
       }
       \end{cells}
-      \caption{Groups relevant to subsystem qubit stabilizer codes. The normalizer \(\mathsf{N}(\mathsf{S})\) (technically, the centralizer, but these are equivalent for this case) is the group formed by all elements of the \(n\)-qubit Pauli group that commute with all elements in \(\mathsf{S}\). The gauge group and the normalizer are defined so as to include \(i\) and its powers as elements, while the stabilizer group is not.}
+      \caption{Groups relevant to subsystem qubit stabilizer codes. The centralizer \(\mathsf{N}(\mathsf{S})\) is the group formed by all elements of the \(n\)-qubit Pauli group that commute with all elements in \(\mathsf{S}\). 
+      The notation \(\mathsf{N}\) is used because the centralizer of a stabilizer group \(\mathsf{S}\) is the same as the group's normalizer, the group formed by all elements of the \(n\)-qubit Pauli group that conjugate \(\mathsf{S}\) to itself.
+      This equivalence is no longer the case for non-stabilizer Pauli groups, e.g., the normalizer of the Pauli group is the group itself, while its centralizer is just \(\langle i \rangle\).
+      The gauge group and centralizer are defined so as to include \(i\) and its powers as elements, while the stabilizer group is not.}
       \label{table:subsystem-groups}
     \end{table}
 
@@ -105,6 +108,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: PhilippeFaist
+      date: '2025-08-27'
+    - user_id: VictorVAlbert
+      date: '2025-08-27'
     - user_id: VictorVAlbert
       date: '2022-03-17'
     - user_id: VictorVAlbert
