@@ -12,13 +12,22 @@ introduced: '\cite{arxiv:1911.00099}'
 
 description: |
   Group-based quantum code whose construction is based on nested subgroups \(H\subset K
-  \subset G\). Logical subspace is spanned by basis states that are equal
-  superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or
-  infinite-dimensional.
-
+  \subset G\). 
   The group GKP code was originally formulated as an extension of the \hyperref[code:gkp]{GKP code} construction to other group-valued spaces.
   In other words, the only requirement to construct group GKP codes is that the configuration space \(G\) is a group under some operation.
-  The construction encompasses a wide variety of codes, tabulated in \ref{table:group-gkp-codes}.
+
+  Group GKP codes are stabilized by \(X\)-type \hyperref[topic:group-pauli]{group-based error operators} representing \(H\) and all \(Z\)-type operators that are constant on \(K\).
+  The \(Z\)-type operators are non-unitary matrix product operators for non-Abelian groups.
+  The codes' logical subspace is spanned by basis states that are equal
+  superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or
+  infinite-dimensional depending on the chosen groups.
+
+  The construction encompasses a wide variety of codes, whose \(G\) and \(H\) are tabulated in \ref{table:group-gkp-codes}.
+  An \(n\) Galois-qubit CSS code corresponds to the \(GF(q)^{k_1} \subseteq GF(q)^{k_2} \subset GF(q)^{n}\) group construction, where \(k=k_2-k_1\), and where the group operation is addition; this construction should be extendable to additive \(q\)-ary codes since those are also groups under addition.  
+  An \([[n,k,d]]_{\mathbb{R}}\) analog CSS code corresponds to the \(\mathbb{R}^{ k_1} \subseteq \mathbb{R}^{ k_2} \subset \mathbb{R}^{n}\) group construction, where \(k=k_2-k_1\).
+  A single-mode qubit GKP CSS code corresponds to the \(2\mathbb{Z}\subset\mathbb{Z}\subset\mathbb{R}\) group construction, and multimode GKP CSS codes can be similarly described.
+  Oscillator-into-oscillator GKP CSS codes for \(n\) modes correspond to subgroups \(\mathbb{Z}^m\) for \(m<n\).
+  Rotor GKP codes correspond to the \(\mathbb{Z}_{k_1} \subseteq \mathbb{Z}_{k_2} \subset U(1)\) group construction, where \(k=k_2/k_1\).
   \begin{table}
     \begin{cells}
     \celldata<c H, c H, c H, l H>{Space & \(G\) & \(H\) & Related code}
@@ -26,7 +35,7 @@ description: |
     \(n\) qubits & \(\mathbb{Z}_2^n\) & \(\mathbb{Z}_2^m\)
         & qubit CSS
         \\
-    \(n\) modular qudits & \(\mathbb{Z}_q^n\) & H
+    \(n\) modular qudits & \(\mathbb{Z}_q^n\) & \(H\)
         & modular-qudit CSS
         \\
     \(n\) Galois qudits & \(GF(q)^n\) & \(GF(q)^m\)
@@ -41,10 +50,13 @@ description: |
     \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{Z}^{m<n} \)
         & oscillator-into-oscillator GKP
         \\
-    planar rotor & \(U(1)\) & \(\mathbb{Z}_n\)
+    \(n\) rotors & \( \mathbb{Z}^n \) & \( \mathbb{Z}^m \)
+        & homological rotor
+        \\
+    rotor & \(U(1)\) & \(\mathbb{Z}_n\)
         & rotor GKP
         \\
-    rigid body & \(SO(3)\) & point group
+    rigid body & \(SO(3)\) & \(H\)
         & molecular
     }
     \end{cells}
@@ -69,10 +81,6 @@ realizations:
 relations:
   parents:
     - code_id: group_quantum
-  cousins:
-    - code_id: css
-      detail: 'Group GKP codes are stabilized by \(X\)-type \hyperref[topic:group-pauli]{group-based error operators} representing \(H\) and all \(Z\)-type operators that are constant on \(K\).
-      However, the \(Z\)-type operators are not unitary for non-Abelian groups.'
 
 
 # Begin Entry Meta Information
