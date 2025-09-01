@@ -18,6 +18,8 @@ description: |
   Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the group \(\mathbb{Z}_q\) of integers \textit{modulo} \(q\).
   Usually denoted as \(((n,K))_{\mathbb{Z}_q}\) or \(((n,K,d))_{\mathbb{Z}_q}\), whenever the code's distance \(d\) is defined, and with \(q=p\) when the dimension is prime.
 
+  There exists an analogue of the Wigner function for modular qudits \cite{arxiv:quant-ph/0401155,arxiv:quant-ph/0410117,arxiv:2503.09353}.
+
 protection: |
 
   \subsection{Modular-qudit Pauli-string error basis}
@@ -44,7 +46,7 @@ protection: |
 features:
   rate: 'Non-stabilizer states yield higher quantum capacity of the discrete beamsplitter channel \cite{arxiv:2401.12105}.'
   general_gates:
-    - 'The normalizer of the \hyperref[topic:qudit-pauli]{modular-qudit Pauli group} is the \textit{modular-qudit Clifford group} \cite{arxiv:quant-ph/9802007,arxiv:quant-ph/0412001,arxiv:quant-ph/0408190,arxiv:quant-ph/0512155,arxiv:quant-ph/0605094,arxiv:1101.1519,arxiv:2008.00959}.
+    - 'The normalizer of the \hyperref[topic:qudit-pauli]{modular-qudit Pauli group} is the \textit{modular-qudit Clifford group} \cite{arxiv:quant-ph/9802007,arxiv:quant-ph/0412001,arxiv:quant-ph/0408190,arxiv:quant-ph/0512155,arxiv:quant-ph/0605094,doi:10.1088/1751-8113/43/4/042001,arxiv:1101.1519,arxiv:2008.00959}.
     There is a standard form for modular-qudit Clifford-group operators \cite[Lemma 4]{arxiv:quant-ph/0412001}, and any modular-qudit gate can be constructed phase-shift and quantum Fourier transform gates \cite{arxiv:1307.5087}.
     Universal computing can be achieved using qudit Clifford gates and a single type of non-Clifford gate, such as the \(T\) gate \cite{arxiv:1503.08800}.
     Non-Clifford gates are typically more difficult to implement than Clifford gates and so are treated as a resource.

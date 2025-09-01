@@ -28,6 +28,8 @@ description: |
   \end{align}
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
+  The case when the two seed codes are equal, \(C_1=C_2\), is called a \textit{square hypergraph product code}.
+  If, in addition, \(\text{im} H = \text{im} H^T\), the hypergraph product code is called a \textit{symmetric hypergraph product code} \cite{arxiv:2204.10812}.
 
   In general, the stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with the 1-complex corresponding to some classical linear binary code.
 
@@ -47,6 +49,7 @@ features:
     - 'Patch-transversal gates inherited from the automorphism group of the underlying classical codes \cite[Appx. D]{arxiv:2309.11719}.'
     - 'Transversal gates for hypergraph product codes of all product dimensions lie in the Clifford group \cite{arxiv:2507.16797}.'
     - 'Orientation-preserving constant-depth circuits can only implemenent gates in the Clifford group \cite{arxiv:2507.16797}.'
+    - 'Permutation-based gates (automorphism gadgets) can be inherited from the underlying classical codes in the hypergraph construction \cite{arxiv:2508.04794}.'
   decoders:
     - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
     - 'ReShape decoder that uses minimum weight decoders for the classical codes used in the hypergraph construction \cite{arxiv:2105.02370}.'
@@ -58,12 +61,14 @@ features:
     - 'Linear time iterative decoder \cite{arxiv:2504.01728}.'
   general_gates:
     - 'Code deformation techniques yield Clifford gates \cite{arxiv:1909.07424}.'
+    - 'Piecable fault-tolerant circuits, transversal gates, and magic-state injection yield a universal gate set for symmetric hypergraph product codes \cite{arxiv:2204.10812}.'
     - 'Targeted logical gates \cite{arxiv:2411.17050}.'
     - 'Logical gates via Dehn twists for hypergraph products of cyclic codes \cite{arxiv:2411.03302}.'
   code_capacity_threshold:
     - 'Some thresholds were determined in Ref. \cite{arxiv:1208.2317}.'
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:1804.01950}. For example, a threshold of \(7\%\) was obtained under independent \(X\) and \(Z\) noise for codes obtained from random \((3,4)\)-regular Gallager codes.'
   fault_tolerance:
+    - 'Piecable fault-tolerant circuits, transversal gates, and magic-state injection yield a universal gate set for symmetric hypergraph product codes \cite{arxiv:2204.10812}.'
     - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
     - 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code \cite{arxiv:2502.14835}.'
   threshold:
