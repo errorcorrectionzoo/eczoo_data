@@ -7,21 +7,24 @@ code_id: qudit_3d_surface
 physical: qubits
 logical: qubits
 
-name: 'Qudit 3D surface code'
+name: 'Modular-qudit 3D surface code'
 introduced: '\cite{arxiv:1404.4618,arxiv:2504.09847}'
 
 
 description: |
   A generalization of the 3D surface code to modular qudits.
+  Qudits are placed on edges, \(Z\)-type stabilizer generators are placed on square plaquettes oriented in all three directions, and \(X\)-type stabilizers are placed on the six edges neighboring every vertex \cite{arxiv:1404.4618}.
 
 
 relations:
   parents:
     - code_id: qudit_css
+    - code_id: quantum_triple
+      detail: 'A quantum triple model for the group \(G=\mathbb{Z}_q\) is a modular-qudit 3D surface code.'
     - code_id: generalized_homological_product_css
     - code_id: 3d_stabilizer
     - code_id: topological_abelian
-      detail: 'The qudit 3D surface code realizes 3D \(\mathbb{Z}_q\) gauge theory with bosonic charge and loop excitations (BcBl).'
+      detail: 'The modular-qudit 3D surface code realizes 3D \(\mathbb{Z}_q\) gauge theory with bosonic charge and loop excitations (BcBl).'
 
 
 
