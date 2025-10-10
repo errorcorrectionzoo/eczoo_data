@@ -33,15 +33,16 @@ protection: |
   In that model, a classical bit is stored in the overall magnetization. The magnetization is thermally stable due to the fact that there is an \(n\)-dependent (i.e., \textit{macroscopic}) energy cost of flipping a contiguous region of physical bits \cite{doi:10.1017/S0305004100019174,arxiv:1411.6643}.
   This cost scales with the surface area of the region, and the surface area is \(n\)-dependent for dimensions greater than one.
 
-  Self-correcting quantum memories currently exist in four and higher dimensions, with their existence in three dimensions being an open question.
-  For similar reasons as the classical Ising model, the four-dimensional toric code is a self-correcting quantum memory due to an \hyperref[topic:asymptotics]{order} \(O(n)\) energy cost of creating a logical error \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}.
-  On the other hand, the 2D toric code is not thermally stable \cite{arxiv:quant-ph/0702102,arxiv:0709.2717,arxiv:0810.4584,arxiv:0911.3843} because its string-like logical operators anti-commute with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation.
+  Self-correcting quantum memories currently exist in four and higher dimensions, with existence in one dimension impossible (see, e.g., Ref. \cite{arxiv:2510.08533}) and existence in three dimensions an open question.
+  For similar reasons as the classical 2D Ising model is a self-correcting classical memory, the 4D loop toric code is a self-correcting quantum memory due to an \hyperref[topic:asymptotics]{order} \(O(n)\) energy cost of creating a logical error \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}.
+  On the other hand, the 2D surface code is not thermally stable \cite{arxiv:quant-ph/0702102,arxiv:0709.2717,arxiv:0810.4584,arxiv:0911.3843,arxiv:2410.01206} because its string-like logical operators anti-commute with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation.
   There is a general upper bound on the relaxation rate of a qubit stabilizer or qubit subsystem stabilizer quantum memory interacting with a Markovian environment \cite{arxiv:0907.2807}.
 
-  An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858,arxiv:1601.01324,arxiv:2107.01628}.
+  An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858} including Abelian \cite{arxiv:1601.01324} and non-Abelian \cite{arxiv:2107.01628} quantum doubles.
   Two-dimensional stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have admit such a barrier.
   No-go theorems for 3D models are much more restrictive \cite{arxiv:1105.4159}, e.g., a 3D lattice stabilizer code with a locality-preserving non-Clifford gate cannot have a microscopic energy barrier \cite{arxiv:1408.1720}.
   2D stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have an energy barrier.
+  More generally, translationally invariant CSS codes are not self-correcting at high temperature \cite{arxiv:2510.03090}.
   There exist several candidates for self-correction as well as several partially self-correcting memories (see cousins below).
 
   The lifetime of a ground-state memory protected by a Hamiltonian alone can increase at most logarithmically with \(n\) under depolarizing noise \cite{arxiv:0807.0287,arxiv:0904.4861}, and a clock Hamiltonian can saturate this bound \cite{arxiv:0904.4861}. 
@@ -54,17 +55,26 @@ relations:
     - code_id: symmetry_protected_self_correct
       detail: 'A self-correcting quantum memory does not require symmetry for self correction.'
   cousins:
+    - code_id: 2d_surface
+      detail: 'The surface code is not thermally stable \cite{arxiv:quant-ph/0702102,arxiv:0709.2717,arxiv:0810.4584,arxiv:0911.3843,arxiv:2410.01206} because its string-like logical operators anti-commute with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation. Various candidates for self-correcting quantum memories have been constructed by coupling neighboring anyons in the code so as to prevent them from spreading \cite{arxiv:0812.4622,arxiv:0908.4264,arxiv:1101.6028,arxiv:1406.2338,arxiv:1512.04528}.'
     - code_id: 2d_stabilizer
       detail: '2D stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have an energy barrier.'
+    - code_id: quantum_double
+      detail: 'An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858} including Abelian \cite{arxiv:1601.01324} and non-Abelian \cite{arxiv:2107.01628} quantum doubles.'
     - code_id: 3d_stabilizer
       detail: '3D translationally-invariant qubit stabilizer code families with constant \(k\) support logical string operators and thus cannot be self-correcting \cite{arxiv:1103.1885}. For non-constant \(k\), such families can support at most a logarithmic energy barrier \cite{arxiv:1101.1962}.'
     - code_id: 3d_surface
-      detail: 'The 3D welded surface code is partially self-correcting with a power-law energy barrier \cite{arxiv:1406.4227}.
-      The 3D toric code is a classical self-correcting memory, whose protected bit admits a membrane-like logical operator \cite{arxiv:1501.04112}, but it is not a quantum self-correcting memory \cite{arxiv:2305.06389}.'
+      detail: 'The 3D welded surface code is partially self-correcting with a power-law energy barrier \cite{arxiv:1406.4227}. The 3D toric code is a classical self-correcting memory, whose protected bit admits a membrane-like logical operator \cite{arxiv:1501.04112}, but it is not a quantum self-correcting memory because the star terms thermalize \cite{arxiv:2510.03090}.'
+    - code_id: 3d_subsystem_surface
+      detail: 'The 3D subsystem surface code is not a self-correcting quantum memory \cite{arxiv:2305.06389}.'
+    - code_id: 4d_surface
+      detail: 'For similar reasons as the classical 2D Ising model is a self-correcting classical memory, the 4D loop toric code is a self-correcting quantum memory due to an \hyperref[topic:asymptotics]{order} \(O(n)\) energy cost of creating a logical error \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}.'
     - code_id: color
       detail: 'The 6D color code is a self-correcting quantum memory and admits fault-tolerant universal gate set in 7D \cite{arxiv:0907.5228}.'
     - code_id: haah_cubic
       detail: 'Cubic code 1 is partially self-correcting with a logarithmic energy barrier \cite{arxiv:1112.3252}.'
+    - code_id: translationally_invariant_stabilizer
+      detail: 'Translationally invariant CSS codes are not self-correcting at high temperature \cite{arxiv:2510.03090}.'
     - code_id: quantum_repetition
       detail: 'The bit-flip repetition code associated with the 2D classical Ising model is a self-correcting classical memory \cite[Sec. V.A]{arxiv:1411.6643}.'
     - code_id: repetition
