@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tqt
+physical: groups
+logical: groups
+
+name: 'Twisted quantum triple (TQT) code'
+short_name: 'TQT'
+introduced: '\cite{arxiv:1212.0835,arxiv:1404.1062,arxiv:1404.7854,arxiv:1409.3216}'
+
+alternative_names:
+  - '3D Dijkgraaf-Witten gauge theory code'
+  - '3D twisted quantum-double code'
+
+description: |
+  Group-based code realizing a 3D topological order rendered by a Dijkgraaf-Witten gauge theory.
+  The corresponding anyon theory is defined by a finite group \(G\) and a Type-IV group cocycle \(\omega\).
+  Canonical TQD models \cite{arxiv:1212.0835,arxiv:1404.1062} and other formulations whose ground states are in the same phase are all defined on group-valued qudits .
+
+  Boundaries and excitations have been studied in Refs. \cite{arxiv:1807.11083,arxiv:2006.06536,arxiv:2401.13042}.
+  Gapped boundaries are classified by a subgroup \(K \subseteq G\) and a particular three-cochain \cite{arxiv:1807.11083}. 
+  Generalizations of Ocneanu's tube algebras \cite{manual:{Ocneanu, Adrian. "Chirality for operator algebras." Subfactors (Kyuzeso, 1993) 39 (1994).},doi:10.2969/aspm/03110235} can be used to characterize excitations, which are described by the tube algebra of the category \(\text{Vec}^{\omega}(G)\) \cite{arxiv:1905.08673,arxiv:2305.17165}.
+  
+
+relations:
+  parents:
+    - code_id: dijkgraaf_witten
+      detail: |
+        Restricting Dijkgraaf-Witten gauge theory to a 3D manifold reproduces the phase of the TQT model.
+  cousins:
+    - code_id: tqd
+      detail: 'The TQT model can be thought of as a 3D version of the TQD model.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-09-25'

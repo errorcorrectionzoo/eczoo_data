@@ -25,6 +25,7 @@ description: |
   where the neighborhood \(N(j)\) is the set of vertices which share an edge with \(j\).
 
   An MBQC scheme can be constructed out of any qubit CSS code (via \textit{foliation} \cite{arxiv:1607.02579}; see also Ref. \cite{arxiv:1705.05602}) or qubit stabilizer code \cite{arxiv:1811.11780}.
+  Foliation of a CSS code can be interpreted as a product of the code's chain complex with another complex \cite{arxiv:2410.12963}.
   The original MBQC scheme \cite{arxiv:quant-ph/0510135,arxiv:quant-ph/0610082} uses the RBH cluster state on the bcc lattice (i.e., a cubic lattice with qubits on edges and faces).
 
   Since they are stabilizer states, two cluster states are considered local-Clifford equivalent if they can be mapped into each other under a tensor product of arbitrary \hyperref[topic:clifford]{single-qubit Clifford} operations.
@@ -117,7 +118,9 @@ relations:
       The difference between the two is in how the states are constructed.
       FBQC is based exclusively on two-qubit measurements tailored to photonic platforms. These measurements require a foliation with more qubits but one which can be built by fusing smaller modules.'
     - code_id: qubit_css
-      detail: 'A resource cluster state can be constructed out of any qubit CSS code via foliation. Conversely, CSS codes can be constructed out of cluster states \cite{arxiv:1607.02579}.'
+      detail: |
+        A resource cluster state can be constructed out of any qubit CSS code via foliation. Conversely, CSS codes can be constructed out of cluster states \cite{arxiv:1607.02579}. 
+        Foliation of a CSS code can be interpreted as a product of the code's chain complex with another complex \cite{arxiv:2410.12963}.
     - code_id: xp_stabilizer
       detail: 'XP stabilizer states are in one-to-one correspondence with weighted hypergraph states \cite{arxiv:2203.00103,manual:{Webster, Mark. The XP Stabilizer Formalism. Dissertation, University of Sydney, 2023.}}, which generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
       The latter can also be utilized in MBQC schemes \cite{arxiv:1805.12093,doi:10.1038/s41598-019-49968-3}.'

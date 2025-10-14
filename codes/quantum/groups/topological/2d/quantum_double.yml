@@ -11,10 +11,11 @@ name: 'Quantum-double code'
 introduced: '\cite{arxiv:quant-ph/9707021}'
 
 description: |
-  Group-GKP stabilizer code whose codewords realize 2D modular gapped topological order defined by a finite group \(G\).
+  Group-based code whose codewords realize 2D modular gapped topological order defined by a finite group \(G\).
   The code's generators are few-body operators associated to the stars and plaquettes, respectively, of a tessellation of a two-dimensional surface (with a qudit of dimension \( |G| \) located at each edge of the tesselation).
+  The original Hamiltonian can be re-expressed via \hyperref[topic:group-pauli]{group-based right- and left-multiplication \(X\)-type as well as \(Z\)-type error} operators \cite[Sec. 3.3]{arxiv:2111.12096}.
 
-  The physical Hilbert space has dimension \( |G|^E  \), where \( E \) is the number of  edges in the tessellation. The dimension of the code space is the number of orbits of the conjugation action of \( G \) on \( \text{Hom}(\pi_1(\Sigma),G) \), the set of group homomorphisms from the fundamental group of the surface \( \Sigma \) into the finite group \( G \) \cite{arxiv:1908.02829}. When \( G \) is Abelian, the formula for the dimension simplifies to \( |G|^{2g} \), where \( g \) is the genus of the surface \( \Sigma \).
+  The physical Hilbert space has dimension \( |G|^E  \), where \( E \) is the number of  edges in the tessellation. The dimension of the code space is the number of orbits of the conjugation action of \( G \) on \( \text{Hom}(\pi_1(\Sigma),G) \), the set of group homomorphisms from the fundamental group of the surface \( \Sigma \) into the finite group \( G \) \cite{arxiv:1908.02829,arxiv:2509.10876} (see also Ref. \cite{arxiv:0909.3305}). When \( G \) is Abelian, the formula for the dimension simplifies to \( |G|^{2g} \), where \( g \) is the genus of the surface \( \Sigma \).
 
   The codespace is the ground-state subspace of the quantum double model Hamiltonian, while local excitations are characterized by anyons.
   Different types of anyons are labeled by irreducible representations of the group's quantum double algebra, \(D(G)\) (a.k.a. Drinfield center) \cite{arxiv:1006.5479,arxiv:2310.19661}.
@@ -24,9 +25,6 @@ description: |
   The fusion space of such non-Abelian anyons has dimension greater than one, allowing for topological quantum computation of logical information stored in the fusion outcomes.
 
   Gapped boundaries of the models are classified by a subgroup \(K \subseteq G\) and a two-cocycle \cite{arxiv:0712.0190,arxiv:1006.5479,arxiv:1706.03611,arxiv:2204.05341}.
-
-
-
 
 
 protection: |
@@ -55,10 +53,9 @@ features:
 notes:
   - 'See Ref. \cite{doi:10.1103/RevModPhys.51.659} for a review of gauge theory, which admits quantum-double topological phases.'
 
+# not group GKP since right and left multipliers are in stabilizer group
 relations:
   parents:
-    - code_id: group_gkp
-      detail: 'Quantum-double Hamiltonians can be expressed in terms of \(X\)- and \(Z\)-type operators of group-GKP codes; see \cite[Sec. 3.3]{arxiv:2111.12096}.'
     - code_id: tqd
       detail: 'The anyon theory corresponding to a quantum-double code is a TQD with trivial cocycle.'
     - code_id: hopf_quantum_double
@@ -69,8 +66,6 @@ relations:
       detail: 'Quantum double code Hamiltonians can be simulated, with the help of perturbation theory and the \([[4,1,1,2]]\) subsystem code, by two-dimensional two-body Hamiltonians with non-commuting terms \cite{arxiv:1011.1942}.'
     - code_id: oecc
       detail: 'Subsystem versions of quantum-double codes have been formulated \cite{doi:10.5446/35287}.'
-    - code_id: yetter_gauge_theory
-      detail: 'Restricting 2-gauge theory constructions to a 2D manifold and replacing the 2-group with a group reproduces the phase of the Kitaev quantum double model \cite{arxiv:1606.06639}.'
     - code_id: bacon_shor_4
       detail: 'Quantum double code Hamiltonians can be simulated, with the help of perturbation theory and the four-qubit subsystem code, by two-dimensional two-body Hamiltonians with non-commuting terms \cite{arxiv:1011.1942}.'
     - code_id: spt
