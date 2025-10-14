@@ -47,7 +47,7 @@ protection: |
 
 features:
   general_gates:
-    - 'The normalizer of the \hyperref[topic:galois-pauli]{Galois-qudit Pauli group}  is the Galois-qudit Clifford group \cite{arxiv:quant-ph/0211014}.'
+    - 'The normalizer of the \hyperref[topic:galois-pauli]{Galois-qudit Pauli group}  is the Galois-qudit Clifford group \cite{arxiv:quant-ph/0211014}\cite[Ch. 8]{doi:10.1007/978-3-319-44906-7}.'
   decoders:
     - 'For few-qudit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood} (ML) decoder.'
     - 'RL-on-Greedy decoder based on reinforcement learning \cite{arxiv:2506.03397}.'
@@ -56,7 +56,8 @@ features:
 notes:
   - 'Introduction to Galois qudits by \href{https://ethz.ch/content/vp/en/conferences/2014/qec/05_thursday/dab6ca18-7453-4197-aaaa-8b1964ece714.html}{Gottesman}.'
   - 'CodingTheory Julia software library \cite{manual:{Eric Sabo. CodingTheory. https://github.com/esabo/CodingTheory}}.'
-  
+  - 'See \cite[Ch. 8]{doi:10.1007/978-3-319-44906-7} for a side-by-side introduction to modular and Galois qudits.'
+
 relations:
   parents:
     - code_id: block_quantum
@@ -67,9 +68,11 @@ relations:
       detail: 'Category quantum codes whose physical spaces are constructed using the group \(GF(q)\) as the category are Galois-qudit codes. More general versions of such qudits can be valued in a Galois ring \cite{arxiv:2501.18968}, over which there also exists a Fourier transform \cite{arxiv:0904.2560}.'
   cousins:
     - code_id: qudits_into_qudits
-      detail: 'A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook,arxiv:2408.10140,arxiv:2408.09254}.
-      The two coincide when \(q\) is prime, and reduce to qubits when \(q=2\).
-      However, Pauli matrices for the two types of qudits are defined differently.'
+      detail: |
+        A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits; see \cite{doi:10.1109/18.959288}\cite[Sec. 5.3]{arxiv:quant-ph/0501074}\cite{preset:GottesmanBook,arxiv:2408.10140,arxiv:2408.09254}.
+        The two coincide when \(q\) is prime, and reduce to qubits when \(q=2\).
+        However, Pauli matrices for the two types of qudits are defined differently.
+        See \cite[Ch. 8]{doi:10.1007/978-3-319-44906-7} for a side-by-side introduction to modular and Galois qudits.
 # category_quantum is child of finite
 
 
