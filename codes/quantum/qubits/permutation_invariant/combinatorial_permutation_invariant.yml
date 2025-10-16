@@ -10,6 +10,10 @@ logical: qubits
 name: 'Combinatorial PI code'
 introduced: '\cite{arxiv:2310.05358}'
 
+alternative_names:
+  - 'AAB code'
+  # 2411.13142
+
 description: |
   A member of a family of PI quantum codes whose correction properties are derived from solving a family of combinatorial identities.
   The code encodes one logical qubit in superpositions of \hyperref[topic:dicke]{Dicke states} whose coefficients are square roots of ratios of binomial coefficients.
@@ -18,6 +22,10 @@ protection: |
   A code \(Q_{g,m,\delta,\epsilon}\) is defined for nonnegative integers \(g\), \(m\), and \(\delta\) as well as a sign \(\epsilon\) \cite[Construction 5.1]{arxiv:2310.05358}.
   The number of qubits is \(n = 2g+m+\delta+1\).
   The code corrects errors on up to \(t\) qubits for \(m\geq t\), \(\delta\geq 2t\), and either \((g\geq 2t,\epsilon=-)\) or \((g\geq 2t+1,\epsilon=+)\).
+
+features:
+  transversal_gates:
+    - 'A class of combinatorial PI codes called \((b,g,1)\)-codes has been identified that admits logical gates in the diagonal \term{Clifford hierarchy} from transversal \(Z\)-axis rotations \cite{arxiv:2411.13142}.'
 
 notes:
   - 'See Quantum News and Views article \cite{doi:10.22331/qv-2024-05-13-80}.'

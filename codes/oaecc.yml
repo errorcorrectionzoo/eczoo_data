@@ -7,7 +7,7 @@ code_id: oaecc
 
 name: 'Operator-algebra QECC (OAQECC)'
 short_name: 'OAQECC'
-introduced: '\cite{arxiv:quant-ph/9908066,arxiv:quant-ph/0101090,arXiv:quant-ph/0603252,arxiv:quant-ph/0608071,arxiv:0705.1574,arxiv:0901.3629,arxiv:1005.0353,doi:10.1142/S0219749908003839,arxiv:2012.14001}'
+introduced: '\cite{arxiv:quant-ph/9908066,arxiv:quant-ph/9910016,arxiv:quant-ph/0101090,arXiv:quant-ph/0603252,arxiv:quant-ph/0608071,arxiv:0705.1574,arxiv:0901.3629,arxiv:1005.0353,doi:10.1142/S0219749908003839,arxiv:2012.14001}'
 
 description: |-
   A code family that encompasses ordinary (i.e., subspace) codes, subsystem codes, classical-quantum codes, and hybrid codes using a unified operator-algebraic framework.
@@ -21,7 +21,7 @@ description: |-
   where \(\mathsf{C}^\perp\) is the combined error space of both codes.
   The above code reduces to a subsystem code when \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) is trivial, reduces to a classical-quantum code when \(\mathsf{A}_{1,2}\) are both trivial, reduces to a hybrid code when \(\mathsf{B}_{1,2}\) are both trivial, and reduces to an ordinary (i.e., subspace) code when \(\mathsf{B_1}\) and \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) are both trivial.
 
-  In general, an OAQECC code is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
+  In general, an OAQECC is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
   This \textit{logical algebra} induces a decomposition of the Hilbert space as
   \begin{align}\mathsf{H} = \bigoplus_\gamma \mathsf{A}_\gamma \otimes \mathsf{B}_\gamma,\end{align}
   with respect to which \(\mathcal{A}\) takes the form
@@ -29,6 +29,7 @@ description: |-
   where \(\mathcal{L}(\mathsf{B}_\gamma)\) denotes the full set of linear maps on \(\mathsf{B}_\gamma\).
   The \(\mathsf{A}_j\) factors can be used to store quantum information, \(\gamma\) indexes the block structure of the code, while \(\mathsf{B}_j\) determine its gauge structure.
   Together, the above forms the most general form of an information preserving structure \cite{arXiv:quant-ph/9908066,arxiv:quant-ph/0402056,arxiv:quant-ph/0507213,arXiv:quant-ph/0603252,arxiv:0705.4282,arxiv:1006.1358}.
+  Logical operators form the commutant of \(\mathcal{A}\) as a result of the double commutant (a.k.a. double centralizer) theorem \cite{arxiv:math-ph/9807030}.
 
 protection: |
   Given an error operation \(\mathcal{E}\), one says that \(\mathcal{A}\) is \textit{correctable} for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that

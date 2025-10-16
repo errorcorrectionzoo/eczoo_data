@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_triple
+physical: groups
+logical: groups
+
+name: 'Quantum-triple code'
+introduced: '\cite{arXiv:1404.4618}'
+
+alternative_names:
+  - '3D quantum-double code'
+
+description: |
+  Group-based code whose codewords realize 3D topological order defined by a finite group \(G\).
+
+  Excitations are characterized by irreducble representations of a generalization of the quantum double (algebra), often called the quantum triple \cite{arXiv:1404.4618,arxiv:1709.04924}.
+
+  
+# not group GKP since right and left multipliers are in stabilizer group
+relations:
+  parents:
+    - code_id: tqt
+      detail: 'The anyon theory corresponding to a quantum-triple code is a TQT with trivial cocycle.'
+  cousins:
+    - code_id: quantum_double
+      detail: 'The quantum triple model can be thought of as a 3D version of the quantum double model.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-09-25'
