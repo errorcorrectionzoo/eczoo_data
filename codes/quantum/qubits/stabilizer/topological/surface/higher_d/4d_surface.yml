@@ -23,11 +23,16 @@ description: |
   Both types of operators create 1D (i.e., loop) excitations at their edges.
   The code serves as a self-correcting quantum memory \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}.
 
+  Qubits are placed on plaquettes, each \(Z\)-type stabilizer generator is supported on six plaquettes surrounding an edge, and \(X\)-type stabilizers are placed on the six plaquettes of every cube \cite{arxiv:2010.02238}.
+
   \textit{Loop toric code} often either refers to the construction on
   the four-dimensional torus or is an alternative name for the general
   construction.
 
   The construction has been extended to modular qudits \cite{arxiv:2112.02137}.
+
+protection: |
+  Code parameters for an open hypercubic lattice of side-length \(L\) are \([[6L^4 − 12L^3 + 10L^2 - 4L + 1, 1, L^2]]\) \cite{arxiv:2408.08865}.
 
 features:
   encoders:
@@ -50,13 +55,15 @@ features:
 
 
 realizations:
-  - 'Trapped ions: single-shot QEC realized using the \([[33,1,4]]\) loop toric code on the Quantinuum H2 device \cite{arxiv:2408.08865}.'
+  - 'Trapped ions: single-shot QEC realized using a \([[33,1,4]]\) rotated version of the loop toric code on the Quantinuum H2 device \cite{arxiv:2408.08865}.'
 
 
 relations:
   parents:
     - code_id: higher_dimensional_surface
       detail: 'The 4D loop toric code realizes 4D \(\mathbb{Z}_2\) gauge theory with only loop excitations \cite{arxiv:2112.02137}.'
+    - code_id: multisector_hypergraph
+      detail: 'The 4D loop planar (toric) code can be obtained from a hypergraph product of four repetition (cyclic) codes \cite{arxiv:1810.01519}.'
     - code_id: translationally_invariant_stabilizer
     - code_id: single_shot
       detail: 'Single-shot QEC has been realized using the \([[33,1,4]]\) loop toric code on the Quantinuum H2 device \cite{arxiv:2408.08865}.'
