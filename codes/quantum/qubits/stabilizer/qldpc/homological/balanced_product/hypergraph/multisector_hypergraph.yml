@@ -18,9 +18,11 @@ alternative_names:
   - 'Multi-sector Tillich-Zemor product code'
 
 description: |
-  A generalization of hypergraph product codes constructed from a hypergraph product of two or more classical linear binary codes.
+  A CSS code constructed from a hypergraph product of two or more classical linear binary codes.
   The stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with each 1-complex corresponding to some classical linear binary code.
 
+protection: |
+  The Künneth formula gives code properties in terms of the properties of the underlying classical codes.
 
 features:
   transversal_gates:
@@ -31,8 +33,7 @@ features:
 # A homological product of chain complexes corresponding to two linear binary codes is a hypergraph product code \cite{arxiv:2009.03921}. Homological product codes constructed with diagonal boundary operators admit very different properties than those with rectangular boundary operators.
 relations:
   parents:
-    - code_id: qubit_stabilizer
-    - code_id: generalized_homological_product
+    - code_id: qubit_generalized_homological_product_css
   cousins:
     - code_id: binary_linear
       detail: 'Higher-dimensional HGP codes are constructed using a hypergraph product of two or more linear binary codes'

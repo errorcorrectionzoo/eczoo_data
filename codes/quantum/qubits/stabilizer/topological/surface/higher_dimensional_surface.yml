@@ -14,19 +14,22 @@ alternative_names:
   - 'Generalized surface code'
 
 description: |
-  CSS-type extension of the Kitaev surface code to arbitrary manifolds.
+  A CSS extension of the Kitaev surface code to arbitrary manifolds.
   The version on a Euclidean manifold of some fixed dimension is called the \(D\)\textit{-dimensional "surface"} or \(D\)\textit{-dimensional toric} code.
 
-  Given a cellulation of a manifold, qubits are put on \(i\)-dimensional faces, \(X\)-type stabilizers
-  are associated with \((i-1)\)-faces, while \(Z\)-type stabilizers are associated with \((i+1)\)-faces.
+  Given a cellulation of a manifold, qubits are put on \(p\)-dimensional faces, \(X\)-type stabilizers
+  are associated with \((p-1)\)-faces, while \(Z\)-type stabilizers are associated with \((p+1)\)-faces.
+  Here, \(p\) ranges between \(1\) and \(D-1\).
 
   Lattice surface codes in \(D\) spatial dimensions can be partially classified by the dimension of their stabilizer generators (and corresponding excitations).
-  There are \((p,q)\) \textit{surface codes} for \(p+q=D\) realized by \(Z\)-type stabilizer generators of dimension \(p\) and \(X\)-type stabilizer generators of dimension \(q\).
-  The two corresponding types of excitations are of dimension \(p-1\) and \(q-1\), respectively.
+  There are \((p,q)\) \textit{surface codes} for \(q = D-p\) \cite{arxiv:1508.03468}.
+  Applying this construction to the dual lattice of a \((p,q)\) surface code yields a \((q,p)\) surface code.
+  All lattice surface codes have bosonic \(e\) and \(m\) excitations of dimension \(p-1\) and \(q-1\), respectively. Their logical operators are also of dimension \(p\) and \(q\), respectively.
 
-  In addition, one has to classify the self statistics of the codes' excitations.
-  For example, there are three types of \((1,3)\) surface codes in 3D, corresponding to the three types of \(\mathbb{Z}_2\) Abelian topological orders: one with bosonic charge and loop excitations (BcBl) and two with fermionic charge excitations and bosonic (FcBl) and fermionic (FcFl) loop excitations, respectively \cite{arxiv:2011.11165,arxiv:2110.14654}.
-  There exists an invariant that distinguishes these \cite{arxiv:2110.14654}.
+  In 2D, there is only the \((1,1)\) surface code, which is equivalent to the Kitaev surface code and which admits point-like \(e\) and \(m\) excitations.
+  In 3D, there are the \((1,2)\) and \((2,1)\) 3D surface codes, which are equivalent by Hadamard gates. Both admit point-like excitations of one type and loop-like excitations of the other.
+  In 4D, there are the \((1,3)\), \((2,2)\), and \((3,1)\) 4D surface codes, with the last two being equivalent by Hadamard gates. The \((1,3)\) code admits point-like \(e\) excitations and 3D membrane \(m\) excitations, while the \((2,2)\) loop toric code admits loop-like \(e\) and \(m\) excitations.
+
 
 protection: |
   The 4D \((2,2)\) loop surface code serves as a self-correcting quantum memory, while surface codes in higher dimensions can have distances not possible in lower dimensions.
