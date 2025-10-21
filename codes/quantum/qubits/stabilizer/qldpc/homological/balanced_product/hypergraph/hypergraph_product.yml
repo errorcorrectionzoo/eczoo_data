@@ -9,7 +9,7 @@ logical: qubits
 
 name: 'Hypergraph product (HGP) code'
 short_name: 'HGP'
-introduced: '\cite{arxiv:0903.0566,arxiv:1202.0928,arxiv:1810.01519}'
+introduced: '\cite{arxiv:0903.0566,arxiv:1202.0928}'
 
 alternative_names:
   - 'Quantum hypergraph (QHG) code'
@@ -17,7 +17,6 @@ alternative_names:
 
 description: |
   A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear binary codes.
-  Codes from hypergraph products in higher dimension are called \textit{higher-dimensional HGP codes} \cite{arxiv:1810.01519}.
 
   More technically, the \(X\)- and \(Z\)-type stabilizer generator matrices of a hypergraph product code are, respectively, the boundary and coboundary operators of the 2-complex obtained from the tensor product of a chain complex and cochain complex corresponding to two classical linear binary \textit{seed} codes.
   Let the two seed codes be \(C_i\) for \(i\in\{1,2\}\) with parameters \([n_i, k_i, d_i]\), defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
@@ -31,7 +30,6 @@ description: |
   The case when the two seed codes are equal, \(C_1=C_2\), is called a \textit{square hypergraph product code}.
   If, in addition, \(\text{im} H = \text{im} H^T\), the hypergraph product code is called a \textit{symmetric hypergraph product code} \cite{arxiv:2204.10812}.
 
-  In general, the stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with the 1-complex corresponding to some classical linear binary code.
 
 # Could be expanded to include Tanner graphs
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
@@ -47,7 +45,6 @@ features:
   transversal_gates:
     - 'Hadamard (up to logical SWAP gates) and control-\(Z\) on all logical qubits \cite{arxiv:2204.10812}.'
     - 'Patch-transversal gates inherited from the automorphism group of the underlying classical codes \cite[Appx. D]{arxiv:2309.11719}.'
-    - 'Transversal gates for hypergraph product codes of all product dimensions lie in the Clifford group \cite{arxiv:2507.16797}.'
     - 'Orientation-preserving constant-depth circuits can only implemenent gates in the Clifford group \cite{arxiv:2507.16797}.'
     - 'Permutation-based gates (automorphism gadgets) can be inherited from the underlying classical codes in the hypergraph construction \cite{arxiv:2508.04794}.'
   decoders:
@@ -79,8 +76,7 @@ features:
 
 relations:
   parents:
-    - code_id: homological_product
-      detail: 'A homological product of chain complexes corresponding to two linear binary codes is a hypergraph product code \cite{arxiv:2009.03921}. Homological product codes constructed with diagonal boundary operators admit very different properties than those with rectangular boundary operators.'
+    - code_id: multisector_hypergraph
     - code_id: sc_qldpc
       detail: 'Hypergraph-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
     - code_id: galois_hypergraph_product
