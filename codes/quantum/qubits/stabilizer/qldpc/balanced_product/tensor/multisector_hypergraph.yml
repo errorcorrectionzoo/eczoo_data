@@ -14,9 +14,11 @@ alternative_names:
   - 'Higher-dimensional tensor product code'
   - 'Multi-sector homological product code'
   - 'Multi-sector tensor product code'
+  - 'Iterative homological product code'
+  - 'Iterative tensor product code'
 
 description: |
-  A CSS code formulated using a tensor product of two or more chain complexes, each of length one or greater.
+  A qubit CSS code formulated using a tensor product of two or more chain complexes, each of length one or greater.
   The number of chain complexes participating in the product is the \textit{dimension} of the code.
   When all chain complexes are length-one, meaning that they correspond to classical codes, the code is called a \textit{higher-dimensional HGP code}.
 
@@ -38,6 +40,14 @@ relations:
   cousins:
     - code_id: binary_linear
       detail: '\(D\)-dimensional HGP codes are constructed using a hypergraph product of \(D\) linear binary codes'
+    - code_id: binary_cyclic
+      detail: 'Higher-dimensional homological-product codes can be constructed out of CSS codes that in turn stem from cyclic codes \cite{arxiv:1512.07081}.'
+    - code_id: quantum_reed_muller
+      detail: 'Higher-dimensional homological-product codes can be constructed out of quantum RM codes \cite{arxiv:1512.07081}.'
+    - code_id: qc_ldpc
+      detail: 'Higher-dimensional hypergraph-product codes can be constructed out of QC-LDPC codes \cite{arxiv:2407.18490}.'
+
+
 
 
 # Begin Entry Meta Information
