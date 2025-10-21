@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: double_homological_product
+physical: qubits
+logical: qubits
+
+name: 'Campbell double homological product code'
+introduced: '\cite{arxiv:1805.09271}'
+
+description: |
+  A multi-dimensional HGP code derived from two applications of the hypergraph product to a classical code, resulting in a length-\(4\) chain complex.
+  The construction method allows for the use of two different classical codes as inputs, with Ref. \cite{arxiv:1805.09271} assuming identical input codes for simplicity.
+  
+  Explicitly, the resulting chain complex is
+  \begin{align}
+  A_{-2}\xrightarrow{\partial_{-2}}A_{-1}\xrightarrow{\partial_{-1}}A_{0}\xrightarrow{\partial_{0}}A_{1}\xrightarrow{\partial_{1}}A_{2}\,.
+  \end{align}
+  The boundary maps \(\partial_j\) are constructed using tensor products of the original boundary maps, ensuring the chain condition \(\partial_{j+1} \partial_j = 0\).  
+  The additional parts of the chain complex yields metachecks to detect measurement errors, enabling single-shot error correction.  
+
+
+protection: |
+  Given a classical \([n, k, d]\) code, the double homological product yields a quantum code with parameters \([[n^4 + 4n^2(n-k)^2 + (n-k)^4, k^4, \geq d]]\).
+  
+  The Campbell double homological product code is a single-shot code. It is \((d, f)\)-sound with \(f(x) = x^3/4\), meaning that small syndromes can be corrected by small errors. The check redundancy is bounded (\(\breve{\upsilon} < 2\)), and the construction preserves LDPC properties if the original code is LDPC.
+
+
+features:
+  decoders:
+    - 'The minimum-weight decoder optimizes the recovery operation \( E_{\text{rec}} \) to minimize the residual error \( E_{\text{rec}} \cdot E \) given a noisy syndrome \( s = \sigma(E) + u \). The decoder’s performance is intrinsically tied to the code’s soundness: when the code is \((t, f)\)-sound, the minimum-weight decoder guarantees that the residual error’s min-weight scales as \( f(2|u|) \) for measurement errors \( |u| < t/2 \) \cite{arxiv:1805.09271}. This property is particularly robust in double homological codes, where soundness follows a cubic scaling (\( f(x) \sim x^3 \)).'
+    - 'A meta-check-based decoder operates through a two-stage process: first, it identifies a minimal correction \( s_{\text{rec}} \) to the syndrome \( s \) such that the repaired syndrome \( s + s_{\text{rec}} \) satisfies all metachecks (\( H(s + s_{\text{rec}}) = 0 \)). Second, it computes a minimal-weight physical error \( E_{\text{rec}} \) consistent with the repaired syndrome. This approach uniquely tolerates up to \( \lfloor (d_{ss} - 1)/2 \rfloor \) measurement errors in a single round, eliminating the need for repeated syndrome measurements.'
+
+
+relations:
+  parents:
+    - code_id: multisector_hypergraph
+    - code_id: single_shot
+      detail: 'The Campbell double homological product code is a single-shot code. It is \((d, f)\)-sound with \(f(x) = x^3/4\), meaning that small syndromes can be corrected by small errors. The check redundancy is bounded (\(\breve{\upsilon} < 2\)), and the construction preserves LDPC properties if the original code is LDPC.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: FerozAhmedMian
+      date: '2025-07-28'
+
