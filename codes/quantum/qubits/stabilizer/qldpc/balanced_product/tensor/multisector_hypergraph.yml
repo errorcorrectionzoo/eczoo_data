@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Higher-dimensional homological product code'
-introduced: '\cite{arxiv:1810.01519,arxiv:2009.14226}'
+introduced: '\cite{arxiv:1512.07081,arxiv:1611.03790,arxiv:1805.09271,arxiv:1810.01519}'
 
 alternative_names:
   - 'Higher-dimensional tensor product code'
@@ -24,8 +24,11 @@ description: |
 
   The stabilizer generator matrices of an \(m\)-dimensional homological product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex.
 
+
 protection: |
   The Künneth formula gives code properties in terms of the properties of the underlying chain complexes.
+  Hypergraph products of multiple classical codes were considered first \cite{arxiv:1512.07081}, followed by products of length-two chain complexes \cite{arxiv:1611.03790,arxiv:1805.09271}, which correspond to qubit CSS codes per the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence}.
+  A general theory and distance bounds are formulated in Ref. \cite{arxiv:1810.01519}.
 
 features:
   transversal_gates:
@@ -45,7 +48,7 @@ relations:
     - code_id: quantum_reed_muller
       detail: 'Higher-dimensional homological-product codes can be constructed out of quantum RM codes \cite{arxiv:1512.07081}.'
     - code_id: qc_ldpc
-      detail: 'Higher-dimensional hypergraph-product codes can be constructed out of QC-LDPC codes \cite{arxiv:2407.18490}.'
+      detail: 'Higher-dimensional hypergraph-product codes can be constructed out of QC-LDPC codes \cite[Table III]{arxiv:2407.18490}.'
 
 
 
