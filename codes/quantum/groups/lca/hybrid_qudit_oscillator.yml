@@ -7,14 +7,15 @@ code_id: hybrid_qudit_oscillator
 physical: qudits
 logical: groups
 
-name: 'Hybrid qudit-oscillator code'
+name: 'Mixed oscillator code'
+rename to mixed oscillator
 #introduced: ''
 
 alternative_names:
   - 'LCA code'
 
 description: |
-  Encodes a \(K\)-dimensional logical Hilbert space into some number of modular qudits and a nonzero number of oscillators, i.e., the Hilbert space of \(L^2\)-normalizable functions on a locally compact Abelian (LCA) group.
+  Encodes a logical Hilbert space into some number of modular qudits, some number of rotors, and a nonzero number of oscillators, i.e., the Hilbert space of \(L^2\)-normalizable functions on a locally compact Abelian (LCA) group.
   In photonic systems, photonic states of multiple degrees of freedom of a photon (e.g., frequency, amplitude, and polarization) are called \textit{hyper-entangled states} \cite{doi:10.1080/09500349708231877}.
 
 features:
@@ -23,17 +24,15 @@ features:
     - 'Adding a conditional oscillator-qudit displacement makes the symplectic gate set universal \cite{arxiv:2509.18854}.'
 
 notes:
-  - 'See reviews \cite{arxiv:1409.3719,doi:10.1002/9783527635283,arxiv:2407.10381} for introductions to hybrid qudit-oscillator platforms.'
+  - 'See reviews \cite{arxiv:1409.3719,doi:10.1002/9783527635283,arxiv:2407.10381} for introductions to mixed oscillator platforms.'
 
 relations:
   parents:
-    - code_id: oscillators
-      detail: 'The physical Hilbert space of a hybrid qubit-oscillator code contains at least one oscillator.'
+    - code_id: group_quantum
+      detail: 'Group quantum codes whose physical spaces are constructed using some number of modular qudits, some number of rotors, and a nonzero number of oscillators, which together constitute a general locally compact Abelian (LCA) group, are mixed oscillator codes.'
   cousins:
-    - code_id: qudits_into_oscillators
-      detail: 'A hybrid qudit-oscillator code with \(n_1=0\) is a qudit-into-oscillator code.'
     - code_id: mixed
-      detail: 'Hybrid qudit-oscillator codes are examples of quantum analogues of mixed codes.'
+      detail: 'Mixed oscillator codes are examples of quantum analogues of mixed codes.'
 
 
 # Begin Entry Meta Information
