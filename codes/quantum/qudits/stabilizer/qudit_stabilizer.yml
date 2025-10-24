@@ -40,6 +40,9 @@ description: |
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits. More generally, define the normalizer \(\mathsf{N(S)}\) of \(\mathsf{S}\) to be the set of all Pauli operators that commute with all \(S\in\mathsf{S}\). A stabilizer code can correct a Pauli error set \({\mathcal{E}}\) if and only if \(E^\dagger F \notin \mathsf{N(S)}\setminus \mathsf{S}\) for all \(E,F \in {\mathcal{E}}\).'
 
 features:
+  encoders:
+    - 'Encoder circuits for prime-qudit stabilizer codes \cite{arxiv:2509.25587}.'
+
   magic_scaling_exponent: 'The \textit{magic-state yield parameter} \(\gamma = \log_d(n/k)\) quantifies the overhead cost of magic-state distillation per the original protocol \cite{arxiv:quant-ph/0403025,arxiv:1209.2426}.'
 
   transversal_gates:
