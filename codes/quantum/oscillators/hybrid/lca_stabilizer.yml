@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: lca_stabilizer
+physical: qudits
+logical: groups
+
+name: 'Locally compact Abelian (LCA) stabilizer code'
+short_name: 'LCA'
+introduced: '\cite{arxiv:2508.04819}'
+
+alternative_names:
+  - 'Mixed GKP code'
+
+description: |
+  A hybrid qubit-oscillator stabilizer code whose codewords are quantum lattice states defined on any number of qudits and a nonzero number of oscillators.
+  Codewords are entangled across the qudit-oscillator bipartition.
+
+  The simplest LCA state is a Bell state of a single physical qubit and a GKP-encoded qubit,
+  \begin{align}
+    |\text{LCA}\rangle&=\sum_{\ell\in\mathbb{Z}}|x=\ell\sqrt{\pi}\rangle\left|\ell\text{ mod }2\right\rangle \\&=\sum_{s\in\mathbb{Z}}{|{x=(2s)\sqrt{\pi}}\rangle}\left|0\right\rangle +{|{x=(2s+1)\sqrt{\pi}}\rangle}\left|1\right\rangle ~.
+  \end{align}
+  LCA codes with such codewords are called simple.
+
+  
+protection: |
+  Simple LCA codes can protect against either a larger set of displacements than GKP codes or a smaller set along with all single-qudit Pauli errors.
+
+  The syndrome space of a simple LCA code can be characterized entirely by a unit cell of displacements. For a single \(c\)-dimensional qudit and single-oscillator code, the volume of this cell is \(2\pi c\). Displacements that keep the codewords inside this unit cell commute with each other, meaning that one can measure an arbitrary large range of commuting displacements given sufficient qudit dimension \cite{arxiv:2508.04819}. 
+
+features:
+  encoders: 
+    - 'Codewords of a single-qudit single-oscillator code can be initialized by applying a conditional oscillator-qudit displacement to a GKP state and a qudit \(|+\rangle\) state \cite{arxiv:2508.04819}. Alternatively, one can prepare a two-qudit Bell state and encode one subsystem into a GKP qudit code \cite{arxiv:2508.04819}.'
+    - 'General LCA codes can be created by using a general embedding of their stabilizer algebra, a non-commutative torus \cite{doi:10.4153/CJM-1988-012-9,arXiv:hep-th/9805034,arXiv:hep-th/9711162,arXiv:math/9803057}, into LCA groups \cite{arxiv:2508.04819}. Logical operators can be obtained via Morita equivalence \cite{arxiv:2508.04819}.'
+  general_gates:
+    - 'Logical Clifford gates should be realizable by performing Gaussian gates on the oscillators and Clifford gates on the qudits \cite{arxiv:2508.04819}. Adding a conditional oscillator-qudit displacement makes the gate set universal \cite{arxiv:2509.18854}.'
+
+
+relations:
+  parents:
+    - code_id: hybrid_qudit_oscillator
+    - code_id: stabilizer
+  cousins:
+    - code_id: gkp
+      detail: 'LCA codes are an extension of GKP codes to qudit-oscillator systems.'
+    - code_id: binary_linear
+      detail: 'Linear binary codes can be used to construct LCA codes \cite{arxiv:2508.04819}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-24'

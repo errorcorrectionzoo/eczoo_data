@@ -10,9 +10,17 @@ logical: groups
 name: 'Hybrid qudit-oscillator code'
 #introduced: ''
 
+alternative_names:
+  - 'LCA code'
+
 description: |
-  Encodes a \(K\)-dimensional logical Hilbert space into \(n_1\) modular qudits of dimension \(q\) and \(n_2 \neq 0\) oscillators, i.e., the Hilbert space of \(L^2\)-normalizable functions on \(\mathbb{Z}_q^{n_1} \times \mathbb{R}^{n_2}\).
+  Encodes a \(K\)-dimensional logical Hilbert space into some number of modular qudits and a nonzero number of oscillators, i.e., the Hilbert space of \(L^2\)-normalizable functions on a locally compact Abelian (LCA) group.
   In photonic systems, photonic states of multiple degrees of freedom of a photon (e.g., frequency, amplitude, and polarization) are called \textit{hyper-entangled states} \cite{doi:10.1080/09500349708231877}.
+
+features:
+  general_gates:
+    - 'Symplectic transformations (i.e., transformations that preserve the qudit Pauli and oscillator displacement group structure) are tensor products of qudit Clifford and oscillator Gaussian operations, and there are no entangling symplectic operations \cite{arxiv:0806.4064,arxiv:1611.09274,arxiv:2508.04819}.'
+    - 'Adding a conditional oscillator-qudit displacement makes the symplectic gate set universal \cite{arxiv:2509.18854}.'
 
 notes:
   - 'See reviews \cite{arxiv:1409.3719,doi:10.1002/9783527635283,arxiv:2407.10381} for introductions to hybrid qudit-oscillator platforms.'
