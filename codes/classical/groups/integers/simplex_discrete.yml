@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: simplex_discrete
+logical: groups
+physical: rotors
+
+name: 'Simplex integer-based code'
+introduced: '\cite{manual:{D. J. C. MacKay, J. Sayir, and N. Goldman, “Near-Capacity Codes for Fountain Channels with Insertions, Deletions, and Substitutions, with Applications to DNA Archives,” Unpublished manuscript, 2015.},arxiv:1612.08837,doi:10.1109/TIT.2018.2791990}'
+
+alternative_names:
+  - 'Multiset code'
+  # arxiv:1612.08837
+
+description: 'An integer-based code over the \(\ell_1\) metric whose codewords are restricted to lie in a discrete simplex.'
+
+protection: |
+  There is a \hyperref[topic:gv-bound]{GV bound} for simplex integer-based codes over the \(\ell_1\) metric \cite{arxiv:2402.14712}.
+  Existence of certain codes is guaranteed by constructing Sidon sets per the Bose-Chowla theorem \cite{doi:10.1007/BF02566968}\cite[Thm. 14]{arxiv:1612.08837}.
+
+relations:
+  parents:
+    - code_id: integers_into_integers
+  cousins:
+    - code_id: dna
+      detail: 'Simplex integer-based codewords are intended to model multisets of DNA molecules \cite{arxiv:1612.08837}. Points in a discrete simplex are in one-to-one correspondence to multisets because their coordinates denote the multiplicity of each element in a given multiset \cite{arxiv:1612.08837}.'
+    - code_id: simplex_spherical
+      detail: 'Codewords of simplex integer-based codes are restricted to lie in a discrete simplex.'
+    - code_id: simplex
+      detail: 'Codewords of simplex integer-based codes are restricted to lie in a discrete simplex.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-24'
