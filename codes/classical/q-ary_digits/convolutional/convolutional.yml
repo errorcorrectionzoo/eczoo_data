@@ -10,7 +10,13 @@ logical: q-ary_digits
 name: 'Convolutional code'
 introduced: '\cite{manual:{Peter Elias. Coding for noisy channels. IRE Convention Records, 3(4):37–46, 1955.}}'
 
+alternative_names:
+  - 'Tree code'
+
 description: 'Infinite-block code that is formed using generator polynomials over the finite field with two elements. The encoder slides across contiguous subsets of the input bit-string (like a convolutional neural network) evaluating the polynomials on that window to obtain a number of parity bits. These parity bits are the encoded information.'
+
+protection: |
+  There are linear programming bounds for convolutional codes \cite{doi:10.1109/TIT.1979.1056004}.
 
 features:
 
@@ -30,6 +36,8 @@ realizations:
 
 notes:
   - 'There are connections between convolutional codes and statistical mechanical models \cite{doi:10.1103/PhysRevLett.70.2968,doi:10.1093/acprof:oso/9780198570837.001.0001,doi:10.1093/acprof:oso/9780198509417.001.0001}.'
+  - 'See books \cite{manual:{Lin, Shu. "An introduction to error-correcting codes." Prentice Hall (1970).},preset:PetersonWeldon} for introductions to convolutional codes.'
+
 
 relations:
   parents:
