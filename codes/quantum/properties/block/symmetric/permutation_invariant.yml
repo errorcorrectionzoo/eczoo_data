@@ -15,6 +15,25 @@ description: |
 
   There is a notion of a Wigner functions for PI subspaces \cite{arxiv:2507.14866}. 
 
+  \subsection{Qudit Dicke states and the discrete simplex mapping}
+
+  For \(n\)-modular-qudit block codes with qudit dimension \(q\), an often used basis for the PI subspace consists of the qudit Dicke states. 
+
+  \begin{defterm}{Qudit Dicke states}
+  \label{topic:qudit-dicke}
+  A qudit Dicke state is an equal superposition of all qudit basis elements whose labels have the same composition,
+  \begin{align}
+    |D_{\mathbf{c}}\rangle=\frac{1}{\sqrt{\binom{n}{\mathbf{c}}}}\sum_{\substack{\mathbf{n}\in\mathbb{Z}_{q}^{n}\\ C(\mathbf{n})=\mathbf{c} } }|\mathbf{n}\rangle\,,
+  \end{align}  
+  where \(\binom{n}{\mathbf{c}}\) is the multinomial coefficient.
+  Above, the \textit{composition} \(C\) of a qudit basis label \(\mathbf{n}\) tabulates the number of each type of element present in the label. For example, the label \(\mathbf{n}=(0313)\) has composition \(C(\mathbf{n})=(1102)\), whose coordinates denote the number of zeroes (one), number of ones (one), number of twos (zero), and number of threes (two) making up the label.  
+  The \(q=2\) case reduces to the \hyperref[topic:dicke]{Dicke-state} mapping.
+  \end{defterm}
+
+  The definition in terms of the composition reveals that qudit Dicke states are in one-to-one correspondence with points on the \hyperref[topic:discrete-simplex]{discrete simplex} \(\Delta_{q,n}\), which houses the totally symmetric irrep of \(SU(q)\) \cite{arxiv:2509.20545}. 
+  Since both constant-excitation Fock-state codes and single-spin codes defined on the totally symmetric \(SU(q)\)-irrep are in the same correspondence, the three types of codes are interconvertible \cite{arxiv:2509.20545}.
+
+
 #Such a code is said to be stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (nonabelian) group actions.'
 
 protection: |

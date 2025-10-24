@@ -14,7 +14,22 @@ alternative_names:
   - 'Multiset code'
   # arxiv:1612.08837
 
-description: 'An integer-based code over the \(\ell_1\) metric whose codewords are restricted to lie in a discrete simplex.'
+description: |
+  An integer-based code over the \(\ell_1\) metric whose codewords are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.
+
+  \begin{defterm}{Discrete simplex}
+  \label{topic:discrete-simplex}
+  The discrete simplex \(\Delta_{q,N}\) of dimension \(q-1\) and discretization \(N\) is the set of length-\(q\) non-negative integer strings whose coordinates add up to \(N\),
+  \begin{align}
+    \Delta_{q,N}=\left\{ \mathbf{n}\in\mathbb{Z}_{\geq 0}^{q}\,|\,|\mathbf{n}|_{1}=N\right\}~.
+  \end{align}
+  The number of points in a discrete simplex is
+  \begin{align}
+    |\Delta_{q,N}|=\binom{N+q-1}{q-1}\,.
+  \end{align}
+  \end{defterm}
+
+
 
 protection: |
   There is a \hyperref[topic:gv-bound]{GV bound} for simplex integer-based codes over the \(\ell_1\) metric \cite{arxiv:2402.14712}.
@@ -25,11 +40,11 @@ relations:
     - code_id: integers_into_integers
   cousins:
     - code_id: dna
-      detail: 'Simplex integer-based codewords are intended to model multisets of DNA molecules \cite{arxiv:1612.08837}. Points in a discrete simplex are in one-to-one correspondence to multisets because their coordinates denote the multiplicity of each element in a given multiset \cite{arxiv:1612.08837}.'
+      detail: 'Simplex integer-based codewords are intended to model multisets of DNA molecules \cite{arxiv:1612.08837}. Points in a \hyperref[topic:discrete-simplex]{discrete simplex} are in one-to-one correspondence to multisets because their coordinates denote the multiplicity of each element in a given multiset \cite{arxiv:1612.08837}.'
     - code_id: simplex_spherical
-      detail: 'Codewords of simplex integer-based codes are restricted to lie in a discrete simplex.'
+      detail: 'Codewords of simplex integer-based codes are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.'
     - code_id: simplex
-      detail: 'Codewords of simplex integer-based codes are restricted to lie in a discrete simplex.'
+      detail: 'Codewords of simplex integer-based codes are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.'
 
 
 # Begin Entry Meta Information
