@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: icosahedral_fock
+physical: oscillators
+logical: qubits
+
+name: 'Icosahedral Fock-state code'
+introduced: '\cite{arxiv:2509.20545}'
+
+description: |
+  A constant-excitation Fock-state code designed to realize the \(2I\) group of gates using Gaussian rotations.
+
+  The code has unnormalized logical states
+  \begin{align}
+    \begin{split}
+      |0_{L}\rangle&\propto\sqrt{3}|07\rangle+\sqrt{7}|52\rangle\\
+      |1_{L}\rangle&\propto\sqrt{7}|25\rangle-\sqrt{3}|70\rangle\,.
+    \end{split}
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: fock_state
+    - code_id: constant_excitation
+    - code_id: group_representation
+      detail: 'Icosahedral Fock-state codess are group-representation codes with the \(G = 2I\) subgroup of Gaussian rotations \cite{arxiv:2005.10910}.'
+  cousins:
+    - code_id: icosahedral_spin
+      detail: 'The icosahedral spin code maps to the icosahedral Fock-state code via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite{arxiv:2509.20545}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-25'

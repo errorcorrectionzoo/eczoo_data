@@ -14,12 +14,14 @@ alternative_names:
 
 description: |
   Encodes codewords into permutations of \(n\) objects.
+  Permutation group elements can be mapped to inversion vectors \cite{arxiv:0908.4094} over a mixed alphabet.
 # If this is a perm rep, this it should be faithful so there should be group codes.
 
 protection: |
   Protects against errors in the Kendall tau distance on the space of permutations.
   The Kendall distance between permutations \(\sigma\) and \(\pi\) is defined as the minimum number of adjacent transpositions required to change \(\sigma\) into \(\pi\).
-  Various bounds have been developed \cite{doi:10.1016/0097-3165(79)90012-8,doi:10.1006/eujc.1998.0272}.
+  Various bounds have been developed \cite{doi:10.1016/0097-3165(79)90012-8,doi:10.1006/eujc.1998.0272,arxiv:0908.4094}.
+  The mapping to inversion vectors is not distance preserving, but the \(\ell_1\) distance between inversion vectors is a lower bound on the Kendall tau distance \cite{arxiv:0908.4094}.
 
   Other distances include the Ulam distance \cite{doi:10.1515/dma.1992.2.3.241}.
 
@@ -36,6 +38,8 @@ relations:
   cousins:
     - code_id: convolutional
       detail: 'Convolutional codes in permutations have been constructed \cite{doi:10.1109/TCOMM.2005.858683}.'
+    - code_id: mixed
+      detail: 'Permutation group elements can be mapped to inversion vectors \cite{arxiv:0908.4094} over a mixed alphabet.'
 
 
 # Begin Entry Meta Information

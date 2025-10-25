@@ -15,6 +15,25 @@ description: |
 
   There is a notion of a Wigner functions for PI subspaces \cite{arxiv:2507.14866}. 
 
+  \subsection{Qudit Dicke states and the discrete simplex mapping}
+
+  For \(n\)-modular-qudit block codes with qudit dimension \(q\), an often used basis for the PI subspace consists of the qudit Dicke states. 
+
+  \begin{defterm}{Qudit Dicke states}
+  \label{topic:qudit-dicke}
+  A qudit Dicke state is an equal superposition of all qudit basis elements whose labels have the same composition,
+  \begin{align}
+    |D_{\mathbf{c}}\rangle=\frac{1}{\sqrt{\binom{n}{\mathbf{c}}}}\sum_{\substack{\mathbf{n}\in\mathbb{Z}_{q}^{n}\\ C(\mathbf{n})=\mathbf{c} } }|\mathbf{n}\rangle\,,
+  \end{align}  
+  where \(\binom{n}{\mathbf{c}}\) is the multinomial coefficient.
+  Above, the \textit{composition} \(C\) of a qudit basis label \(\mathbf{n}\) tabulates the number of each type of element present in the label. For example, the label \(\mathbf{n}=(0313)\) has composition \(C(\mathbf{n})=(1102)\), whose coordinates denote the number of zeroes (one), number of ones (one), number of twos (zero), and number of threes (two) present in the label.  
+  The \(q=2\) case reduces to the \hyperref[topic:dicke]{Dicke-state} mapping.
+  \end{defterm}
+
+  The definition in terms of the composition reveals that qudit Dicke states are in one-to-one correspondence with points on the \hyperref[topic:discrete-simplex]{discrete simplex} \(\Delta_{q,n}\), which houses the totally symmetric irrep of \(SU(q)\) \cite{arxiv:2509.20545}. 
+  Since both constant-excitation Fock-state codes and single-spin codes defined on the totally symmetric \(SU(q)\)-irrep are in the same correspondence, the three types of codes and their distances are interconvertible \cite{arxiv:2509.20545}.
+
+
 #Such a code is said to be stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (nonabelian) group actions.'
 
 protection: |
@@ -25,6 +44,7 @@ protection: |
   Other related codes protect against \hyperref[topic:ad]{AD} \cite{arxiv:1809.09801} while admitting a constant number of excitations.
 
 features:
+  rate: 'There exists a family of PI codes for \(q=N\) with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.'
 
   encoders:
     - 'With quantum harmonic oscillators (superconducting charge qubits in a ultrastrong coupling regime) in \(O(N)\) as in \cite{doi:10.1103/PhysRevA.99.012335}. Can be done in \(O(N^2)\) steps using quantum circuits \cite{arxiv:1904.07358}, or using geometric phase gates in \(O(N)\) \cite{arxiv:1908.01120}.'
@@ -39,6 +59,15 @@ relations:
   parents:
     - code_id: quantum_cyclic
       detail: 'The cyclic group of these codes is a subgroup of the \(S_n\) symmetric group used in permutation invariant codes.'
+  cousins:
+    - code_id: simplex_discrete
+      detail: 'Simplex integer-based codes can be partitioned into qudit PI codewords whose error-correction is guaranteed by the Tverberg theorem \cite[Thm. VII.5]{arxiv:2509.20545}.'
+    - code_id: constant_excitation
+      detail: 'Modular-qudit PI codes can be converted to constant-excitation Fock-state codes via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite[Prop. V.2]{arxiv:2509.20545}. Any transversal gates are mapped to Gaussian gates on the Fock-state codes \cite{arxiv:2509.20545}.'
+    - code_id: fock_state
+      detail: 'Modular-qudit PI codes can be converted to constant-excitation Fock-state codes via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite[Prop. V.2]{arxiv:2509.20545}. Any transversal gates are mapped to Gaussian gates on the Fock-state codes \cite{arxiv:2509.20545}.'
+    - code_id: single_spin
+      detail: 'Modular-qudit PI codes can be converted to spin codes defined on the completely symmetric irrep of \(SU(q)\) via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite[Prop. IV.2]{arxiv:2509.20545}. Any transversal gates are mapped to \(SU(q)\) gates on the spin codes \cite{arxiv:2509.20545}.'
 
 
 # Begin Entry Meta Information

@@ -20,7 +20,7 @@ description: |
 
   The \(q=1\) trivial encoding is spanned by the \textit{canonical GKP state} (a.k.a. \textit{grid state} or qunaught state \cite{arxiv:2008.12791}),
   \begin{align}
-    |GKP\rangle=\sum_{n\in\mathbb{Z}}|x=n\sqrt{2\pi}\rangle~,
+    |GKP\rangle=\sum_{\ell\in\mathbb{Z}}|x=\ell\sqrt{2\pi}\rangle~,
   \end{align}
   where \(|x\rangle\) are single-mode position states.
 
@@ -42,6 +42,7 @@ features:
     - 'Numerically optimized preparation from the vacuum Fock state using a universal bosonic gate set \cite{arxiv:2506.13643}.'
     - 'Dissipative stabilization using a high-impedance LRC circuit and a Josephson junction \cite{arxiv:2405.05671}.'
   general_gates:
+    - 'Clifford gates can be realized by performing linear-optical operations, sympletic transformations and displacements, all of which are Gaussian operations. Pauli gates can be performed using displacement operators. Clifford gates are fault tolerant in the sense that they map bounded-size errors to bounded-size errors \cite{arxiv:quant-ph/0008040}.' #for the qubit square-lattice GKP code performed by occupation-number-preserving Gaussian operations
     - 'By applying square-lattice GKP error correction to Gaussian input states, universality can be achieved without non-Gaussian elements \cite{arxiv:1903.00012}.'
     - 'Square-root of the Hadamard gate performed via a Kerr interaction \cite{arxiv:2507.09684}.'
     - '\(\sqrt{T}\) gate using a quadratic potential \cite{arxiv:2507.19713}.'

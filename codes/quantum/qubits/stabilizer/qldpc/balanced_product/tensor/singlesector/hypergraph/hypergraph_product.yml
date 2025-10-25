@@ -9,7 +9,7 @@ logical: qubits
 
 name: 'Hypergraph product (HGP) code'
 short_name: 'HGP'
-introduced: '\cite{arxiv:0903.0566,arxiv:1202.0928,arxiv:1810.01519}'
+introduced: '\cite{arxiv:0903.0566,arxiv:1202.0928}'
 
 alternative_names:
   - 'Quantum hypergraph (QHG) code'
@@ -17,7 +17,6 @@ alternative_names:
 
 description: |
   A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear binary codes.
-  Codes from hypergraph products in higher dimension are called \textit{higher-dimensional HGP codes} \cite{arxiv:1810.01519}.
 
   More technically, the \(X\)- and \(Z\)-type stabilizer generator matrices of a hypergraph product code are, respectively, the boundary and coboundary operators of the 2-complex obtained from the tensor product of a chain complex and cochain complex corresponding to two classical linear binary \textit{seed} codes.
   Let the two seed codes be \(C_i\) for \(i\in\{1,2\}\) with parameters \([n_i, k_i, d_i]\), defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
@@ -31,7 +30,6 @@ description: |
   The case when the two seed codes are equal, \(C_1=C_2\), is called a \textit{square hypergraph product code}.
   If, in addition, \(\text{im} H = \text{im} H^T\), the hypergraph product code is called a \textit{symmetric hypergraph product code} \cite{arxiv:2204.10812}.
 
-  In general, the stabilizer generator matrices of an \(m\)-dimensional hypergraph product code are the boundary and co-boundary operators of a 2-dimensional chain complex contained within an \(m\)-complex that is recursively constructed by taking the tensor product of an \((m-1)\)-complex and a 1-complex, with the 1-complex corresponding to some classical linear binary code.
 
 # Could be expanded to include Tanner graphs
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
@@ -47,7 +45,6 @@ features:
   transversal_gates:
     - 'Hadamard (up to logical SWAP gates) and control-\(Z\) on all logical qubits \cite{arxiv:2204.10812}.'
     - 'Patch-transversal gates inherited from the automorphism group of the underlying classical codes \cite[Appx. D]{arxiv:2309.11719}.'
-    - 'Transversal gates for hypergraph product codes of all product dimensions lie in the Clifford group \cite{arxiv:2507.16797}.'
     - 'Orientation-preserving constant-depth circuits can only implemenent gates in the Clifford group \cite{arxiv:2507.16797}.'
     - 'Permutation-based gates (automorphism gadgets) can be inherited from the underlying classical codes in the hypergraph construction \cite{arxiv:2508.04794}.'
   decoders:
@@ -70,7 +67,7 @@ features:
   fault_tolerance:
     - 'Piecable fault-tolerant circuits, transversal gates, and magic-state injection yield a universal gate set for symmetric hypergraph product codes \cite{arxiv:2204.10812}.'
     - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
-    - 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code \cite{arxiv:2502.14835}.'
+    - 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code in which the full syndrome measurement on the lower hypergraph product code is performed only if an error is detected at the upper four-qubit code \cite{arxiv:2502.14835}.'
   threshold:
     - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599} and DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047} combined with non-local gates \cite{arxiv:2409.05818}.
     No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
@@ -79,8 +76,10 @@ features:
 
 relations:
   parents:
+    - code_id: multisector_hypergraph
+      detail: 'Multi-dimensional homological products of two length-one chain complexes reduce to HGP codes.'
     - code_id: homological_product
-      detail: 'A homological product of chain complexes corresponding to two linear binary codes is a hypergraph product code \cite{arxiv:2009.03921}. Homological product codes constructed with diagonal boundary operators admit very different properties than those with rectangular boundary operators.'
+      detail: 'A homological-product code of length-one chain complexes reduce to an HGP code.'
     - code_id: sc_qldpc
       detail: 'Hypergraph-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
     - code_id: galois_hypergraph_product
@@ -90,14 +89,12 @@ relations:
       detail: 'Applying the hypergraph product to an LTC yields a code which provides an explicit example of \textit{No Low-Error Trivial States (NLETS)} \cite{arxiv:1510.02082}.'
     - code_id: xyz_product
       detail: 'Hypergraph (XYZ) product codes are constructed out of hypergraph products of two (three) classical linear codes.'
-    - code_id: binary_linear
-      detail: 'Hypergraph product codes are constructed out of two linear binary codes.'
     - code_id: reinforcement_learning
       detail: 'Using reinforcement learning, hypergraph product codes can be further optimized against the erasure channel \cite{arxiv:2501.09622} and can be weight reduced while maintaining distance \cite{arxiv:2502.14372}.'
     - code_id: stab_4_2_2
-      detail: 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code \cite{arxiv:2502.14835}.'
+      detail: 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code in which the full syndrome measurement on the lower hypergraph product code is performed only if an error is detected at the upper four-qubit code \cite{arxiv:2502.14835}.'
     - code_id: qubit_concatenated
-      detail: 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code \cite{arxiv:2502.14835}.'
+      detail: 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code in which the full syndrome measurement on the lower hypergraph product code is performed only if an error is detected at the upper four-qubit code \cite{arxiv:2502.14835}.'
 
 
 # Begin Entry Meta Information

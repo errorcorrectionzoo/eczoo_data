@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hybrid_qudit_oscillator
+physical: qudits
+logical: groups
+
+# Hybrid is for storage of classical and quantum, mixed is for physical spaces of different factors
+name: 'Mixed oscillator code'
+#introduced: ''
+
+alternative_names:
+  - 'LCA code'
+
+description: |
+  Encodes a logical Hilbert space into some number of modular qudits, some number of rotors, and a nonzero number of oscillators, i.e., the Hilbert space of \(L^2\)-normalizable functions on a locally compact Abelian (LCA) group.
+  In photonic systems, photonic states of multiple degrees of freedom of a photon (e.g., frequency, amplitude, and polarization) are called \textit{hyper-entangled states} \cite{doi:10.1080/09500349708231877}.
+
+features:
+  general_gates:
+    - 'Symplectic transformations (i.e., transformations that preserve the qudit Pauli and oscillator displacement group structure) are tensor products of qudit Clifford and oscillator Gaussian operations, and there are no entangling symplectic operations \cite{arxiv:0806.4064,arxiv:1611.09274,arxiv:2508.04819}.'
+    - 'Adding a conditional oscillator-qudit displacement makes the symplectic gate set universal \cite{arxiv:2509.18854}.'
+
+notes:
+  - 'See reviews \cite{arxiv:1409.3719,doi:10.1002/9783527635283,arxiv:2407.10381} for introductions to mixed oscillator platforms.'
+
+relations:
+  parents:
+    - code_id: group_quantum
+      detail: 'Group quantum codes whose physical spaces are constructed using some number of modular qudits, some number of rotors, and a nonzero number of oscillators, which together constitute a general locally compact Abelian (LCA) group, are mixed oscillator codes.'
+  cousins:
+    - code_id: mixed
+      detail: 'Mixed oscillator codes are examples of quantum analogues of mixed codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2021-11-03'
