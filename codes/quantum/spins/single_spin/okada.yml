@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: okada
+physical: spins
+
+name: 'Okada code'
+introduced: '\cite{arxiv:2502.14165}'
+
+description: |
+  An \(SU(2)\) single-spin code encoding a logical qutrit for angular momentum \(J = 3\).
+
+  Admits the following basis of unnormalized codewords,
+  \begin{align}
+  \begin{split}
+    |\overline{0}\rangle &=|3,0\rangle\\
+    |\overline{1}\rangle &\propto\sqrt{2}|3,-2\rangle-|3,4\rangle\\
+    |\overline{2}\rangle &\propto|3,-4\rangle+\sqrt{2}|3,2\rangle~.
+  \end{split}
+  \end{align}
+
+protection: |
+  The code has distance two, detecting any linear combination of the angular momentum operators \cite{arxiv:2502.14165}.
+
+relations:
+  parents:
+    - code_id: single_spin
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-22'

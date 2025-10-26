@@ -39,7 +39,6 @@ features:
   general_gates:
     - 'Some gates can be implemented through braiding of the computational anyons. Circuit-based gates can be converted into braid patterns via quantum compiling algorithms \cite{arxiv:2008.10790}.'
 
-
 relations:
   parents:
     - code_id: fermions
@@ -51,7 +50,7 @@ relations:
         Majorana stabilizer groups can be converted into ordinary qubit stabilizer groups via the parton mapping, while their corresponding states are converted via the Gutzwiller projection \cite{arxiv:2505.02683}.
   cousins:
     - code_id: dual
-      detail: 'Classical self-orthogonal codes can be used to construct Majorana stabilizer codes \cite{arxiv:1703.00459}. The direct relationship between the two codes follows from expressing the Majorana strings as binary vectors – akin to the \hyperref[topic:binary-symplectic-representation]{symplectic representation} – and observing that the binary stabilizer matrix \(S\) for such a Majorana stabilizer code satisfies \(S\cdot S^T=0\) because it has commuting stabilizers, which is precisely the condition \(G\cdot G^T=0\) on the generator matrix \(G\) of a self-orthogonal classical code. A self-orthogonal classical code \(C\) with parameters \([2N,k,d]\) yields a Majorana stabilizer code with parameters \([[N,N-k,d^\perp]]_f\), where \(d^\perp\) is the code distance of the dual code \(C^\perp\).'
+      detail: 'Classical self-orthogonal codes can be used to construct Majorana stabilizer codes \cite{arxiv:1703.00459,doi:10.1088/1751-8113/41/14/145304}. The direct relationship between the two codes follows from expressing the Majorana strings as binary vectors – akin to the \hyperref[topic:binary-symplectic-representation]{symplectic representation} – and observing that the binary stabilizer matrix \(S\) for such a Majorana stabilizer code satisfies \(S\cdot S^T=0\) because it has commuting stabilizers, which is precisely the condition \(G\cdot G^T=0\) on the generator matrix \(G\) of a self-orthogonal classical code. A self-orthogonal classical code \(C\) with parameters \([2N,k,d]\) yields a Majorana stabilizer code with parameters \([[N,N-k,d^\perp]]_f\), where \(d^\perp\) is the code distance of the dual code \(C^\perp\).'
     - code_id: qubit_css
       detail: 'Every \([[n,k,d]]_f\) Majorana stabilizer code is associated with a \([[2n,2k,d]]\) self-dual qubit CSS code \cite[Lemma 2]{arxiv:1004.3791}.'
     - code_id: binary_linear
@@ -59,7 +58,7 @@ relations:
     - code_id: binary_cyclic
       detail: 'Cyclic binary linear codes can be used to construct translation-invariant Majorana stabilizer codes, provided that they are also self-orthogonal \cite{arxiv:1703.00459}.'
     - code_id: reed_muller
-      detail: 'Majorana stabilizer codes can be constructed by self-orthogonal RM codes \cite{arxiv:1703.00459}. These codes have the additional property that the global fermion parity is fixed in the codespace. In this family of codes, logical measurements are reduced to parity measurements of some subset of Majorana fermions in the code.'
+      detail: 'Majorana stabilizer codes can be constructed by self-orthogonal RM codes \cite{arxiv:1703.00459,doi:10.1088/1751-8113/41/14/145304}. These codes have the additional property that the global fermion parity is fixed in the codespace. In this family of codes, logical measurements are reduced to parity measurements of some subset of Majorana fermions in the code.'
     - code_id: stabilizer
       detail: 'Majorana stabilizer codes are useful for Majorana-based architectures, where the degrees of freedom are electrons, and the notion of locality is different than all other code kingdoms.'
     - code_id: qudit_stabilizer
