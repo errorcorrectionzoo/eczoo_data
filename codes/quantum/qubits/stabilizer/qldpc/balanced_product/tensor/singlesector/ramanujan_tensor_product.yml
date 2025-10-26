@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ramanujan_tensor_product
+physical: qubits
+logical: qubits
+
+name: 'High-dimensional expander (HDX) code'
+short_name: 'HDX'
+introduced: '\cite{arxiv:1409.1397,arxiv:2004.07935}'
+
+description: 'CSS code constructed from a Ramanujan quantum code and an asymptotically good classical LDPC code using distance balancing. Ramanujan quantum codes are defined using Ramanujan complexes which are simplicial complexes that generalise Ramanujan graphs \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}. Combining the quantum code obtained from a Ramanujan complex and a good classical LDPC code, which can be thought of as coming from a 1-dimensional chain complex, yields a new quantum code that is defined on a 2-dimensional chain complex. This 2-dimensional chain complex is obtained by the co-complex of the product of the 2 co-complexes. The length, dimension and distance of the new quantum code depend on the input codes.'
+
+protection: 'Without distance balancing, a Ramanujan code can have \(d_X =\Omega(\log n)\) and \(d_Z = \Omega (n)\). For 2D Ramanujan complexes, distance-balanced codes protect against errors with minimum distance \(d = \Omega(\sqrt{n \log n})\). For 3D Ramanujan complexes, distance-balanced codes protect against errors with minimum distance \(d= \Omega(\sqrt{n} \log n )\).'
+
+features:
+
+  rate: 'For 2D Ramanujan complexes, the rate is of \hyperref[topic:asymptotics]{order} \(\Omega(\sqrt{ \frac{1}{n \log n} })\), with minimum distance \(d = \Omega(\sqrt{n \log n}) \). For 3D, the rate is \( \Omega(\frac{1}{\sqrt{n}\log n}) \) with minimum distance \(d \geq \sqrt{n} \log n \).'
+
+  decoders:
+    - 'For 2D simplicial complexes, cycle code decoder admitting a polynomial-time decoding algorithm can be used \cite{arxiv:2004.07935}.'
+
+notes:
+  - 'Codes were first to break a 20-year record set by the \hyperref[code:freedman_meyer_luo]{Freedman-Meyer-Luo code} for the lower bound on scaling of the minimum distance \cite{arxiv:2103.06309}.'
+
+relations:
+  parents:
+    - code_id: homological_product
+      detail: 'Ramanujan codes result from a tensor product of a classical-code and a quantum-code chain complex.'
+    - code_id: iterated_ramanujan
+      detail: 'Ramanujan codes result from a tensor product of a classical-code and a quantum-code chain complex.'
+  cousins:
+    - code_id: distance_balanced
+      detail: 'Ramanujan tensor-product constructions use distance balancing to increase distance.'
+    - code_id: hypergraph_product
+      detail: 'Ramanujan codes utilize the hypergraph product with a twist, which is an automorphism on one of the complexes in the tensor product, in order to increase distance \cite{arxiv:2103.06309}.'
+    - code_id: freedman_meyer_luo
+      detail: 'Ramanujan codes broke 20-year record on minimum code distance set by Freedman-Meyer-Luo codes.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-01-03'
+    - user_id: XiaozhenFu
+      date: '2021-12-12'

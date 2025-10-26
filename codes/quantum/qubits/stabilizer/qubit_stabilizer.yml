@@ -181,6 +181,7 @@ features:
     - 'Logical Trotter circuits for any stabilizer code can be implemented via symplectic transvections \cite{arxiv:2504.11444}.'
     - 'Hardware-tailored logical Clifford circuits \cite{arxiv:2505.20261}.'
     - 'The \hyperref[topic:bk-bound]{Bravyi-Koenig bound} can be generalized to arbitrary qubit stabilizer codes \cite{arxiv:2507.16797}.'
+    - 'Fault-tolerant flag-based non-transversal logical gates \cite{arxiv:2510.08402}.'
 
   decoders:
     - 'The size of the circuit extracting the syndrome depends on the weight of its corresponding stabilizer generator. Syndrome extraction circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}) and there are many general schemes for generating them \cite{arxiv:2408.01339} (see also \cite{arxiv:2402.04093}). Noise can be characterized without interrupting syndrome extraction \cite{arxiv:1710.03636}. Decoding of qubit stabilizer codes is an approximately optimal strategy for various quantum lights-out (QLO) games that can be played on the codes'' \hyperref[topic:encoder-respecting]{encoder-respecting form} \cite{arxiv:2411.14448}.'
@@ -189,7 +190,7 @@ features:
     - 'Dynamical weight reduction (DWR) scheme in which measurements of smaller-weight Paulis yield the outcome of a larger-weight Pauli via the use of ZX calculus and ancillary qubits \cite{arxiv:2410.12527}.'
     - 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
     - 'Autonomous QEC protocol \cite{arxiv:quant-ph/0402017}.'
-    - 'MPE decoding, i.e., the process of finding the most likely error, is \(NP\)-complete in general \cite{arxiv:1009.1319,manual:{Kuo, Kao-Yueh, and Chung-Chin Lu. "On the hardness of decoding quantum stabilizer codes under the depolarizing channel." 2012 International Symposium on Information Theory and its Applications. IEEE, 2012.}}. If the noise model is such that the most likely error is the lowest-weight error, then ML decoding is called \textit{minimum-weight} decoding. Maximum-likelihood (ML) decoding (a.k.a.\ degenerate maximum-likelihood decoding), i.e., the process of finding the most likely error class (up to degeneracy of errors), is \(\#P\)-complete in general \cite{arxiv:1310.3235}.'
+    - 'MPE decoding, i.e., the process of finding the most likely error, is \(NP\)-complete in the worst case \cite{arxiv:1009.1319,manual:{Kuo, Kao-Yueh, and Chung-Chin Lu. "On the hardness of decoding quantum stabilizer codes under the depolarizing channel." 2012 International Symposium on Information Theory and its Applications. IEEE, 2012.}}. If the noise model is such that the most likely error is the lowest-weight error, then ML decoding is called \textit{minimum-weight} decoding. Maximum-likelihood (ML) decoding (a.k.a.\ degenerate maximum-likelihood decoding), i.e., the process of finding the most likely error class (up to degeneracy of errors), is \(\#P\)-complete in the worst case \cite{arxiv:1310.3235}. Decoding a random qubit stabilizer code (i.e., the learning stabilizers with noise, or LSN, problem \cite{arxiv:2410.18953}) is at least as hard as decoding a random classical code at constant rate \cite{arxiv:2509.20697}.'
     - 'Incorporating faulty syndrome measurements can be done by performing spacetime decoding, i.e., using data from past rounds for decoding syndromes in any given round. If a decoder does not process syndrome data sufficiently quickly, it can lead to the \textit{backlog problem} \cite{arxiv:1302.3428}, slowing down the computation.'
     - 'Splitting decoders \cite{arxiv:2309.15354}.'
     - 'Trellis decoder, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arxiv:quant-ph/0512041}.'
@@ -225,6 +226,7 @@ features:
     - 'Automated fault-tolerant circuit synthesis using boolean satisfiability \cite{arxiv:2501.05527}.'
     - 'Algorithm for fault-tolerant magic-state initialization \cite{arxiv:2501.10291}.'
     - 'Fault tolerance of qubit stabilizer codes has been formalized \cite{arxiv:2501.14380}.'
+    - 'Fault-tolerant flag-based non-transversal logical gates \cite{arxiv:2510.08402}.'
 
 
   code_capacity_threshold:
@@ -296,6 +298,10 @@ relations:
       detail: 'Ancilla modes can be used for syndrome extraction instead of ancilla qubits \cite{arxiv:quant-ph/0511098}, and using two-component cat codes \cite{arxiv:1807.09334} yields fault-tolerant syndrome extraction circuits.'
     - code_id: projective
       detail: '\([[n,k,d]]\) qubit stabilizer codes with no weight-one stabilizers are equivalent to particular "quantum" sets of lines in projective space \(PG(n-k-1,2)\) \cite[Thm. 3.7]{arXiv:2007.05992}\cite{manual:{Glynn, David G., T. Aaron Gulliver, Johannes G. Maks, and Manish K. Gupta. "The geometry of additive quantum codes." submitted to Springer-Verlag (2004).},arxiv:2107.11281}. This equivalence is stated in the case of \hyperref[topic:quantum-weight-enumerator]{pure} qubit stabilizer codes with distance two or greater in \cite[Thm. 2.6]{doi:10.2140/iig.2008.6.53}.'
+    - code_id: holographic
+      detail: 'Qubit stabilizer states can be interpreted as states that are preparable using the Euclidean path integral in 3D Chern-Simons theory, defined on manifolds that are toy models of AdS/CFT wormholes \cite{arxiv:1611.01516,arxiv:2510.15067}.'
+    - code_id: topological_abelian
+      detail: 'Qubit stabilizer states can be interpreted as states that are preparable using the Euclidean path integral in 3D Chern-Simons theory, defined on manifolds that are toy models of AdS/CFT wormholes \cite{arxiv:1611.01516,arxiv:2510.15067}.'
 
 
 # Begin Entry Meta Information

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: icosahedral_spin
+physical: spins
+logical: spins
+
+name: 'Icosahedral spin code'
+introduced: '\cite{arxiv:2005.10910}'
+
+description: |
+  A single-spin code designed to realize a \(2I\) group of gates using \(SU(2)\) rotations.
+
+  The code has unnormalized logical states
+  \begin{align}
+    \begin{split}
+      |0_{L}\rangle&\propto\sqrt{3}|_{7/2}^{7/2}\rangle+\sqrt{7}|_{-3/2}^{7/2}\rangle\\
+      |1_{L}\rangle&\propto\sqrt{7}|_{3/2}^{7/2}\rangle-\sqrt{3}|_{-7/2}^{7/2}\rangle\,.
+    \end{split}
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: j_gross
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-25'

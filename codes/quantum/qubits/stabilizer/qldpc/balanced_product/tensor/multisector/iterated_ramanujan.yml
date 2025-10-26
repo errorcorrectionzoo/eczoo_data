@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: iterated_ramanujan
+physical: qubits
+logical: qubits
+
+name: 'Tensor-product HDX code'
+introduced: '\cite{arxiv:2008.09495}'
+
+description: 'Code constructed in a similar way as the HDX code, but utilizing iterated homological products of \textit{multiple} Ramanujan complexes and then applying distance balancing.
+These improve the asymptotic code distance over the HDX codes from \(\sqrt{n}\log n\) to \(\sqrt{n}~\text{polylog}(n)\).
+The utility of such tensor products comes from the fact that one of the Ramanujan complexes is a \textit{collective cosystolic expander} as opposed to just a cosystolic expander.'
+
+protection: 'Construction yields explicit QLDPC codes with distance \(\sqrt{n}\log^c n\) using the \(c\)-tensor-product of Ramanujan complexes.'
+
+
+relations:
+  parents:
+    - code_id: multisector_hypergraph
+      detail: 'Tensor-product HDX codes result from an iterated homological products of length-two chain complexes (i.e., quantum codes) based on Ramanujan complexes \cite{arxiv:2103.06309}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-10-02'

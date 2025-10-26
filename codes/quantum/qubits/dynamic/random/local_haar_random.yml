@@ -17,7 +17,9 @@ description: |
   The above circuit elements act on nearest-neighbor qubits arranged in a line, i.e., a one-dimensional geometry (\(D=1\), while codes for higher-dimensional geometries require \(O(n^{1/D})\)-depth circuits \cite{doi:10.1007/s00220-016-2706-8}. Follow-up work \cite{arxiv:2010.09775} revealed that optimal code properties require only \(O(\sqrt{n})\)-depth circuits for that case, and \(O(\sqrt{n})\)-depth circuits for a two-dimensional square-lattice geometry.
   This result has in turn to other types of Pauli noise \cite{arxiv:2212.05071}, with the previous result holding for erasure noise only.
 
-protection: 'In a 1D geometry, the code approximately detects any error with support on a segment of length \(\leq n/4\), with deviations exponentially suppressed in \(n\).'
+protection: |
+  In a 1D geometry, the code approximately detects any error with support on a segment of length \(\leq n/4\), with deviations exponentially suppressed in \(n\). 
+  There is a phase transition in error correction power vs error rate \(p\), with a critical depth of \hyperref[topic:asymptotics]{order} \(O(1/p)\) \cite{arxiv:2510.07512}.
 
 features:
 #  rate:

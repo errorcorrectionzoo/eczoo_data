@@ -8,11 +8,12 @@ physical: oscillators
 logical: qudits
 
 name: 'Squeezed fock-state code'
-introduced: '\cite{arxiv:2312.16000,arxiv:2506.00300}'
+introduced: '\cite{arxiv:2312.16000,arxiv:2506.00300,arxiv:2509.16993,arxiv:2510.04209}'
 
 description: |
-  Approximate bosonic code that encodes a qubit into the same Fock state, but one which is squeezed in opposite directions.
+  Approximate bosonic code that encodes a qubit into a superposition of one or a few squeezed Fock states, some of which are the result of a photon-number resolving measurement \cite{arxiv:2509.16993}.
 
+  The simplest code encodes a qubit into the same Fock state, but one which is squeezed in opposite directions \cite{arxiv:2312.16000}.
   Taking the Fock state \(|1\rangle\), the codewords are
   \begin{align}
   \begin{split}
@@ -28,8 +29,6 @@ relations:
   parents:
     - code_id: single-mode
     - code_id: ampdamp
-      detail: 'The squeezed Fock-state code approximately protects against loss and dephasing errors, becoming exact in the \(r\to\infty\) limit.'
-    - code_id: approximate_qecc
       detail: 'The squeezed Fock-state code approximately protects against loss and dephasing errors, becoming exact in the \(r\to\infty\) limit.'
 
 

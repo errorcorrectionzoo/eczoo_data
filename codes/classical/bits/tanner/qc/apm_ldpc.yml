@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: apm_ldpc
+physical: bits
+logical: bits
+
+name: 'Affine-permutation-matrix LDPC (APM-LDPC) code'
+short_name: 'APM-LDPC'
+introduced: '\cite{doi:10.1109/ISIT.2006.261870}'
+
+description: |
+  LDPC code whose parity-check matrix matrix can be put into the form of a block matrix consisting of permutation sub-matrices representing the affine permutation group or the zero sub-matrix.
+  Given a cyclic group \(\mathbb{Z}_r\), the affine permutation group is \(\mathbb{Z}_r \rtimes \mathbb{Z}_r^{\times}\), where \(\mathbb{Z}_r^{\times}\) is the multiplicative group of integers modulo \(r\).
+  Such codes are often constructed by \hyperref[topic:lifting]{lifting} certain protographs into such block matrices \cite{arxiv:1108.0840}.
+
+
+relations:
+  parents:
+    - code_id: protograph_ldpc
+  cousins:
+    - code_id: 2bga
+      detail: 'APM-LDPC codes can be used to construct non-Abelian 2BGA codes based on the affine permutation group \cite{arxiv:2504.17790}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-09-15'

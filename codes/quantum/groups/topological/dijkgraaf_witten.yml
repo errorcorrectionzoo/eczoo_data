@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dijkgraaf_witten
+physical: categories
+logical: categories
+
+name: 'Dijkgraaf-Witten gauge theory code'
+introduced: '\cite{doi:10.1007/bf02096988,arxiv:hep-th/9111004,arxiv:1212.0835}'
+
+alternative_names:
+  - 'Cohomological gauge theory code'
+  # 1404.1062
+
+
+description: |
+  A code whose codewords realize \(D\)-dimensional lattice Dijkgraaf-Witten gauge theory \cite{doi:10.1007/bf02096988,arxiv:hep-th/9111004} for a finite group \(G\) and a \(D+1\)-cocycle \(\omega\) in the cohomology class \(H^{D+1}(G,U(1))\).
+  When the cocycle is non-trivial, the gauge theory is called a \textit{twisted gauge theory}.
+  There exist lattice-model formulations in arbitrary spatial dimension \cite{arxiv:1212.0835}.
+  Boundaries and excitations have been studied for arbitrary dimension \cite{arxiv:1905.08673}.
+
+relations:
+  parents:
+    - code_id: group_quantum
+    - code_id: yetter_gauge_theory
+      detail: 'Replacing the two-group data in a two-gauge theory with a group and a cocycle reproduces the phase of the Dijkgraaf-Witten gauge theory, with the two theories equivalent in 2D \cite{arxiv:1309.4721}. Generalizations of Ocneanu''s tube algebras \cite{manual:{Ocneanu, Adrian. "Chirality for operator algebras." Subfactors (Kyuzeso, 1993) 39 (1994).},doi:10.2969/aspm/03110235} can be used to characterize excitations in both theories \cite[Sec. 4.2]{arxiv:1909.07937}. A Dijkgraaf-Witten Lagrangian can also be re-expressed as a two-group gauge theory Lagrangian by relating the electric and magnetic gauge fields via the equations of motion \cite{arxiv:1309.4721,arxiv:2112.12757,manual:{P. S. Hsin, private communication, 2024.}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-06-11'

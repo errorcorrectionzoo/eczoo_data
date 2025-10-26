@@ -21,9 +21,9 @@ description: |
   States of a single oscillator correspond to \(L^2\)-normalizable functions on \(\mathbb{R}\) that have finite energy, finite variance, and finite values of all other moments (where the energy operator is defined to be the harmonic oscillator Hamiltonian); such functions form \textit{Schwartz space} (a.k.a. nuclear space \cite{doi:10.1142/9038}), a subspace of Hilbert space \cite{arxiv:2211.05714}.
   Ideal codewords may not be normalizable because the space is infinite-dimensional, so approximate versions have to be constructed in practice.
 
-  States can be represented by a series via a basis expansion, such as that in the countable basis of Fock states \(|n\rangle\) with \(n\geq 0\).
+  States can be represented by a series via a basis expansion, such as that in the countable basis of Fock states \(|n\rangle\) with \(n\geq 0\) for a single oscillator.
   Alternatively, states can be represented as functions over the reals by expanding in a continuous "basis" (more technically, set of tempered distributions in the space dual to Schwartz space), such as the position "basis" \(|y\rangle\) with \(y\in\mathbb{R}\) or the momentum "basis" \(|p\rangle\) with \(p\in\mathbb{R}\).
-  A third option is to use coherent states \(|\alpha\rangle\) with \(\alpha\in\mathbb{C}\), which are eigenstates of the annihilation operator, which correspond to classical electromagnetic signals, and which resolve the identity \cite{arxiv:math-ph/0210005,doi:10.1016/0034-4877(71)90006-1,doi:10.1016/0034-4877(71)90006-1,doi:10.1103/PhysRevB.18.6744}.
+  A third option is to use coherent states \(|\alpha\rangle\) with \(\alpha\in\mathbb{C}\), which are eigenstates of the annihilation operator, which correspond to classical electromagnetic signals, and which resolve the identity \cite{arxiv:math-ph/0210005,doi:10.1016/0034-4877(71)90006-1,doi:10.1103/PhysRevB.18.6744,doi:10.1007/978-94-007-0196-0}.
   States can further be represented as functions over the joint position-momentum phase space in the Wigner function formalism \cite{doi:10.1103/PhysRev.40.749,doi:10.1103/PhysRevA.15.449}.
   GKP states have negative Wigner functions, but the alternative Zak-Gross Wigner function represents them positively \cite{arxiv:2407.18394}.
 
@@ -73,27 +73,33 @@ protection: |
 
   \subsection{Noise channels}
 
-  \textit{Gaussian channels} are quantum channels that map Gaussian states to Gaussian states \cite{doi:10.1016/0034-4877(79)90049-1,arxiv:quant-ph/0505151,arxiv:0707.0604,arxiv:0804.0511,arxiv:0809.3273,arxiv:1004.0196,arxiv:1009.1108,arxiv:1012.4266}.
-  These include the \hyperref[topic:ad]{AD} channel, dephasing noise channel, and displacement channel.
+  \textit{Gaussian channels} are quantum channels that map Gaussian states to Gaussian states \cite{doi:10.1016/0034-4877(79)90049-1,arxiv:quant-ph/0505151,arxiv:0707.0604,arxiv:0804.0511,arxiv:0809.3273,arxiv:1004.0196,arxiv:1009.1108}; their Kraus representation is calculated in Ref. \cite{arxiv:1012.4266}.
+  These include the \hyperref[topic:ad]{AD} channel and the displacement noise channel.
   The algebraic structure of the Lie algebra of Gaussian channels is the same as that of the super-Poincare algebra in three-dimensional spacetime \cite{arxiv:2507.04932}.
+  
+  An important non-Gaussian noise channel is the dephasing noise channel, which applies a random rotation in phase space about the origin.
 
 
 features:
-  rate: 'The quantum capacity of the \hyperref[topic:ad]{AD} channel \cite{arxiv:quant-ph/0606132} and the dephasing noise channel \cite{arxiv:2205.05736} are both known.
-  The capacity of the displacement noise channel, the quantum analogue of AGWN, has been bounded using GKP codes \cite{arxiv:quant-ph/0105058,arxiv:1801.07271}.
-  Exact two-way assisted capacities have been obtained for the \hyperref[topic:ad]{AD} channels and quantum limited amplifiers in what is known as the PLOB bound \cite{arxiv:1510.08863}.
-  Bounds exist on the two-way quantum and secret-key capacities for some prominent Gaussian channels \cite{arxiv:quant-ph/9912067,arxiv:1310.0129,arxiv:1504.06390,arxiv:1511.08710,arxiv:1602.08898,arxiv:1609.02169,arxiv:1711.09909,arxiv:1801.08102,arxiv:1807.05402,arxiv:2303.12867} and non-Markovian channels, i.e., channels with memory effects \cite{arxiv:2309.17066}. 
-  Non-Gaussian channel capacities can be bounded for single \cite{arxiv:1903.12615} and multiple \cite[Lemma 14]{arxiv:2212.11970} modes.
-  Non-asymptotic bounds exist for memoryless channels \cite{arxiv:2502.05524} as well as for those with memory effects \cite{arxiv:2503.13207}.'
+  rate: |
+    The quantum capacity of the \hyperref[topic:ad]{AD} channel \cite{arxiv:quant-ph/0606132} and the dephasing noise channel \cite{arxiv:2205.05736} are both known.
+    The capacity of the displacement noise channel, the quantum analogue of AGWN, has been bounded using GKP codes \cite{arxiv:quant-ph/0105058,arxiv:1801.07271}.
+    Exact two-way assisted capacities have been obtained for the \hyperref[topic:ad]{AD} channels and quantum limited amplifiers in what is known as the PLOB bound \cite{arxiv:1510.08863}.
+    Bounds exist on the two-way quantum and secret-key capacities for some prominent Gaussian channels \cite{arxiv:quant-ph/9912067,arxiv:1310.0129,arxiv:1504.06390,arxiv:1511.08710,arxiv:1602.08898,arxiv:1609.02169,arxiv:1711.09909,arxiv:1801.08102,arxiv:1807.05402,arxiv:2303.12867} and non-Markovian channels, i.e., channels with memory effects \cite{arxiv:2309.17066}. 
+    The continuous-variable erasure channel has a known quantum capacity \cite{arxiv:2205.09711,arxiv:2510.01424}.
+    Non-Gaussian channel capacities can be bounded for single \cite{arxiv:1903.12615} and multiple \cite[Lemma 14]{arxiv:2212.11970} modes.
+    Non-asymptotic bounds exist for memoryless channels \cite{arxiv:2502.05524} as well as for those with memory effects \cite{arxiv:2503.13207}.
+    The optimal asymptotic error exponent of entanglement distillation is given by the reverse relative entropy of entanglement, a single-letter quantity \cite{arxiv:2510.07121}.
 
   general_gates:
-    - 'Displacement operations form a group called the Heisenberg-Weyl group, the oscillator analogue to the \hyperref[topic:pauli]{Pauli group}. Analogues of (non-Pauli) Clifford-group transformations are the \textit{Gaussian unitary transformations} (a.k.a. symplectic, Bogoliubov-Valatin, or linear canonical transformations) \cite{doi:10.1063/1.1665805,arxiv:1110.3234,manual:{Wagner, M. Unitary transformations in solid state physics. Netherlands.}}, which are unitaries generated by quadratic polynomials in positions and momenta. The Gaussian unitary transformation group permutes displacement operators amongst themselves, and, up to any phases, is equivalent to the symplectic group \(Sp(2n,\mathbb{R})\). Every Gaussian unitary can be decomposed into single-mode squeezing gates sandwiched by passive linear-optical transformations in what is known as the Bloch-Messiah (a.k.a. Euler) decomposition \cite{arxiv:2403.04596,doi:10.1201/9781315118727}.'
+    - 'Displacement operations form a group called the Heisenberg-Weyl group, the oscillator analogue to the \hyperref[topic:pauli]{Pauli group}. Analogues of (non-Pauli) Clifford-group transformations are the \textit{Gaussian unitary transformations} (a.k.a. symplectic, Bogoliubov-Valatin, or linear canonical transformations) \cite{manual:{Berazin, F. A. The method of second quantization. Vol. 24. Elsevier, 2012.},doi:10.1063/1.1665805,arxiv:1110.3234,manual:{Wagner, M. Unitary transformations in solid state physics. Netherlands.}}, which are unitaries generated by quadratic polynomials in positions and momenta. The Gaussian unitary transformation group permutes displacement operators amongst themselves, and, up to any phases, is equivalent to the symplectic group \(Sp(2n,\mathbb{R})\). Every Gaussian unitary can be decomposed into single-mode squeezing gates sandwiched by passive linear-optical transformations in what is known as the Bloch-Messiah (a.k.a. Euler) decomposition \cite{arxiv:2403.04596,doi:10.1201/9781315118727}.'
     - 'Computing using Gaussian states and Gaussian unitaries only can be efficiently simulated on a classical computer \cite{arxiv:quant-ph/0109047,arxiv:1210.1783,arxiv:1208.3660}, and there are efficient algorithms to do so \cite{arxiv:quant-ph/0503237,arxiv:2502.12882}. This remains true even if superpositions of Gaussian states are considered \cite{arxiv:2010.14363,arxiv:2403.19059}, but is no longer the case when the number of modes scales exponentially \cite{arxiv:2407.06290}.'
     - |
       A gate generated by a cubic of higher-degree polynomial is required to make a universal gate set on the oscillator (an infinite-dimensional version of the Solovay-Kitaev theorem) \cite{arxiv:quant-ph/9810082,arxiv:quant-ph/0410100,arxiv:2501.13857}. 
       The cubic phase gate \cite{arxiv:quant-ph/0008040} is a common gate used in tandem with Gaussian gates for universality, and Fock-state matrix elements of the cubic and quartic phase gates have been derived \cite{arxiv:2004.11002} (see also Refs. \cite{arxiv:1801.06565,arxiv:1811.10651}). 
       Arbitrary-degree polynomial gates are well defined, but cubic or higher versions of squeezing admit subtle mathematical properties \cite{doi:10.1103/PhysRevD.29.1107,doi:10.1103/physreva.35.1659,arxiv:2508.09041,arxiv:2508.09044}. 
-      Unitaries generated by polynomials of position and momentum can exactly realize any finite-dimensional unitary evolution, and any physical bosonic unitary evolution can be approximated by a finite-dimensional unitary evolution \cite{arxiv:2110.06942,arxiv:2501.13857}. 
+      Unitaries generated by polynomials of position and momentum can exactly realize any finite-dimensional unitary evolution, and any physical bosonic unitary evolution can be approximated by a finite-dimensional unitary evolution \cite{arxiv:2110.06942,arxiv:2501.13857,arxiv:2510.08546}. 
+      Certain non-quadratic Hamiltonians yield infinite-energy states in finite time \cite{arxiv:2510.08545}.
       See Ref. \cite{arxiv:2410.04274} for bosonic computational complexity classes. 
       The stellar rank quantifies the degree of non-Gaussianity of single-mode states \cite{arxiv:1907.11009}. 
       Functional MPS can be used to simulate evolution of non-Gaussian states \cite{arxiv:2504.05860}.
@@ -111,14 +117,13 @@ notes:
   - 'See video tutorial by \href{https://www.youtube.com/watch?v=zQQI3Ov6xyw}{V. V. Albert}.'
 
 
-
 relations:
   parents:
-    - code_id: group_quantum
-      detail: 'Group quantum codes whose physical spaces are constructed using the group of the reals \(\mathbb{R}\) under addition are bosonic codes.'
+    - code_id: hybrid_qudit_oscillator
+      detail: 'Mixed oscillator codes defined only on oscillators reduce to oscillator codes.'
   cousins:
     - code_id: analog
-      detail: 'Bosonic codes are quantum version of analog codes.'
+      detail: 'Bosonic codes are quantum versions of analog codes.'
     - code_id: t-designs
       detail: 'Gaussian states, under a particular measure, do not form rigged two-designs \cite{arxiv:1110.1042}.'
     - code_id: single_spin

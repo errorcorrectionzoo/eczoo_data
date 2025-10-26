@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bicycle
+physical: qubits
+logical: qubits
+
+name: 'Bicycle code'
+introduced: '\cite{arxiv:quant-ph/0304161}'
+
+description: |
+  A CSS code whose stabilizer generator matrix blocks are \(H_{X}=H_{Z}=(A|A^T)\), where \(A\) is a circulant matrix.
+  The fact that \(A\) commutes with its transpose ensures that the CSS condition is satisfied.
+  Bicycle codes are the first QLDPC codes.
+
+  A notable example is an \([[2^n,2^{(n+1)/2},2^{(n-1)/2}]]\) code constructed from the repetition code and the Cayley graph of \(\mathbb{Z}_2^n\) \cite{arxiv:1206.2656}.
+
+# Parent is qubit_css because primary parent needs to be qubit
+relations:
+    parents:
+      - code_id: qubit_generalized_homological_product_css
+      - code_id: generalized_bicycle
+        detail: |
+          A GB code with whose circulants satistfy \(B = A^T\) reduces to a bicycle code.
+    cousins:
+      - code_id: qldpc
+        detail: 'Bicycle codes are the first QLDPC codes \cite{arxiv:quant-ph/0304161}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-05-09'

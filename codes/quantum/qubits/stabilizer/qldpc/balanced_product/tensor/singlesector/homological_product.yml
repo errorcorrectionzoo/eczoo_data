@@ -1,0 +1,74 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: homological_product
+physical: qubits
+logical: qubits
+
+name: 'Homological product code'
+introduced: '\cite{arxiv:1301.1363,arxiv:1512.07081,arxiv:1611.03790}'
+
+alternative_names:
+  - 'Tensor product code'
+
+description: |
+  CSS code formulated using the tensor product of two chain complexes of length one or greater (see \ref{topic:CSS-to-homology-correspondence}).
+
+  Homological products and ordinary tensor products of chain complexes differ in a way that depends on whether the underlying code is defined by a general or a length-three chain complex \cite[Sec. 3.4.3]{arxiv:1512.07081}.
+#  In the single-sector homological product code, each base code is associated with the chain complex \( C_i \longrightarrow C_i\longrightarrow C_i\) such that the boundary operator satisfies \(\partial_{a}^{2}=0\). The image \(im\partial\) form the parity check space and any set of basis for this space can be viewed as Z-type stabilizer group generators. The same rule holds for \(im\partial^{T}\), which gives X-type stabilizer generators. Conversely, \(ker\partial\setminus im\partial\) (or \(\partial^{T}\)) correspond to all undetectable errors of Z-type(X-type). Finally, the Z-type logical operators are just elements in the homological group \(ker\partial/im\partial\) and X-type logical operators are just elements in the cohomological group \(ker\partial^{T}/im\partial^{T}\).
+
+#For two chain complexes, the product complex is \( C_1\otimes C_2 \longrightarrow C_1\otimes C_2\longrightarrow C_1\otimes C_2\). The boundary operator is now \(\partial_1\otimes I_2+I_1\otimes \partial_2\).
+
+#For simplicity, Ref. \cite{arxiv:1311.0885} used two codes with the same \(n,k\). The boundary operator \(\delta_1\) and \(\delta_2\) are selected from a random ensemble of boundary operators, with uniform probability distribution. To be precise, the boundary operator \(\delta_a\) can be represented by the form \(\delta_a=U_a \delta_0 U_a^{-1}\) where \(U_a\) is a random \(n\times n\) invertible matrix selected from all possible invertible matrices with uniform distribution and \(\delta_0\) is the canonical form \cite{arxiv:1311.0885}.
+
+# Given two classical codes, \(C_i=[n_i,k_i,d_i]\) with \(i\in\{1,2\}\), whose parity-check matrices \(H_i\) satisfy \(H_i^2 = 0\), their homological product yields two classical codes with \(C_{X,Z}\) with parity-check matrices
+# \begin{align}
+#   H_X = H_Z^T = H_1 \otimes I + I \otimes H_2~,
+# \end{align}
+# where \(I\) is the identity.
+# These two codes then yield a homological product code via the CSS construction.
+
+
+protection: |
+  Given two codes \([[n_i, k_i, d_i, w_i]]\) for \(i\in\{1,2\}\), where \(w_i\) denotes the maximum hamming weight of all rows and columns of \(\partial_i\), the homological product code has parameter \([[n=n_1 n_2, k=k_1 k_2, d\leq d_1 d_2, w\leq w_1+w_2]]\).
+  From this formula, and the fact that a randomly selected boundary operator \(\partial\) yields a CSS code that is good with high probability, we see that the product code has \(k=\Theta(n)\) and \(w=O(\sqrt{n})\) with high probability.
+  The main result in Ref. \cite{arxiv:1311.0885} is to show that the product code has linear distance with high probability as well.
+  To sum up, it is shown that we have a family of \([[n,k=c_1 n, d=c_2 n, w=c_3 \sqrt{n}]]\) codes given small enough \(c_1,c_2,c_3\).
+
+features:
+  general_gates:
+    - 'Universal set of gates can be obtained by fault-tolerantly mapping between different encoded representations of a given logical state \cite{arxiv:1807.09783}.'
+    - 'Parallel Pauli product measurements via homomorphic CNOT gates \cite{arxiv:2407.18490}.'
+  fault_tolerance:
+    - 'Universal set of gates can be obtained by fault-tolerantly mapping between different encoded representations of a given logical state \cite{arxiv:1807.09783}.'
+
+  decoders:
+    - 'Union-find decoder \cite{arxiv:2009.14226}.'
+
+relations:
+  parents:
+    - code_id: multisector_hypergraph
+      detail: 'Multi-dimensional homological products of two length-two chain complexes reduce to homological product codes.'
+    - code_id: fiber_bundle
+      detail: 'A fiber-bundle code can be viewed as a homological product code with a twisted product.'
+  cousins:
+    - code_id: random_stabilizer
+      detail: 'Random homological codes are asymptotically good with high probability \cite[Thm. 1]{arxiv:1301.1363}.'
+    - code_id: single_shot
+      detail: 'It is conjectured that a particular class of codes called three-dimensional product codes is single shot \cite{arxiv:2009.11790}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-22'
+    - user_id: VictorVAlbert
+      date: '2022-03-14'
+    - user_id: XinyuanZheng
+      date: '2021-12-15'
+    - user_id: VictorVAlbert
+      date: '2021-12-03'

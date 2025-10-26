@@ -1,0 +1,71 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quantum_expander
+physical: qubits
+logical: qubits
+
+name: 'Quantum expander code'
+introduced: '\cite{arxiv:1504.00822}'
+
+alternative_names:
+  - 'Quantum Sipser-Spielman code'
+  - 'Expander HGP code'
+
+description: |
+  CSS code constructed from a hypergraph product of bipartite expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8} with bounded left and right vertex degrees. For every bipartite graph there is an associated matrix (the parity check matrix) with columns indexed by the left vertices, rows indexed by the right vertices, and 1 entries whenever a left and right vertex are connected. This matrix can serve as the parity check matrix of a classical code. Two bipartite expander graphs can be used to construct a quantum CSS code (the quantum expander code) by using the parity check matrix of one as \(X\) checks, and the parity check matrix of the other as \(Z\) checks.
+
+  
+
+protection: 'Pauli errors of weight \(\leq t\), distance scales as \hyperref[topic:asymptotics]{order} \(\Omega(n^{1/2})\).'
+
+features:
+  rate: '\([[n,k=\Theta(n),d=O(\sqrt{n})]]\) code with asymptotically constant rate.'
+
+  encoders:
+    - 'Single-shot state preparation with constant space-time overhead \cite{arxiv:2510.06760}.'
+
+  general_gates:
+    - 'Dimensional jump protocols between various quantum expander codes \cite{arxiv:2510.06760}.'
+
+  decoders:
+    - 'Small set-flip linear-time decoder, which corrects \hyperref[topic:asymptotics]{order} \(\Omega(n^{1/2})\) adversarial errors \cite{arxiv:1504.00822}. The decoder has been generalized to hypergraph products of 3 or more expander codes \cite{arxiv:2510.06760}'
+    - 'Log-time decoder \cite{arxiv:1808.03821}.'
+    - 'Constant-time decoder \cite{manual:{A. Grospellier. Constant time decoding of quantum expander codes and application to fault-tolerant quantum computation. PhD thesis, Inria Paris (2019).}}.'
+    - '2D geometrically local syndrome extraction circuits acting on a patch of \(N\) physical qubits have to be of depth of \hyperref[topic:asymptotics]{order} \(\Omega(n/\sqrt{N})\) or deeper. More generally, there is a tradeoff between the depth \(D\) and width \(W\) of a syndrome extraction circuit, namely, \(D \geq n/\sqrt{W}\) \cite{arxiv:2109.14599}.'
+
+  fault_tolerance:
+    - 'Fault-tolerance with constant overhead can be achieved \cite{arxiv:1808.03821}.'
+
+  threshold:
+    - 'Locally stochastic noise: \(2.7 \cdot 10^{-16}\) \cite{arxiv:1711.08351}.'
+    - 'Dimensional jump protocols between various quantum expander codes have a threshold under local stochastic noise \cite{arxiv:2510.06760}.'
+
+
+relations:
+  parents:
+    - code_id: hypergraph_product
+    - code_id: galois_expander
+    - code_id: single_shot
+      detail: 'Quantum expander codes are single-shot \cite{arxiv:1808.03821}.'
+  cousins:
+    - code_id: expander
+    - code_id: topological
+      detail: 'Quantum expander codes realize topological quantum spin glass order \cite{arxiv:2412.13248}.'
+    #      detail: 'Quantum expander codes are constructed from classical expander codes.'
+    - code_id: multisector_hypergraph
+      detail: 'Quantum expander codes have been generalized to hypergraph products of 3 or more expander codes \cite{arxiv:2510.06760}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-09-23'
+    - user_id: VictorVAlbert
+      date: '2021-12-16'
+    - user_id: NolanCoble
+      date: '2021-12-03'
