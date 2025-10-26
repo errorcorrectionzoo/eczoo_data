@@ -7,6 +7,7 @@ code_id: single_spin
 physical: spins
 
 name: 'Single-spin code'
+introduced: '\cite{arxiv:1205.4517}'
 
 description: |
   An encoding into a monolithic (i.e. non-tensor-product) Hilbert space that houses an irreducible representation of \(SU(2)\) or, more generally, another Lie group.
@@ -15,15 +16,12 @@ description: |
   The analogue of oscillator coherent states for single spins are the spin coherent states \cite{doi:10.1088/0305-4470/4/3/009}. 
 
 protection: |
-  Noise models can be categorized as those that cause the state to leave the maximally symmetric subspace and those that do not.
-
-  Noise models that do not preserve the PI subspace correspond to models for the tensor-product case.
-  Single spin-half errors do not preserve permutation symmetry and correspond to qubit Pauli noise.
-
-  Noise models that preserve the PI subspace are typically relevant to the case of a monolithic spin.
-  They include collective rotations or decays.
-  A continuous-time single-spin noise channel akin to the depolarizing channel is the Landau-Streater channel \cite{doi:10.1016/0024-3795(93)90274-R}.
+  For the \(SU(2)\) case, a continuous-time single-spin noise channel akin to the depolarizing channel is the Landau-Streater channel \cite{doi:10.1016/0024-3795(93)90274-R}.
   A particular error basis of interest consists of the spherical tensors \cite{arxiv:2304.08611}.
+
+  The \(SU(2)\) Lie Algebra can also be used as a noise model; it connects states whose angular momentum projections differ by at most an integer \cite{arxiv:2005.10910}.
+  More generally, the group's Lie algebra induces a metric on the carrying vector space, and its operators can be chosen as a noise basis \cite{arxiv:1205.4517}. Code existence is guaranteed by the Tverberg theorem \cite{arxiv:1205.4517}.
+  There are \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} for such metric spaces \cite{arxiv:1205.4517}.
 
 
 features:
