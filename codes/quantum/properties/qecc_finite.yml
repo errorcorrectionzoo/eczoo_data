@@ -17,8 +17,6 @@ protection: |
   {\cal D}(EU|\psi\rangle\langle\psi|U^{\dagger}E^{\dagger})=c(E,|\psi\rangle)|\psi\rangle\langle\psi|\end{align}
   for some constant \(c\) \cite{preset:GottesmanBook}. A code is said to \textit{protect against} or \textit{correct} the errors \(\mathcal{E}\).
   
-  There exist finite QECCs with \(K = \lceil N/D\rceil/(D+1)\) that protect against an error set with \(D\) basis elements \cite[Thm. 4]{arxiv:quant-ph/9908066}, a consequence of the Tverberg theorem \cite{doi:10.1112/jlms/s1-41.1.123,doi:10.1007/978-1-4613-0039-7,arxiv:1712.06119}. For \(K = 2\) this theorem reduces to Radon's theorem \cite{doi:10.1007/BF01464231,doi:10.1007/978-1-4613-0039-7}.
-
   \subsection{Knill-Laflamme error-correction conditions}
 
   Equivalently, correction capability is determined by of the quantum
@@ -36,8 +34,12 @@ protection: |
     \Pi E_i^\dagger E_j \Pi = c_{ij}\, \Pi\qquad\text{for all \(i,j\),}
   \end{align}
   where the \textit{QEC matrix} elements \(c_{ij}\) are arbitrary complex numbers.  
+  The term \(\Pi E_i^\dagger E_j \Pi\) can be split into two types of conditions, the \textit{diagonal} (a.k.a. non-deformation or invariance) conditions \(\langle \psi| E_i^\dagger E_j | \psi\rangle\) for a codeword \(|\psi\rangle\), and the \textit{off-diagonal} (a.k.a. orthogonality or distinguishability) conditions \(\langle \psi| E_i^\dagger E_j | \phi\rangle\) for two orthogonal codewords \(|\psi\rangle\) and \(|\phi\rangle\).
   \end{defterm}
-  
+
+  For codewords whose basis states are chosen far enough apart (in some notion of distance) so that the off-diagonal conditions are automatically zero, the remaining diagonal conditions correspond to a system of non-linear constraints on the basis-expansion coefficients of the codewords.
+  In this setting, there exist finite QECCs with \(K = \lceil N/D\rceil/(D+1)\) that protect against an error set with \(D\) basis elements \cite[Thm. 4]{arxiv:quant-ph/9908066}, a consequence of the \textit{Tverberg theorem} \cite{doi:10.1112/jlms/s1-41.1.123,doi:10.1007/978-1-4613-0039-7,arxiv:1712.06119}. For \(K = 2\) this theorem reduces to Radon's theorem \cite{doi:10.1007/BF01464231,doi:10.1007/978-1-4613-0039-7}.
+
   The Knill-Laflamme conditions can alternatively be expressed in terms of the \hyperref[topic:complementary-channel]{complementary channel}, in an entropic information-theoretic way via a data processing inequality \cite{arxiv:quant-ph/9604022,arxiv:quant-ph/9604034,arxiv:quant-ph/9702031,arxiv:quant-ph/9707023,arxiv:quant-ph/0304007}, or can be interpreted thermodynamically \cite{arxiv:quant-ph/0202054}.
   They motivate higher-rank numerical ranges, which are generalizations of the numerical range of an operator \cite{arxiv:quant-ph/0511101,arxiv:math/0511278,arxiv:1407.1350}.
   They have been extended to sequences of multiple errors and rounds of correction \cite{arxiv:2405.17567}.
