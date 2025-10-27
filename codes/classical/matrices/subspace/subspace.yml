@@ -9,11 +9,9 @@ physical: q-ary_digits
 name: 'Subspace code'
 introduced: '\cite{doi:10.1109/TIT.2008.926449}'
 
-alternative_names:
-  - 'Finite-field Grassmannian code'
 
 description: |
-  A code that is a set of subspaces of \(GF(q)^n\).
+  A code that is a set of subspaces of \(GF(q)^n\) of not necessarily the same dimension.
 
 protection: |
   Subspace codes are quantified with respect to the subspace distance \cite{doi:10.1109/TIT.2008.926449} or injection distance \cite{arxiv:0805.3824}.
@@ -31,14 +29,13 @@ realizations:
 # 20240911: Codewords are subspaces, not elements of field, so q-ary is not parent
 relations:
   parents:
-    - code_id: ecc_finite
+    - code_id: matrices_into_matrices
+      detail: 'Subspace codes are represented my generator matrices of subspaces of \(GF(q)^n\).'
   cousins:
     - code_id: projective
       detail: 'Subspace codes are sets of subspaces of a projective space \(PG(n-1,q)\).'
     - code_id: gabidulin
       detail: 'Gabidulin codes can be used to construct asymptotically good subspace codes \cite{doi:10.1109/TIT.2003.809567,doi:10.1109/TIT.2008.926449}.'
-    - code_id: rank_metric
-      detail: 'Subspace and rank-metric codes are closely related \cite{doi:10.1109/TIT.2008.928291}.'
 
 
 # Begin Entry Meta Information

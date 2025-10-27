@@ -13,7 +13,7 @@ alternative_names:
   - '\(G/H\) code'
 
 description: |
-  Encodes \(K\) states (codewords) in a homogeneous (a.k.a. quotient) space \(G/H\), where \(G\) is a group and \(H\) is a subgroup of \(G\). The space is labeled by cosets of \(H\) in \(G\).
+  Encodes \(K\) states (codewords) into one or more homogeneous (a.k.a. quotient) spaces \(G/H\), where \(G\) is a group and \(H\) is a subgroup of \(G\). The space is labeled by cosets of \(H\) in \(G\).
   Notable groups include compact groups, locally compact Abelian groups, and finite groups. 
 
   The two-sphere is a simple example of a homogeneous space with \(G/H = SO(3)/SO(2)\). Any point on the sphere can be obtained from any other point by a proper (i.e., \(SO(3)\) rotation, which is equivalent to saying that \(SO(3)\) acts \textit{transitively}. One can then show that any point is invariant under the subgroup of rotations around an axis parallel to the point. This means that one can associate each point with a coset of \(SO(2)\) in \(SO(3)\).
@@ -22,20 +22,20 @@ description: |
 
   A special class of symmetric spaces are the two-point homogeneous spaces (a.k.a. rank-one symmetric spaces), for which any two points can be mapped to any other two points that are the same distance apart. This is equivalent to saying that \(G\) acts \textit{two-transitively}. 
   
-  Compact connected two-point homogeneous spaces have been classified and include the sphere along with the real, complex, quaternionic, or octonionic projective spaces \cite{doi:10.2307/1969427}. Examples of two-point homogeneous spaces for finite \(G\) are distance-regular graphs \cite{doi:10.1007/978-3-642-74341-2}, and these have yet to be classified \cite{arxiv:0909.4767,arxiv:1007.2905}.
-
 protection: |
   Each homogeneous space carries a representation of \(G\), which can further be decomposed into irreducible representations (irreps) and their multiplicities. Functions of \(G/H\) that carry an irrep of \(G\) are called harmonics. The decomposition into irreps is \textit{multiplicity free} for symmetric spaces, meaning that irreps and their internal indices are sufficient to completely label a Fourier basis for the space. For example, the integer angular momentum \(J\) and its \(z\)-axis projection \(m\) are sufficient to completely label the spherical harmonics (a.k.a. be a good set of quantum numbers).
   
-  Functions that correspond to projections onto irreps are called zonal spherical functions \cite{doi:10.2307/1969252}; these can be obtained by averaging harmonics over \(G\). The zonal spherical functions of two-point homogeneous spaces depend only on the distance between points due to the two-transitivity of the \(G\) action. This yields a general series of bounds on packings in \(G/H\) originating with the Levenshtein bound \cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.}} and the Kabatiansky-Levenshtein bound \cite{preset:KLbounds}\cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}; see Ref. \cite{preset:HPLevBounds} for a review. Many linear programming (LP) Bounds stem from these observations.
+  Functions that correspond to projections onto irreps are called zonal spherical functions \cite{doi:10.2307/1969252}; these can be obtained by averaging harmonics over \(G\). The behavior of such functions can be used to obtain bounds on code parameters such as the Levenshtein bound \cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.}}.
+
+
+notes:
+  - 'See Refs. \cite{arxiv:0909.4767,arxiv:1007.2905} for reviews.'
 
 
 relations:
   parents:
     - code_id: ecc
   cousins:
-    - code_id: t-designs
-      detail: 'Designs exist on compact connected two-point homogeneous spaces \cite{doi:10.1109/18.720545,preset:HPLevBounds,arxiv:1308.3188}.'
     - code_id: points_into_lattices
       detail: |
         The Levenshtein bound \cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.}} and Cohn-Elkies LP bound \cite{arxiv:math/0110009} can be derived for sphere packings by thinking of \(\mathbb{R}^n\) as a homogeneous space of the Euclidean group by the orthogonal group, \(E(n)/O(n)\) \cite[Ch. XI]{manual:{Vilenkin, N. I. (1978). Special functions and the theory of group representations (Vol. 22). American Mathematical Soc.}}.
