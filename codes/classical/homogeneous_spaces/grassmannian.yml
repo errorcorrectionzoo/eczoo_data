@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: grassmannian
+physical: matrices
+
+name: 'Grassmannian code'
+introduced: '\cite{arxiv:math/0208002,arxiv:math/0208003,arxiv:math/0208004}'
+
+
+description: |
+  Encodes \(K\) states (codewords) into a compact Grassmannian, which includes the real, complex, or quaternionic Grassmannians.
+  Points in a real (complex) Grassmannian index fixed-dimension subspaces of real (complex) vector spaces.
+
+
+protection: |
+  LP bounds have been formulated in Ref. \cite{arXiv:math/0610812}.
+
+relations:
+  parents:
+    - code_id: homogeneous_space_classical
+      detail: 'Homogeneous spaces \(G/H\) reduce to real Grassmannians for \(G = O(p+q)\) and \(H = O(p)\times O(q)\), to complex Grassmannians for \(G = U(p+q)\) and \(H = U(p)\times U(q)\), and to quaternionic Grassmannians for \(G = Sp(p+q)\) and \(H = Sp(p)\times Sp(q)\).'
+  cousins:
+    - code_id: t-designs
+      detail: 'Designs have been formulated on Grassmannians \cite{doi:10.1016/S0012-365X(03)00151-1,arxiv:0712.1939,arxiv:1705.02978}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-27'
