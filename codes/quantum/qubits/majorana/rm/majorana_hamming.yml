@@ -12,16 +12,21 @@ introduced: '\cite{arxiv:1703.00612}'
 
 # n is number of fermionic modes, so mult by 2 to get number of Majorana modes
 description: |
-  A member of the \([[2^{m-1},2^{m-1}-m-1,4]]_{f}\) family of Majorana stabilizer codes for \(m \geq 3\) that is closely related to the Hamming code.
+  A member of the \([[2^{m-1},2^{m-1}-m-1,4]]_{f}\) family of Majorana stabilizer codes for \(m \geq 3\) constructed a self-orthogonal first-order RM code (whose dual is the extended Hamming code).
+  A shortened  \([[2^{m-1}-1,2^{m-1}-m-2,3]]_{f}\) version can also be defined \cite[Prop. 2.5.1]{arxiv:2502.14165}.
   The logical subspace of the \([[8,3,4]]_{f}\) Hamming Majorana code is a Cartan subspace of the \(E_8\) Lie algebra \cite{arxiv:1801.06998}.
 
 
 relations:
   parents:
-    - code_id: majorana_stab
+    - code_id: majorana_reed_muller
+      detail: 'A Hamming Majorana code is constructed from a first-order RM code (whose dual is the extended Hamming code).'
     - code_id: small_distance_qubit_stabilizer
   cousins:
-    - code_id: hamming
+    - code_id: extended_hamming
+      detail: 'A Hamming Majorana code is constructed from a first-order RM code (whose dual is the extended Hamming code).'
+    - code_id: biorthogonal
+      detail: 'A Hamming Majorana code is constructed from a first-order RM code (whose dual is the extended Hamming code).'
     - code_id: eeight
       detail: 'The logical subspace of the \([[8,3,4]]_{f}\) Hamming Majorana code is a Cartan subspace of the \(E_8\) Lie algebra \cite{arxiv:1801.06998}.'
     - code_id: stab_4_2_2
