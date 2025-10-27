@@ -4,8 +4,7 @@
 #######################################################
 
 code_id: hyperbolic
-physical: reals
-logical: reals
+physical: quotients
 
 name: 'Hyperbolic sphere packing'
 introduced: '\cite{doi:10.1109/ITW.1998.706453,doi:10.1016/j.jfranklin.2005.09.001}'
@@ -15,11 +14,13 @@ description: |
 
 protection: |
   Designed to communicate information over channels for which a Lorentzian metric is appropriate \cite{doi:10.1137/1104038}.
-  Linear programming bounds exist for hyperbolic surfaces \cite{arxiv:2302.02540}.
+  Linear programming (LP) bounds exist for hyperbolic surfaces \cite{doi:10.1023/B:GEOM.0000006580.47816.e9,arxiv:1212.5966,arxiv:2302.02540,arxiv:2411.07139,arxiv:2505.23572}.
+
 
 relations:
   parents:
-    - code_id: analog
+    - code_id: homogeneous_space_classical
+      detail: 'Hyperbolic space in \(D\) dimensions is a homogeneous space \(G/H\) for \(G = SO(D,1)\) the proper Lorentz group and \(H = O(D)\).'
   cousins:
     - code_id: pam
       detail: 'Hyperbolic PAM constellations may yield improved performance over Euclidean ones \cite{doi:10.1109/ITW.1998.706453}.'
@@ -27,8 +28,6 @@ relations:
       detail: 'Hyperbolic PSK constellations may yield improved performance over Euclidean ones \cite{manual:{Silva, E. B., and R. Palazzo Jr. "M-PSK signal constellations in hyperbolic space achieving better performance than the M-PSK signal constellations in Euclidean space." 1999 IEEE Information Theory Workshop, Metsovo, Greece. 1999.}}.'
     - code_id: qam
       detail: 'Hyperbolic QAM constellations may yield improved performance over Euclidean ones \cite{manual:{Silva, E. B., R. Palazzo Jr, and M. Firer. "Performance analysis of QAM-like constellations in hyperbolic space." 2000 International Symposium on Information Theory and its Applications, Honolulu, USA. 2000.}}.'
-    - code_id: qsc
-      detail: 'Quantum versions \cite{arxiv:2410.18713} of hyperbolic sphere packings have been developed for hyperbolic space \(SO(n,1)/O(n)\), which is the negative-curvature analogue of the sphere.'
 
 
 # Begin Entry Meta Information
