@@ -9,21 +9,21 @@ physical: quotients
 name: 'Homogeneous-space code'
 
 alternative_names:
-  - 'Quotient space code'
+  - 'Coset space code'
   - '\(G/H\) code'
 
 description: |
-  Encodes \(K\) states (codewords) into one or more homogeneous (a.k.a. quotient) spaces \(G/H\), where \(G\) is a group and \(H\) is a subgroup of \(G\). The space is labeled by cosets of \(H\) in \(G\).
+  Encodes \(K\) states (codewords) into a homogeneous (a.k.a. coset) space \(G/H\), where \(G\) is a group and \(H\) is a subgroup of \(G\). The space is labeled by cosets of \(H\) in \(G\).
   Notable groups include compact groups, locally compact Abelian groups, and finite groups. 
 
-  The two-sphere is a simple example of a homogeneous space with \(G/H = SO(3)/SO(2)\). Any point on the sphere can be obtained from any other point by a proper (i.e., \(SO(3)\) rotation, which is equivalent to saying that \(SO(3)\) acts \textit{transitively}. One can then show that any point is invariant under the subgroup of rotations around an axis parallel to the point. This means that one can associate each point with a coset of \(SO(2)\) in \(SO(3)\).
+  The two-sphere is a simple example of a homogeneous space with \(G/H = SO(3)/SO(2)\). Any point on the sphere can be obtained from any other point by a proper (i.e., \(SO(3)\)) rotation, which is equivalent to saying that \(SO(3)\) acts \textit{transitively}. One can then show that any point is invariant under the subgroup of rotations around the axis parallel to the point. This means that one can associate each point with a coset of \(SO(2)\) in \(SO(3)\).
 
-  A special class of homogeneous spaces are the symmetric spaces, which are homogeneous spaces with an additional appropriately defined inversion operation. The two-sphere is a symmetric space, and its operation is inversion through the origin. This holds true in higher dimensions, yielding the \(D\)-dimensional spherical symmetric space family \(SO(D+1)/SO(D)\). Simply connected symmetric spaces have been classified by their curvature.
+  A special class of homogeneous spaces are symmetric spaces, which are homogeneous spaces with an appropriately defined inversion operation. The two-sphere is a symmetric space, and its operation is inversion through the origin. This holds true in higher dimensions, yielding the \(D\)-dimensional spherical symmetric space family \(SO(D+1)/SO(D)\). Simply connected symmetric spaces have been classified by their curvature.
 
   A special class of symmetric spaces are the two-point homogeneous spaces (a.k.a. rank-one symmetric spaces), for which any two points can be mapped to any other two points that are the same distance apart. This is equivalent to saying that \(G\) acts \textit{two-transitively}. 
   
 protection: |
-  Each homogeneous space carries a representation of \(G\), which can further be decomposed into irreducible representations (irreps) and their multiplicities. Functions of \(G/H\) that carry an irrep of \(G\) are called harmonics. The decomposition into irreps is \textit{multiplicity free} for symmetric spaces, meaning that irreps and their internal indices are sufficient to completely label a Fourier basis for the space. For example, the integer angular momentum \(J\) and its \(z\)-axis projection \(m\) are sufficient to completely label the spherical harmonics (a.k.a. be a good set of quantum numbers).
+  Each homogeneous space carries a representation of \(G\), which can further be decomposed into irreducible representations (irreps) and their multiplicities. Functions on \(G/H\) that transform as an irrep of \(G\) are called harmonics. The decomposition into irreps is \textit{multiplicity free} for symmetric spaces, meaning that irreps and their internal indices are sufficient to completely label a basis for the space. For example, the integer angular momentum \(J\) and its \(z\)-axis projection \(m\) are sufficient to completely label the spherical harmonics (a.k.a. be a good set of quantum numbers).
   
   Functions that correspond to projections onto irreps are called zonal spherical functions \cite{doi:10.2307/1969252}; these can be obtained by averaging harmonics over \(G\). The behavior of such functions can be used to obtain bounds on code parameters such as the Levenshtein bound \cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.}}.
 
