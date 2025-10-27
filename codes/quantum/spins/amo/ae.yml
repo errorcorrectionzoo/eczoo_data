@@ -16,8 +16,7 @@ description: |
   A simple example of an Æ code is the error-detecting code with codewords
   \begin{align}
   \begin{split}
-    |\overline{0}\rangle&=\frac{1}{\sqrt{2}}\left(|J,-m\rangle+|J,m\rangle\right)\\
-    |\overline{1}\rangle&=|J,0\rangle~,
+    |\overline{0}\rangle&=\frac{1}{\sqrt{2}}\left(|_{-m}^{J}\rangle+|_{-m}^{J}\rangle\right)\\|\overline{1}\rangle&=|_{0}^{J}\rangle~,
   \end{split}
   \end{align}
   constructed out of states of total angular momentum \(J\) and its projection \(m\) for any \(J,m\geq 2\).
@@ -34,6 +33,9 @@ realizations:
 relations:
   parents:
     - code_id: spins_into_spins
+      detail: 'Æ codes protect against changes in both the total angular momentum \(J\) and its projection \(m\), with the former type necessarily causing the information to leak out of the space of a single spin.'
+    - code_id: single_spin
+      detail: 'Since Æ codes are defined in a subspace of fixed total angular momentum and protect against errors linear in the momentum generators, so they can also be thought of a single-spin codes.'
   cousins:
     - code_id: diatomic_molecular
       detail: 'Diatomic molecular codes are supported on states with various total angular momenta, while the more practical Æ codes are supported on only one subspace of fixed total momentum. The latter codes are thus more practical and more applicable to other spin spaces.'
@@ -41,8 +43,6 @@ relations:
       detail: 'Many well-performing Æ codes can be mapped into shifted versions of binomial codes via the Holstein-Primakoff mapping.'
     - code_id: gnu_permutation_invariant
       detail: 'Many well-performing Æ codes can be mapped into GNU codes via the \hyperref[topic:dicke]{Dicke state mapping}.'
-    - code_id: single_spin
-      detail: 'Since Æ codes are defined in a subspace of fixed total angular momentum and protect against errors linear in the momentum generators, they can also be thought of a single-spin codes.'
 
 
 # Begin Entry Meta Information
