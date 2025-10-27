@@ -12,7 +12,8 @@ name: 'Constant-weight code'
 description: |
   A block code over a field or a ring whose codewords all have the same Hamming weight \(w\).
   The \textit{complement} of a binary constant-weight code is a constant-weight code obtained by interchanging zeroes and ones in the codewords.
-  The set of all binary codewords of length \(n\) forms the \textit{Johnson space} \(J(n,w)\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379}.
+  The set of all binary codewords of length \(n\) forms the \textit{Johnson space} \(J(n,w)\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379}, with its generalization to \(q\)-ary codes being \(q\)-Johnson space.
+  The definition can also be extended to codes over rings such as \(\mathbb{Z}_q\).
 
   Constant-weight codes that contain all strings of some fixed Hamming weight are known as \textit{\(m\)-in-\(n\)} or \({n \choose m}\) codes.
 
@@ -34,9 +35,11 @@ relations:
       detail: 'Constant-weight codes are classical analogues of qubit constant-excitation codes.'
     - code_id: univ_opt_q-ary
       detail: 'See \cite[Table 8.4]{doi:10.1007/BF00053379} for constant-weight universally optimal \(q\)-ary codes.'
+    - code_id: 2pt_homogeneous
+      detail: 'The \(q\)-Johnson space can be regarded as a finite two-point homogeneous space \(G/H\) where \(G = GL(n,GF(q))\) \cite{arxiv:0909.4767,arxiv:1007.2905}.'
     - code_id: divisible
       detail: 'Codes whose codewords have a constant weight of \(m\) are automatically \(m\)-divisible. However, divisible codes are linear by definition while constant-weight codes do not have to be.'
-# Divisible is linear, while constant weight is not
+    # Divisible is linear, while constant weight is not
 
 # Begin Entry Meta Information
 _meta:
