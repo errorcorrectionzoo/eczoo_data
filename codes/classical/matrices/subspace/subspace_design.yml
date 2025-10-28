@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subspace_design
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: 'Subspace design'
+introduced: '\cite{}'
+
+alternative_names:
+  - '\(q\)-design'
+  - 'Geometric design'
+  - 'Design over finite fields'
+  - 'Design over \(GF(q)\)'
+  - 'Design in the \(q\)-Johnson scheme'
+  - 'Design in vector spaces'
+  # :10.1007/978-3-319-70293-3_8
+
+
+description: |
+  A constant-dimension code that forms a design on the finite Grassmannian.
+  A more general definition is given in Refs. \cite{doi:10.1109/FOCS.2013.71,doi:10.1145/2488608.2488715}.
+
+  Subspace designs exist for all parameters in sufficiently large dimension that also satisfies divisibility constraints \cite{doi:10.1016/j.jcta.2014.06.001,arxiv:2212.00870}.
+
+# can be mapped into a subspace \(t\)-\((n,w,\lambda)_q\) design.
+# 'Subspace designs are designs on the finite-field Grassmannian (a.k.a. \(q\)-Johnson space or \(q\)-Johnson association scheme) \cite{doi:10.1137/0134012}.'
+
+notes:
+  - 'See \cite{doi:10.1007/978-3-319-70293-3_8} for a review on subspace designs.'
+  - 'Popular summary of the existence of subspace designs in \href{https://www.quantamagazine.org/mathematicians-find-hidden-structure-in-a-common-type-of-space-20230412}{Quanta Magazine}.'
+
+relations:
+  parents:
+    - code_id: finite_grassmann
+    - code_id: t-designs
+      detail: 'Subspace designs are designs on the finite-field Grassmannian (a.k.a. \(q\)-Johnson space or \(q\)-Johnson association scheme) \cite{doi:10.1137/0134012}.'
+  cousins:
+    - code_id: combinatorial_design
+      detail: 'Combinatorial designs are designs in Johnson space, the space of all size-\(w\) subsets of a set with \(n\) elements. The \(q\)-Johnson spaces generalize this notion to subspaces and reduce to Johnson spaces at \(q=1\). In other words, combinatorial designs are designs over spaces of subsets, while subspace designs are designs over spaces of subspaces.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2024-01-09'

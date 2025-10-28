@@ -9,15 +9,25 @@ name: 'Constant-weight block code'
 
 description: |
   A block code whose codewords all have the same number of nonzero coordinates.
-  Code constructions exist for codes over fields \cite{doi:10.1109/18.651060} or rings \cite{doi:10.1016/0012-365X(95)00333-R}.
+  Code constructions exist for codes over fields \cite{doi:10.1109/18.651060} or rings \cite{doi:10.1090/S0002-9947-01-02905-1}.
+
+  The set of all weight-\(w\) \(q\)-ary strings of length \(n\) forms the \textit{nonbinary Johnson space}, a finite symmetric space \(G/H\) with \(G = S_{q-1} \wr S_n\) \cite{doi:10.1016/S0195-6698(85)80039-1,arxiv:1007.2905}\cite[Sec. 8.8]{doi:20.500.12070/14274}. The number of such strings is \({n \choose w} (q-1)^w\).
 
 
 relations:
   parents:
     - code_id: block
+    - code_id: 2pt_homogeneous
+      detail: 'The set of all weight-\(w\) \(q\)-ary strings of length \(n\) forms the \textit{nonbinary Johnson space}, a finite symmetric space \(G/H\) with \(G = S_{q-1} \wr S_n\) \cite{doi:10.1016/S0195-6698(85)80039-1,arxiv:1007.2905}\cite[Sec. 8.8]{doi:20.500.12070/14274}. The number of such strings is \({n \choose w} (q-1)^w\). This reduces to the Johnson space for \(q=2\).'
   cousins:
     - code_id: constant_excitation
       detail: 'Constant-weight codes are classical analogues of qubit constant-excitation codes.'
+    - code_id: q-ary_linear_over_zq
+      detail: 'Constant-weight linear codes over \(\mathbb{Z}_q\) have been classified \cite{doi:10.1090/S0002-9947-01-02905-1}.'
+    - code_id: q-ary_over_zq
+      detail: 'Optimal constant-weight codes over \(\mathbb{Z}_q\) can be constructed \cite{doi:10.1016/0012-365X(95)00333-R} from a generalization of combinatorial designs to \(q\)-ary alphabets \cite{doi:10.4153/CJM-1963-069-5,doi:10.1007/s10623-007-9130-1}.'
+    - code_id: combinatorial_design
+      detail: 'Optimal constant-weight codes over \(\mathbb{Z}_q\) can be constructed \cite{doi:10.1016/0012-365X(95)00333-R} from a generalization of combinatorial designs to \(q\)-ary alphabets \cite{doi:10.4153/CJM-1963-069-5,doi:10.1007/s10623-007-9130-1}.'
 
 
 # Begin Entry Meta Information
