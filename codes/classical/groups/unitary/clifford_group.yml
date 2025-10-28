@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: clifford_group
+physical: groups
+logical: groups
+
+name: 'Clifford group'
+introduced: '\cite{arxiv:math.CO/0001038,arxiv:quant-ph/0304125}'
+
+alternative_names:
+  - 'Clifford-Weil group'
+
+description: |
+  The (complex) Clifford group on \(n\) qubits is a subgroup of the unitary group \(U(2^n)\) that is the normalizer of the \hyperref[topic:pauli]{Pauli group}, that forms a unitary 3-design, and that is closely related to the automorphism group of BW lattices.
+  The group features prominently in quantum information, with the rest of the entry given in that context.
+
+  \begin{defterm}{Clifford group}
+  \label{topic:clifford}
+  The \(n\)-qubit Clifford group consists of the Pauli group as well as elements that permute Pauli operators amongst themselves.
+  Up to any phases and Pauli strings, the group is equivalent to the symplectic group \(Sp(2n,\mathbb{Z}_2)\). 
+  See Refs. \cite{arxiv:quant-ph/0304125,arxiv:0811.0898,arxiv:1310.6813,arxiv:1810.10259,preset:GottesmanBook} for generators, relations, and normal form. 
+  The group cannot be expressed as a semidirect product of the Pauli and symplectic groups \cite{arxiv:2406.09951}.
+  Restricting the group to real-valued elements yields the \textit{real Clifford group}, and including complex conjugation yields the \textit{extended Clifford group} \cite{arxiv:quant-ph/0412001}.
+  \end{defterm}
+
+  Single-qubit Clifford gates, together with Paulis, realize a group with \(192\) elements.
+  Modding out phases yields the \(48\)-element \(2O\) binary octahedral subgroup of \(SU(2)\).
+  Further modding out the Pauli group, which corresponds to the quaternion group \(Q\), yields the permutation group \(S_3\), which consists of permutations of the three non-identity single-qubit Pauli matrices.
+
+  The two-qubit Clifford group, modded out by the Pauli group and phases, is isomorphic to \(S_6\), and its subgroups have been classified \cite{arxiv:2409.14624}.
+  
+  The commutant of four-fold \cite{arxiv:1609.08172,arxiv:1609.08188} and higher transversal representations of the Clifford group consists of qubit permutations and projections onto the \([[2m,2m-2,2]]\) error-detecting code \cite{arxiv:2504.12263}.
+  
+  Clifford-group elements can be sampled efficiently \cite{arxiv:1406.2170}.
+
+
+relations:
+  parents:
+    - code_id: unitary_design
+      detail: 'Stabilizer states on \(n\) qubits form 3-designs on complex projective spaces \(\mathbb{C}P^{2^n}\) \cite{arxiv:1510.02767}, while the \hyperref[topic:clifford]{Clifford group} is a unitary 3-design on \(U(2^n)\) \cite{arxiv:1510.02619,arxiv:1510.02769}. The \([[2m,2m-2,2]]\) code for \(2m\) being a multiple of four obstructs the Clifford group from being a 4-design \cite{arxiv:1609.08172}.'
+  cousins:
+    - code_id: qubit_stabilizer
+      detail: 'Stabilizer states can be mapped into the first lattice shell of a BW lattice over a cyclotomic field, while the \hyperref[topic:clifford]{Clifford group} is related to the symmetry group of the lattice \cite{arxiv:2404.17677}.'
+    - code_id: kerdock
+      detail: 'Kerdock codes correspond to cluster states, and the corresponding Clifford-group automorphisms of this set form a particular group \cite{doi:10.1112/S0024611597000403} that is a unitary 2-design on \(U(2^n)\) \cite{arxiv:1904.07842}. As such, cluster states form complex projective on 2-designs \(\mathbb{C}P^{2^n}\). These are useful in matrix-vector multiplication \cite{arxiv:2105.05879}.'
+    - code_id: cluster_state
+      detail: 'Kerdock codes correspond to cluster states, and the corresponding Clifford-group automorphisms of this set form a particular group \cite{doi:10.1112/S0024611597000403} that is a unitary 2-design on \(U(2^n)\) \cite{arxiv:1904.07842}. As such, cluster states form complex projective on 2-designs \(\mathbb{C}P^{2^n}\). These are useful in matrix-vector multiplication \cite{arxiv:2105.05879}.'
+    - code_id: complex_projective
+      detail: 'Stabilizer states on \(n\) qubits form 3-designs on complex projective spaces \(\mathbb{C}P^{2^n}\) \cite{arxiv:1510.02767}, while the \hyperref[topic:clifford]{Clifford group} is a unitary 3-design on \(U(2^n)\) \cite{arxiv:1510.02619,arxiv:1510.02769}. The \([[2m,2m-2,2]]\) code for \(2m\) being a multiple of four obstructs the Clifford group from being a 4-design \cite{arxiv:1609.08172}.'
+    - code_id: iceberg
+      detail: 'Stabilizer states on \(n\) qubits form 3-designs on complex projective spaces \(\mathbb{C}P^{2^n}\) \cite{arxiv:1510.02767}, while the \hyperref[topic:clifford]{Clifford group} is a unitary 3-design on \(U(2^n)\) \cite{arxiv:1510.02619,arxiv:1510.02769}. The \([[2m,2m-2,2]]\) code for \(2m\) being a multiple of four obstructs the Clifford group from being a 4-design \cite{arxiv:1609.08172}.'
+
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-28'
