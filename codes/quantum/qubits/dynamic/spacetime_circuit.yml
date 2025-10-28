@@ -11,17 +11,17 @@ name: 'Spacetime circuit code'
 introduced: '\cite{arxiv:1411.3334,arxiv:2210.15844,arxiv:2304.05943}'
 
 description: |
-  Qubit stabilizer code used to correct faults in Clifford circuits, i.e., circuits up made of \hyperref[topic:clifford]{Clifford gates} and Pauli measurements.
+  Qubit stabilizer code used to correct faults in \hyperref[topic:clifford]{Clifford circuits}, i.e., circuits up made of \hyperref[topic:clifford]{Clifford gates} and Pauli measurements.
   The code utilizes redundancy in the measurement outcomes of a circuit to correct circuit faults, which correspond to Pauli errors of the code.
 
-  The structure of the Clifford circuit yields correlations between the circuit's possible measurement outcomes.
+  The structure of the \hyperref[topic:clifford]{Clifford circuit} yields correlations between the circuit's possible measurement outcomes.
   The set of outcomes can be made into a classical binary linear code called the \textit{outcome code} \cite[Corr. 2]{arxiv:2304.05943}.
   The spacetime circuit code is defined such that its error syndromes can be backpropagated to obtain the parity checks of the outcome code.
   In other words, both codes have the same set of parity check outcomes.
 
   More technically, given an \([m,k]\) outcome code associated with an \(n\)-qubit circuit of depth \(\Delta\) with \(m\) measurements and \(2^k\) outcomes, the corresponding spacetime circuit code is an \([[ n (\Delta + 1), n (\Delta + 1) - (m - k) ]]\) code \cite[Thm. 2]{arxiv:2304.05943}.
 
-  The spacetime circuit code is the stabilizer code corresponding to the subsystem codes of earlier works \cite{arxiv:1411.3334,arxiv:2210.15844}, which dealt with specific families of Clifford circuits.
+  The spacetime circuit code is the stabilizer code corresponding to the subsystem codes of earlier works \cite{arxiv:1411.3334,arxiv:2210.15844}, which dealt with specific families of \hyperref[topic:clifford]{Clifford circuits}.
   The general case was developed in Ref. \cite{arxiv:2304.05943}.
 
   Many features of the spacetime circuit formalism can be understood through ZX calculus \cite{arxiv:2407.08566}.
@@ -38,16 +38,16 @@ relations:
     - code_id: dynamic_gen
   cousins:
     - code_id: binary_linear
-      detail: 'The set of measurement outcomes of a Clifford circuit can be made into a classical binary linear code.
+      detail: 'The set of measurement outcomes of a \hyperref[topic:clifford]{Clifford circuit} can be made into a classical binary linear code.
       Error syndromes of the spacetime circuit code can be used to obtain the parity checks of the outcome code.'
     - code_id: surface
       detail: 'Stabilizer generators of a spacetime code are called \textit{detectors} in Refs. \cite{arxiv:2103.02202,arxiv:2304.05943}.'
     - code_id: subsystem_stabilizer
-      detail: 'Spacetime circuit codes can be upgraded to subsystem codes by \hyperref[topic:gauging-out]{gauging out} a subgroup of the logical \hyperref[topic:pauli]{Pauli group} which causes trivial faults in the corresponding Clifford circuit.'
+      detail: 'Spacetime circuit codes can be upgraded to subsystem codes by \hyperref[topic:gauging-out]{gauging out} a subgroup of the logical \hyperref[topic:pauli]{Pauli group} which causes trivial faults in the corresponding \hyperref[topic:clifford]{Clifford circuit}.'
     - code_id: qldpc
       detail: 'General spacetime circuit codes can be sparsified to yield QLDPC spacetime circuit codes \cite{arxiv:2304.05943}.'
     - code_id: ldpc
-      detail: 'There is an equivalence between Clifford circuits and LDPC codes with bit-check symmetry \cite{arxiv:2403.10268}.'
+      detail: 'There is an equivalence between \hyperref[topic:clifford]{Clifford circuits} and LDPC codes with bit-check symmetry \cite{arxiv:2403.10268}.'
 
 
 
