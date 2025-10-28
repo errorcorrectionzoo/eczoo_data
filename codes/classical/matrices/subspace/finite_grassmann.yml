@@ -6,31 +6,41 @@
 code_id: finite_grassmann
 physical: matrices
 
-name: 'Finite-field Grassmannian code'
+name: 'Constant-dimension code'
 introduced: '\cite{doi:10.1109/TIT.2008.926449}'
 
 alternative_names:
-  - 'Constant-dimension subspace code'
+  - 'Linear authentication code'
+  - 'Finite-field Grassmannian code'
   - 'Grassmannian variety code'
   - 'Finite Grassmannian code'
   - 'Discrete Grassmannian code'
 
+
 description: |
-  A code that is a set of \(k\)-dimensional subspaces of \(GF(q)^n\), i.e., points in a finite-field Grassmannian (a.k.a. Grassmannian variety).
+  A matrix-based code that is a set of \(k\)-dimensional subspaces of \(GF(q)^n\), i.e., points in a finite-field Grassmannian (a.k.a. Grassmannian variety or \(q\)-Johnson space). Codewords are generator matrices of the subspaces, and distance is governed by various notions of subspace overlap.
+  Constant-dimension codes are equivalent to linear authentication codes \cite[Thm. 4.1]{doi:10.1109/TIT.2003.809567}.
+
+
+protection: |
+  Johnson-type bounds have been developed \cite{arxiv:0709.1074}.
+
+realizations:
+  - 'Linear authentication \cite{doi:10.1109/TIT.2003.809567}.'
 
 
 # 20240911: Codewords are subspaces, not elements of field, so q-ary is not parent
 relations:
   parents:
     - code_id: subspace
-      detail: 'Subspace codes of constant dimension reduce to finite-field Grassmannian codes.'
+      detail: 'Subspace codes of constant dimension reduce to constant-dimension codes.'
     - code_id: 2pt_homogeneous
-      detail: 'The finite-field Grassmannian is a finite two-point homogeneous space \cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}\cite{doi:10.1007/978-1-4939-3082-1}.'
+      detail: 'The finite-field Grassmannian (a.k.a. \(q\)-Johnson space) can be regarded as a finite two-point homogeneous space \(G/H\) where \(G = GL(n,GF(q))\) \cite{doi:10.1007/978-1-4939-3082-1,arxiv:0909.4767,arxiv:1007.2905}\cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}.'
   cousins:
     - code_id: grassmannian
       detail: 'The finite-field Grassmanian is a finite analogue of the compact Grassmannians.'
     - code_id: rank_metric
-      detail: 'Rank-metric codes can be lifted to make finite-field Grassmannian codes \cite{doi:10.1109/TIT.2008.928291,preset:HKSnetwork}.'
+      detail: 'Rank-metric codes can be lifted to make constant-dimension codes \cite{doi:10.1109/TIT.2008.928291,preset:HKSnetwork}; see review \cite{doi:10.1007/978-3-642-10868-6_1}.'
 
 
 # Begin Entry Meta Information
