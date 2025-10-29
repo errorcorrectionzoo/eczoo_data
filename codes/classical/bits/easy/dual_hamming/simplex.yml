@@ -19,11 +19,16 @@ alternative_names:
 description: |
   A member of the equidistant code family that is dual to the \([2^m,2^m-m-1,3]\) Hamming family.
   The columns of its generator matrix are in one-to-one correspondence with the elements of the projective space \(PG(m-1,2)\), with each column being a chosen representative of the corresponding element.
+  Simplex codes saturate the Plotkin bound and hence have nonzero codewords all of the same weight, \(2^{m-1}\) \cite[Th. 11(a)]{preset:MacSlo}.
   The codewords form a \((2^m,2^m+1)\) simplex spherical code under the \hyperref[topic:antipodal-mapping]{antipodal mapping}.
 
   A punctured simplex code is known as a \textit{MacDonald code} \cite{doi:10.1147/rd.41.0043}, with parameters \([[2^m-2^u,m,2^{m-1}-2^{u-1}]]\) for \(u \leq m-1\) \cite{doi:10.1109/TIT.1975.1055315}.
 
   The automorphism group of the code is \(GL_{m}(\mathbb{F}_{2})\) \cite{preset:MacSlo}.
+
+protection: |
+  Simplex codes saturate the Plotkin bound and hence have nonzero codewords all of the same weight \cite[Th. 11(a)]{preset:MacSlo}.
+
 
 features:
   decoders:
@@ -34,6 +39,8 @@ features:
 relations:
   parents:
     - code_id: binary_linear
+    - code_id: combinatorial_design
+      detail: 'Simplex codewords form a 2-design \cite[pg. 166]{preset:MacSlo}.'
     - code_id: q-ary_simplex
       detail: '\(q\)-ary simplex codes reduce to simplex codes for \(q=2\).'
   cousins:
@@ -47,8 +54,11 @@ relations:
       detail: 'Binary simplex codes map to \((2^m,2^m+1)\) simplex spherical codes under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite[Sec. 6.5.2]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}\cite[pg. 18]{preset:EricZin}. In other words, simplex (simplex spherical) codes form simplices in Hamming (Euclidean) space.'
     - code_id: biorthogonal
       detail: 'First-order RM codes and simplex codes are interconvertible via shortening and lengthening \cite[pg. 31]{preset:MacSlo}. Punctured first-order RM codes and simplex codes are interconvertible via expurgation and augmentation \cite[pg. 31]{preset:MacSlo}.'
+    - code_id: binary_linear
+      detail: 'Linear binary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
     - code_id: constant_weight
-      detail: 'All nonzero simplex codewords have a constant weight of \(2^{m-1}\).'
+      detail: 'Linear binary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
+    # Also in constant_weight
 
 
 # Begin Entry Meta Information

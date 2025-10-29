@@ -7,6 +7,9 @@ code_id: constant_weight
 name: 'Constant-weight code'
 #introduced: ''
 
+alternative_names:
+  - 'One-weight code'
+
 description: |
   A binary code whose codewords all have the same Hamming weight \(w\).
 
@@ -14,6 +17,8 @@ description: |
   Constant-weight codes that contain all strings of some fixed Hamming weight are known as \textit{\(m\)-in-\(n\)} or \({n \choose m}\) codes.
 
   The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. The number of such binary strings is the binomial coefficient \(n \choose w\).
+
+  Linear binary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).
 
 
 protection: |
@@ -41,6 +46,9 @@ relations:
     - code_id: divisible
       detail: 'Codes whose codewords have a constant weight of \(m\) are automatically \(m\)-divisible. However, divisible codes are linear by definition while constant-weight codes do not have to be.'
     # Divisible is linear, while constant weight is not
+    - code_id: binary_linear
+      detail: 'Linear binary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
+
 
 # Begin Entry Meta Information
 _meta:
