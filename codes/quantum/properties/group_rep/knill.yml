@@ -12,19 +12,19 @@ alternative_names:
   - 'Clifford code'
 
 description: |
-  A group representation code whose projection is onto an irrep of a normal subgroup of the group formed by a nice error basis.
+  A group representation code whose projection is onto an irrep of a normal subgroup of the group \(G\) formed by a nice error basis.
+  More general definitions dropping the normality requirement also exist \cite{arxiv:2509.20545}.
   Knill codes yield stabilizer-like codes based on error bases that are non-Pauli but that nevertheless maintain many of the useful features of Pauli-type bases.
 
   \begin{defterm}{Nice error basis}
   \label{topic:nice-error-basis}
-    A nice error basis \cite{arxiv:quant-ph/9608048,arxiv:quant-ph/9608049,arxiv:quant-ph/0010082} for an \(q\)-dimensional vector space is a set \(\{E_g~,~g\in G\}\) of unitary operators, where \(G\) is a (not necessarily Abelian) group of order \(q^2\), and where
+    A nice error basis \cite{arxiv:quant-ph/9608048,arxiv:quant-ph/9608049,arxiv:quant-ph/0010082} for an \(q\)-dimensional vector space is a set \(\{E_g~,~g\in G\}\) of unitary operators, where \(G\) is a (not necessarily Abelian) group of order \(q^2\) that is represented projectively. Namely,
     \begin{align}
       \text{tr}(E_{g})&=q\delta^{G}_{g,1}\\
       E_{g}E_{h}&=\omega_{g,h}E_{gh}
     \end{align}
   for all group elements \(g,h\).
   Above, \(\delta^{G}_{g,1}\) is the \hyperref[topic:group-pauli]{group Kronecker-delta function}.
-  A basis is called \textit{very nice} if \(\omega\) is a root of unity.
   This definition can naturally be extended to continuous groups.
   \end{defterm}
 
