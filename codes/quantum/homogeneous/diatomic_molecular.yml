@@ -4,14 +4,14 @@
 #######################################################
 
 code_id: diatomic_molecular
-physical: spins
+physical: quotients
 
 name: 'Diatomic molecular code'
 introduced: '\cite[Sec. VI]{arxiv:1911.00099}'
 
 description: |
-  Approximate quantum code that encodes a qudit in the finite-dimensional Hilbert space of a rigid body with \(SO(2)\) symmetry (e.g., a heteronuclear diatomic molecule).
-  This state space is the space of normalized functions on the two-sphere, consisting of a direct sum of all non-negative integer angular momenta.
+  Approximate quantum code that encodes a qudit in the infinite-dimensional Hilbert space of a rigid body with \(SO(2)\) symmetry (e.g., a heteronuclear diatomic molecule).
+  This state space is the space of normalized functions on the two-sphere, \(L^2(S^2)\), consisting of a direct sum of all non-negative integer angular momenta.
   Ideal codewords may not be normalizable because the space is infinite-dimensional, so approximate versions have to be constructed in practice.
 
   Construction is based on nested subgroups \(H\subset K \subset SO(3)\), where \(H,K\) are finite.
@@ -24,7 +24,8 @@ protection: |
 
 relations:
   parents:
-    - code_id: spins_into_spins
+    - code_id: homogeneous_space_quantum
+      detail: 'Diatomic molecular codes are defined on the space of orientations of a heterogeneous diatomic molecules. functions on the homogeneous space \(SO(3)/SO(2) = S^2\) (the two-sphere).'
   cousins:
     - code_id: molecular
       detail: 'Molecular (diatomic molecular) codes are constructed using two nested subgroups of \(SO(3)\) on the state space of a particle on \(SO(3)\) (the two-sphere).'

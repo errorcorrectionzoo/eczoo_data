@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: tesselation
+physical: quotients
+
+name: 'Hyperbolic tesselation code'
+introduced: '\cite{arxiv:2410.18713}'
+
+description: |
+  Approximate quantum code that encodes a qudit in the space of normalized functions on the hyperbolic plane and that is constructed using symmetry groups of planar tilings.
+  Tesselation code projections are onto a copy of an irreducible representation of some group, with the code constructed using the \(\{4,3,5\}\) tesselation realizing the binary icosahedral group \(2I\) \cite{arxiv:2410.18713}.
+
+
+protection: |
+  Protects against sufficiently small shifts in position and momentum errors on the hyperbolic plane. Momentum errors are represented by LaPlacian eigenfunctions and are indexed by a continuous variable \cite{arxiv:2410.18713}.
+
+
+relations:
+  parents:
+    - code_id: homogeneous_space_quantum
+      detail: 'Hyperbolic tesselation codes are defined on the space of functions on the hyperbolic plane, the symmetric space \(G/H\) for \(G = SO(2,1)\) the proper Lorentz group and \(H = O(2)\).'
+    - code_id: group_representation
+      detail: 'Tesselation code projections are onto a copy of an irreducible representation of some group, with the code constructed using the \(\{4,3,5\}\) tesselation realizing the binary icosahedral group \(2I\) \cite{arxiv:2410.18713}.'
+  cousins:
+    - code_id: molecular
+      detail: 'Molecular (diatomic molecular) codes are constructed using two nested subgroups of \(SO(3)\) on the state space of a particle on \(SO(3)\) (the two-sphere) \cite{arxiv:1911.00099}.'
+    - code_id: hyperbolic
+      detail: 'Hyperbolic tesselation codes are quantum analogues of hyperbolic sphere packings because they store information in quantum superpositions of points on the hyperbolic plane.'
+    - code_id: pauli_qsc
+      detail: 'Tesselation codes are constructed using symmetry groups of tesselations of real, spherical, and hyperbolic spaces \cite{arxiv:2410.18713}. Examples include the qutrit-Pauli tesselation code, Pauli tesselation QSC, and hyperbolic tesselation code, respectively.'
+
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-10-29'
