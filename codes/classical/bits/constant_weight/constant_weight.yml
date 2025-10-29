@@ -13,27 +13,26 @@ description: |
   The \textit{complement} of a constant-weight code is a constant-weight code obtained by interchanging zeroes and ones in the codewords.
   Constant-weight codes that contain all strings of some fixed Hamming weight are known as \textit{\(m\)-in-\(n\)} or \({n \choose m}\) codes.
 
-  The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767,arxiv:1007.2905}. The number of such binary strings is the binomial coefficient \(n \choose w\).
+  The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. The number of such binary strings is the binomial coefficient \(n \choose w\).
 
 
 protection: |
-  See Ref. \cite{doi:10.1109/18.887851} for upper bounds on dimension.
+  See Ref. \cite{doi:10.1109/18.887851} for upper bounds on dimension. See book \cite{preset:MacSlo} for (Johnson) bounds on size.
 
 realizations:
   - 'Radio-network frequency hopping \cite{doi:10.37236/1162}.'
 
 notes:
   - 'Tables of constant-weight codes for \(n \leq 28\) \cite{doi:10.1109/18.59932} and \(n > 28\) \cite{doi:10.37236/1162}.'
-  - 'See book \cite{preset:MacSlo} for (Johnson) bounds on the size of constant-weight codes.'
 
 
 relations:
   parents:
     - code_id: bits_into_bits
     - code_id: q-ary_constant_weight
-      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767,arxiv:1007.2905}. This is a special case of the nonbinary Johnson space for \(q=2\).'
+      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. This is a special case of the nonbinary Johnson space for \(q=2\).'
     - code_id: 2pt_homogeneous
-      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767,arxiv:1007.2905}.'
+      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}.'
   cousins:
     - code_id: finite_grassmann
       detail: 'Codewords of length \(n\) and weight \(w\) are in one-to-one correspondence with subsets of \(n\) objects with \(w\) elements. The \(q\)-Johnson spaces generalize this notion to subspaces and reduce to Johnson spaces at \(q=1\). In other words, \((q=2)\)-Johnson space is not the same as (binary) Johnson space since the former indexes subspaces, while the latter indexes subsets.'
