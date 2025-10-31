@@ -44,7 +44,7 @@ description: |
   The prime-field case reduces to \(\mathbb{Z}_p\), a group under addition that is promoted to a field by defining multiplication modulo \(p\); the case \(p=2\) yields the binary field \(\mathbb{Z}_2\).
   Every finite field comes with a 0 element (additive identity), a 1 element (multiplicative identity), and additive (multiplicative) inverses for all (nonzero) elements.  
   An element whose powers exhaust all nonzero field elements is called \textit{primitive}.
-  Fields come with a trace operation, the \textit{field trace}, which maps elements \(\gamma \in GF(q)\) to elements of \(GF(p)\) as
+  Fields come with a trace operation, the \textit{field trace}, which maps elements \(\gamma \in GF(q)\) to elements of \(\mathbb{F}_p\) as
   \begin{align}
     \text{tr}(\gamma)=\sum_{k=0}^{m-1}\gamma^{p^{k}}~.
   \end{align}
@@ -55,10 +55,10 @@ description: |
   \end{align}
   In the case of the complex numbers, analogues of the field trace and field norm are the real part and  norm squared of a complex number, respectively.
 
-  Any field \(GF(q=p^m)\) can be thought of as an \(m\)-dimensional vector space over \(GF(p)\) a.k.a. the \(m\)th \textit{extension} of \(GF(p)\) (similar to the complex numbers being an extension of the reals).
-  Conversely, \(GF(p)\) is an example of a \textit{subfield} of \(GF(q)\).
-  Certain field elements are chosen to be the \textit{basis} of \(GF(q)\) over \(GF(p)\), and all other elements are expressed as linear combinations of these basis elements.
-  More generally, elements of fields such as \(GF(p^{ml})\) can be written as \(m\)-dimensional vectors over \(GF(p^l)\) or \((m\times l)\)-dimensional matrices over \(GF(p)\). 
+  Any field \(GF(q=p^m)\) can be thought of as an \(m\)-dimensional vector space over \(\mathbb{F}_p\) a.k.a. the \(m\)th \textit{extension} of \(\mathbb{F}_p\) (similar to the complex numbers being an extension of the reals).
+  Conversely, \(\mathbb{F}_p\) is an example of a \textit{subfield} of \(GF(q)\).
+  Certain field elements are chosen to be the \textit{basis} of \(GF(q)\) over \(\mathbb{F}_p\), and all other elements are expressed as linear combinations of these basis elements.
+  More generally, elements of fields such as \(GF(p^{ml})\) can be written as \(m\)-dimensional vectors over \(GF(p^l)\) or \((m\times l)\)-dimensional matrices over \(\mathbb{F}_p\). 
   This idea is used to convert between ordinary block codes and matrix-based codes such as disk array codes and rank-metric codes.
   The field norm and field trace can likewise be defined for fields \(GF(q^m)\) that are extensions of \(GF(q)\) for non-prime \(q\).
   \end{defterm}
