@@ -19,7 +19,7 @@ description: |
       \begin{cells}
       \celldata<c H, c H>{alphabet \(\Sigma\) & codewords}
       \celldata<c, c>{
-      \(\mathbb{Z}_{2}=GF(2)\) & bitstrings
+      \(\mathbb{Z}_{2}=\mathbb{F}_2\) & bitstrings
           \\
       \(GF(q)\) & \(q\)-ary strings
           \\
@@ -63,14 +63,14 @@ description: |
   The field norm and field trace can likewise be defined for fields \(GF(q^m)\) that are extensions of \(GF(q)\) for non-prime \(q\).
   \end{defterm}
 
-  An example of a field is the quaternary Galois field \(GF(4) = \{0,1,\omega, \omega^2=\bar{\omega}\}\) with \(p=m=2\).
+  An example of a field is the quaternary Galois field \(\mathbb{F}_4 = \{0,1,\omega, \omega^2=\bar{\omega}\}\) with \(p=m=2\).
   In this case, \(\omega\) can be interpreted as a third root of unity, but more formally it is defined as a solution to the polynomial equation \(1+x+x^2=0\).
-  Field elements can be represented as two-dimensional vectors with binary elements, \(GF(4)=GF(2^2)\), using the basis \(1\cong(1,0)\) and \(\omega\cong(0,1)\):
+  Field elements can be represented as two-dimensional vectors with binary elements, \(\mathbb{F}_4=GF(2^2)\), using the basis \(1\cong(1,0)\) and \(\omega\cong(0,1)\):
   \begin{align}
     0&\leftrightarrow(0,0)\cong0\cdot1+0\cdot\omega\\1&\leftrightarrow(0,1)\cong0\cdot1+1\cdot\omega\\\omega&\leftrightarrow(1,1)\cong1\cdot1+1\cdot\omega\\\bar{\omega}&\leftrightarrow(1,0)\cong1\cdot1+0\cdot\omega~.
   \end{align}
   In this way, the field elements form the Klein four group \(\mathbb{Z}_2\times\mathbb{Z}_2\) under addition.
-  One can check that the trace operation, \(\text{tr}(\gamma) = \gamma + \gamma^2\), outputs either 0 or 1 for any element \(\gamma\in GF(4)\).
+  One can check that the trace operation, \(\text{tr}(\gamma) = \gamma + \gamma^2\), outputs either 0 or 1 for any element \(\gamma\in \mathbb{F}_4\).
 
 # The field trace in this case is similar to taking the real part of a complex number, \(\text{tr}(\gamma) = \gamma + \gamma^2\) for any element \(\gamma\).
 

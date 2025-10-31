@@ -77,14 +77,14 @@ description: |
   \end{align}
   The set of all binary symplectic vectors form a symplectic self-orthogonal binary linear code of length \(2n\).
 
-  Another correspondence between qubit Pauli matrices and elements of the \hyperref[topic:finite-fields]{quaternary Galois field} \(GF(4)\) yields the one-to-one correspondence between qubit stabilizer codes and trace-Hermitian self-orthogonal additive quaternary codes.
+  Another correspondence between qubit Pauli matrices and elements of the \hyperref[topic:finite-fields]{quaternary Galois field} \(\mathbb{F}_4\) yields the one-to-one correspondence between qubit stabilizer codes and trace-Hermitian self-orthogonal additive quaternary codes.
 
-  \begin{defterm}{\(GF(4)\) representation}
+  \begin{defterm}{\(\mathbb{F}_4\) representation}
   \label{topic:gf4-representation}
-  An \(n\)-qubit Pauli stabilizer can be represented as a length-\(n\) quaternary vector using the one-to-one correspondence between the four Pauli matrices \(\{I,X,Y,Z\}\) and the four elements \(\{0,1,\omega^2,\omega\}\) of the \hyperref[topic:finite-fields]{quaternary Galois field} \(GF(4)\).
+  An \(n\)-qubit Pauli stabilizer can be represented as a length-\(n\) quaternary vector using the one-to-one correspondence between the four Pauli matrices \(\{I,X,Y,Z\}\) and the four elements \(\{0,1,\omega^2,\omega\}\) of the \hyperref[topic:finite-fields]{quaternary Galois field} \(\mathbb{F}_4\).
   \end{defterm}
 
-  The sets of \(GF(4)\)-represented vectors for all generators yield a trace-Hermitian self-orthogonal additive quaternary code.
+  The sets of \(\mathbb{F}_4\)-represented vectors for all generators yield a trace-Hermitian self-orthogonal additive quaternary code.
   This classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
   In the case of stabilizer states, the correspondence is between such states and trace-Hermitian self-dual quaternary codes; such codes, and therefore such states, have been classified up to equivalence for \(n \leq 12\) \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}.
   There is a complete set of invariants characterizing stabilizer states up to equivalence \cite{arxiv:quant-ph/0410165,arxiv:quant-ph/0404106}.
@@ -101,10 +101,10 @@ description: |
   Qubit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_2^n\) \cite{arxiv:quant-ph/0304125,arxiv:quant-ph/0408190,arxiv:0811.0898}.
   There are efficient ways to compute their inner products and other functions \cite{arxiv:1711.07848}.
   The overlap between a stabilizer state and any \(n\)-qubit product state is at most \(2/2^d\) \cite[Thm. 2]{arxiv:2405.01332}.
-  Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(GF(2)\) using three bits \cite{arxiv:2305.17505}.
+  Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(\mathbb{F}_2\) using three bits \cite{arxiv:2305.17505}.
 
 
-# More technically, let \(\phi\) be a bijection from a linear binary subspace to \(GF(4)^n\). Let \(C\) be a trace-Hermitian self-orthogonal additive subcode over \(GF(4)\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(GF(4)\).
+# More technically, let \(\phi\) be a bijection from a linear binary subspace to \(\mathbb{F}_4^n\). Let \(C\) be a trace-Hermitian self-orthogonal additive subcode over \(\mathbb{F}_4\), containing \(2^{n-k}\) vectors, such that there are no vectors of weight less than \(d\) in \(C^{\perp}\setminus C\). Then, any eigenspace of the inverse map \(\phi^{-1}(C)\) is an \([[n, k, d]]\) stabilizer code over \(\mathbb{F}_4\).
 
 
 protection: |
@@ -283,7 +283,7 @@ relations:
     - code_id: dual
       detail: 'Qubit stabilizer codes are in one-to-one correspondence with symplectic self-orthogonal binary linear codes of length \(2n\) via the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.'
     - code_id: dual_additive
-      detail: 'Qubit stabilizer codes are in one-to-one correspondence with trace-Hermitian self-orthogonal additive quaternary codes of length \(n\) via the \hyperref[topic:gf4-representation]{\(GF(4)\) representation}.'
+      detail: 'Qubit stabilizer codes are in one-to-one correspondence with trace-Hermitian self-orthogonal additive quaternary codes of length \(n\) via the \hyperref[topic:gf4-representation]{\(\mathbb{F}_4\) representation}.'
     - code_id: single_shot
       detail: 'Any stabilizer code can be single shot if sufficiently non-local high-weight stabilizer generators are used for syndrome measurements.  These can be obtained with a Gaussian elimination procedure \cite{arxiv:1805.09271}.'
     - code_id: t-designs
