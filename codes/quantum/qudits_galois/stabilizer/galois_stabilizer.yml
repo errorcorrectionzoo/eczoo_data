@@ -20,7 +20,7 @@ description: |
 
   \begin{defterm}{Galois symplectic representation}
   \label{topic:galois-symplectic-representation}
-  The single Galois-qudit Pauli string \(X_{a} Z_{b}\) for \(a,b\in GF(q)\) is converted to the vector \((a|b)\in GF(q)^2\).
+  The single Galois-qudit Pauli string \(X_{a} Z_{b}\) for \(a,b\in \mathbb{F}_q\) is converted to the vector \((a|b)\in \mathbb{F}_q^2\).
   The multi Galois-qudit version follows naturally.
   \end{defterm}
 
@@ -28,7 +28,7 @@ description: |
   \begin{align}
   \text{tr}(a \cdot b^{\prime} - a^{\prime}\cdot b) = \sum_{j=1}^{n} \text{tr}(a_j b^{\prime}_j - a^{\prime}_i b_i) = 0~.
   \end{align}
-  \hyperref[topic:galois-symplectic-representation]{Galois symplectic representations} of stabilizer group elements form a trace-symplectic self-orthogonal linear code over \(GF(q)^{2n}\).
+  \hyperref[topic:galois-symplectic-representation]{Galois symplectic representations} of stabilizer group elements form a trace-symplectic self-orthogonal linear code over \(\mathbb{F}_q^{2n}\).
   The trace-symplectic inner product reduces to the \textit{symplectic inner product} when the \hyperref[topic:finite-fields]{field trace} is removed, and a symplectic self-orthogonal set of vectors is automatically trace-symplectic self-orthogonal.
 
   Another correspondence between Galois-qudit Pauli matrices and elements of the Galois field \(\mathbb{F}_{q^2}\) yields the one-to-one correspondence between Galois-qudit stabilizer codes and trace-alternating self-orthogonal additive codes over \(\mathbb{F}_{q^2}\) \cite{arxiv:quant-ph/0508070}.
@@ -36,7 +36,7 @@ description: |
   \begin{defterm}{\(\mathbb{F}_{q^2}\) representation}
   \label{topic:gfqsq-representation}
   An \(n\)-qubit Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(\mathbb{F}_{q^2}\) using the one-to-one correspondence between the \(q^2\) Galois-qudit Pauli matrices and elements of \(\mathbb{F}_{q^2}\).
-  Given a \hyperref[topic:finite-fields]{basis} \((\beta,\beta^q)\) for \(\mathbb{F}_{q^2}\) over \(GF(q)\), the vector \((a|b)\in GF(q)^2\) (representing a Galois-qudit Pauli string in the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation}) is in one-to-one correspondence with element \(a \beta + b \beta^q \in \mathbb{F}_{q^2}\) \cite{arxiv:quant-ph/0508070}\cite[Thm. 27.3.8]{preset:HKSquantum}.
+  Given a \hyperref[topic:finite-fields]{basis} \((\beta,\beta^q)\) for \(\mathbb{F}_{q^2}\) over \(\mathbb{F}_q\), the vector \((a|b)\in \mathbb{F}_q^2\) (representing a Galois-qudit Pauli string in the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation}) is in one-to-one correspondence with element \(a \beta + b \beta^q \in \mathbb{F}_{q^2}\) \cite{arxiv:quant-ph/0508070}\cite[Thm. 27.3.8]{preset:HKSquantum}.
   \end{defterm}
 
   The sets of \(\mathbb{F}_{q^2}\)-represented vectors for all generators yield a trace-alternating self-orthogonal additive code over \(\mathbb{F}_{q^2}\).
@@ -49,12 +49,12 @@ description: |
 
 # More generally, any additive classical code whose self-orthogonality under some inner product (such as Hermitian, Euclidean, or symplectic) implies trace-symplectic self-orthogonality of an equivalent code can be used to construct a Galois-qudit stabilizer code (see children).
 
-#  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(GF(q)\)-valued symplectic representation of a stabilizer generator. # Leonid comment: "Usually, if the group is additive, we have to list all generators explicitly.  But if it is linear over some field F (\hyperref[topic:finite-fields]{subfield} of F_q or F_q itself) we may list the generators as would be expected for that group -fewer of them, as the number of generators is the rank of the matrix over that field (or additive rank).  All may have different values.  I think the explicit specification is needed to reduce any confusion."
+#  Each code can be represented by a stabilizer generator matrix \(H=(A|B)\), where each row \((a|b)\) is the \(\mathbb{F}_q\)-valued symplectic representation of a stabilizer generator. # Leonid comment: "Usually, if the group is additive, we have to list all generators explicitly.  But if it is linear over some field F (\hyperref[topic:finite-fields]{subfield} of F_q or F_q itself) we may list the generators as would be expected for that group -fewer of them, as the number of generators is the rank of the matrix over that field (or additive rank).  All may have different values.  I think the explicit specification is needed to reduce any confusion."
 
 #         'An \(((n,q^k,d))_q\) stabilizer code is denoted as \([[n,k]]_q\) or \([[n,k,d]]_q\), where \(d\) is the code''s distance and \(q=p^m\).
-#The {\(GF(q)\)} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
-#\(S\) is \(GF(q)\) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
-#The code space of \(GF(q)\) stabilizer \(S\) is the subspace \(\mathcal{T}(S) = \{|\psi \rangle \, \mathrm{s.t.}\, M|\psi\rangle = |\psi \rangle,\, \forall M\in S \}.  \)
+#The {\(\mathbb{F}_q\)} stabilizer of \(Q\) is the set \(S(Q) = \{M \in P_n(q)|\, |\psi\rangle\) is a generalized eigenvector of  \(M\) with generalized eigenvalue 0 \(\forall |\psi\rangle \in Q\}  \).
+#\(S\) is \(\mathbb{F}_q\) stabilizer if it is Abelian and if \(e^{i\phi}I \notin S\) for any phase \(\phi \ne 0\).
+#The code space of \(\mathbb{F}_q\) stabilizer \(S\) is the subspace \(\mathcal{T}(S) = \{|\psi \rangle \, \mathrm{s.t.}\, M|\psi\rangle = |\psi \rangle,\, \forall M\in S \}.  \)
 #The normalizer \(N(S)\) of the stabilizer \(S\) is \(N(S) = \{ N \in P|NM=MN, \, \forall M\in S\}\).
 
 
@@ -92,9 +92,9 @@ relations:
     - code_id: qudit_stabilizer
       detail: 'Recalling that \(q=p^m\), Galois-qudit stabilizer codes can also be treated as prime-qudit stabilizer codes on \(mn\) qudits, giving \(k=nm-r\) \cite{doi:10.1109/18.959288}. The case \(m=1\) reduces to conventional prime-qudit stabilizer codes on \(n\) qudits. A modular-qudit stabilizer code with composite dimension \(q\) contains a subcode that is isomorphic to a \(p\)-dimensional prime-qudit stabilizer code for every prime factor \(p\) of \(q\), and the distance of the full stabilizer code is bounded by the distance of this subcode \cite{manual:{Markus Grassl, private communication, 2024}}.'
     - code_id: q-ary_additive
-      detail: 'Galois-qudit stabilizer codes are the closest quantum analogues of additive codes over \(GF(q)\) because addition in the field corresponds to multiplication of stabilizers in the quantum case.'
+      detail: 'Galois-qudit stabilizer codes are the closest quantum analogues of additive codes over \(\mathbb{F}_q\) because addition in the field corresponds to multiplication of stabilizers in the quantum case.'
     - code_id: dual_additive
-      detail: 'Galois-qudit stabilizer codes are in one-to-one correspondence with trace-symplectic self-orthogonal additive codes of length \(2n\) over \(GF(q)\) via the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} \cite{doi:10.1109/18.959288}.
+      detail: 'Galois-qudit stabilizer codes are in one-to-one correspondence with trace-symplectic self-orthogonal additive codes of length \(2n\) over \(\mathbb{F}_q\) via the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} \cite{doi:10.1109/18.959288}.
       They are also in one-to-one correspondence with trace-alternating self-orthogonal additive codes of length \(n\) over \(\mathbb{F}_{q^2}\) via the \hyperref[topic:gfqsq-representation]{\(\mathbb{F}_{q^2}\) representation}.'
     - code_id: t-designs
       detail: 'Stabilizer states on \(n\) Galois qubits form 2-designs on complex projective spaces \(\mathbb{C}P^{p^{mn}}\) \cite{arxiv:quant-ph/0405016}.'

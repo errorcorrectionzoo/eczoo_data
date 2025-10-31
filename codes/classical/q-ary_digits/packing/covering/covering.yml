@@ -10,13 +10,13 @@ logical: q-ary_digits
 name: 'Covering code'
 
 description: |
-  A \(q\)-ary code \(C\) is \(\rho\)-covering if \(\forall v \in GF(q)^{n}\), there is a codeword \(c \in C\) such that the Hamming distance \(D(c,v)\leq \rho\). More generally, a covering code in a metric space is covering if the union of balls of some radius centered at the codewords covers the entire space.
+  A \(q\)-ary code \(C\) is \(\rho\)-covering if \(\forall v \in \mathbb{F}_q^{n}\), there is a codeword \(c \in C\) such that the Hamming distance \(D(c,v)\leq \rho\). More generally, a covering code in a metric space is covering if the union of balls of some radius centered at the codewords covers the entire space.
 
   The \textit{covering radius} \(\rho(C)\) is the smallest non-negative integer \(\rho\) such that \(C\) is \(\rho\)-covering, i.e.
   \begin{align}
-    \rho(C)=\max_{{v\in GF(q)^{n}}}\min_{{c\in C}}d(v,c)~.
+    \rho(C)=\max_{{v\in \mathbb{F}_q^{n}}}\min_{{c\in C}}d(v,c)~.
   \end{align}
-  For a linear code \([n,k]_q\), the covering radius is the minimum number of columns of the code's parity check matrix which cover \(GF(q)^{n-k}\).
+  For a linear code \([n,k]_q\), the covering radius is the minimum number of columns of the code's parity check matrix which cover \(\mathbb{F}_q^{n-k}\).
 
   The covering radius satisfies various inequalities. A code \(C\) with distance \(d\) satisfies the relation
   \begin{align}

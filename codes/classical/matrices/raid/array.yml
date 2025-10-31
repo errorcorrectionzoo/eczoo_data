@@ -15,16 +15,16 @@ alternative_names:
 
 
 description: |
-  Matrix code over \(GF(q)\) designed for use in distributed storage, with the first such application being a RAID-type array of hard-drives such that information is protected against erasure of one or more hard drives.
+  Matrix code over \(\mathbb{F}_q\) designed for use in distributed storage, with the first such application being a RAID-type array of hard-drives such that information is protected against erasure of one or more hard drives.
   Each column of a matrix codeword is typically treated as a single codeword coordinate via subpacketization (defined below) and represents a large data block.
   Array codes are denoted by \((n,k,m)\), where \(n\) is the number of nodes, \(k\) is the number of nodes needed to recover the data, and \(m\) is the column dimension of each codeword a.k.a. the subpacketization level.
 
 protection: |
   Since they are designed to protect against corruption of nodes in a distributed storage network, many array codes are analyzed in terms of their erasure capabilities.
 
-  An analogue of the Hamming metric for array codes comes from the Hamming distance between two codewords whose columns of length \(m\) are converted into values in \(GF(q)^m\) by treating the latter as the \(m\)th \hyperref[topic:finite-fields]{extension} of \(GF(q)\). 
-  This converts a matrix codeword over \(GF(q)\) into a vector over \(GF(q)^m\) and is called \textit{subpacketization}.
-  Linear array codes are those codes that are linear w.r.t. \(GF(q)^m\), i.e., that are closed under addition and multiplication by elements of said field when in vector form.
+  An analogue of the Hamming metric for array codes comes from the Hamming distance between two codewords whose columns of length \(m\) are converted into values in \(\mathbb{F}_q^m\) by treating the latter as the \(m\)th \hyperref[topic:finite-fields]{extension} of \(\mathbb{F}_q\). 
+  This converts a matrix codeword over \(\mathbb{F}_q\) into a vector over \(\mathbb{F}_q^m\) and is called \textit{subpacketization}.
+  Linear array codes are those codes that are linear w.r.t. \(\mathbb{F}_q^m\), i.e., that are closed under addition and multiplication by elements of said field when in vector form.
 
   There are other notions of distance for array codes, including the rank metric and its generalization the sum-rank metric.
 

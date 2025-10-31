@@ -11,7 +11,7 @@ name: '\([[5,1,3]]_q\) Galois-qudit code'
 introduced: '\cite{preset:GottesmanBook}'
 
 description: |
-  True stabilizer code that generalizes the five-qubit perfect code to Galois qudits of prime-power dimension \(q=p^m\). It has \(4(m-1)\) stabilizer generators expressed as \(X_{\gamma} Z_{\gamma} Z_{-\gamma} X_{-\gamma} I\) and its cyclic permutations, with \(\gamma\) iterating over basis elements of \(GF(q)\) over \(\mathbb{F}_p\).
+  True stabilizer code that generalizes the five-qubit perfect code to Galois qudits of prime-power dimension \(q=p^m\). It has \(4(m-1)\) stabilizer generators expressed as \(X_{\gamma} Z_{\gamma} Z_{-\gamma} X_{-\gamma} I\) and its cyclic permutations, with \(\gamma\) iterating over basis elements of \(\mathbb{F}_q\) over \(\mathbb{F}_p\).
 
 notes:
   - 'This code is described in a QEC2014 talk by \href{https://www.qec14.ethz.ch/slides/DanielGottesman.pdf}{Gottesman}.'
@@ -20,7 +20,7 @@ relations:
   parents:
     - code_id: galois_true_stabilizer
     - code_id: graph_quantum
-      detail: 'The \([[5,1,3]]_q\) code is equivalent via a single-Galois-qudit Clifford circuit to a graph quantum code for the group \(G=GF(q)\) \cite{arxiv:quant-ph/0012111}.'
+      detail: 'The \([[5,1,3]]_q\) code is equivalent via a single-Galois-qudit Clifford circuit to a graph quantum code for the group \(G=\mathbb{F}_q\) \cite{arxiv:quant-ph/0012111}.'
     - code_id: quantum_cyclic
     - code_id: small_distance_quantum
 

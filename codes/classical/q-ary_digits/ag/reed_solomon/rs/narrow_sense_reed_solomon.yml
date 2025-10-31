@@ -11,7 +11,7 @@ name: 'Narrow-sense RS code'
 introduced: '\cite{manual:{Bush, K. A. “Orthogonal Arrays of Index Unity.” The Annals of Mathematical Statistics 23, no. 3 (1952): 426–34.},doi:10.1214/aoms/1177729387,doi:10.1137/0108018}'
 
 description: |
-  An \([q-1,k,n-k+1]_q\) RS code whose points \(\alpha_i\) are all \((i-1)\)st powers of a \hyperref[topic:finite-fields]{primitive} element \(\alpha\) of \(GF(q)\).
+  An \([q-1,k,n-k+1]_q\) RS code whose points \(\alpha_i\) are all \((i-1)\)st powers of a \hyperref[topic:finite-fields]{primitive} element \(\alpha\) of \(\mathbb{F}_q\).
   
   A narrow-sense RS code encodes a message \(\mu=\{\mu_0,\cdots,\mu_{k-1}\}\) into \(\{f_\mu(1),\{f_\mu(\alpha),\cdots,f_\mu(\alpha^{n-1})\}\) using a message-dependent polynomial
   \begin{align}
@@ -28,7 +28,7 @@ description: |
 relations:
   parents:
     - code_id: reed_solomon
-      detail: 'A narrow-sense RS is an RS code with length \(n=q-1\) whose points \(\alpha_i\) are all \((i-1)\)st powers of a primitive element of \(GF(q)\).'
+      detail: 'A narrow-sense RS is an RS code with length \(n=q-1\) whose points \(\alpha_i\) are all \((i-1)\)st powers of a primitive element of \(\mathbb{F}_q\).'
     - code_id: q-ary_bch
       detail: 'Narrow-sense RS codes are \(q\)-ary BCH codes \cite[Remark 15.3.21]{preset:HKSag}\cite[Thms. 5.2.1 and 5.2.3]{doi:10.1017/CBO9780511807077}. Their minimal distance is equal to their designed distance \cite[pg. 81]{doi:10.1007/978-1-4757-6568-7}.'
   cousins:

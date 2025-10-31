@@ -15,7 +15,7 @@ alternative_names:
   - 'Galois-qudit polynomial code (QPyC)'
 
 description: |
-  An \([[n,k,n-k+1]]_q\) (with \(q>n\)) Galois-qudit CSS code constructed using two RS codes over \(GF(q)\).
+  An \([[n,k,n-k+1]]_q\) (with \(q>n\)) Galois-qudit CSS code constructed using two RS codes over \(\mathbb{F}_q\).
 
   Let \(C_1\) be a \([n,k_1,d_1]_q\) RS code and \(C_2^\perp\) be a \([n,k_2,d_2]_q\) RS code, modified such that \(C_2^\perp \subseteq C_1\) and \(0\le k_2 \le k_1 \le n\).
   Then, a polynomial code is a \hyperref[topic:degeneracy]{non-degenerate} \([[n,k_2,d]]_q\) Galois-qudit CSS code with \(d=\min(n-k_1+1,k_1-k_2+1)\).
@@ -23,11 +23,11 @@ description: |
   \begin{align}
   |\overline{\beta_0,\cdots,\beta_{k_2-1}}\rangle
   =
-  \sum_{(\beta_{k_2},\cdots,\beta_{k_1-1})\in GF(q) }
+  \sum_{(\beta_{k_2},\cdots,\beta_{k_1-1})\in \mathbb{F}_q }
   \bigotimes_{i=1}^{n}
   \left| \sum_{j=0}^{k_1-1} \beta_j \alpha_i^j \right\rangle,
   \end{align}
-  where \((\alpha_1, \cdots, \alpha_n)\) are \(n\) distinct points chosen for code \(C_1\) from \(GF(q)\setminus \{0\}\).'
+  where \((\alpha_1, \cdots, \alpha_n)\) are \(n\) distinct points chosen for code \(C_1\) from \(\mathbb{F}_q\setminus \{0\}\).'
 
 protection: |
   Galois-qudit RS codes can be adapted for insertion and deletion noise \cite{arxiv:2306.13399}.

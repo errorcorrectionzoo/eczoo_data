@@ -12,11 +12,11 @@ short_name: 'GRM'
 introduced: '\cite{doi:10.1109/TIT.1968.1054127,doi:10.1109/TIT.1968.1054128,doi:10.1016/S0019-9958(70)90214-7}'
 
 description: |
-  Reed-Muller code GRM\(_q(r,m)\) of length \(n=q^m\) over \(GF(q)\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at the points of \(GF(q)\).
+  Reed-Muller code GRM\(_q(r,m)\) of length \(n=q^m\) over \(\mathbb{F}_q\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at the points of \(\mathbb{F}_q\).
 
-  Since \(\beta^q=\beta\) for any \(\beta\in GF(q)\), the above definition is not injective. Replacing each factor in each polynomial as \(x^q\to x\), the above set reduces to the set of all degree-\(\leq r\) polynomials in \(m\) variables such that no term has an exponent \(q\) or higher on any variable.
+  Since \(\beta^q=\beta\) for any \(\beta\in \mathbb{F}_q\), the above definition is not injective. Replacing each factor in each polynomial as \(x^q\to x\), the above set reduces to the set of all degree-\(\leq r\) polynomials in \(m\) variables such that no term has an exponent \(q\) or higher on any variable.
 
-  Its automorphism group is the general affine group \(GA(m,GF(q))\) \cite{doi:10.1016/0012-365X(93)90321-J}.
+  Its automorphism group is the general affine group \(GA(m,\mathbb{F}_q)\) \cite{doi:10.1016/0012-365X(93)90321-J}.
   Any nontrivial \(q\)-ary linear code invariant under this group is equivalent to a GRM code \cite{doi:10.1109/TIT.1970.1054554}.
 
 protection: 'Code parameters for specific \(m,r\) are given in Ref. \cite{preset:TVNAlgCodes}\cite[pg. 46]{doi:10.1007/978-94-011-3810-9}.'
@@ -31,7 +31,7 @@ notes:
 relations:
   parents:
     - code_id: evaluation_polynomial
-      detail: 'GRM (PRM) codes are multivariate polynomial evaluation codes with \(\cal X\) being the entire \(m\)-dimensional affine (projective) space over \(GF(q)\) \cite[pgs. 44-46]{doi:10.1007/978-94-011-3810-9}\cite{doi:10.1007/BF02249124,preset:HPAlgCodes}.'
+      detail: 'GRM (PRM) codes are multivariate polynomial evaluation codes with \(\cal X\) being the entire \(m\)-dimensional affine (projective) space over \(\mathbb{F}_q\) \cite[pgs. 44-46]{doi:10.1007/978-94-011-3810-9}\cite{doi:10.1007/BF02249124,preset:HPAlgCodes}.'
     - code_id: multiplicity
       detail: 'Multivariate multiplicity codes of degree \(s=1\) reduce to GRM codes.'
     - code_id: matrix_product

@@ -21,7 +21,7 @@ description: |
       \celldata<c, c>{
       \(\mathbb{Z}_{2}=\mathbb{F}_2\) & bitstrings
           \\
-      \(GF(q)\) & \(q\)-ary strings
+      \(\mathbb{F}_q\) & \(q\)-ary strings
           \\
       \(\mathbb{Z}_{q}\) & \(q\)-ary strings over \(\mathbb{Z}_{q}\)
           \\
@@ -32,7 +32,7 @@ description: |
       \(G/H\) & cosets
       }
       \end{cells}
-      \caption{Table listing the most common alphabets used in ECCs. Here, \(GF(q)\) is a \hyperref[topic:finite-fields]{finite field}, \(G\) is a group, and \(H\) is a subgroup of \(G\).}
+      \caption{Table listing the most common alphabets used in ECCs. Here, \(\mathbb{F}_q\) is a \hyperref[topic:finite-fields]{finite field}, \(G\) is a group, and \(H\) is a subgroup of \(G\).}
       \label{table:alphabets}
     \end{table}
 
@@ -44,7 +44,7 @@ description: |
   The prime-field case reduces to \(\mathbb{Z}_p\), a group under addition that is promoted to a field by defining multiplication modulo \(p\); the case \(p=2\) yields the binary field \(\mathbb{Z}_2\).
   Every finite field comes with a 0 element (additive identity), a 1 element (multiplicative identity), and additive (multiplicative) inverses for all (nonzero) elements.  
   An element whose powers exhaust all nonzero field elements is called \textit{primitive}.
-  Fields come with a trace operation, the \textit{field trace}, which maps elements \(\gamma \in GF(q)\) to elements of \(\mathbb{F}_p\) as
+  Fields come with a trace operation, the \textit{field trace}, which maps elements \(\gamma \in \mathbb{F}_q\) to elements of \(\mathbb{F}_p\) as
   \begin{align}
     \text{tr}(\gamma)=\sum_{k=0}^{m-1}\gamma^{p^{k}}~.
   \end{align}
@@ -56,11 +56,11 @@ description: |
   In the case of the complex numbers, analogues of the field trace and field norm are the real part and  norm squared of a complex number, respectively.
 
   Any field \(GF(q=p^m)\) can be thought of as an \(m\)-dimensional vector space over \(\mathbb{F}_p\) a.k.a. the \(m\)th \textit{extension} of \(\mathbb{F}_p\) (similar to the complex numbers being an extension of the reals).
-  Conversely, \(\mathbb{F}_p\) is an example of a \textit{subfield} of \(GF(q)\).
-  Certain field elements are chosen to be the \textit{basis} of \(GF(q)\) over \(\mathbb{F}_p\), and all other elements are expressed as linear combinations of these basis elements.
+  Conversely, \(\mathbb{F}_p\) is an example of a \textit{subfield} of \(\mathbb{F}_q\).
+  Certain field elements are chosen to be the \textit{basis} of \(\mathbb{F}_q\) over \(\mathbb{F}_p\), and all other elements are expressed as linear combinations of these basis elements.
   More generally, elements of fields such as \(GF(p^{ml})\) can be written as \(m\)-dimensional vectors over \(GF(p^l)\) or \((m\times l)\)-dimensional matrices over \(\mathbb{F}_p\). 
   This idea is used to convert between ordinary block codes and matrix-based codes such as disk array codes and rank-metric codes.
-  The field norm and field trace can likewise be defined for fields \(\mathbb{F}_{q^m}\) that are extensions of \(GF(q)\) for non-prime \(q\).
+  The field norm and field trace can likewise be defined for fields \(\mathbb{F}_{q^m}\) that are extensions of \(\mathbb{F}_q\) for non-prime \(q\).
   \end{defterm}
 
   An example of a field is the quaternary Galois field \(\mathbb{F}_4 = \{0,1,\omega, \omega^2=\bar{\omega}\}\) with \(p=m=2\).
@@ -74,7 +74,7 @@ description: |
 
 # The field trace in this case is similar to taking the real part of a complex number, \(\text{tr}(\gamma) = \gamma + \gamma^2\) for any element \(\gamma\).
 
-# The group of isometries of \(q\)-ary Hamming space is a combination of the monomial group, the Galois group of \(GF(q)\), and the group formed by the action of the space on itself (under addition) \cite{preset:HKSclass}.
+# The group of isometries of \(q\)-ary Hamming space is a combination of the monomial group, the Galois group of \(\mathbb{F}_q\), and the group formed by the action of the space on itself (under addition) \cite{preset:HKSclass}.
 
 # A common family of codes are the \textit{block codes}, intended to encode a piece, or block, of a data stream.
 # A block code encodes strings of length \(k\), where each character in the string an element of some fixed alphabet \(\Sigma\), into strings of length \(n\). In other words, a block code encoding is a map from \(\Sigma^k\) to \(\Sigma^n\), where \(N = |\Sigma|^n\), \(K=|\Sigma|^k\), and \(|\Sigma|\) is the number of elements in the alphabet.

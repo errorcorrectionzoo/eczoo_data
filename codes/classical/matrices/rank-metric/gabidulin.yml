@@ -16,7 +16,7 @@ alternative_names:
 #HKS Ch 29
 
 description: |
-  A linear code over \(\mathbb{F}_{q^N}\) that corrects errors over rank metric instead of the traditional Hamming distance. Every element \(\mathbb{F}_{q^N}\) can be written as an \(N\)-dimensional vector with coefficients in \(GF(q)\), and the rank of a set of elements is rank of the matrix formed by their coefficients.
+  A linear code over \(\mathbb{F}_{q^N}\) that corrects errors over rank metric instead of the traditional Hamming distance. Every element \(\mathbb{F}_{q^N}\) can be written as an \(N\)-dimensional vector with coefficients in \(\mathbb{F}_q\), and the rank of a set of elements is rank of the matrix formed by their coefficients.
 
   Given \(X^n=\text{span}\{x_i\}\), an \(n\)-dimensional vector space over \(\mathbb{F}_{q^N}\) (where \(q\) is a power of a prime number), the \textit{rank metric} \(d(x, y)\) is defined via the rank norm \(r(x, q) = \mathrm{rank}(A(x))\), where
   \begin{align}
@@ -40,15 +40,15 @@ realizations:
 relations:
   parents:
     - code_id: rank_metric
-      detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\), when expressed as matrices over \(GF(q)\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(\mathbb{F}_{q^N}\)-linear \cite[Rm. 16]{arxiv:1410.1333}.'
+      detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\), when expressed as matrices over \(\mathbb{F}_q\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(\mathbb{F}_{q^N}\)-linear \cite[Rm. 16]{arxiv:1410.1333}.'
   cousins:
     - code_id: maximum_rank_distance
-      detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\) with maximum rank-distance, when expressed as matrices over \(GF(q)\), are MRD codes.'
+      detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\) with maximum rank-distance, when expressed as matrices over \(\mathbb{F}_q\), are MRD codes.'
     - code_id: q-ary_linear
       detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\), when expressed as vectors over \(\mathbb{F}_{q^N}\), are linear \(q\)-ary codes.'
 
 
-#Each Gabidulin codeword will be an evaluation of a bounded-degree linearized polynomial with coefficients in \(\mathbb{F}_{q^m}\) over a set of \(n\) elements in \(\mathbb{F}_{q^m}\) that are independent over \(GF(q)\). These \(n\) elements can each be converted into rows of a rank metric code over \(GF(q)\) by taking a basis of \(\mathbb{F}_{q^m}\) in \(GF(q)\) and using the coefficients of the linear expansion as a row vector.
+#Each Gabidulin codeword will be an evaluation of a bounded-degree linearized polynomial with coefficients in \(\mathbb{F}_{q^m}\) over a set of \(n\) elements in \(\mathbb{F}_{q^m}\) that are independent over \(\mathbb{F}_q\). These \(n\) elements can each be converted into rows of a rank metric code over \(\mathbb{F}_q\) by taking a basis of \(\mathbb{F}_{q^m}\) in \(\mathbb{F}_q\) and using the coefficients of the linear expansion as a row vector.
 
 
 # Begin Entry Meta Information

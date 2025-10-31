@@ -15,7 +15,7 @@ alternative_names:
   - 'Linear stabilizer code'
 
 description: |
-  A \([[n,k,d]]_q\) stabilizer code whose stabilizer's \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} forms a linear subspace. In other words, the set of \(q\)-ary vectors representing the stabilizer group is closed under both addition and multiplication by elements of \(GF(q)\). In contrast, Galois-qudit stabilizer codes admit sets of vectors that are closed under addition only.
+  A \([[n,k,d]]_q\) stabilizer code whose stabilizer's \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} forms a linear subspace. In other words, the set of \(q\)-ary vectors representing the stabilizer group is closed under both addition and multiplication by elements of \(\mathbb{F}_q\). In contrast, Galois-qudit stabilizer codes admit sets of vectors that are closed under addition only.
 
   The number of generators \(r\) for a true stabilizer code is a multiple of \(m\) (recall that \(q=p^m\) for Galois qudits). As a result, the number \(k=n-r/m\) of logical qudits is an integer.
 
@@ -23,7 +23,7 @@ description: |
 
 
 # Many quantum codes have been constructed this way (e.g., see Refs. \cite{doi:10.1142/S0219749919500060,doi:10.26421/QIC13.1-2-3,doi:10.1007/s11128-020-02921-0,arxiv:1507.08355,arxiv:1604.05823,arxiv:2007.13309}).
-#  Since classical length-\(n\) Hermitian self-orthogonal linear codes over \(\mathbb{F}_{q^2}\) can be converted into length-\(2n\) symplectic self-orthogonal linear codes over \(GF(q)\) (\cite{doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}, Thm. 1), and since symplectic self-orthogonal codes are also trace-symplectic self-orthogonal,
+#  Since classical length-\(n\) Hermitian self-orthogonal linear codes over \(\mathbb{F}_{q^2}\) can be converted into length-\(2n\) symplectic self-orthogonal linear codes over \(\mathbb{F}_q\) (\cite{doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}, Thm. 1), and since symplectic self-orthogonal codes are also trace-symplectic self-orthogonal,
 
 protection: 'Detects errors on up to \(d-1\) qudits, and corrects erasure errors on up to \(d-1\) qudits.'
 
@@ -36,7 +36,7 @@ relations:
     - code_id: galois_stabilizer
   cousins:
     - code_id: q-ary_linear
-      detail: 'A true Galois-qudit stabilizer code is the closest quantum analogue of a linear code over \(GF(q)\) because the \(q\)-ary vectors corresponding to the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} of the stabilizers form a linear subspace.'
+      detail: 'A true Galois-qudit stabilizer code is the closest quantum analogue of a linear code over \(\mathbb{F}_q\) because the \(q\)-ary vectors corresponding to the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} of the stabilizers form a linear subspace.'
 
 
 # Begin Entry Meta Information

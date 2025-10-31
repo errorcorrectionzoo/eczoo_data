@@ -10,13 +10,13 @@ logical: galois
 name: 'Galois-qudit code'
 
 alternative_names:
-  - '\(GF(q)\)-qudit code'
+  - '\(\mathbb{F}_q\)-qudit code'
   - '\(\mathbb{F}_q\)-qudit code'
   - 'Galois-qudit subspace code'
 
 
 description: |
-  Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the \textit{Galois field} \(GF(q)\) and with \(q\) being a power of a prime \(p\).
+  Encodes \(K\)-dimensional Hilbert space into a \(q^n\)-dimensional (\(n\)-qudit) Hilbert space, with canonical qudit states \(|k\rangle\) labeled by elements \(k\) of the \textit{Galois field} \(\mathbb{F}_q\) and with \(q\) being a power of a prime \(p\).
 
   A Galois field can be thought of as a vector space whose basis vectors are the \(m\) roots of some polynomial and whose coefficients (i.e., field) are \(p\)th roots of unity.
 
@@ -32,7 +32,7 @@ protection: |
 
   \begin{defterm}{Galois-qudit Pauli strings}
   \label{topic:galois-pauli}
-  For a single Galois qudit, this set consists of products of \(X\)-type and \(Z\)-type operators labeled by elements \(\beta \in GF(q)\), which act on computational basis states \(|\gamma\rangle\) for \(\gamma\in GF(q)\) as
+  For a single Galois qudit, this set consists of products of \(X\)-type and \(Z\)-type operators labeled by elements \(\beta \in \mathbb{F}_q\), which act on computational basis states \(|\gamma\rangle\) for \(\gamma\in \mathbb{F}_q\) as
   \begin{align}
     X_{\beta}\left|\gamma\right\rangle =\left|\gamma+\beta\right\rangle \,\,\text{ and }\,\,Z_{\beta}\left|\gamma\right\rangle =e^{i\frac{2\pi}{p}\text{tr}(\beta\gamma)}\left|\gamma\right\rangle~,
   \end{align}
@@ -61,11 +61,11 @@ notes:
 relations:
   parents:
     - code_id: block_quantum
-      detail: 'Galois-qudit codes are block quantum codes with \(\Sigma=GF(q)\).'
+      detail: 'Galois-qudit codes are block quantum codes with \(\Sigma=\mathbb{F}_q\).'
     - code_id: qecc_finite
     - code_id: group_quantum
       detail: 'A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits \cite{doi:10.1109/18.959288}; see Sec. 5.3 of Ref. \cite{arxiv:quant-ph/0501074}.
-      Interpreted this way, Galois-qudit codes are group quantum codes whose physical spaces are constructed using Galois fields \(GF(q)\) as groups. More general versions of such qudits can be valued in a Galois ring \cite{arxiv:2501.18968}, over which there also exists a Fourier transform \cite{arxiv:0904.2560}.'
+      Interpreted this way, Galois-qudit codes are group quantum codes whose physical spaces are constructed using Galois fields \(\mathbb{F}_q\) as groups. More general versions of such qudits can be valued in a Galois ring \cite{arxiv:2501.18968}, over which there also exists a Fourier transform \cite{arxiv:0904.2560}.'
   cousins:
     - code_id: qudits_into_qudits
       detail: |
