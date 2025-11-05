@@ -16,7 +16,7 @@ description: |
   Logical measurements are reduced to parity measurements of some subset of Majorana fermions in the code.
 
 protection: |
-  Code parameters are \([[2^m,2^m - \sum_{j=0}^{r} {m \choose j},2^r]]_{f}\), which are optimal per Majorana LP bounds for \(r=2\) and \(m=3,4\) \cite[Sec. 3.4]{arxiv:2502.14165}.
+  Code parameters are \([[2^{m-1},2^{m-1} - \sum_{j=0}^{r} {m \choose j},2^{r+1}]]_{f}\), which are optimal per Majorana LP bounds for \(r = 0\) and \(m \geq 1\), and \(r=1\) and \(m=4,5\) \cite[Sec. 3.4]{arxiv:2502.14165}.
 
 
 relations:
@@ -25,6 +25,8 @@ relations:
   cousins:
     - code_id: reed_muller
       detail: 'RM Majorana codes are constructed from self-orthogonal RM codes.'
+    - code_id: quantum_reed_muller
+      detail: 'RM Majorana (quantum RM) codes are designed for fermion (qubit) noise.'
 
 
 # Begin Entry Meta Information
@@ -34,4 +36,4 @@ _meta:
     - user_id: VictorVAlbert
       date: '2025-10-27'
     - user_id: RuiOkada
-      date: '2025-10-27'
+      date: '2025-11-01'
