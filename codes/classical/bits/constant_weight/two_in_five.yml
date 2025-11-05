@@ -1,0 +1,41 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: two_in_five
+physical: bits
+logical: bits
+
+name: 'Two-in-five code'
+introduced: '\cite{manual:{R. W. Hamming, Letter, April 5, 1978.}}'
+
+alternative_names:
+  - 'Two-out-of-five code'
+
+description: |
+  A nonlinear binary code consisting of the 10 weight-two five-bit strings, thereby providing an encoding for the decimal digits 0 through 9. 
+
+protection: |
+  Detects some single bit-flips as well as unidirectional errors using the fact that each codeword has weight two. The code fails for any sequence of flips that maintains the constant weight.
+
+realizations:
+  - 'Used in the United States Postal Service''s POSTNET barcode system as well as the Postal Alpha-numeric Encoding Technique (PLANET).'
+  - 'Forms the numerical part of the \textit{Code 39} barcode encoding.'
+  - 'Early IBM computers \cite{doi:10.1145/1457838.1457879,doi:10.5948/UPO9781614440215}.'
+
+
+# Example of group orbit but not linear
+relations:
+  parents:
+    - code_id: binary_group_orbit
+      detail: 'The two-in-five code is a binary group-orbit code with group \(S_5\).'
+    - code_id: weight_two
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-08-12'

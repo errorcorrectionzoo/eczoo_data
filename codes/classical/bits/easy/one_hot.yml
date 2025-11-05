@@ -17,7 +17,7 @@ alternative_names:
   - '\(1\)-in-\(n\) code'
 
 description: |
-  A length-\(n\) binary code whose codewords are those with Hamming weight one. The reverse of this code, where all codewords have Hamming weight \(n-1\) is called a \textit{one-cold} code.
+  A nonlinear binary code whose codewords are all those with Hamming weight one. The reverse of this code, where all codewords have Hamming weight \(n-1\) is called a \textit{one-cold} code.
 
 realizations:
   - 'The bi-quinary code, a combination of one-hot 1-in-2 and 1-in-5 one-hot codes to encode decimal digits, was used in several early computers (\cite{doi:10.1201/9781315115870}, Ch. 27).'
@@ -27,8 +27,10 @@ realizations:
 
 relations:
   parents:
-    - code_id: binary_cyclic
+    - code_id: binary_group_orbit
+      detail: 'The one-hot code is a binary group-orbit code with the cyclic permutation group \(\mathbb{Z}_n\).'
     - code_id: constant_weight
+    - code_id: binary_cyclic
     - code_id: ecoc
       detail: 'One-hot codes are the primary codes used in multiclass classification \cite{doi:10.1142/7238,arxiv:0711.2914,doi:10.5120/ijca2017915495,doi:10.1162/08997660151134334}.'
   cousins:
