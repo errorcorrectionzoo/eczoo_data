@@ -7,18 +7,22 @@ code_id: extended_hamming
 physical: bits
 logical: bits
 
-name: '\([2^r,2^r-r-1,4]\) Extended Hamming code'
+name: '\([2^m,2^m-m-1,4]\) Extended Hamming code'
 introduced: '\cite{doi:10.1002/j.1538-7305.1948.tb01338.x,doi:10.1002/j.1538-7305.1950.tb00463.x,manual:{M. J. E. Golay, \emph{Notes on digital coding}, Proc. IEEE, 37 (1949) 657.}}'
 
+alternative_names:
+  - 'RM\((m-2,m)\) code'
+
 description: |
-  Member of an infinite family of binary linear codes with parameters \([2^r,2^r-r-1, 4]\) for \(r \geq 2\) that are extensions of the Hamming codes by a parity-check bit.
+  Member of an infinite family of RM\((m-2,m)\) codes with parameters \([2^m,2^m-m-1, 4]\) for \(m \geq 2\) that are extensions of the Hamming codes by a parity-check bit.
 
 relations:
   parents:
-    - code_id: karlin
-      detail: 'The extended Hamming code is equivalent to the Karlin double circulant code for \(m=3\) \cite[Ch. 16]{preset:MacSlo}.'
+    - code_id: reed_muller
     - code_id: binary_quad_residue
       detail: 'The extended Hamming code is an extended binary quadratic-residue code \cite[Ch. 16]{preset:MacSlo}.'
+    - code_id: karlin
+      detail: 'The extended Hamming code is equivalent to the Karlin double circulant code for \(m=3\) \cite[Ch. 16]{preset:MacSlo}.'
     - code_id: small_distance
   cousins:
     - code_id: univ_opt_q-ary
