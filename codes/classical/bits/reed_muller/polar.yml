@@ -8,7 +8,7 @@ physical: bits
 logical: bits
 
 name: 'Polar code'
-introduced: '\cite{manual:{Stolte, Norbert. Rekursive Codes mit der Plotkin-Konstruktion und ihre Decodierung. Diss. Darmstadt University of Technology, Germany, 2002.},doi:10.1109/TIT.2009.2021379}'
+introduced: '\cite{manual:{Stolte, Norbert. Rekursive Codes mit der Plotkin-Konstruktion und ihre Decodierung. Diss. Darmstadt University of Technology, Germany, 2002.},arxiv:0807.3917}'
 
 description: |
   In its basic version, a binary linear polar code encodes \(K\) message bits into \(N=2^n\) bits. The linear transformation that defines the code is given by the matrix \(G^{(n)}=B_N G^{\otimes n}\), where \(B_N\) is a certain \(N\times N\) permutation matrix, and \(G^{\otimes n}\) is the \(n\)th Kronecker power of the \(2\times 2\) \textit{kernel matrix} \(G=\left[\begin{smallmatrix}1 & 0\\ 1 & 1 \end{smallmatrix}\right]\). To encode \(K\) message bits, one forms an \(N\)-vector \(u\) in which \(K\) coordinates represent the message bits. The remaining \(N-K\) coordinates are set to some fixed values and are said to be \textit{frozen}. The codeword \(x \in \{0,1\}^N\) is obtained as \(x=u G^{\otimes n}\).
@@ -23,10 +23,10 @@ description: |
 protection: 'Protects against various types of noise in the communication channel, for instance, errors, erasures, or other types of noise. Distance plays no role in the analysis of its properties, and is much lower than the largest possible value given \(K,N\). Polar codes often need to be tailored for a given channel, but universal constructions also exist \cite{doi:10.1109/ISIT.2014.6875073}.'
 
 features:
-  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel under the successive cancellation decoder \cite{doi:10.1109/TIT.2009.2021379,doi:10.1109/ISIT.2009.5205860}; see also Refs. \cite{doi:10.1109/TIT.2016.2616117,doi:10.1109/ISIT.2010.5513579}.'
+  rate: 'Supports reliable transmission at rates \(K/N\) approaching the Shannon capacity of the channel under the successive cancellation decoder \cite{arxiv:0807.3917,doi:10.1109/ISIT.2009.5205860}; see also Refs. \cite{doi:10.1109/TIT.2016.2616117,doi:10.1109/ISIT.2010.5513579}.'
 
   decoders:
-    - 'Successive cancellation (SC) decoder \cite{doi:10.1109/TIT.2009.2021379}.'
+    - 'Successive cancellation (SC) decoder \cite{arxiv:0807.3917}.'
     - 'Successive cancellation list (SCL) decoder \cite{doi:10.1109/TIT.2015.2410251} and a modification utilizing sequence repetition (SR-List) \cite{arxiv:2205.08857}.'
     - 'Soft cancellation (SCAN) decoder \cite{doi:10.1109/JSAC.2014.140515,doi:10.1109/ICC.2013.6655247}.'
     - 'Belief propagation (BP) decoder \cite{doi:10.1109/LCOMM.2008.080017}.'
@@ -48,7 +48,9 @@ relations:
       detail: 'Polar codes can be represented as generalized concatenations of their kernels.'
   cousins:
     - code_id: reed_muller
-      detail: 'The generator matrices of RM and polar codes are different submatrices of Kronecker products of Hadamard matrices; see Ref. \cite{doi:10.1109/ITWKSPS.2010.5503223}. There are families interpolating between the two codes \cite{doi:10.1109/TCOMM.2014.2345069}.'
+      detail: 'The generator matrices of RM and polar codes are different submatrices of Kronecker products of Hadamard matrices \cite{arxiv:0807.3917,doi:10.1109/ITWKSPS.2010.5503223}. There are families interpolating between the two codes \cite{arXiv:1401.3127}.'
+    - code_id: hadamard
+      detail: 'The generator matrices of RM and polar codes are different submatrices of Kronecker products of Hadamard matrices \cite{arxiv:0807.3917,doi:10.1109/ITWKSPS.2010.5503223}. There are families interpolating between the two codes \cite{arXiv:1401.3127}.'
     - code_id: polar_for_quantum
       detail: 'Quantum-classical polar codes generalize polar codes for transmission through channels with quantum output.'
 
