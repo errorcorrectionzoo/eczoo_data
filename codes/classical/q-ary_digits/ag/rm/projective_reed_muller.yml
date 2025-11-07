@@ -12,16 +12,19 @@ short_name: 'PRM'
 introduced: '\cite{doi:10.1016/0012-365X(90)90155-B,doi:10.1109/18.104317}'
 
 description: |
-  Reed-Muller code for nonzero points \(\{\alpha_1,\cdots,\alpha_n\}\) with \(n=m+1\) whose leftmost nonzero coordinate is one, corresponding to an evaluation code of polynomials over projective coordinates.
+  GRM code for nonzero points \(\{\alpha_1,\cdots,\alpha_n\}\) with \(n=m+1\) whose leftmost nonzero coordinate is one, corresponding to an evaluation code of polynomials over projective coordinates.
 
-  PRM codes  PRM\(_q(r,m)\) for \(r<q\) are injective evaluation codes with parameters \cite{doi:10.1515/9783110811056.77}
+  PRM codes include the codes PRM\(_q(r,m)\) for \(r<q\), which are are injective evaluation codes with parameters \cite{doi:10.1515/9783110811056.77}
   \begin{align}
     \left[ q^m+q^{m-1}\cdots +1, {m+r \choose r},(q+1-r)q^{m-1} \right]~.
   \end{align}
 
+  The dual of a PRM code is not always a PRM code \cite{doi:10.1109/18.104317,arxiv:2406.04757}.
+
 relations:
   parents:
     - code_id: generalized_reed_muller
+      detail: 'Nonzero codewords of minimum weight of a \(r\)th-order \(q\)-ary projective RM code correspond to algebraic hypersurfaces of degree \(r\) having the largest number of points in the projective space \(PG(n,q)\) \cite[Thm. 14.3.3]{preset:HKSprojective}.'
   cousins:
     - code_id: projective
       detail: 'Nonzero codewords of minimum weight of a \(r\)th-order \(q\)-ary projective RM code correspond to algebraic hypersurfaces of degree \(r\) having the largest number of points in the projective space \(PG(n,q)\) \cite[Thm. 14.3.3]{preset:HKSprojective}.'

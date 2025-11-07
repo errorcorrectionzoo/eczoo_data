@@ -18,10 +18,12 @@ description: |
 
 protection: 'Can detect 1-bit and 2-bit errors, and can correct 1-dit errors.'
 
+
+# Perfect more important parent than linear; these are not PRM necessarily so no other choice here
 relations:
   parents:
-    - code_id: q-ary_linear
     - code_id: perfect
+    - code_id: q-ary_linear
     - code_id: univ_opt_q-ary
       detail: 'Hamming codes and their punctured and shortened versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
     - code_id: small_distance
@@ -32,8 +34,6 @@ relations:
       detail: 'Hamming codes are equivalent to cyclic codes when \(q\) and \(r\) are relatively prime (\cite{preset:MacSlo}, pg. 194).'
     - code_id: bch
       detail: 'Some narrow sense BCH codes of length \(n=(q^r-1)/(q-1)\) such that \(\text{gcd}(r,q-1)=1\) are \(q\)-ary Hamming codes (\cite{doi:10.1017/CBO9780511807077}, Thm. 5.1.4).'
-    - code_id: generalized_reed_muller
-      detail: '\(q\)-ary Hamming codes are dual to first-order GRM codes \cite[pg. 45]{doi:10.1007/978-94-011-3810-9}.'
     - code_id: mds
       detail: 'The \([4,2,3]_3\) Hamming code is a unique MDS code \cite{manual:{Taussky, Olga, and John Todd. "Covering theorems for groups." Bulletin of the American Mathematical Society. Vol. 54. No. 3. 201 CHARLES ST, PROVIDENCE, RI 02940-2213: AMER MATHEMATICAL SOC, 1948.},doi:10.1112/jlms/s1-44.1.60}.'
 

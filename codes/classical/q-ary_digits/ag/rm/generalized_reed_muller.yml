@@ -12,7 +12,9 @@ short_name: 'GRM'
 introduced: '\cite{doi:10.1109/TIT.1968.1054127,doi:10.1109/TIT.1968.1054128,doi:10.1016/S0019-9958(70)90214-7}'
 
 description: |
-  Reed-Muller code GRM\(_q(r,m)\) of length \(n=q^m\) over \(\mathbb{F}_q\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at the points of \(\mathbb{F}_q\).
+  Extensions of RM codes to \(q\)-ary coordinates that can be described as multivariate polynomial evaluation codes over affine or projective space.
+
+  Affine Reed-Muller codes are denoted by GRM\(_q(r,m)\), being of length \(n=q^m\) over \(\mathbb{F}_q\) with \(0\leq r\leq m(q-1)\). Its codewords are evaluations of the set of all degree-\(\leq r\) polynomials in \(m\) variables at the points of \(\mathbb{F}_q\).
 
   Since \(\beta^q=\beta\) for any \(\beta\in \mathbb{F}_q\), the above definition is not injective. Replacing each factor in each polynomial as \(x^q\to x\), the above set reduces to the set of all degree-\(\leq r\) polynomials in \(m\) variables such that no term has an exponent \(q\) or higher on any variable.
 
@@ -46,6 +48,10 @@ relations:
     - code_id: q-ary_ltc
       detail: 'GRM codes for \(r<q\) can be LTCs in the low- \cite{doi:10.1145/103418.103428,doi:10.1145/278298.278306} and high-error \cite{doi:10.1145/258533.258641,doi:10.1145/258533.258642} regimes.
       They admit weakly stable presentations of their corresponding groups \cite{arxiv:2311.04681}.'
+    - code_id: dual
+      detail: 'The dual of a GRM code is also a GRM code \cite{doi:10.1016/S0019-9958(70)90214-7,arxiv:1204.5467}.'
+    - code_id: self_dual
+      detail: 'The dual of a GRM code is also a GRM code \cite{doi:10.1016/S0019-9958(70)90214-7,arxiv:1204.5467}.'
 
 
 # Begin Entry Meta Information
