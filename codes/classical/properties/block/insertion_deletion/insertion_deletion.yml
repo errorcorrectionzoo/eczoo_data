@@ -4,8 +4,7 @@
 #######################################################
 
 code_id: insertion_deletion
-physical: q-ary_digits
-logical: q-ary_digits
+
 
 name: 'Editing code'
 introduced: '\cite{manual:{Levenshtein, Vladimir I. "Binary codes capable of correcting deletions, insertions, and reversals." Soviet physics doklady. Vol. 10. No. 8. 1966.}}'
@@ -14,7 +13,7 @@ alternative_names:
   - 'Insertion and deletion code'
 
 description: |
-    A code designed to protect against insertions, where a new symbol is added somewhere within the string, and deletions, where a symbol at an unknown location is erased.
+    A block code designed to protect against insertions, where a new symbol is added somewhere within the string, and deletions, where a symbol at an unknown location is erased.
 # Since deletions come at unknown locations, they are more difficult to deal with than erasures.
 
 protection: |
@@ -37,7 +36,7 @@ notes:
 # Codewords are q-ary strings, so q-ary parent
 relations:
   parents:
-    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: block
   cousins:
     - code_id: permutation_invariant
       detail: 'PI codes of distance \(d\) can protect against \(d-1\) (quantum) deletion errors.'
