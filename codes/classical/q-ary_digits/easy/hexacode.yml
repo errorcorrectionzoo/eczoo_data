@@ -11,12 +11,10 @@ name: '\([6,3,4]_4\) Hexacode'
 introduced: '\cite{doi:10.1214/aoms/1177729387,doi:10.1007/978-1-4757-6568-7}'
 
 alternative_names:
-  - 'Golay code over \(\mathbb{F}_4\)'
+  - 'Extended Golay code over \(\mathbb{F}_4\)'
 
 description: |
   The \([6,3,4]_4\) self-dual MDS code that has connections to projective geometry, lattices \cite{doi:10.1007/978-1-4757-6568-7}, and conformal field theory \cite{arxiv:2003.13700}.
-  Puncturing the code yields the perfect \([5,3,3]_4\) quaternary Hamming code known as the \textit{shortened hexacode} or \textit{shorter hexacode} \cite{arxiv:math/0005266}.
-  Both codes are sometimes refereed to as \textit{Golay codes over \(\mathbb{F}_4\)}.
 
   A generator matrix for the hexacode is
   \begin{align}
@@ -43,15 +41,12 @@ notes:
 # Projective two weight is parent through denniston
 relations:
   parents:
-    - code_id: q-ary_quad_residue
-      detail: 'The hexacode is the smallest example of an extended quadratic-residue code of Type \(4^H\) \cite[Sec. 2.4.6]{doi:10.1007/3-540-30731-1}\cite[Exer. 363]{doi:10.1017/CBO9780511807077}. The shortened hexacode is an odd-like quadratic-residue code \cite[Exam. 6.6.8]{doi:10.1017/CBO9780511807077}.'
+    - code_id: self_dual
+      detail: 'The hexacode is Hermitian self-dual and, as a result, is also trace-Hermitian self-dual additive \cite[Sec. 9.10]{doi:10.1017/CBO9780511807077}. The hexacode and the shortened hexacode are extremal \cite[Tab. 9.14]{doi:10.1017/CBO9780511807077}\cite[Tm. 12]{arxiv:math/0005266}.'
     - code_id: hyperoval
       detail: 'Columns of hexacode''s generator matrix represent the six points of a hyperoval in the projective plane \(PG(2,4)\), an example of a two-weight code \cite[pg. 289]{doi:10.1201/9781315371993}\cite[Exam. 19.2.1]{preset:HKStwoweight}.'
     - code_id: evaluation
       detail: 'The hexacode is an evaluation AG code over the \hyperref[topic:finite-fields]{quaternary Galois field} \(\mathbb{F}_4 = \{0,1,\omega, \bar{\omega}\}\) with \(\cal X\) defined by \(x^2 y + \omega y^2 z + \bar{\omega} z^2 x = 0\) \cite[Exam. 2.77]{preset:HPAlgCodes}.'
-    - code_id: self_dual
-      detail: 'The hexacode is Hermitian self-dual and, as a result, is also trace-Hermitian self-dual additive \cite[Sec. 9.10]{doi:10.1017/CBO9780511807077}.
-      The hexacode and the shortened hexacode are extremal \cite[Tab. 9.14]{doi:10.1017/CBO9780511807077}\cite[Tm. 12]{arxiv:math/0005266}.'
     - code_id: denniston
       detail: 'A version of the hexacode is recovered for Dennison code parameters \(i=1\) and \(a=2\) \cite{doi:10.1201/9781315371993}.'
     - code_id: mds
@@ -62,24 +57,21 @@ relations:
       detail: 'Hexacodewords can be arranged in an order from smallest to largest, with each codeword differing at four places from the next \cite{manual:{R. A. Wilson,  On lexicographic codes of minimal distance 4, Atti Sem. Mat. Fis. Univ. Modena 33 (1984)}}\cite[pg. 327]{preset:MacSlo}.'
     - code_id: small_distance
   cousins:
+    - code_id: q-ary_quad_residue
+      detail: 'The hexacode is the smallest example of an extended quadratic-residue code of Type \(4^H\) \cite[Sec. 2.4.6]{doi:10.1007/3-540-30731-1}\cite[Exer. 363]{doi:10.1017/CBO9780511807077}.'
     - code_id: q-ary_hamming
       detail: 'The hexacode is an extended quaternary Hamming code \cite[Exer. 578]{doi:10.1017/CBO9780511807077}.'
     - code_id: stab_5_1_3
-      detail: 'Applying the \hyperref[code:stabilizer_over_gf4]{qubit Hermitian construction} to the hexacode yields a \([[6,0,4]]\) quantum code \cite{arxiv:quant-ph/0310137} corresponding to the six-qubit \hyperref[topic:ame]{AME state}.
-      The five-qubit code can be obtained either by applying the \hyperref[code:stabilizer_over_gf4]{qubit Hermitian construction} to the shortened hexacode \cite[Exam. A]{arxiv:quant-ph/0511016} or by tracing out a qubit of the \([[6,0,4]]\) code \cite[Appx. A]{arxiv:1503.06237}.'
+      detail: 'Applying the \hyperref[code:stabilizer_over_gf4]{qubit Hermitian construction} to the hexacode yields a \([[6,0,4]]\) quantum code \cite{arxiv:quant-ph/0310137} corresponding to the six-qubit \hyperref[topic:ame]{AME state}.'
     - code_id: extended_golay
       detail: 'Extended Golay codewords can be obtained from hexacodewords \cite{doi:10.1007/978-1-4757-6568-7}. The hexacode can be used to decode the extended Golay code \cite{doi:10.1109/TIT.1986.1057197}.'
     - code_id: golay
-      detail: 'There a connection between automorphisms of the even Golay code and the holomorph of the hexacode \cite{arxiv:2003.13700}. The hexacoed is often referred to as the Golay code over \(\mathbb{F}_4\) \cite{doi:10.1017/CBO9780511807077}.'
-    - code_id: perfect
-      detail: 'The shortened hexacode is perfect \cite[Exer. 578]{doi:10.1017/CBO9780511807077}.'
-    - code_id: reed_solomon
-      detail: 'The dual of the shortened hexacode code is a \([5,2,4]_4\) doubly extended RS code \cite[Exam. A]{arxiv:quant-ph/0511016}.'
+      detail: 'There a connection between automorphisms of the even Golay code and the holomorph of the hexacode \cite{arxiv:2003.13700}. The hexacode is often referred to as the extended Golay code over \(\mathbb{F}_4\) \cite{doi:10.1017/CBO9780511807077}.'
     - code_id: spherical_design
       detail: 'The hexacode is a complex spherical 3-design when embedded into the complex sphere via the polyphase mapping \cite{manual:{V. V. Albert, private communication, 2024.}}.'
     - code_id: polyphase
       detail: 'The hexacode is a complex spherical 3-design when embedded into the complex sphere via the polyphase mapping \cite{manual:{V. V. Albert, private communication, 2024.}}.'
-# transversal 002 - complex design test.nb
+    # transversal 002 - complex design test.nb
 
 
 # Begin Entry Meta Information

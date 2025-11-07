@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: shortened_hexacode
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\([5,3,3]_4\) Shortened hexacode'
+introduced: '\cite{doi:10.1214/aoms/1177729387,doi:10.1007/978-1-4757-6568-7}'
+
+alternative_names:
+  - 'Shorter hexacode'
+  - 'Golay code over \(\mathbb{F}_4\)'
+
+description: |
+  A perfect \([5,3,3]_4\) quaternary Hamming code that is the result of puncturing the hexacode \cite{arxiv:math/0005266}.
+
+
+relations:
+  parents:
+    - code_id: perfect
+      detail: 'The shortened hexacode is perfect \cite[Exer. 578]{doi:10.1017/CBO9780511807077}.'
+    - code_id: q-ary_quad_residue
+      detail: 'The shortened hexacode is an odd-like quadratic-residue code \cite[Exam. 6.6.8]{doi:10.1017/CBO9780511807077}.'
+    - code_id: small_distance
+  cousins:
+    - code_id: hexacode
+    - code_id: self_dual
+      detail: 'The hexacode and the shortened hexacode are extremal \cite[Tab. 9.14]{doi:10.1017/CBO9780511807077}\cite[Tm. 12]{arxiv:math/0005266}.'
+    - code_id: stab_5_1_3
+      detail: 'The five-qubit code can be obtained either by applying the \hyperref[code:stabilizer_over_gf4]{qubit Hermitian construction} to the shortened hexacode \cite[Exam. A]{arxiv:quant-ph/0511016} or by tracing out a qubit of the \([[6,0,4]]\) code \cite[Appx. A]{arxiv:1503.06237}.'
+    - code_id: golay
+      detail: 'The shortened hexacode is often referred to as the Golay code over \(\mathbb{F}_4\) \cite{doi:10.1017/CBO9780511807077}.'
+    - code_id: reed_solomon
+      detail: 'The dual of the shortened hexacode code is a \([5,2,4]_4\) doubly extended RS code \cite[Exam. A]{arxiv:quant-ph/0511016}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-06'
