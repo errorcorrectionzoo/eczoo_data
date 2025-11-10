@@ -22,13 +22,17 @@ notes:
   - 'A database of quasi-cyclic codes with searchable parameters such as block length and dimension is constructed and displayed \href{https://www.tec.hkr.se/~chen/research/codes/qc.htm}{here}.'
   - 'See \cite[Ch. 16]{preset:MacSlo} for a review of double circulant codes.'
 
+
+# TODO: Fix
+# https://arxiv.org/pdf/1912.09167#page=10.14
+# It turns out that the families of quasi group codes, quasi-abelian codes and quasi-cyclic codes coincide.
 relations:
   parents:
     - code_id: quasi_twisted
       detail: 'Quasi-twisted codes with \(\alpha=1\) are quasi-cyclic.'
-  cousins:
     - code_id: quasi_group
-      detail: 'A quasi group-algebra code for \(G\) being the cyclic group is a quasi-cyclic \(q\)-ary linear code.'
+      detail: 'A quasi group-algebra code for \(G\) being the cyclic group is a quasi-cyclic \(q\)-ary linear code \cite[pg. 4]{arxiv:1912.09167}.'
+  cousins:
     - code_id: convolutional
       detail: 'Quasi-cyclic codes can be \textit{unwrapped} to obtain convolutional codes \cite{manual:{G. D. Forney, Jr., “Why quasi cyclic codes are interesting,” unpublished note, 1970.},doi:10.1137/0137027,manual:{R. Michael Tanner, “Error-correcting coding system,” U.S. Patent 4295218, 1981.},manual:{R. Michael Tanner. Convolutional codes from quasi-cyclic codes: A link between the theories of block and convolutional codes. University of California, Santa Cruz, Computer Research Laboratory, 1987.},manual:{“Generalized tail-biting convolutional codes,” Ph.D. dissertation, Univ. of Massachusetts, Amherst, 1985.},manual:{Y. Levy and J. Costello, Jr., “An algebraic approach to constructing convolutional codes from quasi-cyclic codes,” DIMACS Ser. Discr. Math. and Theor. Comp. Sci., vol. 14, pp. 189–198, 1993.},doi:10.1109/18.651076}.'
     - code_id: sc_qldpc
