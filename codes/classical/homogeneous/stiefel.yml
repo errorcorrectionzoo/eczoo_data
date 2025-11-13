@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stiefel
+physical: quotients
+
+name: 'Stiefel code'
+introduced: '\cite{doi:10.1109/GLOCOM.2015.7417496}'
+
+
+description: |
+  Encodes \(K\) states (codewords) into a Stiefel manifold.
+  Points in a real (complex) Stiefel manifold index bases for fixed-dimension subspaces of real (complex) vector spaces.
+
+protection: |
+  Bounds exist for codes on Stiefel manifolds \cite{arxiv:math/0308110,arxiv:math/0610813}.
+
+relations:
+  parents:
+    - code_id: homogeneous_space_classical
+      detail: 'Homogeneous spaces \(G/H\) reduce to real Stiefel manifolds for \(G = O(n)\) and \(H = O(n-k)\), to complex Stiefel manifolds for \(G = U(n)\) and \(H = U(n-k)\), and to quaternionic Stiefel manifolds for \(G = Sp(n)\) and \(H = Sp(n-k)\).'
+  cousins:
+    - code_id: spacetime
+      detail: 'Stiefel codes can be thought of as spacetime codes \cite{doi:10.1109/GLOCOM.2015.7417496}'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-13'
