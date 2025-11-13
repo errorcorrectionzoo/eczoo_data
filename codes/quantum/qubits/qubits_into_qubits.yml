@@ -20,7 +20,8 @@ description: |
   The qubit codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of single-qubit unitary operations and a qubit permutation.
 
 protection: |
-  An \(((n,K,d))\) code corrects erasure errors on up to \(d-1\) qubits.
+  An \(((n,K,d))\) code with distance \(d\) detects errors acting on up to \(d-1\) qubits, corrects erasure errors on up to \(d-1\) qubits, or corrects errors acting on up to \(\lfloor (d-1)/2 \rfloor\) qubits.
+  Combinations of errors and erasures can also be corrected \cite{arxiv:2511.01080}.
   The number of correctable errors is often called the \textit{decoding radius}, and it is upper bounded by half of the code distance.
   As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers, where \(R = \log_2 K/n\) is the code rate.
 
