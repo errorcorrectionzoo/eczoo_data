@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: berman
+physical: bits
+logical: bits
+
+name: 'Berman code'
+introduced: '\cite{doi:10.1007/BF01119999,doi:10.1109/18.904535,arxiv:2202.09981}'
+
+
+description: |
+  A member of a family of codes that is recursively constructed from the single parity-check code via a construction that is similar to the \((u|u+v)\) construction \cite{arxiv:2202.09981}.
+  Berman codes include RM codes as a special case.
+
+
+features:
+  rate: 'Achieve capacity of the BEC and BMS channels \cite{arxiv:2202.09981}.'
+
+
+relations:
+  parents:
+    - code_id: binary_linear
+  cousins:
+    - code_id: uplusv
+      detail: 'Berman codes are recursively constructed via a construction that is similar to the \((u|u+v)\) construction \cite{arxiv:2202.09981}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-13'
