@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 2pt_homogeneous
+physical: quotients
+
+name: 'Two-point homogeneous-space code'
+introduced: '\cite{preset:KLbounds}'
+
+alternative_names:
+  - 'Rank-one symmetric space code'
+
+description: |
+  Encodes \(K\) states (codewords) into a two-point homogeneous space \(G/H\), i.e., a homogeneous space with a \(G\)-invariant metric and with \(G\) acting two-transitively \cite[Def. 4.7]{arxiv:0909.4767}. 
+  Two-transitivity is equivalent to the property that any two points can be mapped, via some \(g\in G\), to any other two points that are the same distance apart \cite[Def. 4.7]{arxiv:0909.4767}.
+
+  Two-point homogeneous spaces for compact connected \(G\) have been classified and include spheres, the real, complex, and quaternionic projective spaces, and the octonionic projective (a.k.a. Cayley) plane \cite{doi:10.2307/1969427}\cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}. 
+  All of these spaces except real projective space have positive curvature \cite{doi:10.2307/1970789}\cite[Fig. 1]{doi:10.1016/S0926-2245(00)00038-3}. 
+
+  Examples of two-point homogeneous spaces for finite \(G\) include Hamming space, Johnson space, and distance-transitive graphs \cite{doi:10.1007/978-3-642-74341-2}.
+  Finite spaces have yet to be classified \cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}\cite{arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}.
+
+
+protection: |
+  The zonal spherical functions of two-point homogeneous spaces depend only on the distance between points due to the two-transitivity of the \(G\) action. 
+  This yields a general series of bounds on packings in \(G/H\) originating with the Kabatiansky-Levenshtein bound \cite{preset:KLbounds}\cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}; see Ref. \cite{preset:HPLevBounds} for a review. 
+
+
+notes:
+  - 'See \cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7}\cite{doi:10.1007/978-94-010-9787-1_2,arxiv:0909.4767,arxiv:1007.2905} for reviews.'
+
+
+relations:
+  parents:
+    - code_id: symmetric_space
+      detail: 'A special class of symmetric spaces are the two-point homogeneous spaces (a.k.a. rank-one symmetric spaces), whose metric is \(G\)-invariant and for which any two points can be mapped, via some \(g\in G\), to any other two points that are the same distance apart \cite[Def. 4.7]{arxiv:0909.4767}. This is equivalent to saying that \(G\) acts two-transitively.'
+  cousins:
+    - code_id: ecc
+      detail: 'ECCs and \(t\)-designs on two-point homogeneous spaces are intimately related via association schemes \cite{doi:10.1109/18.720545}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: AlexanderBarg
+      date: '2025-10-27'
+    - user_id: VictorVAlbert
+      date: '2025-10-27'

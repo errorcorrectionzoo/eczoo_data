@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: symmetric_space
+physical: quotients
+
+name: 'Symmetric-space code'
+
+
+description: |
+  Encodes \(K\) states (codewords) into a symmetric space, which is a homogeneous space \(G/H\) with an additional property whose definition depends on whether the homogeneous space is continuous or Finite.
+  
+  Continuous symmetric spaces are homogeneous spaces with an appropriately defined inversion operation. The two-sphere is a symmetric space, and its operation is inversion through the origin. This holds true in higher dimensions, yielding the \(D\)-dimensional spherical symmetric space family \(SO(D+1)/SO(D)\). 
+  Cartan classified the compact symmetric spaces whose \(G\) are simple real Lie groups by curvature, which can be positive, negative, or zero.
+  These spaces include spheres, projective spaces, and Grassmannians.
+  Noncompact symmetric spaces include Euclidean and hyperbolic spaces.
+
+  Finite symmetric spaces are defined in coding theory as spaces admitting a \textit{generously transitive} group action, i.e., for all pairs of points \(x,y \in G/H\), there exists a \(g\in G\) such that \(g.x = y\) and \(g.y = x\) \cite[Def. 4.5]{arxiv:0909.4767}\cite[Sec. 3.4]{arxiv:1007.2905}.
+
+ 
+protection: |
+  The decomposition of a symmetric space into \(G\)-irreps is multiplicity free.
+  Optimal codes have been formulated for quaternionic and octonionic projective spaces \cite{arxiv:1308.3188,arxiv:1904.11159}.
+
+
+notes:
+  - 'See \cite{arxiv:0909.4767,arxiv:1007.2905} for reviews.'
+
+
+relations:
+  parents:
+    - code_id: homogeneous_space_classical
+      detail: 'Continuous symmetric spaces are homogeneous spaces with an appropriately defined inversion operation. Finite symmetric spaces are defined in coding theory as spaces admitting a generously transitive group action \cite[Def. 4.5]{arxiv:0909.4767}\cite[Sec. 3.4]{arxiv:1007.2905}. For multiplicity-free spaces such as symmetric spaces, the zonal spherical functions form an Abelian algebra, and the behavior of such functions can be used to obtain bounds on code parameters such as the Levenshtein bound \cite{manual:{V. I. Levenshtein, "On choosing polynomials to obtain bounds in packing problems." Proc. Seventh All-Union Conf. on Coding Theory and Information Transmission, Part II, Moscow, Vilnius. 1978.},manual:{V. I. Levenshtein, “On bounds for packings in n-dimensional Euclidean space”, Dokl. Akad. Nauk SSSR, 245:6 (1979), 1299–1303},manual:{V. I. Levenshtein. Bounds for packings of metric spaces and some of their applications. Problemy Kibernet, 40 (1983), 43-110.}}.'
+    #  Also in homogeneous_space_classical
+  cousins:
+    - code_id: points_into_lattices
+      detail: |
+        Upper bounds on kissing numbers can be worked out by treating the sphere as a symmetric space \cite{arxiv:math/0608426}.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-14'
