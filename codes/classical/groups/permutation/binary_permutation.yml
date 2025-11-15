@@ -7,7 +7,7 @@ code_id: binary_permutation
 physical: groups
 
 name: 'Code in permutations'
-introduced: '\cite{doi:10.1109/PROC.1965.3680,doi:10.1109/TIT.1969.1054291,doi:10.1016/S0019-9958(79)90076-7}'
+introduced: '\cite{doi:10.1109/PROC.1965.3680,doi:10.1109/TIT.1969.1054291,doi:10.1016/0378-3758(78)90008-3,doi:10.1016/0097-3165(77)90009-7,doi:10.1016/S0019-9958(79)90076-7}'
 
 alternative_names:
   - 'Permutation-based code'
@@ -20,10 +20,12 @@ description: |
 protection: |
   Protects against errors in the Kendall tau distance on the space of permutations.
   The Kendall distance between permutations \(\sigma\) and \(\pi\) is defined as the minimum number of adjacent transpositions required to change \(\sigma\) into \(\pi\).
-  Various bounds have been developed \cite{doi:10.1016/0097-3165(79)90012-8,arxiv:0908.4094}, including LP bounds \cite{doi:10.1006/eujc.1998.0272}.
+  Various bounds have been developed \cite{doi:10.1016/0097-3165(79)90012-8,arxiv:0908.4094}, including LP bounds \cite{doi:10.1006/eujc.1998.0272,arxiv:1912.04500}.
   The mapping to inversion vectors is not distance preserving, but the \(\ell_1\) distance between inversion vectors is a lower bound on the Kendall tau distance \cite{arxiv:0908.4094}.
 
   Other distances include the Ulam distance \cite{doi:10.1515/dma.1992.2.3.241}.
+
+  Linear programming bounds for permutation codes have been derived \cite{arxiv:1912.04500}.
 
 notes:
   - 'Review of parallels between linear binary codes and permutation groups \cite{doi:10.1016/j.ejc.2009.03.044}.'
@@ -31,10 +33,13 @@ notes:
 features:
   rate: 'Asymptotically good codes in the Ulam metric exist \cite{arxiv:2401.17235}.'
 
+
 relations:
   parents:
     - code_id: group_classical
       detail: 'Codes in permutations are group-alphabet codes for the symmetric group \(G=S_n\).'
+    - code_id: symmetric_space
+      detail: 'The permutation group can be viewed as a finite symmetric space \(G/H\) with \(G = S_n \times S_n\) and \(H=S_n\) \cite{doi:10.1006/eujc.1998.0272,arxiv:1912.04500}\cite[Table 3]{arxiv:1007.2905}.'
   cousins:
     - code_id: convolutional
       detail: 'Convolutional codes in permutations have been constructed \cite{doi:10.1109/TCOMM.2005.858683}.'
