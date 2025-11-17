@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: isbn
+physical: rings
+logical: rings
+
+name: 'International Standard Book Number (ISBN) code'
+short_name: 'ISBN'
+introduced: '\cite{manual:{}}'
+
+
+description: |
+  A 10-digit checksum code used worldwide to identify books in stores.
+
+protection: 'The last digit of a particular ISBN is a check digit that is evaluated modulo 11 \cite{preset:Hill}.'
+
+
+relations:
+  parents:
+    - code_id: rings_into_rings
+    - code_id: q-ary_digits_into_q-ary_digits
+    - code_id: checksum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-17'
