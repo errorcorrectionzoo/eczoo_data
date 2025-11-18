@@ -35,11 +35,8 @@ alternative_names:
 
   - 'Squeezed vacuum bosonic codes'
 
-physical: 'Quantum harmonic oscillators'
 
-logical: 'qubits'
-
-protection: |2-
+protection: |-
     The code distance against single-photon loss is \(d = m\), where \(m\) is the number of legs (squeezed vacuum states in superposition). The code provides approximate protection against photon loss and dephasing channels, with performance determined by the parameters \(m\) and \(r\). 
     
     As \(m\) increases, the code exhibits improved loss tolerance (lower Knill-Laflamme violation) but becomes more susceptible to dephasing noise.
@@ -88,10 +85,14 @@ notes:
 relations:
   
   parents:
+    - code_id: 'squeezed_fock_state'
+      detail: 'Squeezed-vacuum codewords are a special case of \hyperref[code:squeezed_fock_state]{squeezed Fock states} with Fock number $\ket{n=0}$.'
+
     - code_id: 'single-mode'
-      detail: 'Squeezed-vacuum codes encode logical qubits into a single bosonic mode.'
+      detail: 'Squeezed-vacuum codes encode logical qubits into a \hyperref[code:single-mode]{single bosonic mode}.'
+      
     - code_id: 'bosonic_rotation'
-      detail: 'Squeezed-vacuum codes are rotation-symmetric bosonic codes with $m$-fold rotational symmetry in phase space, constructed from $m$ primitive squeezed vacuum states arranged at evenly-spaced angles \cite{doi:10.1103/PhysRevX.10.011058}.'
+      detail: 'Squeezed-vacuum codes are \hyperref[code:bosonic_rotation]{rotation-symmetric bosonic codes} with $m$-fold rotational symmetry in phase space, constructed from $m$ primitive squeezed vacuum states arranged at evenly-spaced angles \cite{doi:10.1103/PhysRevX.10.011058}.'
 
   cousins:
     - code_id: 'cat'
@@ -99,9 +100,6 @@ relations:
 
     - code_id: 'binomial'
       detail: '\hyperref[code:binomial]{Binomial codes} and squeezed-vacuum codes both provide protection against photon loss and have finite mean energy. Both can be prepared using conditional operations on an ancilla qubit.'
-
-    - code_id: 'squeezed_fock_state'
-      detail: 'The $m=1$ case of squeezed-vacuum codewords reduces to a single \hyperref[code:squeezed_fock_state]{squeezed Fock state}~$S(\pm r)\ket{0}$.'
 
     - code_id: 'number_phase'
       detail: 'Squeezed-vacuum codes are approximate \hyperref[code:number_phase]{number-phase codes} with Fock-space support $n \equiv 2k \pmod{2m}$, approaching ideal \hyperref[code:number_phase]{number-phase codes} as squeezing strength $r \to \infty$~\cite{arxiv:2511.06108}.'
