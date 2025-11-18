@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: checksum
+
+name: 'Checksum code'
+
+description: |
+  An error-detecting block code that appends a message with a string, called a checksum, that depends in some way on the message. 
+
+
+protection: 'The checksum can be calculated from the message via a formula and verified against the appended checksum in order to flag certain misread messages.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1147/sj.141.0016} for a history.'
+
+
+relations:
+  parents:
+    - code_id: block
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-17'

@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: upc
+physical: rings
+logical: rings
+
+name: 'Universal product code (UPC)'
+short_name: 'UPC'
+introduced: '\cite{manual:{Uniform Code Council (UCC), Uniform Product Code (U.P.C.)}}'
+
+
+description: |
+  A checksum code used worldwide, in the form of a barcode, to identify products in stores.
+
+protection: 'The last digit of a UPC barcode is a base-10 check digit that is evaluated modulo 10 \cite{doi:10.1147/sj.141.0016}.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1147/sj.141.0016} for a history.'
+
+
+relations:
+  parents:
+    - code_id: rings_into_rings
+    - code_id: checksum
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2025-11-17'
