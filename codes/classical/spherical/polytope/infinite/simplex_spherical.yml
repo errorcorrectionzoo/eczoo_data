@@ -14,6 +14,8 @@ description: |
   Codewords are all equidistant and their components add up to zero.
   Simplex spherical codewords in 2 (3, 4) dimensions form the vertices of a triangle (tetrahedron, 5-cell)
   In general, the code makes up the vertices of an \(n\)-simplex.
+  The union of a simplex and its antipodal simplex forms the vertices of a bi-simplex, which has \(2(n+1)\) vertices.
+
   See \cite[Sec. 7.7]{preset:EricZin} for a parameterization.
 
 protection: |
@@ -26,7 +28,8 @@ relations:
       detail: 'The simplex is self-dual.'
     - code_id: sharp_config
     - code_id: spherical_design
-      detail: 'Simplex spherical codes are the only tight spherical 2-designs \cite[Tab. 9.3]{preset:EricZin}.'
+      detail: 'Simplex spherical codes are the only tight spherical 2-designs \cite[Tab. 9.3]{preset:EricZin}. The bi-simplex is a spherical 3-design since antipodal codes have zero averages over odd-degree polynomials.'
+    # QSC paper has design strength 2 for bi-simplex, but it needs to be 3
     - code_id: permutation_spherical
   cousins:
     - code_id: dodecahedron
