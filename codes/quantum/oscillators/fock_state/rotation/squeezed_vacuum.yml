@@ -14,12 +14,12 @@ alternative_names:
   - 'Multi-legged squeezed code'
 
 description: |
-  A squeezed Fock-state code constructed from a coherent superposition of \(m\) squeezed vacuum states, each squeezed along evenly-spaced axes in phase space. 
+  A squeezed Fock-state code constructed from a coherent superposition of \(m\) squeezed vacuum states, each squeezed along equiangular axes in phase space. 
   
   For an even integer \(m > 0\) (the number of ``legs'') and squeezing strength \(r\), the two logical codewords are defined as
   \begin{align}
-    |0_L\rangle & \propto \sum_{j=0}^{m-1} S\left(r, \frac{\pi j}{m}\right) \ket{\vac}, \\
-    |1_L\rangle & \propto \sum_{j=0}^{m-1} (-1)^{j} S\left(r, \frac{\pi j}{m}\right) \ket{\vac},
+    |0_L\rangle & \propto \sum_{j=0}^{m-1} S\left(r, \frac{\pi j}{m}\right) \ket{0}, \\
+    |1_L\rangle & \propto \sum_{j=0}^{m-1} (-1)^{j} S\left(r, \frac{\pi j}{m}\right) \ket{0},
   \end{align}
   where \(S(r,\theta) \equiv S(r e^{i\phi(\theta)})\) is the squeezing operator with \(\phi(\theta) = 2\theta + \pi \pmod{2\pi}\), defined as
   \begin{equation}
@@ -63,7 +63,7 @@ features:
     - 'Logical operations within a single mode can be performed using Gaussian operations (displacement, rotation, squeezing) combined with conditional control from an ancilla qubit.'
 
   decoders:
-    - 'The interleaved photon-number structure (\(n \equiv 2k \pmod{2m}\)) enables photon-number-resolving measurements to identify single-photon loss events, which can then be corrected.'
+    - 'The interleaved photon-number structure, \(n \equiv 2k \pmod{2m}\), enables photon-number-resolving measurements to identify single-photon loss events, which can then be corrected.'
 
 
 # Circuit QED: Recent proposals demonstrate controlled-squeezing gates using driven
