@@ -11,13 +11,14 @@ name: 'Hessian polyhedron code'
 introduced: '\cite{manual:{Gosset, Thorold. "On the regular and semi-regular figures in space of n dimensions." Messenger of Mathematics 29 (1900): 43-48.},manual:{Schoute, P. H. "On the relation between the vertices of a definite six-dimensional polytope and the lines of a cubic surface." Proc. Roy. Acad. Amsterdam. Vol. 13. 1910.}}'
 
 alternative_names:
+  - '\(2_{21}\) polytope code'
   - 'Schläfli configuration'
 
 description: |
   Spherical \((6,27,3/2)\) code whose codewords are the vertices of the Hessian complex polyhedron and the \(2_{21}\) real polytope.
   Two copies of the code yield the \((6,54,1)\) \textit{double Hessian polyhedron} (a.k.a. diplo-Schläfli) code.
   The code can be obtained from the Schläfli graph \cite[Ch. 9]{preset:EricZin}.
-  The (antipodal pairs of) points of the (double) Hessian polyhedron correspond to the 27 lines on a smooth cubic surface in the complex projective plane \cite{doi:10.1112/plms/s2-35.1.23,manual:{Arnold, V. I. (1999). Symplectization, complexification and mathematical trinities. The Arnoldfest, 23-37.},arxiv:math/0607446,arxiv:1505.06742}.
+  The (antipodal pairs of) points of the (double) Hessian polyhedron correspond to the 27 lines on a smooth cubic surface in the complex projective plane \cite{doi:10.2307/2371466,doi:10.1112/plms/s2-35.1.23,manual:{Arnold, V. I. (1999). Symplectization, complexification and mathematical trinities. The Arnoldfest, 23-37.},arxiv:math/0607446,arxiv:1505.06742}.
 
   See \cite[Exam. 1.2.5]{preset:EricZin}\cite{doi:10.1007/BF02417955} (\cite[pg. 119]{preset:coxeterComplex}) for a real (complex) realization of the 27 codewords.
   \begin{figure}
@@ -36,7 +37,8 @@ realizations:
 
 relations:
   parents:
-    - code_id: polytope
+    - code_id: self_dual_polytope
+      detail: 'The \(2_{21}\) polytope is self-dual \cite{doi:10.2307/2371466}.'
     - code_id: cgs_spherical
       detail: 'The CGS isotropic subspace code for \(q=2\) reduces to the Hessian polytope.'
     - code_id: spherical_design
