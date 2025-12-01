@@ -8,17 +8,26 @@ physical: spheres
 logical: reals
 
 name: 'McLaughlin spherical code'
+introduced: '\cite{manual:{McLaughlin, Jack. "A simple group of order 898,128,000." Theory of finite groups. Benjamin New York, 1969. 109-111.},doi:10.1016/B978-0-12-189420-7.50019-0}'
 
 description: |
-  A spherical \((22,275,1/6)\) code associated with the McLaughlin graph; see Ref. \cite{arxiv:2211.00092} for an explicit construction.
+  The \((22,275,1/6)\) or \((23,552,1/5)\) code associated with the McLaughlin graph and the Leech lattice.
+  See Ref. \cite{arxiv:2211.00092} for explicit constructions of and relations between both codes.
 
 relations:
   parents:
     - code_id: sharp_config
-      detail: 'The McLaughlin spherical code is a sharp configuration and a tight spherical 4-design \cite{arxiv:math/0607446,arxiv:2211.00092}.'
+      detail: 'Both McLaughlin spherical codes are sharp configurations \cite{arxiv:math/0607446,arxiv:2211.00092}. The \((22,275,1/6)\) code is a unique and tight spherical 4-design, while the \((23,552,1/5)\) code is a unique and tight spherical 5-design; see Ref. \cite[Appx. A]{arxiv:math/0607446}.'
   cousins:
+    - code_id: spherical_design
+      detail: 'Both McLaughlin spherical codes are sharp configurations \cite{arxiv:math/0607446,arxiv:2211.00092}. The \((22,275,1/6)\) code is a unique and tight spherical 4-design, while the \((23,552,1/5)\) code is a unique and tight spherical 5-design; see Ref. \cite[Appx. A]{arxiv:math/0607446}.'
     - code_id: golay
       detail: 'The McLaughlin spherical code can be constructed from length-23 Golay codewords \cite{arxiv:2211.00092}.'
+    - code_id: real_projective
+      detail: 'The \((23,552,1/5)\) McLaughlin spherical code yields a set of \(276\) equiangular lines in 23 dimensions \cite{arxiv:math/0607446,arxiv:2211.00092}.'
+    - code_id: leech_shell
+      detail: 'The \((23,552,1/5)\) McLaughlin code can be derived from a shell of the Leech lattice \cite{arxiv:math/0607446,arxiv:0906.1427}.'
+
 
 
 # Begin Entry Meta Information
