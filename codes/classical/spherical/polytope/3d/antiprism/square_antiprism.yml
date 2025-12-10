@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: square_antiprism
+physical: spheres
+logical: reals
+
+name: 'Square-antiprism code'
+
+description: |
+  Spherical \((3,8,4(4-\sqrt{2})/7)\) code whose codewords are the vertices of the square antiprism \cite[pg. 72]{preset:EricZin}.
+
+protection: 'Optimal configuration of 8 points in 3D space \cite[pg. 72]{preset:EricZin}.'
+
+relations:
+  parents:
+    - code_id: antiprism
+      detail: 'The antiprism reduces to a square antiprism for \(q=4\).'
+  cousins:
+    - code_id: hypercube
+      detail: 'The square antiprism can be obtained by stretching the cube and twisting the top of the cube by \(45\) degrees \cite[pg. 72]{preset:EricZin}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-11-16'
