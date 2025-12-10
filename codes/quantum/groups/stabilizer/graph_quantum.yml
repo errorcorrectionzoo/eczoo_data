@@ -10,6 +10,9 @@ logical: groups
 name: 'Graph quantum code'
 introduced: '\cite{arxiv:quant-ph/0012111}'
 
+alternative_names:
+  - 'Abelian group-qudit CWS code'
+
 description: |
   A stabilizer code on tensor products of \(G\)-valued qudits for Abelian \(G\) whose encoding isometry is defined using a graph \cite[Eqs. (4-5)]{arxiv:quant-ph/0012111}.
   An analytical form of the codewords exists in terms of the adjacency matrix of the graph and bicharacters of the Abelian group \cite{arxiv:quant-ph/0012111}; see \cite[Eq. (1)]{arxiv:quant-ph/0703112}.
@@ -18,28 +21,19 @@ description: |
 protection: |
   The \term{Knill-Laflamme conditions} have a graph-based analogue \cite{arxiv:quant-ph/0012111}; see Ref. \cite[Sec. III]{arxiv:1407.2777}.
 
+
 relations:
   parents:
     - code_id: stabilizer
       detail: 'Graph quantum codes are a subset of stabilizer codes over \(G\)-valued qudits for Abelian \(G\) \cite{arxiv:quant-ph/0111080}.
       Any stabilizer code over Abelian \(G\) is locally equivalent to a graph quantum code \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).'
+    - code_id: group_cluster_state
+      detail: 'Group-based cluster-state codes reduce to graph codes for Abelian \(G\).'
   cousins:
-    - code_id: qubit_stabilizer
-      detail: 'Graph quantum codes for \(G=\mathbb{Z}_2\) are a subset of qubit stabilizer codes \cite{arxiv:quant-ph/0111080}.
-      Any qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{Z}_2\) via a single-qubit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).'
-    - code_id: qudit_stabilizer
-      detail: 'Graph quantum codes for \(G=\mathbb{Z}_q\) are a subset of modular-qudit stabilizer codes \cite{arxiv:quant-ph/0111080}.
-      Any modular-qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{Z}_q\) via a single-modular-qudit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).'
     - code_id: galois_stabilizer
       detail: 'Graph quantum codes for \(G=\mathbb{F}_q\) are a subset of Galois-qudit stabilizer codes \cite{arxiv:quant-ph/0111080}.
       Any Galois-qubit stabilizer code is equivalent to a graph quantum code for \(G=\mathbb{F}_q\) via a single-Galois-qudit Clifford circuit \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).'
-    - code_id: cluster_state
-      detail: 'A graph quantum code for \(G=\mathbb{Z}_2\) contains a cluster state as one of its codewords and reduces to a cluster state when its logical dimension is one \cite{arxiv:1511.05647}.'
-    - code_id: qudit_cluster_state
-      detail: 'A graph quantum code for \(G=\mathbb{Z}_q\) reduces to a modular-qudit cluster state when its logical dimension is one \cite{arxiv:1511.05647}.'
-    - code_id: group_cluster_state
-      detail: 'A graph quantum code for Abelian \(G\) reduces to a group-based cluster state when its logical dimension is one \cite{arxiv:1511.05647}.'
-# contains a group-based cluster state as one of its codewords and : NOT PROVEN?
+    # Modular-qudit and qubit cluster states are children; this is only one without an entry
 
 
 # Begin Entry Meta Information
