@@ -11,15 +11,13 @@ name: 'Internet Checksum code'
 
 description: 'A classical error-detection method that treats data as a sequence of numerical values and computes their sum. In most network protocols, the data is divided into equal-sized segments (typically 16-bit words) and added together using 1''s complement arithmetic. The final sum is then bitwise complemented to generate the checksum value.'
 
-introduced: '\cite{doi:10.17487/RFC1071}'''
+introduced: '\cite{doi:10.17487/RFC1071}'
 
 protection: 'Detects all single-bit errors and any burst error up to the length of the checksum (e.g., 16 bits). However, it is unable to detect errors that do not change the arithmetic sum, such as the reordering of data segments (transpositions) or the addition of zero-valued blocks.'
 
-features:
-  
-  rate: 'Used extensively in the internet protocol suite (TCP/IP) for headers and data integrity as defined in RFC 1071 \cite{doi:10.17487/RFC1071}.'
-
-  magic_scaling_exponent: 'Advanced variants like the Fletcher checksum \cite{doi:10.1109/TCOMM.1982.1095369} and Adler-32 include positional information to detect transposition errors.'
+realizations:
+  - 'Used extensively in the internet protocol suite (TCP/IP) for headers and data integrity as defined in RFC 1071 \cite{doi:10.17487/RFC1071}.'
+  - 'Advanced variants like the Fletcher checksum \cite{manual:{J. G. Fletcher, "An Arithmetic Checksum for Serial Transmissions," 1982.}} and Adler-32 include positional information to detect transposition errors.'
 
 _meta:
   
