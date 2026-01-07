@@ -1,0 +1,31 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual_over_z4
+physical: rings
+logical: rings
+
+name: 'Dual code over \(\mathbb{Z}_4\)'
+
+description: |
+  For any linear code \(C\) over \(\mathbb{Z}_4\), the dual code is the set of quaternary strings that are orthogonal to the codewords of \(C\) under the standard inner product modulo \(4\).
+
+protection: |
+  The dual of a code \(C=(n,4^{k_1} 2^{k_2})_{\mathbb{Z}_4}\) is \(C^{\perp} = (n,4^{n-k_1-k_2} 2^{k_2})\), whose generator matrix can be written in terms of the standard form of \(C\) \cite[Prop. 1.2]{doi:10.1142/3603}.
+
+
+
+relations:
+  parents:
+    - code_id: quaternary_over_z4
+    - code_id: dual_over_zq
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-01-02'

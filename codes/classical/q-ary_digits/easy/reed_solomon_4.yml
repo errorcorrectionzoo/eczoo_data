@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: reed_solomon_4
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\([4,2,3]_4\) RS\(_4\) code'
+short_name: 'RS\(_4\)'
+
+alternative_names:
+  - '\(XQ(\mathbb{F}_4,3)\)'
+
+description: |
+  A Type II Euclidean self-dual RS code that is the smallest quaternary extended QR code \cite[Sec. 2.4.2]{doi:10.1007/3-540-30731-1}.
+
+  A generator matrix for the code is
+  \begin{align}
+    \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 1 & \omega & \omega^2
+    \end{pmatrix}~,
+  \end{align}
+  where \(\mathbb{F}_4 = \{0,1,\omega, \bar{\omega}\}\) is the \hyperref[topic:finite-fields]{quaternary Galois field}.
+
+  The automorphism group of the code is \(3.S_4\) \cite[Sec. 2.4.2]{doi:10.1007/3-540-30731-1}.
+
+
+relations:
+  parents:
+    - code_id: self_dual
+      detail: 'The RS\(_4\) is the smallest Type II Euclidean self-dual code \cite[Sec. 2.4.2]{doi:10.1007/3-540-30731-1}.'
+    - code_id: reed_solomon
+    - code_id: mds
+    - code_id: small_distance
+  cousins:
+    - code_id: q-ary_quad_residue
+      detail: 'The RS\(_4\) code is the smallest quaternary extended QR code \cite[Sec. 2.4.2]{doi:10.1007/3-540-30731-1}.'
+    - code_id: hamming844
+      detail: 'The RS\(_4\) code can be mapped to the \([8,4,4]\) extended Hamming code \cite[Sec. 2.4.2]{doi:10.1007/3-540-30731-1} by identifying \((0,\omega,\bar{\omega},1)\) with \((00),(10),(01),(11)\) \cite{doi:10.1006/ffta.2001.0333}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-01-03'

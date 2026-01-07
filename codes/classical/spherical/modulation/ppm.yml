@@ -11,7 +11,7 @@ name: 'Pulse-position modulation (PPM) code'
 short_name: 'PPM'
 
 description: |
-  An analog code encoding into \(q\) different signals such that each codeword corresponds to a signal.
+  An analog code encoding into \(q\) different signals of the same energy such that each codeword corresponds to a signal.
 
 realizations:
   - 'Greek hydraulic semaphore system \cite{manual:{Michael Lahanas. "Ancient Greek Communication Methods". https://web.archive.org/web/20141102224501/https://www.mlahanas.de/Greeks/Communication.htm. Archived from the original on 2014-11-02.},doi:10.1049/iet-com.2019.0051}.'
@@ -19,7 +19,9 @@ realizations:
   - 'Radio-control, fiber-optic communications, and deep-space communications.'
 
 relations:
-  parents:
+  parents: 
+    - code_id: biorthogonal_spherical
+      detail: 'Each signal of a PPM code defines a different dimension, so PPM codewords are spherical codes lying on the vertices of a cross polytope.'
     - code_id: modulation
 
 

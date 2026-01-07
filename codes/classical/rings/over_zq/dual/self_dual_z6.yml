@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: self_dual_z6
+physical: rings
+logical: rings
+
+name: '\([4,2,2]_{\mathbb{Z}_6}\) senary code'
+introduced: '\cite{doi:10.14492/hokmj/1351001213}'
+
+description: |
+  A self-dual code over \(\mathbb{Z}_6\) that is one of two such codes, up to permutations \cite{doi:10.14492/hokmj/1351001213}.
+
+  A generator matrix for the code is
+  \begin{align}
+    \begin{pmatrix}
+    1 & 0 & 1 & 2 \\
+    0 & 1 & 4 & 1
+    \end{pmatrix}~.
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: self_dual_over_zq
+    - code_id: small_distance
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-01-03'
