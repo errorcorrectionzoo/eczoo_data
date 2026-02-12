@@ -156,7 +156,7 @@ jobs:
               --cwd "./site/_site/"  \
               --etag  \
               --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
-              --cacheControl 'max-age=31536000, s-max-age=31536000'  \
+              --cacheControl 'max-age=31536000, s-maxage=31536000'  \
               --private
 
       - name: 'Deploy site to S3/Cloudfront'
@@ -170,7 +170,7 @@ jobs:
               --distId '${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}'  \
               --etag  \
               --gzip xml,html,htm,js,css,ttf,otf,svg,txt  \
-              --cacheControl 'max-age=7200, s-max-age=31536000'  \
+              --cacheControl 'max-age=7200, s-maxage=31536000'  \
               --invalidate "/*"  \
               --private
 
