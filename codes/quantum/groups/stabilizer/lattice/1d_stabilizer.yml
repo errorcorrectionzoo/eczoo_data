@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 1d_stabilizer
+# includes both Galois and modular
+
+name: '1D lattice stabilizer code'
+
+description: |
+  Lattice stabilizer code in one Euclidean dimension.
+
+  Any modular-qudit code can be converted to several copies of the 1D repetition code along with some trivial codes via a local constant-depth Clifford circuit \cite{arxiv:1607.01387}.
+  There is no 1D bosonic topological order at nonzero temperature \cite{arxiv:1804.05457,arxiv:2511.14699}.
+
+features:
+  fault_tolerance:
+    - 'A fault-tolerant quantum computation scheme exists for a 1D qubit lattice with nearest-neighbor connectivity \cite{arxiv:2502.16132}.'
+
+
+relations:
+  parents:
+    - code_id: translationally_invariant_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-02-23'
