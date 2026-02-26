@@ -19,7 +19,7 @@ description: |-
     \mathsf{H}=(\mathsf{A}_{1}\otimes\mathsf{B}_{1})\oplus(\mathsf{A}_{2}\otimes\mathsf{B}_{2})\oplus\mathsf{C}^{\perp}~,
   \end{align}
   where \(\mathsf{C}^\perp\) is the combined error space of both codes.
-  The above code reduces to a subsystem code when \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) is trivial, reduces to a classical-quantum code when \(\mathsf{A}_{1,2}\) are both trivial, reduces to a hybrid code when \(\mathsf{B}_{1,2}\) are both trivial, and reduces to an ordinary (i.e., subspace) code when \(\mathsf{B_1}\) and \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) are both trivial.
+  The above code reduces to a subsystem code when \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) is trivial, reduces to a classical-quantum code when \(\mathsf{A}_{1,2}\) are both trivial, reduces to a hybrid code when \(\mathsf{B}_{1,2}\) are both trivial, and reduces to an ordinary (i.e., subspace) code when \(\mathsf{B}_1\) and \(\mathsf{A}_{2}\otimes\mathsf{B}_{2}\) are both trivial.
 
   In general, an OAQECC is determined by a finite dimensional \(C^*\) algebra \(\mathcal{A}\) of operators on \(\mathsf{H}\).
   This \textit{logical algebra} induces a decomposition of the Hilbert space as
@@ -35,7 +35,7 @@ protection: |
   Given an error operation \(\mathcal{E}\), one says that \(\mathcal{A}\) is \textit{correctable} for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that
   \begin{align}\Pi_{\mathcal{A}} (\mathcal{R} \circ \mathcal{E})^\dagger(X) \Pi_{\mathcal{A}} = X\end{align} for all \(X \in \mathcal{A}\), where \(\Pi_{\mathcal{A}}\) is the unit projection onto \(\mathcal{A}\).
 
-  Equivalently, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that for any \(\gamma\) and density operators \(\rho_\gamma,\sigma_\gamma\) supported on \(\mathsf{A}_\gamma\) and \(\mathsf{B}_\gamma\), respectively, there exists a state \(\tau_\gamma\) supported on \(A_\gamma\) such that
+  Equivalently, \(\mathcal{A}\) is correctable for \(\mathcal{E}\) if there exists a recovery operation \(\mathcal{R}\) such that for any \(\gamma\) and density operators \(\rho_\gamma,\sigma_\gamma\) supported on \(\mathsf{A}_\gamma\) and \(\mathsf{B}_\gamma\), respectively, there exists a state \(\tau_\gamma\) supported on \(\mathsf{A}_\gamma\) such that
   \begin{align}(\mathcal{R} \circ \mathcal{E})(\rho_\gamma \otimes \sigma_\gamma) = \tau_\gamma \otimes \sigma_\gamma.\end{align}
 
   An algebraic condition for correctability can be given in terms of the Kraus operators \(E_j\) of \(\mathcal{E}\).
