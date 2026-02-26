@@ -21,7 +21,7 @@ description: |
 
 
 protection: |
-  Sphere packings can be used to transmit information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive Gaussian white-noise channel (AGWN)}, which adds a random Gaussian-distributed displacement with variance \(\sigma^2\) to each signal point.
+  Sphere packings can be used to transmit information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive white Gaussian channel (AWGN)}, which adds a random Gaussian-distributed displacement with variance \(\sigma^2\) to each signal point.
   Protection of a constellation thus depends on how far apart its points are in terms of the Euclidean distance.
   As usual, there is a tradeoff between packing of space and level of protection.
   For a given \(n,M,P\), the \textit{Gaussian channel coding problem} asks to find a set of \(M\) codewords of norm \(\leq nP\) that minimizes the error probability during transmission; see \cite[Ch. 3]{doi:10.1007/978-1-4757-6568-7}.
@@ -56,7 +56,7 @@ features:
       R=\frac{1}{T}\log_{2}M\quad\quad\text{bits/s}~.
     \end{align}
 
-    The Shannon capacity of the AGWN channel for a signal whose power is \(P\) is
+    The Shannon capacity of the AWGN channel for a signal whose power is \(P\) is
     \begin{align}
       C=W\log_{2}\left(1+\frac{P}{\sigma^{2}}\right)\,.
     \end{align}
