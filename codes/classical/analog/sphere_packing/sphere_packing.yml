@@ -21,12 +21,12 @@ description: |
 
 
 protection: |
-  Sphere packings can be used to transmit information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive Gaussian white-noise channel (AGWN)}, which adds a random Gaussian-distributed displacement with variance \(\sigma^2\) to each signal point.
+  Sphere packings can be used to transmit information using electromagnetic signals. The primary noise channel for such signals is the \textit{additive white Gaussian channel (AWGN)}, which adds a random Gaussian-distributed displacement with variance \(\sigma^2\) to each signal point.
   Protection of a constellation thus depends on how far apart its points are in terms of the Euclidean distance.
   As usual, there is a tradeoff between packing of space and level of protection.
   For a given \(n,M,P\), the \textit{Gaussian channel coding problem} asks to find a set of \(M\) codewords of norm \(\leq nP\) that minimizes the error probability during transmission; see \cite[Ch. 3]{doi:10.1007/978-1-4757-6568-7}.
 
-  The \textit{minimum distance} \(d\) of a constellation is the infimum over distances between any two of it''s points.
+  The \textit{minimum distance} \(d\) of a constellation is the infimum over distances between any two of its points.
   The \textit{density} \(\Delta\) is the fraction of the total volume of space that is occupied by spheres of an optimal radius centered at each point in the sphere packing.
   Defining a density for infinite constellations can be done using a limit \cite[pg. 349]{preset:EricZin}.
 
@@ -56,7 +56,7 @@ features:
       R=\frac{1}{T}\log_{2}M\quad\quad\text{bits/s}~.
     \end{align}
 
-    The Shannon capacity of the AGWN channel for a signal whose power is \(P\) is
+    The Shannon capacity of the AWGN channel for a signal whose power is \(P\) is
     \begin{align}
       C=W\log_{2}\left(1+\frac{P}{\sigma^{2}}\right)\,.
     \end{align}
@@ -67,7 +67,7 @@ features:
     - 'Each signal point is assigned its own Voronoi cell, and a received point is mapped back to the center of the Voronoi cell in which it is located upon reception.'
 
 notes:
-  - 'Database of sphere packings \cite{manual:{Agrell, E. "Database of sphere packings, 2019." Online: https://codes. se/packings. Accessed (2015).}}.'
+  - 'Database of sphere packings \cite{manual:{Agrell, E. "Database of sphere packings, 2019." Online: https://codes.se/packings. Accessed (2015).}}.'
   - 'See Refs. \cite{doi:10.1109/18.720549,arxiv:cs/0611112} for reviews of sphere packing.'
   - 'Popular summary of an improvement over the Rogers bound in \href{https://www.quantamagazine.org/to-pack-spheres-tightly-mathematicians-throw-them-at-random-20240430/}{Quanta Magazine}.'
 
