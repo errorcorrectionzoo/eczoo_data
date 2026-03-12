@@ -28,7 +28,17 @@ description: |
 # arxiv:1701.06963,arxiv:1911.12260 uses union and CWS
 
 protection: |
-  The EA hybrid Singleton bound represents a triple trade-off region in the combined classical-bit, qubit, and e-bit space \cite{arxiv:2202.02184}.
+  If an EA hybrid code is viewed as transmitting \(C\) cbits,
+  \(Q\) qubits, and consuming \(E\) ebits, then the EA hybrid Singleton bound is
+  the set of triples \((C,Q,E)\) for which there exists a parameter
+  \(t\in[0,\log q]\) such that
+  \begin{align}
+    C + 2Q & \leq (n-d+1)(\log q + t)~,\\
+    Q - E & \leq (n-2d+2)t~,\\
+    C + Q - E & \leq (n-d+1)\log q - (d-1)t~,
+  \end{align}
+  for \(q\)-ary physical systems \cite[Thm. 8]{arxiv:2202.02184}.
+
 
 features:
   rate: 'Trade-off between classical communication, quantum communication, and entanglement distribution has been examined \cite{arxiv:0811.4227,arxiv:0901.3038,arxiv:0903.3920}; see also Ref. \cite{arxiv:quant-ph/0501045}.'
