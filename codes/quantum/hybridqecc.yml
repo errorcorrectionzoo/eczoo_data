@@ -11,14 +11,18 @@ introduced: '\cite{arxiv:quant-ph/0203105,arxiv:quant-ph/0311131,arxiv:quant-ph/
 description: |
   A quantum code which encodes both quantum and classical information.
 
-  A simple example of a hybrid QECC encodes a single qubit and a single classical bit.
-  A different quantum code \(\mathsf{C}_j\) is associated with each of the two values \(j\in\{0,1\}\) of the classical bit.
-  The error words corresponding to correctable errors must satisfy the \term{Knill-Laflamme conditions} for each code \cite[Eq. (3)]{arxiv:1701.06963}, and error words belonging to different codes must be orthogonal to each other \cite[Eq. (4)]{arxiv:1701.06963}.
-  The corresponding decomposition of the Hilbert space \(\mathsf{H}\) is
+  In general, a different quantum code \(\mathsf{C}_j\) is associated with each classical
+  value \(j \in \{0, 1, \ldots, l-1\}\), and the Hilbert space decomposes as
   \begin{align}
-    \mathsf{H} = \mathsf{C}_{1}\oplus\mathsf{C}_{2}\oplus\mathsf{C}^{\perp}~,
+    \mathsf{H} = \bigoplus_{j=0}^{l-1} \mathsf{C}_j \oplus \mathsf{C}^{\perp}~,
   \end{align}
-  where \(\mathsf{C}^\perp\) is the combined error space of both codes.
+  where \(\mathsf{C}^{\perp}\) is the combined error space of all \(l\) codes.
+  The simplest example encodes a single qubit and a single classical bit (\(l = 2\)):
+  a different quantum code is associated with each value \(j \in \{0,1\}\), giving
+  \(\mathsf{H} = \mathsf{C}_0 \oplus \mathsf{C}_1 \oplus \mathsf{C}^{\perp}\).
+  The error-correction conditions require the \term{Knill-Laflamme conditions} to hold within
+  each quantum code subspace \(\mathsf{C}_j\) \cite[Eq. (3)]{arxiv:1701.06963}, and that error operators
+  map different code subspaces to mutually orthogonal subspaces \cite[Eq. (4)]{arxiv:1701.06963}.
 
 
 features:

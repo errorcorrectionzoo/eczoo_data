@@ -19,23 +19,28 @@ description: |
   \begin{align}
   \mathsf{H}=\mathsf{C} \oplus \mathsf{C}^{\perp} = \mathsf{A} \otimes \mathsf{B} \oplus \mathsf{C}^{\perp}~.
   \end{align}
-  Following an error, it is sufficient to revert back to the original state modulo a transformation on the auxiliary or \textit{gauge} subsystem \(\mathsf{B}\). The subsystem \(\mathsf{B}\) therefore gives additional freedom to the error correction process, and is said to encode \textit{gauge qubits} when its dimension is a power of two. While strictly speaking all operator QECCs are also ordinary QECCs, the attachment of a subsystem to a code allows for a wider variety of encoding procedures, fault-tolerant logical operations, and efficient error-correction protocols.
+  Following an error, the encoded quantum information in subsystem \(\mathsf{A}\) can be recovered modulo an arbitrary error on the auxiliary or \textit{gauge} subsystem \(\mathsf{B}\). 
+  The gauge subsystem provides additional freedom to the error correction process: errors that act trivially on the information subsystem \(\mathsf{A}\) but nontrivially on \(\mathsf{B}\) need not be corrected.
+  The subsystem \(\mathsf{B}\) can encode \textit{gauge qubits} when its dimension is a power of two.
+  While all operator QECCs are also ordinary QECCs, the attachment of a gauge subsystem to a code allows for a wider variety of encoding procedures, fault-tolerant logical operations, and efficient error-correction protocols.
 
 protection: |
-  Necessary and sufficient \cite{arxiv:quant-ph/0506069} error-correction conditions are, for all errors \(E_a,E_b\) in an error set \(\cal{E}\),
+  The necessary and sufficient error-correction conditions are, for all errors \(E_a,E_b\) in an error set \(\cal{E}\) \cite{arxiv:quant-ph/0506069}:
   \begin{align}
   \Pi E^{\dagger}_a E_b \Pi = I_{\mathsf{A}} \otimes g_{ab}^{\mathsf{B}}
   \end{align}
-  where \(\Pi\) is a projector onto the codespace \(\mathsf{C}\), and \(g_{ab}^{\mathsf{B}}\) is an arbitrary operator on the gauge subsystem.
-  These have been studied in the presence of continuous noise \cite{arxiv:0806.3145}.
+  where \(\Pi\) is a projector onto the codespace \(\mathsf{C}\), and \(g_{ab}^{\mathsf{B}}\) is an arbitrary operator on the gauge subsystem \(\mathsf{B}\).
+  This condition ensures that distinguishing and correcting errors based on their effect on subsystem \(\mathsf{A}\) is sufficient; errors that act identically on \(\mathsf{A}\) but differ on \(\mathsf{B}\) are considered equivalent.
+  
+  These can be studied in the presence of continuous noise \cite{arxiv:0806.3145}.
 
-  A \textit{unitarily correctable subsystem} is a subsystem code whose encoded information can be recovered via a unitary, i.e., in a measurement-free way \cite{arxiv:quant-ph/0608045} (see also \cite{arxiv:quant-ph/9609015}). For unital noise channels, such codes are related to the multiplicative domain of the channel \cite{arxiv:0811.0947}.
+  A \textit{unitarily correctable subsystem} is a subsystem code whose encoded information can be recovered via a unitary operation, where recovery is more relaxed than correction \cite{arxiv:quant-ph/0608045}. For unital noise channels, unitarily correctable subsystems are related to the multiplicative domain of the channel \cite{arxiv:0811.0947} (see also \cite{arxiv:quant-ph/9609015}).
 
 features:
   encoders:
     - 'Subsystem QECCs are robust to initialization errors \cite{arxiv:0709.3533}.'
   decoders:
-    - 'Petz recovery map is shown to be near-optimal for certain subsystem codes \cite{arxiv:1202.5139}.'
+    - 'Petz recovery map provides a recovery operation that is near-optimal for certain subsystem codes \cite{arxiv:1202.5139}.'
 
 realizations:
   - 'A two-qubit unitarily correctable subsystem code recovery has been realized in an optical system \cite{arxiv:0909.1584}.'
