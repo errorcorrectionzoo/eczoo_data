@@ -11,11 +11,11 @@ name: 'Preparata code'
 introduced: '\cite{doi:10.1016/S0019-9958(68)90874-7}'
 
 description: |
-  A nonlinear binary \((2^{m+1}-1, 2^{m+1}-2m-2, 5)\) code where \(m\) is odd.
+  A nonlinear binary \((2^{m+1}-1, 2^{2^{m+1}-2m-2}, 5)\) code where \(m\) is odd, with the extended version having length \(2^{m+1}\) and distance \(6\).
   The size of this code is twice the size of the largest possible linear code with the same length and distance.
 
   Codewords of extended Preparata codes can be thought of as characteristic functions of the tuple \((X,Y)\), where \(X, Y\) belong to \(\mathbb{F}_2^m\), along with the following properties: (i) \(|X| = |Y| = 2^{m}\), (ii) \(\sum_{x \in X} x = \sum_{y \in Y} y \), and (iii) \(\sum_{x \in X} x^{3} + (\sum_{x \in X} x)^{3}  = \sum_{y \in Y} y^{3} \).
-  Preparata codes are obtained by leaving out the coordinate in the zeroth positions in the first half.
+  Preparata codes are obtained by puncturing the extended code, i.e., by deleting a coordinate in one half of the split-coordinate representation.
 
   The automorphism group of these codes is determined in Refs. \cite{doi:10.1137/0603015,doi:10.1137/0603032,doi:10.1109/TIT.1983.1056676}.
 
@@ -26,9 +26,6 @@ description: |
 features:
   rate: 'The rate is \(\frac{2^{m+1}-2m-2}{2^{m+1}-1}\).'
 
-  decoders:
-    - 'Preparata Codes can be decoded using a syndrome calculation based algorithm to correct all error patterns of Lee weight atmost 2 and detect all/ some error patterns
-    of Lee weight 3/ 4 \cite{doi:10.1109/18.312154,arxiv:math/0207208}.'
 
 notes:
   - 'See corresponding MinT database entry \cite{manual:{Rudolf Schürer and Wolfgang Ch. Schmid. “Preparata Codes.” From MinT—the database of optimal net, code, OA, and OOA parameters. Version: 2015-09-03. https://web.archive.org/web/20240420202309/https://mint.sbg.ac.at/desc_CPreparata.html}}.'
@@ -47,11 +44,11 @@ relations:
     - code_id: reed_muller
       detail: 'A Preparata code can be written as a union of a linear subcode \(\mathcal{C}\) of RM\((m-2,m)\) and the \(2^{m-1}-1\) representatives of coset formed by \(\mathcal{C}\) in RM\((m-2,m)\). The coset representatives are given by \(|1|x^j|0|x^{j}\theta_{1}|\), where \(1\leq j \leq 2^{m-1}-1\). \(\mathcal{C}\) comprises of codewords of the form \(|g(1)|g(x)(1+\theta_{1})|f(1)+g(1)|g(x)(1+\theta_{1})+f(x)(1+\theta_{1}+\theta_{3})|\), where \(f(x)\) and \(g(x)\) are arbitrary, and where \(\theta_{1}\) and \(\theta_{3}\) denote the primitive idempotents corresponding to cyclotomic cosets \(C_1\) and \(C_3\) respectively.'
     - code_id: bch
-      detail: 'Preparata codes contain twice as many code words as the double-error-correcting BCH codes of the same length, which is the largest number of code words possible for given length and distance \cite{doi:10.1016/S0019-9958(68)90874-7}.'
+      detail: 'Preparata codes contain twice as many codewords as the double-error-correcting BCH codes of the same length, which is the largest number of codewords possible for given length and distance \cite{doi:10.1016/S0019-9958(68)90874-7}.'
     - code_id: hamming
       detail: |
         Preparata codes can be obtained by Hensel-lifting Hamming codes to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}.
-        The union of the dual a Preparata code and some of its translates forms a Hamming code \cite[pg. 475]{preset:MacSlo}.
+        The union of the dual of a Preparata code and some of its translates forms a Hamming code \cite[pg. 475]{preset:MacSlo}.
     - code_id: extended_hamming
       detail: 'Any code with the same parameters as the Preparata code must be a distance invariant subcode of a (possibly nonlinear) code with the same parameters as the extended Hamming code \cite{manual:{N. V. Semakov, V. A. Zinoviev, G. V. Zaitsev, “Uniformly Packed Codes”, Probl. Peredachi Inf., 7:1 (1971), 38–50; Problems Inform. Transmission, 7:1 (1971), 30–39},manual:{Zaitsev, G. V., Zinoviev, V. A., & Semakov, N. V. (1973). Interrelation of Preparata and Hamming codes and extension of Hamming codes to new double-error-correcting codes. In Proc. 2nd International Symp. Inform. Theory (pp. 257-263).}}.'
     - code_id: combinatorial_design
