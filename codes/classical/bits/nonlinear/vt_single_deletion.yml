@@ -25,7 +25,7 @@ description: |-
 protection: 'Corrects a single asymmetric error (a \(0\) mapped to a \(1\)), a single deletion, or a single insertion of an arbitrary bit in an arbitrary position for any choice of \(a\).'
 
 features:
-  rate: 'Rate-\(1\) code, with \(\log n+1\) bits of redundancy when \(a=0\). Nearly optimal.'
+  rate: 'Has asymptotic rate \(1\). The redundancy is about \(\log_2(n+1)\) bits, making the construction nearly optimal for single-deletion correction.'
 
   decoders:
     - 'Decoder based on checksums \(\sum_{i=1}^n i~x_i^{\prime}\) of corrupted codewords \(x_i^{\prime}\) \cite{manual:{V. I. Levenshtein, \emph{Binary codes capable of correcting deletions, insertions and reversals} (translated to English), Soviet Physics Dokl., 10(8), 707-710 (1966).},manual:{V. I. Levenshtein, \emph{Binary codes capable of correcting spurious insertions and deletions of one} (translated to English), Prob. Inf. Transmission, 1(1), 8-17 (1965).}}.'

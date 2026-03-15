@@ -11,14 +11,14 @@ alternative_names:
   - 'One-weight code'
 
 description: |
-  A binary code whose codewords all have the same Hamming weight \(w\).
+  A binary code whose codewords are all constrained to have the same Hamming weight \(w\). In the linear setting, this usually refers to all nonzero codewords having the same weight, since every linear code contains the zero codeword.
 
   The \textit{complement} of a constant-weight code is a constant-weight code obtained by interchanging zeroes and ones in the codewords.
   Constant-weight codes that contain all strings of some fixed Hamming weight are known as \textit{\(m\)-in-\(n\)} or \({n \choose m}\) codes.
 
-  The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. The number of such binary strings is the binomial coefficient \(n \choose w\).
+  The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-w}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. The number of such binary strings is the binomial coefficient \(n \choose w\).
 
-  Linear binary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).
+  Nontrivial linear binary codes cannot have all codewords of the same weight, but they can have all nonzero codewords of the same weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).
 
 
 protection: |
@@ -35,9 +35,9 @@ relations:
   parents:
     - code_id: bits_into_bits
     - code_id: q-ary_constant_weight
-      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. This is a special case of the nonbinary Johnson space for \(q=2\).'
+      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-w}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}. This is a special case of the nonbinary Johnson space for \(q=2\).'
     - code_id: 2pt_homogeneous
-      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-q}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}.'
+      detail: 'The set of all weight-\(w\) binary strings of length \(n\) forms the \textit{Johnson space} \(J(n,w)\), a finite two-point homogeneous space \(G/H\) with \(G = S_n\) and \(H = S_w \times S_{n-w}\) \cite{manual:{Delsarte, Philippe. "An algebraic approach to the association schemes of coding theory." Philips Res. Rep. Suppl. 10 (1973): vi+-97.},doi:10.1016/0097-3165(76)90017-0,doi:10.1137/0134012,doi:10.1007/BF00053379,arxiv:0909.4767}\cite[Table 2]{arxiv:1007.2905}.'
   cousins:
     - code_id: finite_grassmann
       detail: 'Codewords of length \(n\) and weight \(w\) are in one-to-one correspondence with subsets of \(n\) objects with \(w\) elements. The \(q\)-Johnson spaces generalize this notion to subspaces and reduce to Johnson spaces at \(q=1\). In other words, \((q=2)\)-Johnson space is not the same as (binary) Johnson space since the former indexes subspaces, while the latter indexes subsets.'
@@ -47,7 +47,7 @@ relations:
       detail: 'Codes whose codewords have a constant weight of \(m\) are automatically \(m\)-divisible. However, divisible codes are linear by definition while constant-weight codes do not have to be.'
     # Divisible is linear, while constant weight is not
     - code_id: binary_linear
-      detail: 'Linear binary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
+      detail: 'Nontrivial linear binary codes cannot have all codewords of the same weight, but they can have all nonzero codewords of the same weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear binary code is a direct sum of simplex codes \cite{manual:{Bonisoli, Arrigo. "Every equidistant linear code is a sequence of dual Hamming codes." Ars Combinatoria 18 (1984): 181-186.}} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
 
 
 # Begin Entry Meta Information

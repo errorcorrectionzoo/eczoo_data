@@ -13,9 +13,9 @@ description: |
   An error-correcting code defined over a finite alphabet.
 
 protection: |
-  A code corrects errors associated with a noise channel if it is possible to recover any codeword after its coordinates have been changed after going through the channel. 
+  A code corrects errors associated with a noise channel if it is possible to recover any codeword after its coordinates have been altered during transmission through the channel. 
   
-  More technically, an error-correcting code \((u,\mathcal{E})\) is an \textit{encoder} function \(u:[1\cdots K]\to[1\cdots N]\) with a set of correctable errors \(E:[1\cdots N]\to [1\cdots M]\) with the following property: there exists a \textit{decoder} function \(d:[1\cdots M]\to [1\cdots K]\) such that for all \(E\in\cal{E}\) and states \(x\in[1\cdots K]\), \(d(E(e(x)))=x\) \cite{preset:GottesmanBook}.
+  More technically, an error-correcting code can be specified by an \textit{encoder} \(e:[1\cdots K]\to\Sigma^n\) together with a set \(\mathcal{E}\) of correctable errors \(E:\Sigma^n\to Y\) such that there exists a \textit{decoder} \(d:Y\to[1\cdots K]\) satisfying \(d(E(e(x)))=x\) for all \(E\in\mathcal{E}\) and messages \(x\in[1\cdots K]\) \cite{preset:GottesmanBook}.
 
   Finite ECCs can also be defined by axiomatically defining their encoding functions \cite{doi:10.1016/S0019-9958(63)80010-8}.
 
