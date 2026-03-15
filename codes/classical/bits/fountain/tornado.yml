@@ -11,13 +11,13 @@ name: 'Tornado code'
 introduced: '\cite{doi:10.1145/285243.285258,doi:10.1145/258533.258573,doi:10.1109/18.910575}'
 
 description: |
-  Linear binary code that is a precursor to fountain codes and whose encoding and decoding operations involve only XOR gates \cite[Sec. 30.2]{preset:HKSfountain}.
+  Linear binary erasure code that is a precursor to fountain codes and is built from a multilayer cascade of sparse bipartite graphs. Its encoding and decoding operations involve only XOR gates \cite{doi:10.1145/285243.285258,doi:10.1109/18.910575}\cite[Sec. 30.2]{preset:HKSfountain}.
 
 
 features:
-  rate: 'Come arbitrarily close to the capacity of the binary erasure channel.'
+  rate: 'Tornado-code ensembles can come arbitrarily close to the capacity of the binary erasure channel \cite{doi:10.1109/18.910575}.'
   encoders:
-    - 'Linear-time encoder.'
+    - 'Linear-time encoder \cite{doi:10.1109/18.910575}.'
   decoders:
     - 'Linear-time peeling decoder \cite{doi:10.1109/18.910575}. This decoder either terminates when it has removed a given erasure pattern or when it is stuck in a \textit{stopping set}.'
 
