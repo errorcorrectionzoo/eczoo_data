@@ -18,9 +18,9 @@ alternative_names:
 description: |
   A linear code over \(\mathbb{F}_{q^N}\) that corrects errors over rank metric instead of the traditional Hamming distance. Every element \(\mathbb{F}_{q^N}\) can be written as an \(N\)-dimensional vector with coefficients in \(\mathbb{F}_q\), and the rank of a set of elements is rank of the matrix formed by their coefficients.
 
-  Given \(X^n=\text{span}\{x_i\}\), an \(n\)-dimensional vector space over \(\mathbb{F}_{q^N}\) (where \(q\) is a power of a prime number), the \textit{rank metric} \(d(x, y)\) is defined via the rank norm \(r(x, q) = \mathrm{rank}(A(x))\), where
+  Given \(X^n=\text{span}\{x_i\}\), an \(n\)-dimensional vector space over \(\mathbb{F}_{q^N}\) (where \(q\) is a power of a prime number), the \textit{rank metric} \(d(x, y)\) is defined via the rank norm, \(\mathrm{rank}(A(x))\), where
   \begin{align}
-  A(x) = \begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1n} \\ a_{21} & a_{22} & \ldots & a_{2n} \\  a_{N1} & a_{N2} & \ldots & a_{Nn}~, \end{pmatrix}
+  A(x) = \begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1n} \\ a_{21} & a_{22} & \ldots & a_{2n} \\  a_{N1} & a_{N2} & \ldots & a_{Nn} \end{pmatrix}
   \end{align}
   and \(x_i = a_{1i} u_1 + a_{2i} u_2 + \ldots + a_{Ni}u_N \) for some fixed basis \(\{u_i\}_{i=1}^N\).
 
@@ -41,7 +41,7 @@ realizations:
 relations:
   parents:
     - code_id: rank_metric
-      detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\), when expressed as matrices over \(\mathbb{F}_q\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true since Gabidulin codes are not always \(\mathbb{F}_{q^N}\)-linear \cite[Rm. 16]{arxiv:1410.1333}.'
+      detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\), when expressed as matrices over \(\mathbb{F}_q\), are rank-metric codes (see Def. 14 in Ref. \cite{arxiv:1410.1333}). The reverse is not always true, i.e., not every rank-metric code is Gabidulin \cite[Rm. 16]{arxiv:1410.1333}.'
   cousins:
     - code_id: maximum_rank_distance
       detail: 'Gabidulin codes over \(\mathbb{F}_{q^N}\) with maximum rank-distance, when expressed as matrices over \(\mathbb{F}_q\), are MRD codes.'
