@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-codes_dir="$HOME/eczoo_data/codes"
+codes_dir="$HOME/eczoo_data/codes/classical"
 checklist="$HOME/eczoo_data/scripts/checked_files.txt"
 
 if [[ ! -d "$codes_dir" ]]; then

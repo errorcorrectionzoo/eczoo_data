@@ -14,12 +14,18 @@ alternative_names:
   - 'Mod-two lattice'
 
 description: |
-  Sphere packing constructed from a binary \((n,K)\) code using \term{Construction A} \cite{doi:10.1007/978-1-4757-6568-7}.
+  Sphere packing constructed from a binary \((n,K)\) code using \term{Construction A}.
 
   \begin{defterm}{Construction A}
-  Construction A converts a linear binary code into a sphere packing.
+  Construction A \cite{doi:10.1007/978-1-4757-6568-7} converts a binary code into a sphere packing.
   Each binary codeword \(c\) of the code is mapped to an infinite set of points \(x\) such that \(x = c\) modulo two.
-  If the underlying binary code is linear, then the resulting set of points forms a lattice.
+  The resulting lattice is the collection of all such sets,
+  \begin{align}
+    \Lambda(C) = \{ x \in \mathbb{Z}^n \,\,\vert\,\, x \bmod 2 \in C \}
+    = \bigcup_{c \in C} \left( c + 2 \mathbb{Z}^n \right)~.
+  \end{align}
+  For a nonlinear code, this is generally a periodic non-lattice sphere packing.
+  If the underlying code is linear, then the resulting set of points forms a lattice.
   \end{defterm}
 
 relations:
