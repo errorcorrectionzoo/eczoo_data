@@ -13,8 +13,8 @@ alternative_names:
   - '\(G\) code'
 
 description: |
-  An \( [n,k]_q \) code whose automorphism group includes a finite group \( G \) of size \(n \), which acts on the code via its regular representation.
-  This makes the code a \(G\)-submodule of the module \(\mathbb{F}_q^n\) \cite[Lemma 2.3]{arxiv:0810.3787}\cite{manual:{Günther, Annika. Automorphism groups of self-dual codes. Diss. Aachen, Techn. Hochsch., Diss., 2009, 2009.}}.
+  An \( [n,k]_q \) code associated with a finite group \(G\) of order \(n\), viewed as an ideal in the group algebra \(\mathbb{F}_q[G]\).
+  Equivalently, after identifying the \(n\) coordinate positions of each codeword with elements of \(G\), the code is invariant under the regular action of \(G\) and thus becomes a \(G\)-submodule of \(\mathbb{F}_q^n\) \cite[Lemma 2.3]{arxiv:0810.3787}\cite{manual:{Günther, Annika. Automorphism groups of self-dual codes. Diss. Aachen, Techn. Hochsch., Diss., 2009, 2009.}}.
   A group-algebra code for an Abelian group is called an \textit{Abelian group-algebra code}.
 
   \subsection{Group algebra}
@@ -33,11 +33,10 @@ description: |
     \label{eq:FG-product}
     ab=\sum_{g\in G}\biggl(\sum_{h\in G} a_h b_{h^{-1}g}\biggr) g, \quad a,b\in \mathbb{F}_q[G].
   \end{align}
-  Semisimple group algebras can be decomposed into indecomposable representations via an Wedderburn-Artin decomposition \cite[Thm. 4.4, p. 112]{doi:10.1515/9783110870138}\cite{arxiv:2412.09695}.
+  Semisimple group algebras can be decomposed into simple components via a Wedderburn-Artin decomposition \cite[Thm. 4.4, p. 112]{doi:10.1515/9783110870138}\cite{arxiv:2412.09695}.
 
   \subsection{Group-algebra code}
-  A group-algebra code is a \( k \)-dimensional linear subspace of the \hyperref[topic:group-algebra]{group algebra} of \( G\) with coefficients in the field \(\mathbb{F}_q\) with \(q\) elements. To be precise, the code must be closed under permutations corresponding to the elements of the group \( G \); therefore, \( G \) must be a subgroup of the permutation automorphism group of the code, which is defined as the group of permutations of the physical bits that preserve the code space.
-  This leads us to the formal definition of a group-algebra code: a group-algebra code is an ideal in the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_q G \).
+  A group-algebra code is a \( k \)-dimensional linear subspace of the \hyperref[topic:group-algebra]{group algebra} of \( G\) with coefficients in \(\mathbb{F}_q\). The formal definition is that a group-algebra code is a left, right, or two-sided ideal in the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_q G \).
 
   A linear code is a group-algebra code for a group \(G\) if and only if \(G\) is isomorphic to a regular subgroup of the code's permutation automorphism group \cite{doi:10.1007/s10623-008-9261-z}\cite[Thm. 16.4.7]{preset:HKSalgebra}.
 
