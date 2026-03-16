@@ -10,13 +10,15 @@ logical: q-ary_digits
 name: 'Additive \(q\)-ary code'
 #introduced: ''
 
-description: 'A \(q\)-ary code whose codewords are closed under addition, i.e., for any codewords \(x,y\), \(x+y\) is also a codeword.'
+description: |
+  A \(q\)-ary code whose codewords are closed under addition, i.e., for any codewords \(x,y\), \(x+y\) is also a codeword.
+  If \(q=p^m\), then additive closure already implies \(\mathbb{F}_p\)-linearity because multiplying a codeword by any \(\lambda\in\mathbb{F}_p\) is equivalent to adding that codeword to itself \(\lambda\) times.
 
 relations:
   parents:
     - code_id: q-ary_digits_into_q-ary_digits
     - code_id: group_linear
-      detail: 'Additive \(q\)-ary codes are linear over \(G=\mathbb{F}_q\) since Galois fields are Abelian groups under addition.'
+      detail: 'Additive \(q\)-ary codes are linear over the additive group \(G=\mathbb{F}_q\). If \(q=p^m\), they are always \(\mathbb{F}_p\)-linear, but for \(m>1\) they need not be \(\mathbb{F}_q\)-linear.'
 
 
 # Begin Entry Meta Information
