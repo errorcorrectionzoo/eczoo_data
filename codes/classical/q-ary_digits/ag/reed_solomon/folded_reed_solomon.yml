@@ -12,10 +12,12 @@ short_name: 'FRS'
 introduced: '\cite{doi:10.1109/TIT.2003.819333}'
 
 description: |
-  A linear \([n/m,k]_{q^m}\) code that is a modification of an \([n,k]_q\) RS code such that evaluations are grouped to yield a code with smaller length. In this case, the evaluation points are all powers of a generating field element \(\gamma\), \(\alpha_i=\gamma^i\). Each codeword \(\mu\) of an \(m\)-folded RS code is a string of \(n/m\) symbols, with each symbol being a string of values of a polynomial \(f_\mu\) at consecutive powers of \(\gamma\),
+  A code obtained from an RS code by bundling consecutive symbols into larger alphabet symbols. This preserves the algebraic structure of the parent RS code while lowering the block length over an extension alphabet, and it is a key ingredient in capacity-approaching list-decoding constructions.
+
+  An \([n/m,k]_{q^m}\) FRS code is obtained from an \([n,k]_q\) RS code by grouping consecutive evaluations, thereby reducing the block length over a larger alphabet. In this case, the evaluation points are powers of a field element \(\gamma\), namely \(\gamma^0,\gamma^1,\ldots,\gamma^{n-1}\). Each codeword \(\mu\) of an \(m\)-folded RS code is a string of \(n/m\) symbols, with each symbol being a block of values of a polynomial \(f_\mu\) at consecutive powers of \(\gamma\),
   \begin{align}
   \begin{split}
-    \mu\to&\Big(\left(f_{\mu}(\alpha^{0}),\cdots,f_{\mu}(\alpha^{m-1})\right),\left(f_{\mu}(\alpha^{m}),\cdots,f_{\mu}(\alpha^{2m-1})\right)\cdots\\&\cdots,\left(f_{\mu}(\alpha^{n-m}),\cdots,f_{\mu}(\alpha^{n-1})\right)\Big)~.
+    \mu\to&\Big(\left(f_{\mu}(\gamma^{0}),\cdots,f_{\mu}(\gamma^{m-1})\right),\left(f_{\mu}(\gamma^{m}),\cdots,f_{\mu}(\gamma^{2m-1})\right)\cdots\\&\cdots,\left(f_{\mu}(\gamma^{n-m}),\cdots,f_{\mu}(\gamma^{n-1})\right)\Big)~.
   \end{split}
   \end{align}
 
