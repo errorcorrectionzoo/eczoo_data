@@ -8,8 +8,8 @@ code_id: code_with_locality
 name: 'Code with locality'
 
 description: |
-  A code with \((r,\delta)\) locality is a code that encodes each codeword coordinate into an \([r+\delta-1,r,\delta]\) MDS code \cite[Sec. 31.3.4.5]{preset:HKSdist}. 
-  In other words, given a codeword \(c\) and coordinate \(c_i\), there exists a coordinate set \(S_i\) of size \(\leq r+\delta-1\) such that the restriction \(C_{|S_i}\) of the code to that set is a code with minimum distance \(\delta\). 
+  A code has \((r,\delta)\) locality if each codeword coordinate belongs to a repair group of size at most \(r+\delta-1\) whose restricted code has minimum distance at least \(\delta\) \cite[Sec. 31.3.4.5]{preset:HKSdist}.
+  Equivalently, given a codeword \(c\) and coordinate \(c_i\), there exists a coordinate set \(S_i\) of size \(\leq r+\delta-1\) containing \(i\) such that the restriction \(C_{|S_i}\) has minimum distance at least \(\delta\).
 
 protection: |
   There is a generalized Singleton minimum distance bound \cite{arxiv:1202.2414},

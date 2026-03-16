@@ -17,8 +17,8 @@ short_name: 'LCC'
 
 
 description: |
-  Recall that a block code encodes a length-\(k\) message into a length-\(n\) codeword, which is then sent through a noise channel to yield an error word.
-  Informally, an LCC is a block code for which one can recover any coordinate of a codeword from at most \(r\) coordinates of the error word (assuming the error word is within some tolerated corruption rate \(\delta\)).
+  Recall that a block code encodes a length-\(k\) message into a length-\(n\) codeword, which is then sent through a noise channel to yield a received word.
+  Informally, an LCC is a block code for which one can recover any coordinate of a codeword from at most \(r\) coordinates of the received word (assuming the received word is within some tolerated corruption rate \(\delta\)).
 
   Modified versions of local correctability include \textit{relaxed local correctability} \cite{doi:10.4086/toc.2020.v016a018}.
 
@@ -33,8 +33,7 @@ notes:
 relations:
   parents:
     - code_id: locally_recoverable
-      detail: 'LRCs (LCCs) allow one to recover any coordinate of a codeword from at most \(r\) coordinates of a codeword (an error word within the decoding radius).
-      Since a codeword is a trivial error word, any LCC is also an LRC.'
+      detail: 'LRCs recover a coordinate from a small number of other coordinates of an uncorrupted codeword, while LCCs allow recovery from a corrupted received word within the decoding radius. Since an uncorrupted codeword is a special case of a received word, any LCC is also an LRC.'
   cousins:
     - code_id: ldc
       detail: 'Any family of LCCs can be converted to a family of LDCs whose rate differs by a constant \cite{arxiv:1611.06980}; see \cite[Sec. 2.4.1]{manual:{Gopi, Sivakanth. Locality in coding theory. Diss. Princeton University, 2018.}}.'
