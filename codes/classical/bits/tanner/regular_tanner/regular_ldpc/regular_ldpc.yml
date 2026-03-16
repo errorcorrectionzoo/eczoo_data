@@ -14,19 +14,16 @@ introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallager, \emph{Low-d
 description: |
   An LDPC code whose parity-check matrix has a fixed number of ones in each row and each column.
   Such a code is called \((j,k)\)-\textit{regular} if each column has weight \(j\) (variable-node degree) and each row has weight \(k\) (check-node degree).
-  The rate of a \((j,k)\)-regular code satisfies
-  \begin{align}
-    R \geq 1 - \frac{j}{k}
-  \end{align}
-  since the \(nj/k\) rows of the parity-check matrix may not all be linearly independent \cite{manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.}}.
 
 protection: |
-  Random \((j,k)\)-regular LDPC codes have minimum distance that grows linearly with block length for any fixed \(j \geq 3\) (with \(k > j\)), i.e., they are asymptotically good \cite{manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.}}.
+  Random \((j,k)\)-regular LDPC codes have minimum distance that grows linearly with block length for any fixed \(j \geq 3\) (with \(k > j\)) \cite{manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.},arxiv:1005.1062}.
 
 features:
   rate: |
-    The rate satisfies \(R \geq 1 - j/k\) for a \((j,k)\)-regular code.
-    The BP decoding threshold for regular codes is strictly below the Shannon capacity for any fixed \(j,k\); irregular LDPC codes with optimized degree distributions can outperform regular ones under iterative decoding \cite{doi:10.1109/18.748992,doi:10.1109/18.910577}.
+    An ensemble of \((j,k)\)-regular LDPC codes has a \textit{design rate} \(1 - j/k\). This is a lower bound on the true rate, is the true rate if all constraints are linearly independent, and equals the rate asymptotically \cite{manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.}}\cite[Sec. 3.4]{doi:10.1109/MCOM.2003.1222728}.
+
+  decoders:
+    - 'The BP decoding threshold for regular codes is strictly below the Shannon capacity for any fixed \(j,k\) \cite[Sec. 3.11]{doi:10.1109/MCOM.2003.1222728}.'
 
 
 relations:
@@ -34,6 +31,9 @@ relations:
     - code_id: ldpc
     - code_id: regular_binary_tanner
       detail: 'Regular LDPC codes are regular binary Tanner codes defined on sparse graphs whose constraint nodes represent parity-check codes.'
+  cousins:
+    - code_id: irregular_ldpc
+      detail: 'Irregular LDPC codes have variable node and check node degrees, while regular LDPC codes have fixed node degrees. Irregular LDPC codes with optimized degree distributions can outperform regular ones under iterative decoding \cite{doi:10.1109/18.748992,doi:10.1109/18.910577}.'
 
 
 # Begin Entry Meta Information
