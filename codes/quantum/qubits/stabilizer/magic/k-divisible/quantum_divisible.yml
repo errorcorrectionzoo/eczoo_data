@@ -24,7 +24,7 @@ description: |
   This generalization reduces to the original definition when \(M^{+}\) is the full set of qubits, and \(M^{-}\) the empty set.
 
   An alternative definition \cite{arxiv:2109.13481,arxiv:2204.13176}, not used here, is a CSS code defined from two linear binary codes \(C_{1,2}\) such that it is quantum divisible with \(\nu > 1\), and all weights in each coset of \(C_2\) in \(C_1\) are congruent to \(\nu\).
-  For example \cite{arxiv:2204.13176}, if \(C_2\) is the first-order RM\((1,m)\) code, and \(C_1/ C_2\) consists of quadratic forms with a bounded rank, then \([[n = 2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) is a family of such codes.
+  For example \cite{arxiv:2204.13176}, if \(C_2\) is the first-order RM\((1,m)\) code, and \(C_1/ C_2\) consists of quadratic forms with a bounded rank, then \([[n = 2^m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), d = 3]]\) is a family of such codes.
 
 
 # application of T and Tdag is for generalized divisible codes
@@ -35,12 +35,14 @@ features:
 
 
   general_gates:
-    - 'The \([[2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), 3]]\) quantum divisible code family can serve as outer codes of either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code to realize a \(T\) gate on the inner code \cite{arxiv:2204.13176}.
-    For example, when \(m=5\) (\(m=6\)), the resulting \([[31,5,3]]\) (\([[63,7,3]]\)) code yields the \(T\) gate on the inner five-qubit (Steane) code.'
+    - |
+      The \([[2^m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), 3]]\) quantum divisible code family can serve as outer codes of either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code to realize a \(T\) gate on the inner code \cite{arxiv:2204.13176}.
+      For example, when \(m=5\) (\(m=6\)), the resulting \([[31,5,3]]\) (\([[63,7,3]]\)) code yields the \(T\) gate on the inner five-qubit (Steane) code.
 
   fault_tolerance:
-    - 'The \(T\) gate realized by concatenating members of the \([[2m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), 3]]\) quantum divisible code family with either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code is fault-tolerant and does not require magic-state distillation \cite{arxiv:2204.13176}.
-    The gate is performed on the inner five-qubit/Steane code and does require encoding and decoding algorithms to pass between the inner and outer codes.'
+    - |
+      The \(T\) gate realized by concatenating members of the \([[2^m − 1, 1 \leq k \leq 1 + \sum_{i=1}^{m-4}(m − i), 3]]\) quantum divisible code family with either the five-qubit \([[5,1,3]]\) or Steane \([[7,1,3]]\) code is fault-tolerant and does not require magic-state distillation \cite{arxiv:2204.13176}.
+      The gate is performed on the inner five-qubit/Steane code and does require encoding and decoding algorithms to pass between the inner and outer codes.
 
 realizations:
   - 'Triply even codes can yield secure multi-party quantum computation \cite{arxiv:2206.04871}.'
@@ -48,9 +50,10 @@ realizations:
 relations:
   parents:
     - code_id: generalized_quantum_divisible
-      detail: 'Generalized level-\(\nu\) quantum divisible codes reduce to quantum level-\(\nu\) divisible codes when \(t\) is a vector with \(\pm 1\) entries.
-      The classical code formed by their \(X\)-type stabilizer generator matrix is \(\nu\)-even \cite[pg. 10]{arxiv:1709.08658}.
-      Both types of codes realize transversal gates outside of the \hyperref[topic:clifford]{Clifford group}.'
+      detail: |
+        Generalized level-\(\nu\) quantum divisible codes reduce to quantum level-\(\nu\) divisible codes when \(t\) is a vector with \(\pm 1\) entries.
+        The classical code formed by their \(X\)-type stabilizer generator matrix is \(\nu\)-even \cite[pg. 10]{arxiv:1709.08658}.
+        Both types of codes realize transversal gates outside of the \hyperref[topic:clifford]{Clifford group}.
   cousins:
     - code_id: divisible
       detail: 'The \(X\)-type stabilizers of a level-\(\nu\) quantum divisible code form a \(\nu\)-even linear binary code.'

@@ -13,14 +13,14 @@ introduced: '\cite{manual:{Peter Elias. Coding for noisy channels. IRE Conventio
 alternative_names:
   - 'Tree code'
 
-description: 'Infinite-block code that is formed using generator polynomials over the finite field with two elements. The encoder slides across contiguous subsets of the input bit-string (like a convolutional neural network) evaluating the polynomials on that window to obtain a number of parity bits. These parity bits are the encoded information.'
+description: 'Infinite-block code that is formed using generator polynomials over a finite field. The encoder slides across contiguous subsets of the input string (like a convolutional neural network), evaluating the polynomials on that window to obtain parity bits. These parity bits are the encoded information.'
 
 protection: |
   There are linear programming bounds for convolutional codes \cite{doi:10.1109/TIT.1979.1056004}.
 
 features:
 
-  rate: 'Depends on the polynomials used. Using puncturing removal \cite{doi:10.12928/telkomnika.v10i4.171} the rate for the code can be increased from \(\frac{1}{t}\) to \(\frac{s}{t}\), where \(t\) is the number of output bits, and \(s\) depends on the puncturing done. This is done by deleting some pieces of the encoder output such that the most-likely decoders remain effective'
+  rate: 'Depends on the polynomials used. Using puncturing \cite{doi:10.12928/telkomnika.v10i4.171}, the rate for the code can be increased from \(\frac{1}{t}\) to \(\frac{s}{t}\), where \(t\) is the number of output bits, and \(s\) depends on the puncturing done. This is done by deleting some pieces of the encoder output such that maximum-likelihood decoders remain effective.'
 
   encoders:
     - 'Evaluation on the generator polynomials. Can be implemented with a small number of XOR gates'

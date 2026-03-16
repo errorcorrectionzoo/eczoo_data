@@ -8,32 +8,32 @@ physical: groups
 logical: groups
 
 name: 'Dihedral \(G=D_m\) quantum-double code'
-introduced: '\cite{arxiv:quant-ph/9707021,arxiv:1508.03468}'
+introduced: '\cite{arxiv:quant-ph/9707021}'
 
 description: |
-  Quantum-double code whose codewords realize \(G=D_m\) topological order associated with a \(2m\)-element dihedral group \(D_m\).
-  Includes the simplest non-Abelian order \(D_3 = S_3\) associated with the permutation group of three objects.
-  The code can be realized as the ground-state subspace of the quantum double model, defined for \(D_m\)-valued qudits \cite{arxiv:quant-ph/9707021}.
+  Quantum-double code whose codewords realize topological order associated with the dihedral group \(D_m\) of order \(2m\).
+  For \(m \geq 3\), these codes are non-Abelian, with the simplest case given by \(D_3=S_3\), the permutation group on three objects.
+  On an oriented lattice, each edge hosts a \(2m\)-dimensional group qudit, and the codespace is the ground-state subspace of the corresponding quantum double Hamiltonian \cite{arxiv:quant-ph/9707021}.
 
 features:
   transversal_gates:
-    - 'Transversal \(T^{1/N}\) gates can be performed when \(G = D_{4N}\) \cite{arxiv:2512.13777,arxiv:2603.05502}.'
+    - 'On a triangular patch encoding one logical qubit, a transversal \(T^{1/N}=\mathrm{diag}(1,e^{i\pi/(4N)})\) gate can be implemented when \(G=D_{4N}\) \cite{arxiv:2512.13777,arxiv:2603.05502}.'
   general_gates:
     - 'Universal topological quantum computation is possible for certain groups such as \(G=D_3=S_3\) \cite{arxiv:quant-ph/0306063,arxiv:0901.1345}.'
-    - '\(U\)-model gate set \cite{arxiv:1401.7096}, which can protect from circuit-level noise with the help of an anyon interferometer for the case of \(G=S_3\) \cite{arxiv:2411.09697}.'
+    - 'For \(G=S_3\), Ref. \cite{arxiv:1401.7096} gives measurement-assisted universal gate sets; circuit-level fault tolerance can be improved using an anyon interferometer \cite{arxiv:2411.09697}.'
   code_capacity_threshold:
     - 'Behavior under \(X\)-type noise (namely, diffusion of certain anyons) for the \(G=D_4\) case is related to the phase diagram of a disordered net model \cite{arxiv:2409.12948}.'
 
   fault_tolerance:
     - 'Universal topological quantum computation is possible for certain groups such as \(G=D_3=S_3\) \cite{arxiv:quant-ph/0306063,arxiv:0901.1345}.'
-    - '\(U\)-model gate set \cite{arxiv:1401.7096}, which can protect from circuit-level noise with the help of an anyon interferometer for the case of \(G=S_3\) \cite{arxiv:2411.09697}.'
+    - 'For \(G=S_3\), Ref. \cite{arxiv:1401.7096} gives measurement-assisted universal gate sets; circuit-level fault tolerance can be improved using an anyon interferometer \cite{arxiv:2411.09697}.'
 
 realizations:
   - 'Trapped ions: ground state of the model for \(G = D_3\), encoding of logical qutrits in the anyon fusion space, and a universal anyon-based gate set realized on 54 qubits by Quantinuum \cite{arxiv:2601.20956}.'
 
 notes:
   - 'See \cite[Sec. 5.4]{doi:10.1017/CBO9780511792908}\cite{arxiv:2502.14974} for introductions to this code.'
-  - 'The \( \Phi, \Lambda \)  \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the quantum double model for the group \(D_3=S_3\) of permutations on three letters.'
+  - 'The \(\Phi,\Lambda\) \href{https://citizensciencegames.com/games/decodoku/}{Decodoku game} is based on the quantum double model for the group \(D_3=S_3\) of permutations on three letters.'
 
 relations:
   parents:

@@ -10,7 +10,7 @@ logical: reals
 name: 'Lattice'
 
 description: |
-  Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice, i.e., a discrete set of points in Euclidean space \(\mathbb{R}^n\) that forms a group under vector addition when the set is translated such that one point is at the origin. The number of codewords may be infinite because the coordinate space is infinite-dimensional, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.
+  Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice, i.e., a discrete set of points in Euclidean space \(\mathbb{R}^n\) that forms a group under vector addition when translated so that one point is at the origin. The number of codewords may be infinite because the ambient Euclidean space is unbounded, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.
 
   A \(n\)-dimensional lattice-based code can be defined using a generator matrix \(G\) of rank \(n\), where the rows of \(G\) are the lattice translation vectors \(g_i\).
   Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 + \cdots + c_n g_n\).
@@ -32,7 +32,7 @@ description: |
   where \(A\) is an integer matrix \(A\) of determinant \(\pm 1\).
 
 protection: |
-  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=\det G\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
+  Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=|\det G|\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
 
   The minimum Euclidean distance is an analogue of the minimum distance of binary codes. Half of this distance is called the \textit{packing radius}.
 
@@ -43,7 +43,7 @@ protection: |
   characterizing the ratio of the level of protection to the required spatial resources.
   The \textit{density} of a lattice is the fraction of the total volume of space that is occupied by spheres of \textit{packing radius} \(\frac{1}{2}d_{\text{min}}\) centered at each point in the lattice,
   \begin{align}
-    \Delta=\frac{\text{volume of one sphere}}{\sqrt{V}}~.
+    \Delta=\frac{\text{volume of one sphere}}{V}~.
   \end{align}
 
   The covering radius of a lattice is defined similarly as above, but with the spheres' \textit{covering radius} now being the smallest one such that the spheres cover all space.
@@ -80,7 +80,7 @@ relations:
     - code_id: sphere_packing
       detail: 'Lattices are sphere packings whose points form a group under addition.'
     - code_id: group_linear
-      detail: 'Lattices-based codes are linear codes over \(G=\mathbb{R}\).
+      detail: 'Lattice-based codes are linear codes over \(G=\mathbb{R}\).
       Because any orthogonal matrix leaving the lattice invariant has a corresponding integer matrix (see lattice description), integer representations of groups can be used to obtain lattices \cite[Ch. 3, Sec. 4.2]{doi:10.1007/978-1-4757-6568-7}.'
   cousins:
     - code_id: 2pt_homogeneous

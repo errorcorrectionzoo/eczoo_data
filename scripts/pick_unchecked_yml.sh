@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-codes_dir="codes"
-checklist="scripts/checked_files.txt"
+codes_dir="$HOME/eczoo_data/codes/classical"
+checklist="$HOME/eczoo_data/scripts/checked_files.txt"
 
 if [[ ! -d "$codes_dir" ]]; then
   echo "Error: directory not found: $codes_dir" >&2

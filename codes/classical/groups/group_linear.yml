@@ -10,9 +10,9 @@ name: 'Linear code over \(G\)'
 introduced: '\cite{doi:10.1109/49.29613,doi:10.1109/18.133243,doi:10.1109/18.104333}'
 
 description: |
-  Block code that encodes \(K\) states (codewords) in \(n\) coordinates over a group \(G\) such that the codewords form a subgroup of \(G^n\). In other words, the set of codewords is closed under the group operation.
+  Block code that encodes \(K\) states (codewords) in \(n\) coordinates over a group \(G\) such that the codewords form a subgroup of \(G^n\). In other words, the set of codewords is closed under the componentwise group operation. This notion generalizes linear codes over finite fields, but it does not require \(G\) to be a field or even Abelian.
 
-  For finite groups that are not finite fields, the \textit{automorphism group} of such codes is the group \(G^n\) formed by the action of \(G\) on each coordinate as well as the coordinate permutation group \(S_n\).
+  For codes endowed with the Hamming metric on \(G^n\), the ambient isometry group contains coordinate permutations together with coordinatewise \hyperref[topic:group-pauli]{left translations} by elements of \(G\). The \textit{automorphism group} of a particular group code is the subgroup of those isometries that preserves the code, rather than the entire ambient group.
 
 features:
   rate: 'Linear codes over non-Abelian \(G\) cannot have better parameters than those for Abelian groups \cite{doi:10.1109/18.165454} and are asymptotically bad \cite{doi:10.1007/BF02997785,doi:10.1109/18.508859}.'

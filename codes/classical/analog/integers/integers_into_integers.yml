@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: integers_into_integers
-logical: groups
-physical: groups
+physical: reals
+logical: reals
 
 name: 'Integer-based code'
 
@@ -13,14 +13,14 @@ alternative_names:
   - '\(\mathbb{Z}\) code'
 
 
-description: 'Encodes \(K\) states (codewords) into \(n\) integer coordinates.'
+description: 'Encodes \(K\) states (codewords) into \(n\) integer coordinates, i.e., into a subset of \(\mathbb{Z}^n\).'
 
 protection: |
   A common distance between integer vectors is the \(\ell_1\) distance \cite{doi:10.1109/TIT.1973.1054954,doi:10.1109/ISIT.2011.6033693}.
 
 relations:
   parents:
-    - code_id: group_classical
+    - code_id: analog
   cousins:
     - code_id: rotor
       detail: 'Rotor codes are quantum counterparts of integer codes.'

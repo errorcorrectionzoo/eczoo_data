@@ -20,8 +20,8 @@ description: |
 
   A Galois field can be thought of as a vector space whose basis vectors are the \(m\) roots of some polynomial and whose coefficients (i.e., field) are \(p\)th roots of unity.
 
-  Codes can be denoted as \(((n,K))_q\) or \(((n,K,d))_q\), whenever the code''s distance \(d\) is defined.
-  This notation differentiates between Galois-qudit and \(((n,K,d))_{\mathbb{Z}_q}\) modular-qudit codes, although the same notation is usually used for both.'
+  Codes can be denoted as \(((n,K))_q\) or \(((n,K,d))_q\), whenever the code's distance \(d\) is defined.
+  This notation differentiates between Galois-qudit and \(((n,K,d))_{\mathbb{Z}_q}\) modular-qudit codes, although the same notation is usually used for both.
 
   There exists an analogue of the Wigner function for Galois qudits \cite{arxiv:quant-ph/0401155,arxiv:quant-ph/0410117}.
   
@@ -40,7 +40,7 @@ protection: |
   where \(\text{tr}\) is the \hyperref[topic:finite-fields]{field trace}.
   For multiple Galois qudits, error set elements are tensor products of elements of the single-qudit error set.
   Tensor products of \(X\) (\(Z\)) Galois-qudit Paulis acting on different qudits are called \(X\)\textit{-type} (\(Z\)\textit{-type}) Galois-qudit Pauli strings.
-  Combining the \(X\)-type and \(Z\)-type strings with a \(p\)th root of unity forms a group called the \textit{Galois-qudit Pauli group} (on \(n\) Galois qudits.
+  Combining the \(X\)-type and \(Z\)-type strings with a \(p\)th root of unity forms a group called the \textit{Galois-qudit Pauli group} on \(n\) Galois qudits.
   \end{defterm}
 
   The Galois-qudit Pauli error set is a unitary basis for linear operators on the multi-qudit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a \hyperref[topic:nice-error-basis]{nice error basis}. The distance associated with this set is often the minimum weight of a Galois qudit Pauli string that implements a nontrivial logical operation in the code.
@@ -65,8 +65,9 @@ relations:
       detail: 'Galois-qudit codes are block quantum codes with \(\Sigma=\mathbb{F}_q\).'
     - code_id: qecc_finite
     - code_id: group_quantum
-      detail: 'A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits \cite{doi:10.1109/18.959288}; see Sec. 5.3 of Ref. \cite{arxiv:quant-ph/0501074}.
-      Interpreted this way, Galois-qudit codes are group quantum codes whose physical spaces are constructed using Galois fields \(\mathbb{F}_q\) as groups. More general versions of such qudits can be valued in a Galois ring \cite{arxiv:2501.18968}, over which there also exists a Fourier transform \cite{arxiv:0904.2560}.'
+      detail: |
+        A Galois qudit for \(q=p^m\) can be decomposed into a Kronecker product of \(m\) modular qudits \cite{doi:10.1109/18.959288}; see Sec. 5.3 of Ref. \cite{arxiv:quant-ph/0501074}.
+        Interpreted this way, Galois-qudit codes are group quantum codes whose physical spaces are constructed using Galois fields \(\mathbb{F}_q\) as groups. More general versions of such qudits can be valued in a Galois ring \cite{arxiv:2501.18968}, over which there also exists a Fourier transform \cite{arxiv:0904.2560}.
   cousins:
     - code_id: qudits_into_qudits
       detail: |
