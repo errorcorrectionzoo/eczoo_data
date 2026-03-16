@@ -4,14 +4,14 @@
 #######################################################
 
 code_id: q-ary_repetition
-physical: bits
-logical: bits
+physical: q-ary_digits
+logical: q-ary_digits
 
 name: '\(q\)-ary repetition code'
 
-description: 'An \([n,1,n]_q\) code encoding consisting of codewords \((j,j,\cdots,j)\) for \(j \in \mathbb{F}_q\).'
+description: 'An \([n,1,n]_q\) code consisting of codewords \((j,j,\cdots,j)\) for \(j \in \mathbb{F}_q\).'
 
-protection: 'Detects errors on up to \(\frac{n-1}{2}\) coordinates, corrects erasure errors on up to \(\frac{n-1}{2}\) coordinates.'
+protection: 'Detects up to \(n-1\) symbol errors, corrects up to \(\left\lfloor (n-1)/2\right\rfloor\) symbol errors by majority vote, and corrects up to \(n-1\) erasures.'
 
 features:
   decoders:
