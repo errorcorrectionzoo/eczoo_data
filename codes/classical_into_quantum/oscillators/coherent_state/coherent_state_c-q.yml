@@ -11,7 +11,7 @@ name: 'Coherent-state c-q code'
 
 description: |
   Bosonic c-q code whose codewords form a constellation of coherent states.
-  Encodes real numbers into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced \textit{receiver}.
+  Encodes classical symbols into coherent states for transmission over a quantum channel and decoding with a quantum-enhanced \textit{receiver}.
 
   The code consists of \(K\) coherent states on \(n\) modes, where the \(j\)th state, or codeword, is uniquely defined through the amplitude vector \(\boldsymbol{\alpha}^j=(\alpha_1^j, \alpha_2^j, \cdots, \alpha_n^j)\).
   The \textit{codebook},
@@ -28,9 +28,8 @@ description: |
   \end{align}
   collects each codeword into the matrix \(C\) that characterizes the system of states to discriminate.
 
-  From the properties of \(C\), we can assess whether it is possible to optimally discriminate the codebook unambiguously.
-  Optimal unambiguous state discrimination requires each vector to be linearly independent, which corresponds to a full-rank codebook.
-  This is possible only if \(K \leq n\).
+  From the properties of \(C\), we can assess whether it is possible to discriminate the codebook unambiguously.
+  For a finite constellation, unambiguous state discrimination is possible only if the coherent states in the codebook are linearly independent.
 
 features:
   rate: 'Random Gaussian-distributed coherent-state c-q codes achieve the capacity of the lossy bosonic channel \cite{arxiv:quant-ph/0308012}.'
@@ -55,7 +54,7 @@ relations:
     - code_id: coherent_constellation
       detail: 'Coherent-state c-q codes encode classical alphabets into constellations of coherent states, while coherent-state constellation codes encode quantum information into superpositions of coherent states.'
     - code_id: modulation
-      detail: 'Coherent-state c-q codes are modulation schemes to transmission of classical information over quantum analog channels.'
+      detail: 'Coherent-state c-q codes are modulation schemes for transmission of classical information over quantum optical channels.'
 
 
 # Begin Entry Meta Information
