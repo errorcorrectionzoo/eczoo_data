@@ -22,10 +22,10 @@ description: |
   Its codewords are all even-weight binary strings.
   Its automorphism group is \(S_n\).
 
-protection: 'This code cannot protect information, it can only detect 1-bit error.'
+protection: 'This code cannot correct errors; it can only detect a single-bit error.'
 
 features:
-  rate: 'The code rate is \(\frac{n}{n+1}\to 1\) as \(n\to\infty\).'
+  rate: 'The code rate is \(\frac{n-1}{n}\to 1\) as \(n\to\infty\).'
 
   decoders:
     - 'If the receiver finds that the parity information of a codeword disagrees with the parity bit, then the receiver will discard the information and request a resend.'
