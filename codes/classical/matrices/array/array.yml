@@ -22,9 +22,9 @@ description: |
 protection: |
   Since they are designed to protect against corruption of nodes in a distributed storage network, many array codes are analyzed in terms of their erasure capabilities.
 
-  An analogue of the Hamming metric for array codes comes from the Hamming distance between two codewords whose columns of length \(m\) are converted into values in \(\mathbb{F}_q^m\) by treating the latter as the \(m\)th \hyperref[topic:finite-fields]{extension} of \(\mathbb{F}_q\). 
-  This converts a matrix codeword over \(\mathbb{F}_q\) into a vector over \(\mathbb{F}_q^m\) and is called \textit{subpacketization}.
-  Linear array codes are those codes that are linear w.r.t. \(\mathbb{F}_q^m\), i.e., that are closed under addition and multiplication by elements of said field when in vector form.
+  An analogue of the Hamming metric for array codes comes from counting the number of column positions in which two codewords differ.
+  Equivalently, one may treat each length-\(m\) column as a single symbol from an alphabet of size \(q^m\); this interpretation underlies the subpacketization viewpoint.
+  Array codes are typically \(\mathbb{F}_q\)-linear as matrix codes. In some constructions, after choosing an identification of columns with symbols from an extension field \(\mathbb{F}_{q^m}\), one also obtains an \(\mathbb{F}_{q^m}\)-linear code.
 
   There are other notions of distance for array codes, including the rank metric and its generalization the sum-rank metric.
 
