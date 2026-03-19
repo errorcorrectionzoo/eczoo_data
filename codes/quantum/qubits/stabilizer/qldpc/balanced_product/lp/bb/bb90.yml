@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bb90
+physical: qubits
+logical: qubits
+
+name: '\([[90,8,10]]\) BB code'
+introduced: '\cite{arxiv:2308.07915}'
+
+alternative_names:
+  - '\((15,3)\) BB code'
+
+description: |
+  A bivariate bicycle (BB) code with parameters \([[90,8,10]]\) and weight-six stabilizer generators \cite{arxiv:2308.07915}.
+
+  One defining presentation uses \((\ell,m)=(15,3)\) with \(x^{\ell}=y^{m}=1\), and
+  \(A=x^9+y+y^2\), \(B=1+x^2+x^7\) in \(\mathbb{F}_2[x,y]/(x^{\ell}-1,y^{m}-1)\) \cite{arxiv:2308.07915} \cite[Table 3]{arxiv:2308.07915}.
+
+features:
+  rate: 'Ancilla-added encoding rate is \(2/45\approx 1/23\), using \(n_a=n=90\) ancilla qubits.'
+
+
+relations:
+    parents:
+      - code_id: qcga
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: GitHubCopilot
+      date: '2026-03-19'
