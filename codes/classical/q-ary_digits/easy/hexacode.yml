@@ -16,7 +16,7 @@ alternative_names:
 description: |
   The \([6,3,4]_4\) Hermitian self-dual MDS code that has connections to projective geometry, lattices \cite{doi:10.1007/978-1-4757-6568-7}, and conformal field theory \cite{arxiv:2003.13700}.
 
-  A generator matrix for the hexacode is \cite[Ch. 3, pg. 82]{doi:10.1007/978-1-4757-6568-7}
+  A generator matrix for the hexacode is \cite[Exam. 1.7.8]{doi:10.1017/CBO9780511807077}
   \begin{align}
     \begin{pmatrix}
     1 & 0 & 0 & 1 & 1 & \omega\\
@@ -26,7 +26,7 @@ description: |
   \end{align}
   where \(\mathbb{F}_4 = \{0,1,\omega, \bar{\omega}\}\) is the \hyperref[topic:finite-fields]{quaternary Galois field}.
 
-  The automorphism group of the hexacode is \(3.A_6 \cong \Sigma(360\phi)\), which is expanded to \(3.S_6\) if one includes the field automorphism \(\omega \leftrightarrow \omega^2\) \cite[pg. 520]{preset:MacSlo}\cite[Ch. 3, pg. 82]{doi:10.1007/978-1-4757-6568-7}.
+  The permutation automorphism group of the hexacode is \(A_5 \cong 2I\), and the automorphism group is \(3.A_6 \cong \Sigma(360\phi)\). This is expanded to \(3.S_6\) if one includes the Galois automorphism \(\omega \leftrightarrow \omega^2\) \cite[Exam. 1.7.8]{doi:10.1017/CBO9780511807077}\cite[pg. 520]{preset:MacSlo}\cite[Ch. 3, pg. 82]{doi:10.1007/978-1-4757-6568-7}.
 
 
 features:
@@ -39,12 +39,11 @@ notes:
 
 
 # Projective two weight is parent through denniston
+# Extended QR, so QR is not parent
 relations:
   parents:
     - code_id: self_dual
       detail: 'The hexacode is Hermitian self-dual and, as a result, is also trace-Hermitian self-dual additive \cite[Sec. 9.10]{doi:10.1017/CBO9780511807077}. The hexacode and the shortened hexacode are extremal \cite[Tab. 9.14]{doi:10.1017/CBO9780511807077}\cite[Tm. 12]{arxiv:math/0005266}.'
-    - code_id: q-ary_quad_residue
-      detail: 'The hexacode is the smallest example of an extended quadratic-residue code of Type \(4^H\) \cite[Sec. 2.4.6]{doi:10.1007/3-540-30731-1}\cite[Exer. 363]{doi:10.1017/CBO9780511807077}.'
     - code_id: hyperoval
       detail: 'Columns of hexacode''s generator matrix represent the six points of a hyperoval in the projective plane \(PG(2,4)\), an example of a two-weight code \cite[pg. 289]{doi:10.1201/9781315371993}\cite[Exam. 19.2.1]{preset:HKStwoweight}.'
     - code_id: evaluation
@@ -59,6 +58,8 @@ relations:
       detail: 'Hexacodewords can be arranged in an order from smallest to largest, with each codeword differing at four places from the next \cite{manual:{R. A. Wilson,  On lexicographic codes of minimal distance 4, Atti Sem. Mat. Fis. Univ. Modena 33 (1984)}}\cite[pg. 327]{preset:MacSlo}.'
     - code_id: small_distance
   cousins:
+    - code_id: q-ary_quad_residue
+      detail: 'The hexacode is the smallest example of an extended quadratic-residue code of Type \(4^H\) \cite[Sec. 2.4.6]{doi:10.1007/3-540-30731-1}\cite[Exer. 363]{doi:10.1017/CBO9780511807077}.'
     - code_id: q-ary_hamming
       detail: 'The hexacode is an extended quaternary Hamming code \cite[Exer. 578]{doi:10.1017/CBO9780511807077}.'
     - code_id: stab_5_1_3
@@ -78,5 +79,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: SimonBurton
+      date: '2026-03-23'
+    - user_id: VictorVAlbert
+      date: '2026-03-23'
     - user_id: VictorVAlbert
       date: '2022-08-09'
