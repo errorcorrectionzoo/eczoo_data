@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+code_id: general_qldpc
+# includes both Galois and modular
+
+name: 'QLDPC code'
+
+alternative_names:
+  - 'Sparse quantum code'
+
+description: |
+  Member of a family of \([[n,k,d]]_{\Sigma}\) stabilizer codes over alphabet \(\Sigma\) for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\).
+  The code can be denoted by \([[n,k,d,w]]_{\Sigma}\), where possible alphabets include \(\Sigma \in \{\mathbb{Z}_q,\mathbb{F}_q,\mathbb{R},\mathbb{Z}\}\) corresponding to modular qudits, Galois qudits, oscillators, or rotors, respectively.
+  Sometimes, the two parameters are explicitly stated: each site of an an \((l,w)\)\textit{-regular QLDPC code} is acted on by \(\leq l\) generators of weight \(\leq w\).
+
+  A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome value are contained in a fixed volume that does not scale with \(n\).
+  As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
+
+  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit and bosonic stabilizer codes satisfying the above criteria are also called QLDPC codes.
+
+protection: |
+  Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
+  Code distance may not be a reliable marker of code performance.
+
+features:
+  decoders:
+    - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
+    - 'GD-CSS Decoder for Galois-qudit CSS QLDPC codes \cite{arxiv:2507.11534,manual:{Kasai, Kenta. "GD-CSS Decoder (Quantum Error Correction using Non-binary LDPC over GF(q))" (2025). https://github.com/kasaikenta/gd-css-decoder}}'
+
+notes:
+  - 'Infleqtion QLDPC software library for estimating distance and creating various qubit and Galois-qudit QLDPC CSS codes \cite{manual:{Michael A. Perlin. qLDPC. https://github.com/Infleqtion/qLDPC, 2023.}}'
+  - 'LDPC Python software library for decoding LDPC and QLDPC codes \cite{arxiv:2005.07016,manual:{Roffe, Joschka. "LDPC: Python tools for low density parity check codes." (2022).}}.'
+  - 'Reviews of QLDPC codes provided in Refs. \cite{doi:10.1109/ACCESS.2015.2503267,arxiv:2103.06309,arxiv:2510.14090}.'
+
+
+relations:
+  parents:
+    - code_id: qlwc
+      detail: 'QLDPC codes are QLWC codes for which the number of stabilizer generators that each site participates in is bounded by a constant as \(n\to\infty\).'
+    - code_id: quantum_locally_recoverable
+      detail: 'QLDPC codes are stabilizer QLRCs whose locality \(r \leq w\), the maximum number of subsystems that a stabilizer generator participates in \cite{arxiv:2311.08653}.'
+  cousins:
+    - code_id: q-ary_ldpc
+      detail: 'Galois-qudit QLDPC codes are quantum analogues of \(q\)-ary LDPC codes.'
+    - code_id: topological
+      detail: 'Topological codes are not generally defined using Pauli strings or their qudit and bosonic generalizations. However, for appropriate tesselations, the codespace is the ground-state subspace of a geometrically local Hamiltonian. In this sense, topological codes are QLDPC codes. Geometrically local commuting-projector code Hamiltonians on Euclidean manifolds are stable with respect to small perturbations when they satisfy the \hyperref[topic:tqo]{TQO conditions}, meaning that a notion of a phase can be defined \cite{arxiv:1001.4363,arxiv:1001.0344,arxiv:1109.1588,arxiv:1810.02428,arxiv:2010.15337}.
+      This notion can be extended to semi-hyperbolic manifolds \cite{arxiv:2405.19412} and non-geometrically local QLDPC codes exhibiting check soundness \cite{arxiv:2411.01002} (see also \cite{arxiv:2411.02384}).'
+    - code_id: dynamic_gen
+      detail: 'QLDPC codes can arise from a dynamical process \cite{arxiv:2004.09560}.'
+    - code_id: hamiltonian
+      detail: 'QLDPC code Hamiltonians can be simulated, with the help of perturbation theory, by two-dimensional Hamiltonians with non-commuting terms whose interactions scale with \(n\) \cite{arxiv:2308.13277}.'

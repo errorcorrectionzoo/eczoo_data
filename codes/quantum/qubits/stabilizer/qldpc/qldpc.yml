@@ -3,23 +3,21 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 code_id: qldpc
-# includes both Galois and modular
+physical: qubits
+logical: qubits
 
-name: 'Quantum LDPC (QLDPC) code'
+name: 'Qubit QLDPC code'
 short_name: 'QLDPC'
 
 alternative_names:
-  - 'Sparse quantum code'
+  - 'Sparse qubit code'
 
 description: |
-  Member of a family of \([[n,k,d]]\) stabilizer codes for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\).
-  The code can be denoted by \([[n,k,d,w]]\) or, for \(q\)-dimensional Galois-qudit QLDPC codes, \([[n,k,d]]_{(w,q)}\).
-  Sometimes, the two parameters are explicitly stated: each site of an an \((l,w)\)\textit{-regular QLDPC code} is acted on by \(\leq l\) generators of weight \(\leq w\). For finite size codes, the notation 
-  QLDPC codes can correct many stochastic errors far beyond the distance, which may not scale as favorably.
+  Member of a family of \([[n,k,d]]\) qubit stabilizer codes for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\).
+  The code can be denoted by \([[n,k,d,w]]\).
+  Sometimes, the two parameters are explicitly stated: each site of an an \((l,w)\)\textit{-regular qubit QLDPC code} is acted on by \(\leq l\) generators of weight \(\leq w\).
+  Qubit QLDPC codes can correct many stochastic errors far beyond the distance, which may not scale as favorably.
   Together with more accurate, faster, and easier-to-parallelize measurements than those of general stabilizer codes, this property makes QLDPC codes interesting in practice.
-
-  A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome value are contained in a fixed volume that does not scale with \(n\).
-  As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
 
   Notable qubit QLDPC codes are summarized in \ref{table:qldpc-codes}, demonstrating the steady improvement in code parameters that culminated in the first asymptotically good QLDPC codes.
     \begin{table}
@@ -57,13 +55,11 @@ description: |
       \label{table:qldpc-codes}
     \end{table}
 
-  Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit and bosonic stabilizer codes satisfying the above criteria are also called QLDPC codes.
-
 protection: |
   Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
   Code distance may not be a reliable marker of code performance.
 
-  Since QLDPC codes are stabilizer QLRCs whose locality \(r = w\), their relative distance is bounded by \cite[Thm. 4]{arxiv:2311.08653}
+  Since qubit QLDPC codes are stabilizer QLRCs whose locality \(r = w\), their relative distance is bounded by \cite[Thm. 4]{arxiv:2311.08653}
   \begin{align}
     \delta = \frac{d}{n} \leq \frac{1}{2} - \Omega\left(\frac{1}{r}\right)~.
   \end{align}
@@ -75,7 +71,7 @@ features:
     Bounds generalizing the \hyperref[topic:bpt-bound]{BPT bound} to qubit QLDPC codes depend on the separation profile of the code's underlying connectivity graph \cite{arxiv:2106.00765,arxiv:2307.03283}.
     A constant relative minimum distance can be achieved only for graphs that contain expanders \cite{arxiv:2106.00765}.
     Conversely, a code with parameters \(k\) and \(d\) requires a graph with \hyperref[topic:asymptotics]{order} \(\Omega(d)\) edges of length of \hyperref[topic:asymptotics]{order} \(\Omega(d/n^{1/D})\) \cite{arxiv:2109.10982}.
-    Random QLDPC codes found by solving certain constraint satisfaction problems (CSPs) practically achieve the capacity of the erasure channel \cite{arxiv:2207.03562}.
+    Random qubit QLDPC codes found by solving certain constraint satisfaction problems (CSPs) practically achieve the capacity of the erasure channel \cite{arxiv:2207.03562}.
 
     Qubit QLDPC codes cannot attain the capacity of the erasure channel \cite{arxiv:1205.7036}, but this capacity can be attained by code families with weight \(w = O(\text{polylog}n)\) \cite{arxiv:1703.00382}.
     There are bounds on their performance against erasure noise \cite{arxiv:1205.7036}.
@@ -86,7 +82,7 @@ features:
     - 'Fault-tolerant state preparation can be done in an overhead that is constant with the number of qubits \(n\) \cite{arxiv:2602.16948}.'
 
   transversal_gates:
-    - 'There are recipes to determine transversal gates for asymmetric QLDPC codes \cite{arxiv:2506.15905}.'
+    - 'There are recipes to determine transversal gates for asymmetric qubit QLDPC codes \cite{arxiv:2506.15905}.'
 
   general_gates:
     - 'Fault-tolerant logical measurements \cite{arxiv:2410.02213} that generalize a previous construction \cite{arxiv:2110.10794} and that require an \hyperref[topic:asymptotics]{order} \(O(d/\beta)\) ancilla qubits, where \(\beta\) is the Cheeger constant of the Tanner subgraph supporting the logical operator to be measured. This can be used for a generalization of lattice surgery for CSS QLDPC codes \cite{arxiv:2503.05003}. There are conditions on when fault-tolerant surgery can be performed with constant-time overhead \cite{arxiv:2510.14895}.'
@@ -98,8 +94,7 @@ features:
     - 'Iterative error estimation based on the MIN-SUM and SUM-PRODUCT algorithms \cite{arxiv:quant-ph/0502086}.'
     - 'Quantum belief propagation (BP) decoder \cite{arxiv:0706.4094,arxiv:0708.1337,arxiv:0801.1241} is a quantum version of the classical BP decoder, but performance suffers due to degeneracy \cite{arxiv:2012.15297}.
     Various post-processing algorithms have been proposed (see below and also Refs. \cite{doi:10.1109/MILCOM58377.2023.10356284,doi:10.1109/ICASSP48485.2024.10446153}).'
-    - 'BP-OSD decoder, scaling as \(O(n^3)\), adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.
-    For an open-source implementation, see LDPC Python software library \cite{arxiv:2005.07016,manual:{Roffe, Joschka. "LDPC: Python tools for low density parity check codes." (2022).}}.'
+    - 'BP-OSD decoder, scaling as \(O(n^3)\), adds a post-processing step based on ordered statistics decoding (OSD) to the belief propogation (BP) decoder \cite{arxiv:1904.02703}.'
     - 'Neural network BP decoders \cite{arxiv:1811.07835,arxiv:2212.10245} and GNN decoders \cite{arxiv:2307.01241,arxiv:2310.17758} for qubit codes.'
     - 'Partially and fully decoupled BP decoders, which use the decoupling representation, yield improvements against depolarizing noise \cite{arxiv:2305.17505}.'
     - 'Message-passing decoder utilizing stabilizer inactivation (MP-SI a.k.a. BP-SI) for CSS-type QLDPC qubit codes \cite{arxiv:2205.06125}.'
@@ -108,7 +103,6 @@ features:
     - 'BP guided decimation (BPGD) decoder \cite{arxiv:2312.10950}.'
     - 'SymBreak decoder, which adaptively modifies the decoding graph to break the degeneracy of the BP decoder \cite{arxiv:2412.02885}.'
     - 'Ambiguity clustering (AC) decoder, in which measurement data is divided into clusters and decoded independently \cite{arxiv:2406.14527}.'
-    - 'Non-binary decoding algorithm for CSS-type QLDPC codes \cite{doi:10.1109/ACCESS.2015.2503267}.'
     - '2D geometrically local syndrome extraction circuits with bounded depth using \hyperref[topic:asymptotics]{order} \(O(n^2)\) ancilla qubits \cite{arxiv:2109.14599}. For CSS codes, syndrome extraction can be implemented in constant depth \cite{arxiv:2109.14609}.'
     - 'Soft (i.e., analog) syndrome iterative BP for CSS-type QLDPC codes, utilizing the continuous signal obtained in the physical implementation of the stabilizer measurement (as opposed to discretizing the signal into a syndrome bit) \cite{arxiv:2205.02341}.'
     - 'The MWPM decoder for surface codes may be generalizable to QLDPC codes \cite{arxiv:2207.06428}.'
@@ -126,14 +120,13 @@ features:
     - 'Relay-BP decoder \cite{arxiv:2506.01779}.'
     - 'HyperBlossom \cite{arxiv:2508.04969}.'
     - 'Post-selection strategies for clustering based decoders \cite{arxiv:2510.05795}.'
-    - 'GD-CSS Decoder for Galois-qudit CSS QLDPC codes \cite{arxiv:2507.11534,manual:{Kasai, Kenta. "GD-CSS Decoder (Quantum Error Correction using Non-binary LDPC over GF(q))" (2025). https://github.com/kasaikenta/gd-css-decoder}}'
     - 'Decoder switching between soft-output and higher-accuracy decoders \cite{arxiv:2510.25222}.'
     - 'Graph augmentation and rewiring for interference (GARI) framework for circuit-level noise \cite{arxiv:2510.14060}.'
   fault_tolerance:
     - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794,arxiv:2308.08648,arxiv:2407.18393}.
     In one such technique, one first performs a logical measurement by \hyperref[topic:code-switching]{code switching} into a code whose stabilizer group includes the original stabilizers together with the logical Paulis that are to be measured.
     Then, one can reduce the weight of the output code using \hyperref[topic:weight-reduction]{weight reduction}.'
-    - 'Fault-tolerance with constant overhead can be performed on certain QLDPC codes \cite{arxiv:1310.2984}, e.g., quantum expander codes \cite{arxiv:1808.03821}.'
+    - 'Fault-tolerance with constant overhead can be performed on certain qubit QLDPC codes \cite{arxiv:1310.2984}, e.g., quantum expander codes \cite{arxiv:1808.03821}.'
     - 'Error-corrected GHZ state distillation for Steane error correction \cite{arxiv:2210.14143}.'
     - 'Fault-tolerant logical measurements \cite{arxiv:2410.02213} that generalize a previous construction \cite{arxiv:2110.10794} and that require an \hyperref[topic:asymptotics]{order} \(O(d/\beta)\) ancilla qubits, where \(\beta\) is the Cheeger constant of the Tanner subgraph supporting the logical operator to be measured. This can be used for a generalization of lattice surgery for CSS QLDPC codes \cite{arxiv:2503.05003}. There are conditions on when fault-tolerant surgery can be performed with constant-time overhead \cite{arxiv:2510.14895}.'
     - 'Fault-tolerant logical measurements based on an extractor system and allowing for universal computation \cite{arxiv:2503.10390}.'
@@ -145,32 +138,21 @@ features:
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:quant-ph/0110143,arxiv:1208.2317,arxiv:1311.7688}. In particular, any family of qubit QLDPC codes with superlogarithmic distance achieves a threshold \cite{arxiv:1208.2317}.'
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1412.6172}.'
   threshold:
-    - 'QLDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant \cite{arxiv:1310.2984}.'
+    - 'Qubit QLDPC codes with a constant encoding rate can reduce the overhead of fault-tolerant quantum computation to be constant \cite{arxiv:1310.2984}.'
 
 notes:
-  - 'Infleqtion QLDPC software library for estimating distance and creating various qubit and Galois-qudit QLDPC CSS codes \cite{manual:{Michael A. Perlin. qLDPC. https://github.com/Infleqtion/qLDPC, 2023.}}'
   - 'Links to code tables of notable QLDPC codes \cite{arxiv:2103.06309}.'
   - 'Collection of QLDPC qubit codes based on hyperbolic tilings in the QEC-Pages software library \cite{manual:{L. Pryadko and M. Woolls. Quantum_LDPC_Codes. https://github.com/QEC-pages/Quantum_LDPC_Codes, 2023.}}.'
-  - 'Reviews of QLDPC codes provided in Refs. \cite{doi:10.1109/ACCESS.2015.2503267,arxiv:2103.06309,arxiv:2510.14090}.'
-  - 'LDPC Python software library for decoding LDPC and QLDPC codes \cite{arxiv:2005.07016,manual:{Roffe, Joschka. "LDPC: Python tools for low density parity check codes." (2022).}}.'
   - 'High-rate QLDPC codes can be used for Bell-pair distillation \cite{arxiv:2502.09542}.'
   - 'Qldpc code circUIT Simulator (QUITS) Python software library for simulating QLDPC code circuits \cite{arxiv:2504.02673,manual:{Mingyu Kang. QUITS. https://github.com/mkangquantum/quits, 2025.}}.'
 
 relations:
   parents:
-    - code_id: qlwc
-      detail: 'QLDPC codes are QLWC codes for which the number of stabilizer generators that each site participates in is bounded by a constant as \(n\to\infty\).'
-    - code_id: quantum_locally_recoverable
-      detail: 'QLDPC codes are stabilizer QLRCs whose locality \(r \leq w\), the maximum number of subsystems that a stabilizer generator participates in \cite{arxiv:2311.08653}.'
+    - code_id: qubit_stabilizer
+    - code_id: general_qldpc
   cousins:
     - code_id: ldpc
-    - code_id: topological
-      detail: 'Topological codes are not generally defined using Pauli strings or their qudit and bosonic generalizations. However, for appropriate tesselations, the codespace is the ground-state subspace of a geometrically local Hamiltonian. In this sense, topological codes are QLDPC codes. Geometrically local commuting-projector code Hamiltonians on Euclidean manifolds are stable with respect to small perturbations when they satisfy the \hyperref[topic:tqo]{TQO conditions}, meaning that a notion of a phase can be defined \cite{arxiv:1001.4363,arxiv:1001.0344,arxiv:1109.1588,arxiv:1810.02428,arxiv:2010.15337}.
-      This notion can be extended to semi-hyperbolic manifolds \cite{arxiv:2405.19412} and non-geometrically local QLDPC codes exhibiting check soundness \cite{arxiv:2411.01002} (see also \cite{arxiv:2411.02384}).'
-    - code_id: dynamic_gen
-      detail: 'QLDPC codes can arise from a dynamical process \cite{arxiv:2004.09560}.'
-    - code_id: hamiltonian
-      detail: 'QLDPC code Hamiltonians can be simulated, with the help of perturbation theory, by two-dimensional Hamiltonians with non-commuting terms whose interactions scale with \(n\) \cite{arxiv:2308.13277}.'
+      detail: 'Qubit QLDPC codes are quantum analogues of binary LDPC codes.'
     - code_id: commuting_projector
       detail: 'Qubit QLDPC codes with check soundness, meaning that every weight-\(m\) stabilizer can be written as a product of \hyperref[topic:asymptotics]{order} \(O(m)\) stabilizer generators, are robust against few-body perturbations. This means that phases of matter can be defined from certain non-geometrically local QLDPC code Hamiltonians \cite{arxiv:2411.01002}.'
     - code_id: single_shot
@@ -181,9 +163,9 @@ relations:
     - code_id: random_stabilizer
       detail: 'Random qubit QLDPC codes found by solving certain constraint satisfaction problems (CSPs) practically achieve the capacity of the erasure channel \cite{arxiv:2207.03562}.'
     - code_id: algebraic_ldpc
-      detail: 'Algebraic LDPC codes made from Latin squares can be used to make QLDPC codes \cite[Ch. 15]{arxiv:0812.5104}.'
+      detail: 'Algebraic LDPC codes made from Latin squares can be used to make qubit QLDPC codes \cite[Ch. 15]{arxiv:0812.5104}.'
     - code_id: asymmetric_qecc
-      detail: 'There are recipes to determine transversal gates for asymmetric QLDPC codes \cite{arxiv:2506.15905}.'
+      detail: 'There are recipes to determine transversal gates for asymmetric qubit QLDPC codes \cite{arxiv:2506.15905}.'
 
 
 # Begin Entry Meta Information
