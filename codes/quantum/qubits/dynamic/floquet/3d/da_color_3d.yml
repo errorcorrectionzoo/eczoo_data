@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: da_color_3d
+physical: qubits
+logical: qubits
+
+name: '3D DA color code'
+introduced: '\cite{arxiv:2307.10353}'
+
+description: |
+  A 3D dynamical code constructed aperiodically that utilizes measurement sequences to encode logical information with automorphisms of the 3D color code.
+  The code represents the first step towards universal quantum computation with dynamical automorphism codes.
+  
+  The measurement sequence cycles the instantaneous stabilizer group (ISG) through different stabilizer groups, where certain measurement rounds realize the ISG of the 3D color code.
+  The parent topological phase underlying this dynamical code is realized by three copies of the cubic honeycomb color code \cite[Sec. VI.A]{arxiv:2307.10353}.
+
+features:
+  general_gates:
+    - 'A non-Clifford logical gate can be realized via adaptive two-qubit measurements \cite[Sec. VII]{arxiv:2307.10353}.'
+
+relations:
+  parents:
+    - code_id: da
+      detail: 'The 3D DA color code is a dynamical code with an aperiodic measurement sequence realizing a non-Clifford logical gate.'
+  cousins:
+    - code_id: cubic_honeycomb_color
+      detail: 'The parent topological phase of the 3D DA color code is realized by three copies of the cubic honeycomb color code \cite[Sec. VI.A]{arxiv:2307.10353}.'
+    - code_id: 3d_color
+      detail: 'At certain measurement rounds, the 3D DA color code realizes the instantaneous stabilizer group (ISG) of the 3D color code \cite[Sec. VI.A]{arxiv:2307.10353}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-03-25'

@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: da_color_2d
+physical: qubits
+logical: qubits
+
+name: '2D DA color code'
+introduced: '\cite{arxiv:2307.10353}'
+
+description: |
+  A 2D dynamical code constructed aperiodically that utilizes measurement sequences to encode logical information with automorphisms of the 2D color code.
+  The code is assembled from short measurement sequences that can realize all 72 automorphisms of the 2D color code.
+  On a stack of \(N\) triangular patches with a Pauli boundary, the code encodes \(N\) logical qubits.
+  
+  The measurement sequence cycles the instantaneous stabilizer group (ISG) through different stabilizer groups, where certain measurement rounds realize the ISG of the 2D color code.
+  The parent topological phase underlying this dynamical code is realized by two copies of the 6.6.6 (honeycomb) color code \cite[Sec. III.A]{arxiv:2307.10353}.
+
+features:
+  general_gates:
+    - 'On \(N\) layers of triangular patches (which encodes \(N\) logical qubits) with a \textit{Pauli boundary}, the measurement sequences can implement all Clifford logical gates via a sequence of two- and three-qubit Pauli measurements \cite[Sec. IV.A]{arxiv:2307.10353}.'
+
+relations:
+  parents:
+    - code_id: da
+      detail: 'The 2D DA color code is a dynamical code with an aperiodic measurement sequence realizing a Clifford logical gates.'
+  cousins:
+    - code_id: triangular_color
+      detail: 'The parent topological phase of the 2D DA color code is realized by two copies of the 6.6.6 color code \cite[Sec. III.A]{arxiv:2307.10353}.'
+    - code_id: 2d_color
+      detail: 'At certain measurement rounds, the 2D DA color code realizes the instantaneous stabilizer group (ISG) of the 2D color code \cite[Sec. III.A]{arxiv:2307.10353}.'
+    - code_id: surface
+      detail: 'One of the instantaneous stabilizer groups of the 2D DA color code is that of stacks of surface codes \cite[Sec. III.A]{arxiv:2307.10353}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-03-25'
