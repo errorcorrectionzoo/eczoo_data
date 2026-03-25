@@ -15,11 +15,47 @@ description: |
   The code can be denoted by \([[n,k,d,w]]_{\Sigma}\), where possible alphabets include \(\Sigma \in \{\mathbb{Z}_q,\mathbb{F}_q,\mathbb{R},\mathbb{Z}\}\) corresponding to modular qudits, Galois qudits, oscillators, or rotors, respectively.
   Sometimes, the two parameters are explicitly stated: each site of an an \((l,w)\)\textit{-regular QLDPC code} is acted on by \(\leq l\) generators of weight \(\leq w\).
 
+  Notable QLDPC codes are summarized in \ref{table:qldpc-codes}, demonstrating the steady improvement in code parameters that culminated in the first asymptotically good QLDPC codes.
+    \begin{table}
+      \begin{cells}
+      \celldata<c H, c H, c H>{\(k\) & \(d\) & Code}
+      \celldata<c, c, c>{
+      \(2\) & \(\sqrt{n}\) & \hyperref[code:surface]{Kitaev toric}
+          \\
+      \(\Theta(n)\) & \(\Theta(\log n)\) & \hyperref[code:two_dimensional_hyperbolic_surface]{2D hyperbolic surface}
+          \\
+      \(\Theta(n)\) & \(\Omega (n^{1/10})\) & \hyperref[code:four_dimensional_hyperbolic]{Guth-Lubotzky}
+          \\
+      \(2\) & \(\Omega (\sqrt{n\sqrt{\log n}})\) & \hyperref[code:freedman_meyer_luo]{Freedman-Meyer-Luo}
+          \\
+      \(\Theta(n)\) & \(\Theta(\sqrt{n})\) & \hyperref[code:hypergraph_product]{hypergraph product}
+          \\
+      \(\Theta (\sqrt{n}/\log n)\) & \(\Omega (\sqrt{n} \log n)\) & \hyperref[code:ramanujan_tensor_product]{high-dimensional expander (HDX)}
+          \\
+      \(\Theta (\sqrt{n})\) & \(\Omega (\sqrt{n} \log^c n)\) & \hyperref[code:iterated_ramanujan]{tensor-product HDX}
+          \\
+      \(\Theta (n^{3/5}/\text{polylog}(n))\) & \(\Omega (n^{3/5}/\text{polylog}(n))\) & \hyperref[code:fiber_bundle]{fiber-bundle}
+          \\
+      \(\Theta (\log n)\) & \(\Omega (n/\log n)\) & \hyperref[code:lifted_product]{lifted-product (LP)}
+          \\
+      \(\Theta (n^{4/5})\) & \(\Omega (n^{3/5})\) & \hyperref[code:balanced_product]{balanced product (BP)}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:expander_lifted_product]{expander LP}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:quantum_tanner]{quantum Tanner}
+          \\
+      \(\Theta(n)\) & \(\Theta(n)\) & \hyperref[code:dhlv]{Dinur-Hsieh-Lin-Vidick}
+      }
+      \end{cells}
+      \caption{Notable QLDPC codes and their \hyperref[topic:asymptotics]{asymptotic scaling} (see also Ref. \cite{arxiv:2103.06309}); \(c\) is a positive integer.}
+      \label{table:qldpc-codes}
+    \end{table}
+
   A \textit{geometrically local stabilizer code} is a QLDPC code where the sites involved in any syndrome value are contained in a fixed volume that does not scale with \(n\).
-  As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC codes can be done using a constant-depth circuit.
+  As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC code can be done using a constant-depth circuit.
 
   Strictly speaking, the term \textit{parity check} describes only bitwise qubit error syndromes. Nevertheless, qudit and bosonic stabilizer codes satisfying the above criteria are also called QLDPC codes.
-  This entry includes general code constructions which are intended to yield QLDPC codes, but may include specific instances that are non-QLDPC.
+  This entry includes general code constructions which are generally intended to yield QLDPC codes, but may include code families that have non-QLDPC members.
 
 protection: |
   Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
