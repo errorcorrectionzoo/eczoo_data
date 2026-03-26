@@ -17,7 +17,8 @@ alternative_names:
 description: |
   A subsystem version of the color code.
   One way to obtain it is by expanding the vertices of a two-colex embedded in a surface of genus \(g\).
-  Vertex expansion consists of spl every vertex into a triangle and splitting every edge into a pair of edges.
+  Vertex expansion consists of splitting every vertex into a triangle and splitting every edge into a pair of edges.
+  The stabilizer group may contain generators of unbounded weight, distinguishing these codes from stabilizer codes with bounded-weight generators for which some logical qubits were re-assigned to be gauge qubits.
 
 
 features:
@@ -30,6 +31,7 @@ features:
 relations:
   parents:
     - code_id: subsystem_css
+    - code_id: sparse_subsystem
     - code_id: qudit_subsystem_color
       detail: 'Modular-qudit subsystem color codes reduce to subsystem color codes for \(q=2\).'
   cousins:

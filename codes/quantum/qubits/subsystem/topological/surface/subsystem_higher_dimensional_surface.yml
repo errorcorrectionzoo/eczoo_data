@@ -1,0 +1,35 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_higher_dimensional_surface
+physical: qubits
+logical: qubits
+
+name: 'Subsystem homological code'
+
+alternative_names:
+  - 'Subsystem generalized surface code'
+
+description: |
+  A subsystem CSS code that is a subsystem version of the homological code, defined on cellulations of manifolds in arbitrary dimensions.
+  Gauge-group generators are of lower weight than the stabilizers of the corresponding surface code, enabling fault-tolerant syndrome extraction with simpler circuits.
+  The stabilizer group may contain generators of unbounded weight, distinguishing these codes from stabilizer codes with bounded-weight generators for which some logical qubits were re-assigned to be gauge qubits.
+
+
+relations:
+  parents:
+    - code_id: subsystem_css
+    - code_id: sparse_subsystem
+  cousins:
+    - code_id: higher_dimensional_surface
+      detail: 'Subsystem homological codes are subsystem versions of homological codes, with gauge-group generators of lower weight than the corresponding surface-code stabilizers.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-03-25'

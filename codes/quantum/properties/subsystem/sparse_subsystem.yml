@@ -6,15 +6,18 @@
 code_id: sparse_subsystem
 # includes both Galois and modular
 
-name: 'Sparse subsystem code'
+name: 'QLDPC subsystem code'
 introduced: '\cite{arxiv:1411.3334}'
-# geometrically local would also cover hyperbolic, Euclidean overlaps with CSS
+
+alternative_names:
+  - 'Sparse subsystem code'
 
 description: |
-  A geometrically local qubit, modular-qudit, or Galois-qudit subsystem stabilizer code for which the number of sites participating in each gauge-group generator and the number of gauge-group generators that each site participates in are both bounded by a constant as \(n\to\infty\).
+  Member of a family of \([[n,k,g,d]]_{\Sigma}\) subsystem stabilizer codes over alphabet \(\Sigma\) for which the number of sites participating in each stabilizer generator and the number of gauge generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\).
+  The stabilizer group may contain generators of unbounded weight, distinguishing these codes from stabilizer codes with bounded-weight generators for which some logical qubits were re-assigned to be gauge qubits.
 
 features:
-  rate: 'There exists a family of sparse subsystem codes with \(d = n^{1-\epsilon}\), where \(\epsilon = O(1/\sqrt{\log n})\) \cite{arxiv:1411.3334}.'
+  rate: 'There exists a family of QLDPC subsystem codes with \(d = n^{1-\epsilon}\), where \(\epsilon = O(1/\sqrt{\log n})\) \cite{arxiv:1411.3334}.'
 
 
 relations:
@@ -22,7 +25,7 @@ relations:
     - code_id: oecc
   cousins:
     - code_id: general_qldpc
-      detail: 'Sparse subsystem codes reduce to QLDPC codes when there are no gauge qudits.'
+      detail: 'QLDPC subsystem codes reduce to QLDPC codes when there are no gauge qudits.'
 
 
 # Begin Entry Meta Information
