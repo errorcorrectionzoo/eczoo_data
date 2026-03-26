@@ -4,7 +4,7 @@
 #######################################################
 
 code_id: sparse_subsystem
-# includes both Galois and modular
+physical: groups
 
 name: 'QLDPC subsystem code'
 introduced: '\cite{arxiv:1411.3334}'
@@ -13,7 +13,7 @@ alternative_names:
   - 'Sparse subsystem code'
 
 description: |
-  Member of a family of \([[n,k,g,d]]_{\Sigma}\) subsystem stabilizer codes over alphabet \(\Sigma\) for which the number of sites participating in each stabilizer generator and the number of gauge generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\).
+  Member of a family of subsystem stabilizer codes for which the number of sites participating in each gauge generator and the number of gauge generators that each site participates in are both bounded by a constant as \(n\to\infty\).
   The stabilizer group may contain generators of unbounded weight, distinguishing these codes from stabilizer codes with bounded-weight generators for which some logical qubits were re-assigned to be gauge qubits.
 
 features:
@@ -22,10 +22,10 @@ features:
 
 relations:
   parents:
-    - code_id: oecc
+    - code_id: subsystem_stabilizer
   cousins:
     - code_id: general_qldpc
-      detail: 'QLDPC subsystem codes reduce to QLDPC codes when there are no gauge qudits.'
+      detail: 'QLDPC subsystem codes reduce to QLDPC codes when there are no gauge degrees of freedom.'
 
 
 # Begin Entry Meta Information

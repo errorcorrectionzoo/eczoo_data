@@ -1,0 +1,29 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: subsystem_stabilizer
+physical: groups
+
+# root code
+name: 'Subsystem stabilizer code'
+
+description: |
+  A subsystem code that is derived from a stabilizer code by assigning some factors of the stabilizer code's logical tensor-product structure to gauge degrees of freedom.
+
+
+relations:
+  parents:
+    - code_id: oecc
+  cousins:
+    - code_id: stabilizer
+      detail: 'Subsystem stabilizer codes reduce to stabilizer codes when there are no gauge degrees of freedom.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-19'

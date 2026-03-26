@@ -4,7 +4,7 @@
 #######################################################
 
 code_id: translationally_invariant_subsystem
-# includes both Galois and modular
+physical: groups
 
 name: 'Lattice subsystem code'
 introduced: '\cite{arxiv:0908.4246}'
@@ -39,10 +39,11 @@ features:
        Namely, logical gates implemented via constant-depth quantum circuits on a \(D\)-dimensional lattice subsystem code whose distance increases at least logarithmically with \(n\) lie in the \(D\)th level of the \term{Clifford hierarchy} \cite{arxiv:1408.1720}.
        \end{defterm}'
 
+
 relations:
   parents:
     - code_id: sparse_subsystem
-      detail: 'Lattice subsystem codes are sparse subsystem codes on Euclidean geometries.'
+      detail: 'Lattice subsystem codes are QLDPC subsystem codes that are invariant under translations by a lattice unit cell.'
   cousins:
     - code_id: translationally_invariant_stabilizer
       detail: 'Lattice subsystem codes reduce to lattice stabilizer codes when there are no gauge qudits. The former (latter) is required to admit few-site gauge-group (stabilizer-group) generators on a lattice with boundary conditions.'
