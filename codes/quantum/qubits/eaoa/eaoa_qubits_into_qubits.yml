@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eaoa_qubits_into_qubits
+physical: qubits
+logical: qubits
+
+name: 'EAOA qubit code'
+introduced: '\cite{arxiv:2411.14389}'
+
+description: |-
+  Entanglement-assisted qubit code in the operator-algebra framework.
+  This family encompasses ordinary entanglement-assisted subspace qubit codes, entanglement-assisted subsystem qubit codes, entanglement-assisted hybrid qubit codes, and their operator-algebra generalizations.
+
+
+relations:
+  parents:
+    - code_id: eaoaecc
+      detail: 'An EAOA QECC defined over qubits is an EAOA qubit code.'
+  cousins:
+    - code_id: oa_qubits_into_qubits
+      detail: 'EAOA qubit codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to ordinary OA qubit codes when said qubits are interpreted as noiseless physical qubits.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-03-27'
