@@ -10,7 +10,7 @@ logical: qubits
 name: 'EA QLDPC code'
 
 description: |
-  EA qubit stabilizer code for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\)
+  EA qubit stabilizer code for which the number of sites participating in each stabilizer generator and the number of stabilizer generators that each site participates in are both bounded by a constant \(w\) as \(n\to\infty\).
 
 features:
   encoders:
@@ -27,6 +27,7 @@ relations:
     - code_id: eastab
   cousins:
     - code_id: qldpc
+      detail: 'EA QLDPC codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to qubit QLDPC codes when said qubits are interpreted as noiseless physical qubits.'
     - code_id: ldpc
       detail: 'There exist necessary and sufficient conditions for an EA QLDPC code consuming \(e=1\) ebit that is obtainable from a pair of LDPC codes \cite{arxiv:1108.0679}.'
 # Cousin of closest non-EA quantum code
