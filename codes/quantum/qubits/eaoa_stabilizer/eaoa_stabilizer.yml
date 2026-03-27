@@ -1,0 +1,37 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: eaoa_stabilizer
+physical: qubits
+logical: qubits
+
+name: 'EAOA qubit stabilizer code'
+introduced: '\cite{arxiv:2411.14389}'
+
+description: |-
+  Entanglement-assisted qubit stabilizer code in the operator-algebra framework. In the generalized stabilizer formalism of \cite{arxiv:2411.14389}, such a code is specified on an extended qubit space by Pauli data consisting of stabilizer, gauge, logical, and sector-labeling operators, and is viewed on the original system as using noiseless ebits shared with a receiver.
+  Such codes are denoted by \([[n,k; r,e,c_b]]\) or \([[n,k,d; r,e,c_b]]\), where \(n\) is the number of transmitted physical qubits, \(k\) is the number of logical qubits, \(r\) is the number of gauge qubits, \(e\) is the number of ebits, and \(c_b\) is the number of classical strings encoded. When the hybrid component encodes \(c\) classical bits, one has \(c_b=2^c\).
+  This family encompasses ordinary entanglement-assisted qubit stabilizer codes, entanglement-assisted subsystem stabilizer codes, entanglement-assisted hybrid stabilizer codes, and operator-algebra generalizations described within that stabilizer formalism.
+
+protection: |-
+  For stabilizer-described qubit subclasses, the EAOAQEC framework yields explicit Pauli error-correction conditions for errors acting on the sender's qubits under the usual assumption that the receiver's halves of the ebits are noiseless \cite{arxiv:2411.14389}.
+
+
+relations:
+  parents:
+    - code_id: eaoaecc
+      detail: 'A generalized stabilizer formalism of entanglement-assisted operator-algebra codes over qubits yields EAOA qubit stabilizer codes.'
+  cousins:
+    - code_id: qubit_stabilizer_oaqecc
+      detail: 'EAOA qubit stabilizer codes utilize additional ancillary subsystems in a pre-shared entangled state, but reduce to OA qubit stabilizer codes when said subsystems are interpreted as noiseless physical subsystems.'
+    # EA tree separate
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-03-27'

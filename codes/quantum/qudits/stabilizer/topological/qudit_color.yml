@@ -7,9 +7,9 @@ code_id: qudit_color
 physical: qudits
 logical: qudits
 
-name: 'Modular-qudit color code'
-introduced: '\cite{arxiv:1503.08800}'
 # assumed to be LATTICE CODE for now, diff from code_id:color, as motivated by paper
+name: 'Modular-qudit lattice color code'
+introduced: '\cite{arxiv:1503.08800}'
 
 description: |
   Extension of the color code to lattices of modular qudits.
@@ -19,22 +19,23 @@ description: |
 
 features:
   transversal_gates:
-    - 'Some modular-qudit color codes on \(D\)-dimensional lattices can transversally implement a gate at the \((D-1)\)st level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} \cite{arxiv:1503.08800}.'
+    - 'Some modular-qudit lattice color codes on \(D\)-dimensional lattices can transversally implement a gate at the \((D-1)\)st level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} \cite{arxiv:1503.08800}.'
 
   general_gates:
-    - 'Modular-qudit color codes whose \(X\)-type stabilizers are placed on cells of dimension \(\nu\) support transversal gates in the \(\nu\)th level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} as long as \(\nu! \neq 0\) modulo the qudit dimension \cite[Thm. 1]{arxiv:1503.08800}.
+    - 'Modular-qudit lattice color codes whose \(X\)-type stabilizers are placed on cells of dimension \(\nu\) support transversal gates in the \(\nu\)th level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} as long as \(\nu! \neq 0\) modulo the qudit dimension \cite[Thm. 1]{arxiv:1503.08800}.
     These codes saturate the \hyperref[topic:bk-bound]{Bravyi-Koenig bound}.
-    In particular, 3D color modular-qudit color codes admit a transversal modular-qudit \(T\) gate.'
+    In particular, 3D modular-qudit color codes admit a transversal modular-qudit \(T\) gate.'
     - 'Braiding twist defects of honeycomb tilings for qudits of odd prime dimension \cite{}.'
 
   decoders:
     - 'Generalized Color Clustering (GCC) decoder \cite{arxiv:1701.02335}.'
 
+
 relations:
   parents:
     - code_id: qudit_css
     - code_id: translationally_invariant_stabilizer
-      detail: 'Modular-qudit color codes are defined analogous to qubit color codes on suitable lattices of any spatial dimension, but a directionality is required in order to make the modular-qudit stabilizers commute \cite[Sec. III]{arxiv:1503.08800}.'
+      detail: 'Modular-qudit lattice color codes are defined analogous to qubit color codes on suitable lattices of any spatial dimension, but a directionality is required in order to make the modular-qudit stabilizers commute \cite[Sec. III]{arxiv:1503.08800}.'
     - code_id: generalized_homological_product_css
   cousins:
     - code_id: qudit_subsystem_color

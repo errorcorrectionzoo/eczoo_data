@@ -7,9 +7,9 @@ code_id: qudit_subsystem_color
 physical: qudits
 logical: qudits
 
+# General non-lattice entry since subsystem_color includes non-lattice codes
 name: 'Modular-qudit subsystem color code'
 introduced: '\cite{arxiv:1503.08800}'
-# Assumed to be lattice code as motivated by paper
 
 description: |
   An extension of subsystem color codes to modular qudits.
@@ -22,8 +22,10 @@ features:
 relations:
   parents:
     - code_id: qudit_subsystem_css
+    - code_id: sparse_subsystem
+  cousins:
     - code_id: translationally_invariant_subsystem
-      detail: 'Modular-qudit subsystem color codes are defined analogous to qubit subsystem color codes on suitable lattices of any spatial dimension, but a directionality is required in order to make the modular-qudit stabilizers commute \cite[Sec. VII]{arxiv:1503.08800}.'
+      detail: 'Modular-qudit subsystem lattice color codes are defined analogous to qubit subsystem lattice color codes on suitable lattices of any spatial dimension, but a directionality is required in order to make the modular-qudit stabilizers commute \cite[Sec. VII]{arxiv:1503.08800}.'
 
 
 # Begin Entry Meta Information
