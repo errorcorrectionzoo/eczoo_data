@@ -8,10 +8,10 @@ physical: galois
 logical: galois
 
 name: 'Maximal-entanglement EA Galois-qudit stabilizer code'
-introduced: '\cite{arxiv:1302.4150,doi:10.1007/s10623-014-9997-6}'
+introduced: '\cite{arxiv:1302.4150,doi:10.1007/s10623-014-9997-6,arxiv:1606.00134,doi:10.1007/s11128-019-2234-5}'
 
 description: |
-  An \([[n,k,d;e]]_q\) EA Galois-qudit stabilizer code for which \(e = n-k\).
+  An \([[n,k,d;e]]_q\) EA Galois-qudit stabilizer code for which \(e = n-k\), i.e., the number of required pre-shared maximally entangled Galois-qudit pairs saturates the defining maximal-entanglement condition.
 
 
 features:
@@ -20,6 +20,9 @@ features:
 relations:
   parents:
     - code_id: ea_galois_stabilizer
+  cousins:
+    - code_id: lcd
+      detail: 'Asymptotically good maximal-entanglement EA Galois-qudit stabilizer codes can be constructed from LCD codes \cite{arxiv:1606.00134}.'
 
   
 # Begin Entry Meta Information

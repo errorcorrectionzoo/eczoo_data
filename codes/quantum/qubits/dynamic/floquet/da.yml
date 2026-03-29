@@ -23,7 +23,7 @@ description: |
   As opposed to subsystem codes, only specific measurement sequences maintain the codespace, and not all sequences implement error detection.
   Aperiodic measurement sequences provide a way to implement logical gates \cite{arxiv:2307.10353}.
 
-  For dynamical codes based on topological phases, the phase associated with each ISG of the code can be obtained from a single \textit{parent topological phase} associated with the dynamical code \cite{arxiv:2212.00042} via as \hyperref[topic:code-switching]{anyon condensation}.
+  For dynamical codes based on topological phases, the phase associated with each ISG of the code can be obtained from a single \textit{parent topological phase} associated with the dynamical code \cite{arxiv:2212.00042} via \hyperref[topic:code-switching]{anyon condensation}.
   In this way, measurements cycle logical quantum information between the various condensed phases.
 
 
@@ -33,11 +33,11 @@ description: |
 protection: |
   \subsection{Classification of stabilizers by masking}
   There exists an efficient classical algorithm that tracks information learned by syndrome extraction at each step \cite{arxiv:2403.04163}.
-  The algorithm performs the following classification of stabilizers into unmasked, temporarily masked, and permanently unmasked stabilizers.
+  The algorithm performs the following classification of stabilizers into unmasked, temporarily masked, and permanently masked stabilizers.
 
   An unmasked stabilizer is a stabilizer whose outcome can be obtained by measurements.
   In general, it is not obvious to determine if a stabilizer can be unmasked as its eigenvalue may only be revealed indirectly as a product of several measurements.
-  A temporarily masked stabilizer is a stabilizer whose syndrome can not be obtained by the given sequence but could possibly be obtained with future measurements.
+  A temporarily masked stabilizer is a stabilizer whose syndrome cannot be obtained by the given sequence but could possibly be obtained with future measurements.
   A permanently masked stabilizer is a stabilizer whose outcome is irreversibly lost by the given sequence.
 
   For a masked stabilizer code with a set \(U\) of \(l\) masked stabilizers, its \textit{masked distance} is given by:
@@ -48,7 +48,7 @@ protection: |
 
 features:
   encoders:
-    - 'A dynamical code with \(r\) with \(r\) stabilizer generators can be initialized by a measurement sequence in at most \(r\) cycles \cite{arxiv:2403.04163}.'
+    - 'A dynamical code with \(r\) stabilizer generators can be initialized by a measurement sequence in at most \(r\) cycles \cite{arxiv:2403.04163}.'
 
   general_gates:
   - 'Code bounds for gates in the \term{Clifford hierarchy} (similar to the \hyperref[topic:bk-bound]{BK bounds}) can be formulated for QLDPC codes that are embedded in a \(D\)-dimensional lattice but that admit some long-range connectivity \cite{arxiv:2403.04163}.'
