@@ -12,8 +12,8 @@ introduced: '\cite{arxiv:quant-ph/0608027,arxiv:quant-ph/0610092}'
 
 description: |
   A code constructed using a variation of the stabilizer formalism designed to utilize pre-shared entanglement between sender and receiver.
-  A code is typically denoted as \([[n,k;e]]\) or \([[n,k,d;e]]\), where \(d\) is the distance of the underlying non-EA \([[n,k,d]]\) code, and \(e\) is the number of required pre-shared maximally entangled Bell states (ebits).
-  While other entangled states can be used, there is always a choice a generators such that the Bell state suffices while still using the fewest ebits.
+  A code is typically denoted as \([[n,k;e]]\) or \([[n,k,d;e]]\), where \(d\) is the distance of the EA code and \(e\) is the number of required pre-shared maximally entangled Bell states (ebits).
+  While other entangled states can be used, there is always a choice of generators such that Bell states suffice while still using the fewest ebits.
 
   The dual of an EA qubit stabilizer code is also an EA qubit stabilizer code whose logical qubits and ebits are interchanged, \(k\leftrightarrow e\) \cite{arxiv:1010.5506}.
 
@@ -26,9 +26,10 @@ protection: |
 features:
   rate: 'Asymptotically good EA qubit stabilizer codes exist \cite{doi:10.1007/s10623-014-9997-6}.'
   encoders:
-    - 'Fault-tolerant encodes utilizing pre-shared entanglement \cite{arxiv:2405.07242}.'
+    - 'Encoders and decoders of a minimal EA qubit stabilizer code should be realizable using hyper-entangled states \cite{arxiv:0807.4906}.'
+    - 'Fault-tolerant encoders utilizing pre-shared entanglement \cite{arxiv:2405.07242}.'
   decoders:
-    - 'Optical implementation of a minimal code using hyper-entangled states \cite{arxiv:0807.4906}.'
+    - 'Encoders and decoders of a minimal EA qubit stabilizer code should be realizable using hyper-entangled states \cite{arxiv:0807.4906}.'
 
 notes:
   - 'Tables of bounds and examples of EA qubit (and EA qutrit) stabilizer codes for various \(n\) and \(k\), based on algorithms developed in Refs. \cite{arxiv:2007.01249,arxiv:2207.05647,doi:10.1007/s11128-023-04211-x}, are maintained by M. Grassl at this \href{https://codetables.markus-grassl.de/}{website}.'
@@ -53,7 +54,7 @@ relations:
     - code_id: qubit_css
       detail: 'As opposed to CSS codes, EA qubit stabilizer codes can be constructed from any linear binary code.'
     - code_id: hybrid_qudit_oscillator
-      detail: 'A minimal EA qubit stabilizer code has been realized in using hyper-entangled states \cite{arxiv:0807.4906}.'
+      detail: 'Encoders and decoders of a minimal EA qubit stabilizer code should be realizable using hyper-entangled states \cite{arxiv:0807.4906}.'
     - code_id: qubit_concatenated
       detail: 'There exist concatenated EA qubit stabilizer codes that saturate the EA quantum Griesmer and Plotkin bounds \cite{arxiv:2412.16082}.'
     - code_id: ea_mds

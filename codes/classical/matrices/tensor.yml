@@ -24,7 +24,7 @@ description: |
   A check-product code forms the matrix subspace dual to its corresponding tensor-product code,
   \begin{align}
   \label{eq:dual-tensor}
-    C_{A}\boxplus C_{B}=C_A \otimes \mathbb{F}_2^{n_B} + \mathbb{F}_2^{n_A} \otimes C_B~.
+    C_{A}\boxplus C_{B}=C_A \otimes \mathbb{F}_q^{n_B} + \mathbb{F}_q^{n_A} \otimes C_B~.
   \end{align}
   The parity-check matrix of this code is \(H_A \otimes H_B\), where \(H_{A,B}\) is the parity-check matrix of \(C_{A,B}\) \cite[Lemma 3.3]{arxiv:2209.11405}.
 
@@ -47,7 +47,7 @@ features:
   rate: 'Rate of the tensor-product code \(C_A \otimes C_B\) is a product of the rates of the codes \(C_A\) and \(C_B\).'
 
   decoders:
-    - 'The simple decoding algorithm (first decode all columns with \(C_1\), then all rows with \(C_2\)) corrects up to \((d_A d_B-1)/4 \) errors.'
+    - 'The simple decoding algorithm (first decode all columns with \(C_A\), then all rows with \(C_B\)) corrects up to \((d_A d_B-1)/4 \) errors.'
     - 'Algorithms such as generalized minimum-distance decoding \cite{doi:10.1109/TIT.1966.1053873} or the min-sum algorithm can decode all errors of weight up to \((d_A d_B-1)/2\). Error location may be coupled with Viterbi decoding for every faulty sub-block \cite{doi:10.1109/TMAG.2005.861043}.'
 
 realizations:
