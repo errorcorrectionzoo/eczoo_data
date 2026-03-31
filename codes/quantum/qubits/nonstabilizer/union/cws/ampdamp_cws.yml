@@ -8,10 +8,14 @@ physical: qubits
 logical: qubits
 
 name: 'Amplitude-damping CWS code'
-introduced: '\cite{arxiv:0710.1052,arxiv:0907.5149}'
+introduced: '\cite{arxiv:0907.5149}'
 
 description: |
   Self-complementary CWS code that is designed to detect and correct \hyperref[topic:ad]{AD} errors.
+
+  Ref. \cite{arxiv:0907.5149} constructs such codes by starting from classical self-complementary single-error-correcting codes for the binary asymmetric channel and lifting them to quantum codewords of the form \(|u\rangle+|\overline{u}\rangle\).
+  In particular, the paper uses nonlinear Constantin-Rao and related Varshamov-Tenengol'ts codes, and also a binary-to-ternary mapping to obtain improved families for short block lengths.
+  Because the resulting codes are of CWS type, encoding and decoding circuits can be obtained from the underlying CWS construction \cite{arxiv:0907.5149}.
 
 
 relations:
@@ -21,8 +25,6 @@ relations:
   cousins:
     - code_id: constantin_rao
       detail: 'Amplitude-damping CWS codes can be obtained from CR codes \cite{arxiv:0907.5149}.'
-    - code_id: qubit_concatenated
-      detail: 'Concatenated versions of amplitude-damping CWS codes have been constructed \cite{arxiv:0710.1052,arxiv:2412.16450}.'
 
 
 # Begin Entry Meta Information
