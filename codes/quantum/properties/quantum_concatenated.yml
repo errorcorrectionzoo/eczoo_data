@@ -13,6 +13,9 @@ description: |
   In other words, one first encodes in the inner code, and then encodes each of its physical registers in the outer code.
   An inner \(C_{\text{in}} = ((n_1,K,d_1))_{q_1}\) and outer \(C_{\text{out}} = ((n_2,q_1,d_2))_{q_2}\) block quantum code yield an \(((n_1 n_2, K, d \geq d_1d_2))_{q_2}\) concatenated block quantum code \cite{preset:GottesmanBook}.
 
+  More generally, one can concatenate in blocks: several physical registers of the inner code can be grouped together so that each such block carries one logical register of the outer code.
+  Encoding then proceeds by first applying the inner encoding to each block and then applying the outer encoding across the resulting blocks.
+
   Concatenating an \(((n,q,d))_q\) block quantum code can be done recursively, with the \(r\)\textit{th level} of concatenation yielding an \(((n^r,q,d^r))_q\) code.
 
   Other ways to combine quantum codes include pasting \cite{arxiv:quant-ph/9607027}, and generalizations of concatenation exist \cite{arxiv:0901.1319,arxiv:0909.5103}.

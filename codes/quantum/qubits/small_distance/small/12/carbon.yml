@@ -15,9 +15,12 @@ alternative_names:
   - '\(C_{12}\) code'
 
 description: |
-  Twelve-qubit CSS code resulting from the concatenation of the \([[4,2,2]]\) code and the \(C_6\) code that has simplified fault-tolerant state preparation circuits for the \(00\) and \(++\) states. 
+  Twelve-qubit CSS code based on Knill's \(C_4/C_6\) scheme \cite{arxiv:2404.02280}.
+  Using the concatenation convention of the Zoo, the carbon code can be viewed as a block concatenation with inner code \([[4,2,2]]\) and outer code \(C_6\): three inner \([[4,2,2]]\) blocks encode six intermediate qubits, which are then encoded into two logical qubits by the outer \([[6,2,2]]\) code.
 
 features:
+  encoders:
+    - 'Simplified fault-tolerant state preparation circuits for the \(00\) and \(++\) states \cite{arxiv:2404.02280}.'
   transversal_gates:
     - 'Two-block CNOT gates are transversal because the code is CSS.'
     - 'Automorphism groups of the underlying classical codes can yield transversal \hyperref[topic:clifford]{Clifford gates} when combined with qubit permutations \cite{arxiv:1302.1035}.
@@ -35,7 +38,7 @@ relations:
   parents:
     - code_id: qubit_css
     - code_id: qubit_concatenated
-      detail: 'The carbon code is a concatenation of the \([[4,2,2]]\) code and the \(C_6\) code.'
+      detail: 'The \([[12,2,4]]\) carbon code is based on Knill''s \(C_4/C_6\) scheme \cite{arxiv:2404.02280}. Using the concatenation convention of the Zoo, it is a block concatenation with inner code \([[4,2,2]]\) and outer code \(C_6\).'
     - code_id: small_distance_qubit_stabilizer
   cousins:
     - code_id: stab_4_2_2
