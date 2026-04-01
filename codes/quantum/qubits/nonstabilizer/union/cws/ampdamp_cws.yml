@@ -15,13 +15,19 @@ description: |
 
   Ref. \cite{arxiv:0907.5149} constructs such codes by starting from classical self-complementary single-error-correcting codes for the binary asymmetric channel and lifting them to quantum codewords of the form \(|u\rangle+|\overline{u}\rangle\).
   In particular, the paper uses nonlinear Constantin-Rao and related Varshamov-Tenengol'ts codes, and also a binary-to-ternary mapping to obtain improved families for short block lengths.
-  Because the resulting codes are of CWS type, encoding and decoding circuits can be obtained from the underlying CWS construction \cite{arxiv:0907.5149}.
+
+features:
+  encoders:
+    - 'Because the resulting codes are of CWS type, encoding circuits can be obtained from the underlying CWS construction \cite{arxiv:0907.5149}.'
+  decoders:
+    - 'Because the resulting codes are of CWS type, decoding circuits can be obtained from the underlying CWS construction \cite{arxiv:0907.5149}.'
 
 
 relations:
   parents:
     - code_id: cws
     - code_id: self_complementary
+    - code_id: small_distance_quantum
   cousins:
     - code_id: constantin_rao
       detail: 'Amplitude-damping CWS codes can be obtained from CR codes \cite{arxiv:0907.5149}.'
