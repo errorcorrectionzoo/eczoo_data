@@ -13,11 +13,14 @@ introduced: '\cite{arxiv:1911.01354,arxiv:2412.06744}'
 description: |
   A member of a family of BBS codes with weight-two (two-body) gauge generators designed to suppress errors in adiabatic quantum computation.
   
-  The codes consist of the family of \([[4k+2l, 2k, g, 2]]\) BBS codes for even numbers of logical qubits and the family of \([[4k+2l-2, 2k-1, g, 2]]\) BBS codes for odd numbers of logical qubits, where \(k\) and \(l\) are integers satisfying \(l \leq \lceil (m-1)/2 \rceil\) with \(m\) either \(2k+1\) or \(2k\). 
+  The family consists of odd-\(m\) codes with \(m=2k+1\) and parameters \([[4k+2l,2k,2k+2l-2,2]]\), together with even-\(m\) codes with \(m=2k\) and parameters \([[4k+2l-2,2k-1,2k+2l-3,2]]\), where \(1 \leq l \leq k\) \cite{arxiv:2412.06744}.
+
+protection: |
+  These are distance-two subsystem codes, so they detect arbitrary single-qubit errors. In the energy-penalty setting of Hamiltonian quantum computation, the \(l=1\) subfamily maximizes the code rate and has the largest penalty gap within the trapezoid family \cite{arxiv:2412.06744}.
 
 features:
   general_gates:
-    - 'Single-qubit and two-qubit logical operators are two-local.'
+    - 'Single-qubit dressed logical operators are two-local, and products of two dressed logical operators of the same Pauli type can also be implemented using two-local physical interactions up to gauge operators \cite{arxiv:1911.01354,arxiv:2412.06744}.'
 
 
 relations:
@@ -28,7 +31,7 @@ relations:
     - code_id: iceberg
       detail: 'The trapezoid code family can be obtained from the \([[2m,2m-2,2]]\) error-detecting code by using some logical qubits as gauge qubits and imposing a two-dimensional qubit geometry \cite{arxiv:2412.06744}.'
     - code_id: goy
-      detail: 'The even-logical-qubit trapezoid family at \(l=k\) is a subsystem version of the Ganti-Onunkwo-Young code \cite{arxiv:1911.01354}.'
+      detail: 'The odd-\(m\) trapezoid family at \(l=k\) has parameters \([[6k,2k,4k,2]]\) and reproduces the two-local subsystem construction used for universal Hamiltonian quantum computation in \cite{arxiv:1911.01354}; this is a subsystem analogue of the \([[6k,2k,2]]\) Ganti-Onunkwo-Young family.'
     - code_id: small_distance_qubit_stabilizer
 
 

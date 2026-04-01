@@ -20,13 +20,14 @@ description: |
   cellulation).
   Codewords correspond to ground states of the surface code Hamiltonian, and error operators create or annihilate pairs of anyonic charges or vortices.
 
-  The construction on closed surfaces (surfaces with boundaries) is called the toric code (\textit{planar code} \cite{arxiv:quant-ph/9810055,arxiv:quant-ph/9811052}).
-  There are two types of stabilizers one can put on edges, yielding \textit{open} (a.k.a. rough or primal) and \textit{closed} (a.k.a. smooth or dual) boundaries.
-  A \textit{mixed boundary} consists of an interleaving of the two stabilizer types \cite{arxiv:1606.07116}.
+  The construction on a torus is called the toric code, while the construction on a planar patch with boundaries is called the \textit{planar code} \cite{arxiv:quant-ph/9810055,arxiv:quant-ph/9811052}.
+  Boundary segments come in two types, \textit{open} (a.k.a. rough or primal) and \textit{closed} (a.k.a. smooth or dual); logical operators on patches with boundary are naturally described by relative homology classes \cite{arxiv:quant-ph/9811052}.
+  A \textit{mixed boundary} consists of an interleaving of the two boundary types \cite{arxiv:1606.07116}.
 
 protection: |
   The original planar code on a square-lattice patch with different boundary conditions on the vertical and horizontal edges is a \([[L^2+(L-1)^2,1,L]]\) CSS code \cite{arxiv:quant-ph/9810055}.
-  Code size \(k = 2^{2g}\) for a torus of genus \(g\), and such higher genus surfaces have been investigated \cite{arxiv:2307.04418}.
+  On a closed orientable surface of genus \(g\), the codespace has dimension \(2^{2g}\), i.e., the code encodes \(k=2g\) logical qubits; such higher-genus surfaces have been investigated \cite{arxiv:quant-ph/9811052,arxiv:2307.04418}.
+  Planar patches with holes or mixed boundaries can encode multiple logical qubits, and mixed-boundary layouts can reduce planar overhead by about a factor of three compared with punctured square-lattice constructions \cite{arxiv:1606.07116}.
   The surface code has also been shown to be resilient to burst errors \cite{arxiv:2406.18897}.
   
 
@@ -64,7 +65,7 @@ features:
   transversal_gates:
     - 'Transversal \hyperref[topic:clifford]{Clifford gates} can be done on folded surface codes \cite{arxiv:1603.02286}.'
     - |
-      Fold-transversal initialization of the \(|Y\rangle\) logical state \cite{arXiv:1603.02286,arXiv:2302.07395,arXiv:2302.12292,arxiv:2502.00957}.
+      Fold-transversal initialization of the \(|Y\rangle\) logical state \cite{arxiv:1603.02286,arxiv:2302.07395,arxiv:2302.12292,arxiv:2502.00957}.
 
 
 
@@ -76,7 +77,7 @@ features:
     - |
       Logical Hadamard gate \cite{arxiv:1202.2639}.
     - |
-      Non-Clifford gates require magic state distillation
+      Non-Clifford gates can be implemented using magic-state distillation
       \cite{arxiv:1905.06903}, Dehn twists \cite{arxiv:1703.00590,arxiv:1806.06078}, or
       just-in-time decoding \cite{arxiv:1903.11634,arxiv:2412.12529}.
     - |
@@ -144,15 +145,14 @@ features:
     - 'Quasi-local Lindbladian decoder based on the approximate Petz theorem \cite{arxiv:2404.07251}.'
     - 'Exclusive decoder family incorporating post-selection on decoding instances deemed not too difficult \cite{arxiv:2405.03766}.'
     - 'Quantum version of the Tsirelson local automaton decoder \cite{arxiv:2412.19803}.'
-    - 'Bubble clustering decoder \cite{arXiv:2504.01654}.'
+    - 'Bubble clustering decoder \cite{arxiv:2504.01654}.'
     - 'Union-Intersection Union-Find (UIUF) decoder \cite{arxiv:2506.14745}.'
-    - 'Fault-tolerant constant-depth encoder and unencoder using measurements \cite{arxiv:2408.06299}.'
   threshold:
-    - 'Circuit-level noise: \(1.8\%\) under correlated CNO\(T\)-gate errors and single-qubi\(T\)-gate depolarizing noise \cite{arxiv:0905.0531} with optimal decoder \cite{arxiv:1609.06373}, and
+    - 'Circuit-level noise: \(1.8\%\) under correlated CNOT-gate errors and single-qubit depolarizing noise \cite{arxiv:0905.0531} with optimal decoder \cite{arxiv:1609.06373}, and
     \(0.35\%\) under independent \(X,Z\) noise with optimal decoder \cite{arxiv:1609.06373}.
-    Also, \(0.57\%\) for depolarizing noise on data and syndrome qubits as well initialization, gate, and measurement errors under MPWM decoding \cite{arxiv:1208.0928}.
+    Also, \(0.57\%\) for depolarizing noise on data and syndrome qubits as well as initialization, gate, and measurement errors under MWPM decoding \cite{arxiv:1208.0928}.
     For this model, a logical qubit with a \(10^{-14}\) logical error rate requires between \(10^3\) to \(10^4\) physical qubits and a target gate fidelity above \(99.9\%\).
-    Later work showed that arbitrarily large computations are possible for a physical error rate of approximately \(10^{-4}\) \cite{arxiv:1206.0800}.
+    Later work gave a rigorous threshold proof for arbitrarily reliable computation under local stochastic circuit noise with physical error rate \(p < 7.4\times 10^{-4}\) \cite{arxiv:1206.0800}.
     Thresholds of \(0.5-2.9\%\) have been observed for various noise models \cite{arxiv:quant-ph/0207088,arxiv:quant-ph/0610082,arxiv:0803.0272,arxiv:0811.0464,arxiv:1009.3686,arxiv:1311.5003,arxiv:1609.06373}.
     A threshold of \(0.41\%\) when concatenated with the \([[4,2,2]]\) code \cite{arxiv:1604.04062}.
     The union-find decoder has a finite threshold under circuit-level local stochastic noise \cite{arxiv:2602.20238}.'

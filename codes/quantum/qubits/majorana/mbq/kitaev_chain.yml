@@ -15,31 +15,32 @@ alternative_names:
 # 2411.08955 and 2412.16081
 
 description: |
-  An \([[n,1]]_{f}\) Majorana stabilizer code forming the ground-state of the Kitaev Majorana chain (a.k.a. Kitaev Majorana wire) in its fermionic topological phase, which is unitarily equivalent to the 1D quantum Ising model in the symmetry-breaking phase via the Jordan-Wigner transformation.
-  The code is usually defined using the algebra of two anti-commuting Majorana operators called \textit{Majorana zero modes (MZMs)} or \textit{Majorana edge modes (MEMs)}.
-  It can be thought of as the Majorana stabilizer analogue of the quantum repetition code, and it encodes a logical fermion because its logical Majorana operator has odd weight \cite{arxiv:2411.08955}.
+  An \([[n,1]]_{f}\) Majorana stabilizer code obtained from the ground-state subspace of the Kitaev Majorana chain in its fermionic topological phase \cite{arxiv:cond-mat/0010440}. Its codespace is stabilized by nearest-neighbor Majorana bilinears, while two unpaired edge Majoranas furnish one logical fermionic mode. Under parity-preserving noise, it behaves as the Majorana analogue of the repetition code \cite{arxiv:2411.08955}.
 
-  Codewords have different values of the fermionic parity.
-  As a result, this code is considered unphysical because, in the fermionic context, fermion parity conservation prevents one from realizing coherent superpositions between them.
-  One can combine two such code blocks to form a Majorana box qubit, which is the fixed-parity subspace of the combined codespace. 
+  At the fixed-point limit, the code Hamiltonian is proportional to \(-\sum_{j=1}^{n-1} i \gamma_{2j}\gamma_{2j+1}\), so the codespace is the common \(+1\) eigenspace of the stabilizers \(S_j=i\gamma_{2j}\gamma_{2j+1}\). The two unpaired edge operators \(\gamma_{1}\) and \(\gamma_{2n}\) are the \textit{Majorana zero modes (MZMs)} or \textit{Majorana edge modes (MEMs)}; they commute with all stabilizers and define a logical fermionic mode \(f_{\mathrm{L}}=(\gamma_{1}+i\gamma_{2n})/2\). Via the Jordan-Wigner transformation, the model maps to the 1D quantum Ising chain in its symmetry-breaking phase.
+  The code can be thought of as the Majorana stabilizer analogue of the quantum repetition code: parity-preserving dephasing operators \(Z_j=i\gamma_{2j-1}\gamma_{2j}\) play the role of repetition-code bit flips, while the logical Majorana operators have odd weight and therefore encode a logical fermion \cite{arxiv:2411.08955}.
+
+  The two basis states of a single chain have opposite fermionic parity.
+  Therefore, a single chain does not by itself furnish a fixed-parity qubit encoding; coherent superpositions between the two basis states are not directly accessible in an isolated fermionic system with parity superselection.
+  One can combine two such code blocks to form a Majorana box qubit, which is the fixed-parity subspace of the combined codespace.
   Odd numbers of code blocks also contain fixed-parity logical subspaces in their codespace.
 
 protection: |
-  In the fermionic context, code states are insensitive to any local Majorana operator product that respects fermion parity symmetry.
-  However, the distance is one because the code does not protect against single Majorana operators, which do not commute with the parity symmetry.
+  In the fixed-point limit, local parity-preserving bilinears such as \(Z_j=i\gamma_{2j-1}\gamma_{2j}\) anticommute with nearby stabilizers, so the chain behaves as a repetition code against dephasing or phase errors \cite{arxiv:2411.08955}. For a finite chain, the splitting between the two code states is exponentially small in the separation between the edge modes \cite{arxiv:cond-mat/0010440}.
+  As a Majorana stabilizer code, however, its distance is \(1\) because a single MZM is already a logical operator. The code therefore does not protect against single-Majorana, parity-violating errors such as quasiparticle poisoning.
   Disorder may help with protection \cite{arxiv:1108.3845}.
 
 features:
   general_gates:
-    - 'Braiding gates, fermionic \(S\) gates, braid-based fermionic \(T\) gates, and fermion and mixed qubit-fermion \(CZ\) gates \cite{arxiv:2411.08955}.'
+    - 'Braiding, fermionic Hadamard, \(S\), and \(T\) gates, fermion \(CZ_f\), and mixed qubit-fermion \(CZ_{qf}\) gates are described for logical fermions encoded in this repetition code \cite{arxiv:2411.08955}.'
   decoders:
     - 'Local automaton decoder based on self-dual cellular automaton \cite{arxiv:1711.08196}.'
-    - 'Syndrome extraction can be performed by interfacing with a qubit ancilla and a mixed qubit-fermion gate \cite{arxiv:2411.08955}.'
+    - 'Syndrome extraction of the stabilizers \(S_j=i\gamma_{2j}\gamma_{2j+1}\) can be performed by interfacing with a qubit ancilla and mixed qubit-fermion gates \cite{arxiv:2411.08955}.'
 
 
 realizations:
-  - 'Photonic systems: braiding of defects has been simulated in a device that has a different notion of locality than a bona-fide fermionic system \cite{arxiv:1411.7751}.'
-  - 'Superconducting circuits: initialization \cite{arxiv:2206.00563}, braiding \cite{arxiv:2203.15083} and detection \cite{arxiv:2203.15083,arxiv:2204.11372} of defects has been simulated in devices that have a different notion of locality than a bona-fide fermionic system.'
+  - 'Photonic systems: braiding of topological Majorana modes has been simulated in a device that has a different notion of locality than a bona fide fermionic system \cite{arxiv:1411.7751}.'
+  - 'Superconducting circuits: preparation \cite{arxiv:2206.00563}, braiding \cite{arxiv:2203.15083}, and detection of Majorana edge modes \cite{arxiv:2203.15083,arxiv:2204.11372} have been simulated in devices that have a different notion of locality than a bona fide fermionic system.'
 
 
 
