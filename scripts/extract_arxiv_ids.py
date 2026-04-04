@@ -11,10 +11,51 @@ ROOT = Path(__file__).resolve().parent.parent
 CODES_DIR = ROOT / "codes"
 OUTPUT_PATH = ROOT / "scripts" / "arxiv_ids.txt"
 
-# Match \cite{...} blocks, allowing line breaks inside the braces.
-CITE_PATTERN = re.compile(r"\\cite(?:\[[^\]]*\])?\{(.*?)\}", re.DOTALL)
 # Match arxiv:... or arXiv:... entries inside a cite block until the next comma/brace/space.
 ARXIV_PATTERN = re.compile(r"arxiv:([^,\}\s]+)", re.IGNORECASE)
+
+
+def iter_cite_contents(text: str) -> list[str]:
+    """Return ``\\cite{...}`` contents while handling nested braces."""
+    cite_contents: list[str] = []
+    index = 0
+
+    while True:
+        cite_start = text.find(r"\cite", index)
+        if cite_start == -1:
+            return cite_contents
+
+        cursor = cite_start + len(r"\cite")
+
+        if cursor < len(text) and text[cursor] == "[":
+            bracket_depth = 1
+            cursor += 1
+            while cursor < len(text) and bracket_depth:
+                if text[cursor] == "[":
+                    bracket_depth += 1
+                elif text[cursor] == "]":
+                    bracket_depth -= 1
+                cursor += 1
+
+        if cursor >= len(text) or text[cursor] != "{":
+            index = cite_start + len(r"\cite")
+            continue
+
+        cursor += 1
+        contents_start = cursor
+        brace_depth = 1
+
+        while cursor < len(text) and brace_depth:
+            if text[cursor] == "{":
+                brace_depth += 1
+            elif text[cursor] == "}":
+                brace_depth -= 1
+            cursor += 1
+
+        if brace_depth == 0:
+            cite_contents.append(text[contents_start : cursor - 1])
+
+        index = cursor
 
 
 def extract_arxiv_ids() -> list[str]:
@@ -25,7 +66,7 @@ def extract_arxiv_ids() -> list[str]:
         uncommented_content = "\n".join(
             line for line in content.splitlines() if not re.match(r"^\s*#", line)
         )
-        for cite_contents in CITE_PATTERN.findall(uncommented_content):
+        for cite_contents in iter_cite_contents(uncommented_content):
             for match in ARXIV_PATTERN.findall(cite_contents):
                 if re.search(r"\d", match):
                     arxiv_ids.add(match)

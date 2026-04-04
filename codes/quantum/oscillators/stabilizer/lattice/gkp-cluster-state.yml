@@ -14,7 +14,7 @@ alternative_names:
   - 'Hybrid cluster-state code'
 
 description: |
-  Cluster-state code can consists of a generalized analog cluster state that is initialized in GKP (resource) states for some of its physical modes. 
+  A cluster-state code that utilizes a generalized analog cluster state initialized in GKP (resource) states for some of its physical modes. 
   Alternatively, it can be thought of as an oscillator-into-oscillator GKP code whose encoding consists of initializing \(k\) modes in momentum states (or, in the normalizable case, squeezed vacua), \(n-k\) modes in (normalizable) GKP states, and applying a Gaussian circuit consisting of two-body \(e^{i V_{jk} \hat{x}_j \hat{x}_k }\) for some angles \(V_{jk}\).
   Provides a way to perform fault-tolerant MBQC, with the required number \(n-k\) of GKP-encoded physical modes determined by the particular protocol \cite{arxiv:1310.7596,arxiv:2010.02905,arxiv:1712.00294,arxiv:2104.03241}.
 
@@ -29,7 +29,7 @@ features:
   decoders:
     - 'GKP error correction can be naturally combined with CV MBQC protocols since the performance of both is quantified by a squeezing parameter \cite{arxiv:1310.7596}.'
   threshold:
-    - 'A lower bound on the squeezing required to obtain a particular error rate can be formulated in terms of the displacement noise strength. This in turn determines how much squeezing is required in order to be below \hyperref[topic:computational-threshold]{threshold} for a particular concatenated code. A threshold of \(10^{-6}\) yields a required squeezing of 20.5 dB \cite{arxiv:1310.7596}. Anti-squeezing does not affect the threshold \cite{arxiv:1903.02162}.'
+    - 'A lower bound on the squeezing required to obtain a particular error rate can be formulated in terms of the displacement noise strength. This in turn determines how much squeezing is required in order to be below \hyperref[topic:computational-threshold]{threshold} for a particular concatenated code. For a qubit-level fault-tolerance threshold of \(10^{-6}\), the required squeezing is above 20.5 dB \cite{arxiv:1310.7596}. Anti-squeezing does not affect this threshold estimate \cite{arxiv:1903.02162}.'
 
 realizations:
   - 'A distance-two repetition code using a GKP CV cluster state consisting of squeezed states and GKP states has been implemented in a photonic device by Xanadu \cite{doi:10.1038/s41586-024-08406-9}.'

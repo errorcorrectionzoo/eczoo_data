@@ -14,11 +14,11 @@ description: |
   An \(n\)-qubit code whose codewords are a pair of approximately locally indistinguishable states produced by starting with any two orthogonal \(n\)-qubit states and acting with a random unitary circuit of depth polynomial in \(n\).
   Two states are \textit{locally indistinguishable} if they cannot be distinguished by local measurements. A single layer of the encoding circuit is composed of about \(n/2\) two-qubit nearest-neighbor gates run in parallel, with each gate drawn randomly from the Haar distribution on two-qubit unitaries.
 
-  The above circuit elements act on nearest-neighbor qubits arranged in a line, i.e., a 1D geometry (\(D=1\), while codes for higher-dimensional geometries require \(O(n^{1/D})\)-depth circuits \cite{doi:10.1007/s00220-016-2706-8}. Follow-up work \cite{arxiv:2010.09775} revealed that optimal code properties require only \(O(\sqrt{n})\)-depth circuits for that case, and \(O(\sqrt{n})\)-depth circuits for a two-dimensional square-lattice geometry.
-  This result has in turn to other types of Pauli noise \cite{arxiv:2212.05071}, with the previous result holding for erasure noise only.
+  The above circuit elements act on nearest-neighbor qubits arranged in a line, i.e., a 1D geometry (\(D=1\)); codes for higher-dimensional geometries require \(O(n^{1/D})\)-depth circuits \cite{doi:10.1007/s00220-016-2706-8}. Follow-up work \cite{arxiv:2010.09775} showed that, at the erasure threshold, 1D random circuits require \(O(\sqrt{n})\) depth, whereas dimensions \(D \geq 2\) retain \(O(\log n)\)-depth scaling.
+  This result has in turn been extended to other types of Pauli noise \cite{arxiv:2212.05071}, while the previous result applies to erasure noise.
 
 protection: |
-  In a 1D geometry, the local Haar-random circuit qubit code code approximately detects any error with support on a segment of length \(\leq n/4\), with deviations exponentially suppressed in \(n\). 
+  In a 1D geometry, the local Haar-random circuit qubit code approximately detects any error with support on a segment of length \(\leq n/4\), with deviations exponentially suppressed in \(n\). 
   There is a phase transition in error correction power vs error rate \(p\), with a critical depth of \hyperref[topic:asymptotics]{order} \(O(1/p)\) \cite{arxiv:2510.07512}.
 
 features:
@@ -38,7 +38,7 @@ relations:
     - code_id: unitary_design
       detail: 'Local Haar-random circuits of polynomial depth form approximate unitary designs \cite{arxiv:1208.0692}.'
     - code_id: 1d_stabilizer
-      detail: 'In a 1D geometry, the local Haar-random circuit qubit code code approximately detects any error with support on a segment of length \(\leq n/4\), with deviations exponentially suppressed in \(n\). There is a phase transition in error correction power vs error rate \(p\), with a critical depth of \hyperref[topic:asymptotics]{order} \(O(1/p)\) \cite{arxiv:2510.07512}.'
+      detail: 'In a 1D geometry, the local Haar-random circuit qubit code approximately detects any error with support on a segment of length \(\leq n/4\), with deviations exponentially suppressed in \(n\). There is a phase transition in error correction power vs error rate \(p\), with a critical depth of \hyperref[topic:asymptotics]{order} \(O(1/p)\) \cite{arxiv:2510.07512}.'
 
 
 # Begin Entry Meta Information
