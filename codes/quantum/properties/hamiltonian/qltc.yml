@@ -10,7 +10,7 @@ short_name: 'QLTC'
 introduced: '\cite{arxiv:1310.5664}'
 
 description: |
-  A local commuting-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, QLTC error states that are far away from the codespace have to be excited states by a number of the code's local projectors that scales linearly with \(n\).
+  A local commuting-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, states that are far away from the codespace of a QLTC have to be excited states of a number of the code's local projectors that scales linearly with \(n\).
 
   The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC families as those for which the soundness is asymptotically constant. QLTC families that also have asymptotically constant distance, rate, and weight of local projectors are called \(c^3\)\textit{-QLTCs}; none have been found so far.
 
@@ -36,7 +36,7 @@ protection: |
   AEL distance amplification \cite{doi:10.1109/SFCS.1995.492581,doi:10.1109/18.556669} can be used to convert an \([[n^{\prime},k,d,w]]\) soundness-\(R\) CSS LTC family into an \([[n=n^{\prime}+O(1),k,d=O(n)]]\) family with \(w\) and \(R\) differing by a factor at most polynomial in \(w\) and \(n/d\) \cite[Thm. 1.3]{arxiv:2309.05541}.
 
 notes:
-  - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a QLTC with constant parameters would implies resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363} (see also \cite{arxiv:2311.09503}).
+  - 'It was shown in Ref. \cite{doi:10.1109/FOCS.2017.46} that existence of a QLTC with constant parameters would imply resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363} (see also \cite{arxiv:2311.09503}).
   QLTCs are believed to also be useful for solving the quantum PCP conjecture \cite{arxiv:1309.7495}.'
 
 relations:
@@ -52,7 +52,7 @@ relations:
     - code_id: self_correct
       detail: 'The notion of an energy barrier in a self-correcting memory is intimately related to the soundness of a QLTC.'
     - code_id: qubit_css
-      detail: 'A qubit CSS code defined by \(H_{Z}\) and \(H_{X}\) is glocally testable with some soundness iff the constituent codes \(\ker H_{Z}\) and \(\ker H_{X}\) are locally testable with the same soundness \cite[Fact 17]{arxiv:1510.02082}.'
+      detail: 'A qubit CSS code defined by \(H_{Z}\) and \(H_{X}\) is locally testable with some soundness iff the constituent codes \(\ker H_{Z}\) and \(\ker H_{X}\) are locally testable with the same soundness \cite[Fact 17]{arxiv:1510.02082}.'
     - code_id: distance_balanced
       detail: 'Distance balancing and weight reduction are useful for constructing QLTCs \cite{arxiv:1611.03790,arxiv:2305.00689,arxiv:2309.05541}.'
 
