@@ -11,7 +11,7 @@ name: 'Matrix-model code'
 introduced: '\cite{arxiv:2008.12869,arxiv:2211.08448}'
 
 description: |
-  Multimode-mode Fock-state bosonic approximate code derived from a matrix model, i.e., a non-Abelian bosonic gauge theory with a large gauge group.
+  Multimode Fock-state bosonic approximate code derived from a matrix model, i.e., a bosonic theory with a large non-Abelian gauge group.
   The model's degrees of freedom are matrix-valued bosons \(a\), each consisting of \(N^2\) harmonic oscillator modes and subject to an \(SU(N)\) gauge symmetry.
 
   A simple matrix-model code \cite{arxiv:2211.08448} consists of two spatially separated bosons with codewords
@@ -21,23 +21,23 @@ description: |
   where \(\cal I\) is some set of integer two-tuples, and \(n,m\geq 0\).
 
   Gauge symmetry is assumed to be enforced in the above model.
-  In other variants \cite{arxiv:2211.08448}, gauge symmetry is enforced energetically, requiring a parameter to scale as \(\log(N)\) for polynomial memory lifetime. This translates to the bath coupling being suppressed as \(1/N\).
+  In other variants \cite{arxiv:2211.08448}, gauge symmetry is enforced energetically, requiring an energy penalty to scale as \(\log(N)\) in order to obtain a polynomial memory lifetime below a critical temperature.
 
 protection: |
-  For the spatially separated boson code, logical errors stemming from gauge-invariant physical errors are suppressed polynomially with the number of modes \(N\), as shown per the error-correction conditions.
-  Memory time scales as \(N^2\) when the model is subject to a thermal bath.
+  For the spatially separated boson code, logical errors stemming from gauge-invariant physical errors are suppressed polynomially with the number of modes \(N\), as shown by the approximate error-correction conditions.
+  For sufficiently low temperature, the memory time scales as \(N^2\) when the model is subject to a thermal bath \cite{arxiv:2211.08448}.
 
 
 relations:
   parents:
     - code_id: fock_state
-      detail: 'Matrix-model logical states are lie in a low-energy Fock-state subspace.'
+      detail: 'Matrix-model logical states lie in a low-energy Fock-state subspace.'
     - code_id: approximate_qecc
       detail: 'Matrix-model codes approximately protect against gauge-invariant errors in the large-mode limit.'
     - code_id: hamiltonian
       detail: 'Matrix-model codewords for simple codes are eigenstates of a matrix-model Hamiltonian.'
     - code_id: holographic
-      detail: 'Matrix-model codes are motivated by the Ads/CFT correspondence because it is manifest in continuous non-Abelian gauge theories with large gauge groups \cite{arxiv:2211.08448}.'
+      detail: 'Matrix-model codes are motivated by the AdS/CFT correspondence because it is manifest in continuous non-Abelian gauge theories with large gauge groups \cite{arxiv:2211.08448}.'
   cousins:
     - code_id: self_correct
       detail: 'Matrix-model codes are similar to self-correcting memories in the sense that memory time becomes infinite in the thermodynamic limit, but with corrections being polynomial in \(N\).'

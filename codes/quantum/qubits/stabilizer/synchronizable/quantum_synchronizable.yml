@@ -15,14 +15,20 @@ description: |-
 
   In such a setting, the qubits are arranged in a line and embedded into a larger block that represents a stream of information coming into the receiver.
   The receiver may not properly identify the first qubit in the desired code block, leading to a misalignment of the block.
-  A quantum synchronizable code is denoted by \((a_l,a_r)-[[n+a_l+a_r,k,d]]\), correcting misalignment by up to \(a_l\) (\(a_r\)) qubits to the left (right).
+  A quantum synchronizable code is denoted by \((a_l,a_r)-[[n+a_l+a_r,k]]\), correcting misalignment by up to \(a_l\) (\(a_r\)) qubits to the left (right).
 
   The initial construction of quantum synchronizable codes was based on the CSS construction \cite{arxiv:1206.0260}, but later work extended it to non-CSS stabilizer codes \cite{arxiv:2409.11312}.
+
+protection: |
+  In the original CSS construction based on cyclic codes \(C \subset D\) with parameters \([n,k_1,d_1]\) and \([n,k_2,d_2]\), one obtains an \((a_l,a_r)-[[n+a_l+a_r,2k_1-n]]\) code whenever \(a_l+a_r<k_2-k_1\), correcting at least \(\lfloor (d_1-1)/2\rfloor\) phase errors and \(\lfloor (d_2-1)/2\rfloor\) bit errors \cite[Thm. 1]{arxiv:1206.0260}.
+
 
 relations:
   parents:
     - code_id: qubit_stabilizer
   cousins:
+    - code_id: binary_cyclic
+      detail: 'The original construction of quantum synchronizable codes is based on pairs of binary cyclic codes satisfying \(C^\perp \subseteq C \subset D\) \cite{arxiv:1206.0260}.'
     - code_id: bch
       detail: 'BCH codes can be used to construct quantum synchronizable codes via the CSS construction \cite{arxiv:1206.0260}.'
     - code_id: binary_quad_residue

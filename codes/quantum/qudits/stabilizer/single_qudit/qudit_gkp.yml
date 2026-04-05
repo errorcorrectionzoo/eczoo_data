@@ -27,11 +27,11 @@ description: |
   \end{align}
   and logical operators are \(Z^3\) and \(X^3\).
 
-  More generally, for qudit dimension \(q = r_1 r_2 K\) for some positive integers \(r_1\), \(r_2\), and logical dimension \(K\), the stabilizer generators are \(Z^{r_1 n}\) and \(X^{r_2 n}\).
+  More generally, for qudit dimension \(q = r_1 r_2 K\) for some positive integers \(r_1\), \(r_2\), and logical dimension \(K\), the stabilizer generators are \(Z^{r_1 K}\) and \(X^{r_2 K}\).
 
 protection: |
   The above simple code corrects any Pauli string \(X^{a}Z^{b}\) with \(|a|,|b|\leq 1\).
-  A general code protects against any strings for which \(|a| < r_1/2\) and \(|b| < r_2/2\).
+  A general code protects against any shift errors for which \(|a| < r_1/2\) and \(|b| < r_2/2\).
 
 features:
   general_gates:

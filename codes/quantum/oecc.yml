@@ -34,16 +34,18 @@ protection: |
   
   These can be studied in the presence of continuous noise \cite{arxiv:0806.3145}.
 
-  A \textit{unitarily correctable subsystem} is a subsystem code whose encoded information can be recovered via a unitary operation, where recovery is more relaxed than correction \cite{arxiv:quant-ph/0608045}. For unital noise channels, unitarily correctable subsystems are related to the multiplicative domain of the channel \cite{arxiv:0811.0947} (see also \cite{arxiv:quant-ph/9609015}).
+  A \textit{unitarily recoverable subsystem} is a correctable subsystem whose logical information can be restored by a unitary operation, possibly into a different subsystem representation; thus, recovery is more relaxed than correction \cite{arxiv:quant-ph/0608045}. In fact, every correctable subsystem is unitarily recoverable \cite[Thm. 1]{arxiv:quant-ph/0608045}. For unital noise channels, \textit{unitarily correctable subsystems} are precisely the noiseless subsystems of \(\mathcal{E}^{\dagger}\circ\mathcal{E}\) \cite[Thm. 2]{arxiv:quant-ph/0608045}; these are related to the multiplicative domain of the channel \cite{arxiv:0811.0947} (see also \cite{arxiv:quant-ph/9609015}).
+
+  No additional OQEC conditions are needed to tolerate imperfect initialization: under the standard subsystem-code conditions, the effective noise induced by population outside the code can only increase the fidelity with an ideally encoded state, and this robustness persists under encoded CPTP operations \cite[Thms. 3,4]{arxiv:0709.3533}.
 
 features:
   encoders:
-    - 'Subsystem QECCs are robust to initialization errors \cite{arxiv:0709.3533}.'
+    - 'Subsystem QECCs are robust to initialization errors without modifying the standard OQEC conditions \cite{arxiv:0709.3533}.'
   decoders:
     - 'Petz recovery map provides a recovery operation that is near-optimal for certain subsystem codes \cite{arxiv:1202.5139}.'
 
 realizations:
-  - 'A two-qubit unitarily correctable subsystem code recovery has been realized in an optical system \cite{arxiv:0909.1584}.'
+  - 'A two-qubit unitarily recoverable subsystem code recovery has been realized in an optical system \cite{arxiv:0909.1584}.'
 
 notes:
   - 'See Refs. \cite{arxiv:math/0404553,arxiv:math/0506491,doi:10.1017/CBO9781139034807.008} for an introduction to operator QEC.'
