@@ -11,10 +11,14 @@ name: 'Khesin-Lu-Shor code'
 introduced: '\cite{arxiv:2411.14448}'
 
 description: |
-  A family of \([[m 2^m / (m+1), 2^m / (m+1), 2\lfloor m/4 \rfloor + 1]]\) qubit CSS codes derived from the Hamming code.
-  Their \hyperref[topic:encoder-respecting]{encoder-respecting form} is the graph of a hypercube in \(m = 2^r - 1\) dimensions, and input nodes in the graph are codewords of the \([2^r-1,2^r-r-1,3]\) Hamming code \cite{arxiv:2411.14448}.
+  A family of \([[m 2^m / (m+1), 2^m / (m+1), d(m)]]\) qubit CSS codes derived from the Hamming code, where \(m = 2^r - 1\).
+  Their \hyperref[topic:encoder-respecting]{encoder-respecting form} is the graph of a hypercube in \(m\) dimensions, and input nodes in the graph are codewords of the \([2^r-1,2^r-r-1,3]\) Hamming code \cite{arxiv:2411.14448}.
 
-protection: 'The code distance is bounded above and conjectured to be \(m\) \cite{arxiv:2411.14448}.'
+protection: 'The code distance satisfies \(\lfloor (m-1)/2 \rfloor \leq d(m) \leq m\) and is conjectured to be \(m\) for \(m \geq 7\) \cite{arxiv:2411.14448}.'
+
+features:
+  decoders:
+    - 'A greedy graph decoder on the hypercube representation corrects at least \(\lfloor (m-1)/4 \rfloor - 1\) Pauli errors \cite{arxiv:2411.14448}.'
 
 
 relations:
@@ -22,9 +26,9 @@ relations:
     - code_id: qubit_css
   cousins:
     - code_id: hamming
-      detail: 'The \hyperref[topic:encoder-respecting]{encoder-respecting form} of the \([[m 2^m / (m+1), 2^m / (m+1), 2\lfloor m/4 \rfloor + 1]]\) Khesin-Lu-Shor code is the graph of a hypercube in \(m = 2^r - 1\) dimensions, and input nodes in the graph are codewords of the \([2^r-1,2^r-r-1,3]\) Hamming code \cite{arxiv:2411.14448}.'
+      detail: 'The \hyperref[topic:encoder-respecting]{encoder-respecting form} of the \([[m 2^m / (m+1), 2^m / (m+1), d(m)]]\) Khesin-Lu-Shor code is the graph of a hypercube in \(m = 2^r - 1\) dimensions, and input nodes in the graph are codewords of the \([2^r-1,2^r-r-1,3]\) Hamming code \cite{arxiv:2411.14448}.'
     - code_id: hypercube
-      detail: 'The \hyperref[topic:encoder-respecting]{encoder-respecting form} of the \([[m 2^m / (m+1), 2^m / (m+1), 2\lfloor m/4 \rfloor + 1]]\) Khesin-Lu-Shor code is the graph of a hypercube in \(m = 2^r - 1\) dimensions, and input nodes in the graph are codewords of the \([2^r-1,2^r-r-1,3]\) Hamming code \cite{arxiv:2411.14448}.'
+      detail: 'The \hyperref[topic:encoder-respecting]{encoder-respecting form} of the \([[m 2^m / (m+1), 2^m / (m+1), d(m)]]\) Khesin-Lu-Shor code is the graph of a hypercube in \(m = 2^r - 1\) dimensions, and input nodes in the graph are codewords of the \([2^r-1,2^r-r-1,3]\) Hamming code \cite{arxiv:2411.14448}.'
     - code_id: steane
       detail: 'The \hyperref[topic:encoder-respecting]{encoder-respecting form} of both the Steane and Khesin-Lu-Shor codes is the graph of a hypercube \cite{arxiv:2411.14448}.'
 
