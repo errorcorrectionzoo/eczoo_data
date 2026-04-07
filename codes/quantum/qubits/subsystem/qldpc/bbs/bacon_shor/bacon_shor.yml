@@ -14,18 +14,18 @@ description: |
   Subsystem CSS code defined on an \(m_1 \times m_2\) lattice of qubits that generalizes the \([[9,1,3]]\) (subspace) Shor code.
   It is said to be \textit{symmetric} when \(m_1=m_2\), and \textit{asymmetric} otherwise.
 
-  The \(X\)-type and \(Z\)-type stabilizers defined as \(X\) and \(Z\) operators acting on all qubits on adjacent columns and rows, respectively. Let \(O_{i,j}\) denote an operator acting on the qubit at a position \((i,j)\) on the lattice, with \(i\in\{0,1,\ldots ,m_1-1\}\) and \(j\in\{0,1,\ldots,m_2-1\}\). The code's stabilizer group is
+  The \(X\)-type and \(Z\)-type stabilizers are defined as \(X\) and \(Z\) operators acting on all qubits on adjacent columns and rows, respectively. Let \(O_{i,j}\) denote an operator acting on the qubit at a position \((i,j)\) on the lattice, with \(i\in\{0,1,\ldots ,m_1-1\}\) and \(j\in\{0,1,\ldots,m_2-1\}\). The code's stabilizer group is
   \begin{align}
   \mathsf{S}=\langle X_{i,*}X_{i+1,*},Z_{*,j}Z_{*,j+1}\rangle~,
   \end{align}
-  with generators expressed as products of nearest-neightbour 2-qubit gauge operators,
+  with generators expressed as products of nearest-neighbor two-qubit gauge operators,
   \begin{align}
   \begin{split}
   X_{i,*}X_{i+1,*}= \bigotimes_{k=0}^{m_2-1} X_{i,k}X_{i+1,k} \\
   Z_{*,j}Z_{*,j+1}=\bigotimes_{k=0}^{m_1-1} Z_{k,j}Z_{k,j+1}~.
   \end{split}
   \end{align}
-  Syndrome extraction can be done by measuring these gauge operators, which are on fewer qubits and local.
+  Syndrome extraction can be done by measuring these gauge operators, which act on fewer qubits and are local.
 
   A Floquet version of the Bacon-Shor code admits a period-four measurement sequence that utilizes its gauge degrees of freedom as defects evolving across measurement rounds. This \textit{Floquet-Bacon-Shor} code saturates the \hyperref[topic:subsystem-bt-bound]{subsystem BT bound}.
   Applying a period-four measurement schedule to the original Bacon-Shor code yields a numerical threshold under circuit-level noise \cite{arxiv:2504.02749}.
@@ -33,7 +33,7 @@ description: |
 protection: |
   The \([[m_1 m_2,1,min(m_1,m_2)]]\) variant has distance \(d=min(m_1,m_2)\).
   In a symmetric 3-dimensional case (defined on a cubic lattice) with \(L^3\) qubits, the code has the parameters \([[L^3,1,L]]\).
-  Bacon-Shor code parameteres can be optimized by changing the block geometry, yielding good performance against biased noise \cite{arxiv:1209.0794}.
+  Bacon-Shor code parameters can be optimized by changing the block geometry, yielding good performance against biased noise \cite{arxiv:1209.0794}.
 
 features:
   rate: 'A non-LDPC family of Bacon-Shor codes achieves a distance of \hyperref[topic:asymptotics]{order} \(\Omega(n^{1-\epsilon})\) with sparse gauge operators.'
