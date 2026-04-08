@@ -1,0 +1,58 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nonabelian_kitaev_honeycomb
+physical: qubits
+logical: qubits
+
+name: 'Non-Abelian Kitaev honeycomb code'
+introduced: '\cite{arxiv:cond-mat/0506438}'
+
+description: |
+  Code whose logical subspace in the gapped non-Abelian phase of the Kitaev honeycomb model with a magnetic field is labeled by different fusion outcomes of Ising anyons \cite{arxiv:cond-mat/0506438}.
+
+  The original Kitaev honeycomb spin model is exactly solvable by mapping spins to Majorana fermions in a static \(\mathbb{Z}_2\) gauge field (equivalently, embedding each physical qubit into two fermions via the tetron code \cite[Sec. 4.1]{arxiv:1701.05052}), yielding three gapped \(A\) phases and one gapless \(B\) phase \cite{arxiv:cond-mat/0506438}.
+  A magnetic field opens a gap in phase \(B\) of the underlying Kitaev honeycomb code and yields the non-Abelian Ising-anyon phase \cite{arxiv:cond-mat/0506438} (a.k.a. \(p+ip\) superconducting phase \cite{arxiv:1104.5485}).
+  In the honeycomb model with magnetic field, the spectral Chern number is \(\nu=\pm 1\) depending on the field direction; more generally, gapped free-fermion phases with \(\mathbb{Z}_2\) vortices are classified by a spectral Chern number \(\nu\), and their anyonic properties depend on \(\nu \bmod 16\) \cite{arxiv:cond-mat/0506438}.
+
+  Ising anyons also exist in other phases, such as the fractional quantum Hall phase \cite{arxiv:quant-ph/0511178}.
+
+
+features:
+  encoders:
+    - 'Anyon initialization via quantum control \cite{arxiv:2205.10114}.'
+  general_gates:
+    - '\hyperref[topic:clifford]{Clifford gates} can be performed by braiding Majorana operators and Pauli measurements can be performed by measuring certain Majorana operators \cite{arxiv:quant-ph/0511178,arxiv:1701.05052}.'
+    - 'CPHASE gate or a \(\pi/8\) rotation with the help of ancilla states completes a universal gate set \cite{arxiv:quant-ph/0511178,arxiv:1701.05052}.'
+  fault_tolerance:
+    - 'One can distill ancilla states to arbitrary precision for sufficiently small noise rates and assuming perfect Clifford operations \cite{arxiv:quant-ph/0511178}.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+      detail: 'The Kitaev honeycomb model with a magnetic field is a qubit many-body system in the Ising-anyon phase, and the underlying code stores information in the fusion space of its non-Abelian anyonic excitations.'
+    - code_id: topological
+      detail: 'The Kitaev honeycomb model with a magnetic field is a qubit many-body system in the Ising-anyon phase, and the underlying code stores information in the fusion space of its non-Abelian anyonic excitations.'
+  cousins:
+    - code_id: kitaev_honeycomb
+      detail: 'The gauge-group generators of the Kitaev honeycomb code are terms of the Kitaev honeycomb model Hamiltonian. Adding a magnetic field to this Hamiltonian for particular parameter values yields the non-Abelian Ising-anyon phase, whose anyons encode the logical information of the non-Abelian Kitaev honeycomb code \cite{arxiv:cond-mat/0506438}.'
+    - code_id: tetron
+      detail: |
+        Embedding each physical qubit into two fermions via the tetron code allows the logical subspace of the Kitaev honeycomb model to be formulated as a joint eigenspace of certain Majorana operators \cite[Sec. 4.1]{arxiv:1701.05052}, which admit braiding-based gates due to their non-Abelian statistics and which can be used for topological quantum computation.
+        When done in reverse, this embedding can be thought of as a 2D bosonization fermion-into-qubit encoding by converting to a relabeled square lattice and performing single-qubit rotations \cite{arxiv:1711.00515}\cite[Sec. IV.B]{arxiv:2201.05153}.
+    - code_id: 2d_bosonization
+      detail: |
+        Embedding each physical qubit into two fermions via the tetron code allows the logical subspace of the Kitaev honeycomb model to be formulated as a joint eigenspace of certain Majorana operators \cite[Sec. 4.1]{arxiv:1701.05052}, which admit braiding-based gates due to their non-Abelian statistics and which can be used for topological quantum computation.
+        When done in reverse, this embedding can be thought of as a 2D bosonization fermion-into-qubit encoding by converting to a relabeled square lattice and performing single-qubit rotations \cite{arxiv:1711.00515}\cite[Sec. IV.B]{arxiv:2201.05153}.
+    - code_id: honeycomb
+      detail: 'The Kitaev honeycomb model is defined on the honeycomb tiling.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2022-12-06'
