@@ -24,9 +24,11 @@ description: |
 
 protection: |
   Admits a \hyperref[topic:pseudo-threshold]{pseudo-threshold} of \(\approx 0.7\%\) for the circuit-based noise model.
+  At physical error rate \(p=10^{-3}\), the code suppresses the logical error rate to about \(2\times 10^{-7}\), enough to preserve \(12\) logical qubits for nearly one million syndrome cycles using \(288\) total physical qubits \cite{arxiv:2308.07915}.
 
 features:
   rate: 'An ancilla-added rate of \(1/24\). In contrast, the distance-13 surface code has ancilla-added rate \(1/338\).'
+  # 12 logical qubits would require nearly 3000 physical qubits with separate surface-code patches in the comparison of Ref. \cite{arxiv:2308.07915}.
 
   transversal_gates:
     - 'Logical Pauli operators and fold-transversal gates studied in Ref. \cite{arxiv:2409.18175}.'
