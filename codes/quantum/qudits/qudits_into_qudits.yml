@@ -66,12 +66,9 @@ features:
       \end{defterm}'
   decoders:
     - 'For few-qudit codes (\(n\) is small), decoding can be based on a lookup table. For infinite code families, the size of such a table scales exponentially with \(n\), so approximate decoding algorithms scaling polynomially with \(n\) have to be used. The decoder determining the most likely error given a noise channel is called the \textit{maximum-likelihood} (ML) decoder.'
-  threshold:
-    - 'There is a threshold against depolarizing noise for any modular-qudit gate that determines if the gate is non-Clifford \cite{arxiv:1011.2497}.'
-
-
 notes:
   - 'Review of qudit quantum computation \cite{arxiv:2008.00959}.'
+  - 'For odd prime qudit dimension, the discrete-Wigner-function analysis of \cite{arxiv:1011.2497} determines depolarizing-noise thresholds beyond which non-stabilizer states and non-Clifford gates become Clifford-simulable, and identifies maximally robust such resources.'
   - 'Weight distribution of a code depends on the average entanglement of codewords \cite{arxiv:quant-ph/0310137,arxiv:2209.07607}.'
   - 'Qudit Cirq library \cite{arxiv:2501.07812}.'
   - 'See \cite[Ch. 8]{doi:10.1007/978-3-319-44906-7} for a side-by-side introduction to modular and Galois qudits.'

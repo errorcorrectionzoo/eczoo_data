@@ -12,24 +12,27 @@ short_name: 'FBQC'
 introduced: '\cite{arxiv:2101.09310}'
 
 description: |
-  Code whose codewords are resource states used in an FBQC scheme. Related to a cluster state via Hadamard transformations.
+  Code whose codewords are resource states used in an FBQC scheme.
 
-  FBQC is a fault tolerant way to produce \textit{fusion networks}, or large entangled resource states starting from small constant-sized entangled resource states along with destructive measurements called \textit{fusions}.
-  These large states can be produced asychronously in the fusion framework and can be used as resources, as in measurement-based quantum computation (MBQC), or as logical states of topological codes.
-  The difference from ordinary MBQC is that error-correction two-qubit measurements are performed, which requires a foliation with more qubits.
-  The use of two-qubit measurements makes FBQC more compatible with photonic platforms.
+  FBQC is a fault-tolerant model of quantum computation built from small constant-sized entangled resource states together with destructive entangling measurements called \textit{fusions} \cite{arxiv:2101.09310}.
+  Resource states are stabilizer states and can be described, up to local Clifford transformations, by graph states \cite{arxiv:2101.09310}.
+  Unlike standard MBQC, which first prepares a large cluster state and then computes using single-qubit measurements, FBQC integrates entanglement generation, syndrome extraction, and logical processing into the fusion measurements themselves.
+  This makes FBQC particularly natural for photonic platforms, where Bell-type fusion measurements are native operations.
 
-protection: 'Protects against erasure, Pauli errors, \hyperref[topic:ad]{photon loss}, fusion failure from non-determinism, and faulty resource states. Redundancy in fusion outcomes is captured by the check operator group. Fusion measurement outcomes form a syndrome that allows to correct for Pauli errors. There is no physical error correction, and decoding output is simply used to update the Pauli frame.'
+protection: 'Protects against erasure, Pauli errors, \hyperref[topic:ad]{photon loss}, fusion failure from non-determinism, and faults in resource-state preparation. Redundancy in fusion outcomes is captured by the check-operator group. Fusion measurement outcomes form a syndrome that can be decoded to infer the logical Pauli frame, rather than by applying physical recovery operations \cite{arxiv:2101.09310}.'
 
 features:
   encoders:
-    - 'Resource state generators, which produce small constant size cluster states, and Fusion measurements (Bell fusions).'
+    - 'Resource-state generators, which produce small constant-sized stabilizer states, together with Bell-fusion measurements.'
+
+  decoders:
+    - 'Surface-code-based FBQC schemes often admit a syndrome-graph description, allowing the use of decoders such as minimum-weight matching and union-find \cite{arxiv:2101.09310,arxiv:2112.12160}.'
 
   general_gates:
-    - '\hyperref[topic:clifford]{Clifford gates} are performed by creating topological features such as boundaries, defects, or twists, which can be done by single qubit measurements.
+    - '\hyperref[topic:clifford]{Clifford gates} are performed by introducing and manipulating topological features such as boundaries, defects, or twists through modified fusion bases and, in some constructions, single-qubit measurements.
     Logical gates can also be performed by code deformation.
 
-    Non-Clifford gates are perfomed by magic-state injection.'
+    Non-Clifford gates are performed by magic-state injection.'
 
     # - 'Logical Clifford operations can be kept track of using the classical Pauli-frame register and need not be explicitly applied at the quantum level.'
 
@@ -38,23 +41,21 @@ features:
 #    - 'Decoding syndrome information is tracked in the Pauli frame.'
 
   fault_tolerance:
-    - 'Fusion networks are constructed in a fault tolerant way (as a stabilizer code), and they can be created in a way that naturally encodes topological fault tolerance.
-    There is a large family of fault-tolerant protocols \cite{arxiv:2308.07844}.'
+    - 'Fusion networks can be constructed so that the surviving stabilizers and check operators realize topological surface-code fault tolerance \cite{arxiv:2101.09310}.'
+    - 'More generally, any three-dimensional cell complex in which each edge has four incident faces defines a surface-code fusion complex, yielding a large family of FBQC fault-tolerant protocols \cite{arxiv:2308.07844}.'
 
   threshold:
-    - '\(11.98\%\) against erasure in fusion measurements.'
-    - '\(1.07\%\) against Pauli error.'
-    - 'In linear optical systems, can tolerate \(10.4\%\) probability of \hyperref[topic:ad]{photon loss} in each fusion.'
-    - '\(43.2\%\) against fusion failure.'
-    - 'FBQC applied to the surface code yields thresholds for logical gates that is consistent with the code capacity threshold \cite{arxiv:2112.12160}.'
+    - 'Under the hardware-agnostic fusion error model, pedagogical FBQC schemes have reported thresholds of \(11.98\%\) against erasure in each fusion measurement and \(1.07\%\) against Pauli error \cite{arxiv:2101.09310}.'
+    - 'For a linear-optical ballistic scheme, reported thresholds include \(43.2\%\) against fusion failure and \(10.4\%\) \hyperref[topic:ad]{photon loss} per fusion \cite{arxiv:2101.09310}.'
+    - 'For surface-code logical blocks compiled to FBQC, the threshold for fault-tolerant logical gates was found to agree, within numerical uncertainty, with the bulk memory threshold \cite{arxiv:2112.12160}.'
 
 relations:
   parents:
     - code_id: qubit_stabilizer
-      detail: 'The resource states in FBQC are small stabilizer states, and after fusion measurements, the outputs are stabilizers (conditioned on measurement outcomes).'
+      detail: 'The resource states in FBQC are small stabilizer states, and the surviving stabilizers after fusion determine the encoded output state (conditioned on measurement outcomes).'
   cousins:
     - code_id: topological
-      detail: 'Arbitrary topological codes can be created using FBQC, as can topological features such as defects and boundaries, by modifying fusion measurements or adding single qubit measurements.'
+      detail: 'Surface-code-based topological fault-tolerant protocols can be realized in FBQC, including topological features such as boundaries, defects, and twists, by modifying fusion measurements and, in some constructions, adding single-qubit measurements \cite{arxiv:2112.12160,arxiv:2308.07844}.'
     - code_id: dual_rail
       detail: 'FBQC resource states are concatenated with dual-rail codes to increase loss detection.'
     - code_id: dynamic_gen

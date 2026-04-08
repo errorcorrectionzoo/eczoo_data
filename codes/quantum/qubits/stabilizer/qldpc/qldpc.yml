@@ -26,7 +26,7 @@ protection: |
   Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
   Code distance may not be a reliable marker of code performance.
 
-  Since qubit QLDPC codes are stabilizer QLRCs whose locality \(r = w\), their relative distance is bounded by \cite[Thm. 4]{arxiv:2311.08653}
+  Since qubit QLDPC codes are stabilizer QLRCs whose locality \(r \leq w\), their relative distance is bounded by \cite[Thm. 35]{arxiv:2311.08653}
   \begin{align}
     \delta = \frac{d}{n} \leq \frac{1}{2} - \Omega\left(\frac{1}{r}\right)~.
   \end{align}
@@ -116,6 +116,8 @@ notes:
 relations:
   parents:
     - code_id: qubit_stabilizer
+    - code_id: quantum_locally_recoverable
+      detail: 'Qubit QLDPC codes are stabilizer QLRCs whose locality \(r \leq w\), where \(w\) is the maximum stabilizer-generator weight \cite{arxiv:2311.08653}.'
     - code_id: general_qldpc
   cousins:
     - code_id: ldpc

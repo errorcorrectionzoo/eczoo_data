@@ -13,6 +13,7 @@ introduced: '\cite{arxiv:2212.09935}'
 description: |
   Approximate quantum code of rate \(R\) that can tolerate adversarial errors nearly saturating the quantum Singleton bound of \((1-R)/2\).
   The formulation of such codes relies on a notion of \textit{quantum list decoding} \cite{arxiv:quant-ph/0605086,arxiv:2212.09935}.
+  The construction is implemented using folded quantum Reed-Solomon codes and yields efficiently decodable approximate codes over a constant-size alphabet \cite{arxiv:2212.09935}.
   Sampling a description of this code can be done with an efficient randomized algorithm with \(2^{-\Omega(n)}\) failure probability.
 
 protection: For any \(\gamma>0\) and rate \(0<R<1\), these approximate quantum \([[n,R \cdot n]]_q\) codes have constant Galois-qudit dimension \(q=q(\gamma)\) and correct errors acting on \((1-R-\gamma) \cdot n/2\) registers, up to a recovery error of \(2^{-\Omega(n)}\).
@@ -22,7 +23,7 @@ features:
   encoders:
     - 'Efficient encoding.'
   decoders:
-    - 'Quantum list decodable \cite{arxiv:2212.09935}.'
+    - 'Efficient decoder based on quantum list decoding and folded quantum Reed-Solomon structure \cite{arxiv:2212.09935}.'
 
 
 relations:
@@ -31,9 +32,9 @@ relations:
     - code_id: approximate_qecc
   cousins:
     - code_id: quantum_mds
-      detail: 'Singleton-bound approaching AQECCs saturate the quantum Singleton bound.'
+      detail: 'Singleton-bound approaching AQECCs asymptotically approach the quantum Singleton bound, rather than exactly saturating it at finite blocklength.'
     - code_id: galois_fqrs
-      detail: 'Singleton-bound approaching AQECCs utilize FQRS codes.'
+      detail: 'Singleton-bound approaching AQECCs are built using folded quantum Reed-Solomon (FQRS) codes \cite{arxiv:2212.09935}.'
     - code_id: quantum_secret_sharing
       detail: 'Quantum secret-sharing codes have asymptotically decaying rate and require qudit dimension to increase exponentially with \(n\), while Singleton-bound approaching AQECCs have constant rate and qudit dimension.'
 
