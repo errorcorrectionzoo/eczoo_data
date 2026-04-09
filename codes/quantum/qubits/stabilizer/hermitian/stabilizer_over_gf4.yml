@@ -24,8 +24,9 @@ description: |
   Quaternary linear codes are Hermitian self-orthogonal (self-dual) iff they are trace-Hermitian self-orthogonal (self-dual) additive \cite[Thm. 27.4.1]{preset:HKSquantum} (\cite[Thm. 9.10.3]{doi:10.1017/CBO9780511807077}).
   In other words, if the underlying quaternary code is linear, then the \hyperref[topic:finite-fields]{field trace} can be removed from the definition of inner product.
 
-  The \textit{Hermitian construction} takes in a Hermitian self-orthogonal \([n,k,d_C]_{4}\) code and yields an \([[n,n-2k,d]]\) qubit stabilizer code with distance \(d \geq d_C\).
-  The parameters satisfy \(k \equiv n\) mod 2 \cite{arxiv:2501.17447}.
+  An additive self-orthogonal code \(C \subseteq \mathbb{F}_4^n\) of size \(2^r\) yields an \([[n,n-r]]\) qubit stabilizer code \cite[Thm. 2]{arxiv:quant-ph/9608006}\cite{arxiv:quant-ph/0005008}.
+  When \(C\) is \(\mathbb{F}_4\)-linear of parameters \([n,k]_4\), trace self-orthogonality is equivalent to Hermitian self-orthogonality, so \(|C|=4^k\) and the construction specializes to a Hermitian \([[n,n-2k]]\) qubit stabilizer code.
+  In the standard-form analysis of the linear case, the associated additive code has type \(4^{k}2^{0}\), i.e., the \(k_1=0\) case of Ref. \cite[Sec. 4.4]{arxiv:quant-ph/9709049}; equivalently, the parameters satisfy \(k \equiv n\) mod 2 \cite{arxiv:2501.17447}.
   The stabilizer generator matrix is of the form
   \begin{align}
   H=\begin{pmatrix}H\\
@@ -37,6 +38,11 @@ description: |
   All code automorphisms lie in the \hyperref[topic:clifford]{Clifford group} \cite[Corr. 16]{arxiv:quant-ph/9704043}.
 
 protection: |
+  For an additive self-orthogonal code \(C \subseteq \mathbb{F}_4^n\), the resulting qubit stabilizer code has distance
+  \begin{align}
+  d=\min\{\operatorname{wt}(v):v \in C^{\perp}\setminus C\}~,
+  \end{align}
+  where \(\perp\) denotes duality under the trace inner product \cite[Thm. 2]{arxiv:quant-ph/9608006}\cite{arxiv:quant-ph/0005008}.
   The distance \(d_C\) of the classical code is the Hermitian code's \hyperref[topic:quantum-weight-enumerator]{pure distance}, and it is equal to the code distance for a \hyperref[topic:degeneracy]{non-degenerate} code \cite{arxiv:2312.06504}.
   There is an equivalence between \hyperref[topic:quantum-weight-enumerator]{pure} \([[n,n-2k]]\) Hermitian qubit codes and certain sets of points in projective space \(PG(k-1,4)\) \cite[Thm. 2.8]{doi:10.2140/iig.2008.6.53}.
 

@@ -20,13 +20,13 @@ description: |
   Galois-qudit stabilizer codes are in one-to-one correspondence with trace-alternating self-orthogonal additive codes of length \(n\) over \(\mathbb{F}_{q^2}\) via the \hyperref[topic:gfqsq-representation]{\(\mathbb{F}_{q^2}\) representation}.
   Hermitian self-orthogonal linear codes over \(\mathbb{F}_{q^2}\) are automatically trace-alternating self-orthogonal, and applying this mapping to such codes yields Hermitian codes \cite[Corr. 19]{arxiv:quant-ph/0508070}.
 
-protection: |
-  A Hermitian self-orthogonal linear \([n,k,d]_{q^2}\) code yields an \([[n,n-2k]]_q\) true stabilizer code with distance no less than \(d\); this is called the \textit{Hermitian construction}.
+  More generally, a trace-alternating self-orthogonal additive code \(C \subseteq \mathbb{F}_{q^2}^n\) of size \(q^r\) yields an \([[n,n-r]]_q\) true stabilizer code \cite[Corr. 1]{doi:10.1109/18.959288}.
+  When \(C\) is Hermitian self-orthogonal and \(\mathbb{F}_{q^2}\)-linear of parameters \([n,k]_{q^2}\), the construction specializes to a Hermitian \([[n,n-2k]]_q\) true stabilizer code; this is called the \textit{Hermitian Galois-qudit construction} \cite[Corr. 19]{arxiv:quant-ph/0508070}.
   The Hermitian construction was first proven via the \hyperref[topic:galois-symplectic-representation]{Galois symplectic representation} (showing self-orthogonality under the trace-symplectic inner product; see Ref. \cite{doi:10.1109/18.959288}, Corr. 1).
   There is an isomorphism between the \hyperref[topic:galois-symplectic-representation]{Galois-symplectic} and \hyperref[topic:gfqsq-representation]{\(\mathbb{F}_{q^2}\) representations} \cite[Thm. 27.3.8]{preset:HKSquantum}.
 
   It has also been extended to \(q^{2m}\)-ary Hermitian self-orthogonal linear codes \cite{arxiv:2012.11998}, and similar constructions were formulated in Ref. \cite{arxiv:1002.4088}.
-  \textit{Quantum construction X}, related to (classical) Construction X and Construction XX, allows for the use of nearly self-orthogonal codes \cite{doi:10.1007/s10623-014-9934-8,manual:{Lisonek, Petr, and Reza Dastbasteh. "Constructions of quantum codes." In 3rd International Workshop on Boolean Functions and their Applications, loen, norway. https://org. uib. no/selmer/workshops/BFA2018/Slides/Lisonek. pdf. 2018.},arxiv:2405.15057}; see Ref. \cite{arxiv:2011.06996} for a review.
+  \textit{Quantum construction X}, related to (classical) Construction X and Construction XX, allows for the use of nearly self-orthogonal codes \cite{doi:10.1007/s10623-014-9934-8,manual:{Lisonek, Petr, and Reza Dastbasteh. "Constructions of quantum codes." In 3rd International Workshop on Boolean Functions and their Applications, loen, norway. https://org.uib.no/selmer/workshops/BFA2018/Slides/Lisonek.pdf. 2018.},arxiv:2405.15057}; see Ref. \cite{arxiv:2011.06996} for a review.
 
 
 #   and later proven via the \hyperref[code:stabilizer_over_gfqsq]{Hermitian construction} (showing self-orthogonality under the trace-alternating inner product; see Ref. \cite[Corr. 19]{arxiv:quant-ph/0508070}, ).
@@ -34,6 +34,18 @@ protection: |
 # An \(n\) Galois-qudit Pauli stabilizer can be represented as a length-\(n\) vector over \(\mathbb{F}_{q^2}\). The stabilizer commutation condition corresponds to a zero trace-alternating inner product between the corresponding vectors.
 
 #  The classical code corresponds to the stabilizer group \(\mathsf{S}\) while \(C^{\perp}\) corresponds to the normalizer \(\mathsf{N(S)}\).
+
+protection: |
+  For a trace-alternating self-orthogonal additive code \(C \subseteq \mathbb{F}_{q^2}^n\), the resulting true stabilizer code has distance
+  \begin{align}
+  d=\min\{\operatorname{wt}(v):v \in C^{\perp}\setminus C\}~,
+  \end{align}
+  where \(\perp\) denotes duality under the trace-alternating inner product \cite[Corr. 1]{doi:10.1109/18.959288}.
+  If \(C\) is Hermitian self-orthogonal and \(\mathbb{F}_{q^2}\)-linear, then
+  \begin{align}
+  d=\min\{\operatorname{wt}(v):v \in C^{\perp_h}\setminus C\}~,
+  \end{align}
+  so the code distance is bounded below by the Hermitian dual distance of \(C\) \cite[Corr. 19]{arxiv:quant-ph/0508070}.
 
 relations:
   parents:
