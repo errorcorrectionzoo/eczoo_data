@@ -53,6 +53,14 @@ description: |
 
   \subsection{Code representations}
 
+  Qubit stabilizer states are quadratic-phase states on affine subspaces of \(\mathbb{Z}_2^n\): every stabilizer state can be written, up to global phase, as
+  \begin{align}
+  |\psi\rangle = 2^{-k/2}\sum_{x\in A} i^{q(x)}(-1)^{\ell(x)} |x\rangle
+  \end{align}
+  for some affine subspace \(A\subseteq \mathbb{Z}_2^n\), linear function \(\ell\), and \(\mathbb{Z}_4\)-valued quadratic function \(q\) \cite{arxiv:quant-ph/0304125,arxiv:quant-ph/0408190,arxiv:0811.0898}.
+  There are efficient ways to compute stabilizer inner products and other functions \cite{arxiv:1711.07848}.
+  The overlap between a stabilizer state and any \(n\)-qubit product state is at most \(2/2^d\) \cite[Thm. 2]{arxiv:2405.01332}.
+
   Instead of being represented by a basis of codewords, stabilizer codes can be concisely defined and represented by a presentation of the generators of the stabilizer group.  
   Stabilizer generators can be arranged as rows of a matrix, forming a \textit{stabilizer tableau}. 
   A set of generators is not unique, and various stabilizer codes admit generators with certain locality properties.
@@ -86,6 +94,7 @@ description: |
   \end{defterm}
 
   The sets of \(\mathbb{F}_4\)-represented vectors for all generators yield a trace-Hermitian self-orthogonal additive quaternary code.
+  In other words, an additive self-orthogonal code \(C \subseteq \mathbb{F}_4^n\) of size \(2^r\) yields an \([[n,n-r]]\) qubit stabilizer code \cite[Thm. 2]{arxiv:quant-ph/9608006}\cite{arxiv:quant-ph/0005008}.
   This classical code corresponds to the stabilizer group \(\mathsf{S}\) while its trace-Hermitian dual corresponds to the normalizer \(\mathsf{N(S)}\).
   In the case of stabilizer states, the correspondence is between such states and trace-Hermitian self-dual quaternary codes; such codes, and therefore such states, have been classified up to equivalence for \(n \leq 12\) \cite{arxiv:quant-ph/0503236,arxiv:math/0504522}.
   There is a complete set of invariants characterizing stabilizer states up to equivalence \cite{arxiv:quant-ph/0410165,arxiv:quant-ph/0404106}.
@@ -99,9 +108,6 @@ description: |
   Properties of the underlying graph are related to properties of the code; for example, bipartite encoder-respecting graphs yield CSS codes, and graph degree controls bounds on code distance, stabilizer weight, and encoding-circuit depth \cite{arxiv:2411.14448}.
   \end{defterm}
 
-  Qubit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_2^n\) \cite{arxiv:quant-ph/0304125,arxiv:quant-ph/0408190,arxiv:0811.0898}.
-  There are efficient ways to compute their inner products and other functions \cite{arxiv:1711.07848}.
-  The overlap between a stabilizer state and any \(n\)-qubit product state is at most \(2/2^d\) \cite[Thm. 2]{arxiv:2405.01332}.
   Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(\mathbb{F}_2\) using three bits \cite{arxiv:2305.17505}.
 
 
@@ -312,6 +318,10 @@ relations:
       detail: 'Qubit stabilizer states can be interpreted as states that are preparable using the Euclidean path integral in 3D Chern-Simons theory, defined on manifolds that are toy models of AdS/CFT wormholes \cite{arxiv:1611.01516,arxiv:2510.15067}.'
     - code_id: topological_abelian
       detail: 'Qubit stabilizer states can be interpreted as states that are preparable using the Euclidean path integral in 3D Chern-Simons theory, defined on manifolds that are toy models of AdS/CFT wormholes \cite{arxiv:1611.01516,arxiv:2510.15067}.'
+
+# verify...
+# - code_id: reed_muller
+#   detail: 'The rank-one projector \(P_\psi\) of a stabilizer state has Pauli-expansion coefficient vector whose Walsh--Hadamard transform is a Reed--Muller codeword; thus stabilizer projector data carry second-order Reed--Muller structure in the quadratic case \cite{doi:10.1109/TIT.2010.2070192}.'
 
 
 # Begin Entry Meta Information
