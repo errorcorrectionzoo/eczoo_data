@@ -3,7 +3,7 @@
 set -euo pipefail
 
 codes_dir="$HOME/eczoo_data/codes/quantum"
-checklist="$HOME/eczoo_data/scripts/checked_files.txt"
+checklist="$HOME/eczoo_data/resources/checked_files.txt"
 
 if [[ ! -d "$codes_dir" ]]; then
   echo "Error: directory not found: $codes_dir" >&2

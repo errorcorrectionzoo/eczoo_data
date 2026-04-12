@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract cited IEEE DOIs from YAML files under ``codes/``."""
+"""Extract cited non-IEEE DOIs from YAML files under ``codes/``."""
 
 from __future__ import annotations
 
@@ -9,10 +9,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CODES_DIR = ROOT / "codes"
-OUTPUT_PATH = ROOT / "resources" / "ieee_dois.txt"
+OUTPUT_PATH = ROOT / "resources" / "non_ieee_dois.txt"
 
-# Match doi:10.1109/... entries inside a cite block until the next comma/brace/space.
-IEEE_DOI_PATTERN = re.compile(r"doi:(10\.1109/[^,\}\s]+)", re.IGNORECASE)
+# Match doi:10.XXXX/... entries inside a cite block until the next comma/brace/space.
+DOI_PATTERN = re.compile(r"doi:(10\.[^,\}\s]+)", re.IGNORECASE)
+IEEE_PREFIX = "10.1109/"
 
 
 def iter_cite_contents(text: str) -> list[str]:
@@ -58,8 +59,8 @@ def iter_cite_contents(text: str) -> list[str]:
         index = cursor
 
 
-def extract_ieee_dois() -> list[str]:
-    ieee_dois: set[str] = set()
+def extract_non_ieee_dois() -> list[str]:
+    non_ieee_dois: set[str] = set()
 
     for yml_path in sorted(CODES_DIR.rglob("*.yml")):
         content = yml_path.read_text(encoding="utf-8")
@@ -67,16 +68,17 @@ def extract_ieee_dois() -> list[str]:
             line for line in content.splitlines() if not re.match(r"^\s*#", line)
         )
         for cite_contents in iter_cite_contents(uncommented_content):
-            for match in IEEE_DOI_PATTERN.findall(cite_contents):
-                ieee_dois.add(match)
+            for match in DOI_PATTERN.findall(cite_contents):
+                if not match.startswith(IEEE_PREFIX):
+                    non_ieee_dois.add(match)
 
-    return sorted(ieee_dois)
+    return sorted(non_ieee_dois)
 
 
 def main() -> int:
-    ieee_dois = extract_ieee_dois()
-    OUTPUT_PATH.write_text("\n".join(ieee_dois) + "\n", encoding="utf-8")
-    print(f"Wrote {len(ieee_dois)} IEEE DOIs to {OUTPUT_PATH}")
+    non_ieee_dois = extract_non_ieee_dois()
+    OUTPUT_PATH.write_text("\n".join(non_ieee_dois) + "\n", encoding="utf-8")
+    print(f"Wrote {len(non_ieee_dois)} non-IEEE DOIs to {OUTPUT_PATH}")
     return 0
 
 
