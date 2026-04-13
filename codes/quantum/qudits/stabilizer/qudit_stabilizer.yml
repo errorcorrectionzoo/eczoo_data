@@ -11,12 +11,12 @@ name: 'Modular-qudit stabilizer code'
 introduced: '\cite{arxiv:quant-ph/9705052,doi:10.1109/ISIT.2012.6283558}'
 
 description: |
-  An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint eigenspace of commuting qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\).
+  An \(((n,K,d))_q\) modular-qudit code whose logical subspace is the joint eigenspace of commuting qudit Pauli operators forming the code's stabilizer group \(\mathsf{S}\) \cite[Sec. 3.6]{arxiv:quant-ph/9705052}.
   Traditionally, the logical subspace is the joint \(+1\) eigenspace, and the stabilizer group does not contain \(e^{i \phi} I\) for any \(\phi \neq 0\).
   The distance \(d\) is the minimum weight of a qudit Pauli string that implements a nontrivial logical operation in the code.
 
   A modular-qudit stabilizer code encoding an integer number of qudits (\(K=q^k\)) is denoted as \([[n,k]]_{\mathbb{Z}_q}\) or \([[n,k,d]]_{\mathbb{Z}_q}\).
-  For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite{arxiv:1101.1519}.
+  For composite \(q\), such codes need not encode an integer number of qudits, with \(K=q^n/|\mathsf{S}|\) \cite[Sec. 3.6]{arxiv:quant-ph/9705052}\cite{arxiv:1101.1519}.
   This is because \(|{\mathsf{S}}|\) need not be a power of \(q\), as group generators may have different orders. 
   As a result, \([[n,k,d]]\) notation is often used with non-integer \(k=\log_q K\), and the code dimension can be inferred from the prime decomposition of \(q\) \cite{arxiv:2501.04888}.
   \textit{Prime-qudit} stabilizer codes, where \(q=p\) for some prime \(p\), do not suffer from this issue and encode \(k\) logical qudits, with \(K=p^k\).
@@ -44,13 +44,15 @@ features:
     - 'Encoder circuits for prime-qudit stabilizer codes \cite{arxiv:2509.25587}.'
 
   magic_scaling_exponent: 'The \textit{magic-state yield parameter} \(\gamma = \log_d(n/k)\) quantifies the overhead cost of magic-state distillation per the original protocol \cite{arxiv:quant-ph/0403025,arxiv:1209.2426}.'
-
+  
   transversal_gates:
     - 'All qudit stabilizer codes realize modular qudit Pauli transformations transversally.'
 
   general_gates:
-    - 'Gates in the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} can be done using \textit{qudit gate teleportation}, in which a gate can be obtained from a particular \textit{qudit magic state}.
-    Magic states that are eigenstates of qudit Clifford operators have been classified for prime qudit dimension 3 and 5 \cite{arxiv:2003.07164}.'
+    - >-
+      Gates in the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} can be done using \textit{qudit gate teleportation},
+      in which a gate can be obtained from a particular \textit{qudit magic state}. Magic states that are eigenstates of qudit Clifford
+      operators have been classified for prime qudit dimension 3 and 5 \cite{arxiv:2003.07164}.
   decoders:
     - 'Trellis decoder for prime-dimensional qudits, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arxiv:2106.08251}.'
 
@@ -63,8 +65,10 @@ notes:
 relations:
   parents:
     - code_id: qudit_non_stabilizer
-      detail: 'A modular-qudit stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a modular-qudit USt with only the identity coset representative.
-      Conversely, if \(K = q^k\), and if the set of coset representatives of a modular-qudit USt form a \(q\)-ary linear code over \(\mathbb{Z}_q\), then they can be absorbed into a modular-qudit stabilizer group that defines the USt.'
+      detail: >-
+        A modular-qudit stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a modular-qudit USt with only the identity
+        coset representative. Conversely, if \(K = q^k\), and if the set of coset representatives of a modular-qudit USt form a \(q\)-ary
+        linear code over \(\mathbb{Z}_q\), then they can be absorbed into a modular-qudit stabilizer group that defines the USt.
     - code_id: stabilizer
     - code_id: quantum_lego
       detail: 'Modular-qudit stabilizer codes are quantum Lego codes built out of atomic blocks such as the 2-qudit repetition code, single-qudit trivial stabilizer codes, and tensor-products of the \(|0\rangle\) state \cite{arxiv:2109.11996}.'

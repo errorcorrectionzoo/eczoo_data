@@ -30,12 +30,12 @@ protection: |
   There are conditions on the encoding circuit which guarantee that the code can correct errors \cite{doi:10.1103/PhysRevA.81.062305}.
   The code can be further optimized to increase resolution between syndrome spaces for certain noise \cite{doi:10.1103/PhysRevA.81.062305}.
 
-  Protection of logical modes against small displacements or other errors acting in every physical mode cannot be done using only Gaussian resources \cite{arxiv:0811.3128,arxiv:1810.00047} (see also \cite{arxiv:quant-ph/0204052,arxiv:quant-ph/0204085}). 
+  Protection of logical modes against small displacements or other errors acting in every physical mode cannot be done using only Gaussian resources \cite{arxiv:0811.3128}. For Gaussian displacement noise, linear oscillator encodings can at best squeeze the logical noise between conjugate quadratures rather than suppressing it in both simultaneously \cite[Sec. VI]{arxiv:1810.00047} (see also \cite{arxiv:quant-ph/0204052,arxiv:quant-ph/0204085}). 
   There are no such restrictions for non-Gaussian noise \cite{arxiv:0811.3616,doi:10.1103/PhysRevA.81.062305}.
 
 features:
   encoders:
-    - 'Gaussian circuit applied to \(k\) modes storing logical information and \(n-k\) modes initialized in a position state \cite{arxiv:1810.00047}.'
+    - 'Gaussian circuit applied to \(k\) modes storing logical information and \(n-k\) modes initialized in a position state.'
   decoders:
     - 'Homodyne measurement of nullifiers yields real-valued syndromes, and recovery can be performed by displacements conditional on the syndromes.'
 
@@ -49,8 +49,9 @@ relations:
     - code_id: oscillators_into_oscillators
   cousins:
     - code_id: gkp-stabilizer
-      detail: 'Analog stabilizer codes protect logical modes against arbitrarily large displacements on a few modes, while oscillator-into-oscillator GKP codes protect a finite-dimensional logical space against sufficiently small displacements in any number of modes. Encoding in analog-stabilizer (oscillator-into-oscillator GKP) codes can be done by a Gaussian operation acting on a tensor product of an arbitrary state in the first mode and position states (GKP states) on the remaining modes.
-      Protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:1810.00047,arxiv:quant-ph/0204052,arxiv:0811.3128}, so oscillator-into-oscillator GKP codes can be thought of as analog stabilizer encodings utilizing non-Gaussian GKP resource states.'
+      detail: >-
+        Analog stabilizer codes protect logical modes against arbitrarily large displacements on a few modes, while oscillator-into-oscillator GKP codes protect a finite-dimensional logical space against sufficiently small displacements in any number of modes. Encoding in analog-stabilizer (oscillator-into-oscillator GKP) codes can be done by a Gaussian operation acting on a tensor product of an arbitrary state in the first mode and position states (GKP states) on the remaining modes.
+        For Gaussian displacement noise, linear oscillator encodings only squeeze the logical noise between conjugate quadratures \cite[Sec. VI]{arxiv:1810.00047}, and protection of logical modes against small displacements cannot be done using only Gaussian resources \cite{arxiv:quant-ph/0204052,arxiv:0811.3128}, so oscillator-into-oscillator GKP codes can be thought of as analog stabilizer encodings utilizing non-Gaussian GKP resource states.
     - code_id: qudit_stabilizer
       detail: 'Prime-qudit stabilizer codes can be transformed into analog stabilizer codes on the same number of modes and logical modes, with distance at least as large as that of the original code \cite[Thm. 12]{arxiv:2303.17000}.'
     - code_id: galois_stabilizer

@@ -17,14 +17,14 @@ description: |
 features:
   rate: 'The error threshold under ML decoding of GKP-rotated-surface codes comes close to \(\sigma\approx 0.6065\), at which the best-known lower bound \cite{arxiv:quant-ph/9912067} on the capacity vanishes \cite{arxiv:2411.04277}.'
   decoders:
-    - 'Decoder for GKP-toric code \cite{arxiv:1810.00047}.'
+    - 'Minimum-energy and random-plaquette-gauge-model decoders for the toric-GKP code \cite[Secs. IV-V]{arxiv:1810.00047}.'
     - 'MWPM closest point decoder \cite{arxiv:2303.04702}.'
   code_capacity_threshold:
-    - '\(0.55\) (\(0.54\)) threshold displacement standard deviation for GKP-toric (GKP-surface) codes with no analog side information \cite{arxiv:1810.00047} (\cite{arxiv:1712.00294}). Using rectangular lattices accounts for asymmetric noise and improves the GKP-surface threshold to \(0.58\) \cite{arxiv:1810.00047}.'
+    - '\(0.55\) (\(0.54\)) threshold displacement standard deviation for GKP-toric (GKP-surface) codes without using GKP analog information \cite[Sec. IV.B]{arxiv:1810.00047} (\cite{arxiv:1712.00294}). Using the continuous GKP syndrome information raises the GKP-toric threshold to \(\sigma_0\approx 0.6\), corresponding to a qubit error rate of about \(14\%\) \cite[Sec. IV.B]{arxiv:1810.00047}.'
     - '\(0.67\) threshold displacement standard deviation for GKP-XZZX-surface code \cite{arxiv:2207.04383}.'
     - '\(0.602\) threshold displacement standard deviation for GKP-surface codes with analog side information using MWPM closest point decoder \cite{arxiv:2303.04702}.'
   threshold:
-    - 'The threshold under displacement noise using ML decoding of GKP-toric codes corresponds to the value of a critical point of a 3D compact QED model in the presence of a quenched random gauge field \cite{arxiv:1810.00047}. The GKP-toric decoder yields a threshold displacement standard deviation of \(\sigma = 0.243\) \cite{arxiv:1810.00047}, but this noise model did not properly take into account error propagation \cite{arxiv:1908.03579}.'
+    - 'The ML decoding problem for the toric-GKP code maps to a 3D compact QED model in the presence of a quenched random gauge field \cite[Secs. V.B-V.C]{arxiv:1810.00047}. A decoder based on this mapping yields a threshold displacement standard deviation of \(\sigma_0\approx 0.243\) when toric-code measurements, data errors, and GKP ancilla errors are all noisy \cite[Sec. V.D.3]{arxiv:1810.00047}, but this noise model did not properly take into account error propagation \cite{arxiv:1908.03579}.'
     - '\(11.2\)dB of squeezing under displacement noise using MWPM decoding for GKP-rotated-surface codes \cite{arxiv:1908.03579,arxiv:2103.06994}. The error threshold under ML decoding of GKP-rotated-surface codes comes close to \(\sigma\approx 0.6065\), at which the best-known lower bound \cite{arxiv:quant-ph/9912067} on the capacity vanishes \cite{arxiv:2411.04277}.'
 
 
@@ -40,8 +40,6 @@ relations:
       detail: 'GKP codes have been concatenated with rotated surface codes \cite{arxiv:1712.00294,arxiv:1908.03579,arxiv:2101.03014,arxiv:2103.06994,arxiv:2303.04702}.'
     - code_id: xzzx
       detail: 'GKP codes have been concatenated with XZZX surface codes \cite{arxiv:2207.04383}.'
-    - code_id: asymmetric_qecc
-      detail: 'Using rectangular lattices accounts for asymmetric noise and improves the GKP-surface threshold to \(0.58\) \cite{arxiv:1810.00047}.'
     - code_id: analog_surface
       detail: 'The GKP-surface code can be obtained from the analog surface code by \hyperref[topic:code-switching]{condensing} certain anyons \cite{arxiv:2411.04993}.'
 
