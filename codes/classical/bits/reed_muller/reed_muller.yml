@@ -9,7 +9,7 @@ logical: bits
 
 name: 'Reed-Muller (RM) code'
 short_name: 'RM'
-introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465,manual:{N. Mitani, \emph{On the transmission of numbers in a sequential computer}, delivered at the National Convention of the Inst. of Elect. Engineers of Japan, November 1951.}}'
+introduced: '\cite{doi:10.1109/irepgelc.1954.6499441,doi:10.1109/tit.1954.1057465,manual:{N. Mitani, "On the transmission of numbers in a sequential computer", delivered at the National Convention of the Inst. of Elect. Engineers of Japan, November 1951.}}'
 
 description: |
   Member of the RM\((r,m)\) family of linear binary codes derived from multivariate polynomials. The code parameters are \([2^m,\sum_{j=0}^{r} {m \choose j},2^{m-r}]\), where \(r\) is the \textit{order} of the code satisfying \(0\leq r\leq m\).
@@ -39,7 +39,7 @@ features:
 
 
 realizations:
-  - 'Deep-space communication \cite{doi:10.1007/bfb0036046,manual:{E.C. Posner, \emph{Combinatorial Structures in Planetary Reconnaissance} in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
+  - 'Deep-space communication \cite{doi:10.1007/bfb0036046,manual:{E.C. Posner, "Combinatorial Structures in Planetary Reconnaissance" in Error Correcting Codes, ed. H.B. Mann, Wiley, NY 1968.}}.'
 
 notes:
   - 'See \cite[Chs. 13-15]{preset:MacSlo}\cite{doi:10.1017/CBO9781316529836} for details of RM codes and their variants.'
@@ -62,7 +62,7 @@ relations:
     - code_id: divisible
       detail: 'An RM\((r,m)\) code is \(2^{\left\lceil m/r\right\rceil-1}\)-divisible, according to McEliece''s theorem \cite{doi:10.1016/0097-3165(71)90066-5,doi:10.1016/0012-365X(72)90032-5}.'
     - code_id: group
-      detail: 'RM codes are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{Charpin, Pascale. Codes idéaux de certaines algèbres modulaires. Diss. 1982.}}\cite[Exam. 16.4.11]{preset:HKSalgebra}. Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary Abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_2 G_m \). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
+      detail: 'RM codes are group-algebra codes \cite{doi:10.1007/BF01072842,manual:{P. Charpin. Codes idéaux de certaines algèbres modulaires. PhD thesis, 1982.}}\cite[Exam. 16.4.11]{preset:HKSalgebra}. Consider a binary vector space of dimension \( m \). Under addition, this forms a finite group with \( 2^m \) elements known as an elementary Abelian 2-group -- the direct product of \( m \) two-element cyclic groups \( \mathbb{Z}_2 \times \dots \times \mathbb{Z}_2 \). Denote this group by \( G_m \). Let \( J \) be the Jacobson radical of the \hyperref[topic:group-algebra]{group algebra} \( \mathbb{F}_2 G_m \). RM\((r,m)\) codes correspond to the ideal \( J^{m-r} \). The length of the code is \( |G_m| = 2^m \), the distance is \( 2^{m-r} \), and the dimension is \( \sum_{i=0}^r {m \choose i} \). A similar construction exists for choices of a prime \( p\neq 2 \).'
   cousins:
     - code_id: bch
       detail: 'RM\(^*(r,m)\) codes are equivalent to subcodes of BCH codes of designed distance \(2^{m-r}-1\), while RM\((r,m)\) are subcodes of extended BCH codes of the same designed distance \cite[Ch. 13]{preset:MacSlo}.'
@@ -84,7 +84,7 @@ relations:
 
 
 # - code_id: biorthogonal
-#   detail: 'An RM\((1,m)\) code maps to a \((2^m,2^{m+1})\) biorthogonal signal set under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{Forney, G. D. (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}. This set is equivalent to the  biorthogonal code since all such codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}.'
+#   detail: 'An RM\((1,m)\) code maps to a \((2^m,2^{m+1})\) biorthogonal signal set under the \hyperref[topic:antipodal-mapping]{antipodal mapping} \cite{doi:10.1109/18.720542}\cite[Sec. 6.4]{manual:{G. D. Forney (2003). 6.451 Principles of Digital Communication II, Spring 2003.}}. This set is equivalent to the  biorthogonal code since all such codes are unique up to equivalence \cite[pg. 19]{preset:EricZin}.'
 
   #cousins:
     # - code_id: hamming

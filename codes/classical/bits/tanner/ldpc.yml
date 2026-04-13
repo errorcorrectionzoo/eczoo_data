@@ -10,7 +10,7 @@ logical: bits
 
 name: 'Low-density parity-check (LDPC) code'
 short_name: 'LDPC'
-introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},manual:{Bassalygo, L. A., and M. S. Pinsker. "The complexity of an optimal non-blocking commutation scheme without reorganization." Problemy Peredaci Informacii 9.1 (1973): 84-87.}}'
+introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallager, "Low-density parity check codes". 1963. PhD thesis, MIT Cambridge, MA.},manual:{L. A. Bassalygo and M. S. Pinsker, "The complexity of an optimal non-blocking commutation scheme without reorganization." Problemy Peredaci Informacii 9.1 (1973): 84-87.}}'
 # Separate from q-ary because of binary Tanner entry and because most LDPC codes are binary
 
 alternative_names:
@@ -36,8 +36,8 @@ features:
   encoders:
     - 'Almost linear-time encoder based on transforming the parity-check matrix into upper triangular form \cite{doi:10.1109/18.910579}.'
   decoders:
-    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},manual:{Pearl, J. (2022). Reverend Bayes on inference engines: A distributed hierarchical approach. In Probabilistic and Causal Inference: The Works of Judea Pearl (pp. 129-138).},doi:10.1016/C2009-0-27609-4} (see also \cite{doi:10.1109/18.910577,preset:LinCostello,doi:10.1109/ISCAS.2006.1693779}).'
-    - 'Soft-decision Sum-Product Algorithm (SPA) \cite{manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910572,doi:10.1109/18.910577} and its simplification the Min-Sum Algorithm (MSA) \cite{doi:10.1109/TCOMM.2005.852852}.'
+    - 'Message-passing algorithm called belief propagation (BP) \cite{manual:{R. Gallager, "Low-density parity check codes". 1963. PhD thesis, MIT Cambridge, MA.},manual:{J. Pearl (2022). "Reverend Bayes on inference engines: A distributed hierarchical approach". In Probabilistic and Causal Inference: The Works of Judea Pearl (pp. 129-138).},doi:10.1016/C2009-0-27609-4} (see also \cite{doi:10.1109/18.910577,preset:LinCostello,doi:10.1109/ISCAS.2006.1693779}).'
+    - 'Soft-decision Sum-Product Algorithm (SPA) \cite{manual:{R. Gallager, "Low-density parity check codes". 1963. PhD thesis, MIT Cambridge, MA.},doi:10.1109/18.910572,doi:10.1109/18.910577} and its simplification the Min-Sum Algorithm (MSA) \cite{doi:10.1109/TCOMM.2005.852852}.'
     - 'Linear programming \cite{manual:{J. Feldman. Decoding Error-Correcting Codes via Linear Programming. PhD thesis, Massachusetts Institute of Technology, 2003.},doi:10.1109/TIT.2004.842696,doi:10.1007/978-1-4939-2864-4_216}.'
     - 'Iterative decoder using stochastic computation \cite{doi:10.1049/el:20030217}.'
     - 'Iterative LDPC decoders can get stuck at \textit{stopping sets} of their Tanner graphs \cite{doi:10.1109/TIT.2002.1003839}, with decoder performance improving with the size of the smallest stopping set; see \cite[Sec. 21.3.1]{preset:HKSgraphs} for more details.
@@ -47,15 +47,15 @@ features:
     - 'Quantum-enhanced BP decoding \cite{arxiv:2412.08596}.'
 
 notes:
-  - 'The potential of LDPC codes was noted by Margulis \cite{doi:10.1007/BF02579283}, but realized by the broader community \cite{doi:10.1049/el:19970362,doi:10.1109/18.748992} much later after their discovery by Gallager \cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallager, \emph{Low-density parity check codes}. 1963. PhD thesis, MIT Cambridge, MA.}}.'
+  - 'The potential of LDPC codes was noted by Margulis \cite{doi:10.1007/BF02579283}, but realized by the broader community \cite{doi:10.1049/el:19970362,doi:10.1109/18.748992} much later after their discovery by Gallager \cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallager, "Low-density parity check codes". 1963. PhD thesis, MIT Cambridge, MA.}}.'
   - 'See books \cite{doi:10.1093/acprof:oso/9780198570837.001.0001,doi:10.1093/acprof:oso/9780198509417.001.0001,doi:10.1017/9781009283403} and reviews \cite{doi:10.1088/0305-4470/37/6/R01,doi:10.1016/S1076-5670(02)80018-0,doi:10.1016/S0924-8099(07)80009-6,doi:10.36471/JCCM_August_2025_01} for introductions to LDPC codes, belief-propagation decoding, and connections to statistical mechanics.
-  Other introductory references include Refs. \cite{doi:10.1109/MCOM.2003.1222728,manual:{Johnson, Sarah J. "Introducing low-density parity-check codes." University of Newcastle, Australia 1 (2006): 2006.},preset:MacKay,doi:10.1201/9780203490310} as well as a review of LDPC codes circa 2005 \cite{doi:10.1007/978-3-0348-7865-4_5}.'
+  Other introductory references include Refs. \cite{doi:10.1109/MCOM.2003.1222728,manual:{S. J. Johnson, "Introducing low-density parity-check codes." University of Newcastle, Australia 1 (2006): 2006.},preset:MacKay,doi:10.1201/9780203490310} as well as a review of LDPC codes circa 2005 \cite{doi:10.1007/978-3-0348-7865-4_5}.'
   - 'See Kaiserslautern database \cite{preset:KLdatabase} for explicit representatives of several classes of LDPC codes, including \(q\)-ary, WiMAX, multi-edge, and spatially-coupled.'
   - 'See pretty-good-codes database \cite{preset:PGCdatabase} for explicit representatives and benchmarking.'
   - 'See Encyclopedia of sparse graph codes for explicit representatives \cite{manual:{MacKay, David JC. "Encyclopedia of sparse graph codes." (2005).}}'
   - 'LDPC codes have been considered for quantum key distribution \cite{arxiv:2212.01121}.'
   - 'Codes have been benchmarked using AFF3CT toolbox \cite{doi:10.1016/j.softx.2019.100345}.'
-  - 'LDPC Python software library for decoding LDPC and QLDPC codes \cite{arxiv:2005.07016,manual:{Roffe, Joschka. "LDPC: Python tools for low density parity check codes." (2022).}}.'
+  - 'LDPC Python software library for decoding LDPC and QLDPC codes \cite{arxiv:2005.07016,manual:{J. Roffe, "LDPC: Python tools for low density parity check codes." (2022).}}.'
 
 
 relations:
