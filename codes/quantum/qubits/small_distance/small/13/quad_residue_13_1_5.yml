@@ -1,0 +1,32 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quad_residue_13_1_5
+physical: qubits
+logical: qubits
+
+name: '\([[13,1,5]]\) quantum QR code'
+introduced: '\cite[pg. 11]{arxiv:quant-ph/9704019}'
+# qecdb id 67067199e766ad364e845262
+
+
+description: |
+  Thirteen-qubit cyclic Hermitian qubit code derived from a quaternary quadratic-residue code using the Hermitian construction \cite[pg. 11]{arxiv:quant-ph/9704019}\cite{arxiv:2211.00891}.
+  The code admits a check matrix whose rows are cyclic permutations of the Pauli string \(XXZZIZIIIZIZZ\).
+
+
+relations:
+  parents:
+    - code_id: stabilizer_over_gf4
+    - code_id: galois_quad_residue
+    - code_id: small_distance_qubit_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-13'
