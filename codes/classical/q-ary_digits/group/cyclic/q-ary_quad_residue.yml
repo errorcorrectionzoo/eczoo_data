@@ -12,13 +12,14 @@ short_name: 'QR'
 #introduced: ''
 
 description: |
-  Member of a quadruple of cyclic \(q\)-ary codes of prime length \(n\) where \(q\) is prime and a quadratic-residue modulo \(n\).
+  Member of a quadruple of cyclic \(q\)-ary codes of prime length \(n\) where \(q\) is prime and a quadratic-residue modulo \(n\) \cite[Def. 3.2.8]{preset:HKSclass}.
   The codes are constructed using quadratic residues and nonresidues of \(n\).
-  Extensions to prime-power \(q\) are also known \cite{doi:10.1109/TIT.1978.1055965,doi:10.1007/978-3-662-39641-4_6}.
+  The definition extends to prime-power alphabet sizes and to prime-power lengths \cite[Rem. 3.2.9]{preset:HKSclass}\cite{doi:10.1109/TIT.1978.1055965,doi:10.1007/978-3-662-39641-4_6}.
+  A quadratic-residue code of prime length \(p\) has dimension \((p+1)/2\) \cite[Sec. 3.2.1]{preset:HKSclass}.
 
   The roots of the generator polynomial \(r(x)\) of the first code (see \ref{topic:Cyclic-to-polynomial-correspondence}) are all of the inequivalent quadratic residues of \(n\), and the second code's generator polynomial is \((x-1)r(x)\). The roots of the generator polynomial \(a(x)\) of the third code are all inequivalent nonresidues of \(n\), and the fourth code's generator polynomial is \((x-1)a(x)\). The codes corresponding to polynomials \(r,a\) are often called \textit{augmented} quadratic-residue codes, while the remaining codes are called \textit{expurgated}.
 
-  The automorphism group of extended odd-like quadratic-residue codes is \(PSL(2,\mathbb{F}_n)\), and these codes are the only codes with such symmetries \cite{arxiv:1704.01199}.
+  The extended versions of odd-like quadratic-residue codes have automorphism groups containing \(PSL_2(p)\) \cite[Thm. 3.2.11]{preset:HKSclass}; such codes are the only codes with these symmetries \cite{arxiv:1704.01199}.
 
 protection: 'For odd-like quadratic-residue codes of prime length, the common minimum distance \(d\) satisfies \(d^2 \geq n\); if \(-1\) is a quadratic non-residue, then \(d^2-d+1 \geq n\) \cite[Thm. 2.7.4]{preset:HKScyclic}.'
 
