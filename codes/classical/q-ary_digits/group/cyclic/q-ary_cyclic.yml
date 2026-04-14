@@ -30,10 +30,12 @@ description: |
   Whenever \(q\) and \(n\) are relatively prime, cyclic codes can also be defined in terms of roots of \(g(x)\).
   Such roots are called \textit{zeroes} of the code, and they are all powers of a primitive \(n\)th root of unity because \(g(x)\) is a divisor of \(x^n-1\).
   Since the generator polynomial generates all codeword polynomials \(c(x)\) by multiplication by \(x\), its zeroes are also zeroes of those polynomials.
+  In the coprime case, cyclic codes also admit unique generating idempotents, parity-check polynomials, and trace representations \cite[Secs. 2.3 and 2.4]{preset:HKScyclic}.
+  In the same setting, an \textit{irreducible cyclic code} \(C(q,n,i)\) is the length-\(n\) cyclic code over \(\mathbb{F}_q\) whose parity-check polynomial is the minimal polynomial \(M_{\alpha^i}(x)\) of \(\alpha^i\), where \(\alpha\) is a primitive \(n\)th root of unity. Such codes are also called \textit{minimal cyclic codes} because they correspond to minimal ideals of \(\mathbb{F}_q[x]/(x^n-1)\) \cite[Sec. 2.5]{preset:HKScyclic}.
 
 #Since \(g(x)\) is a polynomial over \(\mathbb{F}_q\), it can be factorized over some potentially larger \textit{splitting field} (just like \(x^2+1\) can be factorized over the complex numbers but not the reals).
 
-protection: 'Shift bound \cite{doi:10.1109/TIT.1986.1057134} gives a lower bound on the distance of cyclic \(q\)-ary codes.'
+protection: 'The BCH and Hartmann-Tzeng bounds give lower bounds on the distance of cyclic \(q\)-ary codes \cite[Sec. 2.4]{preset:HKScyclic}; the shift bound \cite{doi:10.1109/TIT.1986.1057134} gives another lower bound.'
 
 features:
 
@@ -43,7 +45,7 @@ features:
     - 'Permutation decoding \cite{doi:10.1002/j.1538-7305.1964.tb04075.x}.'
 
 notes:
-  - 'See Ch. 7 of Ref. \cite{preset:MacSlo} and \cite[Sec. 1.12]{preset:HKSbasics}\cite{preset:HKScyclic} for an exposition.'
+  - 'See Ch. 7 of Ref. \cite{preset:MacSlo} and \cite[Sec. 1.12]{preset:HKSbasics}\cite[Secs. 2.1-2.4]{preset:HKScyclic} for expositions.'
   - 'Any nontrivial \(q\)-ary linear code invariant under the general affine group \(GA(m,\mathbb{F}_{q^r})\) for some \(r > 1\) is equivalent to an extended cyclic code \cite{doi:10.1109/TIT.1970.1054554}.'
 
 relations:

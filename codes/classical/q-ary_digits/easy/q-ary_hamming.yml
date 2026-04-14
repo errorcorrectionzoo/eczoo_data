@@ -19,7 +19,7 @@ description: |
 protection: 'Can detect 1-bit and 2-bit errors, and can correct 1-dit errors.'
 
 notes:
-  - 'Hamming codes over extension fields and their subfield subcodes are discussed in \cite[Exam. 2.2.2]{preset:HKScyclic}.'
+  - 'Example 2.2.2 studies the subfield subcode \(H_{3,2^2}|_{\mathbb{F}_2}\), a \([21,16,3]_2\) code, of a \(q\)-ary Hamming code over an extension field \cite[Exam. 2.2.2]{preset:HKScyclic}.'
 
 
 # Perfect more important parent than linear; these are not PRM necessarily so no other choice here
@@ -34,7 +34,7 @@ relations:
     - code_id: incidence_matrix
       detail: 'Columns of a Hamming parity-check matrix correspond to 1D subspaces of \(\mathbb{F}_q^r\).'
     - code_id: q-ary_cyclic
-      detail: 'Hamming codes are equivalent to cyclic codes when \(q\) and \(r\) are relatively prime (\cite{preset:MacSlo}, pg. 194).'
+      detail: 'When \(\gcd(q-1,r)=1\), \(q\)-ary Hamming codes are equivalent to cyclic codes \cite[pg. 194]{preset:MacSlo}\cite[Exam. 2.5.1]{preset:HKScyclic}.'
     - code_id: bch
       detail: 'Some narrow sense BCH codes of length \(n=(q^r-1)/(q-1)\) such that \(\text{gcd}(r,q-1)=1\) are \(q\)-ary Hamming codes (\cite{doi:10.1017/CBO9780511807077}, Thm. 5.1.4).'
 

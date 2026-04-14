@@ -21,6 +21,8 @@ description: |
 
   There is an odd-like duadic pair \(\{D_1,D_2\}\) associated with the even-like pair \(\{C_1, C_2\}\), where \(1-e_2(x)\) generates \(D_1\) and \(1-e_1(x)\) generates \(D_2\). The even-pair codes are \([n,\frac{n-1}{2}]_q\) codes while the odd-pair codes are \([n,\frac{n+1}{2}]_q\) codes.
 
+protection: 'For odd-like duadic codes, the common minimum odd-like weight \(d_o\) satisfies \(d_o^2 \geq n\); if the splitting is given by \(\mu=-1\), then \(d_o^2-d_o+1 \geq n\) \cite[Thm. 2.7.1]{preset:HKScyclic}.'
+
 notes:
   - 'Reviews of duadic codes \cite{doi:10.1007/978-3-7091-2786-5_1,doi:10.1017/CBO9780511807077}\cite[Sec. 2.7]{preset:HKScyclic}.'
 
@@ -28,6 +30,8 @@ relations:
   parents:
     - code_id: q-ary_cyclic
   cousins:
+    - code_id: self_dual
+      detail: 'Under certain conditions, extended odd-like duadic codes are self-dual \cite[Sec. 2.7]{preset:HKScyclic}.'
     - code_id: projective
       detail: 'The weight-five codewords of the \([21,5,6]_4\) quaternary duadic code support a projective plane of order 4 \cite[Table 6.3]{doi:10.1017/CBO9780511807077}.'
 
