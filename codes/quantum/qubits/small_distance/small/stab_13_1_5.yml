@@ -1,0 +1,40 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_13_1_5
+physical: qubits
+logical: qubits
+
+name: '\([[13,1,5]]\) twisted toric code'
+introduced: '\cite{arxiv:1108.5490}'
+# qecdb id 6706718ae766ad364e845250
+
+description: |
+  Thirteen-qubit twisted toric code for which there is a set of stabilizer generators consisting of cyclic permutations of the \(XZZX\)-type Pauli string \(XIZZIXIIIIIII\).
+  The code can be thought of as a small twisted XZZX code \cite[Exam. 11 and Fig. 3]{arxiv:1108.5490}.
+
+
+features:
+  transversal_gates:
+    - 'No non-Pauli transversal gates.'
+
+relations:
+  parents:
+    - code_id: twisted_xzzx
+      detail: 'The \([[13,1,5]]\) twisted toric code is a small twisted XZZX toric code \cite[Exam. 11 and Fig. 3]{arxiv:1108.5490}.'
+    - code_id: frobenius
+    - code_id: small_distance_qubit_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: SimonBurton
+      date: '2024-07-17'
+    - user_id: VictorVAlbert
+      date: '2024-07-17'
+    - user_id: VictorVAlbert
+      date: '2024-03-31'
