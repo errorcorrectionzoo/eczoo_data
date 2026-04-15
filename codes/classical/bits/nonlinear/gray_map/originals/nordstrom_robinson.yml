@@ -44,10 +44,13 @@ relations:
     - code_id: extended_golay
       detail: 'The NR code can be constructed using the extended Golay code by first selecting a set of codewords satisfying certain conditions and then deleting specific coordinates \cite[pg. 73]{preset:MacSlo}.'
     - code_id: self_dual
-      detail: 'The NR code is self-dual in that its distance distribution is invariant under the \hyperref[topic:weight-enumerator]{MacWilliams transform} \cite{doi:10.1109/TIT.1983.1056676}.
-      It maps to the octacode, a self-dual code over \(\mathbb{Z}_4\) under the \term{Gray map}  \cite{arxiv:math/9310227,manual:{G. D. Forney Jr., N. J. A. Sloane, and M. D. Trott. "The Nordstrom-Robinson code is the binary image of the octacode." In Coding and Quantization: DIMACS/IEEE workshop 1992 Oct 19 (pp. 19-26). American Mathematical Society.},doi:10.1142/3603}.'
+      detail: |
+        The NR code is self-dual in that its distance distribution is invariant under the \hyperref[topic:weight-enumerator]{MacWilliams transform} \cite{doi:10.1109/TIT.1983.1056676}.
+        It maps to the octacode, a self-dual code over \(\mathbb{Z}_4\) under the \term{Gray map}  \cite{arxiv:math/9310227,manual:{G. D. Forney Jr., N. J. A. Sloane, and M. D. Trott. "The Nordstrom-Robinson code is the binary image of the octacode." In Coding and Quantization: DIMACS/IEEE workshop 1992 Oct 19 (pp. 19-26). American Mathematical Society.},doi:10.1142/3603}.
+    - code_id: nearly_perfect
+      detail: 'The punctured \((15,256,5)\) NR code saturates the Johnson bound and is therefore nearly perfect \cite[Exam. 5.5.5]{preset:HKSdesigns}.'
     - code_id: combinatorial_design
-      detail: 'NR codewords give \(3\)-\((16, 6, 4)\), \(3\)-\((16, 8, 3)\), and \(3\)-\((16, 10, 24)\) designs \cite[pg. 164]{preset:MacSlo}.'
+      detail: 'NR codewords give \(3\)-\((16, 6, 4)\), \(3\)-\((16, 8, 3)\), and \(3\)-\((16, 10, 24)\) designs, while the punctured code of length \(15\) and minimum distance \(5\) meets the Johnson bound and supports \(2\)-designs \cite[Exam. 5.5.5]{preset:HKSdesigns}\cite[pg. 164]{preset:MacSlo}.'
     - code_id: small_distance
       detail: 'The NR code can be shortened to produce unique \((15, 256, 5)\), \((14, 128, 5)\), and \((13, 64, 5)\) codes \cite[pg. 74]{preset:MacSlo}.'
 

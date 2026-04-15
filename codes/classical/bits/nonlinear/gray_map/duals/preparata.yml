@@ -11,20 +11,19 @@ name: 'Preparata code'
 introduced: '\cite{doi:10.1016/S0019-9958(68)90874-7}'
 
 description: |
-  A nonlinear binary \((2^{m+1}-1, 2^{2^{m+1}-2m-2}, 5)\) code where \(m\) is odd, with the extended version having length \(2^{m+1}\) and distance \(6\).
-  The size of this code is twice the size of the largest possible linear code with the same length and distance.
-
-  Codewords of extended Preparata codes can be thought of as characteristic functions of the tuple \((X,Y)\), where \(X, Y\) belong to \(\mathbb{F}_2^m\), along with the following properties: (i) \(|X| = |Y| = 2^{m}\), (ii) \(\sum_{x \in X} x = \sum_{y \in Y} y \), and (iii) \(\sum_{x \in X} x^{3} + (\sum_{x \in X} x)^{3}  = \sum_{y \in Y} y^{3} \).
-  Preparata codes are obtained by puncturing the extended code, i.e., by deleting a coordinate in one half of the split-coordinate representation.
-
-  The automorphism group of these codes is determined in Refs. \cite{doi:10.1137/0603015,doi:10.1137/0603032,doi:10.1109/TIT.1983.1056676}.
+  A nonlinear binary \((2^{m+1}, 2^{2^{m+1}-2m-2}, 6)\) code where \(m\) is odd.
+  Puncturing a Preparata code yields the \textit{shortened Preparata code} with parameters \((2^{m+1}-1, 2^{2^{m+1}-2m-2}, 5)\).
 
 
-# protection: 'Preparata codes are a class of non linear double error correcting codes. Since the minimum distance is \(5\), preparata codes can correct \(\frac{5-1}{2} = 4\) errors.'
+
+  The automorphism groups of Preparata and shortened Preparata codes are determined in Refs. \cite{doi:10.1137/0603015,doi:10.1137/0603032,doi:10.1109/TIT.1983.1056676}.
+
+
+# protection: 'Preparata codes are a nonlinear double-error-correcting family. The shortened Preparata codes have minimum distance \(5\), while Preparata codes have minimum distance \(6\).'
 
 
 features:
-  rate: 'The rate is \(\frac{2^{m+1}-2m-2}{2^{m+1}-1}\).'
+  rate: 'The rate is \(\frac{2^{m+1}-2m-2}{2^{m+1}}\), tending to 1 as \(m\) becomes large.'
 
 
 notes:
@@ -35,16 +34,17 @@ relations:
   parents:
     - code_id: hergert
       detail: 'Preparata codes are equivalent to Hergert codes for \(r=2\) \cite[Thm. 2]{doi:10.1016/0097-3165(75)90090-4}.'
-    - code_id: nearly_perfect
-      detail: 'Preparata codes are uniformly packed and nearly perfect \cite{doi:10.1016/0012-365X(72)90025-8}. For any word \(u\) and Preparata codebook \(C\) with \(d(u, C) > 2\), we have that \(u\) has a distance 2 or 3 to exactly \(\left\lfloor (2^{m+1}-1)/3\right\rfloor\) codewords.'
-    - code_id: small_distance
   cousins:
+    - code_id: small_distance
+      detail: 'Shortened Preparata codes form an infinite family of small-distance block codes with minimum distance \(5\).'
+    - code_id: nearly_perfect
+      detail: 'Shortened Preparata codes are uniformly packed and nearly perfect \cite{doi:10.1016/0012-365X(72)90025-8}. For any word \(u\) and shortened Preparata codebook \(C\) with \(d(u, C) > 2\), we have that \(u\) has distance 2 or 3 to exactly \(\left\lfloor (2^{m+1}-1)/3\right\rfloor\) codewords.'
     - code_id: quasi_perfect
-      detail: 'Punctured Preparata codes are quasi-perfect \cite[pg. 475]{preset:MacSlo}.'
+      detail: 'Shortened Preparata codes are quasi-perfect \cite[pg. 475]{preset:MacSlo}.'
     - code_id: reed_muller
-      detail: 'A Preparata code can be written as a union of a linear subcode \(\mathcal{C}\) of RM\((m-2,m)\) and the \(2^{m-1}-1\) representatives of coset formed by \(\mathcal{C}\) in RM\((m-2,m)\). The coset representatives are given by \(|1|x^j|0|x^{j}\theta_{1}|\), where \(1\leq j \leq 2^{m-1}-1\). \(\mathcal{C}\) comprises of codewords of the form \(|g(1)|g(x)(1+\theta_{1})|f(1)+g(1)|g(x)(1+\theta_{1})+f(x)(1+\theta_{1}+\theta_{3})|\), where \(f(x)\) and \(g(x)\) are arbitrary, and where \(\theta_{1}\) and \(\theta_{3}\) denote the primitive idempotents corresponding to cyclotomic cosets \(C_1\) and \(C_3\) respectively.'
+      detail: 'Preparata codes are nonlinear subcodes of second-order Reed-Muller codes, and shortened Preparata codes are obtained from them by puncturing.'
     - code_id: bch
-      detail: 'Preparata codes contain twice as many codewords as the double-error-correcting BCH codes of the same length, which is the largest number of codewords possible for given length and distance \cite{doi:10.1016/S0019-9958(68)90874-7}.'
+      detail: 'Preparata codes contain twice as many codewords as the extended double-error-correcting BCH codes of the same length and minimum distance, and have the greatest possible number of codewords for this minimum distance \cite[pg. 475]{preset:MacSlo}\cite{doi:10.1016/S0019-9958(68)90874-7}.'
     - code_id: hamming
       detail: |
         Preparata codes can be obtained by Hensel-lifting Hamming codes to \(\mathbb{Z}_4\) \cite{doi:10.1109/18.312154}.
@@ -52,7 +52,7 @@ relations:
     - code_id: extended_hamming
       detail: 'Any code with the same parameters as the Preparata code must be a distance invariant subcode of a (possibly nonlinear) code with the same parameters as the extended Hamming code \cite{manual:{N. V. Semakov, V. A. Zinoviev, and G. V. Zaitsev, “Uniformly Packed Codes”, Problemy Peredachi Informatsii, 7:1 (1971), 38–50; Problems of Information Transmission, 7:1 (1971), 30–39.},manual:{G. V. Zaitsev, V. A. Zinoviev, and N. V. Semakov (1973). "Interrelation of Preparata and Hamming codes and extension of Hamming codes to new double-error-correcting codes". In Proc. 2nd International Symp. Inform. Theory (pp. 257-263).}}.'
     - code_id: combinatorial_design
-      detail: 'Preparata codewords of each weight form a 3-design \cite[pg. 471]{preset:MacSlo}.'
+      detail: 'Preparata codewords of each weight form 3-designs, and the minimum-weight codewords yield infinite families of 4-designs, including Steiner 4-designs with block sizes 5 and 6 \cite[Rem. 5.5.6 and Thms. 5.5.7, 5.5.11]{preset:HKSdesigns}\cite[pg. 471]{preset:MacSlo}.'
     - code_id: quaternary_reed_muller
       detail: 'The binary Preparata code is the Gray-map image of the quaternary code QRM\((m-2,m)\) \cite[Thm. 19]{arxiv:math/0207208}.'
     - code_id: gray
