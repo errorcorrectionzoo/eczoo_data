@@ -12,6 +12,7 @@ introduced: '\cite{manual:{M. J. E. Golay, "Notes on digital coding", Proceeding
 
 description: |
   A self-dual \([24, 12, 8]\) code that is obtained from the Golay code by adding a parity check.
+  Equivalently, puncturing any coordinate yields the \([23,12,7]\) Golay code.
   Up to equivalence, it is unique for its parameters \cite{doi:10.1016/0012-365X(75)90047-3}, and it is the unique \([24,12,8]\) extremal Type II code \cite[Rems. 4.3.10 and 4.3.11]{preset:HKSselfdual}.
 
   The automorphism group of the extended Golay code is the Mathieu group \(\mathcal{M}_{24}\), a sporadic simple group \cite[Rem. 4.3.11]{preset:HKSselfdual}.
@@ -36,6 +37,8 @@ relations:
   parents:
     - code_id: nearly_perfect
       detail: 'The extended Golay code is nearly perfect.'
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The extended Golay code is a sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
     - code_id: karlin
       detail: 'The extended Golay code is equivalent to the Karlin double circulant code for \(m=11\) \cite[Ch. 16]{preset:MacSlo}.'
     - code_id: self_dual
@@ -46,8 +49,6 @@ relations:
       detail: 'The extended Golay code is a quasi group-algebra code for various groups \cite{doi:10.1016/0097-3165(90)90069-9,arxiv:1604.07863,arxiv:1912.09167}.'
     - code_id: lexicographic
       detail: 'The extended Golay code is a lexicode \cite{manual:{M. J. T. Guy, unpublished.},doi:10.1109/TIT.1986.1057187}\cite[pg. 327]{preset:MacSlo}.'
-    - code_id: univ_opt_q-ary
-      detail: 'The Golay code and several of its extended, shortened, and punctured versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
   cousins:
     - code_id: biorthogonal
       detail: 'The first-order RM\((1,4)\) Reed-Muller code is a subcode of the extended Golay code \cite[Ch. 5, pg. 146]{doi:10.1007/978-1-4757-6568-7}.'
