@@ -13,44 +13,67 @@ short_name: 'QRM'
 introduced: '\cite{arxiv:quant-ph/0502001}'
 
 description: |
-  True Galois-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes via the Galois-qudit Hermitian construction, the Galois-qudit CSS construction, or directly from their parity-check matrices \cite[Sec. 4.2]{arxiv:0712.0103}.
+  True Galois-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes via the Galois-qudit Hermitian construction, the Galois-qudit CSS construction, or directly from their parity-check matrices \cite{arxiv:quant-ph/0502001}\cite[Sec. 4.2]{arxiv:0712.0103}.
 
-  The CSS construction yields a
-  \([[q^m,k(v_2)-k(v_1),\min\{d(v_1^{\perp}),d(v_2)\}]]_q\) code, constructed from the generalized Reed Muller Codes
-  RM\(_q(v_1,m)\) and RM\(_q(v_2,m)\), with \(0\leq v_1 \leq v_2 \leq q(m-1)-1\).
-  The parameters are \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and
-  \(d(v) = (R+1)q^{Q}\), where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq q-1\).
-  Here \(0\leq v_1,v_2 \leq m(q-1)-1\), \(q\) is prime, and \(m\) is a positive integer.
+  The CSS construction yields the code
+  \begin{align}
+    [[q^m,k(v_2)-k(v_1),\min\{d(v_1^{\perp}),d(v_2)\}]]_q
+  \end{align}
+  constructed from the generalized Reed Muller Codes RM\(_q(v_1,m)\) and RM\(_q(v_2,m)\), with \(0\leq v_1 \leq v_2 \leq m(q-1)-1\) \cite{arxiv:quant-ph/0502001}.
+  The parameters are
+  \begin{align}
+    k(v) &= \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq} \\
+    d(v) &= (R+1)q^{Q}~,
+  \end{align}
+  where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq q-1\).
+  Here \(0\leq v_1,v_2 \leq m(q-1)-1\), \(q\) is a prime power, and \(m\) is a positive integer.
 
-  Using the code GRM\(_{q^2}(v,m)\) for \(0\leq v \leq q(m-1)-1\), the Hermitian construction yields a \hyperref[topic:quantum-weight-enumerator]{pure} \([[q^{2m},q^{2m}-k(v),d(v^{\perp})]]_q\) quantum code where
-  \(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2}\) and \(d(v^{\perp}) = (R+1)q^{2Q}\) with \(v+1 = (q^2 - 1)Q + R\).
+  Using the code GRM\(_{q^2}(v,m)\) for \(0\leq v \leq m(q-1)-1\), the Hermitian construction yields the \hyperref[topic:quantum-weight-enumerator]{pure} quantum code
+  \begin{align}
+    [[q^{2m},q^{2m}-2k(v),d(v^{\perp})]]_q
+  \end{align}
+  \cite{arxiv:quant-ph/0502001}, where
+  \begin{align}
+    k(v) &= \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq^2}{v-jq^2} \\
+    d(v^{\perp}) &= (R+1)q^{2Q}~,
+  \end{align}
+  with \(v+1 = (q^2 - 1)Q + R\).
 
-  For a CSS code constructed from classical codes \(C_1\) and \(C_2\), the punctured code is defined as the classical code
-  \(P(C) = \{(a_ib_i)_{i=1}^{n}|a \in C_1, b \in C_2^{\perp}\}^{\perp}\). Quantum RM codes can be punctured to any length \(r\), provided
-  \(P(C) = \mathcal{R}_q(v_2-v_1,m)\) has a codeword of this weight.
+  For a CSS code constructed from classical codes \(C_1\) and \(C_2\), the punctured code is defined as
+  \begin{align}
+    P(C) = \{(a_ib_i)_{i=1}^{n} \mid a \in C_1, b \in C_2^{\perp}\}^{\perp}~.
+  \end{align}
+  Quantum RM codes can be punctured to any length \(r\), provided
+  \begin{align}
+    P(C) = \mathcal{R}_q(v_2-v_1,m)
+  \end{align}
+  has a codeword of this weight.
+  Likewise, the Hermitian puncture code contains \(\mathcal{R}_{q^2}(\mu,m)^\perp|_{\mathbb{F}_q}\) for \((q+1)\nu \leq \mu \leq m(q^2-1)-1\), yielding punctured descendants with distance at least that of the parent code \cite{arxiv:quant-ph/0502001}.
 #   A linear code \([n,k]_{q^{2}}\) contained in its Hermitian dual implies the existence of \([[n,n-2k,d]]_q\) quantum code where \(d = \min(wt(C^{\perp_{h}}\C))\).
 
 protection: |
+  The CSS family is \hyperref[topic:quantum-weight-enumerator]{pure} with distance \(\min\{d(v_1^\perp),d(v_2)\}\), while the Hermitian family is pure with distance \(d(v^\perp)\); punctured descendants retain at least the parent distance \cite{arxiv:quant-ph/0502001}.
   QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\). We define a \(\mathcal{M}_{d}^{m}\) distillation code as any \(n\) Galois-qudit stabilizer code \(C\) having the following properties: (a) All \(M \in \mathcal{M}_{d}^{m}\) are transversal so that \(M^{\otimes n}C(M^{\otimes n})^{\dagger} = M_{L}^{\dagger}CM_{L}\), (b) the code has distance \(D \geq 2\), and (c) the code has logical pauli operators \(X_{L} = X[\mathbf{1}]\) and \(Z_{L} = Z[(d-1)\mathbf{1}]\). Here, \(\mathbf{1}\) is a shorthand for the vector \((1,1, \dots, 1)\).
 
-# rate: '\(k(v) = \sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}\) and \(n = q^{m}\) so rate must be \(\frac{\sum_{j=0}^{m}(-1)^{j}\dbinom{m}{j}\dbinom{m+v-jq}{v-jq}}{q^m}\).'
+features:
+  rate: 'The CSS family has rate \((k(v_2)-k(v_1))/q^m\), while the Hermitian family has rate \(1-2k(v)/q^{2m}\) \cite{arxiv:quant-ph/0502001}.'
 
 
 relations:
   parents:
     - code_id: galois_true_stabilizer
-      detail: 'Galois-qudit RM codes can be constructed via the Galois-qudit CSS construction or the Galois-qudit Hermitian construction.'
+      detail: 'Galois-qudit RM codes can be constructed via the Galois-qudit Hermitian construction, the Galois-qudit CSS construction, or directly from their parity-check matrices \cite{arxiv:quant-ph/0502001}\cite[Sec. 4.2]{arxiv:0712.0103}.'
   cousins:
     - code_id: generalized_reed_muller
-      detail: 'Generalized RM codes can be used to construct Galois-qudit RM codes.'
+      detail: 'Generalized RM codes can be used to construct Galois-qudit RM codes via the Galois-qudit Hermitian construction, the Galois-qudit CSS construction, or directly from their parity-check matrices \cite{arxiv:quant-ph/0502001}\cite[Sec. 4.2]{arxiv:0712.0103}.'
     - code_id: projective_reed_muller
       detail: 'Projective RM codes can be used to construct Galois-qudit RM codes \cite{doi:10.1201/9781584889007-18}\cite[Sec. 6.2]{arxiv:0812.5104}.'
     - code_id: quantum_mds
-      detail: 'There exists a quantum RM code \([[q, q − 2ν − 2, ν + 2]]_q\) for \( 0\leq v \leq \frac{(q-2)}{2}\) and \([[q^2,q^2-2v-2,v+2]]_q\) for \(0\leq v \leq q-2\). Both these codes satisfy the quantum Singleton bound.'
+      detail: 'Quantum GRM codes include quantum MDS families \([[q,q-2\nu-2,\nu+2]]_q\) for \(0 \leq \nu \leq (q-2)/2\), \([[q^2,q^2-2\nu-2,\nu+2]]_q\) for \(0 \leq \nu \leq q-2\), and punctured descendants \([[(\nu+1)q,(\nu+1)q-2\nu-2,\nu+2]]_q\) for \(0 \leq \nu \leq q-2\) \cite{arxiv:quant-ph/0502001}.'
     - code_id: galois_css
-      detail: 'Galois-qudit RM codes can be constructed via the CSS construction or the Hermitian construction.'
+      detail: 'Galois-qudit RM codes admit a CSS subfamily built from nested GRM codes \( \mathrm{GRM}_q(v_1,m) \subseteq \mathrm{GRM}_q(v_2,m) \) \cite{arxiv:quant-ph/0502001}.'
     - code_id: stabilizer_over_gfqsq
-      detail: 'Galois-qudit RM codes can be constructed via the CSS construction or the Hermitian construction.'
+      detail: 'Galois-qudit RM codes admit a Hermitian subfamily built from \(\mathrm{GRM}_{q^2}(v,m)\) codes contained in their Hermitian duals \cite{arxiv:quant-ph/0502001}.'
 
 
 # Begin Entry Meta Information
