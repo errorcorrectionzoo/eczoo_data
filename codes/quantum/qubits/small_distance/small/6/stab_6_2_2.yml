@@ -11,10 +11,17 @@ name: '\([[6,2,2]]\) \(C_6\) code'
 introduced: '\cite{arxiv:quant-ph/0410199}'
 
 description: |
-  Error-detecting self-dual CSS code used in concatenation schemes for fault-tolerant quantum computation.
-  A set of stabilizer generators is \(IIXXXX\) and \(XXIIXX\), together with the same two \(Z\)-type generators.
+  Error-detecting self-dual CSS code on three qubit pairs that encodes a logical qubit pair and detects any error acting on one pair \cite{arxiv:quant-ph/0410199}.
+  In Knill's \(C_4/C_6\) architecture, this code is used at the second and higher concatenation levels.
+  A choice of check operators used in that construction is \(XIIXXX\), \(XXXIIX\), \(ZIIZZZ\), and \(ZZZIIZ\), with logical operators \(X_L = IXXIII\), \(Z_L = IIZZIZ\), \(X_S = XIXXII\), and \(Z_S = IIIZZI\) \cite{arxiv:quant-ph/0410199}.
+
+protection: |
+  As a distance-two code, the \(C_6\) code detects any single-qubit error.
+  In the qubit-pair grouping used by Knill, it detects any error acting on one of the three pairs, and therefore can correct a pair error when its location is already known \cite{arxiv:quant-ph/0410199}.
 
 features:
+  rate: 'The code encodes two logical qubits into six physical qubits, i.e., it has rate \(1/3\).'
+
   magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
@@ -25,7 +32,7 @@ features:
     - 'Fault-tolerant magic-state preparation \cite{arxiv:2506.14688}.'
 
   fault_tolerance:
-    - 'Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} admitting a post-selected threshold \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
+    - 'Knill''s \(C_4/C_6\) architecture uses the \([[4,2,2]]\) code at the first level and the \(C_6\) code at higher levels, together with error-correcting teleportation \cite{arxiv:quant-ph/0410199}. That paper gives evidence for postselected thresholds above \(\gamma=0.03\) and extrapolates to \(\gamma \approx 0.06\), while the error-correcting architecture has evidence for a threshold above \(\gamma=0.01\). Later work refined the postselected-threshold analysis \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
     - 'Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. This scheme can be augmented to fit on a 1D qubit lattice with nearest-neighbor connectivity \cite{arxiv:2502.16132}.'
     - 'Fault-tolerant magic-state preparation \cite{arxiv:2506.14688}.'
     - 'One of the code''s logical qubits can be relaxed to a gauge qubit to yield a \([[6,1,1,2]]\) subsystem qubit stabilizer code with a particular set of transversal gates. This code admits a fault-tolerant circuit relevant to magic-state preparation \cite{arxiv:2501.17447}.'

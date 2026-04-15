@@ -31,6 +31,7 @@ description: |
   \end{align}
   This code is the smallest instance of the toric code, and its various single-qubit subcodes are small planar surface codes \cite{arxiv:2501.17447}.
   It is the unique code for its parameters, up to equivalence \cite[Thm. 8]{arxiv:quant-ph/9704043}.
+  In Knill's \(C_4/C_6\) fault-tolerant architecture, this code is used at the first concatenation level, with logical operators \(X_L=XXII\), \(Z_L=ZIZI\), \(X_S=IXIX\), and \(Z_S=IIZZ\) for the two logical qubits in each block \cite{arxiv:quant-ph/0410199}.
 
   The subcode \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) is a \([[4,1,2]]\) code known as the \textit{Leung-Nielsen-Chuang-Yamamoto code} \cite{arxiv:quant-ph/9704002}, whose \(\pm\)-basis codewords can be written as
   \begin{align}
@@ -48,6 +49,8 @@ protection: |
   An equivalent version of this code can suppress errors in adiabatic quantum computation by being used as an excited-state space of a particular Hamiltonian \cite{arxiv:2412.07764}.
 
 features:
+  rate: 'The code encodes two logical qubits into four physical qubits, i.e., it has rate \(1/2\).'
+
   magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
@@ -66,7 +69,7 @@ features:
   fault_tolerance:
     - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.
     Magic states can be injected into surface and color codes since the code is a small instance of both \cite{arxiv:2305.13581}.'
-    - 'Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} admitting a post-selected threshold \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
+    - 'Knill''s \(C_4/C_6\) architecture uses the \([[4,2,2]]\) code at the first level and the \(C_6\) code at higher levels, together with error-correcting teleportation \cite{arxiv:quant-ph/0410199}. That paper gives evidence for postselected thresholds above \(\gamma=0.03\) and extrapolates to \(\gamma \approx 0.06\), while the error-correcting architecture has evidence for a threshold above \(\gamma=0.01\). Later work refined the postselected-threshold analysis \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
     - 'Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. This scheme can be augmented to fit on a 1D qubit lattice with nearest-neighbor connectivity \cite{arxiv:2502.16132}.'
     - 'Fault-tolerant implementation of the Deutsch-Josza algorithm \cite{arxiv:2412.04791}.'
 
