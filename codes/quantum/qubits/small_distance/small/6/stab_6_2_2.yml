@@ -20,13 +20,17 @@ protection: |
   In the qubit-pair grouping used by Knill, it detects any error acting on one of the three pairs, and therefore can correct a pair error when its location is already known \cite{arxiv:quant-ph/0410199}.
 
 features:
+  rate: 'The code encodes two logical qubits into six physical qubits, i.e., it has rate \(1/3\).'
+
   magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
   transversal_gates:
+    - 'In Knill''s \(C_4/C_6\) architecture, encoded CNOTs, Hadamards, and \(X\)-/\(Z\)-measurements acting in parallel on both logical qubits of the pair are transversal; for \(C_6\), the encoded Hadamard is transversal, and the encoded controlled-sign is transversal up to a physical-qubit permutation implementable by relabeling \cite{arxiv:quant-ph/0410199}.'
     - 'One of the code''s logical qubits can be relaxed to a gauge qubit to yield a \([[6,1,1,2]]\) subsystem qubit stabilizer code with a particular set of transversal gates. This code admits a fault-tolerant circuit relevant to magic-state preparation \cite{arxiv:2501.17447}.'
 
   general_gates:
+    - 'Knill''s \( *u \) and \( *u^2 \) operations on a logical qubit pair act as a swap followed by a CNOT and its inverse, respectively. In the \(C_4/C_6\) architecture, these operations can be implemented by relabeling at the first level where \(C_4\) is used \cite{arxiv:quant-ph/0410199}.'
     - 'Fault-tolerant magic-state preparation \cite{arxiv:2506.14688}.'
 
   fault_tolerance:
