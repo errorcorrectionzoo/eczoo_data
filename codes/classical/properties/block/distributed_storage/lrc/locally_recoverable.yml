@@ -13,12 +13,17 @@ alternative_names:
   - 'Locally repairable code'
 
 description: |
-  An LRC is a block code for which one can recover any coordinate of a codeword from at most \(r\) other coordinates of the codeword.
+  An LRC is a block code for which one can recover any coordinate of a codeword from at most \(r\) other coordinates of the codeword \cite[Def. 15.9.3]{preset:HKSag}.
   In other words, an LRC of locality \(r\) is a block code for which, given a codeword \(c\) and coordinate \(c_i\), \(c_i\) can be recovered from at most \(r\) other coordinates of \(c\).
   An \(r\)-locally recoverable code of length \(n\) and dimension \(k\) is denoted as an \((n,k,r)\) LRC.
-  The definition can be generalized to \(t\)-LRC, if every coordinate is recoverable from \(t\) disjoint subsets of coordinates.
+  The definition can be generalized to \(t\)-LRC, if every coordinate is recoverable from \(t\) disjoint subsets of coordinates; the corresponding \textit{availability} is the minimum number of recovery sets per coordinate \cite[Def. 15.9.20]{preset:HKSag}.
 
 protection: |
+  A Singleton-like bound is
+  \begin{align}
+    d \leq n-k-\left\lceil\frac{k}{r}\right\rceil+2
+  \end{align}
+  for an \((n,k,r)\) LRC \cite[Thm. 15.9.8]{preset:HKSag}.
   A study on the parameters of \(t\)-LRCs, together with known bounds, can be found in Ref. \cite{doi:10.1109/TIT.2016.2518663}.
   See Ref. \cite{arxiv:1408.4862} for more bounds on locally recoverable distributed storage codes.
 

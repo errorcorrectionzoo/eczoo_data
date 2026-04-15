@@ -11,13 +11,17 @@ name: 'Availability code'
 introduced: '\cite{arxiv:1306.4774,arxiv:1501.04264}'
 
 description: |
-  A \(t\)-availability parallel-recovery code is a code such any \(t\) coordinates can be recovered in multiple ways.
-  That way, the code accomodates nodes that may be inaccessible during the recovery procedure.
+  A \(t\)-availability parallel-recovery code is a code such that coordinates can be recovered in multiple ways.
+  The availability of a locally recoverable code is the minimum, over all coordinates, of the number of recovery sets for that coordinate \cite[Def. 15.9.20]{preset:HKSag}.
+  That way, the code accommodates nodes that may be inaccessible during the recovery procedure.
 
 
 relations:
   parents:
     - code_id: parallel_recovery
+  cousins:
+    - code_id: locally_recoverable
+      detail: 'Availability is the number of recovery sets available for each coordinate of an LRC \cite[Def. 15.9.20]{preset:HKSag}.'
 
 
 # Begin Entry Meta Information

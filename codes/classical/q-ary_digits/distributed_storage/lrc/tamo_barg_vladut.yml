@@ -11,8 +11,8 @@ name: 'Tamo-Barg-Vladut code'
 introduced: '\cite{arxiv:1501.04904,arxiv:1603.08876}'
 
 description: |
-  Polynomial evaluation code on algebraic curves, such as Hermitian or Garcia-Stichtenoth curves, that is constructed to be an LRC.
-  Codes can be constructed to be be able to recover locally after one or more erasures as well as to tackle the availability problem.
+  Evaluation AG code on algebraic curves built from a Galois cover \(\phi:Y\to X\), where the recovery sets are fibres over rational points of \(X\) that split completely in the cover \cite[Def. 15.9.10]{preset:HKSag}\cite[Thm. 15.9.14]{preset:HKSag}.
+  This generalizes the Tamo-Barg construction from \(PG(1,q)\) to longer AG codes, and variants can be built with higher local distance or availability \(2\) via fibre products of curves \cite[Thm. 15.9.19]{preset:HKSag}\cite[Thm. 15.9.21]{preset:HKSag}.
 
 features:
   rate: 'Tamo-Barg-Vladut codes on asymptotically maximal curves improve upon the asymptotic LRC GV bound \cite{arxiv:1603.08876}.'
@@ -21,11 +21,14 @@ features:
 relations:
   parents:
     - code_id: evaluation
-      detail: 'Tamo-Barg-Vladut codes are evaluation AG codes on algebraic curves, such as Hermitian or Garcia-Stichtenoth curves.'
+      detail: 'Tamo-Barg-Vladut codes are evaluation AG codes on algebraic curves built from curve covers \cite[Thm. 15.9.14]{preset:HKSag}.'
     - code_id: locally_recoverable
+      detail: 'Tamo-Barg-Vladut codes form a family of locally recoverable codes obtained from algebraic curves \cite[Thm. 15.9.14]{preset:HKSag}.'
   cousins:
+    - code_id: codes_with_availability
+      detail: 'Fibre-product constructions of Tamo-Barg-Vladut codes yield LRCs with availability \(2\) \cite[Thm. 15.9.21]{preset:HKSag}.'
     - code_id: hermitian
-      detail: 'Tamo-Barg-Vladut codes can be defined on Hermitian curves.'
+      detail: 'Hermitian-curve examples of these codes are given in \cite[Rem. 15.9.16]{preset:HKSag}.'
 
 
 # Begin Entry Meta Information

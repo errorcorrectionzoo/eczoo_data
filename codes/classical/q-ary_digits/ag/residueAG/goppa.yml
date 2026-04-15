@@ -16,15 +16,14 @@ alternative_names:
 description: |
   A linear \(q\)-ary code defined from a polynomial \(G(x)\) over an extension field and a set of evaluation points \(L\) avoiding the roots of \(G\).
   Goppa codes form a central family of alternant codes, admit efficient algebraic decoding algorithms, and include the binary Goppa codes used in the McEliece cryptosystem.
-  They can also be viewed as residue AG codes on the projective line.
+  When the base field equals the coefficient field, they coincide with residue AG codes on \(PG(1,q^m)\); in general, classical Goppa codes are subfield subcodes of such AG codes \cite[Rem. 15.3.27]{preset:HKSag}\cite[Thm. 15.3.28]{preset:HKSag}.
 
   Let \(G(x)\in \mathbb{F}_{q^m}[x]\) be a polynomial of degree \(r\), and let \(L=\{\alpha_1,\ldots,\alpha_n\}\subseteq \mathbb{F}_{q^m}\) be a set of distinct elements such that \(G(\alpha_i)\neq 0\) for all \(i\).
   The Goppa code \(\Gamma(L,G)\) is the \([n,k,d]_q\) linear code consisting of all vectors \(a=(a_1,\ldots,a_n)\in\mathbb{F}_q^n\) such that
   \begin{align}
     \sum_{i=1}^n \frac{a_i}{x-\alpha_i} \equiv 0 \pmod{G(x)}~.
   \end{align}
-
-  Goppa codes are residue AG codes \cite[Thm. 15.3.28]{preset:HKSag}. Their duals are evaluation codes that are sometimes called \textit{geometric RS codes} \cite[Thm. 2.71]{preset:HPAlgCodes}.
+  Their duals are evaluation codes that are sometimes called \textit{geometric RS codes} \cite[Thm. 2.71]{preset:HPAlgCodes}.
 
 protection: 'The length is \(n=|L|\), the dimension satisfies \(k \geq n-mr\) where \(r=\deg G(x)\), and the minimum distance satisfies \(d \geq r+1\).'
 
@@ -44,12 +43,13 @@ notes:
 
 relations:
   parents:
-    - code_id: residue
     - code_id: cartier
       detail: 'Goppa codes are Cartier codes from a curve of genus zero \cite{arxiv:1206.4728}.'
     - code_id: alternant
       detail: 'Goppa codes are a special case of alternant codes \cite[Ch. 12]{preset:MacSlo}.'
   cousins:
+    - code_id: residue
+      detail: 'Classical Goppa codes coincide with residue AG codes on \(PG(1,q^m)\) when the subfield equals the ambient field, and in general they are subfield subcodes of such codes \cite[Rem. 15.3.27]{preset:HKSag}\cite[Thm. 15.3.28]{preset:HKSag}.'
     - code_id: generalized_reed_solomon
       detail: 'Goppa codes are \(\mathbb{F}_q\)-\hyperref[topic:finite-fields]{subfield} subcode of the dual of the GRS code over \(\mathbb{F}_{q^m}\) with evaluation points \(\alpha_i\) and factors \(v_i=G(\alpha_i)^{-1}\) (\cite{doi:10.1017/CBO9780511807077}, pg. 523; \cite{preset:HPAlgCodes}).' #alternant
     - code_id: q-ary_ltc
