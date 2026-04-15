@@ -5,7 +5,8 @@
 
 code_id: asymmetric_qecc
 
-name: 'Asymmetric quantum code'
+name: 'Asymmetric quantum code (AQC)'
+short_name: 'AQC'
 introduced: '\cite{arxiv:quant-ph/9605021,arxiv:quant-ph/0606107}'
 
 alternative_names:
@@ -14,7 +15,7 @@ alternative_names:
 description: |
   Quantum systems can be roughly characterized by two types of noise, a bit-flip noise that maps canonical basis states into each other, and a phase-flip noise that induces relative phases between superpositions of such basis states.
   A code cannot protect against both types of noise arbitrarily well, and there is a tradeoff between the two types of protection.
-  An asymmetric quantum code is one that performs much better against one type of noise than the other type.
+  An AQC is one that performs much better against one type of noise than the other type.
   Such codes typically have tunable distances against each noise type and include CSS codes, GKP codes, and QSCs.
 
 protection: |
@@ -79,6 +80,8 @@ relations:
     #  detail: 'Families of random compass codes perform well against biased noise and spatially dependent (i.e., asymmetric) noise \cite{arxiv:1809.01193}.'
     - code_id: css
       detail: 'In the context of comparing weight as well as of determining distances for noise models biased toward \(X\)- or \(Z\)-type errors, an extended notation for asymmetric CSS block quantum codes is \([[n,k,(d_X,d_Z),w]]\) or \([[n,k,d_X/d_Z,w]]\).'
+    - code_id: galois_css
+      detail: 'Most known Galois-qudit AQC families are derived from the asymmetric Galois-qudit CSS construction \cite[Thm. 27.5.2]{preset:HKSquantum}, and assuming the MDS conjecture, all possible parameters for pure Galois-qudit CSS asymmetric MDS codes have been determined \cite[Thm. 27.5.3]{preset:HKSquantum}.'
     - code_id: quantum_reed_muller
       detail: 'Asymmetric quantum RM codes have been constructed \cite[Lemma 4.1]{doi:10.1098/rspa.2008.0439}.'
     - code_id: pg_ldpc
