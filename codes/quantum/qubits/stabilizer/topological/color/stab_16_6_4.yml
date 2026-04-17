@@ -12,12 +12,16 @@ introduced: '\cite{arxiv:2008.05051,arxiv:2112.03785}'
 
 description: |
   A (self-dual CSS) 4D color code defined on a tesseract, with stabilizer generators of both types supported on each cube. 
+  Its stabilizer matrix can be chosen to be the classical Hadamard \([16,5,8]\) code, making it a hyperbolic weakly self-dual CSS code for which transversal Hadamard acts as simultaneous swaps on three pairs of logical qubits \cite[Sec. I.B.2 and Appx. A.1.2]{arxiv:1703.07847}.
   A \([[16,4,2,4]]\) tesseract subsystem code can be obtained from this code by using two logical qubits as gauge qubits \cite{arxiv:2409.04628}.
 
 
 features:
   transversal_gates:
     - 'Global transversal \(S\) implements a logical circuit composed of \(CZ\) and \(Z\) gates \cite{arxiv:2410.07595,arxiv:1910.09333}'
+    - 'Transversal Hadamard can be chosen to swap three pairs of logical qubits, allowing even-weight Hadamard-product measurements in magic-state distillation protocols \cite[Sec. III]{arxiv:1703.07847}.'
+  general_gates:
+    - 'Using this code as a hyperbolic inner code yields quartic magic-state distillation on six outputs; pipelining it with \([[4,2,2]]\) inner-code checks lowers the non-Clifford cost from 390 to 246 noisy \(T\) gates \cite[Sec. I.B.2]{arxiv:1703.07847}.'
   decoders:
     - 'Post-selected fault-tolerant syndrome extraction \cite{arxiv:2008.05051,arxiv:2112.03785}.'
   fault_tolerance:
@@ -36,6 +40,8 @@ relations:
     - code_id: 4d_stabilizer
     - code_id: small_distance_qubit_stabilizer
   cousins:
+    - code_id: hadamard
+      detail: 'The \([[16,6,4]]\) code can be constructed by applying the CSS construction to the classical Hadamard \([16,5,8]\) code, yielding a hyperbolic weakly self-dual code used in magic-state distillation \cite[Appx. A.1.2]{arxiv:1703.07847}.'
     - code_id: stab_15_7_3
       detail: 'The \([[15,7,3]]\) quantum Hamming code can be obtained by puncturing the tesseract color code \cite{arxiv:2008.05051}.'
     - code_id: stab_8_3_2

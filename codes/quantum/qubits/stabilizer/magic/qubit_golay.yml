@@ -17,6 +17,7 @@ description: |
   A \([[23, 1, 7]]\) self-dual CSS code with eleven stabilizer generators of each type, and with each generator being weight eight.
 
   The code's 11-by-23 stabilizer generator matrix blocks \(H_{X}\) and \(H_{Z}\) are both parity-check matrices of the classical Golay code.
+  Equivalently, it can be obtained from the \([24,12,8]\) extended Golay code by shortening on one bit to a self-orthogonal \([23,11,7]\) code \cite[Appx. A.1.5]{arxiv:1703.07847}.
   It can be punctured twice to obtain a \([[21,3,5]]\) code \cite{arxiv:1703.07847}.
 
   The automorphism group of the code is \(M_{23}\) \cite{arxiv:2109.12735}.
@@ -28,7 +29,7 @@ features:
     - 'Fault-tolerant depth-7 circuit consisting of 57 CNOT gates and preparing a logical-zero state \cite{arxiv:1106.2190}.'
     - 'Circuit with 56 entangling gates using reinforcement learning \cite{arxiv:2503.14660}.'
 
-  magic_scaling_exponent: 'Magic-state distillation scaling exponent \(\gamma=\log_2 23 \approx 4.52\)\cite{arxiv:2003.02717}. Various magic-state distillation protocols have been developed for this code \cite{arxiv:quant-ph/0411036,arxiv:1703.07847} and its \([[21,3,5]]\) doubly punctured version \cite{arxiv:1703.07847}.'
+  magic_scaling_exponent: 'Magic-state distillation scaling exponent \(\gamma=\log_2 23 \approx 4.52\)\cite{arxiv:2003.02717}. Various magic-state distillation protocols have been developed for this code \cite{arxiv:quant-ph/0411036,arxiv:1703.07847} and its \([[21,3,5]]\) doubly punctured version \cite{arxiv:1703.07847}. In particular, pipelining the \([[23,1,7]]\) code after \([[7,1,3]]\) and \([[17,1,5]]\) inner-code stages yields a 95-to-1 seventh-order protocol \cite[Sec. V.B.3]{arxiv:1703.07847}.'
 
   transversal_gates:
     - '\hyperref[topic:clifford]{Single-qubit Clifford group} by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\) \cite{arxiv:1106.2190}.'

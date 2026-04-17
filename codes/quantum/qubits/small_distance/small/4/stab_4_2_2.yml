@@ -50,11 +50,12 @@ protection: |
 features:
   rate: 'The code encodes two logical qubits into four physical qubits, i.e., it has rate \(1/2\).'
 
-  magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221}.
+  magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221,arxiv:1703.07847}.
+  In the inner/outer-code formulation of Ref. \cite{arxiv:1703.07847}, the \([[4,2,2]]\) code is a hyperbolic weakly self-dual inner code for quadratic distillation.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
   transversal_gates:
-    - 'A tensor product of Hadamard gates applies a Hadamard gate to both logical qubits, and a tensor product of \(S=\sqrt{Z}\) gates applies a \(CZ\) gate followed by a logical \(Z\) on both qubits \cite{arxiv:1610.03507} (see also \cite{arxiv:1912.10063}). A logical \(CZ\) gate is then realized by \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\).'
+    - 'A tensor product of Hadamard gates applies a Hadamard gate to both logical qubits, and a tensor product of \(S=\sqrt{Z}\) gates applies a \(CZ\) gate followed by a logical \(Z\) on both qubits \cite{arxiv:1610.03507} (see also \cite{arxiv:1912.10063}). A logical \(CZ\) gate is then realized by \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\). With a different logical basis, transversal Hadamard swaps the two logical qubits, enabling control-SWAP and \(H^{\otimes 2}\)-measurement routines for quadratic magic-state distillation \cite[Sec. I.B.1]{arxiv:1703.07847}.'
     - 'This code is the only four-qubit subspace to house a transversal representation of the Clifford group but not of the single-qubit unitary group \cite[Eq. (104)]{arxiv:1609.08172}. Equivalently, its projector is the only extra generator of the fourth tensor-power Clifford commutant beyond qubit permutations \cite[Thm. 1]{arxiv:1609.08172}. Its \(n\)-block version is a \([[4n,2n,2]]\) code, which houses a signed permutation representation of the \(n\)-qubit Clifford group \cite[Sec. 3.1 and Appx. B]{arxiv:1609.08172}.'
     - 'Adding \(XYZI\) to the stabilizer group produces a \([[4,1,2]]\) subcode that admits weight-two transversal logical Pauli operations \cite{arxiv:quant-ph/0512170}.'
 
