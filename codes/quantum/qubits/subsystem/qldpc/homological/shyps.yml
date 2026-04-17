@@ -19,27 +19,30 @@ description: |
     More precisely, \(|Aut(SHYPS(r))| \geq |GL_{r}(\mathbb{F}_2)|^2\), which is exponential in the number of logical qubits. 
     This large automorphism group can be leveraged to obtain a depth-one fault-tolerant implementation for a large set of logical Clifford operators. 
     This set of depth-one Clifford generators is sufficiently large to allow for efficient compilation, i.e., any \(m\)-qubit Clifford operator can be executed in depth of \hyperref[topic:asymptotics]{order} \(O(m)\). 
-    Due to single-shot properties of SHYPS codes, only \hyperref[topic:asymptotics]{order} \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit \hyperref[topic:clifford]{Clifford circuit}.
+    SHYPS codes exhibit practical single-shot features, so only \hyperref[topic:asymptotics]{order} \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit \hyperref[topic:clifford]{Clifford circuit}.
 
 
 protection: |
-  Memory simulations of the \([[49, 9, 4]]\) and \([[225, 16, 8]]\) SHYPS codes under circuit-level noise yield pseudo-thresholds of approximately \(0.32\%\) and \(0.35\%\), respectively \cite{arxiv:2502.07150}.
-  Depth-126 logical \hyperref[topic:clifford]{Clifford-circuit} simulations on two blocks of the \([[49, 9, 4]]\) SHYPS code were also performed in \cite{arxiv:2502.07150}.
+  Memory simulations of the \([49, 9, 4]\) and \([225, 16, 8]\) SHYPS codes under circuit-level noise, using a sliding-window BPLSD decoder, yield pseudo-thresholds of approximately \(0.32\%\) and \(0.35\%\), respectively \cite{arxiv:2502.07150}.
+  The \([225,16,8]\) code outperforms a scaled \([[784,16,7]]\) rotated surface-code memory below roughly \(p=0.05\%\) while using \(3.5\times\) fewer physical qubits, and the \([961,25,16]\) SHYPS code reaches logical error rates near \(10^{-6}\) at physical error rate \(6\times 10^{-4}\) \cite{arxiv:2502.07150}.
+  Depth-126 logical \hyperref[topic:clifford]{Clifford-circuit} simulations on two blocks of the \([49, 9, 4]\) SHYPS code were also performed in \cite{arxiv:2502.07150}.
 
 
 features:
+  rate: 'The exact encoding rate is \(k/n = r^2/(2^r-1)^2\), i.e., \(\Theta((\log n)^2/n)\), while still improving physical-qubit overhead relative to comparable surface-code layouts \cite{arxiv:2502.07150}.'
   transversal_gates:
     - 'Cross-block transversal CNOT gates \(\prod_{i=1}^n CNOT_{i, n+(\sigma_1\otimes\sigma_2)(i)}\) for \(\sigma_1, \sigma_2\) automorphisms of the classical simplex code. These operators implement a generating set of cross-block logical CNOT gates.'
     - 'In-block phase-type fold-transversal gates with \(Sp_{2k}(\mathbb{F}_2)\) representation \(\begin{pmatrix} I & (\sigma \otimes \sigma^T)\tau \\ 0 & 1\end{pmatrix}\) for \(\sigma\) an automorphism of the classical simplex code, and \(\tau\) a self-inverse permutation which acts like \(\tau (e_i \otimes e_j) = e_j \otimes e_i\) for the canonical basis \(\{e_i\}\) of \(\mathbb{F}_2^{\sqrt{n}}\). These operators implement a generating set of logical in-block diagonal gates \cite{arxiv:2502.07150}.'
     - 'Cross-block phase-type fold-transversal gates \(\prod_{i=1}^n CZ_{i, n+(\sigma_1\otimes\sigma_2)\tau(i)}\) for \(\sigma_1, \sigma_2\) automorphisms of the classical simplex code and \(\tau\) as above. These operators implement a generating set of logical cross-block diagonal gates \cite{arxiv:2502.07150}.'
     - 'Fold-transversal Hadamard gate \(H^{\otimes n} \tau \), with \(\tau\) as above. Implements logical Hadamard-SWAP operator \(H^{\otimes k} \tau_k \), with \(\tau_k\) defined analogously to \(\tau\) \cite{arxiv:2502.07150}.'
-
+  decoders:
+    - 'Sliding-window decoding with min-sum BP plus localized statistics decoding (BPLSD) was used in the circuit-level simulations; window size \(2\) and commit size \(1\) already give strong performance for \([49,9,4]\) and \([225,16,8]\) SHYPS memories \cite{arxiv:2502.07150}.'
   general_gates:
-    - 'Roughly \(4m\) cycles of depth-one physical Clifford operations followed by syndrome extraction yield arbitrary \(m\)-qubit logical \hyperref[topic:clifford]{Clifford gates} \cite{arxiv:2502.07150}.'
+    - 'Arbitrary \(m\)-qubit logical \hyperref[topic:clifford]{Clifford gates} can be implemented in \(4m(1+o(1))\) logical cycles, each consisting of a depth-one physical Clifford layer followed by a depth-six syndrome-extraction round \cite{arxiv:2502.07150}.'
     - 'Worst-case logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth roughly \(4bk\) using at most \(b\) auxiliary code blocks \cite{arxiv:2502.07150}.'
 
   fault_tolerance:
-    - 'Logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth roughly \(4b r^2\) \cite{arxiv:2502.07150}.'
+    - 'Logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth \(4br^2(1+o(1))\) while remaining compatible with one syndrome-extraction round between logical generators \cite{arxiv:2502.07150}.'
 
 relations:
   parents:
@@ -48,7 +51,7 @@ relations:
     - code_id: simplex
       detail: 'SHYPS code gauge generator matrices are constructed from hypergraph products of simplex codes \cite{arxiv:2502.07150}.'
     - code_id: single_shot
-      detail: 'Due to single-shot properties of SHYPS codes, only \hyperref[topic:asymptotics]{order} \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit \hyperref[topic:clifford]{Clifford circuit}.'
+      detail: 'SHYPS codes exhibit practical single-shot signatures, including logical error-rate stability under small-window sliding-window decoding and constant single-shot distance \(d_{\mathrm{ss}}=3\), which supports using one syndrome-extraction round between logical generators \cite{arxiv:2502.07150}.'
 
 
 # Begin Entry Meta Information
