@@ -31,6 +31,7 @@ description: |
   These two codes then yield a hypergraph product code via the CSS construction.
   The case when the two seed codes are equal, \(C_1=C_2\), is called a \textit{square hypergraph product code}.
   If, in addition, \(\text{im} H = \text{im} H^T\), the hypergraph product code is called a \textit{symmetric hypergraph product code} \cite{arxiv:2204.10812}.
+  An algebraic reformulation of HGP codes, together with rate-improved square, symmetric, and two-tile variants, was given in Ref. \cite{arxiv:1202.0928}.
 
   In terms of the \ref{topic:CSS-to-homology-correspondence}, the hypergraph product can be viewed as a homological product of two length-one chain complexes. The resulting code corresponds to the length-two chain complex that is called the \textit{total chain complex} of the product of the input complexes (see \cite[Sec. II.C]{arxiv:2601.18879}).
 
@@ -48,6 +49,8 @@ notes:
 features:
   encoders:
     - 'Fault-tolerant state preparation via dimension jump \cite{arxiv:2410.05171}.'
+  rate:
+    - 'Using square seed parity-check matrices yields \([[2n_1 n_2,2k_1 k_2,\min(d_1,d_2)]]\), symmetric seeds yield \([[n_1 n_2,k_1 k_2,\min(d_1,d_2)]]\), and two-tile cyclic constructions yield \([[n_1^2,2k_1^2,d_1]]\); these variants improve the rate of the original Tillich-Zemor family by factors up to four at small block length \cite{arxiv:1202.0928}.'
   transversal_gates:
     - 'Hadamard (up to logical SWAP gates) and control-\(Z\) on all logical qubits \cite{arxiv:2204.10812}.'
     - 'Patch-transversal gates inherited from the automorphism group of the underlying classical codes \cite[Appx. D]{arxiv:2309.11719}.'
