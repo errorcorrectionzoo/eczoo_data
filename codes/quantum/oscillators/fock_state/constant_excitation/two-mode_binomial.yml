@@ -29,9 +29,12 @@ description: |
   The \(S=0\) version can be obtained by applying a \(50:50\) beamsplitter to the highest-weight Fock states \(|2J,0\rangle\) and \(|0,2J\rangle\) \cite{arxiv:1512.07605}; in this case, codewords are two-mode binomial coherent states \cite{doi:10.1088/0305-4470/4/3/009,doi:10.1103/PhysRevA.6.2211,arxiv:2104.10581}.
 
 protection: |
-  The total occupation number \(\hat{n}_1+\hat{n}_2=\Delta\) is the syndrome. The code exactly detects dephasing errors \(\hat{\mathbf{a}}^{\dagger \mathbf{p}}\hat{\mathbf{a}}^{\mathbf{p}}\) whenever \(p_1+p_2<\Delta\) \cite{arxiv:2411.09668}.
+  The code exactly detects dephasing errors \(\hat{\mathbf{a}}^{\dagger \mathbf{p}}\hat{\mathbf{a}}^{\mathbf{p}}\) whenever \(p_1+p_2<\Delta\) \cite{arxiv:2411.09668}.
+  It also detects \(p_1\) photon loss errors \(\hat{\mathbf{a}}^{\mathbf{p}}\) and \(p_2\) photon gain errors \(\hat{\mathbf{a}}^{\dagger \mathbf{p}}\) whenever \(p_1+p_2\leq S\) \cite{arxiv:2411.09668}.
 
-  It also detects arbitrary losses on either individual mode, but it cannot correct single-photon losses because \(\hat{a}_1^\dagger\hat{a}_2\) acts as a logical operator. Since photon loss lowers \(\Delta\) by one, one can track the total occupation number and continue operating until \(\Delta\) photons have been lost, at which point the code erases; the case \(\Delta=1\) reduces to the dual-rail code \cite{arxiv:2411.09668}.
+features:
+  general_gates:
+    - 'A beamsplitter is a logical operation for the \(S=0\) two-mode binomial code \cite{arxiv:2411.09668}.'
 
 
 relations:
