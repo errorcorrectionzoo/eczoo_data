@@ -28,13 +28,18 @@ description: |
   with spacing \(S\) and dephasing error parameter \(N\) such that \(J = \frac{1}{2}(N+1)(S+1)\) \cite{arxiv:1602.00008}.
   The \(S=0\) version can be obtained by applying a \(50:50\) beamsplitter to the highest-weight Fock states \(|2J,0\rangle\) and \(|0,2J\rangle\) \cite{arxiv:1512.07605}; in this case, codewords are two-mode binomial coherent states \cite{doi:10.1088/0305-4470/4/3/009,doi:10.1103/PhysRevA.6.2211,arxiv:2104.10581}.
 
+protection: |
+  The total occupation number \(\hat{n}_1+\hat{n}_2=\Delta\) is the syndrome. The code exactly detects dephasing errors \(\hat{\mathbf{a}}^{\dagger \mathbf{p}}\hat{\mathbf{a}}^{\mathbf{p}}\) whenever \(p_1+p_2<\Delta\) \cite{arxiv:2411.09668}.
+
+  It also detects arbitrary losses on either individual mode, but it cannot correct single-photon losses because \(\hat{a}_1^\dagger\hat{a}_2\) acts as a logical operator. Since photon loss lowers \(\Delta\) by one, one can track the total occupation number and continue operating until \(\Delta\) photons have been lost, at which point the code erases; the case \(\Delta=1\) reduces to the dual-rail code \cite{arxiv:2411.09668}.
+
 
 relations:
   parents:
     - code_id: chuang-leung-yamamoto
   cousins:
     - code_id: tiger
-      detail: 'The two-mode binomial code for \(S=0\) is a tiger code with \(G = (2,-2)\) and \(H = (1,1)\) \cite{arxiv:2411.09668}. It can be generalized \cite{arxiv:2411.09668} to an \(n\)-mode code encoding a qu\(n\)it in generalized \(SU(n)\) coherent states \cite{doi:10.1088/0305-4470/26/2/018}.'
+      detail: 'The two-mode binomial code for \(S=0\) is a tiger code with \(G = (2,-2)\) and \(H = (1,1)\) \cite{arxiv:2411.09668}. It generalizes to the multinomial code, an \(n\)-mode tiger code encoding a qu\(n\)it in generalized \(SU(n)\) coherent states \cite{arxiv:2411.09668,doi:10.1088/0305-4470/26/2/018}.'
     - code_id: binomial
     - code_id: chi2
       detail: 'Two-mode binomial codes \cite[Eqs. (90-91)]{arxiv:1709.05302} are closely related to three-mode \(\chi^2\) binomial codes \cite[Eqs. (61-62)]{arxiv:1709.05302}.'

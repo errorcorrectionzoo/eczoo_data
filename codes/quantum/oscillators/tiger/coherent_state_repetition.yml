@@ -20,7 +20,7 @@ description: |
   for \(|\alpha| > 0\).
 
 protection: |
-  The code cannot protect against losses and has a minimum Euclidean distance \(d_Z = 4n\) \cite{arxiv:2411.09668}.
+  For odd \(n\), the code has \(d_X=1\) and minimum Euclidean distance \(d_Z = 4n\) \cite{arxiv:2411.09668}, so it does not protect against losses but suppresses dephasing exponentially in \(n|\alpha|^2\).
 
 
 features:
@@ -33,7 +33,7 @@ relations:
     - code_id: cat_concatenated
       detail: 'The coherent-state repetition code is a concatenation whose outer code is the cat code in its coherent-state basis.'
     - code_id: tiger
-      detail: 'The coherent-state repetition code is a tiger code whose matrix \(G\) is a generator matrix of the repetition code (over the integers), and whose matrix \(H\) is zero \cite{arxiv:2411.09668}.'
+      detail: 'For odd \(n\), the coherent-state repetition code is a tiger code whose matrix \(G\) is the cyclic repetition generator matrix over the integers and whose matrix \(H\) is zero \cite{arxiv:2411.09668}. Even \(n\), or removing the last row to impose open boundaries, yields a logical-rotor variant instead of a logical qubit.'
   cousins:
     - code_id: cat_repetition
       detail: 'The cat (coherent-state) repetition code is a concatenation whose outer code is the (two-component) cat code in its cat (coherent-state) basis. For the two-component case, both reduce to the two-component cat code at \(n=1\).'
