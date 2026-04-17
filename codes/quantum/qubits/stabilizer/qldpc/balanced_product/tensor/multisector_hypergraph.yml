@@ -29,9 +29,20 @@ description: |
 protection: |
   The Künneth formula gives code properties in terms of the properties of the underlying chain complexes.
   Hypergraph products of multiple classical codes were considered first \cite{arxiv:1512.07081}, followed by products of length-two chain complexes \cite{arxiv:1611.03790,arxiv:1805.09271} (which correspond to qubit CSS codes per the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence}).
-  A general theory and distance bounds are formulated in Ref. \cite{arxiv:1810.01519}.
+  Ref. \cite{arxiv:1810.01519} gives explicit parameter formulas for tensoring an \(m\)-complex \(\mathcal{A}\) with a 1-complex \(\mathcal{K}(P)\) associated with an \(r\times c\) binary matrix \(P\) of rank \(u\) and classical distance \(\delta\):
+  \(n_j'=n_{j-1}c+n_j r\), \(k_j'=k_{j-1}(c-u)+k_j(r-u)\), and \(d_j'=\min(d_j,d_{j-1}\delta)\) when \(r>u\), while \(d_j'=d_{j-1}\delta\) when \(P\) has full row rank.
 
 features:
+  rate: |
+    For a full-row-rank \(r\times c\) seed matrix \(P\) with \(\kappa=c-r\), classical distance \(\delta\), and row/column weights bounded by \((\omega,\upsilon)\), the \((a+b)\)-complex \(\mathcal{K}^{(a,b)}=\mathcal{K}^{\times a}\times \tilde{\mathcal{K}}^{\times b}\) has a single non-trivial homology group with
+    \begin{align}
+      n_a&=\sum_{i=0}^{a} c^{2i} r^{a+b-2i} {a\choose i}{b\choose i} < (r+c)^{a+b}~,\\
+      k_a&=\kappa^{a+b}~,
+    \end{align}
+    yielding a quantum CSS code with \(d_X=\delta^a\), \(d_Z=\delta^b\), and stabilizer-generator weights bounded by \((a+b)\max(\omega,\upsilon)\) \cite{arxiv:1810.01519}.
+    For asymptotically good LDPC seed-code families, these higher-dimensional HGP families have finite rate and \(d_X d_Z\) scaling linearly with block length.
+  fault_tolerance:
+    - 'For \((a,b)\) constructions with \(a,b>1\), the check matrices \(G_X=K_a\) and \(G_Z=K_{a+1}^T\) satisfy many linear relations coming from neighboring boundary maps; these redundant checks can be used to handle syndrome-measurement errors in repeated-measurement schemes \cite{arxiv:1810.01519}.'
   transversal_gates:
     - 'Transversal gates for multi-dimensional HGP codes of all dimensions lie in the Clifford group \cite{arxiv:2507.16797}.'
   general_gates:
