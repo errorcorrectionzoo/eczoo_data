@@ -13,7 +13,7 @@ introduced: '\cite{arxiv:2502.07150}'
 
 description: |
     Family of quantum LDPC codes obtained by combining the \hyperref[code:subsystem_quantum_parity]{subsystem hypergraph product code} construction with classical \hyperref[code:simplex]{simplex codes}. 
-    The results are CSS subsystem codes with weight-three gauge generators and code parameters \([n=(2^r − 1)^2, k=r^2, d=2^{r-1}]\) for \(r \geq 3\).
+    The results are CSS subsystem codes with weight-three gauge generators and code parameters \([[n=(2^r − 1)^2, k=r^2, d=2^{r-1}]]\) for \(r \geq 3\).
 
     Due to their symmetric structure, SHYPS codes inherit the large automorphism group of the underlying classical simplex codes. 
     More precisely, \(|Aut(SHYPS(r))| \geq |GL_{r}(\mathbb{F}_2)|^2\), which is exponential in the number of logical qubits. 
@@ -23,20 +23,19 @@ description: |
 
 
 protection: |
-  Memory simulations of the \([49, 9, 4]\) and \([225, 16, 8]\) SHYPS codes under circuit-level noise, using a sliding-window BPLSD decoder, yield pseudo-thresholds of approximately \(0.32\%\) and \(0.35\%\), respectively \cite{arxiv:2502.07150}.
-  The \([225,16,8]\) code outperforms a scaled \([[784,16,7]]\) rotated surface-code memory below roughly \(p=0.05\%\) while using \(3.5\times\) fewer physical qubits, and the \([961,25,16]\) SHYPS code reaches logical error rates near \(10^{-6}\) at physical error rate \(6\times 10^{-4}\) \cite{arxiv:2502.07150}.
-  Depth-126 logical \hyperref[topic:clifford]{Clifford-circuit} simulations on two blocks of the \([49, 9, 4]\) SHYPS code were also performed in \cite{arxiv:2502.07150}.
+  Memory simulations of the \([[49, 9, 4]]\) and \([[225, 16, 8]]\) SHYPS codes under circuit-level noise, using a sliding-window BPLSD decoder, yield pseudo-thresholds of approximately \(0.32\%\) and \(0.35\%\), respectively \cite{arxiv:2502.07150}.
+  Depth-126 logical \hyperref[topic:clifford]{Clifford-circuit} simulations on two blocks of the \([[49, 9, 4]]\) SHYPS code were also performed in \cite{arxiv:2502.07150}.
 
 
 features:
-  rate: 'The exact encoding rate is \(k/n = r^2/(2^r-1)^2\), i.e., \(\Theta((\log n)^2/n)\), while still improving physical-qubit overhead relative to comparable surface-code layouts \cite{arxiv:2502.07150}.'
+  rate: 'The exact encoding rate is \(k/n = r^2/(2^r-1)^2\), i.e., \hyperref[topic:asymptotics]{asymptotically} as \(\Theta((\log n)^2/n)\) \cite{arxiv:2502.07150}.'
   transversal_gates:
     - 'Cross-block transversal CNOT gates \(\prod_{i=1}^n CNOT_{i, n+(\sigma_1\otimes\sigma_2)(i)}\) for \(\sigma_1, \sigma_2\) automorphisms of the classical simplex code. These operators implement a generating set of cross-block logical CNOT gates.'
     - 'In-block phase-type fold-transversal gates with \(Sp_{2k}(\mathbb{F}_2)\) representation \(\begin{pmatrix} I & (\sigma \otimes \sigma^T)\tau \\ 0 & 1\end{pmatrix}\) for \(\sigma\) an automorphism of the classical simplex code, and \(\tau\) a self-inverse permutation which acts like \(\tau (e_i \otimes e_j) = e_j \otimes e_i\) for the canonical basis \(\{e_i\}\) of \(\mathbb{F}_2^{\sqrt{n}}\). These operators implement a generating set of logical in-block diagonal gates \cite{arxiv:2502.07150}.'
     - 'Cross-block phase-type fold-transversal gates \(\prod_{i=1}^n CZ_{i, n+(\sigma_1\otimes\sigma_2)\tau(i)}\) for \(\sigma_1, \sigma_2\) automorphisms of the classical simplex code and \(\tau\) as above. These operators implement a generating set of logical cross-block diagonal gates \cite{arxiv:2502.07150}.'
     - 'Fold-transversal Hadamard gate \(H^{\otimes n} \tau \), with \(\tau\) as above. Implements logical Hadamard-SWAP operator \(H^{\otimes k} \tau_k \), with \(\tau_k\) defined analogously to \(\tau\) \cite{arxiv:2502.07150}.'
   decoders:
-    - 'Sliding-window decoding with min-sum BP plus localized statistics decoding (BPLSD) was used in the circuit-level simulations; window size \(2\) and commit size \(1\) already give strong performance for \([49,9,4]\) and \([225,16,8]\) SHYPS memories \cite{arxiv:2502.07150}.'
+    - 'BPLSD decoder \cite{arxiv:2502.07150}.'
   general_gates:
     - 'Arbitrary \(m\)-qubit logical \hyperref[topic:clifford]{Clifford gates} can be implemented in \(4m(1+o(1))\) logical cycles, each consisting of a depth-one physical Clifford layer followed by a depth-six syndrome-extraction round \cite{arxiv:2502.07150}.'
     - 'Worst-case logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth roughly \(4bk\) using at most \(b\) auxiliary code blocks \cite{arxiv:2502.07150}.'
