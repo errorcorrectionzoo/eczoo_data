@@ -25,6 +25,7 @@ features:
     - 'Standard encoding proceeds by first encoding into the inner code and then encoding each physical register of the inner code into the outer code.'
   decoders:
     - 'Standard decoding proceeds in the reverse order: first decode the outer code blocks and then use the resulting data to decode the inner code.'
+    - 'Maximum-likelihood decoding can be formulated as contraction of a tree tensor network, yielding exact decoders that improve on minimum-distance decoding for recursively concatenated block codes \cite{arxiv:quant-ph/0606126,arxiv:1312.4578}.'
 
 notes:
   - 'See the book \cite{preset:GottesmanBook} for an introduction.'
@@ -33,7 +34,7 @@ notes:
 relations:
   parents:
     - code_id: quantum_lego
-      detail: 'Encoders for a concatenated codes correspond to tree tensor networks.'
+      detail: 'Encoders for concatenated quantum codes correspond to tree tensor networks \cite{arxiv:1312.4578}.'
 
 
 # Begin Entry Meta Information

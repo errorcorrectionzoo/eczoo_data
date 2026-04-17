@@ -12,10 +12,17 @@ introduced: '\cite{arxiv:1312.4575,arxiv:1312.4578,doi:10.1109/ISIT.2014.6874999
 
 description: |
   Qubit stabilizer code whose encoding circuit corresponds to a branching MERA \cite{arxiv:1210.1895} tensor network.
+  These codes generalize quantum polar codes by reinstating the disentanglers omitted in the branching-tree tensor-network construction \cite{arxiv:1312.4578}.
+
+protection: 'Numerical evidence indicates that channel polarization rapidly suppresses channels that are bad in both quadratures, allowing good performance without entanglement assistance \cite{arxiv:1312.4578}.'
 
 features:
+  rate: 'Numerics on depolarizing and erasure channels indicate low block-error rates at rates approaching coherent information, with better finite-size behavior than quantum polar codes \cite{arxiv:1312.4578}.'
+  encoders:
+    - 'Encoding uses a reversed branching-MERA CNOT circuit, with non-data inputs frozen to either \(|0\rangle\) or \(|+\rangle\) according to channel selection \cite{arxiv:1312.4578}.'
   decoders:
     - 'Decoding can be formulated as tensor-network contraction and supports successive-cancellation-style decoding inherited from branching-MERA constructions \cite{arxiv:1312.4575,arxiv:1312.4578}.'
+    - 'A symmetric decoder that jointly uses \(x\)- and \(z\)-error information remains efficiently contractible and improves finite-size performance over standard quantum polar decoding \cite{arxiv:1312.4578}.'
 
 
 relations:
@@ -26,6 +33,8 @@ relations:
   cousins:
     - code_id: polar
       detail: 'Classical versions of branching MERA codes can be thought of as extensions of polar codes \cite{arxiv:1312.4575,doi:10.1109/ISIT.2014.6874999}.'
+    - code_id: quantum_polar
+      detail: 'Branching MERA codes generalize quantum polar codes by restoring the branching-MERA disentanglers while retaining efficient tensor-network decoding \cite{arxiv:1312.4578}.'
 
 
 # Begin Entry Meta Information
