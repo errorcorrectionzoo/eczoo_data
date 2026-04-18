@@ -27,19 +27,26 @@ description: |
 
 
 protection: |
-  The Künneth formula gives code properties in terms of the properties of the underlying chain complexes.
+  The Künneth formula gives code properties in terms of those of the underlying chain complexes.
   Hypergraph products of multiple classical codes were considered first \cite{arxiv:1512.07081}, followed by products of length-two chain complexes \cite{arxiv:1611.03790,arxiv:1805.09271} (which correspond to qubit CSS codes per the \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence}).
-  Ref. \cite{arxiv:1810.01519} gives explicit parameter formulas for tensoring an \(m\)-complex \(\mathcal{A}\) with a 1-complex \(\mathcal{K}(P)\) associated with an \(r\times c\) binary matrix \(P\) of rank \(u\) and classical distance \(\delta\):
-  \(n_j'=n_{j-1}c+n_j r\), \(k_j'=k_{j-1}(c-u)+k_j(r-u)\), and \(d_j'=\min(d_j,d_{j-1}\delta)\) when \(r>u\), while \(d_j'=d_{j-1}\delta\) when \(P\) has full row rank.
+
+  Ref. \cite{arxiv:1810.01519} gives explicit parameter formulas for the tensor product \(\mathcal{A}\times\mathcal{K}(P)\) of an \(m\)-complex \(\mathcal{A}\) with the 1-complex \(\mathcal{K}(P)\) built from an \(r\times c\) binary matrix \(P\).
+  Let \(u=\mathrm{rank}(P)\) and \(\delta\) be the minimum distance of the binary code with parity-check matrix \(P\).
+  Writing \(n_j\), \(k_j\), \(d_j\) for the block length, logical dimension, and homological distance of the \(j\)-th sector of \(\mathcal{A}\), and primes for the corresponding parameters of the product, the Künneth theorem gives
+  \(n_j'=n_{j-1}c+n_j r\) and \(k_j'=k_{j-1}(c-u)+k_j(r-u)\).
+  The main result of \cite[Thm. 1]{arxiv:1810.01519} establishes tight bounds on the homological distance:
+  \(d_j'=\min(d_j,d_{j-1}\delta)\) when \(r>u\) (P does not have full row rank), and \(d_j'=d_{j-1}\delta\) when \(r=u\) (P has full row rank).
 
 features:
   rate: |
-    For a full-row-rank \(r\times c\) seed matrix \(P\) with \(\kappa=c-r\), classical distance \(\delta\), and row/column weights bounded by \((\omega,\upsilon)\), the \((a+b)\)-complex \(\mathcal{K}^{(a,b)}=\mathcal{K}^{\times a}\times \tilde{\mathcal{K}}^{\times b}\) has a single non-trivial homology group with
+    A notable special case uses a single full-row-rank \(r\times c\) seed matrix \(P\) (so \(r=u\), \(\kappa=c-r\) logical bits per block, classical distance \(\delta\), row/column weights bounded by \((\omega,\upsilon)\)).
+    Taking \(a\) copies of \(\mathcal{K}(P)\) and \(b\) copies of the dual 1-complex \(\tilde{\mathcal{K}}=\mathcal{K}(P^T)\) yields the \((a+b)\)-complex \(\mathcal{K}^{(a,b)}=\mathcal{K}^{\times a}\times \tilde{\mathcal{K}}^{\times b}\), which has a single non-trivial homology sector \(H_a\) with
     \begin{align}
       n_a&=\sum_{i=0}^{a} c^{2i} r^{a+b-2i} {a\choose i}{b\choose i} < (r+c)^{a+b}~,\\
       k_a&=\kappa^{a+b}~,
     \end{align}
     yielding a quantum CSS code with \(d_X=\delta^a\), \(d_Z=\delta^b\), and stabilizer-generator weights bounded by \((a+b)\max(\omega,\upsilon)\) \cite{arxiv:1810.01519}.
+    The parameters \(a\) and \(b\) can be chosen independently to trade off \(X\)- and \(Z\)-distance, enabling asymmetric codes optimized for channels with unequal bit-flip and phase-flip rates.
     For asymptotically good LDPC seed-code families, these higher-dimensional HGP families have finite rate and \(d_X d_Z\) scaling linearly with block length.
   fault_tolerance:
     - 'For \((a,b)\) constructions with \(a,b>1\), the check matrices \(G_X=K_a\) and \(G_Z=K_{a+1}^T\) satisfy many linear relations coming from neighboring boundary maps; these redundant checks can be used to handle syndrome-measurement errors in repeated-measurement schemes \cite{arxiv:1810.01519}.'
@@ -62,6 +69,8 @@ relations:
       detail: 'Higher-dimensional homological-product codes can be constructed out of quantum RM codes \cite[Sec. 4.3]{arxiv:1512.07081}.'
     - code_id: qc_ldpc
       detail: 'Higher-dimensional hypergraph-product codes can be constructed out of QC-LDPC codes \cite[Table III]{arxiv:2407.18490}.'
+    - code_id: asymmetric_qecc
+      detail: 'The \((a,b)\)-complex construction yields asymmetric CSS codes with \(d_X=\delta^a\) and \(d_Z=\delta^b\), allowing independent tuning of the two distances for channels with unequal bit-flip and phase-flip rates \cite{arxiv:1810.01519}.'
 
 
 

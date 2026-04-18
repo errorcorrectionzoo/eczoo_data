@@ -13,15 +13,16 @@ introduced: '\cite{arxiv:1409.1397,arxiv:2004.07935}'
 
 description: |
   CSS code obtained by applying the generalized distance-balancing/product construction of Ref. \cite{arxiv:2004.07935} to a Ramanujan-complex quantum code and an asymptotically good classical LDPC code.
-  Ramanujan quantum codes are defined using LSV Ramanujan complexes, which are simplicial complexes that generalise Ramanujan graphs \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}.
-  The auxiliary classical code is viewed as a 1-dimensional chain complex, and the output code is defined on the co-complex of the product of the two co-complexes.
-  Using a 2D LSV complex yields a QLDPC family with \(K=\Omega(\sqrt{N/\log N})\) and \(D=\Omega(\sqrt{N \log N})\), while using a 3D LSV complex yields \(K=\Omega(\sqrt{N}/\log N)\) and \(D=\Omega(\sqrt{N}\log N)\).
 
-protection: 'The unbalanced component code from a 2D LSV complex can have \(d_X=\Omega(\log n)\) and \(d_Z=\Omega(n)\), while one from a 3D LSV complex can have \(d_X=\Omega(\log^2 n)\) and \(d_Z=\Omega(n)\) \cite{arxiv:2004.07935}. After distance balancing, the resulting HDX family has minimum distance \(D=\Omega(\sqrt{N \log N})\) in the 2D case and \(D=\Omega(\sqrt{N}\log N)\) in the 3D case.'
+  Ramanujan quantum codes are defined using LSV Ramanujan complexes, which are simplicial complexes that generalize Ramanujan graphs \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}.
+  The auxiliary classical code is viewed as a 1-dimensional chain complex, and the output code is defined on the co-complex of the product of the two co-complexes.
+  Using a 2D LSV complex yields a QLDPC family with \(K=\Omega(\sqrt{n/\log n})\) and \(D=\Omega(\sqrt{n \log n})\), while using a 3D LSV complex yields \(K=\Omega(\sqrt{n}/\log n)\) and \(D=\Omega(\sqrt{n}\log n)\).
+
+protection: 'The unbalanced component code from a 2D LSV complex can have \(d_X=\Omega(\log n)\) and \(d_Z=\Omega(n)\), while one from a 3D LSV complex can have \(d_X=\Omega(\log^2 n)\) and \(d_Z=\Omega(n)\) \cite{arxiv:2004.07935}. After distance balancing, the resulting HDX family has minimum distance \(D=\Omega(\sqrt{n \log n})\) in the 2D case and \(D=\Omega(\sqrt{n}\log n)\) in the 3D case.'
 
 features:
 
-  rate: 'For 2D LSV complexes, the rate is of \hyperref[topic:asymptotics]{order} \(\Omega(1/\sqrt{N \log N})\), with minimum distance \(D=\Omega(\sqrt{N \log N})\). For 3D LSV complexes, the rate is \(\Omega(1/(\sqrt{N}\log N))\), with minimum distance \(D=\Omega(\sqrt{N}\log N)\).'
+  rate: 'For 2D LSV complexes, the rate is of \hyperref[topic:asymptotics]{order} \(\Omega(1/\sqrt{n \log n})\), with minimum distance \(D=\Omega(\sqrt{n \log n})\). For 3D LSV complexes, the rate is \(\Omega(1/(\sqrt{n}\log n))\), with minimum distance \(D=\Omega(\sqrt{n}\log n)\).'
 
   decoders:
     - 'For HDX codes built from 2D LSV complexes, \(X\)-error decoding reduces to polynomial-time cycle-code decoding on the 1-skeleton together with decoding of the auxiliary classical LDPC code \cite{arxiv:2004.07935}.'
@@ -49,8 +50,6 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: Copilot
-      date: '2026-04-17'
     - user_id: VictorVAlbert
       date: '2022-01-03'
     - user_id: XiaozhenFu
