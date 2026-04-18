@@ -11,16 +11,24 @@ name: 'Abelian TQD stabilizer code'
 introduced: '\cite{arxiv:2112.11394}'
 
 description: |
-  Modular-qudit stabilizer code whose codewords realize 2D modular gapped Abelian topological order.
+  Modular-qudit stabilizer code whose codewords realize a 2D Abelian twisted-quantum-double topological order on composite-dimensional qudits.
+  For every finite Abelian group \(G=\prod_i \mathbb{Z}_{N_i}\) and every product of Type-I and Type-II cocycles, there is a Pauli stabilizer Hamiltonian realizing the corresponding Abelian TQD \cite{arxiv:2112.11394}.
+  Equivalently, these codes exhaust the 2D Abelian topological orders that admit gapped boundaries \cite{arxiv:2112.11394,arxiv:2107.13091}.
+
+features:
+  rate: 'On a torus, the ground-state Hilbert-space dimension is \(|G|^2\) for underlying group \(G=\prod_i \mathbb{Z}_{N_i}\) \cite{arxiv:2112.11394}.'
 
 
 relations:
   parents:
     - code_id: qudit_stabilizer
     - code_id: 2d_stabilizer
-      detail: 'All Abelian TQD codes can be realized as modular-qudit lattice stabilizer codes by starting with an Abelian quantum double model along with a family of Abelian TQDs that generalize the double semion anyon theory and \hyperref[topic:code-switching]{condensing} certain bosonic anyons \cite{arxiv:2112.11394}. Abelian TQD codes need not be translationally invariant and can realize multiple topological phases on one lattice.'
+      detail: 'For every finite Abelian group \(G=\prod_i \mathbb{Z}_{N_i}\) and every product of Type-I and Type-II cocycles, there is a 2D modular-qudit Pauli stabilizer Hamiltonian on composite-dimensional qudits realizing the corresponding Abelian TQD \cite{arxiv:2112.11394}.'
     - code_id: tqd_abelian
-      detail: 'All Abelian TQD codes can be realized as modular-qudit lattice stabilizer codes by starting with an Abelian quantum double model along with a family of Abelian TQDs that generalize the double semion anyon theory and \hyperref[topic:code-switching]{condensing} certain bosonic anyons \cite{arxiv:2112.11394}. Abelian TQD codes need not be translationally invariant and can realize multiple topological phases on one lattice.'
+      detail: 'Every Abelian TQD code can be realized as a modular-qudit Pauli stabilizer code by starting from a stack of Abelian quantum double models (it suffices to take \(\prod_i \mathbb{Z}_{N_i^2}\) toric codes) and \hyperref[topic:code-switching]{condensing} certain bosonic anyons \cite{arxiv:2112.11394}. Abelian TQD stabilizer codes need not be translationally invariant.'
+  cousins:
+    - code_id: spt
+      detail: 'Gauging the \(1\)-form symmetries associated with gauge charges of Abelian TQD stabilizer codes yields Pauli stabilizer models of SPT phases classified by products of Type-I and Type-II cocycles \cite{arxiv:2112.11394}.'
 
 
 # Begin Entry Meta Information

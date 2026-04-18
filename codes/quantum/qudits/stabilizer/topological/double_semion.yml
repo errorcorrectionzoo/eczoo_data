@@ -15,7 +15,8 @@ alternative_names:
 
 description: |
   A 2D lattice modular-qudit stabilizer code with qudit dimension \(q=4\) that realizes the 2D double semion topological phase.
-  The code can be obtained from the \(\mathbb{Z}_4\) surface code by \hyperref[topic:code-switching]{condensing} the anyon \(e^2 m^2\) \cite{arxiv:2211.03798}.
+  The code can be obtained from a \(\mathbb{Z}_4\) toric-code ground state by \hyperref[topic:code-switching]{condensing} the emergent boson \(e^2 m^2\); in the stabilizer construction this condensation is implemented by two-body measurements \cite{arxiv:2112.11394,arxiv:2211.03798}.
+  Its ground-state subspace can be mapped to that of the double-semion string-net model by a finite-depth quantum circuit with ancillas \cite{arxiv:2112.11394}.
 
   This stabilizer code family is inequivalent to a CSS code via a constant-depth Clifford circuit \cite[Thm. 1.1]{arxiv:1506.08883}.
   Similarly, the double semion model has a sign problem \cite{arxiv:1506.08883,arxiv:2005.05343} that cannot be eliminated via such a circuit.
@@ -25,7 +26,7 @@ description: |
 relations:
   parents:
     - code_id: tqd_abelian_stabilizer
-      detail: 'When treated as ground states of the code Hamiltonian, the double-semion stabilizer code states realize 2D double-semion topological order, a topological phase of matter that exists as the deconfined phase of the 2D twisted \(\mathbb{Z}_2\) gauge theory \cite{doi:10.1007/BF02096988}. All Abelian TQD codes can be realized as modular-qudit stabilizer codes by starting with an Abelian quantum double model along with a family of Abelian TQDs that generalize the double semion anyon theory and \hyperref[topic:code-switching]{condensing} certain bosonic anyons \cite{arxiv:2112.11394}.'
+      detail: 'When treated as ground states of the code Hamiltonian, the double-semion stabilizer code states realize 2D double-semion topological order, i.e., the Abelian TQD for \(G=\mathbb{Z}_2\) with nontrivial Type-I cocycle, a topological phase that also exists as the deconfined phase of the 2D twisted \(\mathbb{Z}_2\) gauge theory \cite{doi:10.1007/BF02096988,arxiv:2112.11394}.'
   cousins:
     - code_id: qudit_surface
       detail: 'The exchange statistics of the anyon for the double-semion code coincides with a subset of anyons in the \(\mathbb{Z}_4\) surface code, but the fusion rules are different.
