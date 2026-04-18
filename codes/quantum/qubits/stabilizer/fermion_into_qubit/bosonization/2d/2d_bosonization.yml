@@ -8,12 +8,12 @@ physical: qubits
 logical: qubits
 
 name: '2D bosonization code'
-introduced: '\cite{arxiv:1711.00515,arxiv:2201.05153}'
+introduced: '\cite{arxiv:1711.00515}'
 
 description: |
-  A mapping between a 2D lattice of qubits and a 2D lattice quadratic Hamiltonian of Majorana modes.
-  The original 2D bosonization code \cite{arxiv:1711.00515} is a stabilizer code whose generators are products of plaquettes and stars of the surface code.
-  This family also includes a super-compact fermionic encoding with a qubit-to-fermion ratio of \(1.25\) \cite[Table I]{arxiv:2201.05153}.
+  A mapping between a 2D lattice quadratic Hamiltonian of Majorana modes and a 2D lattice of qubits.
+  The original exact 2D bosonization code \cite{arxiv:1711.00515} is a stabilizer code whose generators are products of plaquettes and stars of the surface code, with gauge constraints that project onto a toric-code-like subspace with emergent fermions \cite{arxiv:1711.00515,arxiv:2201.05153}.
+  Finite-depth generalized local unitary Clifford circuits generate a family of equivalent local encodings with qubit-to-fermion ratio \(r = 1 + \frac{1}{2k}\) for any positive integer \(k\); the square-lattice compact encoding with \(r=1.5\) and the super-compact encoding with \(r=1.25\) are explicit examples \cite{arxiv:2201.05153}.
 
 protection: |
   The original code \cite{arxiv:1711.00515} can be converted via Clifford operations into codes whose distance runs up to \(7\) while preserving the code rate \cite{arxiv:2210.08411}.
@@ -33,7 +33,7 @@ relations:
       detail: 'The 2D bosonization code encodes fermionic modes into a 2D qubit stabilizer code.'
   cousins:
     - code_id: jw
-      detail: 'The 2D bosonization code can be converted into chains of JW-transformed qubits by a linear-depth circuit \cite[Fig. 24]{arxiv:2201.05153}.'
+      detail: 'The exact 2D bosonization code can be converted by a linear-depth Clifford circuit into a Jordan-Wigner ordering path on the 2D lattice \cite[Fig. 24]{arxiv:2201.05153}.'
     - code_id: surface
       detail: 'The original 2D bosonization code \cite{arxiv:1711.00515} is a stabilizer code whose generators are products of plaquettes and stars of the surface code.'
 
@@ -42,5 +42,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-17'
     - user_id: VictorVAlbert
       date: '2024-03-20'

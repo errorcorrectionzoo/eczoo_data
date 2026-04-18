@@ -16,7 +16,7 @@ alternative_names:
   - 'Auxiliary fermion code'
 
 description: |
-  A 2D fermion-into-qubit encoding that builds upon the JW transformation encoding by eliminating the weight-\(O(n)\) \(X\)-type string at the expense of introducing additional qubits.
+  A 2D fermion-into-qubit encoding that builds upon the JW transformation by eliminating the weight-\(O(n)\) non-local \(Z\)-type string at the expense of introducing an auxiliary qubit per site and local gauge constraints.
   See \cite[Sec. IV.B]{arxiv:2201.05153} for details.
 
 protection: |
@@ -26,7 +26,7 @@ protection: |
 relations:
   parents:
     - code_id: 2d_bosonization
-      detail: 'The BVC code can be obtained from exact 2D bosonization by finite-depth generalized local unitaries \cite{arxiv:2201.05153}.'
+      detail: 'The BVC code can be obtained from exact 2D bosonization by finite-depth generalized local unitaries after regrouping Majorana modes \cite{arxiv:2201.05153}.'
     - code_id: qetc
       detail: 'The BVC code transmutes all single-qubit errors \cite{arxiv:2310.10278}.'
   cousins:
@@ -38,5 +38,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-17'
     - user_id: VictorVAlbert
       date: '2024-03-20'

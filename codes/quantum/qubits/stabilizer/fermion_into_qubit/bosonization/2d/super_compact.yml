@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: super_compact
+physical: qubits
+logical: qubits
+
+name: 'Super-compact fermion-to-qubit code'
+introduced: '\cite{arxiv:2201.05153}'
+
+alternative_names:
+  - 'Super-compact encoding'
+
+description: |
+  A 2D fermion-into-qubit encoding on the square lattice obtained from exact 2D bosonization by a finite-depth generalized local unitary Clifford circuit, followed by re-pairing of Majorana modes and a slight lattice deformation.
+  The code uses \(1.25\) qubits per fermion, improving on the square-lattice compact encoding with ratio \(r=1.5\).
+  Its fermion-parity, hopping, and stabilizer operators have weights \(1\)-\(2\), \(2\)-\(6\), and \(12\), respectively \cite[Table I]{arxiv:2201.05153}.
+
+
+relations:
+  parents:
+    - code_id: 2d_bosonization
+      detail: 'The super-compact code is obtained from exact 2D bosonization by finite-depth generalized local unitaries \cite{arxiv:2201.05153}.'
+  cousins:
+    - code_id: derby_klassen
+      detail: 'On the square lattice, the super-compact code is obtained by further transforming the \(r=1.5\) compact/DK construction to qubit-fermion ratio \(1.25\) \cite{arxiv:2201.05153}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: Copilot
+      date: '2026-04-17'
