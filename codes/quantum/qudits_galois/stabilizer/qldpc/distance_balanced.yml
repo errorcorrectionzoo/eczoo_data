@@ -12,8 +12,9 @@ introduced: '\cite{arxiv:1611.03790,arxiv:2102.10030,arxiv:2004.07935}'
 
 description: |
   Galois-qudit CSS code constructed from a CSS code and a classical code using a distance-balancing procedure based on a generalized homological product.
-  The initial code is said to be \textit{unbalanced}, i.e., tailored to noise biased toward either bit- or phase-flip errors, and the procedure can result in a code that is treats both types of errors on a more equal footing.
-  The original distance-balancing procedure \cite{arxiv:1611.03790}, later generalized \cite[Thm. 4.2]{arxiv:2004.07935}, can yield QLDPC codes \cite[Thm. 1]{arxiv:1611.03790}.
+  The initial code is said to be \textit{unbalanced}, i.e., tailored to noise biased toward either bit- or phase-flip errors, and the procedure can result in a code that treats both types of errors on a more equal footing.
+  In the generalized construction \cite[Thm. 4.2]{arxiv:2004.07935}, combining a component quantum code \(\mathcal{Q}\) with a classical code \(C\) yields a new code with \(K=k(\mathcal{Q})k(C)\), \(D_X=d_X(\mathcal{Q})d(C)\), and \(D_Z=d_Z(\mathcal{Q})\), so choosing \(d(C)\approx d_Z/d_X\) balances the two distances.
+  The original distance-balancing procedure \cite{arxiv:1611.03790}, later generalized in this way \cite[Thm. 4.2]{arxiv:2004.07935}, can yield QLDPC codes \cite[Thm. 1]{arxiv:1611.03790}.
 
   \begin{defterm}{Weight reduction}
   \label{topic:weight-reduction}
@@ -23,6 +24,8 @@ description: |
 
 features:
   decoders:
+    - 'If the auxiliary classical LDPC code corrects all error patterns of weight \(<\alpha |A|\), then the resulting product code has a polynomial-time decoder for \(X\)-errors of weight \(< \alpha |A| d_X/2\), where \(d_X\) is the \(X\)-distance of the component quantum code \cite{arxiv:2004.07935}.'
+    - 'If the component 2D complex has a polynomial-time decoder for \(Z\)-errors of weight \(< w\), then the resulting distance-balanced code also has a polynomial-time decoder for \(Z\)-errors of weight \(< w\) \cite{arxiv:2004.07935}.'
     - 'The effective distance of single-ancilla syndrome extraction QLDPC code circuits can be preserved under weight reduction \cite{arxiv:2409.02193}. The distance balancing technique of Ref. \cite{arxiv:2004.07935} preserves the \hyperref[topic:effective-distance]{effective distance} of single-ancilla syndrome extraction circuits \cite{arxiv:2409.02193}.'
   fault_tolerance:
     - 'Single-ancilla syndrome extraction circuits that, for the most part, preserve the \hyperref[topic:effective-distance]{effective distance} of weight-reduced qLDPC codes \cite{arxiv:2409.02193}. The distance balancing technique of Ref. \cite{arxiv:2004.07935} preserves \hyperref[topic:effective-distance]{effective distance} \cite{arxiv:2409.02193}.'
@@ -47,5 +50,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-17'
     - user_id: VictorVAlbert
       date: '2022-01-20'

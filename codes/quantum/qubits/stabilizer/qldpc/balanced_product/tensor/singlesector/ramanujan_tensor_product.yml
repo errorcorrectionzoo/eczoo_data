@@ -11,16 +11,21 @@ name: 'High-dimensional expander (HDX) code'
 short_name: 'HDX'
 introduced: '\cite{arxiv:1409.1397,arxiv:2004.07935}'
 
-description: 'CSS code constructed from a Ramanujan quantum code and an asymptotically good classical LDPC code using distance balancing. Ramanujan quantum codes are defined using Ramanujan complexes which are simplicial complexes that generalise Ramanujan graphs \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}. Combining the quantum code obtained from a Ramanujan complex and a good classical LDPC code, which can be thought of as coming from a 1-dimensional chain complex, yields a new quantum code that is defined on a 2-dimensional chain complex. This 2-dimensional chain complex is obtained by the co-complex of the product of the 2 co-complexes. The length, dimension and distance of the new quantum code depend on the input codes.'
+description: |
+  CSS code obtained by applying the generalized distance-balancing/product construction of Ref. \cite{arxiv:2004.07935} to a Ramanujan-complex quantum code and an asymptotically good classical LDPC code.
+  Ramanujan quantum codes are defined using LSV Ramanujan complexes, which are simplicial complexes that generalise Ramanujan graphs \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}.
+  The auxiliary classical code is viewed as a 1-dimensional chain complex, and the output code is defined on the co-complex of the product of the two co-complexes.
+  Using a 2D LSV complex yields a QLDPC family with \(K=\Omega(\sqrt{N/\log N})\) and \(D=\Omega(\sqrt{N \log N})\), while using a 3D LSV complex yields \(K=\Omega(\sqrt{N}/\log N)\) and \(D=\Omega(\sqrt{N}\log N)\).
 
-protection: 'Without distance balancing, a Ramanujan code can have \(d_X =\Omega(\log n)\) and \(d_Z = \Omega (n)\). For 2D Ramanujan complexes, distance-balanced codes protect against errors with minimum distance \(d = \Omega(\sqrt{n \log n})\). For 3D Ramanujan complexes, distance-balanced codes protect against errors with minimum distance \(d= \Omega(\sqrt{n} \log n )\).'
+protection: 'The unbalanced component code from a 2D LSV complex can have \(d_X=\Omega(\log n)\) and \(d_Z=\Omega(n)\), while one from a 3D LSV complex can have \(d_X=\Omega(\log^2 n)\) and \(d_Z=\Omega(n)\) \cite{arxiv:2004.07935}. After distance balancing, the resulting HDX family has minimum distance \(D=\Omega(\sqrt{N \log N})\) in the 2D case and \(D=\Omega(\sqrt{N}\log N)\) in the 3D case.'
 
 features:
 
-  rate: 'For 2D Ramanujan complexes, the rate is of \hyperref[topic:asymptotics]{order} \(\Omega(\sqrt{ \frac{1}{n \log n} })\), with minimum distance \(d = \Omega(\sqrt{n \log n}) \). For 3D, the rate is \( \Omega(\frac{1}{\sqrt{n}\log n}) \) with minimum distance \(d \geq \sqrt{n} \log n \).'
+  rate: 'For 2D LSV complexes, the rate is of \hyperref[topic:asymptotics]{order} \(\Omega(1/\sqrt{N \log N})\), with minimum distance \(D=\Omega(\sqrt{N \log N})\). For 3D LSV complexes, the rate is \(\Omega(1/(\sqrt{N}\log N))\), with minimum distance \(D=\Omega(\sqrt{N}\log N)\).'
 
   decoders:
-    - 'For 2D simplicial complexes, cycle code decoder admitting a polynomial-time decoding algorithm can be used \cite{arxiv:2004.07935}.'
+    - 'For HDX codes built from 2D LSV complexes, \(X\)-error decoding reduces to polynomial-time cycle-code decoding on the 1-skeleton together with decoding of the auxiliary classical LDPC code \cite{arxiv:2004.07935}.'
+    - 'For the 2D construction, \(Z\)-errors of linear weight admit a local decoder based on coboundary expansion; replacing the component complex by the 2-skeleton of a 3D LSV complex preserves 2D-type asymptotic parameters while giving linear-time \(Z\)-decoding with unit-weight local corrections \cite{arxiv:2004.07935}.'
 
 notes:
   - 'Codes were first to break a 20-year record set by the \hyperref[code:freedman_meyer_luo]{Freedman-Meyer-Luo code} for the lower bound on scaling of the minimum distance \cite{arxiv:2103.06309}.'
@@ -44,6 +49,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-17'
     - user_id: VictorVAlbert
       date: '2022-01-03'
     - user_id: XiaozhenFu
