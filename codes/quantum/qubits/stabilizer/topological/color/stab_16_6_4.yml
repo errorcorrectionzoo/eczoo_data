@@ -8,11 +8,12 @@ physical: qubits
 logical: qubits
 
 name: '\([[16,6,4]]\) Tesseract color code'
-introduced: '\cite{arxiv:2008.05051,arxiv:2112.03785}'
+introduced: '\cite{arxiv:1703.00612,arXiv:1703.07847,arxiv:2008.05051,arxiv:2112.03785}'
+# qecdb.org 67d2cf9965e067195651cfbe
+# arXiv:1703.07847 attributes arxiv:1703.00612 
 
 description: |
-  A (self-dual CSS) 4D color code defined on a tesseract, with stabilizer generators of both types supported on each cube. 
-  Its stabilizer matrix can be chosen to be the classical Hadamard \([16,5,8]\) code, making it a hyperbolic weakly self-dual CSS code for which transversal Hadamard acts as simultaneous swaps on three pairs of logical qubits \cite[Sec. I.B.2 and Appx. A.1.2]{arxiv:1703.07847}.
+  A (hyperbolic self-dual CSS) 4D color code defined on a tesseract, with stabilizer generators of both types supported on each cube. 
   A \([[16,4,2,4]]\) tesseract subsystem code can be obtained from this code by using two logical qubits as gauge qubits \cite{arxiv:2409.04628}.
 
 
@@ -36,12 +37,12 @@ relations:
   parents:
     - code_id: color
     - code_id: quantum_reed_muller
-      detail: 'The tesseract color code is a quantum Reed-Muller code \cite{arxiv:2410.23263}.'  
+      detail: 'The tesseract color code is constructed from the \([16,5,8]\) first-order RM code via the CSS construction \cite{arXiv:1703.07847,arxiv:2410.23263}.'
     - code_id: 4d_stabilizer
     - code_id: small_distance_qubit_stabilizer
   cousins:
-    - code_id: hadamard
-      detail: 'The \([[16,6,4]]\) code can be constructed by applying the CSS construction to the classical Hadamard \([16,5,8]\) code, yielding a hyperbolic weakly self-dual code used in magic-state distillation \cite[Appx. A.1.2]{arxiv:1703.07847}.'
+    - code_id: biorthogonal
+      detail: 'The tesseract color code is constructed from the \([16,5,8]\) first-order RM code via the CSS construction \cite{arXiv:1703.07847,arxiv:2410.23263}.'
     - code_id: stab_15_7_3
       detail: 'The \([[15,7,3]]\) quantum Hamming code can be obtained by puncturing the tesseract color code \cite{arxiv:2008.05051}.'
     - code_id: stab_8_3_2
