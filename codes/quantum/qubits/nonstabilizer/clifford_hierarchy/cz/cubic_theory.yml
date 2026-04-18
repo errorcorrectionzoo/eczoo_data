@@ -15,33 +15,48 @@ alternative_names:
   # - 'Non-Abelian self-correcting quantum memory'
 
 description: |
-  A geometrically local commuting-projector code defined on triangulations of lattices in arbitrary spatial dimensions.
-  Its code Hamiltonian terms include Pauli-\(Z\) operators and products of Pauli-\(X\) operators and \(CZ\) gates.
-  The Hamiltonian realizes higher-form \(\mathbb{Z}_2^3\) gauge theories whose excitations obey non-Abelian Ising-like fusion rules.
+  A geometrically local commuting-projector code family defined on triangulations in arbitrary spatial dimensions.
+  Its Hamiltonian contains Pauli-\(Z\) flux terms and non-Pauli Gauss-law terms built from products of Pauli-\(X\) operators and \(CZ\) gates.
+  These commuting non-Pauli stabilizers realize higher-form \(\mathbb{Z}_2^3\) gauge theories with Abelian electric excitations and non-Abelian magnetic excitations.
+
+  For \(l=m=n=2\) in \(D=6\) spacetime dimensions, the code is a candidate non-Abelian self-correcting quantum memory with Abelian loop excitations and non-Abelian membrane excitations \cite{arxiv:2405.11719}.
 
   The construction is based on first constructing a model for an SPT phase \cite{arxiv:1106.4772,arxiv:1908.02613}, gauging its symmetries \cite{arxiv:1202.3120,arxiv:1407.1025,arxiv:1603.04442,arxiv:1603.05182,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679,arXiv:2108.11402,arxiv:2310.16032,arxiv:2410.02213}, and making all terms commute outside of the ground-state subspace by projecting them to zero flux.
 
+protection: |
+  On suitable triangulations of the Wu 5-manifold, a family of five-dimensional cubic theory codes has parameters \([[O(n),3,O(n^{2/5})]]\) \cite{arxiv:2405.11719}.
+
 
 features:
+  general_gates:
+    - 'In five spatial dimensions, a constant-depth circuit built from physical \(CCZ\) and SWAP gates implements the logical gate \(\overline{\mathrm{SWAP}}_{1,2}\overline{\mathrm{CCZ}}_{1,2,3}\) on the three logical qubits supported by the Wu-manifold family \cite{arxiv:2405.11719}.'
   decoders:
     - 'Probabilistic local cellular-automaton decoder \cite{arxiv:2405.11719}.'
+  fault_tolerance:
+    - 'The Wu-manifold family combines the logical non-Clifford gate with code parameters \([[O(n),3,O(n^{2/5})]]\), giving \(O(d^{5/2})\) space-time overhead for this topological scheme \cite{arxiv:2405.11719}.'
 
 
 relations:
   parents:
     - code_id: clifford_hierarchy
-      detail: 'Cubic theory code Hamiltonian terms include Pauli and \(CZ\) operators, making them Clifford stabilizer codes.'
+      detail: 'Cubic theory codes are joint eigenspaces of commuting non-Pauli stabilizers built from Pauli \(X\), Pauli \(Z\), and \(CZ\) operators, placing them at the second level of the Clifford hierarchy.'
     - code_id: yetter_gauge_theory
       detail: 'Cubic theory codes realize higher-form \(\mathbb{Z}_2^3\) gauge theories with non-Abelian excitations in arbitrary dimensions.'
   cousins:
     - code_id: self_correct
-      detail: 'A family of five-dimensional cubic theory codes with non-Abelian excitations is argued to be self-correcting below a critical temperature via a Peierls argument \cite{arxiv:2405.11719}.'
+      detail: 'A family of five-dimensional cubic theory codes with Abelian loop excitations and non-Abelian membrane excitations is argued to be self-correcting below a critical temperature via a Peierls argument \cite{arxiv:2405.11719}.'
+    - code_id: color
+      detail: 'The cubic theory in \(D\) spacetime dimensions can be obtained by twisted compactification of a generalized color code in \(D+1\) spacetime dimensions; in particular, the five-dimensional cubic theory arises from a twisted compactification of the 6D color code \cite{arxiv:2405.11719}.'
+    - code_id: quantum_double_dihedral
+      detail: 'For \(D=3\) with \(l=m=n=1\), the cubic theory is equivalent to the \(G=D_4\) quantum double, i.e. the non-Abelian Type-III \(\mathbb{Z}_2^3\) twisted quantum double \cite{arxiv:2405.11719}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-18'
     - user_id: GuanyuZhu
       date: '2024-05-23'
     - user_id: VictorVAlbert
