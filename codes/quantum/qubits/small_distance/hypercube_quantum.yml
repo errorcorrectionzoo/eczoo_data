@@ -18,13 +18,15 @@ alternative_names:
 description: |
   Member of a family of codes defined by placing qubits on a \(D\)-dimensional hypercube, \(Z\)-stabilizers on all two-dimensional faces, and an \(X\)-stabilizer on all vertices.
   These codes realize gates at the \((D-1)\)-st level of the Clifford hierarchy.
-  It can be generalized to a \([[4^D,D,4]]\) error-correcting family \cite{arxiv:2404.19005}.
+  The measured physical bit string can be post-processed into both a logical output string and stabilizer checks, enabling end-of-circuit error detection directly from classical samples \cite{arxiv:2404.19005}.
+  Higher-distance generalizations include a \([[2^{2D},D,4]]\) hyperoctahedron family and a \([[2^D(2^D+1),D,4]]\) family built from distance-two \(D\)-dimensional toric/surface-code blocks \cite{arxiv:2404.19005}.
   Various other concatenations give families with increasing distance (see cousins).
 
   In the color-code picture, they arise from hypercube-like lattices with no bulk qubits and opposite boundaries carrying the same color; after local Clifford disentangling, the transversal \(\widetilde{R_D}\) operator acts as a logical \(C^{D-1}Z\) gate on \(D\) decoupled distance-two toric/surface-code factors \cite{arxiv:1503.02065}.
 
 protection: |
   The code detects a single general error but has an \(X\)-distance \(d_X = 4\).
+  In encoded IQP sampling, this allows error detection without intermediate measurements by postselecting on the final stabilizer data extracted from measurement samples \cite{arxiv:2404.19005}.
 
 features:
   transversal_gates:
@@ -32,7 +34,8 @@ features:
     CNOT and SWAP gates can be realized by qubit permutations \cite{arxiv:2404.19005}.'
 
 notes:
-  - 'Degree-\(D\) instantaneous quantum polynomial (IQP) circuits \cite{arxiv:1504.07999} can be realized on hypercube quantum codes in a hardware-efficient way \cite{arxiv:2404.19005}.'
+  - 'Degree-\(D\) instantaneous quantum polynomial (IQP) circuits \cite{arxiv:1504.07999} can be realized on hypercube quantum codes in a hardware-efficient way; Ref. \cite{arxiv:2404.19005} proposes hypercube IQP (hIQP) circuits on a hypercube connectivity graph.'
+  - 'For \(D=4\), Bell sampling on two copies of degree-\(4\) IQP circuits encoded in the \([[16,4,2]]\) member is proposed as an efficiently classically verifiable quantum-advantage experiment \cite{arxiv:2404.19005}.'
 
 
 relations:
@@ -51,11 +54,11 @@ relations:
     - code_id: quantum_repetition
       detail: 'The hypercube quantum code can be concatenated with a two-qubit quantum repetition code to yield a \([[2^{D+1},D,4]]\) error-detecting code family \cite{arxiv:2404.19005}.'
     - code_id: higher_dimensional_surface
-      detail: 'The hypercube quantum code can be concatenated with a distance-two \(D\)-dimensional surface code to yield a \([[2^D(2^D+1),D,4]]\) error-correcting code family that admits a transversal implementation of the logical \(C^{D-1}Z\) gate \cite{arxiv:2404.19005}.'
+      detail: 'The hypercube quantum code can be concatenated with \(D\) distance-two \(D\)-dimensional toric/surface-code blocks to yield a \([[2^D(2^D+1),D,4]]\) error-correcting family that admits a transversal implementation of the logical \(C^{D-1}Z\) gate \cite{arxiv:2404.19005}.'
     - code_id: qubit_concatenated
       detail: |
         The hypercube quantum code can be concatenated with a two-qubit quantum repetition code to yield a \([[2^{D+1},D,4]]\) error-detecting code family \cite{arxiv:2404.19005}.
-        It can also be concatenated with a distance-two \(D\)-dimensional surface code to yield a \([[2^D(2^D+1),D,4]]\) error-correcting code family that admits a transversal implementation of the logical \(C^{D-1}Z\) gate \cite{arxiv:2404.19005}.
+        It can also be concatenated with \(D\) distance-two \(D\)-dimensional toric/surface-code blocks to yield a \([[2^D(2^D+1),D,4]]\) error-correcting code family that admits a transversal implementation of the logical \(C^{D-1}Z\) gate \cite{arxiv:2404.19005}.
 
 
 # Begin Entry Meta Information

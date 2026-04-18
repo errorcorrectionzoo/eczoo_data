@@ -12,6 +12,7 @@ introduced: '\cite{arxiv:1503.02065,manual:{E. Campbell, “The smallest interes
 
 description: |
   Smallest 3D color code whose physical qubits lie on vertices of a cube and which admits a (weakly) transversal \(CCZ\) gate.
+  In encoded IQP sampling, the final measurement outcomes determine both the logical sample and stabilizer checks, enabling end-of-circuit error detection or postselected decoding directly from the classical samples \cite{arxiv:2404.19005}.
 
 features:
   transversal_gates:
@@ -26,6 +27,7 @@ features:
     - 'Fault-tolerant and teleportation-free logical Hadamard \cite{arxiv:2505.20261}.'
     - 'Universal weakly fault-tolerant computation via code switching between this and another \([[8,3,2]]\) CSS code in a postselected error-detecting regime \cite{arxiv:2603.15610}.'
     - 'Fault-tolerant architecture \cite{arxiv:2507.20387}.'
+    - 'For hIQP sampling with decoding only in the final measurement round, error-detected \([[8,3,2]]\) circuits outperform the \([[16,3,4]]\) and \([[15,1,3]]\) comparison circuits studied in Ref. \cite{arxiv:2404.19005} under its two-qubit-gate-noise model.'
 
 realizations:
   - 'Trapped ions: one-qubit addition algorithm implemented fault-tolerantly on the Quantinuum H1-1 device \cite{arxiv:2309.09893}. Trapped-ion processor by AQT: measurement-free universal fault-tolerant logical operations and a Grover-search demonstration \cite{arxiv:2506.22600}.'
@@ -46,9 +48,9 @@ relations:
     - code_id: stab_15_1_3
       detail: 'The \([[8,3,2]]\) code can be obtained from a subset of physical qubits of the \([[15,1,3]]\) code \cite{arxiv:2112.01446}.'
     - code_id: 3d_surface
-      detail: 'The \([[8,3,2]]\) code can be concatenated with a 3D surface code to yield a \([[O(d^3),3,2d]]\) code family that admits a transversal implementation of the logical \(CCZ\) gate \cite{arxiv:2404.19005}.'
+      detail: 'Three cyclically rotated copies of the 3D surface/toric code admit a logical \(CCZ\) gate via transversal physical \(CCZ\) gates, and concatenating each such qubit triple with an \([[8,3,2]]\) block yields a 3D toric/color family with parameters \([[8n,3,2d]]\); its smallest member has parameters \([[72,3,4]]\) \cite{arxiv:2404.19005}.'
     - code_id: qubit_concatenated
-      detail: 'The \([[8,3,2]]\) code can be concatenated with a 3D surface code to yield a \([[O(d^3),3,2d]]\) code family that admits a transversal implementation of the logical \(CCZ\) gate \cite{arxiv:2404.19005}.'
+      detail: 'Concatenating \([[8,3,2]]\) blocks with triples of qubits drawn from three cyclically rotated 3D surface/toric codes yields a 3D toric/color family with parameters \([[8n,3,2d]]\) and transversal logical \(CCZ\) implemented by physical \(T\) gates on the inner \([[8,3,2]]\) blocks \cite{arxiv:2404.19005}.'
 
 
 # Begin Entry Meta Information
