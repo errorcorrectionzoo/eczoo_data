@@ -34,7 +34,10 @@ description: |
 
   This code is sometimes referred to as the DiVincenzo-Shor code after a paper that studied the code's syndrome extraction circuits \cite{arxiv:quant-ph/9605031}.
 
-protection: 'Smallest stabilizer code that protects against a single error on any one qubit. Detects two-qubit errors.'
+protection: |
+  Smallest stabilizer code that protects against a single error on any one qubit. Detects two-qubit errors.
+
+  When the noise is expressed in the qubit \hyperref[topic:ad]{AD} Kraus basis instead of the Pauli basis, this code still satisfies the relaxed sufficient conditions of approximate error correction from Ref. \cite{arxiv:quant-ph/9704002}. In the notation of that paper, its codewords balance the average excitation number in each mode even though the exact non-deformation condition is violated.
 
 features:
   encoders:

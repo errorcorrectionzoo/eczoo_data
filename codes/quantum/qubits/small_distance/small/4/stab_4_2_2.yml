@@ -43,7 +43,8 @@ protection: |
   Detects a single-qubit error \cite{arxiv:quant-ph/9603031} or single erasure \cite{arxiv:quant-ph/9610042}.
   Not able to correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
 
-  The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single \hyperref[topic:ad]{AD} error, with the latter being a constant excitation code.
+  The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arxiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single \hyperref[topic:ad]{AD} error, with the latter being a constant excitation code.
+  For the Leung-Nielsen-Chuang-Yamamoto subcode, the recovery fidelity is \(1-5\gamma^2+O(\gamma^3)\) \cite{arxiv:quant-ph/9704002}.
 
   An equivalent version of this code can suppress errors in adiabatic quantum computation by being used as an excited-state space of a particular Hamiltonian \cite{arxiv:2412.07764}.
 
@@ -123,7 +124,7 @@ relations:
     - code_id: stab_5_1_3
       detail: 'The \([[4,2,2]]\) code can be derived from the five-qubit code using a protocol that converts an \([[n,k,d]]\) code into an \([[n-1, k+1, d-1]]\) code \cite[Sec. 3.5]{arxiv:quant-ph/9705052}\cite[Fig. 3]{arxiv:1907.11253}.'
     - code_id: ampdamp_stabilizer
-      detail: 'The \([[4,1,2]]\) Leung-Nielsen-Chuang-Yamamoto subcode \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) (approximately) corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002} and is the smallest member of the amplitude-damping stabilizer family of Ref. \cite{arxiv:0710.1052}.'
+      detail: 'The \([[4,1,2]]\) Leung-Nielsen-Chuang-Yamamoto subcode \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) (approximately) corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002} and is the smallest member of the amplitude-damping stabilizer family of Ref. \cite{arxiv:0710.1052}.'
     - code_id: binomial
       detail: '\([[4,1,2]]\) subcode consisting of \(|\overline{00}\rangle\) and any other codeword reduces to the \(0,2,4\) binomial code when the basis labels in each codeword are written as in base-ten.
       Such a mapping can be generalized \cite{manual:{L. Li, private communication, 2018.}}.'
