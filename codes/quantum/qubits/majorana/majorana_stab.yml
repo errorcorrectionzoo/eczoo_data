@@ -19,6 +19,7 @@ description: |
   Two copies of an \(n\)-Majorana mode code may be combined to form a single \(n\)-fermion code by using one copy for the real parts of each fermion, and the other copy for the imaginary parts \cite{arxiv:2411.08955}.
   Codes that admit a logical operator of even (odd) weight are called even (odd) Majorana codes \cite{arxiv:2508.09928}.
   Even Majorana codes encode logical qubits, and odd Majorana codes have at least one logical Majorana fermion.
+  For odd codes, an additional protection parameter is the minimum diameter \(l_{\rm even}\) of an even logical operator \cite{arxiv:1004.3791}.
 
   In some cases, Majorana-based stabilizer codes are designed to protect against fermionic noise \cite{arxiv:cond-mat/0010440} and are thus useful for physical platforms based on fermions.
   In other cases, Majorana-based frameworks are helpful for understanding conventional qubit stabilizer codes designed for qubit-based platforms.
@@ -28,6 +29,8 @@ description: |
 protection: |
   Detects products of Majorana operators with weight up to \(d-1\).
   Physically, protects against dephasing errors caused by coupling of fermion density to the environment and bit-flip errors caused by quasiparticle poisoning processes.
+  For odd Majorana codes, the physically relevant logical protection is also governed by the minimum diameter \(l_{\rm even}\) of an even logical operator \cite{arxiv:1004.3791}.
+  In particular, local one-dimensional Majorana stabilizer codes have \(d=O(1)\) and \(l_{\rm even}=O(L)\), while local two-dimensional Majorana stabilizer codes still admit string-like even logical operators or products of two odd string-like logical operators, so fermion-parity superselection does not evade the usual 2D self-correction obstruction \cite[Sec. 6]{arxiv:1004.3791}.
 
   Code bounds have been developed for small codes \cite{arxiv:1703.00612}.
   LP bounds for Majorana codes have been developed based on the identification of Majorana operators with the Clifford algebra \cite{arxiv:2502.14165}.
@@ -53,7 +56,9 @@ relations:
     - code_id: dual
       detail: 'Classical self-orthogonal codes can be used to construct Majorana stabilizer codes \cite{arxiv:1703.00459,doi:10.1088/1751-8113/41/14/145304,arxiv:2503.08736}. The direct relationship between the two codes follows from expressing the Majorana strings as binary vectors – akin to the \hyperref[topic:binary-symplectic-representation]{symplectic representation} – and observing that the binary stabilizer matrix \(S\) for such a Majorana stabilizer code satisfies \(S\cdot S^T=0\) because it has commuting stabilizers, which is precisely the condition \(G\cdot G^T=0\) on the generator matrix \(G\) of a self-orthogonal classical code. A self-orthogonal classical code \(C\) with parameters \([2N,k,d]\) yields a Majorana stabilizer code with parameters \([[N,N-k,d^\perp]]_f\), where \(d^\perp\) is the code distance of the dual code \(C^\perp\).'
     - code_id: qubit_css
-      detail: 'Every \([[n,k,d]]_f\) Majorana stabilizer code is associated with a \([[2n,2k,d]]\) self-dual qubit CSS code \cite[Lemma 2]{arxiv:1004.3791}. An odd-length self-dual CSS code can be converted into a complex-fermion code by replacing qubit \(Z\)-type and \(X\)-type operators with \(\gamma\)-type and \(\tilde{\gamma}\)-type Majorana operators, respectively \cite{arxiv:2411.08955}.'
+      detail: 'Every \([[n,k,d]]_f\) Majorana stabilizer code is associated with a \([[2n,2k,d]]\) qubit CSS code whose \(X\)- and \(Z\)-check supports coincide \cite[Lemma 2]{arxiv:1004.3791}. An odd-length self-dual CSS code can be converted into a complex-fermion code by replacing qubit \(Z\)-type and \(X\)-type operators with \(\gamma\)-type and \(\tilde{\gamma}\)-type Majorana operators, respectively \cite{arxiv:2411.08955}.'
+    - code_id: steane
+      detail: 'Applying the CSS-to-Majorana map of \cite[Lemma 2]{arxiv:1004.3791} to the \([[7,1,3]]\) Steane code yields a seven-Majorana code encoding half a qubit; pairing two such odd-length copies gives a physical Majorana stabilizer code with odd logical operators \cite[Sec. 8]{arxiv:1004.3791}.'
     - code_id: binary_linear
       detail: 'When constructing a Majorana stabilizer code from a self-orthogonal classical code with an odd number of bits and generator matrix \(G\), a more complex procedure must be applied to ensure that the fermion code has an even number of Majorana zero modes, and thus a physical Hilbert space \cite{arxiv:1004.3791,arxiv:1703.00459}. Rather than taking \(G\) to be the stabilizer matrix as in the even case, we take \(G\oplus G\). This is a concatenation of classical codes as in the CSS construction and it yields a mapping \([2n-1,k,d]\rightarrow [[2n-1,2n-1-k,d^\perp]]_f\). This procedure may be further generalized by concatenating two different self-orthogonal classical codes with an odd number of bits, as is often done in the CSS construction.'
     - code_id: binary_cyclic
