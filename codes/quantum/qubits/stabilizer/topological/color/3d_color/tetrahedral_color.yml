@@ -14,12 +14,13 @@ introduced: '\cite{arxiv:1311.0879,arxiv:1410.0069}'
 # tetrahedral-octahedral honeycomb uniform tiling
 # Tetrahedra do not tile space
 description: |
-  3D color code defined on select tetrahedra of a 3D tiling.
-  Qubits are placed on the vertices, edges, triangles, and in the center of each tetrahedron.
+  Tetrahedral 3D color code defined on a colored tetrahedron cut from a suitably colored BCC lattice \cite{arxiv:1311.0879}.
+  Qubits are placed on tetrahedra, on the triangles covering the tetrahedron faces, on the edges along the tetrahedron edges, and on the tetrahedron vertices.
   The code has both string-like and sheet-like logical operators \cite{arxiv:1708.07131}.
 
 
 features:
+  rate: 'The tetrahedral family with linear size parameter \(L\) has \(n=1+4L+6L^2+4L^3\) physical qubits and encodes one logical qubit \cite{arxiv:1311.0879}.'
   transversal_gates:
     - 'A \([[5d^3-12d^2+16,3,d]]\) close relative of this code admits a logical \(CCZ\) gate via single-qubit rotations; for this family, stabilizers remain asymptotically constant-weight and can be gauge-reduced to weight at most six \cite{arxiv:2404.19005}.'
 
@@ -36,7 +37,7 @@ relations:
     - code_id: 3d_color
   cousins:
     - code_id: bcc
-      detail: 'The tetrahedral color code is defined on a lattice of tetrahedra that are carved out of a BCC lattice.'
+      detail: 'The tetrahedral color code is defined on a lattice of tetrahedra carved out of a suitably colored BCC lattice \cite{arxiv:1311.0879}.'
     - code_id: 3d_surface
       detail: 'A tetrahedral 3D color code with four differently colored boundaries is equivalent, via a local \hyperref[topic:clifford]{Clifford circuit}, to three 3D surface codes attached along one boundary, with condensation of a composite electric charge on that attached boundary \cite{arxiv:1503.02065}.'
 

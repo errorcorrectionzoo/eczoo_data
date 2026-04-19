@@ -14,9 +14,16 @@ alternative_names:
   - '3D gauge color code'
 
 description: |
-  A subsystem version of the 3D color code.
+  A subsystem version of the 3D color code defined on a 3-colex.
+  In the tetrahedral family introduced in \cite{arxiv:1311.0879}, qubits live on tetrahedra, boundary triangles, boundary edges, and boundary vertices of a colored tetrahedron, and the code encodes one logical qubit.
+  Gauge generators can be chosen to have weight four or six, while the corresponding stabilizer generators can be much larger.
 
 features:
+  rate: 'The tetrahedral family with linear size parameter \(L\) has \(n=1+4L+6L^2+4L^3\) physical qubits and encodes one logical qubit \cite{arxiv:1311.0879}.'
+  transversal_gates:
+    - 'For the \((1,1)\) member, \(CNOT\) and Hadamard are transversal; gauge fixing to the \((1,2)\) code enables a transversal \(R_3\) gate, yielding a universal gate set without encoded ancillas \cite{arxiv:1311.0879}.'
+  fault_tolerance:
+    - 'In the tetrahedral family, syndrome extraction can use 4- or 6-qubit gauge checks instead of directly measuring larger stabilizers, and gauge fixing uses only local quantum operations plus classical processing \cite{arxiv:1311.0879}.'
   threshold:
     - 'Phenomenological noise: \(0.31\%\) under clustering decoder \cite{arxiv:1503.08217}.'
 
@@ -28,6 +35,7 @@ relations:
     - code_id: translationally_invariant_subsystem
   cousins:
     - code_id: 3d_color
+      detail: 'On a fixed 3D lattice, the 3D subsystem color code is gauge-related to the 3D color code; switching between the \((1,1)\) and \((1,2)\) members yields transversal \(CNOT\), \(H\), and \(R_3\) gates \cite{arxiv:1311.0879}.'
     - code_id: single_shot
       detail: 'The 3D subsystem color code defined on the cube-truncated rhombic dodecahedral honeycomb, i.e., a tesselation of cubes and chamfered cubes (a.k.a. tetratruncated rhombic dodecahedra) \cite[Fig. 1]{arxiv:1503.08217}, is a single-shot code \cite{arxiv:1404.5504,arxiv:1503.08217}.'
     - code_id: symmetry_protected_self_correct
