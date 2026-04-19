@@ -7,18 +7,26 @@ code_id: fractal_liquid
 physical: qudits
 logical: qudits
 
-name: 'Type-II fractal spin-liquid code'
+name: 'Fractal spin-liquid code'
 introduced: '\cite{arxiv:1302.6248}'
 
 description: |
-  A type-II fracton prime-qudit CSS code defined on a cubic lattice \cite[Eqs. (D9-D10)]{arxiv:1908.08049}.
+  Family of prime-qudit CSS codes on an \(L\times L\times L\) cubic lattice defined by two reversible linear cellular automata \(f(x)\) and \(g(x)\) \cite{arxiv:1302.6248}.
+  Depending on the algebraic relation between \(f\) and \(g\), the family realizes both type-I and type-II fracton phases; algebraically unrelated choices yield models with no string-like logical operators \cite{arxiv:1302.6248,arxiv:1908.08049}.
+
+protection: 'For linear size \(L\), quantum fractal liquids encode \(k=2L\) logical qudits into \(n=2L^3\) physical qudits, and their code distance diverges as \(L\to\infty\) \cite{arxiv:1302.6248}.'
+
+rate: 'On an \(L\times L\times L\) lattice with two qudits per site, the encoding rate is \(k/n = 1/L^2\) \cite{arxiv:1302.6248}.'
 
 
 relations:
   parents:
     - code_id: qudit_css
     - code_id: fracton
-      detail: 'The type-II fractal spin-liquid code is a type-II fracton code \cite{arxiv:1302.6248}.'
+      detail: 'Quantum fractal liquids realize fracton codes; algebraically related pairs \((f,g)\) give type-I models, while algebraically unrelated pairs give type-II models without string-like logical operators \cite{arxiv:1302.6248,arxiv:1908.08049}.'
+  cousins:
+    - code_id: haah_cubic
+      detail: 'The Haah cubic code is unitarily equivalent to a second-order quantum fractal liquid \cite{arxiv:1302.6248}.'
 
 
 # Begin Entry Meta Information
