@@ -11,13 +11,24 @@ name: 'Majorana surface code'
 introduced: '\cite{arxiv:1504.01724,arxiv:1509.05345}'
 
 description: |
-  Majorana analogue of the surface code defined on a 2D lattice and constructed out of Majorana box qubit codes placed on patches of the lattice.
+  Fermionic analogue of the surface code defined on a three-colorable 2D tiling whose face operators are non-overlapping even-Majorana stabilizers.
+  Open patches with four or six alternating colored boundaries encode logical tetrons or hexons.
+  The uniform 4.8.8, 6.6.6, and 4.6.12 tilings yield families with tetron, hexon, or dodecon building blocks and with twist-based lattice surgery supporting minimal-overhead logical Clifford gates \cite{arxiv:1801.08143}.
+
+protection: |
+  Under quasiparticle-poisoning noise, single Majorana operators flip the syndromes of adjacent stabilizers and can be decoded with surface-code methods.
+  If the shortest logical operator has Majorana weight \(d_m\), then the code corrects up to \(d_m/2-1\) Majorana errors; the corresponding qubit distance is naturally labeled by \(d=d_m/2\) because Pauli errors on tetron/hexon hardware involve pairs of Majoranas \cite{arxiv:1801.08143}.
+  Implementations that treat one color of stabilizers as parity-fixing constraints reduce measured stabilizer weight, at the cost that parity-violating single-Majorana events become leakage unless that color is also measured \cite{arxiv:1801.08143}.
 
 features:
+  rate: |
+    For code distance \(d=d_m/2\), the 4.8.8, 6.6.6, and 4.6.12 families require \(4d^2\), \(6d^2+\mathcal{O}(d)\), and \(12d^2+\mathcal{O}(d)\) Majoranas per logical qubit, respectively \cite[Table I]{arxiv:1801.08143}.
+    Their maximum stabilizer weights for fault-tolerant lattice surgery can be reduced to \(8\), \(6\), and \(6\) Majoranas, respectively, compared to \(10\) Majoranas for bosonic twist-based surface-code surgery \cite{arxiv:1801.08143}.
   general_gates:
-    - 'Ordinary and twist-based lattice surgery \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
+    - 'All logical Clifford gates, including CNOT, can be implemented with zero time overhead by classically tracking them and measuring Pauli products via ordinary and twist-based lattice surgery \cite{arxiv:1801.08143}.'
+    - 'Surface-code state injection of noisy magic states into logical tetrons \cite[Sec. IV.C]{arxiv:1801.08143}.'
   fault_tolerance:
-    - 'Ordinary and twist-based lattice surgery can be made fault tolerant \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
+    - 'Repeated syndrome rounds make ordinary and twist-based lattice surgery fault tolerant against both data and measurement errors \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
 
 
 
@@ -30,7 +41,7 @@ relations:
       detail: 'The Majorana surface code is a 2D qubit stabilizer code with respect to the Majorana operator basis.'
   cousins:
     - code_id: surface
-      detail: 'The Majorana surface code is a Majorana stabilizer analogue of the surface code.'
+      detail: 'Majorana surface codes map non-uniquely to bosonic surface codes: replacing each tetron in a 4.8.8 code by a qubit yields the square-lattice surface code, while 6.6.6 and 4.6.12 codes map to rotated-square and Kagome-lattice surface-code realizations, respectively \cite{arxiv:1801.08143}.'
 
 # Begin Entry Meta Information
 _meta:

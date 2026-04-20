@@ -11,15 +11,15 @@ name: 'Majorana box qubit'
 introduced: '\cite{arxiv:cond-mat/0010440,arxiv:1609.01697,arxiv:1610.05289}'
 
 description: |
-  A Majorana stabilizer code which forms a fixed-parity subspace of the ground-state subspace of one or more Kitaev Majorana chain Hamiltonians.
-  The \([[n,1,2]]_{f}\) Majorana box qubit forms the even-fermion-parity ground-state subspace of two parallel Kitaev Majorana chains in their fermionic topological phase.
-  Its \([[2,1,2]]_{f}\) version is called the tetron Majorana code.
-  An \([[3,2,2]]_{f}\) extension using three Kitaev chains and housing two logical qubits of the same parity is called the \textit{hexon Majorana code}.
+  A family of Majorana stabilizer codes obtained by fixing the total fermion parity of \(n\) fermionic modes, equivalently \(2n\) Majorana zero modes, within the ground-state subspace of one or more Kitaev Majorana chain Hamiltonians.
+  The resulting positive-parity subspace encodes \(n-1\) logical qubits and has Majorana distance \(2\).
+  The \([[2,1,2]]_{f}\) member is called the tetron Majorana code, while an \([[3,2,2]]_{f}\) extension using three Kitaev chains and housing two logical qubits of the same parity is called the \textit{hexon Majorana code}.
   Similarly, \textit{octon}, \textit{decon}, and \textit{dodecon} are codes defined by the positive-parity subspace of \(4\), \(5\), and \(6\) fermionic modes, respectively \cite{arxiv:1801.08143}.
 
 
 protection: |
-  Errors affecting a sufficiently low but even number of Majoranas can be detected and corrected.
+  Fixing total fermion parity detects single-Majorana events as parity violations if that parity is measured.
+  However, these distance-two box-qubit codes do not correct errors: two-Majorana operators act within the fixed-parity sector and can implement logical Pauli errors without changing the stabilizer outcome, while treating the parity constraint as a Hamiltonian term turns single-Majorana events into leakage errors \cite{arxiv:1801.08143}.
 
 
 features:
@@ -41,13 +41,13 @@ relations:
       detail: 'The Majorana box qubit is a 1D qubit stabilizer code with respect to the Majorana operator basis.'
     - code_id: 1d_stabilizer
       detail: 'The Majorana box qubit is a 1D qubit stabilizer code with respect to the Majorana operator basis.'
-    - code_id: majorana_surface
-      detail: 'Concatenations of surface codes with Majorana box qubits are examples of Majorana surface codes \cite[Table I]{arxiv:1801.08143}.'
-    - code_id: majorana_color
-      detail: 'Concatenations of color codes with Majorana box qubits are examples of Majorana color codes \cite[Table I]{arxiv:1801.08143}.'
   cousins:
     - code_id: hamiltonian
-      detail: 'A Majorana box qubit form a fixed-parity subspace of the ground-state subspace of one or more Kitaev Majorana chain Hamiltonians.'
+      detail: 'A Majorana box qubit forms a fixed-parity subspace of the ground-state subspace of one or more Kitaev Majorana chain Hamiltonians.'
+    - code_id: majorana_surface
+      detail: 'The 4.8.8, 6.6.6, and 4.6.12 Majorana surface-code families realize logical tetrons and hexons as fault-tolerant versions of these small Majorana blocks, using tetrons, hexons, or dodecons as parity-fixed building blocks \cite{arxiv:1801.08143}.'
+    - code_id: majorana_color
+      detail: 'Majorana color codes are obtained by stacking Majorana surface-code layers and replacing stacked building blocks by small Majorana fermion codes such as hexons, octons, and the \([[20,4,4]]_m\) decon-based code \cite[Sec. V]{arxiv:1801.08143}.'
 
 
 # Begin Entry Meta Information

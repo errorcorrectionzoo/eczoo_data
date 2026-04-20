@@ -14,18 +14,24 @@ description: |
   Fermionic analogue of a 2D color code.
   In the original construction \cite{arxiv:1004.3791}, Majorana modes occupy the vertices of a trivalent graph embedded on a cylinder, each face operator is the product of the Majoranas around an even-length face, and the graph is only locally \(3\)-colorable.
   The code encodes one qubit whose two odd logical operators live on the opposite cylinder boundaries, while an even logical operator is supported on a string connecting the boundaries.
-  Later hardware-oriented Majorana color-code constructions realize related codes by concatenating an ordinary color code with small Majorana stabilizer or Majorana-box-qubit blocks \cite{arxiv:1703.00612,arxiv:1704.01589,arxiv:1708.05012,arxiv:1801.08143}.
+  Later hardware-oriented Majorana color-code constructions realize related codes by concatenating Majorana surface codes with small Majorana fermion codes \cite{arxiv:1703.00612,arxiv:1704.01589,arxiv:1708.05012,arxiv:1801.08143}.
+  Equivalently, they are multiple Majorana-surface-code layers whose stacked building blocks are replaced by an inner \([[n_m,k,d_m]]_m\) Majorana code; hexon, octon, \([[16,3,4]]_m\), and \([[20,4,4]]_m\) inner codes give concrete order-2, -3, and -4 examples \cite{arxiv:1801.08143}.
 
 protection: |
   For the original cylindrical family with circumference \(R\) and length \(L\), the code distance scales as \(d=\Omega(\min(R,L))\), while the minimum diameter of an even logical operator obeys \(l_{\rm even}=\Omega(L)\) \cite[Sec. 7]{arxiv:1004.3791}.
   The code therefore interpolates between Kitaev-chain-like protection by fermion-parity superselection (\(R=O(1)\), \(L\gg 1\)) and distance-based protection when both linear dimensions are macroscopic.
+  For the concatenated families of \cite{arxiv:1801.08143}, the outer Majorana surface code sets the logical distance, while the inner Majorana code trades stabilizer weight and locality for lower Majorana overhead.
 
 features:
+  rate: |
+    Concatenating a 4.8.8 Majorana surface code with an inner \([[n_m,k,d_m]]_m\) code yields Majorana overhead \(\frac{4n_m}{k d_m^2} d^2\) per logical qubit of distance \(d\) \cite{arxiv:1801.08143}.
+    Examples from \cite[Table I]{arxiv:1801.08143} include the 4.8.8 \(([[6,2,2]]_m)\), \(([[8,3,2]]_m)\), \(([[16,3,4]]_m)\), and \(([[20,4,4]]_m)\) Majorana color codes with overheads \(3d^2\), \(\frac{8}{3}d^2\), \(\frac{4}{3}d^2\), and \(1.25d^2\), respectively.
+    Their corresponding maximum stabilizer weights are \(8\), \(10\), \(16\), and \(16\) Majoranas, and surface-to-color-code lattice surgery can reduce the 16-Majorana-surgery cases to weight \(12\) \cite{arxiv:1801.08143}.
   general_gates:
     - 'Color-to-surface-code lattice surgery \cite{arxiv:1708.05012}.'
-    - 'Ordinary and twist-based lattice surgery \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
+    - 'Logical tetrons and hexons can be encoded in Majorana color codes and manipulated by ordinary, twist-based, or surface-to-color-code lattice surgery \cite{arxiv:1708.05012,arxiv:1801.08143}.'
   fault_tolerance:
-    - 'Ordinary and twist-based lattice surgery can be made fault tolerant \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
+    - 'Ordinary and twist-based lattice surgery can be made fault tolerant, and surface-to-color-code surgery reduces ancilla-measurement weight for the 16-Majorana-stabilizer families \cite{arxiv:1801.08143} (see also \cite{arxiv:2211.11777}).'
 
 
 relations:
@@ -37,7 +43,7 @@ relations:
       detail: 'The Majorana color code is a 2D qubit stabilizer code with respect to the Majorana operator basis.'
   cousins:
     - code_id: 2d_color
-      detail: 'The original Majorana color code is a fermionic analogue of a 2D color code in which one Majorana face operator doubles to matching \(X\)- and \(Z\)-type face checks, but the underlying cylinder graph need only be locally \(3\)-colorable and can support odd boundary logical operators \cite{arxiv:1004.3791}. Later realizations concatenate 2D color codes with small Majorana stabilizer or Majorana-box-qubit blocks \cite{arxiv:1703.00612,arxiv:1704.01589,arxiv:1708.05012,arxiv:1801.08143}.'
+      detail: 'The original Majorana color code is a fermionic analogue of a 2D color code in which one Majorana face operator doubles to matching \(X\)- and \(Z\)-type face checks, but the underlying cylinder graph need only be locally \(3\)-colorable and can support odd boundary logical operators \cite{arxiv:1004.3791}. Later realizations mirror the bosonic surface-to-color concatenation picture by stacking Majorana surface-code layers and replacing stacked building blocks with small Majorana fermion codes \cite{arxiv:1703.00612,arxiv:1704.01589,arxiv:1708.05012,arxiv:1801.08143}.'
 
 
 
