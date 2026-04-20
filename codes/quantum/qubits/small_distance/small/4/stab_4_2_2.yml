@@ -10,6 +10,7 @@ logical: qubits
 name: '\([[4,2,2]]\) Four-qubit code'
 short_name: '\([[4,2,2]]\)'
 introduced: '\cite{arxiv:quant-ph/9603031,arxiv:quant-ph/9610042}'
+# qecdb.org 674f2500f9caaa7ce766741c
 
 alternative_names:
   - '\(C_4\) code'
@@ -17,6 +18,7 @@ alternative_names:
 
 description: |
   Four-qubit CSS stabilizer code is the smallest qubit stabilizer code to detect a single-qubit error.
+  It is unique for its parameters \cite{arxiv:2501.17447}.
 
   The code admits stabilizer generators \(\{XXXX, ZZZZ\} \), and its stabilizer generator matrix blocks, \(H_{X}=H_{Z}=(1,1,1,1)\), are both the parity-check matrix of the \([4,3,2]\) SPC code.
   
@@ -32,11 +34,13 @@ description: |
   This code is the smallest instance of the toric code, and its various single-qubit subcodes are small planar surface codes \cite{arxiv:2501.17447}.
   It is the unique code for its parameters, up to equivalence \cite[Thm. 8]{arxiv:quant-ph/9704043}.
 
-  The subcode \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) is a \([[4,1,2]]\) code known as the \textit{Leung-Nielsen-Chuang-Yamamoto code} \cite{arxiv:quant-ph/9704002}, whose \(\pm\)-basis codewords can be written as
+  Subcodes spanned by any two of the above four codewords are all equivalent to the \textit{Leung-Nielsen-Chuang-Yamamoto code} \cite{arxiv:quant-ph/9704002}, one of two inequivalent \([[4,1,2]]\) codes \cite{arxiv:2501.17447}.
+  Its \(\pm\)-basis codewords can be written as
   \begin{align}
     |\overline{\pm}\rangle = \frac{1}{2}(|00\rangle \pm |11\rangle)^{\otimes 2}~.\\
   \end{align}
   This code can be thought of as a concatenation of a two-qubit bit-flip with a two-qubit phase-flip code.
+  It is equivalent to the subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) and \(\{|\overline{00}\rangle,|\overline{11}\rangle\}\).
 
 
 protection: |
@@ -80,9 +84,9 @@ realizations:
   - '\([[4,1,2]]\) subcodes implemented in linear optical networks \cite{arxiv:0804.2268,arxiv:1404.5498}.'
   - 'Trapped-ion device by IonQ \cite{arxiv:1611.06946}.'
   - 'Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices by IBM \cite{arxiv:1705.09259,arxiv:1705.08957,arxiv:1806.02359,arxiv:2110.04285}.'
-  - 'The subcode \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:1912.09410} and \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arxiv:2102.06132}, treated as a planar surface code, has been realized in superconducting-circuit devices.'
+  - 'The subcode \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:1912.09410,arxiv:2102.06132}, treated as a planar surface code, has been realized in superconducting-circuit devices.'
   - 'Logical gates between two copies of the subcode \(\{|\overline{10}\rangle,|\overline{11}\rangle\}\), interpreted as lattice surgery between planar surface codes, realized in superconducting circuits \cite{arxiv:2006.03071}.'
-  - 'Logical gates for the \(\{|\overline{00}\rangle,|\overline{11}\rangle\}\) subcode, treated as a planar code, realized in superconducting circuits \cite{arxiv:2102.13071}.'
+  - 'Logical gates for the \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) subcode, treated as a planar code, realized in superconducting circuits \cite{arxiv:2102.13071}.'
   - 'The CZ magic state has been realized on an IBM heavy-hex superconducting circuit device \cite{arxiv:2305.13581}.'
   - 'Logical \hyperref[topic:clifford]{Clifford gates} for a twist-defect surface code that is single-qubit Clifford equivalent to a \([[4,1,2]]\) realized in a trapped ion device by Quantinuum \cite{arxiv:2406.09951}.'
   - 'CPC gadgets for the \([[4,2,2]]\) code have been implemented on the IBM 5Q superconducting device \cite{arxiv:1709.01866}.'
@@ -101,7 +105,7 @@ realizations:
 relations:
   parents:
     - code_id: rotated_surface
-      detail: 'The \([[4,2,2]]\) code is the smallest rotated toric code. The subcodes \(\{|\overline{10}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:2006.03071}, \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:1912.09410}, \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arxiv:2102.06132}, and \(\{|\overline{00}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:2102.13071} are small planar rotated surface codes.'
+      detail: 'The \([[4,2,2]]\) code is the smallest rotated toric code. The subcodes \(\{|\overline{10}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:2006.03071}, \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arxiv:1912.09410,arxiv:2102.06132,arxiv:2102.13071} are small planar rotated surface codes.'
     - code_id: 2d_color
       detail: 'The \([[4,2,2]]\) code can be interpreted as a 2D color code on a square of the 4.8.8 or 4.6.12 tilings, or on a trapezoidal patch that makes up two-thirds of a hexagon of the 6.6.6 tiling \cite{arxiv:2212.00042,arxiv:2305.13581}.
       Concatenating the \([[4,2,2]]\) code with the surface code is equivalent to removing stabilizer generators from the 4.8.8 color code \cite{arxiv:1604.04062}.

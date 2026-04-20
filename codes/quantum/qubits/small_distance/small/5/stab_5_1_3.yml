@@ -36,8 +36,7 @@ description: |
 
 protection: |
   Smallest stabilizer code that protects against a single error on any one qubit. Detects two-qubit errors.
-
-  When the noise is expressed in the qubit \hyperref[topic:ad]{AD} Kraus basis instead of the Pauli basis, this code still satisfies the relaxed sufficient conditions of approximate error correction from Ref. \cite{arxiv:quant-ph/9704002}. In the notation of that paper, its codewords balance the average excitation number in each mode even though the exact non-deformation condition is violated.
+  The five-qubit perfect code approximately corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002}.
 
 features:
   encoders:
@@ -127,6 +126,8 @@ relations:
       detail: 'The five-qubit perfect code is equivalent via a single-qubit \hyperref[topic:clifford]{Clifford circuit} to a cluster-state code defined from a five-cycle (a.k.a. pentagon) graph and a classical repetition code \cite{arxiv:0708.1021,manual:{A. W. Cross. Fault-tolerant quantum computer architectures using hierarchies of quantum error-correcting codes. PhD thesis, Massachusetts Institute of Technology, 2008.},manual:{R. B. Griffiths, "Graph states and graph codes.".},arxiv:1511.05647}\cite[Exam. 2]{arxiv:1108.5490}.'
     - code_id: floquet
       detail: 'Inspired by the honeycomb Floquet code, various weight-two measurement schemes have been designed for the five-qubit code \cite{arxiv:2409.13681}.'
+    - code_id: ampdamp
+      detail: 'The five-qubit perfect code approximately corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002}.'
 
 # - code_id: commuting_projector
 #   detail: 'The five-qubit code frustration-free Hamiltonian is local when expressed in terms of mutually commuting Majorana operators \cite{manual:{A. Kubica, private communication, 2019.}}.'
