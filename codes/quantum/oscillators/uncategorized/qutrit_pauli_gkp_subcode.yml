@@ -5,33 +5,36 @@
 
 code_id: qutrit_pauli_gkp_subcode
 physical: oscillators
-logical: qubits
+logical: qudits
 
-name: 'Qutrit-Pauli tesselation code'
+name: 'Qutrit-Pauli tessellation code'
 introduced: '\cite{arxiv:2410.18713}'
 
 description: |
-  A subcode of a two-mode GKP code whose projection is onto a copy of an irreducible representation of the \hyperref[topic:qudit-pauli]{single-qutrit Pauli group}, the symmetry group of the \(\{3,3,3\}\) tesselation of real space \cite[pg. 136]{preset:coxeter}.
-  The code admits the corresponding gates via displacements and phase-space rotations.
+  Euclidean-plane tessellation code whose projection is onto a copy of an irreducible representation of the \hyperref[topic:qudit-pauli]{single-qutrit Pauli group}, realized by the \(\{3,3,3\}\) tessellation \cite{arxiv:2410.18713}.
+  The code is a subcode of a two-mode GKP code and has GKP-like stabilizers. Logical \(X\), \(Z\), and \((ZX)^{-1}\) are implemented by \(2\pi/3\) rotations around tessellation vertices, while only a GKP-like logical \(Z\) is available via real-space displacement.
+
+protection: |
+  The code corrects translation errors of Euclidean norm less than \(\sqrt{3}/2\).
+  It also corrects momentum errors in any direction with \(|\vec{k}| < 2\pi/9\) \cite{arxiv:2410.18713}.
 
 
 relations:
   parents:
-    - code_id: oscillators
-    - code_id: group_representation
-      detail: 'The qutrit-Pauli tesselation code is a group-representation code with \(G\) being the \hyperref[topic:qudit-pauli]{single-qutrit Pauli group}.'
-  cousins:
     - code_id: multimodegkp
-      detail: 'The qutrit-Pauli tesselation code is a subcode of a two-mode GKP code \cite{arxiv:2410.18713}.'
-    - code_id: tesselation
-      detail: 'Tesselation codes are constructed using symmetry groups of tesselations of real, spherical, and hyperbolic spaces \cite{arxiv:2410.18713}. Examples include the qutrit-Pauli tesselation code, Pauli tesselation QSC, and hyperbolic tesselation code, respectively.'
+      detail: 'The qutrit-Pauli tessellation code is a subcode of a two-mode GKP code with GKP-like stabilizers \cite{arxiv:2410.18713}.'
+    - code_id: group_representation
+      detail: 'The qutrit-Pauli tessellation code is a group-representation code with \(G\) being the \hyperref[topic:qudit-pauli]{single-qutrit Pauli group}.'
+  cousins:
     - code_id: pauli_qsc
-      detail: 'Tesselation codes are constructed using symmetry groups of tesselations of real, spherical, and hyperbolic spaces \cite{arxiv:2410.18713}. Examples include the qutrit-Pauli tesselation code, Pauli tesselation QSC, and hyperbolic tesselation code, respectively.'
+      detail: 'The qutrit-Pauli tessellation code and the Pauli tessellation QSC are concrete positive- and zero-curvature members of the tessellation-code framework of Ref. \cite{arxiv:2410.18713}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-21'
     - user_id: VictorVAlbert
       date: '2023-11-28'

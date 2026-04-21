@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_pauli_gkp_concatenated
+physical: oscillators
+logical: qubits
+
+name: 'Qubit-Pauli tessellation GKP code'
+introduced: '\cite{arxiv:2410.18713}'
+
+description: |
+  Euclidean-plane tessellation code associated with the \(\{2,4,4\}\) tessellation whose logical symmetry is the \hyperref[topic:pauli]{single-qubit Pauli group} \cite{arxiv:2410.18713}.
+  Each Cartesian direction realizes a single-mode qubit GKP code, while the full two-mode code is a 2-to-1 concatenated qubit encoding built from those two GKP qubits. The logical \(X\), \(Z\), and \((XZ)^{-1}\) gates are implemented by rotations around the corresponding tessellation vertices.
+
+protection: |
+  The code corrects Euclidean translation errors of norm less than \(1/2\).
+  Its momentum-error Knill-Laflamme conditions fail only when both momentum differences are odd multiples of \(\pi/2\), so the code corrects all momentum errors with \(|\vec{k}|<\sqrt{2}\pi/4\) \cite{arxiv:2410.18713}.
+
+features:
+  general_gates:
+    - 'The \hyperref[topic:pauli]{single-qubit Pauli group} is implemented geometrically by one \(\pi\) rotation and two \(\pi/2\) rotations on the Euclidean tessellation \cite{arxiv:2410.18713}.'
+
+relations:
+  parents:
+    - code_id: multimodegkp
+      detail: 'The code can be viewed as a two-mode GKP code in which each Cartesian direction is a single-mode qubit GKP code \cite{arxiv:2410.18713}.'
+    - code_id: group_representation
+      detail: 'The qubit-Pauli tessellation GKP code is a group-representation code with \(G\) being the \hyperref[topic:pauli]{single-qubit Pauli group}.'
+  cousins:
+    - code_id: gkp_concatenated
+      detail: 'The code is built from two single-mode GKP qubits followed by a 2-to-1 outer qubit encoding, making it closely related to concatenated GKP constructions \cite{arxiv:2410.18713}.'
+    - code_id: qutrit_pauli_gkp_subcode
+      detail: 'Both this code and the qutrit-Pauli tessellation code are Euclidean-plane tessellation codes with GKP-like stabilizers introduced in Ref. \cite{arxiv:2410.18713}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: Copilot
+      date: '2026-04-21'

@@ -7,27 +7,31 @@ code_id: pauli_qsc
 physical: oscillators
 logical: qubits
 
-name: 'Pauli tesselation QSC'
+name: 'Pauli tessellation QSC'
 introduced: '\cite{arxiv:2410.18713}'
 
 description: |
-  Two-mode non-uniform QSC whose projection is onto a copy of an irreducible representation of the \hyperref[topic:pauli]{single-qubit Pauli group}, the symmetry group of the \(\{2,2,4\}\) tesselation of the sphere.
-  Each codeword is a quantum superposition of vertices of a tetrahedron with \(\pm 1\) coefficients.
+  Two-mode non-uniform QSC whose projection is onto a copy of an irreducible representation of the \hyperref[topic:pauli]{single-qubit Pauli group}, realized geometrically by the \(\{2,2,4\}\) tessellation of the sphere \cite{arxiv:2410.18713}.
+  For the canonical choice in the paper, each logical codeword is a \(\pm 1\) superposition of four vertices of a cube, i.e., of one tetrahedron in the cube decomposition.
+
+protection: |
+  For the \(\theta_0=\arccos(1/\sqrt{3})\), \(\phi_0=\pi/4\) configuration of Ref. \cite{arxiv:2410.18713}, the code corrects arbitrary spherical rotation errors of angle smaller than \(\frac{1}{2}\arccos(1/3)\).
+  The lowest uncorrectable spherical-harmonic momentum-error pair is \(Y_1^{0\dagger}Y_2^{\pm 2}\), so all momentum errors with \(\ell \leq 1\) are correctable.
 
 features:
   general_gates:
-    - 'The \hyperref[topic:pauli]{single-qubit Pauli group} can be realized via Gaussian rotations.'
+    - 'The \hyperref[topic:pauli]{single-qubit Pauli group} is realized by geometric rotations of the sphere, namely \(\pi\) rotations for \(X\) and \(Z\) and a \(\pi/2\) rotation for \(XZ\) \cite{arxiv:2410.18713}.'
 
 
 relations:
   parents:
     - code_id: qsc
-      detail: 'The Pauli tesselation QSC has non-uniform \(\pm 1\) coefficients.'
+      detail: 'The Pauli tessellation QSC has non-uniform \(\pm 1\) coefficients.'
     - code_id: group_representation
-      detail: 'The Pauli tesselation QSC is a group-representation code with \(G\) being the single-qubit Pauli group.'
+      detail: 'The Pauli tessellation QSC is a group-representation code with \(G\) being the single-qubit Pauli group.'
   cousins:
     - code_id: simplex_spherical
-      detail: 'Each codeword of the Pauli tesselation QSC is a quantum superposition of vertices of a tetrahedron with \(\pm 1\) coefficients.'
+      detail: 'Each codeword of the Pauli tessellation QSC is a quantum superposition of vertices of a tetrahedron with \(\pm 1\) coefficients.'
 
 
 
@@ -35,5 +39,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-21'
     - user_id: VictorVAlbert
       date: '2024-12-29'

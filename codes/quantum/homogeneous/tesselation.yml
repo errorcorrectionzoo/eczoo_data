@@ -6,35 +6,40 @@
 code_id: tesselation
 physical: quotients
 
-name: 'Hyperbolic tesselation code'
+name: 'Hyperbolic tessellation code'
 introduced: '\cite{arxiv:2410.18713}'
 
 description: |
   Homogeneous-space code whose codewords are superpositions of positional delta functions on the hyperbolic plane.
-  The positions are chosen according to certain planar tessellations.
-  Tessellation-code projections are onto a copy of an irreducible representation of the rotational symmetry group of the corresponding tessellation, known as the proper triangle group. The symmetry of the tessellation determines the easily implementable logical gate sets of this code.
+  The positions are chosen according to regular triangle tessellations, and the code projector picks out an irreducible representation of the corresponding proper triangle group.
    
-  Examples are the code constructed using the \(\{4,3,5\}\) tessellation realizing the binary icosahedral group \(2I\), the code constructed using the \(\{5,5,5\}\) tessellation realizing the Pauli group of a five-dimensional qudit, and the code constructed using the \(\{4,6,5\}\) tessellation realizing the \hyperref[topic:clifford]{single-qubit Clifford group} \(2O\) \cite{arxiv:2410.18713}.
+  Examples in Ref. \cite{arxiv:2410.18713} are the \(\{5,5,5\}\) tessellation realizing the Pauli group of a five-dimensional qudit, the \(\{6,4,8\}\) tessellation realizing the \hyperref[topic:clifford]{single-qubit Clifford group}, and the \(\{4,3,5\}\) tessellation realizing the binary icosahedral group \(2I\).
 
 
 protection: |
-  Protects against sufficiently small position and momentum shifts on the hyperbolic plane. Momentum errors are represented by Laplacian eigenfunctions and are indexed by a continuous variable \cite{arxiv:2410.18713}.
+  Protects against sufficiently small position and momentum shifts on the hyperbolic plane.
+  In the three explicit examples of Ref. \cite{arxiv:2410.18713}, position-translation errors are correctable up to resolutions \(d_x \approx 1.6169\), \(0.6605\), and \(0.5011\), respectively.
+  Momentum errors are represented by hyperbolic Laplacian eigenfunctions; the \(\{5,5,5\}\) example corrects all modes with angular index \(n<5\), and more generally the compact quotient \(\mathbb{H}^2/\Gamma\) provides a nonzero Laplacian gap that acts as a momentum-error distance scale.
 
 features:
   general_gates:
-    - 'The logical operations of the codes are realized by rotations around certain points on the hyperbolic plane. If the hyperbolic plane is viewed as embedded in three-dimensional space, the logical operations are implemented by Gaussian operations.'
+    - 'Logical operations are realized by rotations around selected vertices of the hyperbolic tessellation. In the paper''s \(\{6,4,8\}\) example, \(S\) and \(U\) are implemented by \(\pi/4\) and \(\pi/3\) rotations, while the \(\{4,3,5\}\) example realizes binary-icosahedral non-Clifford gates by \(2\pi/3\) and \(2\pi/5\) rotations \cite{arxiv:2410.18713}.'
 
 relations:
   parents:
     - code_id: homogeneous_space_quantum
-      detail: 'Hyperbolic tesselation codes are defined on the space of functions on the hyperbolic plane, the symmetric space \(G/H\) for \(G = SO(2,1)\) the proper Lorentz group and \(H = O(2)\).'
+      detail: 'Hyperbolic tessellation codes are defined on the space of functions on the hyperbolic plane, the symmetric space \(G/H\) for \(G = SO(2,1)\) the proper Lorentz group and \(H = O(2)\).'
     - code_id: group_representation
-      detail: 'Tessellation-code projections are onto a copy of an irreducible representation of the rotational symmetry group of the corresponding tessellation, known as the proper triangle group. The symmetry of the tessellation determines the easily implementable logical gate sets of this code. The logical operations of the codes are realized by rotations around certain points on the hyperbolic plane. If the hyperbolic plane is viewed as embedded in three-dimensional space, the logical operations are implemented by Gaussian operations \cite{arxiv:2410.18713}.'
+      detail: 'Hyperbolic tessellation-code projections are onto a copy of an irreducible representation of the proper triangle group associated with the tessellation, and the resulting logical gates are implemented geometrically by hyperbolic rotations \cite{arxiv:2410.18713}.'
   cousins:
     - code_id: hyperbolic
-      detail: 'Hyperbolic tesselation codes are quantum counterparts of hyperbolic sphere packings because they store information in quantum superpositions of points on the hyperbolic plane.'
+      detail: 'Hyperbolic tessellation codes are quantum counterparts of hyperbolic sphere packings because they store information in quantum superpositions of points on the hyperbolic plane.'
     - code_id: pauli_qsc
-      detail: 'Tesselation codes are constructed using symmetry groups of tesselations of real, spherical, and hyperbolic spaces \cite{arxiv:2410.18713}. Examples include the qutrit-Pauli tesselation code, Pauli tesselation QSC, and hyperbolic tesselation code, respectively.'
+      detail: 'The paper''s tessellation-code framework spans spherical, Euclidean, and hyperbolic geometries; the Pauli tessellation QSC is the spherical member \cite{arxiv:2410.18713}.'
+    - code_id: qutrit_pauli_gkp_subcode
+      detail: 'The qutrit-Pauli tessellation code is the Euclidean \(\{3,3,3\}\) member of the same curvature-dependent tessellation-code framework \cite{arxiv:2410.18713}.'
+    - code_id: qubit_pauli_gkp_concatenated
+      detail: 'The qubit-Pauli tessellation GKP code is the Euclidean \(\{2,4,4\}\) member of the same curvature-dependent tessellation-code framework \cite{arxiv:2410.18713}.'
 
 
 
@@ -42,6 +47,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-21'
     - user_id: YixuWang
       date: '2025-10-29'
     - user_id: VictorVAlbert
