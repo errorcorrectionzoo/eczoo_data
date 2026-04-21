@@ -21,10 +21,11 @@ description: |
     \end{pmatrix}~,
   \end{align}
   where the redundancy is provided by the underlying \([m+r,m]\) \textit{syndrome measurement code} with generator matrix \(G= (I_m|A)\) \cite{arxiv:1907.01393}.
-  An \([[n,k,d:r]]\) QDS code corrects any combination of \(t_{\mathrm{D}}\) data-qubit errors and \(t_{\mathrm{S}}\) syndrome-bit errors whenever \(t_{\mathrm{D}}+t_{\mathrm{S}}<d/2\), and its distance cannot exceed that of the underlying stabilizer code \cite{arxiv:1907.01393}.
 
 protection: |
   Protects against both physical qubit and syndrome measurement errors.
+  An \([[n,k,d:r]]\) QDS code corrects any combination of \(t_{\mathrm{D}}\) data-qubit errors and \(t_{\mathrm{S}}\) syndrome-bit errors whenever \(t_{\mathrm{D}}+t_{\mathrm{S}}<d/2\), and its distance cannot exceed that of the underlying stabilizer code \cite{arxiv:1907.01393}.
+
   Random QDS codes with \(r\leq n-k\) can attain the stabilizer Gilbert-Varshamov bound \cite[Thm. 12]{arxiv:1907.01393}.
   Quantum Singleton bounds, quantum Hamming bounds, and \hyperref[topic:quantum-weight-enumerator]{quantum MacWilliams identities} can be extended to QDS codes.
   Single-error-correcting QDS codes stemming from \hyperref[topic:quantum-weight-enumerator]{impure} stabilizer codes must satisfy a variant of the quantum Hamming bound \cite{arxiv:2302.01527}.
@@ -43,7 +44,6 @@ features:
 
 notes:
   - 'QDS codes can be used to estimate physical Pauli noise up to their \hyperref[topic:quantum-weight-enumerator]{pure distance} \cite{arxiv:2107.14252}, and logical Pauli noise for any correctable physical noise \cite{arxiv:2209.09267}.'
-  - 'CSS-type QDS codes can be constructed from dual-containing cyclic codes without reducing distance; for \(p=8j-1\), quantum QR codes yield \([[p,1,d:r]]\) QDS codes with \(r\leq p+1\) \cite[Thms. 13,14]{arxiv:1907.01393}.'
 
 
 relations:
@@ -52,7 +52,7 @@ relations:
       detail: 'QDS codes are stabilizer codes whose stabilizer generators encode extra redundancy (via a linear binary code) so as to protect from syndrome measurement errors.'
   cousins:
     - code_id: quantum_hamming_css
-      detail: 'Codes such as the quantum Hamming code can be expanded to QDS codes using almost any good binary linear code because their stabilizer generators all have the same weight \cite{arxiv:1907.01393}.'
+      detail: 'Because every stabilizer generator has the same weight \(2^{r-1}\), quantum Hamming codes admit QDS extensions based on good binary syndrome-measurement codes \cite{arxiv:1907.01393}.'
     - code_id: quantum_mds
       detail: 'The quantum Singleton bound can be extended to QDS codes \cite{arxiv:1907.01393}.'
     - code_id: quantum_perfect
@@ -68,6 +68,8 @@ relations:
       This construction requires fewer measurements than a previous general construction \cite{arxiv:1409.2559}.'
     - code_id: qubit_subsystem_stabilizer
       detail: 'The DS construction can be extended to subsystem qubit stabilizer codes \cite{arxiv:2302.01527}.'
+    - code_id: galois_quad_residue
+      detail: 'CSS QDS codes can be constructed from dual-containing cyclic codes without reducing distance; for \(p=8j-1\), quantum QR codes yield \([[p,1,d:r]]\) QDS codes with \(r\leq p+1\) \cite[Thms. 13,14]{arxiv:1907.01393}.'
 
 
 # Begin Entry Meta Information
