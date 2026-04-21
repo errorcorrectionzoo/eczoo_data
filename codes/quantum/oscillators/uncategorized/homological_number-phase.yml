@@ -12,6 +12,7 @@ introduced: '\cite{arxiv:2311.07679}'
 description: |
   A \hyperref[code:homological_rotor]{homological \(n\)-rotor code} mapped into the Fock-state space of \(n\) oscillators by identifying non-negative rotor angular-momentum states with  oscillator Fock states.
   The resulting oscillator code can encode logical rotors or qudits due to the presence of torsion in the chain complex defining the original rotor code.
+  These codes are tailored to settings in which photon loss is present but random rotations, i.e., dephasing, are the dominant noise mechanism \cite{arxiv:2311.07679}.
 
   Due to the absence of negative Fock states, a given homological rotor code first has to be rotated such that it has non-trivial support in the all-positive momentum orthant.
   This can be done by flipping the signs of the angular momenta of some of the rotors \cite[Prop. 1]{arxiv:2311.07679}.
@@ -36,9 +37,9 @@ relations:
     - code_id: oscillator_stabilizer
       detail: 'Homological number-phase codewords span the joint right eigenspace of powers of the non-unitary Susskind–Glogower phase operators and unitary bosonic rotation operators.'
     - code_id: gkp-stabilizer
-      detail: 'Rotor analogues of \(k\)-into-\(n\) oscillator-into-oscillator GKP codes can be constructed by initializing \(n-k\) physical rotors in superpositions of phase states and applying a Clifford semigroup encoding circuit \cite{arxiv:2311.07679}.'
+      detail: 'Homological number-phase codes are finite-dimensional cousins of number-phase-rotor GKP-stabilizer codes: both use number-phase resource states and Clifford-semigroup encoders to protect oscillator information against photon loss and dephasing \cite[Secs. 6-7]{arxiv:2311.07679}.'
     - code_id: number_phase
-      detail: 'Homological number-phase codes and number-phase codes are both manifestations of certain rotor codes, namely, the homological rotor codes and rotor GKP codes, respectively. Number-phase codes for \(N=1\) are homological rotor codes \cite{arxiv:2311.07679}.'
+      detail: 'Homological number-phase codes are multi-mode generalizations of number-phase codes, obtained by projecting suitably parity-flipped homological rotor codes onto the non-negative angular-momentum orthant \cite[Prop. 1]{arxiv:2311.07679}.'
     - code_id: generalized_homological_product_css
       detail: 'Homological number-phase codes are non-stabilizer codes constructed from chain complexes over the integers. The homology group of the logical operators has a torsion component because the chain complexes are defined over the ring of integers, which yields codes with finite logical dimension.'
 
