@@ -11,19 +11,19 @@ name: 'Singleton-bound approaching AQECC'
 introduced: '\cite{arxiv:2212.09935}'
 
 description: |
-  Approximate quantum code of rate \(R\) that can tolerate adversarial errors nearly saturating the quantum Singleton bound of \((1-R)/2\).
+  Approximate quantum code family of rate \(R\) that can tolerate adversarial errors nearly saturating the quantum Singleton bound of \((1-R)/2\).
   The formulation of such codes relies on a notion of \textit{quantum list decoding} \cite{arxiv:quant-ph/0605086,arxiv:2212.09935}.
-  The construction is implemented using folded quantum Reed-Solomon codes and yields efficiently decodable approximate codes over a constant-size alphabet \cite{arxiv:2212.09935}.
-  Sampling a description of this code can be done with an efficient randomized algorithm with \(2^{-\Omega(n)}\) failure probability.
+  One construction first builds constant-alphabet quantum list-decodable CSS codes from folded quantum Reed-Solomon outer codes, random CSS inner codes, and quantum Alon-Edmonds-Luby distance amplification/alphabet reduction, and then compiles them into AQECCs using purity-testing codes and robust secret sharing \cite{arxiv:2212.09935}.
+  The resulting codes are efficiently encodable and decodable, and descriptions of the codes can be sampled by an efficient randomized algorithm with \(2^{-\Omega(n)}\) failure probability.
 
-protection: For any \(\gamma>0\) and rate \(0<R<1\), these approximate quantum \([[n,R \cdot n]]_q\) codes have constant Galois-qudit dimension \(q=q(\gamma)\) and correct errors acting on \((1-R-\gamma) \cdot n/2\) registers, up to a recovery error of \(2^{-\Omega(n)}\).
+protection: For any \(\gamma>0\) and rate \(0<R<1\), these approximate quantum \([[n,R \cdot n]]_q\) codes have constant Galois-qudit dimension \(q=2^{O(1/\gamma^5)}\) and correct errors acting on \((1-R-\gamma) \cdot n/2\) registers, up to a recovery error of \(2^{-\Omega(n)}\) \cite{arxiv:2212.09935}.
 
 features:
-  rate: 'Given rate \(R\), tolerate adversarial errors nearly saturating the quantum Singleton bound of \((1-R)/2\).'
+  rate: 'For any target rate \(R\in(0,1)\), tolerate adversarial errors on nearly a \((1-R)/2\) fraction of registers while keeping constant alphabet size \cite{arxiv:2212.09935}.'
   encoders:
     - 'Efficient encoding.'
   decoders:
-    - 'Efficient decoder based on quantum list decoding and folded quantum Reed-Solomon structure \cite{arxiv:2212.09935}.'
+    - 'Efficient decoder based on quantum list decoding together with purity-testing and robust-secret-sharing post-processing \cite{arxiv:2212.09935}.'
 
 
 relations:
@@ -42,6 +42,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: GitHubCopilot
+      date: '2026-04-21'
     - user_id: VictorVAlbert
       date: '2023-01-08'
     - user_id: SamGunn

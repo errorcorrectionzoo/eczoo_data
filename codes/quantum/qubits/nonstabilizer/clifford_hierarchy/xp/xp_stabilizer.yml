@@ -19,7 +19,8 @@ description: |
   The codespace is a \(+1\) eigenspace of a set of XP stabilizer generators, which need not commute to define a valid codespace.
 
   XP stabilizer states are in one-to-one correspondence with weighted hypergraph states \cite{arxiv:2203.00103,manual:{M. Webster. The XP Stabilizer Formalism. PhD thesis, University of Sydney, 2023.}}, which generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
-  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former admits logical dimension \(K=2^k\) (for some integer \(k\)) and can be mapped to a CSS code with similar logical operator structure.
+  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former admits logical dimension \(K=2^k\) (for some integer \(k\)) and can be mapped to a CSS code with the same diagonal logical operators and similar non-diagonal logical operators, while the latter can have arbitrary dimension, are non-additive, and resemble CWS codes \cite{arxiv:2203.00103}.
+  Measurement of diagonal Pauli operators can be classically simulated efficiently on any XP code, but estimating outcome probabilities for general precision-\(4\) XP operators is NP-complete and measurement can take one outside the XP formalism \cite{arxiv:2203.00103}.
 
 features:
   encoders:
@@ -32,9 +33,9 @@ relations:
       detail: 'XP stabilizer codes are joint eigenspaces of operators in the binary dihedral group, a subgroup consisting of Pauli strings and elements of a level of the \hyperref[topic:clifford-hierarchy]{Clifford hierarchy}.'
   cousins:
     - code_id: qubit_css
-      detail: 'Each XP-regular code can be mapped to a CSS code with a similar logical operator structure \cite{arxiv:2203.00103}.'
+      detail: 'Each XP-regular code can be mapped to a CSS code with the same diagonal logical operators and similar non-diagonal logical operators \cite{arxiv:2203.00103}.'
     - code_id: cws
-      detail: 'The orbit representatives of XP codes play a similar role to the word operators of CWS codes.'
+      detail: 'The orbit representatives of XP codes play a similar role to the word operators of CWS codes, and non-XP-regular codes have a similar structure \cite{arxiv:2203.00103}.'
     - code_id: quantum_lego
       detail: 'XP stabilizer codes can be understood through the Quantum Lego formalism \cite{arxiv:2310.19538}.'
     - code_id: cubic_theory
@@ -49,6 +50,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: GitHubCopilot
+      date: '2026-04-20'
     - user_id: VictorVAlbert
       date: '2022-04-19'
     - user_id: MuhammadJunaidAftab

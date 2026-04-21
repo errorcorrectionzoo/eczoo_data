@@ -11,10 +11,10 @@ name: 'Expander LP code'
 introduced: '\cite{arxiv:2111.03654}'
 
 description: |
-  Family of \(G\)-lifted product codes constructed using two random classical \hyperref[code:tanner]{Tanner codes} defined on expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8}. For certain parameters, this construction yields the first asymptotically good QLDPC codes. Classical codes resulting from this construction are one of the first two families of \(c^3\)-LTCs.
+  Family of \(G\)-lifted product codes constructed using two classical \hyperref[code:expander]{expander codes}, equivalently two regular \hyperref[code:tanner]{Tanner codes} defined on the same expander graph \cite{doi:10.1090/S0273-0979-06-01126-8}. For certain parameters, this construction yields the first asymptotically good QLDPC codes. Classical codes resulting from the same lifted-product complexes are one of the first two families of \(c^3\)-LTCs \cite{arxiv:2111.03654}.
 
   An expander lifted-product code family is constructed as follows. First, take the Cayley graph of a finite group \(G\).
-  Second, take the double cover of the graph, resulting in a graph that satisfies the requirements of participating in a \(G\)-lifted product (i.e., the resulting graph is a free \({\mathbb{F}}_q G\)-module). Third, create a \hyperref[code:tanner]{Tanner code} out of the graph, in which parity-check supports are defined by the graph, and bitstrings satisfying a particular parity check are defined to be the codewords of a small classical code (chosen to be a random code in the construction). Fourth, take the \(G\)-lifted product of two copies of the \hyperref[code:tanner]{Tanner code}.
+  Second, take the double cover of the graph, resulting in a graph that satisfies the requirements of participating in a \(G\)-lifted product (i.e., the resulting graph is a free \({\mathbb{F}}_q G\)-module). Third, create two \hyperref[code:tanner]{Tanner codes} on that graph, in which parity-check supports are defined by the graph and the local constraints are specified by two short classical codes (chosen randomly in the original proof). Fourth, take the \(G\)-lifted product of those two Tanner codes.
 
   The small classical codes used in the construction of good QLDPC codes are required to have a certain product-expansion property (Lemma 10 in Ref. \cite{arxiv:2111.03654}); it is proven that random codes satisfy said property in the thermodynamic limit.
 
@@ -44,6 +44,8 @@ relations:
       detail: 'Lifted products of certain classical Tanner codes are the first asymptotically good QLDPC codes.'
     - code_id: q-ary_ltc
       detail: 'Classical codes resulting from the expander lifted-product construction are one of the first two families of \(c^3\)-LTCs \cite{arxiv:2111.03654}.'
+    - code_id: expander
+      detail: 'The construction starts from two expander codes on the same \(G\)-lifted expander graph, using different local codes in the original proof \cite{arxiv:2111.03654}.'
     - code_id: tanner
       detail: 'Expander lifted-product codes are products of regular \(q\)-ary Tanner codes defined on expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8}.'
     - code_id: random

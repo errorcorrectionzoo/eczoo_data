@@ -14,12 +14,13 @@ alternative_names:
   - 'Periodic Floquet code'
 
 description: |
-  2D dynamical code whose sequence of check-operator measurements is periodic.
-  The first instance of a code with dynamically generated logical qubits \cite{arxiv:2107.02194}.
+  Dynamical code whose sequence of check-operator measurements is periodic.
+  The original Hastings-Haah construction introduced periodic measurement schedules that dynamically generate logical qubits even when the underlying subsystem code has fewer or no logical qubits \cite{arxiv:2107.02194}.
+  Its basic examples are the 2D honeycomb Floquet code and the 1D ladder Floquet code.
 
 # In addition, the number of logical qubits is larger than when the code is viewed as a static subsystem stabilizer code.
 
-protection: 'Protects against single-qubit Pauli noise and check operator measurement errors. Spacetime errors have been studied in Ref. \cite{arxiv:2510.05549}.'
+protection: 'In the original Hastings-Haah examples, periodic measurements protect against single-qubit Pauli faults and measurement faults: the honeycomb Floquet code on a torus stores two logical qubits with distance proportional to linear size, while the ladder Floquet code is an error-detecting toy model \cite{arxiv:2107.02194}. Spacetime errors for periodic Floquet codes have been studied in Ref. \cite{arxiv:2510.05549}.'
 
 features:
   fault_tolerance:

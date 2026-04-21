@@ -14,12 +14,18 @@ alternative_names:
   - 'Chamon-Bravyi-Leemhuis-Terhal (CBLT) code'
 
 description: |
-  A foliated type-I fracton non-CSS code defined on a cubic lattice using one weight-eight stabilizer generator acting on the eight vertices of each cube in the lattice \cite[Eq. (D38)]{arxiv:1908.08049}.
+  A foliated type-I fracton non-CSS code whose stabilizer realization can be
+  obtained as an XYZ product of three repetition codes \cite[Sec. 3.4]{arxiv:2011.09746}.
+  In that realization, qubits live on the vertices and faces of a cubic
+  lattice, each stabilizer generator has weight six, and the natural logical
+  operators are membrane-like rather than string-like \cite{arxiv:2011.09746}.
 
   Variants include a CSS model that is expected to have the same excitation structure \cite{arxiv:1603.04442} and a modified Chamon code based on the XYZ product code construction \cite{arxiv:2011.09746}.
 
 features:
-  rate: 'The number of logical qubits is \(k = \text{gcd}(a,b,c)\) for a code constructed as a hypergraph product of three repetition codes of length \(a\), \(b\), and \(c\), respectively \cite{arxiv:1006.4871}.'
+  rate: 'For the stabilizer version on an \(n_1 \times n_2 \times n_3\) lattice, the number of logical qubits is \(k = 4 \gcd(n_1,n_2,n_3)\) \cite{arxiv:2011.09746}.'
+
+  protection: 'Flexible string operators confined to planes orthogonal to \([1,1,1]^T\) imply \(d = O(\sqrt{N})\) for the stabilizer version \cite{arxiv:2011.09746}.'
 
   decoders:
     - 'Repetition-based decoder, based on the three underlying repetition codes and improved by pre-treatment with a probabilistic greedy local algorithm \cite{arxiv:2303.05267}.'
@@ -30,12 +36,12 @@ features:
 relations:
   parents:
     - code_id: xyz_product
-      detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{manual:{D. Maurice. Codes correcteurs quantiques pouvant se décoder itérativement. PhD thesis, Université Pierre et Marie Curie-Paris VI, 2014.}}, but done in a different way than the 3D surface code; see \cite[Sec. 3.4]{arxiv:2011.09746}.'
+      detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{manual:{D. Maurice. Codes correcteurs quantiques pouvant se décoder itérativement. PhD thesis, Université Pierre et Marie Curie-Paris VI, 2014.}}, in a construction different from the 3D surface code; see \cite[Sec. 3.4]{arxiv:2011.09746}.'
     - code_id: fracton
       detail: 'The Chamon model is a 4-foliated type-I fracton code \cite{arxiv:2206.12791} and is the first example of a fracton phase \cite{arxiv:1908.08049}.'
   cousins:
     - code_id: repetition
-      detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{manual:{D. Maurice. Codes correcteurs quantiques pouvant se décoder itérativement. PhD thesis, Université Pierre et Marie Curie-Paris VI, 2014.}}, but done in a different way than the 3D surface code; see \cite[Sec. 3.4]{arxiv:2011.09746}.'
+      detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{manual:{D. Maurice. Codes correcteurs quantiques pouvant se décoder itérativement. PhD thesis, Université Pierre et Marie Curie-Paris VI, 2014.}}, in a construction different from the 3D surface code; see \cite[Sec. 3.4]{arxiv:2011.09746}.'
 
 
 

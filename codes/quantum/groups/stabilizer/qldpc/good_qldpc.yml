@@ -35,7 +35,7 @@ features:
   rate: |
     The codes' rate and distance are both separated from zero as block length goes to infinity. 
     Rains shadow enumerators can be used to show that the distance of an asymptotically good QLDPC code should be bounded as \(d\leq n/3\) \cite{arxiv:quant-ph/9611001}; see Ref. \cite{arxiv:2408.16914}.
-    AEL distance amplification \cite{doi:10.1109/SFCS.1995.492581,doi:10.1109/18.556669} can be used to construct asymptotically good QLDPC codes that approach the quantum Singleton bound \cite[Corr. 5.3]{arxiv:2212.09935}.
+    AEL distance amplification \cite{doi:10.1109/SFCS.1995.492581,doi:10.1109/18.556669} can be used to construct constant-alphabet QLDPC CSS codes of any target rate \(R\) and relative distance \((1-R-\gamma)/2\) that are decodable in linear time up to half that distance \cite[Corr. 5.3]{arxiv:2212.09935}.
 
 relations:
   parents:
@@ -50,11 +50,15 @@ relations:
         Applying this procedure to good QLDPC codes and using an embedding into \(D\)-dimensional Euclidean space yields lattice subsystem codes whose logical-qubit number and distance both scale as \(\Theta(n^{1-1/D})\) as functions of block length \(n\), saturating the \hyperref[topic:subsystem-bt-bound]{subsystem BT bound} \cite{arxiv:2410.10194}.
     - code_id: quantum_mds
       detail: 'AEL distance amplification \cite{doi:10.1109/SFCS.1995.492581,doi:10.1109/18.556669} can be used to construct asymptotically good QLDPC codes that approach the quantum Singleton bound \cite[Corr. 5.3]{arxiv:2212.09935}.'
+    - code_id: quantum_singleton
+      detail: 'The same quantum AEL distance-amplification framework also yields constant-alphabet approximate quantum codes that decode nearly up to the quantum Singleton bound \cite{arxiv:2212.09935}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: GitHubCopilot
+      date: '2026-04-21'
     - user_id: VictorVAlbert
       date: '2022-06-24'

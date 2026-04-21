@@ -10,13 +10,20 @@ logical: groups
 name: 'Molecular code'
 introduced: '\cite{arxiv:1911.00099}'
 
-description: 'Encodes finite-dimensional Hilbert space into the Hilbert space of \(L^2\)-normalizable functions on the group \(SO(3)\). Construction is based on nested subgroups \(H\subset K \subset SO(3)\), where \(H,K\) are finite. The \(|K|/|H|\)-dimensional logical subspace is spanned by basis states that are equal superpositions of elements of cosets of \(H\) in \(K\).'
+description: |
+  Approximate quantum code that encodes a finite-dimensional logical space into the Hilbert space of \(L^2\)-normalizable functions on \(SO(3)\), i.e., rotational states of an asymmetric rigid body such as a polyatomic molecule.
+  Construction is based on nested finite subgroups \(H\subset K \subset SO(3)\).
+  The \(|K|/|H|\)-dimensional logical subspace is spanned by basis states that are equal superpositions of elements of cosets of \(H\) in \(K\).
+  Examples discussed in the original work include cyclic, dihedral, tetrahedral-octahedral, and tetrahedral-icosahedral subgroup embeddings.
 
-protection: 'Protects against generalized bit-flip errors \(g\in SO(3)\) that are inside the fundamental domain of \(SO(3)/K\).
-Protection against phase-flip errors determined by branching rules of irreps of \(SO(3)\) into those of \(K\), and further into those of \(H\).'
+protection: |
+  Protects against generalized bit-flip errors \(g\in SO(3)\) that are inside the fundamental domain of \(SO(3)/K\).
+  In the cyclic \(Z_N\subset Z_{dN}\) family, the code corrects sufficiently small rigid-body rotations about any axis and angular-momentum kicks with \(\delta\ell<N/2\).
+  Protection against phase-flip and more general momentum-kick errors is determined by the branching rules of irreps of \(SO(3)\) into those of \(K\), and further into those of \(H\).
 
 notes:
   - 'Physical space characterizes orientations of a rigid body in 3D, which correspond to rotational states of an asymmetric molecule. See APS Physics Synopsis \cite{doi:10.1103/Physics.13.s111} and \href{https://www.youtube.com/watch?v=gjBbMMZ3L1k}{Physical Review Journal club} discussing molecular applications.'
+  - 'Each ideal molecular code has a parent Hamiltonian whose ground space is the codespace, and normalizable approximate codewords can be obtained by damping in total angular momentum.'
 
 relations:
   parents:
