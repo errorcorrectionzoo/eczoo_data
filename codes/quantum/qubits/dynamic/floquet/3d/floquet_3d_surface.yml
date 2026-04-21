@@ -8,17 +8,21 @@ physical: qubits
 logical: qubits
 
 name: 'Floquet 3D surface code'
+alternative_names:
+  - '3D Floquet toric code'
 introduced: '\cite{arxiv:2307.13668}'
 
 description: |
-  3D Floquet code whose physical qubit pairs are placed on vertices of a truncated cubic honeycomb.
-  The code is constructed by coupling three 2D surface codes on three interweaving 4.8.8 (square-octagon) tilings oriented along the \(x\), \(y\), and \(z\) axes, respectively, via a coupled layer construction \cite{arxiv:1701.00747}.
-  Its ISG is that of the 3D surface code.
+  3D Floquet code on a truncated cubic honeycomb with pairs of physical qubits on vertices.
+  It is constructed from three stacks of square-octagon Floquet toric codes, coupled by interlayer \(YY\) measurements in a coupled-layer construction \cite{arxiv:1701.00747,arxiv:2307.13668}.
+  The rewinding schedule \(GBRBGR\) yields ISGs that are FDLQC-equivalent either to the 3D surface code or to two copies of the 3D surface code up to non-local stabilizers.
+  A parent stabilizer code for this Floquet code is FDQC-equivalent to a 3-foliated stack of 2D color codes \cite{arxiv:2307.13668}.
 
 
 features:
-  decoders:
-    - 'Period-six rewinding measurement sequence \cite{arxiv:2307.13668}.'
+  rate: 'On a three-torus of linear size \(L\), the Floquet code preserves three logical qubits \cite{arxiv:2307.13668}.'
+  general_gates:
+    - 'A planar Floquet 3D surface code stacked with two planar 3D subsystem surface codes prepares an instantaneous state equivalent to a 3D surface code stacked with two checkerboard model codes, enabling a logical \(CCZ\) gate \cite{arxiv:2307.13668}.'
 
 
 relations:
@@ -26,7 +30,13 @@ relations:
     - code_id: floquet
   cousins:
     - code_id: 3d_surface
-      detail: 'The ISG of the Floquet 3D surface code is that of the 3D surface code.'
+      detail: 'The G-round ISG is FDLQC-equivalent to the 3D surface code, while the other rounds are FDLQC-equivalent to two copies of the 3D surface code up to non-local stabilizers \cite{arxiv:2307.13668}.'
+    - code_id: 2d_color
+      detail: 'A parent stabilizer code for the Floquet 3D surface code is FDQC-equivalent to a 3-foliated stack of 2D color codes \cite{arxiv:2307.13668}.'
+    - code_id: 3d_subsystem_surface
+      detail: 'A planar Floquet 3D surface code stacked with two planar 3D subsystem surface codes prepares an instantaneous state equivalent to a 3D surface code stacked with two checkerboard model codes, enabling a logical \(CCZ\) gate \cite{arxiv:2307.13668}.'
+    - code_id: checkerboard
+      detail: 'A planar Floquet 3D surface code stacked with two planar 3D subsystem surface codes prepares an instantaneous state equivalent to a 3D surface code stacked with two checkerboard model codes, enabling a logical \(CCZ\) gate \cite{arxiv:2307.13668}.'
 
 
 # Begin Entry Meta Information

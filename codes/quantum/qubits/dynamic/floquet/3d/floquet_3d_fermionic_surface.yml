@@ -8,19 +8,21 @@ physical: qubits
 logical: qubits
 
 name: 'Floquet 3D fermionic surface code'
+alternative_names:
+  - '3D Floquet fermionic toric code'
 introduced: '\cite{arxiv:2307.13668}'
 
 description: |
-  3D Floquet code whose physical qubits are placed on vertices of a particular trivalent honeycomb.
-  Its weight-two check operators are those of the 3D Kitaev honeycomb model \cite{arxiv:0801.0229}.
-  Its ISGs are equivalent to that of the 3D fermionic surface code via a constant-depth circuit with ancillas.
-  
+  3D Floquet code on a trivalent lattice whose weight-two checks are the \(XX\), \(YY\), and \(ZZ\) edge terms of the 3D Kitaev honeycomb model \cite{arxiv:0801.0229,arxiv:2307.13668}.
+  A rewinding sixteen-round schedule yields ISGs that are FDLQC-equivalent to the 3D fermionic surface code.
+  The rewinding avoids measuring all non-contractible-loop logical operators, so on periodic boundaries the Floquet code preserves a single logical qubit even though the static 3D fermionic surface code has three \cite{arxiv:2307.13668}.
+   
 
 
 features:
-  rate: 'The code encodes a single logical qubit for periodic boundary conditions.'
-  decoders:
-    - 'Period-sixteen measurement sequence \cite{arxiv:2307.13668}.'
+  rate: 'With periodic boundary conditions, the rewinding schedule preserves a single logical qubit because two logical operators are inferred during the cycle \cite{arxiv:2307.13668}.'
+  fault_tolerance:
+    - 'The full sixteen-round period has trivial logical automorphism because the schedule rewinds at the level of armchair orientations \cite{arxiv:2307.13668}.'
 
 
 relations:
@@ -28,9 +30,9 @@ relations:
     - code_id: floquet
   cousins:
     - code_id: 3d_fermionic_surface
-      detail: 'The ISGs of the Floquet 3D fermionic surface code are equivalent to that of the 3D fermionic surface code via a constant-depth circuit with ancillas.'
+      detail: 'Each ISG of the Floquet 3D fermionic surface code is FDLQC-equivalent to the 3D fermionic surface code \cite{arxiv:2307.13668}.'
     - code_id: 3d_kitaev_honeycomb
-      detail: 'The weight-two check operators of the Floquet 3D fermionic surface code are those of the 3D Kitaev honeycomb model \cite{arxiv:0801.0229}.'
+      detail: 'The weight-two check operators of the Floquet 3D fermionic surface code are those of the 3D Kitaev honeycomb model \cite{arxiv:0801.0229,arxiv:2307.13668}.'
 
 
 # Begin Entry Meta Information

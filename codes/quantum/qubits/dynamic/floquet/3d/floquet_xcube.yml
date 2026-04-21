@@ -11,16 +11,16 @@ name: 'X-cube Floquet code'
 introduced: '\cite{arxiv:2211.05784}'
 
 description: |
-  3D Floquet code whose qubits are placed on vertices of a truncated cubic honeycomb.
-  Its weight-two check operators are placed on various edges.
-  Its ISG can be that of the X-cube model code or that of several decoupled surface codes.
-  A rewinding of the original measurement sequence yields a period-six sequence whose ISGs are those of the X-cube model, some 3D surface codes, and some decoupled surface codes \cite{arxiv:2307.13668}.
+  3D Floquet code on the truncated cubic honeycomb, built from coupled layers of square-octagon Floquet toric codes.
+  Its original measurement schedule yields ISGs that are stacks of 2D surface codes or are FDLQC-equivalent to the X-cube model code \cite{arxiv:2211.05784}.
+  A rewinding period-six schedule \(GBRBGR\) yields only fracton ISGs: the G-round is the canonical X-cube model concatenated with four-qubit repetition codes on composite green edges, the B- and first R-rounds are FDLQC-equivalent to the product of the X-cube model, a 3D surface code, and a 3-foliated stack of 2D surface codes up to non-local stabilizers, and the second R-round is FDLQC-equivalent to the X-cube model together with a 3-foliated stack of 2D surface codes \cite{arxiv:2307.13668}.
+  A parent stabilizer code for the rewinding schedule is FDQC-equivalent to a 3-foliated stack of 2D color codes \cite{arxiv:2307.13668}.
 
 features:
-  rate: 'Logical dimension grows with system size \cite{arxiv:2211.05784}.'
+  rate: 'The original code has subextensive logical dimension \cite{arxiv:2211.05784}; for even \(L\), the rewinding schedule preserves \(6L-3\) logical qubits on an \(L\times L\times L\) three-torus \cite{arxiv:2307.13668}.'
   decoders:
     - 'Period-six measurement sequence utilizing two-qubit measurements \cite{arxiv:2211.05784}.'
-    - 'A rewinding of the original measurement sequence yields a period-six sequence whose ISGs are those of the X-cube model, some 3D surface codes, and some decoupled surface codes \cite{arxiv:2307.13668}.'
+    - 'A rewinding period-six schedule \(GBRBGR\) yields ISGs FDLQC-equivalent to the X-cube model together with a 3D surface-code factor and/or a 3-foliated stack of 2D surface codes \cite{arxiv:2307.13668}.'
   code_capacity_threshold:
     - 'It is argued that this code has a threshold in Ref. \cite{arxiv:2211.05784}.'
 
@@ -30,11 +30,15 @@ relations:
     - code_id: floquet
   cousins:
     - code_id: xcube
-      detail: 'The ISG of the X-cube Floquet code can be that of the X-cube model code or that of several decoupled surface codes. A rewinding of the original measurement sequence yields a period-six sequence whose ISGs are those of the X-cube model, some 3D surface codes, and some decoupled surface codes \cite{arxiv:2307.13668}.'
+      detail: 'The G-round of the rewinding X-cube Floquet code is the canonical X-cube model concatenated with four-qubit repetition codes, while the other rounds remain FDLQC-equivalent to the X-cube model together with additional topological factors \cite{arxiv:2307.13668}.'
     - code_id: surface
-      detail: 'The ISG of the X-cube Floquet code can be that of the X-cube model code or that of several decoupled surface codes. A rewinding of the original measurement sequence yields a period-six sequence whose ISGs are those of the X-cube model, some 3D surface codes, and some decoupled surface codes \cite{arxiv:2307.13668}.'
+      detail: 'The rewinding schedule has rounds whose ISGs include a 3-foliated stack of 2D surface codes as an FDLQC-equivalent factor \cite{arxiv:2307.13668}.'
     - code_id: 3d_surface
-      detail: 'The ISG of the X-cube Floquet code can be that of the X-cube model code or that of several decoupled surface codes. A rewinding of the original measurement sequence yields a period-six sequence whose ISGs are those of the X-cube model, some 3D surface codes, and some decoupled surface codes \cite{arxiv:2307.13668}.'
+      detail: 'The B- and first R-round ISGs of the rewinding schedule are FDLQC-equivalent to the product of the X-cube model, a 3D surface code, and a 3-foliated stack of 2D surface codes up to non-local stabilizers \cite{arxiv:2307.13668}.'
+    - code_id: quantum_repetition
+      detail: 'The G-round of the rewinding X-cube Floquet code is exactly the canonical X-cube model concatenated with four-qubit repetition codes on composite green edges \cite{arxiv:2307.13668}.'
+    - code_id: 2d_color
+      detail: 'A parent stabilizer code for the rewinding X-cube Floquet code is FDQC-equivalent to a 3-foliated stack of 2D color codes \cite{arxiv:2307.13668}.'
 
 
 # Begin Entry Meta Information
