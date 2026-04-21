@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: laplacian_code
+physical: bits
+logical: bits
+
+name: 'Laplacian code'
+introduced: '\cite{arxiv:2312.08462}'
+
+description: |
+  A binary linear code whose parity-check matrix is the graph Laplacian reduced mod 2.
+  For an undirected graph \(\Gamma\) with degree matrix \(D\) and adjacency matrix \(A\), the parity-check matrix is \(H=(D-A)\bmod 2\).
+
+  The code is self-dual in the sense that \(H=H^T\), and each row and column sums to zero over \(\mathbb{F}_2\).
+  On a connected graph, the code always contains the global all-ones codeword.
+  Additional logical bits depend on arithmetic properties of the graph Laplacian and can be enhanced by strong spatial symmetry.
+
+protection: |
+  A connected graph always contributes at least one logical bit.
+  For generic sparse bounded-degree graph ensembles, the logical dimension stays \(O(1)\), while highly symmetric graphs such as square lattices or complete graphs can have much larger rank deficiency \cite{arxiv:2312.08462}.
+
+features:
+  rate: 'Generic sparse-graph Laplacian-code families have vanishing rate with only \(O(1)\) logical bits, whereas more symmetric families can exhibit enhanced rank deficiency \cite{arxiv:2312.08462}.'
+
+relations:
+  parents:
+    - code_id: binary_linear
+  cousins:
+    - code_id: ldpc
+      detail: 'Laplacian codes on bounded-degree graph families are classical LDPC codes.'
+    - code_id: hypergraph_product
+      detail: 'The hypergraph product of a cyclic repetition code and a Laplacian code yields the anisotropic \(\mathbb{Z}_2\) Laplacian model \cite{arxiv:2312.08462}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: Copilot
+      date: '2026-04-21'

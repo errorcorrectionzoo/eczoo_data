@@ -1,0 +1,39 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: aperiodic_code
+physical: bits
+logical: bits
+
+name: 'Aperiodic code'
+introduced: '\cite{arxiv:2312.08462}'
+
+description: |
+  Family of geometrically local binary LDPC codes defined on planar graphs obtained from aperiodic tilings.
+  In the construction of Ref. \cite{arxiv:2312.08462}, both bits and checks are placed on vertices, and the parity-check matrix is built from a graph-Laplacian-type operator together with a boundary depletion of checks.
+
+  The family was introduced as a source of local seed codes whose hypergraph products can realize local Type-I and Type-II fracton models.
+  The pinwheel code is a concrete example.
+
+protection: 'Known examples can combine subextensive rank deficiency with large distance. In particular, the pinwheel-code family has \(k\sim\sqrt{n}\) and \(d\sim n\) \cite{arxiv:2312.08462}.'
+
+features:
+  rate: 'Known examples such as the pinwheel code have vanishing asymptotic rate because \(k\sim\sqrt{n}\) \cite{arxiv:2312.08462}.'
+
+relations:
+  parents:
+    - code_id: ldpc
+    - code_id: quantum_inspired
+  cousins:
+    - code_id: hypergraph_product
+      detail: 'Hypergraph products of aperiodic codes yield local fracton models; in particular, a pinwheel code with a repetition code gives a local Type-I fracton model in three dimensions, while two pinwheel codes give a local Type-II fracton model in four dimensions \cite{arxiv:2312.08462}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: Copilot
+      date: '2026-04-21'
