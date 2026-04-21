@@ -16,16 +16,17 @@ alternative_names:
 
 description: |
   A subsystem version of the color code.
+
+  Subsystem color codes form a \((d,e)\) family on punctured \(D\)-colexes, or equivalently on suitably colored simplicial \(D\)-balls, encoding one logical qubit and interpolating between conventional and subsystem color codes via gauge fixing \cite{arxiv:1311.0879}.
   Examples include 2D subsystem color codes obtained by expanding the vertices of a two-colex embedded in a surface of genus \(g\), where each vertex is split into a triangle and each edge into a pair of edges.
-  More generally, gauge color codes form a \((d,e)\) family on punctured \(D\)-colexes, or equivalently on suitably colored simplicial \(D\)-balls, encoding one logical qubit and interpolating between conventional and subsystem color codes via gauge fixing \cite{arxiv:1311.0879}.
+  
   The stabilizer group may contain generators of unbounded weight, distinguishing these codes from stabilizer codes with bounded-weight generators for which some logical qubits were re-assigned to be gauge qubits.
 
+  Gauge fixing between subsystem color codes defined on the same lattice can be implemented using local measurements and classical processing analogous to error correction \cite{arxiv:1311.0879}.
 
 features:
   transversal_gates:
     - 'For a \(D\)-dimensional \((d,e)\) gauge color code, \(CNOT\) is transversal, Hadamard is transversal when \(d=e\), and \(R_n=\operatorname{diag}(1,e^{2\pi i/2^n})\) is transversal whenever \(D \geq n(D-e)\) \cite{arxiv:1311.0879}.'
-  fault_tolerance:
-    - 'Gauge fixing between subsystem color codes defined on the same lattice can be implemented using local measurements and classical processing analogous to error correction \cite{arxiv:1311.0879}.'
   decoders:
     - 'Clustering decoder \cite{arxiv:1503.08217}.'
     - 'Erasure decoder \cite{doi:10.1109/ITW46852.2021.9457583}.'
