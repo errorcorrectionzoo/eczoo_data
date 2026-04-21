@@ -7,23 +7,33 @@ code_id: floquet_xyz_ruby
 physical: qubits
 logical: qubits
 
-name: 'XYZ ruby Floquet code'
-introduced: '\cite{arxiv:2407.08566}'
+name: 'Ruby Floquet code'
+introduced: '\cite{arxiv:2307.13668,arxiv:2407.08566}'
+
+alternative_names:
+  - 'Floquet color code'
+  - 'Ruby Floquet color code'
 
 description: |
-  2D Floquet code whose qubits are placed on vertices of a ruby tiling.
-  Its weight-two check operators are placed on various edges.
-  One third of the time during its measurement schedule, its ISG is that of the 6.6.6 color code concatenated with a three-qubit repetition code.
+  2D Floquet code whose qubits are placed on vertices of a ruby tiling, with weight-two Pauli check operators on \(x\)-, \(y\)-, and \(z\)-labeled edges \cite{arxiv:2407.08566}.
+  The code admits two different measurement schedules, the XYZ ruby schedule and the color-code schedule.
+
+  One third of the time during the XYZ ruby measurement schedule, its ISG is that of the 6.6.6 color code concatenated with a three-qubit repetition code.
   Together, all ISGs generate the gauge group of the 3F subsystem code.
-  A different measurement schedule on the same underlying ruby-lattice subsystem code yields the Floquet color code of Ref. \cite{arxiv:2307.13668}, whose ISGs are FDLQC-equivalent to the 2D color code and include a round equal to the color code concatenated with a three-qubit repetition code.
-# from Ref. \cite{arxiv:0908.4246}, whose logical operators .
+
+  A different three-round color-code schedule \cite{arxiv:2307.13668} admits ISGs are FDLQC-equivalent to the 2D color code; in one round, the ISG is exactly the color code concatenated with a three-qubit repetition code.
+  The color-code schedule has a \(\mathbb{Z}_3\) automorphism of the dynamically generated logical operators, while the rewinding schedule \(012102\) and another six-round schedule both trivialize that automorphism.
+  A parent stabilizer code for this schedule is FDLQC-equivalent to two copies of the 2D color code \cite{arxiv:2307.13668}.
 
 
 features:
-  decoders:
-    - 'Period-three and period-six measurement sequences utilizing two-qubit measurements \cite{arxiv:2407.08566}.'
+  rate: 'On a torus, the color-code schedule encodes four logical qubits, two of which are dynamically generated relative to the underlying subsystem code \cite{arxiv:2307.13668}.'
+  general_gates:
+    - 'In the round whose ISG is the 2D color code concatenated with a three-qubit repetition code, the usual transversal logical Clifford gates of the color code remain available \cite{arxiv:2307.13668}.'
   threshold:
     - 'Circuit-level noise: \(\approx 0.18\%\) using BP-OSD decoder \cite{arxiv:2407.08566}.'
+  fault_tolerance:
+    - 'Pairs of consecutive ISGs of the color-code schedule are locally reversible, and the paper argues that this suggests a non-zero fault-tolerant threshold \cite{arxiv:2307.13668}.'
 
 
 relations:
@@ -31,19 +41,23 @@ relations:
     - code_id: floquet
   cousins:
     - code_id: triangular_color
-      detail: 'One third of the time during its measurement schedule, the ISG of the XYZ ruby Floquet code is that of the 6.6.6 color code concatenated with a three-qubit repetition code.'
+      detail: 'One third of the time during the XYZ ruby measurement schedule, the ISG is that of the 6.6.6 color code concatenated with a three-qubit repetition code.'
+    - code_id: 2d_color
+      detail: 'Each ISG of the color-code schedule is FDLQC-equivalent to the 2D color code, and a parent stabilizer code is FDLQC-equivalent to two copies of the 2D color code \cite{arxiv:2307.13668}.'
     - code_id: quantum_repetition
-      detail: 'One third of the time during its measurement schedule, the ISG of the XYZ ruby Floquet code is that of the 6.6.6 color code concatenated with a three-qubit repetition code.'
+      detail: 'One third of the time during the XYZ ruby measurement schedule, the ISG is that of the 6.6.6 color code concatenated with a three-qubit repetition code. One round of the color-code schedule is exactly the 2D color code concatenated with a three-qubit repetition code \cite{arxiv:2307.13668}.'
     - code_id: honeycomb
-      detail: 'The XYZ ruby Floquet code is defined on the ruby tiling.'
+      detail: 'The ruby Floquet code is defined on the ruby tiling.'
     - code_id: subsystem_three_fermion
-      detail: 'Together, all ISGs of the XYZ ruby Floquet code generate the gauge group of the 3F subsystem code.'
+      detail: 'Together, all ISGs of the ruby Floquet code generate the gauge group of the 3F subsystem code.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-21'
     - user_id: JulioCarlosMagdalenaDeLaFuente
       date: '2024-07-12'
     - user_id: VictorVAlbert
