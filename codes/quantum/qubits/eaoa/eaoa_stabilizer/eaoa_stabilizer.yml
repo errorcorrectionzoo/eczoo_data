@@ -14,9 +14,21 @@ description: |-
   Entanglement-assisted qubit stabilizer code in the operator-algebra framework. In the generalized stabilizer formalism of \cite{arxiv:2411.14389}, such a code is specified on an extended qubit space by Pauli data consisting of stabilizer, gauge, logical, and sector-labeling operators, and is viewed on the original system as using noiseless ebits shared with a receiver.
   Such codes are denoted by \([[n,k; r,e,c_b]]\) or \([[n,k,d; r,e,c_b]]\), where \(n\) is the number of transmitted physical qubits, \(k\) is the number of logical qubits, \(r\) is the number of gauge qubits, \(e\) is the number of ebits, and \(c_b\) is the number of classical strings encoded. When the hybrid component encodes \(c\) classical bits, one has \(c_b=2^c\).
   This family encompasses ordinary entanglement-assisted qubit stabilizer codes, entanglement-assisted subsystem stabilizer codes, entanglement-assisted hybrid stabilizer codes, and operator-algebra generalizations described within that stabilizer formalism.
+  The framework also exhibits EA hybrid subspace and EA subsystem stabilizer codes that lie outside the earlier EACQ and EAOQEC formalisms \cite{arxiv:2411.14389}.
 
 protection: |-
   For stabilizer-described qubit subclasses, the EAOAQEC framework yields explicit Pauli error-correction conditions for errors acting on the sender's qubits under the usual assumption that the receiver's halves of the ebits are noiseless \cite{arxiv:2411.14389}.
+  Its dressed distance is the minimum weight over logical-centralizer operators outside the isotropic-plus-gauge subgroup together with inter-sector cosets, reducing to the usual distance notions for EAQEC, EAOQEC, EACQ, OAQEC, and related stabilizer code families in the appropriate limits \cite[Def. 2 and Rem. 1]{arxiv:2411.14389}.
+
+notes:
+  - 'Inside the EAOAQEC stabilizer framework, EACQ codes are a proper subclass of the broader EA hybrid subspace codes because the EACQ transversal operators obey additional constraints not required in general \cite{arxiv:2411.14389}.'
+  - |-
+      Starting from subsystem codes, the paper gives four constructions of EAOA qubit stabilizer codes with distance lower bounds:
+      gauge fixing \([[n,k,d;r,e,c_b]] \to [[n,k,d';r-y,e,\leq 2^y c_b]]\),
+      clean qubits \([[n,k,d;r,0,c_b]] \to [[n-e,k,d';r,e,c_b]]\),
+      entanglement-assisted gauge fixing \([[n,k,d;r,0,c_b]] \to [[n,k,d';r-e,e,c_b]]\), and
+      general gauge fixing \([[n,k,d;r,e,c_b]] \to [[n,k,d';r-y_I-y_S,e+y_S,\leq 2^{y_I}c_b]]\)
+      \cite{arxiv:2411.14389}.
 
 
 relations:
@@ -30,7 +42,7 @@ relations:
     - code_id: hybrid_stabilizer
       detail: 'EA hybrid qubit stabilizer codes utilize additional ancillary subsystems in a pre-shared entangled state, but reduce to hybrid qubit stabilizer codes when said subsystems are interpreted as noiseless physical subsystems. In the original EA hybrid stabilizer formalism, an \([[n,q:c,d;e]]\) EA hybrid stabilizer code is specified by a pair \((\mathcal{S}_Q,\mathcal{S}_C)\) of quantum and classical stabilizer groups, and in the equivalent symplectic formalism by a quantum parity-check matrix together with a classical parity-check matrix \cite[Thms. 1-4]{arxiv:0802.2414}.'
     - code_id: eacq
-      detail: 'In the original EA hybrid stabilizer formalism, an \([[n,q:c,d;e]]\) EA hybrid stabilizer code is specified by a pair \((\mathcal{S}_Q,\mathcal{S}_C)\) of quantum and classical stabilizer groups, and in the equivalent symplectic formalism by a quantum parity-check matrix together with a classical parity-check matrix \cite[Thms. 1-4]{arxiv:0802.2414}.'
+      detail: 'The original EACQ formalism describes a proper subclass of EA hybrid subspace codes inside the EAOAQEC stabilizer framework; EACQ representability imposes extra constraints on the transversal operators beyond belonging to distinct normalizer cosets \cite{arxiv:2411.14389}.'
 
 
 # Begin Entry Meta Information
