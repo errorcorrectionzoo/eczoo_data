@@ -3,7 +3,7 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: laplacian_code
+code_id: laplacian
 physical: bits
 logical: bits
 
@@ -12,11 +12,7 @@ introduced: '\cite{arxiv:2312.08462}'
 
 description: |
   A binary linear code whose parity-check matrix is the graph Laplacian reduced mod 2.
-  For an undirected graph \(\Gamma\) with degree matrix \(D\) and adjacency matrix \(A\), the parity-check matrix is \(H=(D-A)\bmod 2\).
-
-  The code is self-dual in the sense that \(H=H^T\), and each row and column sums to zero over \(\mathbb{F}_2\).
-  On a connected graph, the code always contains the global all-ones codeword.
-  Additional logical bits depend on arithmetic properties of the graph Laplacian and can be enhanced by strong spatial symmetry.
+  For an undirected graph \(\Gamma\) with degree matrix \(D\) and adjacency matrix \(A\), the parity-check matrix is the symmetric matrix \(H=(D-A)\bmod 2\).
 
 protection: |
   A connected graph always contributes at least one logical bit.
@@ -27,17 +23,17 @@ features:
 
 relations:
   parents:
-    - code_id: binary_linear
+    - code_id: projective
+      detail: 'Incidence matrices of graphs have no repeated columns since that would correspond to multi-edges. Therefore, Laplacian codes can be interpreted as projective codes.'
+    - code_id: quantum_inspired
   cousins:
     - code_id: ldpc
       detail: 'Laplacian codes on bounded-degree graph families are classical LDPC codes.'
-    - code_id: hypergraph_product
-      detail: 'The hypergraph product of a cyclic repetition code and a Laplacian code yields the anisotropic \(\mathbb{Z}_2\) Laplacian model \cite{arxiv:2312.08462}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: Copilot
+    - user_id: VictorVAlbert
       date: '2026-04-21'

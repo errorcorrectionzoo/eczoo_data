@@ -3,7 +3,7 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
-code_id: pinwheel_code
+code_id: pinwheel
 physical: bits
 logical: bits
 
@@ -11,14 +11,14 @@ name: 'Pinwheel code'
 introduced: '\cite{arxiv:2312.08462}'
 
 description: |
-  A geometrically local binary LDPC code defined on planar graphs obtained from the pinwheel tiling.
+  A geometrically local binary LDPC code defined on planar graphs obtained from the pinwheel tiling \cite{doi:10.1007/s002220050221}.
   Both bits and checks live on vertices of the graph.
   If \(L_N\) is the graph Laplacian at generation \(N\), the undepleted check matrix is \(\tilde H_N=(L_N-\mathbb{I})\bmod 2\), and the actual parity-check matrix \(H_N\) is obtained by removing an evenly spaced fraction of boundary checks.
 
   The construction was introduced as a concrete aperiodic seed code whose hypergraph products realize local Type-I and Type-II fracton models.
 
 protection: |
-  For boundary-depletion period \(p\), the family has \(k\approx \sqrt{n}/p\) and distance \(d\sim n\) in the numerics of Ref. \cite{arxiv:2312.08462}, saturating the classical BPT bound \(k\sqrt{d}=O(n)\).
+  For boundary-depletion period \(p\), the family has \(k\approx \sqrt{n}/p\) and distance \(d\sim n\) \cite{arxiv:2312.08462}, saturating the classical \hyperref[topic:bpt-bound]{BPT bound} \(k\sqrt{d}=O(n)\).
   The same work gives numerical evidence for confinement.
 
 features:
@@ -26,19 +26,22 @@ features:
 
 relations:
   parents:
-    - code_id: aperiodic_code
+    - code_id: quantum_inspired
+    - code_id: ldpc
   cousins:
+    - code_id: laplacian
+      detail: 'The pinwheel code is derived from the graph Laplacian of the pinwheel tiling, with a fraction of boundary checks removed.'
     - code_id: hypergraph_product
       detail: 'The hypergraph product of a pinwheel code with a cyclic repetition code yields a local Type-I fracton model in three dimensions, while the hypergraph product of two pinwheel codes yields a local Type-II fracton model in four dimensions \cite{arxiv:2312.08462}.'
     - code_id: repetition
       detail: 'The hypergraph product of a pinwheel code with a cyclic repetition code yields a local Type-I fracton model in three dimensions \cite{arxiv:2312.08462}.'
     - code_id: fracton
-      detail: 'Pinwheel codes were introduced as seed codes for constructing local Type-I and Type-II fracton models via hypergraph products \cite{arxiv:2312.08462}.'
+      detail: 'The hypergraph product of a pinwheel code with a cyclic repetition code yields a local Type-I fracton model in three dimensions, while the hypergraph product of two pinwheel codes yields a local Type-II fracton model in four dimensions \cite{arxiv:2312.08462}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: Copilot
-      date: '2026-04-21'
+    - user_id: VictorVAlbert
+      date: '2026-04-22'

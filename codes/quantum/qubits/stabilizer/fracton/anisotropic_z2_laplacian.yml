@@ -8,25 +8,25 @@ physical: qubits
 logical: qubits
 
 name: 'Anisotropic \(\mathbb{Z}_2\) Laplacian model code'
-introduced: '\cite{doi:10.1103/PhysRevB.107.125121,doi:10.21468/SciPostPhys.14.5.106}'
+introduced: '\cite{arxiv:2210.03727,arxiv:2209.07987}'
 
 description: |
-  A non-geometrically-local CSS code on a graph that can be written as the hypergraph product of a cyclic repetition code and a Laplacian code \cite{arxiv:2312.08462}.
-  The model was proposed as a graph-based analogue of a Type-I fracton phase with lineon-like restricted mobility \cite{doi:10.1103/PhysRevB.107.125121,doi:10.21468/SciPostPhys.14.5.106}.
+  A graph-based analogue of a Type-I fracton phase with lineon-like restricted mobility \cite{arxiv:2210.03727,arxiv:2209.07987}.
 
-  The product-code analysis of Ref. \cite{arxiv:2312.08462} shows that, on generic sparse graphs, the Laplacian seed is not rank deficient enough to generate fracton order.
+  On generic sparse graphs, the Laplacian seed is not rank deficient enough to generate fracton order \cite{arxiv:2312.08462}.
   Instead, the model exhibits partially confined point-like excitations in a phase more akin to nonlocal topological order.
+
 
 relations:
   parents:
-    - code_id: qubit_css
-    - code_id: qldpc
-  cousins:
     - code_id: hypergraph_product
       detail: 'The anisotropic \(\mathbb{Z}_2\) Laplacian model is the hypergraph product of a cyclic repetition code and a Laplacian code \cite{arxiv:2312.08462}.'
+    - code_id: fracton
+      detail: 'The anisotropic \(\mathbb{Z}_2\) Laplacian model code is a graph-based analogue of a Type-I fracton phase with lineon-like restricted mobility.'
+  cousins:
     - code_id: repetition
       detail: 'The anisotropic \(\mathbb{Z}_2\) Laplacian model is the hypergraph product of a cyclic repetition code and a Laplacian code \cite{arxiv:2312.08462}.'
-    - code_id: laplacian_code
+    - code_id: laplacian
       detail: 'The anisotropic \(\mathbb{Z}_2\) Laplacian model is the hypergraph product of a cyclic repetition code and a Laplacian code \cite{arxiv:2312.08462}.'
 
 
@@ -34,5 +34,5 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: Copilot
-      date: '2026-04-21'
+    - user_id: VictorVAlbert
+      date: '2026-04-22'
