@@ -27,6 +27,7 @@ description: |
 
 
 protection: |
+  In standard form, error detection reduces to detecting the induced binary error patterns \(Cl_{S}(E)\) with the underlying classical code, together with the requirement that any error satisfying \(Cl_{S}(E)=0\) commute with every word operator \cite{arxiv:0708.1021}.
   Code distance \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).
   A CWS code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure} \cite{arxiv:0912.3245}.
   The \hyperref[topic:quantum-weight-enumerator]{pure distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\) \cite{arxiv:0712.1979,arxiv:2107.11286}.
@@ -34,7 +35,7 @@ protection: |
 
 features:
   encoders:
-    - 'If \( \mathcal{C} \) has an efficient classical encoder, then so does the CWS code \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \).'
+    - 'If the classical code \( \mathcal{C} \) has an encoder of complexity \(f(n)\), then the CWS code \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \) has an encoder of complexity \(\max(n^2,f(n))\), obtained by preparing the graph state and applying the classical encoder \cite{arxiv:0708.1021}.'
     - 'Sequential encoder related to MBQC \cite{arxiv:2405.06142}.'
   decoders:
     - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
@@ -76,6 +77,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-04-22'
     - user_id: VictorVAlbert
       date: '2024-03-28'
     - user_id: VictorVAlbert

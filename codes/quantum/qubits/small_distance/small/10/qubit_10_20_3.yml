@@ -1,0 +1,34 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_10_20_3
+physical: qubits
+logical: qubits
+
+name: '\(((10,20,3))\) qubit code'
+introduced: '\cite{arxiv:0708.1021}'
+
+description: |
+  Ten-qubit nonadditive CWS code correcting a single-qubit error.
+  It outperforms the best ten-qubit stabilizer code with the same distance, whose encoded dimension is \(2^4=16\) \cite{arxiv:0708.1021,arxiv:quant-ph/9608006}.
+
+  In standard CWS form, its underlying graph is the double ring introduced in Ref. \cite{arxiv:0708.1021}. The associated graph state is a \([[10,0,4]]\) stabilizer state, and the code uses \(20\) \(Z\)-type word operators obtained from a binary classical code listed there.
+
+relations:
+  parents:
+    - code_id: cws
+      detail: 'The \(((10,20,3))\) qubit code is a double-ring CWS code whose underlying graph state is a \([[10,0,4]]\) stabilizer state \cite{arxiv:0708.1021}.'
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: qubit_10_18_3
+      detail: 'Both ten-qubit codes were introduced in Ref. \cite{arxiv:0708.1021}; the \(((10,20,3))\) double-ring construction improves the \(((10,18,3))\) ring-graph construction at the same blocklength and distance.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: Copilot
+      date: '2026-04-22'
