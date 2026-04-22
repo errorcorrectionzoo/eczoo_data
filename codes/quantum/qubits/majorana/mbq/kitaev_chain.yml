@@ -15,7 +15,7 @@ alternative_names:
 # 2411.08955 and 2412.16081
 
 description: |
-  An \([[n,1]]_{f}\) Majorana stabilizer code obtained from the ground-state subspace of the Kitaev Majorana chain in its fermionic topological phase \cite{arxiv:cond-mat/0010440}. Its codespace is stabilized by nearest-neighbor Majorana bilinears, while two unpaired edge Majoranas furnish one logical fermionic mode. Under parity-preserving noise, it behaves as the Majorana analogue of the repetition code \cite{arxiv:2411.08955}.
+  A Majorana stabilizer code obtained from the ground-state subspace of the Kitaev Majorana chain in its fermionic topological phase \cite{arxiv:cond-mat/0010440}. Its codespace is stabilized by nearest-neighbor Majorana bilinears, while two unpaired edge Majoranas furnish one logical fermionic mode. Under parity-preserving noise, it behaves as the Majorana analogue of the repetition code \cite{arxiv:2411.08955}.
 
   At the fixed-point limit, the code Hamiltonian is proportional to \(-\sum_{j=1}^{n-1} i \gamma_{2j}\gamma_{2j+1}\), so the codespace is the common \(+1\) eigenspace of the stabilizers \(S_j=i\gamma_{2j}\gamma_{2j+1}\). The two unpaired edge operators \(\gamma_{1}\) and \(\gamma_{2n}\) are the \textit{Majorana zero modes (MZMs)} or \textit{Majorana edge modes (MEMs)}; they commute with all stabilizers and define a logical fermionic mode \(f_{\mathrm{L}}=(\gamma_{1}+i\gamma_{2n})/2\). Via the Jordan-Wigner transformation, the model maps to the 1D quantum Ising chain in its symmetry-breaking phase.
   The code can be thought of as the Majorana stabilizer analogue of the quantum repetition code: parity-preserving dephasing operators \(Z_j=i\gamma_{2j-1}\gamma_{2j}\) play the role of repetition-code bit flips, while the logical Majorana operators have odd weight and therefore encode a logical fermion \cite{arxiv:2411.08955}.
@@ -50,7 +50,7 @@ notes:
 relations:
   parents:
     - code_id: mbq
-      detail: 'Majorana box qubit codes are obtained from two or more Kitaev-chain code blocks and restricting to the positive-parity logical subspace. The parameter \(n\) in the MBQ code corresponds to the number of Kitaev chains used in the construction.'
+      detail: 'Majorana box qubit codes are defined to be positive-parity logical subspaces of two or more Kitaev-chain code blocks. The parameter \(n\) in the MBQ code definition corresponds to the number of Kitaev chains used in the construction, and not the total number of physical Majorana modes of the chains.'
   cousins:
     - code_id: quantum_repetition
       detail: 'The Kitaev chain code can be thought of as the Majorana stabilizer analogue of the quantum repetition code \cite{arxiv:2411.08955}.'
