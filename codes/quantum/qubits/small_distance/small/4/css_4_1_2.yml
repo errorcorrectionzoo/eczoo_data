@@ -1,0 +1,94 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: css_4_1_2
+physical: qubits
+logical: qubits
+
+name: '\([[4,1,2]]\) Leung-Nielsen-Chuang-Yamamoto (LNCY) code'
+short_name: '\([[4,1,2]]\) LNCY'
+introduced: '\cite{arxiv:quant-ph/9704002}'
+
+alternative_names:
+  - '\([[4,1,2]]\) Leung code'
+
+description: |
+  A four-qubit CSS stabilizer code that is the only qubit CSS code with such parameters \cite[ID 6]{arxiv:2501.17447}.
+
+  The code admits stabilizer generators \(\{XXXX,ZZII,IIZZ\}\) and the following basis of codewords,
+  \begin{align}
+    \begin{split}
+      |\overline{0}\rangle = (|0000\rangle + |1111\rangle)/\sqrt{2}~{\phantom{.}}\\
+      |\overline{1}\rangle = (|0011\rangle + |1100\rangle)/\sqrt{2}~.
+    \end{split}
+  \end{align}
+  It is realized as the \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) subcode of the \([[4,2,2]]\) four-qubit code \cite{arxiv:quant-ph/9704002}, and the subcodes spanned by \(|\overline{00}\rangle\) and any other \([[4,2,2]]\) codeword are equivalent to it.
+  Applying the Pauli string \(IXIX\) to its codewords yields an equivalent constant-excitation \([[4,1,2]]\) code.
+
+  The code's \(\pm\)-basis codewords can be written as
+  \begin{align}
+    |\overline{\pm}\rangle = \frac{1}{2}(|00\rangle \pm |11\rangle)^{\otimes 2}~.\\
+  \end{align}
+  This code can be thought of as a concatenation of a two-qubit bit-flip with a two-qubit phase-flip code.
+
+
+protection: |
+  Detects a single-qubit error or single erasure as a distance-two code.
+  The code also approximately corrects a single \hyperref[topic:ad]{AD} error, with recovery fidelity \(1-5\gamma^2+O(\gamma^3)\) \cite{arxiv:quant-ph/9704002}.
+  The \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \([[4,1,2]]\) subcode \cite{arxiv:quant-ph/0103042} also approximately corrects a single \hyperref[topic:ad]{AD} error, and is a constant-excitation code.
+
+realizations:
+  - 'Linear optical networks \cite{arxiv:0804.2268,arxiv:1404.5498}.'
+  - 'Superconducting-circuit devices \cite{arxiv:1912.09410,arxiv:2102.06132}.'
+  - 'Logical gates within one block \cite{arxiv:2102.13071} and between two blocks \cite{arxiv:2006.03071}, with the latter interpreted as lattice surgery between planar surface codes, were realized in superconducting circuits.'
+  - 'Neutral atom arrays by Atom Computing ran the Bernstein-Vazirani algorithm on up to 28 logical qubits \cite{arxiv:2411.11822}.'
+  - 'Break-even performance has been demonstrated on a superconducting IBM device using the syndrome-based Petz recovery \cite{arxiv:2510.08719}.'
+  - 'Implementation of a universal logical gate set in superconducting circuits by Origin Quantum Computing \cite{arxiv:2405.09035}.'
+
+
+relations:
+  parents:
+    - code_id: rotated_surface
+      detail: 'The \([[4,1,2]]\) LNCY code is a small planar rotated surface code \cite{arxiv:2006.03071,arxiv:1912.09410,arxiv:2102.06132,arxiv:2102.13071}.'
+    - code_id: ampdamp_stabilizer
+      detail: 'The \([[4,1,2]]\) LNCY code (approximately) corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002} and is the smallest member of the amplitude-damping stabilizer family of Ref. \cite{arxiv:0710.1052}.'
+    - code_id: jump
+      detail: |
+        The \([[4,1,2]]\) LNCY code \cite{arxiv:quant-ph/0103042} is a \(((4,2,1))_2\) jump code correcting a single \hyperref[topic:ad]{AD} error.
+        A \(((4,3,1))_2\) jump code is a subcode of the \([[4,2,2]]\) code and contains the \([[4,1,2]]\) LNCY code as a subcode \cite{arxiv:quant-ph/0208140}.
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: stab_4_2_2
+      detail: 'The \([[4,1,2]]\) LNCY code is obtained as the \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \([[4,1,2]]\) subcode of the \([[4,2,2]]\) four-qubit code \cite{arxiv:quant-ph/9704002}. A \(((4,3,1))_2\) jump code is a subcode of the \([[4,2,2]]\) code and contains the \([[4,1,2]]\) LNCY code as a subcode \cite{arxiv:quant-ph/0208140}.'
+    - code_id: stab_4_1_2
+      detail: 'Adding \(XXII\) (\(XYZI\)) to the stabilizer group of the \([[4,2,2]]\) code yields the \([[4,1,2]]\) LNCY (twist-defect) code.'
+    - code_id: quantum_parity
+      detail: |
+        The \([[4,1,2]]\) LNCY code is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
+        An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of its constant-excitation version with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}.
+    - code_id: binomial
+      detail: 'The \([[4,1,2]]\) LNCY code reduces to the \(0,2,4\) binomial code when the basis labels in each codeword are written as in base-ten.
+      Such a mapping can be generalized \cite{manual:{L. Li, private communication, 2018.}}.'
+    - code_id: heavy_hex
+      detail: |
+        Magic states prepared using a \([[4,1,2]]\) subcode can be injected into the heavy-hex code \cite{arxiv:2110.04285,arxiv:2305.13581}.
+        The \(d=2\) heavy-hex code is closely related to the \([[4,1,2]]\) LNCY code.
+    - code_id: qubit_concatenated
+      detail: |
+        The \([[4,1,2]]\) LNCY code is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
+        An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of its constant-excitation version with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}.
+        More generally, an \([[m^2,1,m]]\) QPC corrects \(m-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.
+        Recursively concatenating a \([[4,1,2]]\) LNCY subcode attains a threshold \cite{arxiv:0902.2658,arxiv:0902.4506}.'
+    - code_id: cluster_state
+      detail: 'A \([[4,1,2]]\) LNCY code can be thought of as a cluster-state code \cite{arxiv:1407.2777}.'
+    - code_id: quantum_polar
+      detail: 'The \([[4,1,2]]\) LNCY code is a small quantum polar encoding \cite{manual:{K. Noh, \href{https://github.com/errorcorrectionzoo/eczoo_data/files/7652763/Leung_code_as_quantum_polar_code.pdf}{Leung code as quantum polar code}, 2017.}}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-23'

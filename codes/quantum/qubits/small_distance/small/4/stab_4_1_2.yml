@@ -1,0 +1,52 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_4_1_2
+physical: qubits
+logical: qubits
+
+name: '\([[4,1,2]]\) twist-defect code'
+introduced: '\cite{arxiv:quant-ph/0512170}'
+
+description: |
+  A four-qubit non-CSS stabilizer code that can be interpreted as a small twist-defect surface code on a tetrahedron inscribed in a sphere \cite{arxiv:2406.09951}.
+  It is the only non-CSS qubit stabilizer code with parameters \([[4,1,2]]\) \cite[ID 8]{arxiv:2501.17447}.
+  The code admits weight-three stabilizer generators \(\{ZIXZ,YXYI,IZZX\}\) and weight-two logical Pauli \(X,Y,Z\) operators.
+
+
+protection: |
+  Detects a single-qubit error or single erasure as a distance-two code.
+
+
+features:
+  transversal_gates:
+    - 'Weight-two transversal logical Pauli \(X,Y,Z\) operations \cite{arxiv:quant-ph/0512170}.'
+
+  general_gates:
+    - 'A set of local Clifford operations and permutations (in the twist-defect realization, braiding the four genons) generates the full single-qubit Clifford group \cite{arxiv:2406.09951}.'
+
+realizations:
+  - 'Logical \hyperref[topic:clifford]{Clifford gates} were realized in a trapped-ion device by Quantinuum \cite{arxiv:2406.09951}.'
+
+relations:
+  parents:
+    - code_id: twist_defect_surface
+      detail: 'A small 6.6.6 twist-defect color code admits three weight-three stabilizer generators \cite[Fig. 7]{arxiv:1806.02820}; this code is equivalent to a twist-defect surface code on a tetrahedron inscribed in a sphere \cite{arxiv:2406.09951} via a single-qubit \hyperref[topic:clifford]{Clifford circuit}.'
+    - code_id: twist_defect_color
+      detail: 'A small 6.6.6 twist-defect color code admits three weight-three stabilizer generators \cite[Fig. 7]{arxiv:1806.02820}; this code is equivalent to a twist-defect surface code on a tetrahedron inscribed in a sphere \cite{arxiv:2406.09951} via a single-qubit \hyperref[topic:clifford]{Clifford circuit}.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: stab_4_2_2
+      detail: 'Adding \(XYZI\) to the stabilizer group of the \([[4,2,2]]\) four-qubit code yields the \([[4,1,2]]\) twist-defect subcode \cite{arxiv:quant-ph/0512170}.'
+    # also in stab_4_2_2
+    - code_id: toric
+      detail: 'The \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,1,2]]\) twist-defect code is the \([[8,2,2]]\) twisted toric code \cite{arxiv:2406.09951}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-23'

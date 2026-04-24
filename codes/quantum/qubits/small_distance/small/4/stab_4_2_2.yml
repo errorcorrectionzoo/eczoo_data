@@ -17,10 +17,10 @@ alternative_names:
   - 'Little Shor code'
 
 description: |
-  Four-qubit CSS stabilizer code is the smallest qubit stabilizer code to detect a single-qubit error.
-  It is unique for its parameters \cite{arxiv:2501.17447}.
+  A four-qubit hyperbolic self-dual CSS stabilizer code that is the smallest two-logical-qubit stabilizer code to detect a single-qubit error.
+  It is unique for its parameters \cite[Thm. 8]{arxiv:quant-ph/9704043}\cite[ID 9]{arxiv:2501.17447}.
 
-  The code admits stabilizer generators \(\{XXXX, ZZZZ\} \), and its stabilizer generator matrix blocks, \(H_{X}=H_{Z}=(1,1,1,1)\), are both the parity-check matrix of the \([4,3,2]\) SPC code.
+  The code admits stabilizer generators \(\{XXXX, ZZZZ\}\), and its stabilizer generator matrix blocks, \(H_{X}=H_{Z}=(1,1,1,1)\), are both the parity-check matrix of the \([4,3,2]\) SPC code.
   
   A basis of codewords is
   \begin{align}
@@ -31,38 +31,21 @@ description: |
       |\overline{11}\rangle = (|0110\rangle + |1001\rangle)/\sqrt{2}~.
     \end{split}
   \end{align}
-  This code is the smallest instance of the toric code, and its various single-qubit subcodes are small planar surface codes \cite{arxiv:2501.17447}.
-  It is the unique code for its parameters, up to equivalence \cite[Thm. 8]{arxiv:quant-ph/9704043}.
-
-  Subcodes spanned by any two of the above four codewords are all equivalent to the \textit{Leung-Nielsen-Chuang-Yamamoto code} \cite{arxiv:quant-ph/9704002}, one of two inequivalent \([[4,1,2]]\) codes \cite{arxiv:2501.17447}.
-  Its \(\pm\)-basis codewords can be written as
-  \begin{align}
-    |\overline{\pm}\rangle = \frac{1}{2}(|00\rangle \pm |11\rangle)^{\otimes 2}~.\\
-  \end{align}
-  This code can be thought of as a concatenation of a two-qubit bit-flip with a two-qubit phase-flip code.
-  It is equivalent to the subcodes \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) and \(\{|\overline{00}\rangle,|\overline{11}\rangle\}\).
 
 
 protection: |
   Detects a single-qubit error \cite{arxiv:quant-ph/9603031} or single erasure \cite{arxiv:quant-ph/9610042}.
-  Not able to correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
-
-  The \([[4,1,2]]\) subcodes \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arxiv:quant-ph/9704002} and \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:quant-ph/0103042} approximately correct a single \hyperref[topic:ad]{AD} error, with the latter being a constant excitation code.
-  For the Leung-Nielsen-Chuang-Yamamoto subcode, the recovery fidelity is \(1-5\gamma^2+O(\gamma^3)\) \cite{arxiv:quant-ph/9704002}.
-
+  It cannot correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
   An equivalent version of this code can suppress errors in adiabatic quantum computation by being used as an excited-state space of a particular Hamiltonian \cite{arxiv:2412.07764}.
 
 features:
-  rate: 'The code encodes two logical qubits into four physical qubits, i.e., it has rate \(1/2\).'
-
   magic_scaling_exponent: 'Various magic-state distillation protocols exist for the \([[4,2,2]]\) qubit code and the \(C_6\) code in what are known as Meier-Eastin-Knill (MEK) protocols \cite{arxiv:1204.4221,arxiv:1703.07847}.
   In the inner/outer-code formulation of Ref. \cite{arxiv:1703.07847}, the \([[4,2,2]]\) code is a hyperbolic self-dual inner code for quadratic distillation.
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
   transversal_gates:
     - 'A tensor product of Hadamard gates applies a Hadamard gate to both logical qubits, and a tensor product of \(S=\sqrt{Z}\) gates applies a \(CZ\) gate followed by a logical \(Z\) on both qubits \cite{arxiv:1610.03507} (see also \cite{arxiv:1912.10063}). A logical \(CZ\) gate is then realized by \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\). With a different logical basis, transversal Hadamard swaps the two logical qubits, enabling control-SWAP and \(H^{\otimes 2}\)-measurement routines for quadratic magic-state distillation \cite[Sec. I.B.1]{arxiv:1703.07847}.'
-    - 'This code is the only four-qubit subspace to house a transversal representation of the Clifford group but not of the single-qubit unitary group \cite[Eq. (104)]{arxiv:1609.08172}. Equivalently, its projector is the only extra generator of the fourth tensor-power Clifford commutant beyond qubit permutations \cite[Thm. 1]{arxiv:1609.08172}. Its \(n\)-block version is a \([[4n,2n,2]]\) code, which houses a signed permutation representation of the \(n\)-qubit Clifford group \cite[Sec. 3.1 and Appx. B]{arxiv:1609.08172}.'
-    - 'Adding \(XYZI\) to the stabilizer group produces a \([[4,1,2]]\) subcode that admits weight-two transversal logical Pauli operations \cite{arxiv:quant-ph/0512170}.'
+    - 'This code is the only four-qubit subspace to house a transversal representation of the single-qubit Clifford group but not of the single-qubit unitary group \cite[Eq. (104)]{arxiv:1609.08172}. Equivalently, its projector is the only extra generator of the fourth tensor-power Clifford commutant beyond qubit permutations \cite[Thm. 1]{arxiv:1609.08172}. Its \(n\)-block version is a \([[4n,2n,2]]\) code, which houses a signed permutation representation of the \(n\)-qubit Clifford group \cite[Sec. 3.1 and Appx. B]{arxiv:1609.08172}.'
 
   general_gates:
     - 'Some inter-block gates can be weight-two (two-body) with the help of perturbative gadgets, making it possible to suppress errors in adiabatic quantum computation \cite{arxiv:2412.07764}.'
@@ -74,43 +57,36 @@ features:
   fault_tolerance:
     - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.
     Magic states can be injected into surface and color codes since the code is a small instance of both \cite{arxiv:2305.13581}.'
-    - 'Knill''s \(C_4/C_6\) architecture uses the \([[4,2,2]]\) code at the first level and the \(C_6\) code at higher levels, together with error-correcting teleportation \cite{arxiv:quant-ph/0410199}. That paper gives evidence for postselected thresholds above \(0.03\) and extrapolates to \(\approx 0.06\), while the error-correcting architecture has evidence for a threshold above \(0.01\). Later work refined the postselected-threshold analysis \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
+    - 'Knill''s \(C_4/C_6\) architecture uses the \([[4,2,2]]\) code at the first level and the \(C_6\) code at higher levels, together with error-correcting teleportation \cite{arxiv:quant-ph/0410199}. Later work refined the postselected-threshold analysis \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
     - 'Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. In the optimized protocol of Ref. \cite{arxiv:2402.09606}, a level-five \(C_4/C_6\) code underlies concatenated quantum Hamming codes \(\mathcal{Q}_5,\mathcal{Q}_6,\mathcal{Q}_7,\mathcal{Q}_7\), yielding a \(2.5\%\) threshold and space overheads \(162\) and \(373\) physical qubits per logical qubit at physical error rate \(0.1\%\) for logical CNOT error rates \(10^{-10}\) and \(10^{-24}\), respectively.'
-    - 'Fault-tolerant implementation of the Deutsch-Josza algorithm \cite{arxiv:2412.04791}.'
+    - 'Fault-tolerant implementation of the Deutsch-Jozsa algorithm \cite{arxiv:2412.04791}.'
 
 
 realizations:
   - 'See also \cite[Tab. I]{arxiv:2412.07670} for more details on each experimental realization.'
-  - '\([[4,1,2]]\) subcodes implemented in linear optical networks \cite{arxiv:0804.2268,arxiv:1404.5498}.'
   - 'Trapped-ion device by IonQ \cite{arxiv:1611.06946}.'
   - 'Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices by IBM \cite{arxiv:1705.09259,arxiv:1705.08957,arxiv:1806.02359,arxiv:2110.04285}.'
-  - 'The subcode \(\{|\overline{00}\rangle,|\overline{10}\rangle\}\) \cite{arxiv:1912.09410,arxiv:2102.06132}, treated as a planar surface code, has been realized in superconducting-circuit devices.'
-  - 'Logical gates between two copies of the subcode \(\{|\overline{10}\rangle,|\overline{11}\rangle\}\), interpreted as lattice surgery between planar surface codes, realized in superconducting circuits \cite{arxiv:2006.03071}.'
-  - 'Logical gates for the \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) subcode, treated as a planar code, realized in superconducting circuits \cite{arxiv:2102.13071}.'
   - 'The CZ magic state has been realized on an IBM heavy-hex superconducting circuit device \cite{arxiv:2305.13581}.'
-  - 'Logical \hyperref[topic:clifford]{Clifford gates} for a twist-defect surface code that is single-qubit Clifford equivalent to a \([[4,1,2]]\) realized in a trapped ion device by Quantinuum \cite{arxiv:2406.09951}.'
   - 'CPC gadgets for the \([[4,2,2]]\) code have been implemented on the IBM 5Q superconducting device \cite{arxiv:1709.01866}.'
   - 'An FPGA implementation of the collision clustering decoder \cite{arxiv:2309.05558} realized on a Rigetti superconducting device \cite{arxiv:2410.05202}.'
   - |
     Neutral atom arrays: error detection, erasure correction, and post-selected fault-tolerant circuits demonstrated on 24 logical qubits on a 256-qubit device by Atom Computing, with each qubit encoded in the \([[4,2,2]]\) code \cite{arxiv:2411.11822}. 
-    The device also ran the Bernstein-Vazirani algorithm on up to 28 logical qubits encoded in a \([[4,1,2]]\) subcode \cite{arxiv:2411.11822}. 
     Post-selected fault-tolerant realization of a benchmarking protocol \cite{arxiv:1610.03507}, preparation of the ground state of the single-impurity Anderson impurity model, and post-selected fault-tolerant logical Bell-state preparation demonstrated on one copy of the \([[4,2,2]]\) code on a device by Infleqtion \cite{arxiv:2412.07670}.
     Error correction with mid-circuit erasure measurements and logical teleportation demonstrated by the Thompson group \cite{arxiv:2506.13724}. Logical implementation of Shor's algorithm on a device by Infleqtion \cite{arxiv:2509.13247}.
   - 'The \([[4,2,2]]\) code has been implemented on a star topology using superconducting devices and microwave cavities \cite{arxiv:2503.12869}.'
-  - 'Break-even performance has been demonstrated for the \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) subcode on a superconducting IBM device using the syndrome-based Petz recovery \cite{arxiv:2510.08719}.'
-  - 'Superconducting circuits by Origin Quantum Computing: implementation of a universal logical gate set on distance-two error-detecting surface-code patches, equivalent to \([[4,1,2]]\) subcodes of the \([[4,2,2]]\) code \cite{arxiv:2405.09035}.'
   - 'Trapped-ion processor by AQT: modular logical-state teleportation between two four-qubit error-detecting code blocks without mid-circuit measurements \cite{arxiv:2506.22600}.'
 
 
 relations:
   parents:
     - code_id: rotated_surface
-      detail: 'The \([[4,2,2]]\) code is the smallest rotated toric code. The subcodes \(\{|\overline{10}\rangle,|\overline{11}\rangle\}\) \cite{arxiv:2006.03071}, \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \cite{arxiv:1912.09410,arxiv:2102.06132,arxiv:2102.13071} are small planar rotated surface codes.'
-    - code_id: 2d_color
-      detail: 'The \([[4,2,2]]\) code can be interpreted as a 2D color code on a square of the 4.8.8 or 4.6.12 tilings, or on a trapezoidal patch that makes up two-thirds of a hexagon of the 6.6.6 tiling \cite{arxiv:2212.00042,arxiv:2305.13581}.
-      Concatenating the \([[4,2,2]]\) code with the surface code is equivalent to removing stabilizer generators from the 4.8.8 color code \cite{arxiv:1604.04062}.
-      Concatenating the \([[4,2,2]]\) code with two copies of the surface code yields the self-dual 4.6.12 color code \cite{arxiv:1604.04062}.
-      A small 6.6.6 color code is a \([[4,1,2]]\) subcode with three weight-three stabilizer generators \cite[Fig. 7]{arxiv:1806.02820}; this code is equivalent to a twist-defect surface code on a tetrahedron inscribed in a sphere \cite{arxiv:2406.09951} via a single-qubit \hyperref[topic:clifford]{Clifford circuit}.'
+      detail: 'The \([[4,2,2]]\) code is the smallest rotated toric code \cite{arxiv:2501.17447}.'
+    - code_id: 488_color
+      detail: 'The \([[4,2,2]]\) code can be interpreted as a 2D color code on a square of the 4.8.8 tiling \cite{arxiv:2212.00042,arxiv:2305.13581}. Concatenating the \([[4,2,2]]\) code with the surface code is equivalent to removing stabilizer generators from the 4.8.8 color code \cite{arxiv:1604.04062}.'
+    - code_id: triangular_color
+      detail: 'The \([[4,2,2]]\) code can be interpreted as a 2D color code on a trapezoidal patch that makes up two-thirds of a hexagon of the 6.6.6 tiling \cite{arxiv:2212.00042,arxiv:2305.13581}.'
+    - code_id: 4612_color
+      detail: 'The \([[4,2,2]]\) code can be interpreted as a 2D color code on a square of the 4.6.12 tiling \cite{arxiv:2212.00042,arxiv:2305.13581}. Concatenating the \([[4,2,2]]\) code with two copies of the surface code yields the self-dual 4.6.12 color code \cite{arxiv:1604.04062}.'
     - code_id: hypercube_quantum
       detail: 'The \([[4,2,2]]\) code is a hypercube code for \(D=2\).'
     - code_id: iceberg
@@ -120,52 +96,34 @@ relations:
     - code_id: group_4_2_2
       detail: 'The four group-qudit code reduces to the four-rotor code for \(G= \mathbb{Z}_2\).'
   cousins:
-    - code_id: twist_defect_surface
-      detail: 'A small 6.6.6 color code is a \([[4,1,2]]\) subcode with three weight-three stabilizer generators \cite[Fig. 7]{arxiv:1806.02820}; this code is equivalent to a twist-defect surface code on a tetrahedron inscribed in a sphere \cite{arxiv:2406.09951} via a single-qubit \hyperref[topic:clifford]{Clifford circuit}. In that twist-defect realization, braiding the four genons generates the full single-qubit Clifford group, and the symplectic double is the \([[8,2,2]]\) toric code \cite{arxiv:2406.09951}.'
-    - code_id: quantum_parity
-      detail: 'The \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \([[4,1,2]]\) subcode is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
-      An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of the \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) (constant-excitation) subcode of the \([[4,2,2]]\) code with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}.'
     - code_id: stab_5_1_3
       detail: 'The \([[4,2,2]]\) code can be derived from the five-qubit code using a protocol that converts an \([[n,k,d]]\) code into an \([[n-1, k+1, d-1]]\) code \cite[Sec. 3.5]{arxiv:quant-ph/9705052}\cite[Fig. 3]{arxiv:1907.11253}.'
-    - code_id: ampdamp_stabilizer
-      detail: 'The \([[4,1,2]]\) Leung-Nielsen-Chuang-Yamamoto subcode \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) (approximately) corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002} and is the smallest member of the amplitude-damping stabilizer family of Ref. \cite{arxiv:0710.1052}.'
-    - code_id: binomial
-      detail: '\([[4,1,2]]\) subcode consisting of \(|\overline{00}\rangle\) and any other codeword reduces to the \(0,2,4\) binomial code when the basis labels in each codeword are written as in base-ten.
-      Such a mapping can be generalized \cite{manual:{L. Li, private communication, 2018.}}.'
-    - code_id: heavy_hex
-      detail: |
-        Magic states prepared using the \([[4,1,2]]\) subcode can be injected into the heavy-hex code \cite{arxiv:2110.04285,arxiv:2305.13581}.
-        The \(d=2\) heavy-hex code is also closely related to the \([[4,1,2]]\) subcode.
     - code_id: surface
       detail: 'Concatenating the \([[4,2,2]]\) code with the surface code is equivalent to removing stabilizer generators from the 4.8.8 color code \cite{arxiv:1604.04062}.'
     - code_id: qubit_concatenated
       detail: |
-        The \(\{|\overline{00}\rangle,|\overline{01}\rangle\}\) \([[4,1,2]]\) subcode is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
         Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} admitting a post-selected threshold \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).
         Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. In the optimized protocol of Ref. \cite{arxiv:2402.09606}, a level-five \(C_4/C_6\) code underlies concatenated quantum Hamming codes \(\mathcal{Q}_5,\mathcal{Q}_6,\mathcal{Q}_7,\mathcal{Q}_7\), yielding a \(2.5\%\) threshold and space overheads \(162\) and \(373\) physical qubits per logical qubit at physical error rate \(0.1\%\) for logical CNOT error rates \(10^{-10}\) and \(10^{-24}\), respectively.
         Concatenating the \([[4,2,2]]\) code with the surface code is equivalent to removing stabilizer generators from the 4.8.8 color code \cite{arxiv:1604.04062}.
         The \([[4,2,2]]\) code can be concatenated with two copies of the surface code to yield the 4.6.12 color code \cite{arxiv:1604.04062}.
-        An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of the \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) (constant-excitation) subcode of the \([[4,2,2]]\) code with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}. More generally, an \([[m^2,1,m]]\) QPC corrects \(m-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.
-        Recursively concatenating a \([[4,1,2]]\) subcode attains a threshold \cite{arxiv:0902.2658,arxiv:0902.4506}.
     - code_id: stab_6_2_2
       detail: 'Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} admitting a post-selected threshold \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}) and the Meier-Eastin-Knill (MEK) magic-state distillation protocols \cite{arxiv:1204.4221}. Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. In the optimized protocol of Ref. \cite{arxiv:2402.09606}, a level-five \(C_4/C_6\) code underlies concatenated quantum Hamming codes \(\mathcal{Q}_5,\mathcal{Q}_6,\mathcal{Q}_7,\mathcal{Q}_7\), yielding a \(2.5\%\) threshold and space overheads \(162\) and \(373\) physical qubits per logical qubit at physical error rate \(0.1\%\) for logical CNOT error rates \(10^{-10}\) and \(10^{-24}\), respectively.'
-    - code_id: cluster_state
-      detail: 'A \([[4,1,2]]\) subcode can be thought of as a cluster-state code
-       \cite{arxiv:1407.2777}.'
     - code_id: steane
       detail: 'The Steane code can be built from two \([[4,2,2]]\) codes in the quantum Lego code framework \cite{arxiv:2109.08158}. Ref. \cite{arxiv:2402.09606} also introduces a \(C_4\)/Steane concatenated code, obtained by concatenating the \([[4,2,2]]\) code with the Steane code, as an underlying code for further concatenation with quantum Hamming codes.'
     - code_id: stab_6_4_2
       detail: 'The \([[6,4,2]]\) error-detecting code can be constructed out of two \([[4,2,2]]\) codes in the quantum Lego code framework \cite{arxiv:2109.08158}.'
     - code_id: cpc
       detail: 'CPC gadgets for the \([[4,2,2]]\) code have been implemented on the IBM 5Q superconducting device \cite{arxiv:1709.01866}.'
-    - code_id: quantum_polar
-      detail: '\([[4,2,2]]\) code is a small quantum polar encoding \cite{manual:{K. Noh, \href{https://github.com/errorcorrectionzoo/eczoo_data/files/7652763/Leung_code_as_quantum_polar_code.pdf}{Leung code as quantum polar code}, 2017.}}.'
+    - code_id: jump
+      detail: 'A \(((4,3,1))_2\) jump code is a subcode of the \([[4,2,2]]\) code and contains the \([[4,1,2]]\) LNCY code as a subcode \cite{arxiv:quant-ph/0208140}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-23'
     - user_id: YinchenLiu
       date: '2024-03-15'
     - user_id: VictorVAlbert
