@@ -11,7 +11,7 @@ name: '\([[6,2,2]]\) \(C_6\) code'
 introduced: '\cite{arxiv:quant-ph/0410199}'
 
 description: |
-  Error-detecting self-dual CSS code on three qubit pairs that encodes a logical qubit pair and detects any error acting on one pair \cite{arxiv:quant-ph/0410199}.
+  Error-detecting normal self-dual CSS code on three qubit pairs that encodes a logical qubit pair and detects any error acting on one pair \cite{arxiv:quant-ph/0410199}.
   In Knill's \(C_4/C_6\) architecture, this code is used at the second and higher concatenation levels.
   A choice of check operators used in that construction is \(XIIXXX\), \(XXXIIX\), \(ZIIZZZ\), and \(ZZZIIZ\), with logical operators \(X_L = IXXIII\), \(Z_L = IIZZIZ\), \(X_S = XIXXII\), and \(Z_S = IIIZZI\) \cite{arxiv:quant-ph/0410199}\cite[ID 126]{arxiv:2501.17447}.
 
@@ -24,6 +24,7 @@ features:
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
   transversal_gates:
+    - 'Physical Hadamard gates implement logical Hadamard gates, making this a normal self-dual qubit CSS code \cite{arxiv:2602.22211}.'
     - 'One of the code''s logical qubits can be relaxed to a gauge qubit to yield a \([[6,1,1,2]]\) subsystem qubit stabilizer code with a particular set of transversal gates. This code admits a fault-tolerant circuit relevant to magic-state preparation \cite{arxiv:2501.17447}.'
 
   general_gates:
