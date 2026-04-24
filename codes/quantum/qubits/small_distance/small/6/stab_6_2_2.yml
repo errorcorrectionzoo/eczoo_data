@@ -25,7 +25,6 @@ features:
 
   transversal_gates:
     - 'Physical Hadamard gates implement logical Hadamard gates, making this a normal self-dual qubit CSS code \cite{arxiv:2602.22211}.'
-    - 'One of the code''s logical qubits can be relaxed to a gauge qubit to yield a \([[6,1,1,2]]\) subsystem qubit stabilizer code with a particular set of transversal gates. This code admits a fault-tolerant circuit relevant to magic-state preparation \cite{arxiv:2501.17447}.'
 
   general_gates:
     - 'Fault-tolerant magic-state preparation \cite{arxiv:2506.14688}.'
@@ -53,6 +52,8 @@ relations:
     - code_id: stabilizer_over_gf4
       detail: 'The \(C_6\) code is Hermitian \cite[Table 6]{arxiv:2501.17447}.'
   cousins:
+    - code_id: css_6_1_2
+      detail: 'Fixing one logical qubit of the \(C_6\) code to \(|Y^{-}\rangle_L\) yields the \([[6,1,2]]\) semi-self-dual CSS code \cite[ID 59]{arxiv:2501.17447}\cite{arxiv:2507.10519}. In the paper''s equivalent self-dual semi-CSS presentation, a qubit permutation and the same local Clifford \(X\mapsto Z\mapsto Y\mapsto X\) on every qubit recover the CSS form.'
     - code_id: qubit_concatenated
       detail: 'Concatenations of \([[4,2,2]]\) and \(C_6\) codes yield fault-tolerant quantum computation schemes \cite{arxiv:quant-ph/0410199} admitting a post-selected threshold \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}) and the Meier-Eastin-Knill (MEK) magic-state distillation protocols \cite{arxiv:1204.4221}.
       Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. In the optimized protocol of Ref. \cite{arxiv:2402.09606}, a level-five \(C_4/C_6\) code underlies concatenated quantum Hamming codes \(\mathcal{Q}_5,\mathcal{Q}_6,\mathcal{Q}_7,\mathcal{Q}_7\), yielding a \(2.5\%\) threshold and space overheads \(162\) and \(373\) physical qubits per logical qubit at physical error rate \(0.1\%\) for logical CNOT error rates \(10^{-10}\) and \(10^{-24}\), respectively.'

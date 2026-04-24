@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: css_6_1_2
+physical: qubits
+logical: qubits
+
+name: '\([[6,1,2]]\) semi-self-dual CSS code'
+introduced: '\cite{arxiv:2507.10519}'
+
+description: |
+  A six-qubit CSS stabilizer code with generators \(ZIZIIZ\), \(IZZIZI\), \(IIIZZZ\), \(XIXXXI\), and \(IXXXIX\) \cite[ID 59]{arxiv:2501.17447}.
+  It is a semi-self-dual CSS code, i.e., a CSS code whose \(X\)-type stabilizers are contained in the \(Z\)-type stabilizers \cite{arxiv:2507.10519}.
+
+  An equivalent self-dual semi-CSS presentation has generators \(XXXXII\), \(IIXXXX\), \(ZZZZII\), \(IIZZZZ\), and \(IYIYIY\) \cite{arxiv:2507.10519}.
+  A qubit permutation \(0\mapsto 0\), \(1\mapsto 2\), \(2\mapsto 4\), \(3\mapsto 5\), \(4\mapsto 1\), \(5\mapsto 3\), followed by the same one-qubit Clifford on every qubit sending \(X\mapsto Z\), \(Z\mapsto Y\), and \(Y\mapsto X\), converts the CSS generators to that semi-CSS presentation.
+  This makes the code a concrete example of the equivalence between the semi-self-dual CSS and self-dual semi-CSS cases in the \(U(\ell,R_8)\) family \cite{arxiv:2507.10519}.
+
+protection: |
+  Detects any single-qubit error as a distance-two stabilizer code.
+
+features:
+  transversal_gates:
+    - 'In the equivalent self-dual semi-CSS presentation obtained by fixing one logical qubit of the \([[6,2,2]]\) \(C_6\) code to \(|Y^{-}\rangle_L\), transversal gates support a fault-tolerant magic-state-preparation circuit \cite[ID 59]{arxiv:2501.17447}\cite{arxiv:2507.10519}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: stab_6_2_2
+      detail: 'Fixing one logical qubit of the \([[6,2,2]]\) \(C_6\) code to \(|Y^{-}\rangle_L\) yields this \([[6,1,2]]\) code \cite[ID 59]{arxiv:2501.17447}\cite{arxiv:2507.10519}. The paper''s self-dual semi-CSS presentation is converted to the CSS form by a qubit permutation together with the same local Clifford \(X\mapsto Z\mapsto Y\mapsto X\) on every qubit.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-04-24'
