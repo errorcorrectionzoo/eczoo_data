@@ -39,7 +39,7 @@ features:
     - 'Sequential encoder related to MBQC \cite{arxiv:2405.06142}.'
   decoders:
     - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
-    - 'Clustered bounded-distance decoder \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,manual:{Y. Li. Codeword Stabilized Quantum Codes and Their Error Correction. PhD thesis, UC Riverside, 2010.}}.'
+    - 'Clustered bounded-distance decoder \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,preset:Li10}.'
     - 'Structured error recovery \cite{arxiv:0912.3245}, which reduces to syndrome-based recovery for additive (i.e., stabilizer) CWS codes.'
 
 notes:
@@ -50,7 +50,7 @@ relations:
   parents:
     - code_id: non_stabilizer
       detail: 'Any CWS code can be written as a USt whose (\(K=1\)) stabilizer code is the cluster state and whose coset representatives are constructed from the binary classical code.
-      Conversely, USt codes are equivalent to CWS codes via a single-qubit \hyperref[topic:clifford]{Clifford circuit} as follows \cite{arxiv:0907.2038,manual:{Y. Li. Codeword Stabilized Quantum Codes and Their Error Correction. PhD thesis, UC Riverside, 2010.}}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.
+      Conversely, USt codes are equivalent to CWS codes via a single-qubit \hyperref[topic:clifford]{Clifford circuit} as follows \cite{arxiv:0907.2038,preset:Li10}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.
       The set of coset representatives of any USt can be extended to a larger set iterating over the underlying stabilizer code such that all codewords can be obtained from a single stabilizer state.
       Then, one can apply a single-qubit Clifford transformation to map said stabilizer state into a cluster state.'
     - code_id: qudit_cws

@@ -9,7 +9,7 @@ physical: bits
 logical: bits
 
 name: 'Regular LDPC code'
-introduced: '\cite{doi:10.1109/TIT.1962.1057683,manual:{R. Gallager, "Low-density parity check codes". 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.}}'
+introduced: '\cite{doi:10.1109/TIT.1962.1057683,preset:Gallager63}'
 
 description: |
   An LDPC code whose parity-check matrix has a fixed number of ones in each row and each column.
@@ -17,11 +17,11 @@ description: |
   If the parity-check matrix has \(n\) columns and \(m\) rows, then regularity implies \(nj = mk\).
 
 protection: |
-  Random \((j,k)\)-regular LDPC codes have minimum distance that grows linearly with block length for any fixed \(j \geq 3\) (with \(k > j\)) \cite{manual:{R. Gallager, "Low-density parity check codes". 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.},arxiv:1005.1062}.
+  Random \((j,k)\)-regular LDPC codes have minimum distance that grows linearly with block length for any fixed \(j \geq 3\) (with \(k > j\)) \cite{preset:Gallager63,arxiv:1005.1062}.
 
 features:
   rate: |
-    An ensemble of \((j,k)\)-regular LDPC codes has a \textit{design rate} \(1 - j/k\). This is a lower bound on the true rate, is the true rate if all constraints are linearly independent, and equals the rate asymptotically \cite{manual:{R. Gallager, "Low-density parity check codes". 1963. \href{https://dspace.mit.edu/bitstream/handle/1721.1/11804/32786367-MIT.pdf}{PhD thesis}, MIT Cambridge, MA.}}\cite[Sec. 3.4]{doi:10.1109/MCOM.2003.1222728}.
+    An ensemble of \((j,k)\)-regular LDPC codes has a \textit{design rate} \(1 - j/k\). This is a lower bound on the true rate, is the true rate if all constraints are linearly independent, and equals the rate asymptotically \cite{preset:Gallager63}\cite[Sec. 3.4]{doi:10.1109/MCOM.2003.1222728}.
 
   decoders:
     - 'The BP decoding threshold for regular codes is strictly below the Shannon capacity for any fixed \(j,k\) \cite[Sec. 3.11]{doi:10.1109/MCOM.2003.1222728}.'
