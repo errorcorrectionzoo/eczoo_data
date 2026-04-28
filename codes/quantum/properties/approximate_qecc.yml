@@ -73,6 +73,13 @@ protection: |
   there exists a recovery channel \(\mathcal{D}\) such that
   \(F(\mathcal{D}\mathcal{E},\mathcal{M})=1-\epsilon\) iff there exists some \(\mathcal{D}'\) such that
   for \hyperref[topic:complementary-channel]{complementary channel} \(\mathcal{E}^C\), \(F(\mathcal{E}^C,\mathcal{D}'\mathcal{M}^C)=1-\epsilon\) \cite{arxiv:0907.5391}.
+  If \(\mathcal{M}^C\) is a projection, this dual formulation yields the near-optimal estimate
+  \begin{align}
+    \frac{1}{2}d(\mathcal{E}^C,\mathcal{E}^C\mathcal{M}^C)
+    \leq \min_{\mathcal{D}}d(\mathcal{D}\mathcal{E},\mathcal{M})
+    \leq d(\mathcal{E}^C,\mathcal{E}^C\mathcal{M}^C)~,
+  \end{align}
+  reducing the recovery problem to estimating the information leaked to the environment \cite{arxiv:0907.5391}.
 
   \subsection{Approximate error-correction conditions}
   Analogously to the \term{Knill-Laflamme conditions} for (exact) QECCs, there exist various formulations of necessary and sufficient conditions for approximate error correction to determine if some code is \(\epsilon\)-correctable under a noise channel.
@@ -158,6 +165,7 @@ features:
     - 'Quantum machine-learning based decoders such as quantum convolutional neural networks \cite{arxiv:1810.03787} and quantum autoencoders \cite{arxiv:2202.00555}.'
     - 'The \textit{Leung recovery map} \cite{arxiv:quant-ph/9704002} for a noise channel whose Kraus operators \(E_j\) yield a diagonal QEC matrix, \(c_{ij}\propto\delta_{ij}\), has Kraus operators \(\Pi V_j^{\dagger}\), where \(\Pi\) is the codespace projection, and where \(V_j\) is the unitary from the polar decomposition of \(E_j \Pi\).
     This is the recovery used in the proof of the Knill-Laflamme conditions \cite[Thm. 10.1]{doi:10.1017/CBO9780511976667}.'
+    - 'A near-optimal recovery channel can be constructed from a saddle point in the complementary-channel optimization, achieving recovery error \(d(\widetilde{\mathcal{D}}\mathcal{E},\mathcal{M})\leq d(\mathcal{E}^C,\mathcal{E}^C\mathcal{M}^C)\) whenever \(\mathcal{M}^C\) is a projection \cite{arxiv:0907.5391}.'
     - 'The \textit{Cafaro recovery map} \cite{arxiv:1308.4582} can be obtained for noise Kraus operators if there exists a basis of error words with respect to which the uncorrectable piece in the Knill-Laflamme conditions is diagonal; see Ref. \cite{arxiv:2406.02444}.
     The map recovers information perfectly for strictly correctable noise.'
     - 'The \textit{Petz recovery map} a.k.a. the \textit{transpose map} \cite{doi:10.1007/BF01212345,doi:10.1093/qmath/39.1.97,arxiv:1810.03150}, a quantum channel determined by the codespace and noise channel, yields an infidelity of recovery that is at most twice away from the infidelity of the best possible recovery \cite{arxiv:quant-ph/0004088}. 
