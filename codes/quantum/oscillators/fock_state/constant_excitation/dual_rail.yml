@@ -20,7 +20,6 @@ description: |
 
   protection: |
     This is an error-detecting code against one \hyperref[topic:ad]{photon loss} event; it is often used in photonic quantum devices because of its ease of realization. A single loss event can be detected because, after the loss occurs, the output state \(|00\rangle\) is orthogonal to the codespace. Recovery is not possible, so a successful run of a quantum circuit is conditioned on not losing a photon during the circuit.
-    Two uses of the qubit \hyperref[topic:ad]{AD} channel acting on a dual-rail block simulate a quantum erasure channel with erasure symbol \(|00\rangle\) \cite{arxiv:1001.2356}.
 
     For Deutsch''s  problem specifically, this code protects against errors resulting in states that have the correct photon number, but in the wrong modes \cite{arxiv:quant-ph/9505011}.
 
@@ -55,13 +54,13 @@ relations:
       detail: 'The two-mode binomial code for \(S=N=0\) reduces to the dual-rail code.'
   cousins:
     - code_id: oscillators_concatenated
-      detail: 'Using the concatenation convention of the Zoo, concatenating the inner dual-rail code with an outer single-mode bosonic code yields several gates that are independent of the outer code \cite{arxiv:1605.09278}.'
+      detail: 'The KLM protocol, one of the first protocols for fault-tolerant quantum computation, utilizes concatenations of the dual-rail code with a stabilizer code such as the Steane code \cite{doi:10.1038/35051009,arxiv:quant-ph/0405112,arxiv:quant-ph/0502101}. Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538} that protects against \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}. Using the concatenation convention of the Zoo, concatenating the inner dual-rail code with an outer single-mode bosonic code yields several gates that are independent of the outer code \cite{arxiv:1605.09278}.'
     - code_id: steane
       detail: 'The KLM protocol, one of the first protocols for fault-tolerant quantum computation, utilizes concatenations of the dual-rail code with a stabilizer code such as the Steane code \cite{doi:10.1038/35051009,arxiv:quant-ph/0405112,arxiv:quant-ph/0502101}.' 
     - code_id: single-mode
       detail: 'Using the concatenation convention of the Zoo, concatenating the inner dual-rail code with an outer single-mode bosonic code yields several gates that are independent of the outer code \cite{arxiv:1605.09278}.'
     - code_id: ampdamp
-      detail: 'Dual-rail qubits can be used to convert leakage and \hyperref[topic:ad]{AD} noise into erasure noise \cite{arxiv:0710.1052,arxiv:2208.05461}. Two uses of the qubit \hyperref[topic:ad]{AD} channel acting on a dual-rail block simulate a quantum erasure channel with erasure symbol \(|00\rangle\), and concatenating this inner code with an outer \([[n,k,d]]\) qubit code yields an \([[2n,k]]\) code correcting \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
+      detail: 'Dual-rail qubits can be used to convert leakage and \hyperref[topic:ad]{AD} noise into erasure noise \cite{arxiv:0710.1052,arxiv:2208.05461}. Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code \cite{arxiv:2010.00538} that protects against \(d-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
     - code_id: quantum_parity
       detail: 'An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of the \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) (constant-excitation) subcode of the \([[4,2,2]]\) code with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}. More generally, an \([[m^2,1,m]]\) QPC corrects \(m-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
     - code_id: stab_4_2_2
