@@ -29,7 +29,7 @@ description: |
   This operator elongates the vacuum state along direction \(\theta\) in phase space.
 
 protection: |
-  In Fock space, the logical states occupy photon numbers \(n \equiv 2k \pmod{2m}\) for \(k \in \{0, m/2\}\), yielding natural number distributions that are interleaved by \(\Delta n = m\). 
+  In Fock space, the logical states occupy photon numbers in distinct congruence classes \(n \equiv 0 \pmod{2m}\) and \(n \equiv m \pmod{2m}\), yielding photon-number distributions that are interleaved by \(\Delta n = m\). 
   The code distance against single-photon loss is \(d = m\), where \(m\) is the number of legs (squeezed vacuum states in superposition). 
   The code provides protection against both photon loss and dephasing noise, with a fundamental trade-off: increasing \(m\) improves loss tolerance at the cost of higher dephasing sensitivity.
 
@@ -63,7 +63,7 @@ features:
     - 'Logical operations within a single mode can be performed using Gaussian operations (displacement, rotation, squeezing) combined with conditional control from an ancilla qubit.'
 
   decoders:
-    - 'The interleaved photon-number structure, \(n \equiv 2k \pmod{2m}\), enables photon-number-resolving measurements to identify single-photon loss events, which can then be corrected.'
+    - 'The interleaved photon-number structure, with support on distinct classes modulo \(2m\), enables photon-number-resolving measurements to identify single-photon loss events, which can then be corrected.'
 
 
 # Circuit QED: Recent proposals demonstrate controlled-squeezing gates using driven
