@@ -16,7 +16,7 @@ description: |
   An expander lifted-product code family is constructed as follows. First, take the Cayley graph of a finite group \(G\).
   Second, take the double cover of the graph, resulting in a graph that satisfies the requirements of participating in a \(G\)-lifted product (i.e., the resulting graph is a free \({\mathbb{F}}_q G\)-module). Third, create two \hyperref[code:tanner]{Tanner codes} on that graph, in which parity-check supports are defined by the graph and the local constraints are specified by two short classical codes (chosen randomly in the original proof). Fourth, take the \(G\)-lifted product of those two Tanner codes.
 
-  The small classical codes used in the construction of good QLDPC codes are required to have a certain product-expansion property (Lemma 10 in Ref. \cite{arxiv:2111.03654}); it is proven that random codes satisfy said property in the thermodynamic limit.
+  The small classical codes used in the construction of good QLDPC codes are required to have a certain product-expansion property \cite[Lemma 10 in]{arxiv:2111.03654}; it is proven that random codes satisfy said property in the thermodynamic limit.
 
 protection: 'Code performance strongly depends on \(G\). Certain non-Abelian groups yield asymptotically good QLDPC codes with parameters \([[n,k=\Theta(n),d=\Theta(n)]]\) \cite{arxiv:2111.03654}. For cyclic Abelian groups \(G=\mathbb{Z}_{\ell}\) with \(\ell=\Theta(n/\log n)\), quasi-cyclic expander LP codes yield families with parameters \([[n,k=\Theta(\log n),d=\Theta(n/\log n)]]\) \cite{arxiv:2012.04068}.'
 
@@ -47,7 +47,7 @@ relations:
     - code_id: expander
       detail: 'Expander LP codes are lifted products of expander codes with different local codes \cite{arxiv:2111.03654}.'
     - code_id: random
-      detail: 'Expander lifted-product codes are quantum CSS codes that utilize short classical codes in their construction which need to satisfy some properties (Ref. \cite{arxiv:2111.03654}, Lemma 10). It is shown that such codes exist, but they are not explicitly constructed. Such codes can be obtained by repeated random sampling or by performing a search of all codes of desired length. Nevertheless, since the length of the desired short codes does not scale with \(n\), this construction is effectively explicit.'
+      detail: 'Expander lifted-product codes are quantum CSS codes that utilize short classical codes in their construction which need to satisfy some properties \cite[Lemma 10]{arxiv:2111.03654}. It is shown that such codes exist, but they are not explicitly constructed. Such codes can be obtained by repeated random sampling or by performing a search of all codes of desired length. Nevertheless, since the length of the desired short codes does not scale with \(n\), this construction is effectively explicit.'
     - code_id: topological
       detail: 'Expander lifted-product codes are expected to realize topological quantum spin glass order \cite{arxiv:2412.13248}.'
 
