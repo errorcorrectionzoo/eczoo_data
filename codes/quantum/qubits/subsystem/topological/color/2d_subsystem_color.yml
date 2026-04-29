@@ -15,6 +15,7 @@ alternative_names:
 
 description: |
   A subsystem version of the 2D color code.
+  The original topological subsystem-code example is defined on the Union Jack lattice \cite{arxiv:0908.4246}; the square-octagon-lattice hypergraph construction of \cite{arxiv:1012.0425} reproduces the same code from a complementary viewpoint.
 
 protection: |
   One family of subsystem codes has parameters \([[3m,2g,2m+2g-2,d]]\), where \(m\) is the number of vertices of the original embedded two-colex, where \(g\) is the genus of the surface embedding the two-colex, and where the distance is bounded from below by the length of the smallest nontrivial homological cycle of the two-colex \(\Gamma\) \cite[Construction B]{arxiv:1207.0479}\cite[Lemma 2]{arxiv:1805.12542}.
@@ -22,6 +23,8 @@ protection: |
 
 
 features:
+  decoders:
+    - 'For the Union-Jack/square-octagon member, decoding can be reduced to correcting \(Z\) errors using stabilizers of the topological color code \cite[Sec. 4.1]{arxiv:1012.0425}.'
   general_gates:
     - 'Braiding twist defects \cite{arxiv:1006.5260}.'
   code_capacity_threshold:
@@ -35,6 +38,7 @@ relations:
     - code_id: translationally_invariant_subsystem
   cousins:
     - code_id: 2d_color
+      detail: 'Gauge fixing relates 2D subsystem color codes to 2D color codes on the same lattice \cite{arxiv:0908.4246,arxiv:1311.0879}; the original Union-Jack member is reproduced by the square-octagon-lattice construction of \cite{arxiv:1012.0425}.'
 
 
 # Begin Entry Meta Information

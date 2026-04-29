@@ -12,12 +12,14 @@ introduced: '\cite{arxiv:1012.0425,arxiv:1207.0479,arxiv:1805.12542}'
 
 description: |
   Member of a family of subsystem codes that are generalizations \cite{arxiv:1207.0479,arxiv:1805.12542} of a code defined on a three-valent hypergraph associated with the five-squares lattice \cite{arxiv:1012.0425}.
+  The original five-squares code is a 2D topological subsystem code with local two-qubit gauge generators; on a torus, it encodes two logical qubits \cite{arxiv:1012.0425}.
 
 features:
   decoders:
-    - 'Decoding of five-squares codes leads to a mapping of these codes to two copies of the surface code \cite{arxiv:1012.0425,arxiv:1805.12542}.'
+    - 'For the original five-squares code, preprocessing maps decoding onto two copies of the toric code, after which one can use minimum-weight matching or renormalization-group decoding \cite{arxiv:1012.0425}.'
+    - 'Generalized five-squares codes can also be decoded via a mapping to two copies of the surface code \cite{arxiv:1805.12542}.'
   code_capacity_threshold:
-    - 'Original five-squares code has a threshold of at least \(2\%\) against depolarizing noise \cite{arxiv:1012.0425}.'
+    - 'For depolarizing noise, the original five-squares code has a threshold around \(1.5\%\) under the simple decoder and around \(2\%\) under the improved decoder \cite{arxiv:1012.0425}.'
 
 
 relations:
@@ -26,8 +28,8 @@ relations:
       detail: 'Generalized five-squares codes are special cases of Sarvepalli-Brown subsystem codes \cite[Sec. II.B]{arxiv:1805.12542}.'
     - code_id: translationally_invariant_subsystem
   cousins:
-    - code_id: surface
-      detail: 'Decoding of five-squares codes leads to a mapping of these codes to two copies of the surface code \cite{arxiv:1012.0425,arxiv:1805.12542}.'
+    - code_id: toric
+      detail: 'For the original five-squares code, preprocessing maps decoding onto two copies of the toric code \cite{arxiv:1012.0425}.'
 
 
 # Begin Entry Meta Information
