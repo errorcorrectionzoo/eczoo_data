@@ -22,12 +22,15 @@ description: |
 
 protection: |
   The code can detect arbitrary losses in up to \(n/2\) modes.  
+  As the inner layer of a repetition-to-CSS concatenation, it can suppress dominant dephasing faults and convert the effective logical noise into a weaker, more symmetric channel before the outer encoding \cite{arxiv:1905.00450}.
   The cat-repetition code on a 2D mode lattice is a candidate for a memory that may be self-correcting, but only in the limit of infinite energy per mode \cite{arxiv:2205.09767}.
 
 features:
   general_gates:
     - 'Fault-tolerant logical \(X\), CNOT, and Toffoli gates and a logical Hadamard synthesized from state preparation and measurement in the dual basis, without magic-state preparation or distillation \cite{arxiv:1904.09474}.'
     - 'Using a physical bias-preserving CX between cat qubits, the logical \(\overline{\mathrm{CX}}\) gadget can be implemented transversally between repetition-code blocks; magic-state preparation using transversal \(ZZ(\theta)\) gates was also analyzed \cite{arxiv:1905.00450}.'
+  decoders:
+    - 'A measurement-code decoder for the repetition layer yields a \(\overline{\mathrm{CX}}\)-gadget threshold of about \(6\times 10^{-3}\) for \(n=5\); reaching a comparable threshold with naive repeated-syndrome decoding requires \(n=11\) and \(r=5\) \cite{arxiv:1905.00450}.'
 
   fault_tolerance:
     - 'Fault-tolerant logical \(X\), CNOT, and Toffoli gates and a logical Hadamard synthesized from state preparation and measurement in the dual basis, without magic-state preparation or distillation \cite{arxiv:1904.09474}.'
@@ -45,6 +48,10 @@ relations:
   cousins:
     - code_id: quantum_repetition
       detail: 'The cat-repetition code is obtained by encoding each qubit of a quantum repetition code into a two-component cat code in its cat-state basis \cite{arxiv:1904.09474,arxiv:1905.00450,arxiv:2009.10756,arxiv:2012.04108,arxiv:2212.11927}.'
+    - code_id: qubit_css
+      detail: 'The cat-repetition code can serve as the inner code in a repetition-to-CSS concatenation tailored to dephasing-biased cat qubits \cite{arxiv:1905.00450}.'
+    - code_id: data_syndrome
+      detail: 'The measurement-code decoder proposed for the cat-repetition code plays the role of a syndrome-measurement code adapted to repetition-code stabilizers and improves the \(\overline{\mathrm{CX}}\)-gadget threshold \cite{arxiv:1905.00450}.'
     - code_id: self_correct
       detail: 'The cat-repetition code on a 2D mode lattice is a candidate for a memory that may be self-correcting, but only in the limit of infinite energy per mode \cite{arxiv:2205.09767}.'
 
