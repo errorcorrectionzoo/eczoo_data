@@ -17,7 +17,6 @@ description: |
   Two different types of photon polarization can also be used.
 
   This code is a DFS \cite{arxiv:quant-ph/9807004,arxiv:quant-ph/9902041,arxiv:quant-ph/9908064,arxiv:quant-ph/0007013} with respect to phase errors \cite{arxiv:quant-ph/0210072}.
-  Concatenating the dual-rail code with an \([[n,k,d]]\) stabilizer code yields an \([[2n,k,d]]\) constant-excitation code that avoids coherent phase errors, is equivalent to a Pauli-rotated concatenation with the two-qubit repetition code, and admits a CWS description \cite{arxiv:2010.00538}.
 
   protection: |
     This is an error-detecting code against one \hyperref[topic:ad]{photon loss} event; it is often used in photonic quantum devices because of its ease of realization. A single loss event can be detected because, after the loss occurs, the output state \(|00\rangle\) is orthogonal to the codespace. Recovery is not possible, so a successful run of a quantum circuit is conditioned on not losing a photon during the circuit.
@@ -37,7 +36,6 @@ features:
 
   fault_tolerance:
     - 'Dual-rail qubits can be used to convert leakage and \hyperref[topic:ad]{AD} noise into erasure noise \cite{arxiv:0710.1052,arxiv:2208.05461}.'
-    - 'When the outer code is a single-qubit CSS stabilizer code with transversal Pauli, Hadamard, and CNOT gates, the dual-rail concatenated constant-excitation code inherits a positive threshold against stochastic noise \cite{arxiv:2010.00538}.'
 
 realizations:
   - 'The dual-rail code is ubiquitous in linear-optical quantum devices and is behind the KLM protocol, one of the first proposals for fault-tolerant computation.
