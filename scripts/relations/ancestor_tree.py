@@ -1,14 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-SCRIPT_DIR="$(cd -- "$(dirname "$0")" && pwd)"
-export ECZOO_SCRIPT_DIR="$SCRIPT_DIR"
+# Print a tree of all recursive ancestors of a given code_id,
+# using the parent relations defined in the EC Zoo YAML code files.
 
-exec python3 - "$@" <<'PY'
 from __future__ import annotations
 
 import argparse
 import os
 import sys
+from pathlib import Path
 
 
 def strip_quotes(value: str) -> str:
@@ -79,29 +79,47 @@ def build_code_to_parents_map(codes_dir: str) -> tuple[dict[str, list[str]], set
     return code_to_parents, known_code_ids
 
 
-def find_recursive_ancestors(code_id: str, code_to_parents: dict[str, list[str]]) -> list[str]:
-    visited: set[str] = set()
-    ordered_ancestors: list[str] = []
+def print_ancestor_tree(
+    code_id: str,
+    code_to_parents: dict[str, list[str]],
+    prefix: str = "",
+    is_last: bool = True,
+    seen: set[str] | None = None,
+    root: bool = False,
+) -> None:
+    if seen is None:
+        seen = set()
 
-    def visit(child_id: str) -> None:
-        for parent_id in code_to_parents.get(child_id, []):
-            if parent_id in visited:
-                continue
+    connector = "" if root else ("└── " if is_last else "├── ")
+    already_seen = code_id in seen
 
-            visited.add(parent_id)
-            ordered_ancestors.append(parent_id)
-            visit(parent_id)
+    label = code_id + (" [see above]" if already_seen else "")
+    print(prefix + connector + label)
 
-    visit(code_id)
-    return ordered_ancestors
+    if already_seen:
+        return
+
+    seen.add(code_id)
+
+    parents = code_to_parents.get(code_id, [])
+    child_prefix = prefix if root else (prefix + ("    " if is_last else "│   "))
+
+    for i, parent_id in enumerate(parents):
+        print_ancestor_tree(
+            parent_id,
+            code_to_parents,
+            prefix=child_prefix,
+            is_last=(i == len(parents) - 1),
+            seen=seen,
+        )
 
 
 def parse_args() -> argparse.Namespace:
-    script_dir = os.environ["ECZOO_SCRIPT_DIR"]
-    default_codes_dir = os.path.normpath(os.path.join(script_dir, "..", "codes"))
+    script_dir = Path(__file__).resolve().parent
+    default_codes_dir = str(script_dir.parent.parent / "codes")
 
     parser = argparse.ArgumentParser(
-        description="Print all recursive ancestors of a given code_id.",
+        description="Print a tree of all recursive ancestors of a given code_id.",
     )
     parser.add_argument("code_id", help="Code identifier to search above.")
     parser.add_argument(
@@ -120,12 +138,9 @@ def main() -> int:
         print(f"Unknown code_id: {args.code_id}", file=sys.stderr)
         return 1
 
-    for parent_id in find_recursive_ancestors(args.code_id, code_to_parents):
-        print(parent_id)
-
+    print_ancestor_tree(args.code_id, code_to_parents, root=True)
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-PY

@@ -42,7 +42,8 @@ features:
 
 relations:
   parents:
-    - code_id: block_quantum
+    - code_id: oscillators
+      detail: 'Restricting the AD channel to the first two Fock states \(\{|0\rangle,|1\rangle\}\) yields the non-Pauli qubit AD channel, which requires protecting against the loss error \(E_1\propto X+iY\) (instead of \(X\) and \(Y\) Pauli errors individually). Qubit AD codes are thus a special case of bosonic AD codes.'
     - code_id: approximate_qecc
       detail: 'Protection against \hyperref[topic:ad]{AD} noise is typically approximate because the tensor product of Kraus operators with all \(\ell=0\) is typically corrected only up to some order in \(\gamma\) \cite{arxiv:quant-ph/9704002,doi:10.1103/PhysRevA.56.1114}.'
   cousins:

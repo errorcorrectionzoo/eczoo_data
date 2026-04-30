@@ -1,14 +1,17 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-SCRIPT_DIR="$(cd -- "$(dirname "$0")" && pwd)"
-export ECZOO_SCRIPT_DIR="$SCRIPT_DIR"
+# For every code in the EC Zoo, check whether its primary parent is also a
+# direct parent of any of the code's secondary parents.  If so, the primary
+# parent relation is redundant and could be removed (it is already implied by
+# the secondary parent chain).  Only codes with at least one such redundancy
+# are printed.
 
-exec python3 - "$@" <<'PY'
 from __future__ import annotations
 
 import argparse
 import os
 import sys
+from pathlib import Path
 
 
 def strip_quotes(value: str) -> str:
@@ -59,9 +62,8 @@ def parse_code_metadata(file_path: str) -> tuple[str | None, list[str]]:
     return code_id, parents
 
 
-def build_code_to_parents_map(codes_dir: str) -> tuple[dict[str, list[str]], set[str]]:
+def build_code_to_parents_map(codes_dir: str) -> dict[str, list[str]]:
     code_to_parents: dict[str, list[str]] = {}
-    known_code_ids: set[str] = set()
 
     for root, _, files in os.walk(codes_dir):
         for file_name in files:
@@ -73,23 +75,32 @@ def build_code_to_parents_map(codes_dir: str) -> tuple[dict[str, list[str]], set
             if not code_id:
                 continue
 
-            known_code_ids.add(code_id)
             code_to_parents[code_id] = parents
 
-    return code_to_parents, known_code_ids
+    return code_to_parents
+
+
+def find_redundant_primary(
+    code_id: str, code_to_parents: dict[str, list[str]]
+) -> list[str]:
+    """Return secondary parents of code_id whose own parents include the primary parent."""
+    parents = code_to_parents.get(code_id, [])
+    if len(parents) < 2:
+        return []
+    primary = parents[0]
+    return [s for s in parents[1:] if primary in code_to_parents.get(s, [])]
 
 
 def parse_args() -> argparse.Namespace:
-    script_dir = os.environ["ECZOO_SCRIPT_DIR"]
-    default_codes_dir = os.path.normpath(os.path.join(script_dir, "..", "..", "codes"))
+    script_dir = Path(__file__).resolve().parent
+    default_codes_dir = str(script_dir.parent.parent / "codes")
 
     parser = argparse.ArgumentParser(
         description=(
-            "Check whether the primary parent of a code is also a direct parent "
-            "of any of the code's secondary parents."
+            "List all codes whose primary parent is also a direct parent of "
+            "at least one of their secondary parents (redundant primary parent)."
         ),
     )
-    parser.add_argument("code_id", help="Code identifier to check.")
     parser.add_argument(
         "--codes-dir",
         default=default_codes_dir,
@@ -100,35 +111,23 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    code_to_parents, known_code_ids = build_code_to_parents_map(args.codes_dir)
+    code_to_parents = build_code_to_parents_map(args.codes_dir)
 
-    if args.code_id not in known_code_ids:
-        print(f"Unknown code_id: {args.code_id}", file=sys.stderr)
-        return 1
+    found_any = False
+    for code_id in sorted(code_to_parents):
+        hits = find_redundant_primary(code_id, code_to_parents)
+        if not hits:
+            continue
+        primary = code_to_parents[code_id][0]
+        found_any = True
+        for s in hits:
+            print(f"{code_id}: primary '{primary}' is also a parent of secondary '{s}'")
 
-    parents = code_to_parents.get(args.code_id, [])
-
-    if len(parents) < 2:
-        print(f"{args.code_id} has fewer than two parents; nothing to check.")
-        return 0
-
-    primary = parents[0]
-    secondary = parents[1:]
-
-    hits = [s for s in secondary if primary in code_to_parents.get(s, [])]
-
-    if not hits:
-        print(
-            f"Primary parent '{primary}' is not a direct parent of any secondary parent."
-        )
-        return 0
-
-    for s in hits:
-        print(f"'{primary}' is a direct parent of secondary parent '{s}'")
+    if not found_any:
+        print("No redundant primary parents found.")
 
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-PY

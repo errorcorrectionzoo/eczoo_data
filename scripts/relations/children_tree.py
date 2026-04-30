@@ -1,15 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-SCRIPT_DIR="$(cd -- "$(dirname "$0")" && pwd)"
-export ECZOO_SCRIPT_DIR="$SCRIPT_DIR"
+# Print a tree of all recursive children (descendants) of a given code_id,
+# using the parent-child relations defined in the EC Zoo YAML code files.
 
-exec python3 - "$@" <<'PY'
 from __future__ import annotations
 
 import argparse
 import os
 import sys
 from collections import defaultdict
+from pathlib import Path
 
 
 def strip_quotes(value: str) -> str:
@@ -120,8 +120,8 @@ def print_children_tree(
 
 
 def parse_args() -> argparse.Namespace:
-    script_dir = os.environ["ECZOO_SCRIPT_DIR"]
-    default_codes_dir = os.path.normpath(os.path.join(script_dir, "..", "..", "codes"))
+    script_dir = Path(__file__).resolve().parent
+    default_codes_dir = str(script_dir.parent.parent / "codes")
 
     parser = argparse.ArgumentParser(
         description="Print a tree of all recursive children of a given code_id.",
@@ -149,4 +149,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-PY

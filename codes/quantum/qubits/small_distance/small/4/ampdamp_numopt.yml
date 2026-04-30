@@ -40,8 +40,10 @@ relations:
     - code_id: qubits_into_qubits
     - code_id: ampdamp
     - code_id: numopt
+      detail: 'Numerically optimized four-qubit AD codes can be obtained from a biconvex optimization of the entanglement fidelity \cite{arxiv:2411.12952}.'
     - code_id: small_distance_quantum
   cousins:
+    # If numopt parent, this is a bosonic code. Convention is to keep qubit AD codes children of ampdamp
     - code_id: css_4_1_2
       detail: 'The numerically optimized four-qubit AD code can correct a single \hyperref[topic:ad]{AD} error with higher entanglement fidelity than the \([[4,1,2]]\) LNCY code \cite{arxiv:quant-ph/9704002}.'
     - code_id: reinforcement_learning
