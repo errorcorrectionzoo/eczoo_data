@@ -8,7 +8,7 @@ physical: bits
 logical: bits
 
 name: 'Binary BCH code'
-introduced: '\cite{doi:10.1016/s0019-9958(60)90287-4,doi:10.1016/S0019-9958(60)90870-6,manual:{A. Hocquenghem, Codes correcteurs d''Erreurs, Chiffres (Paris), vol.2, pp.147-156, 1959.}}'
+introduced: '\cite{doi:10.1016/s0019-9958(60)90287-4,doi:10.1016/S0019-9958(60)90870-6,manual:{A. Hocquenghem, Codes correcteurs d''Erreurs, Chiffres (Paris), vol.2, pp.147-156, 1959}}'
 
 description: |
   Cyclic binary code of odd length \(n\) whose zeroes are consecutive powers of a primitive \(n\)th root of unity \(\alpha\) (see \ref{topic:Cyclic-to-polynomial-correspondence}). More precisely, the generator polynomial of a BCH code of \textit{designed distance} \(\delta\geq 1\) is the lowest-degree monic polynomial with zeroes \(\{\alpha^b,\alpha^{b+1},\cdots,\alpha^{b+\delta-2}\}\) for some \(b\geq 0\). BCH codes are called \textit{narrow-sense} when \(b=1\), and are called \textit{primitive} when \(n=2^r-1\) for some \(r\geq 2\).
@@ -22,7 +22,7 @@ features:
   rate: 'Primitive BCH codes are asymptotically bad \cite[Thm. 2.6.3]{preset:HKScyclic}.'
 
   decoders:
-    - 'Peterson decoder with runtime of \hyperref[topic:asymptotics]{order} \(O(n^3)\) \cite{doi:10.1109/TIT.1960.1057586,manual:{S. Arimoto, "Encoding and decoding of p-ary group codes and the correction system," Information Processing in Japan (in Japanese), vol. 2, pp. 320-325, Nov. 1961.}} (see exposition in Ref. \cite{preset:Blahut}).'
+    - 'Peterson decoder with runtime of \hyperref[topic:asymptotics]{order} \(O(n^3)\) \cite{doi:10.1109/TIT.1960.1057586,manual:{S. Arimoto, "Encoding and decoding of p-ary group codes and the correction system," Information Processing in Japan (in Japanese), vol. 2, pp. 320-325, Nov. 1961}} (see exposition in Ref. \cite{preset:Blahut}).'
     - 'Berlekamp-Massey decoder with runtime of \hyperref[topic:asymptotics]{order} \(O(n^2)\) \cite{doi:10.1109/TIT.1969.1054260,preset:Berlekamp} and modification by Burton \cite{doi:10.1109/TIT.1971.1054655}; see also \cite{preset:PetersonWeldon,doi:10.1007/978-3-7091-2945-6}.'
     - 'Sugiyama et al. modification of the extended Euclidean algorithm \cite{doi:10.1016/S0019-9958(75)90090-X,doi:10.1017/CBO9780511606267}.'
     - 'Guruswami-Sudan list decoder \cite{doi:10.1109/18.782097,doi:10.1109/SFCS.1998.743426}.'
@@ -33,7 +33,7 @@ notes:
   - 'See corresponding MinT database entry \cite{preset:Schurer15b}.'
 
 realizations:
-  - 'Satellite communication \cite{manual:{K.-M. Cheung and F. Pollara, "Phobos lander coding system: Software and analysis." The Telecommunications and Data Acquisition Report (1988).}}'
+  - 'Satellite communication \cite{manual:{K.-M. Cheung and F. Pollara, "Phobos lander coding system: Software and analysis." The Telecommunications and Data Acquisition Report (1988)}}'
 
 relations:
   parents:

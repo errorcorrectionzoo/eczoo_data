@@ -47,32 +47,32 @@ protection: |
   \end{align}
 
   The covering radius of a lattice is defined similarly as above, but with the spheres' \textit{covering radius} now being the smallest one such that the spheres cover all space.
-  In general, finding the covering radius of a lattice is \(NP\)-hard \cite{manual:{van Emde, Boas P. "Another NP-complete partition problem and the complexity of computing short vectors in lattices." TR (1981).}}.
+  In general, finding the covering radius of a lattice is \(NP\)-hard \cite{manual:{van Emde, Boas P. "Another NP-complete partition problem and the complexity of computing short vectors in lattices." TR (1981)}}.
 
   The \textit{lattice quantizer problem} is to find a lattice whose \textit{fundamental Voronoi cell} \(\Pi\), the Voronoi cell at the origin, has the smallest possible normalized second moment,
   \begin{align}
     G(\Pi)=\frac{\frac{1}{n}\int_{\Pi}x\cdot x\,\textnormal{d}x}{\text{Vol}(\Pi)^{1+2/n}}\,.
   \end{align}
-  Higher-dimensional lattices yield quantizers with lower normalized second moments than the 1D integer lattice \cite{manual:{P. L. Zador, Development and evaluation of procedures for quantiZing multivariate distributions, PhD thesis, Stanford Univ., 1963.},doi:10.1109/TIT.1982.1056490}.
+  Higher-dimensional lattices yield quantizers with lower normalized second moments than the 1D integer lattice \cite{manual:{P. L. Zador, Development and evaluation of procedures for quantiZing multivariate distributions, PhD thesis, Stanford Univ., 1963},doi:10.1109/TIT.1982.1056490}.
 
   The \textit{shortest vector problem} (SVP) asks for the shortest nonzero vector in a given lattice and is related to cryptographic protocols.
-  Solving SVP up to an error independent of lattice dimension is NP-complete \cite{manual:{van Emde Boas, P. (1981). Another NP-complete problem and the complexity of computing short vectors in a lattice. Tecnical Report, Department of Mathmatics, University of Amsterdam.},doi:10.1137/S0097539700373039}.
+  Solving SVP up to an error independent of lattice dimension is NP-complete \cite{manual:{van Emde Boas, P. (1981). Another NP-complete problem and the complexity of computing short vectors in a lattice. Tecnical Report, Department of Mathmatics, University of Amsterdam},doi:10.1137/S0097539700373039}.
   The Lenstra-Lenstra-Lovasz (LLL) algorithm solves SVP in polynomial time, but up to an error exponential in the dimension \cite{doi:10.1007/BF01457454}; see the book \cite{doi:10.1007/978-0-387-77993-5}.
 
 # Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a nonzero vector in the lattice.
 
 features:
   rate: |
-    Lattices with minimal-distance decoding achieve the capacity of the AWGN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145.},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, PhD thesis, McMaster Univ., Hamilton, Ontario, 1981,doi:10.1109/18.651040.}}.
+    Lattices with minimal-distance decoding achieve the capacity of the AWGN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, PhD thesis, McMaster Univ., Hamilton, Ontario, 1981,doi:10.1109/18.651040}}.
 
   decoders:
     - 'Spherical decoder \cite{doi:10.1090/S0025-5718-1985-0777278-8,doi:10.1007/bf01581144}.'
 
 notes:
-  - 'See books \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/b98975,manual:{C. A. Rogers. Packing and covering. Vol. 54. Cambridge: University Press, 1964.}} for introductions and overviews of lattices.'
-  - 'See LMFDB \cite{preset:LMFDB} and Catalogue of Lattices \cite{manual:{G. Nebe and N. J. A. Sloane. "Catalogue of Lattices." https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/index.html.}} for databases of lattices.'
-  - 'Tables of bounds on kissing numbers \cite{manual:{H. Cohn. "Kissing numbers." https://cohn.mit.edu/kissing-numbers.}}. Popular summary of bounds on kissing numbers in 17-21 dimensions in \href{https://www.quantamagazine.org/mathematicians-discover-new-way-for-spheres-to-kiss-20250115/}{Quanta Magazine}.'
-  - 'See Refs. \cite{manual:{J. Cannon, W. Bosma, C. Fieker, and A. Steel (2008). HANDBOOK OF MAGMA FUNCTIONS.},doi:10.1145/190347.190362,doi:10.1006/jsco.1996.0125} for various examples and implementations in Magma.'
+  - 'See books \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/b98975,manual:{C. A. Rogers. Packing and covering. Vol. 54. Cambridge: University Press, 1964}} for introductions and overviews of lattices.'
+  - 'See LMFDB \cite{preset:LMFDB} and Catalogue of Lattices \cite{manual:{G. Nebe and N. J. A. Sloane. "Catalogue of Lattices." https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/index.html}} for databases of lattices.'
+  - 'Tables of bounds on kissing numbers \cite{manual:{H. Cohn. "Kissing numbers." https://cohn.mit.edu/kissing-numbers}}. Popular summary of bounds on kissing numbers in 17-21 dimensions in \href{https://www.quantamagazine.org/mathematicians-discover-new-way-for-spheres-to-kiss-20250115/}{Quanta Magazine}.'
+  - 'See Refs. \cite{manual:{J. Cannon, W. Bosma, C. Fieker, and A. Steel (2008). HANDBOOK OF MAGMA FUNCTIONS},doi:10.1145/190347.190362,doi:10.1006/jsco.1996.0125} for various examples and implementations in Magma.'
 
 
 relations:

@@ -9,7 +9,7 @@ logical: bits
 
 name: 'Varshamov-Tenengolts (VT) code'
 short_name: 'VT'
-introduced: '\cite{manual:{R. R. Varshamov and G. M. Tenengolts, "Codes which correct single asymmetric errors" (translated to English), Automation and Remote Control, 26(2), 286-290 (1965).},manual:{V. I. Levenshtein, "Binary codes capable of correcting deletions, insertions and reversals" (translated to English), Soviet Physics Doklady, 10(8), 707-710 (1966).}}'
+introduced: '\cite{manual:{R. R. Varshamov and G. M. Tenengolts, "Codes which correct single asymmetric errors" (translated to English), Automation and Remote Control, 26(2), 286-290 (1965)},manual:{V. I. Levenshtein, "Binary codes capable of correcting deletions, insertions and reversals" (translated to English), Soviet Physics Doklady, 10(8), 707-710 (1966)}}'
 
 description: |-
   Nearly optimal binary deletion-correcting code and code for the asymmetric channel. 
@@ -19,7 +19,7 @@ description: |-
   C_{n,a}=\left\{x\in\{0,1\}^n: \sum_{i=1}^n i~x_i = a\mod (n+1) \right\}.
   \end{align}
 
-  By adapting a construction of Tenengolts \cite{manual:{G. M. Tenengolts, "Class of codes correcting bit loss and errors in the preceding bit" (translated to English), Automation and Remote Control, 37(5), 797–802 (1976).}}, VT codes can be modified to yield slightly longer linear codes \cite{arxiv:math/0207197}.
+  By adapting a construction of Tenengolts \cite{manual:{G. M. Tenengolts, "Class of codes correcting bit loss and errors in the preceding bit" (translated to English), Automation and Remote Control, 37(5), 797–802 (1976)}}, VT codes can be modified to yield slightly longer linear codes \cite{arxiv:math/0207197}.
   VT codes can be generalized to the \(q\)-ary case \cite{arxiv:1708.04071,doi:10.1109/TIT.1984.1056962,arxiv:1906.07887}.
 
 protection: 'Corrects a single asymmetric error (a \(0\) mapped to a \(1\)), a single deletion, or a single insertion of an arbitrary bit in an arbitrary position for any choice of \(a\).'
@@ -28,7 +28,7 @@ features:
   rate: 'Has asymptotic rate \(1\). The redundancy is about \(\log_2(n+1)\) bits, making the construction nearly optimal for single-deletion correction.'
 
   decoders:
-    - 'Decoder based on checksums \(\sum_{i=1}^n i~x_i^{\prime}\) of corrupted codewords \(x_i^{\prime}\) \cite{manual:{V. I. Levenshtein, "Binary codes capable of correcting deletions, insertions and reversals" (translated to English), Soviet Physics Doklady, 10(8), 707-710 (1966).},manual:{V. I. Levenshtein, "Binary codes capable of correcting spurious insertions and deletions of one" (translated to English), Problems of Information Transmission, 1(1), 8-17 (1965).}}.'
+    - 'Decoder based on checksums \(\sum_{i=1}^n i~x_i^{\prime}\) of corrupted codewords \(x_i^{\prime}\) \cite{manual:{V. I. Levenshtein, "Binary codes capable of correcting deletions, insertions and reversals" (translated to English), Soviet Physics Doklady, 10(8), 707-710 (1966)},manual:{V. I. Levenshtein, "Binary codes capable of correcting spurious insertions and deletions of one" (translated to English), Problems of Information Transmission, 1(1), 8-17 (1965)}}.'
 
 relations:
   parents:
