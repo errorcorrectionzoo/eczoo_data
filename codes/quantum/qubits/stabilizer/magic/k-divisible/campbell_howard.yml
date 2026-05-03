@@ -13,8 +13,12 @@ introduced: '\cite{arxiv:1606.01904}'
 
 description: |
   Family of \([[6k+2,3k,2]]\) qubit stabilizer codes with quasi-transversal \(CCZ^{\otimes k}\) gates that are relevant to magic-state distillation.
+  In the synthillation framework, these distance-two codes realize batches of logical \(CCZ\) gates using physical \(T\) gates followed by a Clifford correction.
+
+protection: 'Detects single-qubit errors.'
 
 features:
+  rate: 'Encoding rate is \(3k/(6k+2)\), approaching \(1/2\) as \(k\to\infty\).'
   magic_scaling_exponent: 'A total of \(r\) rounds of magic-state distillation yields a magic-state yield parameter \(\gamma\to 1^{+}\) as \(k,r\rightarrow \infty\). This matches the Bravyi-Haah conjectured lower bound \(\gamma \geq 1\) for concatenated triorthogonal-matrix protocols \cite[Sec. VI]{arxiv:1209.2426}.'
   transversal_gates:
     - 'Quasi-transversal \(CCZ^{\otimes k}\) gates \cite{arxiv:1606.01904}.'
@@ -22,7 +26,10 @@ features:
 relations:
   parents:
     - code_id: small_distance_qubit_stabilizer
-# Could be quantum_divisible
+      detail: 'The family has distance \(2\).'
+  cousins:
+    - code_id: quantum_triorthogonal
+      detail: 'Campbell-Howard codes arise from the generalized-triorthogonal/quasitransversal \(G\)-matrix framework, which extends Bravyi-Haah triorthogonal matrices by allowing odd pair and triple overlaps entirely within the logical-row block \(K\) \cite[Appx. D]{arxiv:1606.01904}.'
 
 
 # Begin Entry Meta Information
