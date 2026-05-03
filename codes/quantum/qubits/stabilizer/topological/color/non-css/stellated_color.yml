@@ -11,10 +11,11 @@ name: 'Stellated color code'
 introduced: '\cite{arxiv:1806.02820}'
 
 description: |
-  A non-CSS color code on a lattice patch with a single twist defect at the center of the patch.
+  A non-CSS color-code family on a lattice patch with a single central puncture that hosts a twist defect connected to the boundary by a domain wall.
+  The family is parameterized by a rotational symmetry order \(s\); for odd \(s\), the code encodes \(k=s-1\) logical qubits, while for even \(s\), it encodes \(k=s-2\) logical qubits \cite{arxiv:1806.02820}.
 
 features:
-  rate: 'Stellated color codes have negative curvature around the central defect, and thus circumvent the \hyperref[topic:bpt-bound]{BPT bound} for codes on Euclidean lattices.'
+  rate: 'On the 4.8.8 lattice, stellated color codes have \(c=4-\frac{4}{s}\) for odd \(s\) and \(c=4-\frac{8}{s}\) for even \(s\), approaching \(4\) as \(s\) grows. On the 6.6.6 lattice, they have \(c=\frac{8}{3}-\frac{8}{3s}\) for odd \(s\) and \(c=\frac{8}{3}-\frac{16}{3s}\) for even \(s\), approaching \(\frac{8}{3}\) \cite{arxiv:1806.02820}.'
 
 relations:
   parents:
@@ -23,6 +24,8 @@ relations:
     - code_id: triangle_surface
       detail: 'Stellated color codes are color-code analogues of triangle surface codes in that both encode logical information in lattices with a single twist defect.
       Instances of the former can be obtained by fattening \cite{arxiv:cond-mat/0607736} the vertices of the latter \cite{arxiv:1806.02820}.'
+    - code_id: stellated_surface
+      detail: 'Stellated color codes are color-code analogues of stellated surface codes; the surface-code family has the same rotational parameter \(s\), but half the asymptotic \(c\)-value of the 4.8.8 stellated color-code family \cite{arxiv:1806.02820}.'
 # 2D stabilizer is a stretch since defects can induce hyperbolic geometry
 
 
@@ -30,5 +33,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: Copilot
+      date: '2026-05-03'
     - user_id: VictorVAlbert
       date: '2024-03-10'

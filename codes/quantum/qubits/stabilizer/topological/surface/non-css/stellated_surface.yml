@@ -1,0 +1,30 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stellated_surface
+physical: qubits
+logical: qubits
+
+name: 'Stellated surface code'
+introduced: '\cite{arxiv:1806.02820}'
+
+description: |
+  A twist-defect surface-code family parameterized by a rotational symmetry order \(s\), with a central toric-code twist connected to the boundary by a domain wall.
+  The \(s=3\) member is the triangular surface code \cite{arxiv:1612.04795}.
+  In the plaquette construction of Ref. \cite[Appx. D]{arxiv:1806.02820}, qubits lie on vertices, each plaquette hosts one stabilizer, and plaquettes along the central domain wall act in mixed Pauli bases.
+
+features:
+  rate: 'Stellated surface codes have \(c=2-\frac{2}{s}\) for odd \(s\) and \(c=2-\frac{4}{s}\) for even \(s\), both approaching \(2\) as \(s\) grows \cite[Appx. D]{arxiv:1806.02820}.'
+
+relations:
+  parents:
+    - code_id: twist_defect_surface
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: Copilot
+      date: '2026-05-03'
