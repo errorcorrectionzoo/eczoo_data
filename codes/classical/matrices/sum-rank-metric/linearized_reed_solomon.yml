@@ -8,7 +8,7 @@ physical: matrices
 logical: matrices
 
 name: 'Linearized RS code'
-introduced: '\cite{arxiv:1710.03109}'
+introduced: '\cite{doi:10.1007/s10623-012-9704-4,doi:10.1109/CWIT.2015.7255141,arxiv:1710.03109}'
 
 description: |
   A code obtained by linearizing a skew RS code, i.e., by translating evaluations of skew polynomials into operator evaluations over blocks.
@@ -26,10 +26,6 @@ realizations:
   - 'Network coding \cite{arxiv:1805.03789}.'
   - 'Code-based cryptography \cite{manual:{F. Hörmann, H. Bartz and A. L. Horlemann (2022). "Security considerations for Mceliece-like cryptosystems based on linearized Reed-Solomon codes in the sum-rank metric"},arxiv:2304.00627}.'
 
-notes:
-  - 'Over \(\mathbb{F}_{q^m}\) viewed over \(\mathbb{F}_q\), linearized RS codes can have length up to \((q-1)m\), whereas Gabidulin codes over the same extension have maximum length \(m\) \cite[Sec. 4.2]{arxiv:1710.03109}.'
-  - 'Over certain infinite fields, non-inner derivations yield linearized RS constructions that are not obtainable from zero or inner derivations alone \cite[Ex. 48]{arxiv:1710.03109}.'
-
 
 relations:
   parents:
@@ -38,7 +34,7 @@ relations:
     - code_id: reed_solomon
       detail: 'Choosing \(\sigma=\operatorname{Id}\) and \(\delta=0\) makes linearized RS codes coincide with conventional RS codes, and the sum-rank metric reduces to the Hamming metric \cite[Ex. 36]{arxiv:1710.03109}.'
     - code_id: gabidulin
-      detail: 'Choosing one conjugacy class with \(\sigma\neq\operatorname{Id}\) and \(\delta=0\) recovers Gabidulin codes, and the sum-rank metric reduces to the rank metric \cite[Ex. 37]{arxiv:1710.03109}.'
+      detail: 'Choosing one conjugacy class with \(\sigma\neq\operatorname{Id}\) and \(\delta=0\) recovers Gabidulin codes, and the sum-rank metric reduces to the rank metric \cite[Ex. 37]{arxiv:1710.03109}. Over \(\mathbb{F}_{q^m}\) viewed over \(\mathbb{F}_q\), linearized RS codes can have length up to \((q-1)m\), whereas Gabidulin codes over the same extension have maximum length \(m\) \cite[Sec. 4.2]{arxiv:1710.03109}.'
     - code_id: locally_recoverable
       detail: 'Linearized RS codes can be used to construct locally recoverable codes \cite{arxiv:1809.11158}.'
 
@@ -47,7 +43,5 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: vvaclaw
-      date: '2026-05-03'
     - user_id: VictorVAlbert
       date: '2024-08-15'
