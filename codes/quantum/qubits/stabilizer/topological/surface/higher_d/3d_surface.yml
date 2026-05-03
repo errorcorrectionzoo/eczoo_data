@@ -25,6 +25,7 @@ description: |
   construction.
   The construction on surfaces with boundaries is often called the
   \textit{3D planar code}.
+  In the open-boundary hypercubic family of \cite{arxiv:1708.09286}, setting one linear dimension of the tesseract construction to \(1\) yields a single-qubit \textit{cubic code} that interpolates between the planar surface code and the 4D tesseract code.
   There exists a rotated version of the 3D surface code, the \textit{3D rotated surface code}, akin to the (2D) rotated surface code \cite{arxiv:2211.02116}.
   The \textit{welded surface code} \cite{arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
 
@@ -33,6 +34,7 @@ description: |
 
 protection: |
   The planar 3D surface code family on a cubic lattice of length \(L\) has parameters \([[2L(L-1)^2+L^3,1,d_X=L^2,d_Z=L]]\), while the 3D toric code has parameters \([[3L^3,3,d_X=L^2,d_Z=L]]\).
+  Rectangular open-boundary 3D versions furnish single-qubit \([[71,1,6]]\), \([[177,1,9]]\), \([[331,1,12]]\), and \([[616,1,16]]\) codes, illustrating an \(n\propto 3d^2\) tradeoff between the 2D surface and 4D tesseract families \cite{arxiv:1708.09286}.
 
   Stability against Hamiltonian perturbations was determined using a tensor-network representation \cite{arxiv:2012.15346}. The phase diagram of the perturbed tensor network maps to that of a 3D Ising gauge theory.
 
@@ -61,12 +63,12 @@ features:
   fault_tolerance:
     - 'Fault-tolerant Hadamard gate using teleportation and error correction \cite{arxiv:1801.04255}.'
   code_capacity_threshold:
-    - 'Independent \(X,Z\) noise: \(12\%\) for bit-flip and \(3\%\) for phase-flip channels with MWPM decoder for 3D toric code \cite{arxiv:1808.03092}, and \(17.2\%\) and \(3.3\%\) with RG decoder for 3D toric code \cite{arxiv:1708.09286}.'
+    - 'Independent \(X,Z\) noise: \(12\%\) for bit-flip and \(3\%\) for phase-flip channels with MWPM decoder for 3D toric code \cite{arxiv:1808.03092}, and \(17.2\%\) for the surface-like logical operator together with \(3.3\%\) for the line-like logical operator of the 3D cubic code under RG decoding \cite{arxiv:1708.09286}.'
     - 'Erasure noise: \(24.8\%\) with generalization of linear-time ML erasure decoder \cite{arxiv:1703.01517} to 3D surface codes \cite{arxiv:1808.03092}.
     No threshold was observed for the 3D welded surface code \cite{arxiv:1808.03092}.'
 
   threshold:
-    - 'Phenomenological noise model for the 3D toric code: \(2.90(2)\%\) under BP-OSD decoder \cite{arxiv:2009.11790}, \(7.1\%\) under improved BP-OSD \cite{arxiv:2206.03122}, \(7.3\%\) under RG \cite{arxiv:1708.09286}, and \(2.6\%\) under flip decoder \cite{arxiv:2212.06985}.
+    - 'Phenomenological noise model for the 3D toric code: \(2.90(2)\%\) under BP-OSD decoder \cite{arxiv:2009.11790}, \(7.1\%\) under improved BP-OSD \cite{arxiv:2206.03122}, and \(2.6\%\) under flip decoder \cite{arxiv:2212.06985}. For the line-like logical operator of the 3D cubic code, RG decoding yields \(7.3\%\) \cite{arxiv:1708.09286}.
     For 3D surface code: \(3.08(4)\%\) under flip decoder \cite{arxiv:2009.11790}. Optimal thresholds of \(11\%\) under \(X\)-type and \(2\%\) under \(Z\)-type noise derived in Ref. \cite{arxiv:2510.20489}.'
 
 
