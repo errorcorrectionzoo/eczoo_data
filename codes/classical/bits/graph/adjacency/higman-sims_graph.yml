@@ -11,8 +11,16 @@ name: 'Higman-Sims graph-adjacency code'
 introduced: '\cite{doi:10.1109/18.568714,doi:10.1016/S0012-365X(02)00513-7}'
 
 description: |
-  A graph-based code whose generator matrix is constructed using the adjacency matrix of the Higman-Sims graph.
-  This family includes a \([100,22,32]\) code whose dual is an optimal \([100,78,8]\) code \cite[Table VI]{doi:10.1109/18.568714}.
+  A graph-based code whose generator matrix is the row space of the adjacency matrix of the Higman-Sims graph, yielding a \([100,22,22]\) code \(C_{HS}\) whose dual is a \([100,78,6]\) code \cite[Table IV]{doi:10.1109/18.568714}.
+
+  A related \([100,22,32]\) code \(C_{100}\), invariant under the Higman-Sims simple group \(HiS\), is obtained by restricting a \([176,22,50]\) code invariant under the simple group \(Co_3\) \cite{manual:{W. H. Haemers, C. Parker, V. Pless, and V. D. Tonchev, "A design and a code invariant under the simple group \(Co_3\)," J. Comb. Theory, vol. A 62, pp. 225–233, 1993.}} to the 100 nonzero coordinates of a fixed minimum-weight codeword.
+  Its dual is an optimal \([100,78,8]\) code \cite[Table VI]{doi:10.1109/18.568714}.
+  The full automorphism groups are \(\mathrm{Aut}(C_{HS}) = 2\cdot HiS\) and \(\mathrm{Aut}(C_{100}) = HiS\) \cite[Rem. 1.5]{doi:10.1109/18.568714}.
+  The codes \(C_{HS}\) and \(C_{100}\) intersect in their doubly-even-weight subcodes, which have dimension 21 \cite[Rem. 1.5]{doi:10.1109/18.568714}.
+
+features:
+  decoders:
+      - 'The rows of the adjacency matrix can be used as orthogonal parity checks enabling majority decoding of \(C_{HS}^\perp\) up to two errors \cite[Prop. 1.4]{doi:10.1109/18.568714}.'
 
 # Setting the generator matrix \(G=(I|A)\) yields a different code.
 
@@ -21,7 +29,7 @@ relations:
     - code_id: graph
   cousins:
     - code_id: combinatorial_design
-      detail: 'Codewords of weight 36 of the Higman-Sims graph-adjacency code form a \(2\)-\((100,36,525)\) design \cite[Remark 1.7]{doi:10.1109/18.568714}'
+      detail: 'The 4125 codewords of weight 36 of the \([100,22,32]\) code \(C_{100}\) form a \(2\)-\((100,36,525)\) design, which can be used for majority decoding of single errors in \(C_{100}^\perp\) \cite[Rem. 1.7]{doi:10.1109/18.568714}.'
     - code_id: leech
       detail: 'The Higman-Sims graph occurs in the Leech lattice \cite{doi:10.1007/978-1-4757-6568-7}.'
     - code_id: 2pt_homogeneous
