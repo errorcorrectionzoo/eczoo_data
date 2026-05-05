@@ -2,11 +2,12 @@
 list_id: 'hamiltonian'
 
 title: |
-  Hamiltonian-based codes and friends
+  Hamiltonian-based codes
 
 intro: |
-  Here is a list of quantum codes related to \hyperref[code:hamiltonian]{Hamiltonian-based codes}.
-
+  Here is a list of \hyperref[code:hamiltonian]{Hamiltonian-based quantum codes} that are non-stabilizer and non-constant-excitation (CE).
+  All stabilizer codes (see list) are automatically Hamiltonian-based since their codewords are ground states of the stabilizer generator Hamiltonian.
+  All CE codes (see list) are associated with a Hamiltonian that counts the number of excitations, so they are also Hamiltonian-based.
 
 display:
   style: table
@@ -29,4 +30,6 @@ sort:
 codes:
   select:
     - descendant_of: hamiltonian
-    - cousin_of: hamiltonian
+    - not_descendant_of: stabilizer
+    - not_descendant_of: constant_excitation
+#     - cousin_of: hamiltonian

@@ -2,6 +2,8 @@
 
 # Print a tree of all recursive children (descendants) of a given code_id,
 # using the parent-child relations defined in the EC Zoo YAML code files.
+# Optionally exclude selected descendants and all of their descendants
+# from the printed tree with --stop-at.
 
 from __future__ import annotations
 
@@ -84,9 +86,29 @@ def build_parent_to_children_map(codes_dir: str) -> tuple[dict[str, list[str]], 
     return parent_to_children, known_code_ids
 
 
+def find_descendants(
+    code_ids: set[str],
+    parent_to_children: dict[str, list[str]],
+) -> set[str]:
+    descendants: set[str] = set()
+    pending = list(code_ids)
+
+    while pending:
+        code_id = pending.pop()
+        for child_id in parent_to_children.get(code_id, []):
+            if child_id in descendants:
+                continue
+
+            descendants.add(child_id)
+            pending.append(child_id)
+
+    return descendants
+
+
 def print_children_tree(
     code_id: str,
     parent_to_children: dict[str, list[str]],
+    stop_at: set[str] | None = None,
     prefix: str = "",
     is_last: bool = True,
     seen: set[str] | None = None,
@@ -94,6 +116,11 @@ def print_children_tree(
 ) -> None:
     if seen is None:
         seen = set()
+    if stop_at is None:
+        stop_at = set()
+
+    if not root and code_id in stop_at:
+        return
 
     connector = "" if root else ("└── " if is_last else "├── ")
     already_seen = code_id in seen
@@ -113,6 +140,7 @@ def print_children_tree(
         print_children_tree(
             child_id,
             parent_to_children,
+            stop_at=stop_at,
             prefix=child_prefix,
             is_last=(i == len(children) - 1),
             seen=seen,
@@ -132,6 +160,13 @@ def parse_args() -> argparse.Namespace:
         default=default_codes_dir,
         help="Directory containing EC Zoo YAML code files.",
     )
+    parser.add_argument(
+        "--stop-at",
+        nargs="+",
+        default=[],
+        metavar="CODE_ID",
+        help="Exclude these descendants and all of their descendants from the tree.",
+    )
     return parser.parse_args()
 
 
@@ -143,7 +178,23 @@ def main() -> int:
         print(f"Unknown code_id: {args.code_id}", file=sys.stderr)
         return 1
 
-    print_children_tree(args.code_id, parent_to_children, root=True)
+    unknown_stop_at = sorted(set(args.stop_at) - known_code_ids)
+    if unknown_stop_at:
+        print(
+            "Unknown code_id(s) in --stop-at: " + ", ".join(unknown_stop_at),
+            file=sys.stderr,
+        )
+        return 1
+
+    excluded_code_ids = set(args.stop_at)
+    excluded_code_ids.update(find_descendants(excluded_code_ids, parent_to_children))
+
+    print_children_tree(
+        args.code_id,
+        parent_to_children,
+        stop_at=excluded_code_ids,
+        root=True,
+    )
     return 0
 
 
