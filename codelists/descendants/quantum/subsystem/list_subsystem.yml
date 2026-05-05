@@ -2,10 +2,10 @@
 list_id: 'subsystem'
 
 title: |
-  Subsystem codes (non-stabilizer)
+  Subsystem codes (non-stabilizer, non-qubit)
 
 intro: |
-  Here is a list of quantum \hyperref[code:oecc]{subsystem codes} that are not subsystem stabilizer codes (see \hyperref[codelist:subsystem_stabilizer]{Subsystem stabilizer codes}).
+  Here is a list of non-qubit quantum \hyperref[code:oecc]{subsystem codes} that are not subsystem stabilizer codes [see \hyperref[codelist:subsystem_stabilizer]{Subsystem stabilizer codes}]. For operator-algebra qubit codes, see \hyperref[codelist:oa_qubit]{Operator-algebra qubit codes}.
 
 
 display:
@@ -30,3 +30,4 @@ codes:
   select:
     - descendant_of: oecc
     - not_descendant_of: subsystem_stabilizer
+    - not_descendant_of: subsystem_qubits_into_qubits
