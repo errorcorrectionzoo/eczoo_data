@@ -14,7 +14,7 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_CODES_DIR = ROOT / "codes"
 DOI_PATTERN = re.compile(r"doi:([^\s,\}\]\)]+)", re.IGNORECASE)
 TRAILING_PUNCT = re.compile(r"[.,;:'\"\]\}]+$")

@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
 Extract text inside manual:{...} fields from \cite commands in all YML files,
-and write them (sorted, deduplicated) to resources/manual_cites.txt.
+append readily formatted preset citations from code_extra/bib_preset.yml, and
+write them to resources/manual_cites.txt.
 """
 
 import os
 import re
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import yaml
+
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUTPUT = os.path.join(ROOT, "resources", "manual_cites.txt")
+BIB_PRESET = os.path.join(ROOT, "code_extra", "bib_preset.yml")
 
 
 def extract_manual_cites(text):
@@ -35,6 +39,33 @@ def extract_manual_cites(text):
     return results
 
 
+def one_line(text):
+    """Collapse whitespace so tab-separated output stays one row per citation."""
+    return " ".join(str(text).split())
+
+
+def extract_ready_formatted_presets():
+    """Return (formatted citation, preset name) rows from bib_preset.yml."""
+    with open(BIB_PRESET, encoding="utf-8") as f:
+        presets = yaml.safe_load(f)
+
+    rows = []
+    for preset_name, preset in presets.items():
+        ready_formatted = preset.get("_ready_formatted")
+        if ready_formatted is None:
+            continue
+
+        if isinstance(ready_formatted, dict):
+            formatted = ready_formatted.get("flm")
+        else:
+            formatted = ready_formatted
+
+        if formatted:
+            rows.append((one_line(formatted), preset_name))
+
+    return rows
+
+
 all_cites = set()
 
 for dirpath, dirnames, filenames in os.walk(ROOT):
@@ -52,9 +83,15 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
             all_cites.add(cite.strip())
 
 sorted_cites = sorted(all_cites, key=lambda s: s.lower())
+preset_rows = sorted(extract_ready_formatted_presets(), key=lambda row: row[0].lower())
 
 with open(OUTPUT, "w", encoding="utf-8") as f:
     for cite in sorted_cites:
         f.write(cite + "\n")
+    for formatted, preset_name in preset_rows:
+        f.write(f"{formatted}\t{preset_name}\n")
 
-print(f"Wrote {len(sorted_cites)} unique manual citations to {OUTPUT}")
+print(
+    f"Wrote {len(sorted_cites)} unique manual citations and "
+    f"{len(preset_rows)} preset citations to {OUTPUT}"
+)
