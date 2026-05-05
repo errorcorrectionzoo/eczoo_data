@@ -12,10 +12,29 @@ introduced: '\cite{arxiv:quant-ph/0004051,arxiv:quant-ph/0108118,doi:10.1103/Phy
 
 description: |
   A code based on the cluster state on a square lattice that was used in the first proposal for MBQC \cite{arxiv:quant-ph/0108118,doi:10.1103/PhysRevLett.86.5188}.
+  In the one-way model, the pre-entangled square-lattice cluster is a universal resource, and the computation is carried out entirely by adaptive single-qubit measurements.
 
+protection: |
+  Random measurement outcomes induce Pauli byproduct operators that are tracked classically and propagated to later measurements or the final readout \cite{doi:10.1103/PhysRevLett.86.5188}.
+  For computations longer than the available lattice extent, the original paper proposed splitting the computation into consecutive segments and stabilizing each segment using standard error-correction techniques \cite{doi:10.1103/PhysRevLett.86.5188}.
+
+features:
+  encoders:
+    - 'Initialization of each qubit in the \(|+\rangle\) state followed by nearest-neighbor Ising-type entangling evolution, equivalently controlled-phase gates on the edges of the square lattice, prepares the resource state \cite{doi:10.1103/PhysRevLett.86.5188}.'
+  general_gates:
+    - 'Measurements in the \(Z\) basis remove qubits from the lattice to carve out the computation network. \(X\)-basis measurements propagate quantum information along a wire, adaptive equatorial-basis measurements on a five-qubit chain implement arbitrary single-qubit \(SU(2)\) rotations, and a four-qubit pattern implements CNOT between neighboring wires. Later measurement bases can depend on earlier outcomes because of the tracked Pauli byproducts \cite{doi:10.1103/PhysRevLett.86.5188}.'
+    - 'Universal MBQC remains possible on irregular occupied sublattices above the percolation threshold because wires and gates can be bent and stretched without changing circuit topology \cite{doi:10.1103/PhysRevLett.86.5188}.'
+
+
+notes:
+  - 'The original proposal discussed implementations using neutral atoms in optical lattices with controlled collisions and capacitively coupled quantum dots \cite{doi:10.1103/PhysRevLett.86.5188}.'
 
 realizations:
   - 'Encoding on 72 qubits of the Zuchongzhi 3.1 quantum processor \cite{arxiv:2505.01978}.'
+
+notes:
+  - 'Universal MBQC remains possible on irregular occupied sublattices above the percolation threshold because wires and gates can be bent and stretched without changing circuit topology \cite{doi:10.1103/PhysRevLett.86.5188}.'
+  - 'The original proposal discussed implementations using neutral atoms in optical lattices with controlled collisions and capacitively coupled quantum dots \cite{doi:10.1103/PhysRevLett.86.5188}.'
 
 relations:
   parents:
