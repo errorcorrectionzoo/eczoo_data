@@ -1,21 +1,30 @@
 #!/usr/bin/env python3
 
-# Count the number of codes in each codelist under codelists/descendants/ and
-# codelists/features/ (or any directory passed via --lists-dir).
+# For each codelist YAML under codelists/descendants/ and codelists/features/,
+# print a table of: list title, number of codes in the list, and the property
+# names shown in display.options.columns.
 #
-# Each select entry is a condition group. Within a group all conditions are
-# ANDed; between groups they are ORed.  Supported per-group keys:
+# Usage:
+#   python3 scripts/codelists/count_list_codes.py [--sort {file,title,count,properties}] [--reverse]
 #
-#   descendant_of: X     – candidates = descendants of X (not X itself)
-#   cousin_of: X         – candidates = cousin-neighbours of X (both directions)
-#   property_set: a.b    – candidates = codes whose YAML has the dotted key set
-#   domain: D            – candidates = codes whose file lives in domain D
-#                          (classical_domain | quantum_domain |
-#                           classical_into_quantum_domain)
-#   not_descendant_of: X – remove X and its descendants from this group's result
+# Examples:
+#   python3 scripts/codelists/count_list_codes.py                    # sort by count descending
+#   python3 scripts/codelists/count_list_codes.py --sort count --reverse
+#   python3 scripts/codelists/count_list_codes.py --sort properties
 #
-# A group with only not_descendant_of and no positive selector becomes a global
-# exclusion applied to the union of all other groups.
+# Codelist select semantics – each select entry is a condition group.
+# Within a group all conditions are ANDed; between groups they are ORed.
+# Supported per-group keys:
+#
+#   descendant_of: X             – candidates = descendants of X (not X itself)
+#   any_descendant_of: [A,B]     – union of descendants of A and B
+#   all_descendant_of: [A,B]     – intersection of descendants of A and B
+#   cousin_of: X                 – candidates = cousin-neighbours of X (both dirs)
+#   property_set: a.b            – candidates = codes whose YAML has the dotted key set
+#   domain: D                    – candidates = codes in domain D
+#   manual_code_ids: [A,B]       – explicit code list
+#   not_descendant_of: X         – remove descendants of X from candidates
+#   not_all_descendant_of: [A,B] – remove codes that are descendants of ALL of A,B
 
 from __future__ import annotations
 
@@ -53,13 +62,11 @@ def _domain_from_path(file_path: str, codes_dir: str) -> str:
 # Parse code YAML files
 # ---------------------------------------------------------------------------
 
-# Top-level keys whose content should NOT be treated as property paths.
 _SKIP_L0 = frozenset({
     "code_id", "name", "introduced", "alternative_codes",
     "relations", "_meta", "template_code",
 })
 
-# Keys directly under features: that we recognise as property paths.
 _FEATURES_SUBKEYS = frozenset({
     "rate", "decoders", "encoders", "fault_tolerance", "transversal_gates",
     "threshold", "code_capacity_threshold", "magic_scaling_exponent",
@@ -76,13 +83,10 @@ def _parse_code_file(
     cousins: list[str] = []
     props: set[str] = set()
 
-    # relation-parsing state
     in_relations = in_parents = in_cousins = False
-
-    # property-parsing state
-    l0_key: str | None = None          # current indent-0 section key
-    l1_key: str | None = None          # current indent-2 sub-key (under l0)
-    l0_is_prop = False                 # whether l0 contributes to prop paths
+    l0_key: str | None = None
+    l1_key: str | None = None
+    l0_is_prop = False
 
     with open(file_path, encoding="utf-8") as fh:
         for raw in fh:
@@ -93,9 +97,6 @@ def _parse_code_file(
             stripped = line.lstrip(" ")
             indent = len(line) - len(stripped)
 
-            # ----------------------------------------------------------------
-            # indent 0 → top-level keys
-            # ----------------------------------------------------------------
             if indent == 0:
                 in_relations = in_parents = in_cousins = False
                 l1_key = None
@@ -117,14 +118,10 @@ def _parse_code_file(
                     else:
                         l0_key = raw_key
                         l0_is_prop = True
-                        # inline value at l0
                         if rest and rest not in ("|", "|-", ">", ">-"):
                             props.add(l0_key)
                 continue
 
-            # ----------------------------------------------------------------
-            # Relations parsing (existing logic)
-            # ----------------------------------------------------------------
             if in_relations:
                 if indent == 2:
                     in_parents = stripped.startswith("parents:")
@@ -138,33 +135,26 @@ def _parse_code_file(
                             cousins.append(cid)
                 continue
 
-            # ----------------------------------------------------------------
-            # Property-path detection (indent 2 and 4+)
-            # ----------------------------------------------------------------
             if not l0_is_prop or l0_key is None:
                 continue
 
             if indent == 2:
                 l1_key = None
                 if stripped.startswith("- "):
-                    # List item directly under l0 → l0 is non-empty
                     props.add(l0_key)
                 elif ":" in stripped:
                     sub_key = stripped.split(":", 1)[0].strip()
                     rest = stripped.split(":", 1)[1].strip()
                     l1_key = sub_key
                     if rest and rest not in ("|", "|-", ">", ">-"):
-                        # inline value → l0.sub_key is set
                         props.add(f"{l0_key}.{sub_key}")
                         props.add(l0_key)
 
             elif indent >= 4:
                 if l1_key and stripped:
-                    # Any content under l1 → l0.l1 is set
                     props.add(f"{l0_key}.{l1_key}")
                     props.add(l0_key)
                 elif stripped.startswith("- ") and l1_key is None:
-                    # List item at indent 4 under l0 (no l1) → l0 is set
                     props.add(l0_key)
 
     domain = _domain_from_path(file_path, codes_dir)
@@ -176,12 +166,12 @@ def _parse_code_file(
 # ---------------------------------------------------------------------------
 
 def build_maps(codes_dir: str) -> tuple[
-    dict[str, list[str]],          # parent_to_children
-    dict[str, set[str]],           # cousin_outgoing  (X → set it declares)
-    dict[str, set[str]],           # cousin_incoming  (X → set that declare X)
-    dict[str, frozenset[str]],     # code → property paths set
-    dict[str, str],                # code → domain string
-    set[str],                      # known code_ids
+    dict[str, list[str]],
+    dict[str, set[str]],
+    dict[str, set[str]],
+    dict[str, frozenset[str]],
+    dict[str, str],
+    set[str],
 ]:
     p2c: dict[str, list[str]] = defaultdict(list)
     cout: dict[str, set[str]] = defaultdict(set)
@@ -228,11 +218,9 @@ def _descendants(roots: list[str], p2c: dict[str, list[str]]) -> set[str]:
 
 
 # ---------------------------------------------------------------------------
-# Parse codelist YAML files into condition groups
+# Parse codelist YAML files into condition groups and column properties
 # ---------------------------------------------------------------------------
 
-# Selectors whose YAML value is an inline list ['a', 'b', ...] rather than a
-# plain scalar string.
 _LIST_VALUE_SELECTORS = frozenset({
     "any_descendant_of", "all_descendant_of",
     "not_any_descendant_of", "not_all_descendant_of",
@@ -242,7 +230,6 @@ _LIST_VALUE_SELECTORS = frozenset({
     "manual_code_ids", "exclude",
 })
 
-# All recognised selector keys, longest-first so prefix matching is unambiguous.
 _SELECTORS = (
     "all_descendant_of", "any_descendant_of",
     "not_all_descendant_of", "not_any_descendant_of", "not_descendant_of",
@@ -257,7 +244,6 @@ _SELECTORS = (
 
 
 def _parse_inline_list(raw: str) -> list[str]:
-    """Parse an inline YAML list  ['a', 'b']  or a bare scalar into a list."""
     raw = raw.strip()
     if raw.startswith("[") and raw.endswith("]"):
         inner = raw[1:-1]
@@ -266,29 +252,27 @@ def _parse_inline_list(raw: str) -> list[str]:
     return [val] if val else []
 
 
-def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
-    """Return (title, [condition_group, ...]).
+def _parse_codelist(
+    file_path: str,
+) -> tuple[str, list[dict[str, list[str]]], list[str]]:
+    """Return (title, [condition_group, ...], [column_property, ...]).
 
-    Each condition_group maps selector keys to a flat list of values.
-    List-valued selectors (any_descendant_of etc.) are expanded at parse time.
-    A key may appear more than once in the same YAML entry; occurrences accumulate.
-    Multiple keys within one group are ANDed; groups are ORed.
-    Commented-out lines are silently ignored.
+    condition_groups: each maps selector keys to a list of values; ANDed
+    within a group, ORed between groups.
+    column_properties: property names from display.options.columns, in order.
     """
     title = Path(file_path).stem
     groups: list[dict[str, list[str]]] = []
+    col_props: list[str] = []
 
     in_codes = in_select = False
+    in_display = in_options = in_columns = in_column_item = False
     reading_title = False
     title_lines: list[str] = []
     current_group: dict[str, list[str]] | None = None
 
     def _add(group: dict[str, list[str]], sel: str, raw_val: str) -> None:
-        if sel in _LIST_VALUE_SELECTORS:
-            vals = _parse_inline_list(raw_val)
-        else:
-            vals = _parse_inline_list(raw_val)   # handles both scalar and list
-        for v in vals:
+        for v in _parse_inline_list(raw_val):
             group.setdefault(sel, []).append(v)
 
     with open(file_path, encoding="utf-8") as fh:
@@ -298,7 +282,6 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
             stripped = line.lstrip(" ")
             indent = len(line) - len(stripped)
 
-            # title block scalar
             if reading_title:
                 if indent >= 2 and content:
                     title_lines.append(content)
@@ -316,6 +299,7 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
                     groups.append(current_group)
                     current_group = None
                 in_codes = in_select = False
+                in_display = in_options = in_columns = in_column_item = False
 
                 if stripped.startswith("title:"):
                     rest = stripped[len("title:"):].strip()
@@ -326,43 +310,73 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
                         title = _strip_quotes(rest)
                 elif stripped.startswith("codes:"):
                     in_codes = True
-                continue
-
-            if not in_codes:
+                elif stripped.startswith("display:"):
+                    in_display = True
                 continue
 
             if indent == 2:
-                if not stripped.startswith("select:") and current_group is not None:
-                    groups.append(current_group)
-                    current_group = None
-                in_select = stripped.startswith("select:")
+                if in_codes:
+                    if not stripped.startswith("select:") and current_group is not None:
+                        groups.append(current_group)
+                        current_group = None
+                    in_select = stripped.startswith("select:")
+                elif in_display:
+                    in_options = stripped.startswith("options:")
+                    if not in_options:
+                        in_columns = in_column_item = False
                 continue
 
-            if not in_select:
+            if indent == 4:
+                if in_select:
+                    if stripped.startswith("- "):
+                        if current_group is not None:
+                            groups.append(current_group)
+                        current_group = {}
+                        inline = stripped[2:]
+                        for sel in _SELECTORS:
+                            if inline.startswith(f"{sel}:"):
+                                _add(current_group, sel, inline[len(sel) + 1:])
+                                break
+                elif in_options:
+                    in_columns = stripped.startswith("columns:")
+                    if not in_columns:
+                        in_column_item = False
                 continue
 
-            if indent == 4 and stripped.startswith("- "):
-                if current_group is not None:
-                    groups.append(current_group)
-                current_group = {}
-                inline = stripped[2:]
-                for sel in _SELECTORS:
-                    if inline.startswith(f"{sel}:"):
-                        _add(current_group, sel, inline[len(sel) + 1:])
-                        break
+            if indent == 6:
+                if in_select and current_group is not None:
+                    for sel in _SELECTORS:
+                        if stripped.startswith(f"{sel}:"):
+                            _add(current_group, sel, stripped[len(sel) + 1:])
+                            break
+                elif in_columns:
+                    in_column_item = stripped.startswith("- ")
+                    if in_column_item:
+                        inline = stripped[2:]
+                        if inline.startswith("property:"):
+                            prop = _strip_quotes(inline[len("property:"):])
+                            if prop:
+                                col_props.append(prop)
+                continue
 
-            elif indent >= 6 and current_group is not None:
-                for sel in _SELECTORS:
-                    if stripped.startswith(f"{sel}:"):
-                        _add(current_group, sel, stripped[len(sel) + 1:])
-                        break
+            if indent >= 8:
+                if in_columns and in_column_item:
+                    if stripped.startswith("property:"):
+                        prop = _strip_quotes(stripped[len("property:"):])
+                        if prop:
+                            col_props.append(prop)
+                elif in_select and current_group is not None:
+                    for sel in _SELECTORS:
+                        if stripped.startswith(f"{sel}:"):
+                            _add(current_group, sel, stripped[len(sel) + 1:])
+                            break
 
     if current_group is not None:
         groups.append(current_group)
     if reading_title and title_lines:
         title = " ".join(title_lines)
 
-    return title, groups
+    return title, groups, col_props
 
 
 # ---------------------------------------------------------------------------
@@ -450,7 +464,6 @@ def count_codes(
         has_positive = any(k in group for k in _POSITIVE_KEYS)
 
         if not has_positive:
-            # Standalone negative group → global exclusion
             global_exclude |= _union_desc(
                 group.get("not_descendant_of", []), p2c, known, warnings, "not_descendant_of")
             global_exclude |= _union_desc(
@@ -470,14 +483,12 @@ def count_codes(
             global_exclude |= set(cid for cid in group.get("exclude", []) if cid in known)
             continue
 
-        # --- Positive selectors (each is intersected into candidates) ---
         candidates: set[str] | None = None
 
         def _ix(s: set[str]) -> None:
             nonlocal candidates
             candidates = s if candidates is None else candidates & s
 
-        # descendant_of – each occurrence is a separate AND constraint
         for cid in group.get("descendant_of", []):
             if cid not in known:
                 warnings.append(f"unknown code_id '{cid}' in descendant_of")
@@ -485,7 +496,6 @@ def count_codes(
             else:
                 _ix(_descendants([cid], p2c))
 
-        # any_descendant_of – union of descendants (roots excluded, matching descendant_of)
         if "any_descendant_of" in group:
             s: set[str] = set()
             for cid in group["any_descendant_of"]:
@@ -495,7 +505,6 @@ def count_codes(
                     s |= _descendants([cid], p2c)
             _ix(s)
 
-        # all_descendant_of – intersection of descendant sets
         if "all_descendant_of" in group:
             r: set[str] | None = None
             for cid in group["all_descendant_of"]:
@@ -507,7 +516,6 @@ def count_codes(
                 r = d if r is None else r & d
             _ix(r if r is not None else set())
 
-        # cousin_of
         for cid in group.get("cousin_of", []):
             if cid not in known:
                 warnings.append(f"unknown code_id '{cid}' in cousin_of")
@@ -521,11 +529,9 @@ def count_codes(
         if "all_cousin_of" in group:
             _ix(_inter_cousin(group["all_cousin_of"], cout, cin, known, warnings, "all_cousin_of"))
 
-        # property_set
         for prop in group.get("property_set", []):
             _ix({c for c, ps in code_props.items() if prop in ps})
 
-        # domain / any_domain
         for dom in group.get("domain", []):
             _ix({c for c, d in code_domain.items() if d == dom})
 
@@ -533,14 +539,12 @@ def count_codes(
             dom_set = set(group["any_domain"])
             _ix({c for c, d in code_domain.items() if d in dom_set})
 
-        # manual_code_ids
         if "manual_code_ids" in group:
             _ix({cid for cid in group["manual_code_ids"] if cid in known})
 
         if candidates is None:
             candidates = set()
 
-        # --- Local negative filters ---
         candidates -= _union_desc(
             group.get("not_descendant_of", []), p2c, known, warnings, "not_descendant_of")
         candidates -= _union_desc(
@@ -572,15 +576,14 @@ def count_codes(
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Count codes in each codelist under codelists/descendants/ "
-            "and codelists/features/ (or a custom --lists-dir)."
+            "For each codelist, print its title, code count, and display columns."
         ),
     )
     parser.add_argument(
         "--sort",
-        choices=["file", "title", "count"],
-        default="file",
-        help="Sort output by this column (default: file).",
+        choices=["file", "title", "count", "properties"],
+        default="count",
+        help="Sort output by this column (default: count).",
     )
     parser.add_argument(
         "--reverse",
@@ -614,7 +617,6 @@ def main() -> int:
             repo_root / "codelists" / "features",
         ]
 
-    print("Building code maps…", file=sys.stderr)
     p2c, cout, cin, code_props, code_domain, known = build_maps(codes_dir)
 
     list_files: list[Path] = []
@@ -625,33 +627,37 @@ def main() -> int:
         print(f"No YAML files found under {lists_dirs}", file=sys.stderr)
         return 1
 
-    rows: list[tuple[str, str, int]] = []
+    print(f"Total number of lists: {len(list_files)}\n")
+
+    rows: list[tuple[str, str, int, list[str]]] = []
     all_warnings: list[tuple[str, list[str]]] = []
 
     for lf in list_files:
-        title, groups = _parse_codelist(str(lf))
+        title, groups, col_props = _parse_codelist(str(lf))
         count, warnings = count_codes(
             groups, p2c, cout, cin, code_props, code_domain, known
         )
         rel = str(lf.relative_to(repo_root))
-        rows.append((rel, title, count))
+        rows.append((rel, title, count, col_props))
         if warnings:
             all_warnings.append((rel, warnings))
 
     key_fn = {
-        "file": lambda r: r[0],
-        "title": lambda r: r[1],
-        "count": lambda r: r[2],
+        "file":       lambda r: r[0],
+        "title":      lambda r: r[1],
+        "count":      lambda r: r[2],
+        "properties": lambda r: r[3],
     }
     rows.sort(key=key_fn[args.sort], reverse=args.reverse)
 
     col_title = max(len(r[1]) for r in rows)
-    fmt = f"{{:<{col_title}}}  {{:>5}}"
-    header = fmt.format("Title", "Count")
+    fmt = f"{{:<{col_title}}}  {{:>5}}  {{}}"
+    header = fmt.format("Title", "Count", "Properties")
     print(header)
     print("-" * len(header))
-    for _rel, title, count in rows:
-        print(fmt.format(title, count))
+    for _rel, title, count, col_props in rows:
+        props_str = ", ".join(col_props) if col_props else "(none)"
+        print(fmt.format(title, count, props_str))
 
     if all_warnings:
         print("\nWarnings:", file=sys.stderr)
