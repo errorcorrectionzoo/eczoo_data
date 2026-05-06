@@ -195,6 +195,10 @@ def main() -> int:
         stop_at=excluded_code_ids,
         root=True,
     )
+
+    all_descendants = find_descendants({args.code_id}, parent_to_children)
+    visible_descendants = all_descendants - excluded_code_ids
+    print(f"\nTotal descendants: {len(visible_descendants)}")
     return 0
 
 

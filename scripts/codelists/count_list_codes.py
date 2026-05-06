@@ -231,16 +231,47 @@ def _descendants(roots: list[str], p2c: dict[str, list[str]]) -> set[str]:
 # Parse codelist YAML files into condition groups
 # ---------------------------------------------------------------------------
 
-_SELECTORS = ("descendant_of", "not_descendant_of", "cousin_of",
-              "property_set", "domain")
+# Selectors whose YAML value is an inline list ['a', 'b', ...] rather than a
+# plain scalar string.
+_LIST_VALUE_SELECTORS = frozenset({
+    "any_descendant_of", "all_descendant_of",
+    "not_any_descendant_of", "not_all_descendant_of",
+    "any_cousin_of", "all_cousin_of",
+    "not_any_cousin_of", "not_all_cousin_of",
+    "any_domain", "not_any_domain",
+    "manual_code_ids", "exclude",
+})
+
+# All recognised selector keys, longest-first so prefix matching is unambiguous.
+_SELECTORS = (
+    "all_descendant_of", "any_descendant_of",
+    "not_all_descendant_of", "not_any_descendant_of", "not_descendant_of",
+    "descendant_of",
+    "all_cousin_of", "any_cousin_of",
+    "not_all_cousin_of", "not_any_cousin_of", "not_cousin_of",
+    "cousin_of",
+    "property_set",
+    "not_any_domain", "any_domain", "not_domain", "domain",
+    "manual_code_ids", "exclude",
+)
+
+
+def _parse_inline_list(raw: str) -> list[str]:
+    """Parse an inline YAML list  ['a', 'b']  or a bare scalar into a list."""
+    raw = raw.strip()
+    if raw.startswith("[") and raw.endswith("]"):
+        inner = raw[1:-1]
+        return [_strip_quotes(item) for item in inner.split(",") if item.strip()]
+    val = _strip_quotes(raw)
+    return [val] if val else []
 
 
 def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
     """Return (title, [condition_group, ...]).
 
-    Each condition_group maps selector keys to a list of values.  A key may
-    appear more than once in a single YAML entry (e.g. two descendant_of lines
-    under the same bullet); each occurrence is appended rather than overwritten.
+    Each condition_group maps selector keys to a flat list of values.
+    List-valued selectors (any_descendant_of etc.) are expanded at parse time.
+    A key may appear more than once in the same YAML entry; occurrences accumulate.
     Multiple keys within one group are ANDed; groups are ORed.
     Commented-out lines are silently ignored.
     """
@@ -252,8 +283,13 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
     title_lines: list[str] = []
     current_group: dict[str, list[str]] | None = None
 
-    def _add_to_group(group: dict[str, list[str]], sel: str, val: str) -> None:
-        group.setdefault(sel, []).append(val)
+    def _add(group: dict[str, list[str]], sel: str, raw_val: str) -> None:
+        if sel in _LIST_VALUE_SELECTORS:
+            vals = _parse_inline_list(raw_val)
+        else:
+            vals = _parse_inline_list(raw_val)   # handles both scalar and list
+        for v in vals:
+            group.setdefault(sel, []).append(v)
 
     with open(file_path, encoding="utf-8") as fh:
         for raw in fh:
@@ -276,7 +312,6 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
                 continue
 
             if indent == 0:
-                # Flush any open group
                 if current_group is not None:
                     groups.append(current_group)
                     current_group = None
@@ -307,25 +342,19 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
                 continue
 
             if indent == 4 and stripped.startswith("- "):
-                # New condition group
                 if current_group is not None:
                     groups.append(current_group)
                 current_group = {}
-                inline = stripped[2:]  # strip "- "
+                inline = stripped[2:]
                 for sel in _SELECTORS:
                     if inline.startswith(f"{sel}:"):
-                        val = _strip_quotes(inline[len(sel) + 1:])
-                        if val:
-                            _add_to_group(current_group, sel, val)
+                        _add(current_group, sel, inline[len(sel) + 1:])
                         break
 
             elif indent >= 6 and current_group is not None:
-                # Continuation keys within the same group (duplicate keys accumulate)
                 for sel in _SELECTORS:
                     if stripped.startswith(f"{sel}:"):
-                        val = _strip_quotes(stripped[len(sel) + 1:])
-                        if val:
-                            _add_to_group(current_group, sel, val)
+                        _add(current_group, sel, stripped[len(sel) + 1:])
                         break
 
     if current_group is not None:
@@ -340,7 +369,67 @@ def _parse_codelist(file_path: str) -> tuple[str, list[dict[str, list[str]]]]:
 # Count codes for one list
 # ---------------------------------------------------------------------------
 
-_POSITIVE_SELECTORS = frozenset({"descendant_of", "cousin_of", "property_set", "domain"})
+_POSITIVE_KEYS = frozenset({
+    "descendant_of", "any_descendant_of", "all_descendant_of",
+    "cousin_of", "any_cousin_of", "all_cousin_of",
+    "property_set",
+    "domain", "any_domain",
+    "manual_code_ids",
+})
+
+_NEGATIVE_KEYS = frozenset({
+    "not_descendant_of", "not_any_descendant_of", "not_all_descendant_of",
+    "not_cousin_of", "not_any_cousin_of", "not_all_cousin_of",
+    "not_domain", "not_any_domain",
+    "exclude",
+})
+
+
+def _union_desc(cids: list[str], p2c: dict, known: set,
+                warnings: list, key: str) -> set[str]:
+    s: set[str] = set()
+    for cid in cids:
+        if cid not in known:
+            warnings.append(f"unknown code_id '{cid}' in {key}")
+        else:
+            s.add(cid)
+            s |= _descendants([cid], p2c)
+    return s
+
+
+def _inter_desc(cids: list[str], p2c: dict, known: set,
+                warnings: list, key: str) -> set[str]:
+    result: set[str] | None = None
+    for cid in cids:
+        if cid not in known:
+            warnings.append(f"unknown code_id '{cid}' in {key}")
+            return set()
+        d = {cid} | _descendants([cid], p2c)
+        result = d if result is None else result & d
+    return result if result is not None else set()
+
+
+def _union_cousin(cids: list[str], cout: dict, cin: dict, known: set,
+                  warnings: list, key: str) -> set[str]:
+    s: set[str] = set()
+    for cid in cids:
+        if cid not in known:
+            warnings.append(f"unknown code_id '{cid}' in {key}")
+        else:
+            s |= cout.get(cid, set()) | cin.get(cid, set())
+    return s
+
+
+def _inter_cousin(cids: list[str], cout: dict, cin: dict, known: set,
+                  warnings: list, key: str) -> set[str]:
+    result: set[str] | None = None
+    for cid in cids:
+        if cid not in known:
+            warnings.append(f"unknown code_id '{cid}' in {key}")
+            return set()
+        c = cout.get(cid, set()) | cin.get(cid, set())
+        result = c if result is None else result & c
+    return result if result is not None else set()
 
 
 def count_codes(
@@ -358,57 +447,118 @@ def count_codes(
     warnings: list[str] = []
 
     for group in groups:
-        has_positive = any(k in group for k in _POSITIVE_SELECTORS)
+        has_positive = any(k in group for k in _POSITIVE_KEYS)
 
         if not has_positive:
-            # Standalone not_descendant_of → global exclusion
-            for ndo in group.get("not_descendant_of", []):
-                if ndo not in known:
-                    warnings.append(f"unknown code_id '{ndo}' in not_descendant_of")
-                else:
-                    global_exclude.add(ndo)
-                    global_exclude |= _descendants([ndo], p2c)
+            # Standalone negative group → global exclusion
+            global_exclude |= _union_desc(
+                group.get("not_descendant_of", []), p2c, known, warnings, "not_descendant_of")
+            global_exclude |= _union_desc(
+                group.get("not_any_descendant_of", []), p2c, known, warnings, "not_any_descendant_of")
+            global_exclude |= _inter_desc(
+                group.get("not_all_descendant_of", []), p2c, known, warnings, "not_all_descendant_of")
+            global_exclude |= _union_cousin(
+                group.get("not_cousin_of", []), cout, cin, known, warnings, "not_cousin_of")
+            global_exclude |= _union_cousin(
+                group.get("not_any_cousin_of", []), cout, cin, known, warnings, "not_any_cousin_of")
+            global_exclude |= _inter_cousin(
+                group.get("not_all_cousin_of", []), cout, cin, known, warnings, "not_all_cousin_of")
+            for cid in group.get("not_domain", []):
+                global_exclude |= {c for c, d in code_domain.items() if d == cid}
+            for dom_list in [group.get("not_any_domain", [])]:
+                global_exclude |= {c for c, d in code_domain.items() if d in dom_list}
+            global_exclude |= set(cid for cid in group.get("exclude", []) if cid in known)
             continue
 
-        # --- Positive selectors (ANDed; repeated keys are also ANDed) ---
+        # --- Positive selectors (each is intersected into candidates) ---
         candidates: set[str] | None = None
 
-        def _intersect(s: set[str]) -> set[str]:
+        def _ix(s: set[str]) -> None:
             nonlocal candidates
             candidates = s if candidates is None else candidates & s
-            return candidates
 
+        # descendant_of – each occurrence is a separate AND constraint
         for cid in group.get("descendant_of", []):
             if cid not in known:
                 warnings.append(f"unknown code_id '{cid}' in descendant_of")
                 candidates = set()
             else:
-                _intersect(_descendants([cid], p2c))
+                _ix(_descendants([cid], p2c))
 
+        # any_descendant_of – union of descendants (roots excluded, matching descendant_of)
+        if "any_descendant_of" in group:
+            s: set[str] = set()
+            for cid in group["any_descendant_of"]:
+                if cid not in known:
+                    warnings.append(f"unknown code_id '{cid}' in any_descendant_of")
+                else:
+                    s |= _descendants([cid], p2c)
+            _ix(s)
+
+        # all_descendant_of – intersection of descendant sets
+        if "all_descendant_of" in group:
+            r: set[str] | None = None
+            for cid in group["all_descendant_of"]:
+                if cid not in known:
+                    warnings.append(f"unknown code_id '{cid}' in all_descendant_of")
+                    r = set()
+                    break
+                d = _descendants([cid], p2c)
+                r = d if r is None else r & d
+            _ix(r if r is not None else set())
+
+        # cousin_of
         for cid in group.get("cousin_of", []):
             if cid not in known:
                 warnings.append(f"unknown code_id '{cid}' in cousin_of")
-                _intersect(set())
+                _ix(set())
             else:
-                _intersect(cout.get(cid, set()) | cin.get(cid, set()))
+                _ix(cout.get(cid, set()) | cin.get(cid, set()))
 
+        if "any_cousin_of" in group:
+            _ix(_union_cousin(group["any_cousin_of"], cout, cin, known, warnings, "any_cousin_of"))
+
+        if "all_cousin_of" in group:
+            _ix(_inter_cousin(group["all_cousin_of"], cout, cin, known, warnings, "all_cousin_of"))
+
+        # property_set
         for prop in group.get("property_set", []):
-            _intersect({c for c, ps in code_props.items() if prop in ps})
+            _ix({c for c, ps in code_props.items() if prop in ps})
 
+        # domain / any_domain
         for dom in group.get("domain", []):
-            _intersect({c for c, d in code_domain.items() if d == dom})
+            _ix({c for c, d in code_domain.items() if d == dom})
+
+        if "any_domain" in group:
+            dom_set = set(group["any_domain"])
+            _ix({c for c, d in code_domain.items() if d in dom_set})
+
+        # manual_code_ids
+        if "manual_code_ids" in group:
+            _ix({cid for cid in group["manual_code_ids"] if cid in known})
 
         if candidates is None:
             candidates = set()
 
-        # --- Local not_descendant_of filter ---
-        for ndo in group.get("not_descendant_of", []):
-            if not candidates:
-                break
-            if ndo not in known:
-                warnings.append(f"unknown code_id '{ndo}' in not_descendant_of")
-            else:
-                candidates -= {ndo} | _descendants([ndo], p2c)
+        # --- Local negative filters ---
+        candidates -= _union_desc(
+            group.get("not_descendant_of", []), p2c, known, warnings, "not_descendant_of")
+        candidates -= _union_desc(
+            group.get("not_any_descendant_of", []), p2c, known, warnings, "not_any_descendant_of")
+        candidates -= _inter_desc(
+            group.get("not_all_descendant_of", []), p2c, known, warnings, "not_all_descendant_of")
+        candidates -= _union_cousin(
+            group.get("not_cousin_of", []), cout, cin, known, warnings, "not_cousin_of")
+        candidates -= _union_cousin(
+            group.get("not_any_cousin_of", []), cout, cin, known, warnings, "not_any_cousin_of")
+        candidates -= _inter_cousin(
+            group.get("not_all_cousin_of", []), cout, cin, known, warnings, "not_all_cousin_of")
+        for dom in group.get("not_domain", []):
+            candidates -= {c for c, d in code_domain.items() if d == dom}
+        if "not_any_domain" in group:
+            dom_set = set(group["not_any_domain"])
+            candidates -= {c for c, d in code_domain.items() if d in dom_set}
+        candidates -= {cid for cid in group.get("exclude", []) if cid in known}
 
         accumulated |= candidates
 
@@ -495,14 +645,13 @@ def main() -> int:
     }
     rows.sort(key=key_fn[args.sort], reverse=args.reverse)
 
-    col_path = max(len(r[0]) for r in rows)
     col_title = max(len(r[1]) for r in rows)
-    fmt = f"{{:<{col_path}}}  {{:<{col_title}}}  {{:>5}}"
-    header = fmt.format("File", "Title", "Count")
+    fmt = f"{{:<{col_title}}}  {{:>5}}"
+    header = fmt.format("Title", "Count")
     print(header)
     print("-" * len(header))
-    for rel, title, count in rows:
-        print(fmt.format(rel, title, count))
+    for _rel, title, count in rows:
+        print(fmt.format(title, count))
 
     if all_warnings:
         print("\nWarnings:", file=sys.stderr)
