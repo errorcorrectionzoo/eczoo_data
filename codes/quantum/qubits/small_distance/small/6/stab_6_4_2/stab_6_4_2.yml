@@ -11,13 +11,19 @@ name: '\([[6,4,2]]\) error-detecting code'
 introduced: '\cite{arxiv:quant-ph/9605021,arxiv:quant-ph/9702029,arxiv:quant-ph/0402171,arxiv:quant-ph/0404104}'
 
 description: |
-  Error-detecting six-qubit code with rate \(2/3\) whose codewords are cat/GHZ states \cite[ID 29]{preset:qiskit}.
-  A set of stabilizer generators is \(XXXXXX\) and \(ZZZZZZ\).
-  It is the unique code for its parameters, up to equivalence \cite[Tab. III]{arxiv:quant-ph/9608006}.
+  Self-complementary six-qubit code with rate \(2/3\) that is unique for its parameters, up to equivalence \cite[Tab. III]{arxiv:quant-ph/9608006}.
   Concatenations of this code with itself yield the \([[6^r,4^r,2^r]]\) level-\(r\) \textit{many-hypercube} code \cite{arxiv:2403.16054}.
 
+  A stabilizer tableau for the code is given by \cite[ID 29]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccc}
+    Z & Z & Z & Z & Z & Z \\
+    X & X & X & X & X & X
+  \end{array}~.
+  \end{align}
   Stabilizer generators are shown in \ref{figure:stab_6_4_2_ops}.
   See \cite[Appx. B]{arxiv:2403.16054} for a set of logical Paulis.
+
     \begin{figure}
       \includegraphics{stab_6_4_2}
       \caption{

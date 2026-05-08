@@ -12,14 +12,26 @@ introduced: '\cite{doi:10.1137/S0895480104441085,doi:10.2140/iig.2008.6.53}'
 
 description: |
   Nine-qubit \hyperref[topic:quantum-weight-enumerator]{pure} Hermitian qubit code constructed from the almost MDS \([9,3,6]_4\) Hermitian self-orthogonal code.
-  It is the only \hyperref[topic:quantum-weight-enumerator]{pure} Hermitian code with its parameters \cite[ID 170235]{preset:qiskit} and is the highest-distance qubit stabilizer code for its \(n\) and \(k\).
+  It is the only \hyperref[topic:quantum-weight-enumerator]{pure} Hermitian code with its parameters and is the highest-distance qubit stabilizer code for its \(n\) and \(k\).
 
   The code can be constructed from the elliptic quadric in \(PG(5, 2)\), or equivalently from the complement of the union of two disjoint hyperovals in \(PG(2, 4)\) \cite{doi:10.2140/iig.2008.6.53}.
+  A stabilizer tableau for the code is given by \cite[ID 170235]{preset:qiskit}
+  \begin{align}
+  \begin{array}{ccccccccc}
+    Y & X & X & Y & X & X & I & I & I \\
+    Z & Z & X & I & I & I & X & Y & X \\
+    Z & I & Z & Z & Z & I & Z & Y & I \\
+    I & X & Z & Y & I & Z & I & Z & Z \\
+    X & Z & Z & X & Z & Z & I & I & I \\
+    X & I & X & X & X & I & X & Z & I
+  \end{array}~.
+  \end{align}
 
 
 relations:
   parents:
     - code_id: stabilizer_over_gf4
+      detail: 'The \([[9,3,3]]\) code is \(\mathbb{F}_4\)-linear \cite[ID 170235]{preset:qiskit}.'
     - code_id: small_distance_qubit_stabilizer
   cousins:
     - code_id: projective

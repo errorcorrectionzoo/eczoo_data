@@ -13,8 +13,19 @@ introduced: '\cite{arxiv:quant-ph/9608006,arxiv:0803.1495}'
 
 description: |
   A degenerate, non-trivial \([[6,1,3]]\) stabilizer code.
-  It is one of two six-qubit distance-three codes that are unique up to equivalence \cite{arxiv:quant-ph/9608006}\cite[ID 68]{preset:qiskit}, with the other code being decomposable and an extension of the five-qubit code \cite{arxiv:0803.1495}\cite[ID 87]{preset:qiskit}.
+  It is one of two six-qubit distance-three codes that are unique up to equivalence \cite{arxiv:quant-ph/9608006}, with the other code being decomposable and an extension of the five-qubit code \cite{arxiv:0803.1495}\cite[ID 87]{preset:qiskit}.
   The code admits fault-tolerant syndrome extraction using only one ancilla per stabilizer generator measurement.
+
+  A stabilizer tableau for the code is given by \cite[ID 68]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccc}
+    X & I & I & I & I & Z \\
+    I & X & X & Z & Z & I \\
+    I & Y & I & Y & Z & Z \\
+    I & X & Z & I & X & Z \\
+    Z & Y & Z & Z & I & Y
+  \end{array}~.
+  \end{align}
 
   Stabilizer generators and logical Pauli operators are presented in Refs. \cite{arxiv:0803.1495,arxiv:1008.0425}.
   The code is equivalent to the graph code in Ref. \cite{arxiv:2501.12072}.

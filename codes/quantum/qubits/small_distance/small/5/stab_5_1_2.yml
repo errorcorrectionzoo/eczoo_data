@@ -10,9 +10,17 @@ logical: qubits
 name: '\([[5,1,2]]\) rotated surface code'
 
 description: |
-  Rotated surface code on one rung of a ladder, with one qubit on the rung, and four qubits surrounding it \cite[ID 18]{preset:qiskit}.
+  A rotated surface code on one rung of a ladder, with one qubit on the rung, and four qubits surrounding it.
 
-  Admits generators \(\{ZZZII,IIZZZ,XIXXI,IXXIX\} \).
+  A stabilizer tableau for the code is given by \cite[ID 18]{preset:qiskit}
+  \begin{align}
+  \begin{array}{ccccc}
+    Z & Z & I & Z & I \\
+    I & I & Z & Z & Z \\
+    I & X & X & X & I \\
+    X & I & I & X & X
+  \end{array}~.
+  \end{align}
 
 features:
   general_gates:

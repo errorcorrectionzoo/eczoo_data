@@ -11,9 +11,18 @@ name: '\([[6,1,2]]\) semi-self-dual CSS code'
 introduced: '\cite{arxiv:2507.10519}'
 
 description: |
-  A six-qubit CSS stabilizer code with generators \(ZIZIIZ\), \(IZZIZI\), \(IIIZZZ\), \(XIXXXI\), and \(IXXXIX\) \cite[ID 59]{preset:qiskit}.
-  It is a semi-self-dual CSS code, i.e., a CSS code whose \(X\)-type stabilizers are contained in the \(Z\)-type stabilizers \cite{arxiv:2507.10519}.
+  A six-qubit CSS stabilizer code that is an example of a semi-self-dual CSS code, i.e., a CSS code whose \(X\)-type stabilizers are contained in the \(Z\)-type stabilizers \cite{arxiv:2507.10519}.
 
+  A stabilizer tableau for the code is given by \cite[ID 59]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccc}
+    Z & I & Z & I & I & Z \\
+    I & Z & Z & I & Z & I \\
+    I & I & I & Z & Z & Z \\
+    X & I & X & X & X & I \\
+    I & X & X & X & I & X
+  \end{array}~.
+  \end{align}
   An equivalent self-dual semi-CSS presentation has generators \(XXXXII\), \(IIXXXX\), \(ZZZZII\), \(IIZZZZ\), and \(IYIYIY\) \cite{arxiv:2507.10519}.
   A qubit permutation \(0\mapsto 0\), \(1\mapsto 2\), \(2\mapsto 4\), \(3\mapsto 5\), \(4\mapsto 1\), \(5\mapsto 3\), followed by the same one-qubit Clifford on every qubit sending \(X\mapsto Z\), \(Z\mapsto Y\), and \(Y\mapsto X\), converts the CSS generators to that semi-CSS presentation.
   This makes the code a concrete example of the equivalence between the semi-self-dual CSS and self-dual semi-CSS cases in the \(U(\ell,R_8)\) family \cite{arxiv:2507.10519}.

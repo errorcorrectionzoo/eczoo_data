@@ -18,10 +18,16 @@ alternative_names:
 
 description: |
   A four-qubit hyperbolic self-dual CSS stabilizer code that is the smallest two-logical-qubit stabilizer code to detect a single-qubit error.
-  It is unique for its parameters \cite[Thm. 8]{arxiv:quant-ph/9704043}\cite[ID 9]{preset:qiskit}.
+  It is unique for its parameters \cite[Thm. 8]{arxiv:quant-ph/9704043}.
 
-  The code admits stabilizer generators \(\{XXXX, ZZZZ\}\), and its stabilizer generator matrix blocks, \(H_{X}=H_{Z}=(1,1,1,1)\), are both the parity-check matrix of the \([4,3,2]\) SPC code.
-  
+  A stabilizer tableau for the code is given by \cite[ID 9]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccc}
+    Z & Z & Z & Z \\
+    X & X & X & X
+  \end{array}~.
+  \end{align}
+  Its stabilizer generator matrix blocks, \(H_{X}=H_{Z}=(1,1,1,1)\), are both the parity-check matrix of the \([4,3,2]\) SPC code.
   A basis of codewords is
   \begin{align}
     \begin{split}

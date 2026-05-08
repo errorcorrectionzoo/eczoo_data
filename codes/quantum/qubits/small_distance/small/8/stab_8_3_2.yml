@@ -11,7 +11,20 @@ name: '\([[8,3,2]]\) Smallest interesting color code'
 introduced: '\cite{arxiv:1503.02065,preset:Campbell16}'
 
 description: |
-  Smallest 3D color code whose physical qubits lie on vertices of a cube and which admits a (weakly) transversal \(CCZ\) gate \cite[ID 4882]{preset:qiskit}.
+  Smallest 3D color code whose physical qubits lie on vertices of a cube and which admits a (weakly) transversal \(CCZ\) gate.
+
+
+  A stabilizer tableau for the code is given by \cite[ID 4882]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccccc}
+    Z & Z & I & I & I & I & Z & Z \\
+    Z & I & Z & Z & I & I & Z & I \\
+    I & I & Z & I & Z & I & Z & Z \\
+    Z & I & Z & I & I & Z & I & Z \\
+    X & X & X & X & X & X & X & X
+  \end{array}~.
+  \end{align}
+
   In encoded IQP sampling, the final measurement outcomes determine both the logical sample and stabilizer checks, enabling end-of-circuit error detection or postselected decoding directly from the classical samples \cite{arxiv:2404.19005}.
 
 features:

@@ -15,9 +15,20 @@ alternative_names:
   - 'Cubic surface code'
 
 description: |
-  An \([[8,3,2]]\) twist-defect surface code whose qubits lie on the vertices of a cube \cite[ID 6851]{preset:qiskit}.
+  An \([[8,3,2]]\) twist-defect surface code whose qubits lie on the vertices of a cube.
   It is obtained by three-coloring the faces of a cube and placing \(X\), \(Y\), and \(Z\) stabilizer generators on each pair of faces of the same color.
   Its non-CSS nature is due to twist defects \cite{arxiv:1004.1838} stemming from the geometry of the polytope.
+
+  A stabilizer tableau for the code is given by \cite[ID 6851]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccccc}
+    I & Y & Y & I & Z & I & Z & I \\
+    X & I & Z & Z & X & I & I & I \\
+    I & X & I & X & Y & Y & I & I \\
+    I & Z & I & I & I & Z & X & Z \\
+    Z & I & I & Y & I & X & I & Y
+  \end{array}~.
+  \end{align}
 # 48 aut group match
 
 relations:

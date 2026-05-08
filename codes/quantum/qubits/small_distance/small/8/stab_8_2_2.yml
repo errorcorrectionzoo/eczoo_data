@@ -11,7 +11,19 @@ name: '\([[8,2,2]]\) hyperbolic color code'
 introduced: '\cite{arxiv:1906.11394}'
 
 description: |
-  An \([[8,2,2]]\) hyperbolic color code defined on the projective plane \cite[ID 4926]{preset:qiskit}.
+  An \([[8,2,2]]\) hyperbolic color code defined on the projective plane.
+
+  A stabilizer tableau for the code is given by \cite[ID 4926]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccccc}
+    Z & Z & Z & Z & I & I & I & I \\
+    X & X & X & X & I & I & I & I \\
+    Z & Z & I & I & Z & Z & I & I \\
+    X & X & I & I & X & X & I & I \\
+    Z & Z & I & I & I & I & Z & Z \\
+    X & X & I & I & I & I & X & X
+  \end{array}~.
+  \end{align}
 # Transversal H match
 
 features:
@@ -22,6 +34,8 @@ relations:
   parents:
     - code_id: hyperbolic_color
       detail: 'The \([[8,2,2]]\) hyperbolic color code is defined on the projective plane.'
+    - code_id: stabilizer_over_gf4
+      detail: 'The \([[8,2,2]]\) hyperbolic color code is \(\mathbb{F}_4\)-linear \cite[ID 4926]{preset:qiskit}.'
     - code_id: small_distance_qubit_stabilizer
   cousins:
     - code_id: shor_nine

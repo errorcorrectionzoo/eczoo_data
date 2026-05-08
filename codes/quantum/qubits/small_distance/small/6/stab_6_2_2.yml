@@ -13,7 +13,18 @@ introduced: '\cite{arxiv:quant-ph/0410199}'
 description: |
   Error-detecting normal self-dual CSS code on three qubit pairs that encodes a logical qubit pair and detects any error acting on one pair \cite{arxiv:quant-ph/0410199}.
   In Knill's \(C_4/C_6\) architecture, this code is used at the second and higher concatenation levels.
-  A choice of check operators used in that construction is \(XIIXXX\), \(XXXIIX\), \(ZIIZZZ\), and \(ZZZIIZ\), with logical operators \(X_L = IXXIII\), \(Z_L = IIZZIZ\), \(X_S = XIXXII\), and \(Z_S = IIIZZI\) \cite{arxiv:quant-ph/0410199}\cite[ID 126]{preset:qiskit}.
+
+  A stabilizer tableau for the code is given by \cite[ID 126]{preset:qiskit}
+  \begin{align}
+  \begin{array}{cccccc}
+    Z & Z & Z & Z & I & I \\
+    X & X & X & X & I & I \\
+    Z & Z & I & I & Z & Z \\
+    X & X & I & I & X & X
+  \end{array}~.
+  \end{align}
+  Its logical operators are \(X_L = IXXIII\), \(Z_L = IIZZIZ\), \(X_S = XIXXII\), and \(Z_S = IIIZZI\) \cite{arxiv:quant-ph/0410199}.
+
 
 protection: |
   As a distance-two code, the \(C_6\) code detects any single-qubit error.
@@ -50,7 +61,7 @@ relations:
     - code_id: kls
       detail: 'The Khesin-Lu-Shor code for \(r=2\) and \(m=2^r - 1 = 3\) is the \(C_6\) code.'
     - code_id: stabilizer_over_gf4
-      detail: 'The \(C_6\) code is Hermitian \cite[Table 6]{arxiv:2501.17447}.'
+      detail: 'The \(C_6\) code is Hermitian \cite[ID 126]{preset:qiskit}\cite[Table 6]{arxiv:2501.17447}.'
   cousins:
     - code_id: css_6_1_2
       detail: 'Fixing one logical qubit of the \([[6,2,2]]\) \(C_6\) code to \(|Y^{-}\rangle_L\) yields this \([[6,1,2]]\) code \cite[ID 59]{preset:qiskit}\cite{arxiv:2507.10519}.'
