@@ -18,6 +18,20 @@ description: |
   It is one of the four inequivalent CSS gauge fixings of the nine-qubit Bacon-Shor code \cite{arxiv:2501.17447}.
   It uses the smallest number of qubits to perform fault-tolerant error correction on a surface code with parallel syndrome extraction.
 
+  A stabilizer tableau for the code is given by \cite[ID 8519]{preset:qiskit}.
+  \begin{align}
+  \begin{array}{ccccccccc}
+    I & X & I & I & I & I & I & X & I \\
+    I & I & I & X & X & I & I & I & I \\
+    I & I & X & I & I & X & X & X & I \\
+    X & I & I & X & I & X & I & I & X \\
+    Z & I & I & I & I & I & I & I & Z \\
+    I & I & Z & I & I & I & Z & I & I \\
+    I & I & I & Z & Z & Z & Z & I & I \\
+    I & Z & I & I & I & Z & I & Z & Z
+  \end{array}~.
+  \end{align}
+
 protection: |
   Independent correction of single-qubit \(X\) and \(Z\) errors. Correction for some two-qubit \(X\) and \(Z\) errors.
   Admits \hyperref[topic:pseudo-threshold]{pseudo-thresholds} of \(\approx 10^{-4}\) under depolarizing noise.
