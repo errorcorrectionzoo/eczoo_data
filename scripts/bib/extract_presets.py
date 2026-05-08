@@ -38,9 +38,24 @@ def count_preset_citations() -> Counter:
     return counts
 
 
+def load_existing_metadata() -> dict[str, list[str]]:
+    if not OUTPUT_PATH.exists():
+        return {}
+
+    metadata_by_key: dict[str, list[str]] = {}
+    for line in OUTPUT_PATH.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        parts = line.split("\t")
+        metadata_by_key[parts[0]] = parts[2:]
+
+    return metadata_by_key
+
+
 def main() -> int:
     preset_keys = load_preset_keys()
     counts = count_preset_citations()
+    metadata_by_key = load_existing_metadata()
 
     rows = sorted(
         ((key, counts.get(key, 0)) for key in preset_keys),
@@ -48,7 +63,11 @@ def main() -> int:
         reverse=True,
     )
 
-    lines = [f"{key}\t{count}" for key, count in rows]
+    lines = []
+    for key, count in rows:
+        parts = [key, str(count), *metadata_by_key.get(key, [])]
+        lines.append("\t".join(parts))
+
     OUTPUT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Wrote {len(lines)} presets to {OUTPUT_PATH}")
     return 0
