@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-"""Print all recursive children of a given EC Zoo code_id.
+"""Print all direct children of a given EC Zoo code_id.
 
 This script scans the YAML files under ../codes, builds the reverse mapping
-from parent code_id to child code_id, and prints every descendant of the
-requested code_id exactly once.
+from parent code_id to child code_id, and prints the direct children of the
+requested code_id.
 """
 
 from __future__ import annotations
@@ -84,35 +84,32 @@ def build_parent_to_children_map(codes_dir: str) -> tuple[dict[str, set[str]], s
     return parent_to_children, known_code_ids
 
 
-def find_recursive_children(code_id: str, parent_to_children: dict[str, set[str]]) -> list[str]:
-    visited: set[str] = set()
-    ordered_children: list[str] = []
-
-    def visit(parent_id: str) -> None:
-        for child_id in sorted(parent_to_children.get(parent_id, set())):
-            if child_id in visited:
-                continue
-
-            visited.add(child_id)
-            ordered_children.append(child_id)
-            visit(child_id)
-
-    visit(code_id)
-    return ordered_children
-
 
 def parse_args() -> argparse.Namespace:
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    default_codes_dir = os.path.normpath(os.path.join(script_dir, "..", "codes"))
+    default_codes_dir = os.path.normpath(os.path.join(script_dir, "..", "..", "codes"))
 
     parser = argparse.ArgumentParser(
-        description="Print all recursive children of a given code_id.",
+        description="Print direct children of a code_id, or list codes with many children.",
     )
-    parser.add_argument("code_id", help="Code identifier to search below.")
+    parser.add_argument(
+        "code_id",
+        nargs="?",
+        help="Code identifier to search below. Omit to use --min-children mode.",
+    )
     parser.add_argument(
         "--codes-dir",
         default=default_codes_dir,
         help="Directory containing EC Zoo YAML code files.",
+    )
+    parser.add_argument(
+        "--min-children",
+        type=int,
+        nargs="?",
+        const=10,
+        default=None,
+        metavar="N",
+        help="List all codes with at least N direct children (default N=10), sorted by count.",
     )
     return parser.parse_args()
 
@@ -121,11 +118,25 @@ def main() -> int:
     args = parse_args()
     parent_to_children, known_code_ids = build_parent_to_children_map(args.codes_dir)
 
+    if args.min_children is not None:
+        entries = [
+            (len(children), code_id)
+            for code_id, children in parent_to_children.items()
+            if len(children) >= args.min_children
+        ]
+        for count, code_id in sorted(entries, key=lambda x: x[0], reverse=True):
+            print(f"{count:<6}  {code_id}")
+        return 0
+
+    if not args.code_id:
+        print("Provide a code_id or use --min-children.", file=sys.stderr)
+        return 1
+
     if args.code_id not in known_code_ids:
         print(f"Unknown code_id: {args.code_id}", file=sys.stderr)
         return 1
 
-    for child_id in find_recursive_children(args.code_id, parent_to_children):
+    for child_id in sorted(parent_to_children.get(args.code_id, set())):
         print(child_id)
 
     return 0
