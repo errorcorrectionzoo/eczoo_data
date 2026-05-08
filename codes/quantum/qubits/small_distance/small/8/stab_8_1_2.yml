@@ -13,6 +13,19 @@ introduced: '\cite{arxiv:2310.19538}'
 description: |
   A stabilizer code that admits a logical \(T\) gate via application of physical \(T\) gates and a \(CZ\)-like gate.
 
+  A stabilizer tableau for the code is given by \cite[ID 980]{preset:qiskit}.
+  \begin{align}
+  \begin{array}{cccccccc}
+    X & X & I & I & X & X & I & I \\
+    I & I & X & X & X & X & I & I \\
+    I & I & I & I & I & I & X & X \\
+    Z & I & I & Z & I & Z & Z & Z \\
+    I & Z & I & Z & I & Z & Z & Z \\
+    I & I & Z & Z & I & I & I & I \\
+    I & I & I & I & Z & Z & I & I
+  \end{array}~.
+  \end{align}
+
 features:
   transversal_gates:
     - 'Logical \(T\) gate via application of physical \(T\) gates and a \(CZ\)-like gate \cite{arxiv:2310.19538}.'
@@ -20,12 +33,14 @@ features:
 relations:
   parents:
     - code_id: qubit_css
+    - code_id: xp_stabilizer
+      detail: 'The \([[8,1,2]]\) code is an XP-regular code that can be obtained via the XP stabilizer formalism applied to the \([[15,1,3]]\) Reed-Muller code \cite{arxiv:2310.19538}.'
     - code_id: small_distance_qubit_stabilizer
   cousins:
     - code_id: stab_15_1_3
-      detail: 'The \([[8,1,2]]\) code can be obtained by contracting some of the legs of the \([[15,1,3]]\) encoding map and concatenating one leg with a repetition code \cite{arxiv:2112.01446,arxiv:2310.19538}.'
+      detail: 'The \([[8,1,2]]\) code is an XP-regular code that can be obtained via the XP stabilizer formalism applied to the \([[15,1,3]]\) Reed-Muller code \cite{arxiv:2310.19538}.'
     - code_id: quantum_lego
-      detail: 'The \([[8,1,2]]\) code can be obtained by contracting some of the legs of the \([[15,1,3]]\) encoding map and concatenating one leg with a repetition code \cite{arxiv:2112.01446,arxiv:2310.19538}.'
+      detail: 'The \([[8,1,2]]\) code is an XP-regular code that can be obtained via the XP stabilizer formalism applied to the \([[15,1,3]]\) Reed-Muller code \cite{arxiv:2310.19538}.'
 
 
 # Begin Entry Meta Information
