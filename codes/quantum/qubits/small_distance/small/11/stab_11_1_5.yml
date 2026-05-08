@@ -15,7 +15,21 @@ description: |
   Eleven-qubit \hyperref[topic:quantum-weight-enumerator]{pure} stabilizer code that is the smallest qubit stabilizer code to correct two-qubit errors.
   It can be obtained from the dodecacode by puncturing \cite[Table IV]{arxiv:quant-ph/9608006}.
 
-  See \cite[Table 8.5]{arxiv:quant-ph/9705052}\cite{arxiv:quant-ph/0406063} for its stabilizer generator matrix.
+  A stabilizer tableau for the code is given by \cite[Table 8.5]{arxiv:quant-ph/9705052}\cite{arxiv:quant-ph/0406063}
+  \begin{align}
+  \begin{array}{ccccccccccc}
+    Z & Z & Z & Z & Z & Z & I & I & I & I & I \\
+    X & X & X & X & X & X & I & I & I & I & I \\
+    I & I & I & Z & X & Y & Y & Y & Y & X & Z \\
+    I & I & I & X & Y & Z & Z & Z & Z & Y & X \\
+    Z & Y & X & I & I & I & Z & Y & X & I & I \\
+    X & Z & Y & I & I & I & X & Z & Y & I & I \\
+    I & I & I & Z & Y & X & X & Y & Z & I & I \\
+    I & I & I & X & Z & Y & Z & X & Y & I & I \\
+    Z & X & Y & I & I & I & Z & Z & Z & X & Y \\
+    Y & Z & X & I & I & I & Y & Y & Y & Z & X
+  \end{array}~.
+  \end{align}
 
 protection: 'Smallest stabilizer code that protects against errors on any two qubits. Detects four-qubit errors.'
 

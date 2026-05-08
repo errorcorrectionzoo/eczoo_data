@@ -18,6 +18,22 @@ description: |
   Twelve-qubit CSS code based on Knill's \(C_4/C_6\) scheme \cite{arxiv:2404.02280}.
   Using the concatenation convention of the Zoo, the carbon code can be viewed as a block concatenation with inner code \([[4,2,2]]\) and outer code \(C_6\): three inner \([[4,2,2]]\) blocks encode six intermediate qubits, which are then encoded into two logical qubits by the outer \([[6,2,2]]\) code.
 
+  A stabilizer tableau for the code is given by \cite[Table IV]{arxiv:2404.02280}
+  \begin{align}
+  \begin{array}{cccccccccccc}
+    X & X & X & X & I & I & I & I & I & I & I & I \\
+    Z & Z & Z & Z & I & I & I & I & I & I & I & I \\
+    I & I & I & I & X & X & X & X & I & I & I & I \\
+    I & I & I & I & Z & Z & Z & Z & I & I & I & I \\
+    I & I & I & I & I & I & I & I & X & X & X & X \\
+    I & I & I & I & I & I & I & I & Z & Z & Z & Z \\
+    X & X & I & I & I & X & I & X & X & I & I & X \\
+    X & I & I & X & X & X & I & I & I & X & I & X \\
+    Z & I & Z & I & I & I & Z & Z & Z & I & I & Z \\
+    Z & I & I & Z & Z & I & Z & I & I & I & Z & Z
+  \end{array}~.
+  \end{align}
+
 features:
   encoders:
     - 'Simplified fault-tolerant state preparation circuits for the \(00\) and \(++\) states \cite{arxiv:2404.02280}.'
