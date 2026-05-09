@@ -12,11 +12,17 @@ name: 'EVENODD code'
 introduced: '\cite{doi:10.1109/12.364531}'
 
 description: |
-  A binary array code that can correct any two disk failures (i.e., two erasures). See \cite{preset:HPArray} for more details.
+  Binary array code \(\mathcal{EO}_2(m)\) with independent horizontal and diagonal parity columns, designed to retain optimal double-erasure protection while simplifying small updates \cite{preset:HPArray}.
+
+protection: |
+  Corrects any two erased columns whenever \(m\) is prime, and has minimum column distance three in that case \cite{preset:HPArray}.
 
 features:
   decoders:
     - 'Efficient decoding algorithm against two erasures \cite{doi:10.1109/12.364531}.'
+
+realizations:
+  - 'Can be implemented on standard RAID-5 controllers without extra finite-field hardware \cite{preset:HPArray}.'
 
 
 relations:
@@ -25,6 +31,9 @@ relations:
       detail: 'Generalized EVENODD codes reduce to EVENODD codes for \(r=2\) \cite{preset:HPArray}.'
     - code_id: mds_array
       detail: 'EVENODD codes are examples of MDS array codes \cite{arxiv:1112.0371}.'
+  cousins:
+    - code_id: b_array
+      detail: 'EVENODD avoids the recursive parity updates of \(\mathcal{B}_2(m)\) while retaining optimal two-erasure correction \cite{preset:HPArray}.'
 
 
 # Begin Entry Meta Information

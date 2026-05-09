@@ -9,7 +9,7 @@ physical: q-ary_digits
 logical: q-ary_digits
 
 name: '\(q\)-ary LDPC code'
-introduced: '\cite{doi:10.1109/ITW.1998.706440}'
+introduced: '\cite[Ch. 5]{preset:Gallager63}\cite{doi:10.1109/ITW.1998.706440}'
 
 alternative_names:
   - 'Non-binary LDPC (NBDPC) code'
@@ -23,10 +23,14 @@ description: |
   Despite the fact that there is more than one nonzero outcome, \(q\)-ary linear codes with sparse parity-check matrices are also called LDPC codes.
 
 protection: |
+  For fixed \(j \geq 3\), typical \((n,j,k)\) \(q\)-ary LDPC codes have minimum distance growing linearly with block length, extending Gallager's binary analysis to arbitrary alphabet sizes \cite[Ch. 5]{preset:Gallager63}.
   Non-binary cycle LDPC codes for \(q\geq 32\) can exhibit good performance \cite{doi:10.1109/ICC.2004.1312545,doi:10.1109/ITW.2007.4313042,doi:10.1109/TCOMM.2008.060527}.
 
 features:
-  rate: 'Asymptotically good non-binary expander codes can be constructed \cite[Thm. 7.16]{manual:{F. G. Jeronimo, "Fast decoding of explicit almost optimal ε-balanced q-ary codes and fast approximation of expanding k-CSPs." Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques (APPROX/RANDOM 2023). Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2023}}\cite{manual:{A. Rao, "Lecture 6: Expander Codes: Tanner Codes." Coding Theory lecture notes, 14 Oct. 2019, University of Washington}} by generalizing the originally binary expander constructions \cite{doi:10.1109/18.556667,doi:10.1109/18.910593}.'
+  rate: 'An \((n,j,k)\) \(q\)-ary LDPC code has rate at least \(1-j/k\) by parity-check counting, and Gallager extended the corresponding regular-ensemble analysis to arbitrary alphabet sizes \cite[Ch. 5]{preset:Gallager63}.
+  Asymptotically good non-binary expander codes can be constructed \cite[Thm. 7.16]{manual:{F. G. Jeronimo, "Fast decoding of explicit almost optimal ε-balanced q-ary codes and fast approximation of expanding k-CSPs." Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques (APPROX/RANDOM 2023). Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2023}}\cite{manual:{A. Rao, "Lecture 6: Expander Codes: Tanner Codes." Coding Theory lecture notes, 14 Oct. 2019, University of Washington}} by generalizing the originally binary expander constructions \cite{doi:10.1109/18.556667,doi:10.1109/18.910593}.'
+  decoders:
+    - 'Gallager generalized his iterative probabilistic decoding procedure to arbitrary alphabet sizes, with symbol-update rules expressed in terms of modulo-\(q\) check sums \cite[Secs. 5.3--5.4]{preset:Gallager63}.'
 
 
 relations:

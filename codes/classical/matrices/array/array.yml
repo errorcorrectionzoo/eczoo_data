@@ -19,6 +19,8 @@ description: |
   Each column of a matrix codeword is typically treated as a single codeword coordinate via subpacketization (defined below) and represents a large data block.
   Array codes are denoted by \((n,k,m)\), where \(n\) is the number of nodes, \(k\) is the number of nodes needed to recover the data, and \(m\) is the column dimension of each codeword a.k.a. the subpacketization level.
 
+  Classical array codes also include block and convolutional families whose parity checks run along rows, columns, or diagonals, with applications to burst correction, multitrack magnetic recording, and disk arrays \cite{preset:HPArray}.
+
 protection: |
   Since they are designed to protect against corruption of nodes in a distributed storage network, many array codes are analyzed in terms of their erasure capabilities.
 
@@ -29,7 +31,7 @@ protection: |
   There are other notions of distance for array codes, including the rank metric and its generalization the sum-rank metric.
 
 notes:
-  - 'See \cite{preset:HPArray}\cite[Ch. 14]{doi:10.1002/0471792748}\cite{preset:HPArray} for introductions.'
+  - 'See \cite{preset:HPArray}\cite[Ch. 14]{doi:10.1002/0471792748} for introductions.'
 
 
 relations:
@@ -37,6 +39,8 @@ relations:
     - code_id: matrices_into_matrices
     - code_id: distributed_storage
   cousins:
+    - code_id: tensor
+      detail: 'Classical block array codes form a subclass of product codes, i.e., tensor-product codes \cite{preset:HPArray}.'
     - code_id: reed_solomon
       detail: 'RS codes over \(q=2^m\) are used in RAID 6 \cite{preset:Anvin07,preset:DDFspec09}; see \cite{preset:HPArray}.'
 
