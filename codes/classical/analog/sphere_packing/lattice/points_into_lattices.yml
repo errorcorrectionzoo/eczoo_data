@@ -12,7 +12,7 @@ name: 'Lattice'
 description: |
   Encodes states (codewords) in coordinates of an \(n\)-dimensional lattice, i.e., a discrete set of points in Euclidean space \(\mathbb{R}^n\) that forms a group under vector addition when translated so that one point is at the origin. The number of codewords may be infinite because the ambient Euclidean space is unbounded, so various restricted versions have to be constructed in practice. Since lattices are closed under addition, lattice-based codes can be thought of as linear codes over the reals.
 
-  A \(n\)-dimensional lattice-based code can be defined using a generator matrix \(G\) of rank \(n\), where the rows of \(G\) are the lattice translation vectors \(g_i\).
+  An \(n\)-dimensional lattice-based code can be defined using a generator matrix \(G\) of rank \(n\), where the rows of \(G\) are the lattice translation vectors \(g_i\).
   Any lattice point \(x\) is a linear combination of translation vectors with integer coefficients \(c_i\), \(x = c_1 g_1 + c_2 g_2 + \cdots + c_n g_n\).
   A lattice-based code can also be defined using the Gram matrix \(GG^T\).
 
@@ -29,7 +29,7 @@ description: |
   \begin{align}
     G^{\prime}=cAGU~,
   \end{align}
-  where \(A\) is an integer matrix \(A\) of determinant \(\pm 1\).
+  where \(A\) is an integer matrix of determinant \(\pm 1\).
 
 protection: |
   Lattices are characterized by the \textit{minimum (Euclidean) distance} \(d_{\text{min}}\) between two lattice points, the \textit{kissing number} \(K_{\text{min}}\) of nearest neighbors at each lattice point, and the \textit{volume} \(V=|\det G|\), which is the volume of the lattice's \textit{fundamental region} that can be used to tile all of \(\mathbb{R}^n\).
@@ -53,20 +53,20 @@ protection: |
   \begin{align}
     G(\Pi)=\frac{\frac{1}{n}\int_{\Pi}x\cdot x\,\textnormal{d}x}{\text{Vol}(\Pi)^{1+2/n}}\,.
   \end{align}
-  Higher-dimensional lattices yield quantizers with lower normalized second moments than the 1D integer lattice \cite{manual:{P. L. Zador, Development and evaluation of procedures for quantiZing multivariate distributions, PhD thesis, Stanford Univ., 1963},doi:10.1109/TIT.1982.1056490}.
+  Higher-dimensional lattices yield quantizers with lower normalized second moments than the 1D integer lattice \cite{manual:{P. L. Zador, Development and evaluation of procedures for quantizing multivariate distributions, PhD thesis, Stanford Univ., 1963},doi:10.1109/TIT.1982.1056490}.
 
   The \textit{shortest vector problem} (SVP) asks for the shortest nonzero vector in a given lattice and is related to cryptographic protocols.
-  Solving SVP up to an error independent of lattice dimension is NP-complete \cite{manual:{van Emde Boas, P. (1981). Another NP-complete problem and the complexity of computing short vectors in a lattice. Tecnical Report, Department of Mathmatics, University of Amsterdam},doi:10.1137/S0097539700373039}.
+  Solving SVP up to an error independent of lattice dimension is NP-complete \cite{manual:{van Emde Boas, P. (1981). Another NP-complete problem and the complexity of computing short vectors in a lattice. Technical Report, Department of Mathematics, University of Amsterdam},doi:10.1137/S0097539700373039}.
   The Lenstra-Lenstra-Lovasz (LLL) algorithm solves SVP in polynomial time, but up to an error exponential in the dimension \cite{doi:10.1007/BF01457454}; see the book \cite{doi:10.1007/978-0-387-77993-5}.
 
 # Lattices are also characterized by the \textit{minimal norm} \(\mu\), which is the minimal norm of a nonzero vector in the lattice.
 
 features:
   rate: |
-    Lattices with minimal-distance decoding achieve the capacity of the AWGN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Budaand W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, PhD thesis, McMaster Univ., Hamilton, Ontario, 1981,doi:10.1109/18.651040}}.
+    Lattices with minimal-distance decoding achieve the capacity of the AWGN channel \cite{doi:10.1109/18.651040,doi:10.1109/TIT.1975.1055409,manual:{R. de Buda and W. Kassem, About lattices and the random coding theorem, in Abstracts of Papers, IEEE Inter. Symp. Info. Theory 1981, IEEE Press, NY 1981, p. 145},manual:{W. Kassem, Optimal Lattice Codes for the Gaussian Channel, PhD thesis, McMaster Univ., Hamilton, Ontario, 1981,doi:10.1109/18.651040}}.
 
   decoders:
-    - 'Spherical decoder \cite{doi:10.1090/S0025-5718-1985-0777278-8,doi:10.1007/bf01581144}.'
+    - 'Sphere decoder \cite{doi:10.1090/S0025-5718-1985-0777278-8,doi:10.1007/bf01581144}.'
 
 notes:
   - 'See books \cite{doi:10.1007/978-1-4757-6568-7,doi:10.1007/b98975,manual:{C. A. Rogers. Packing and covering. Vol. 54. Cambridge: University Press, 1964}} for introductions and overviews of lattices.'
