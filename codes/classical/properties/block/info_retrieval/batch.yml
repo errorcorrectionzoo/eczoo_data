@@ -9,16 +9,16 @@ name: 'Batch code'
 introduced: '\cite{doi:10.1145/1007352.1007396}'
 
 description: |
-  Binary code designed for minimizing the total amount of storage and the worst-case maximal load on any devices in a distributed system.
+  Binary code designed for minimizing the total amount of storage and the worst-case maximal load on any device in a distributed system.
 
-  An \((n,N,k,m,t)\) batch code encodes a length-\(n\) string \(x_1,\cdots,x_n\) into an \(m\)-tuple of strings of total length \(N\) (are also called buckets), such that for each \(k\)-tuple of distinct indices \(i_1,i_2,...,i_k\), the entries \(x_{i_1},...,x_{i_k}\) can be decoded by reading at most \(t\) symbols from each bucket. 
+  An \((n,N,k,m,t)\) batch code encodes a length-\(n\) string \(x_1,\cdots,x_n\) into an \(m\)-tuple of strings of total length \(N\) (also called buckets), such that for each \(k\)-tuple of distinct indices \(i_1,i_2,...,i_k\), the entries \(x_{i_1},...,x_{i_k}\) can be decoded by reading at most \(t\) symbols from each bucket.
   If each bucket of a batch code contains a single symbol, then the \((n,N,k,m)\) batch code is \textit{primitive}.
 
   If, for any multiset \(i_1, i_2, ..., i_k \in [n]\), there is a partition of buckets into subsets \(S_1, ..., S_k \subset [m]\) such that each \(x_{i_j}\) can be recovered by reading at most one symbol from each bucket in \(S_j\), then the \((n, N, k, m)\) code is a \textit{multiset batch code}.
 
 
 protection: |
-  The Gadget Lemma states that any \((n,N,k,m)\) batch code at \(t=1\) can be transformed into a multiset \((rn,rN,k,m)\) for any positive integer \(r\) \cite{doi:10.1109/TIT.2016.2524007}.
+  The Gadget Lemma states that any \((n,N,k,m)\) batch code at \(t=1\) can be transformed into a multiset \((rn,rN,k,m)\) batch code for any positive integer \(r\) \cite{doi:10.1109/TIT.2016.2524007}.
 
   Combining two batch codes \(C_1\) and \(C_2\), which are \((n_1,N_1,k_1,m_1)\) and \((n_2,N_2,k_2,m_2)\) batch codes respectively, yields a composite batch code \(C_1\otimes C_2\), which is an \((n_1, m_1N_2, k_1 k_2, m_1 m_2)\) batch code.
 
