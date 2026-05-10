@@ -14,18 +14,18 @@ alternative_names:
   - 'Sipser-Spielman code'
 
 description: |
-  LDPC code whose parity-check matrix is derived from the adjacency matrix of bipartite expander graph \cite{doi:10.1090/S0273-0979-06-01126-8} such as a Ramanujan graph or a Cayley graph of a projective special linear group over a finite field \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}.
+  LDPC code whose parity-check matrix is derived from the adjacency matrix of a bipartite expander graph \cite{doi:10.1090/S0273-0979-06-01126-8} such as a Ramanujan graph or a Cayley graph of a projective special linear group over a finite field \cite{doi:10.1007/BF02126799,doi:10.1017/CBO9780511615825}.
   Expander codes admit efficient encoding and decoding algorithms and yield an explicit (i.e., non-random) asymptotically good LDPC code family.
 
   The rate and distance of the expander code depend on specific parameters of the corresponding graph.
-  A (\(n, m, D, \gamma, \alpha\)) bipartite expander graph is defined as a \(D\)-left-regular graph with \(n\) left nodes, and \(m\) right nodes such that for any subset of left nodes \(S\) of size at most \(\gamma n\) the neighborhood \(N(S)\) is at least of size \(\alpha|S|\). Given a (\(n, m, D, \gamma, (1-\epsilon)D\)) expander graph, the corresponding expander code has rate of \(1 - m/n\) and a distance of at least \(2(1-\epsilon)\gamma n\) for any \(\epsilon < 1/2\).
+  A (\(n, m, D, \gamma, \alpha\)) bipartite expander graph is defined as a \(D\)-left-regular graph with \(n\) left nodes and \(m\) right nodes such that for any subset of left nodes \(S\) of size at most \(\gamma n\), the neighborhood \(N(S)\) has size at least \(\alpha|S|\). Given a (\(n, m, D, \gamma, (1-\epsilon)D\)) expander graph, the corresponding expander code has rate at least \(1 - m/n\) and distance at least \(2(1-\epsilon)\gamma n\) for any \(\epsilon < 1/2\).
   Explicit constructions for expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8} with any ratio \(n/m\) are known where \(D = \text{polylog}(n/m)\), \(\gamma = \Omega(1/D)\) and arbitrary \(\epsilon\) \cite{doi:10.1145/509907.510003}.
 
 protection: |
   There exist minimum distance bounds \cite{doi:10.1109/18.556667,arxiv:cs/0406048} as well as bounds on decoding performance \cite{arxiv:0805.2427,doi:10.1109/TIT.2017.2726064,arxiv:2312.16087} in terms of features of the expander graph.
 
 features:
-  rate: 'The rate is \(1 - m/n\) where \(n\) is the number of left nodes and \(m\) is the number of right nodes in the bipartite expander graph. Expander codes yield an explicit (i.e., non-random) asymptotically good LDPC code family \cite{doi:10.1109/18.556667}.'
+  rate: 'The rate is at least \(1 - m/n\), where \(n\) is the number of left nodes and \(m\) is the number of right nodes in the bipartite expander graph. Expander codes yield an explicit (i.e., non-random) asymptotically good LDPC code family \cite{doi:10.1109/18.556667}.'
 
   encoders:
     - 'Multiplication by generator matrix with runtime \(O(n^2)\)'
