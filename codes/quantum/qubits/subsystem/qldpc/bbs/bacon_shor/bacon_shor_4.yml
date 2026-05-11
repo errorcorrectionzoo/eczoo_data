@@ -15,7 +15,15 @@ description: |
   Error-detecting four-qubit subsystem stabilizer code encoding one logical qubit and one gauge qubit.
 
   The \([[4,1,1,2]]\) code can be obtained by picking one of the logical qubits of the \([[4,2,2]]\) four-qubit code to be a gauge qubit; e.g., see Ref. \cite{preset:albertBoulder21}.
-  One particular gauge configuration has gauge group \(\mathsf{G}=\langle i,XXII,IIXX,ZIZI,IZIZ \rangle\).
+  One particular gauge configuration has gauge group \(\mathsf{G}\) with gauge generators (exluding phases)
+  \begin{align}
+  \begin{array}{cccc}
+    X & X & I & I \\
+    I & I & X & X \\
+    Z & I & Z & I \\
+    I & Z & I & Z
+  \end{array}~.
+  \end{align}
 
 protection: |
   The code detects arbitrary single-qubit errors.
