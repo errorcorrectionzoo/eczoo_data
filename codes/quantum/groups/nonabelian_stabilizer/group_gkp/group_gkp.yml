@@ -21,11 +21,7 @@ description: |
   The group GKP code was originally formulated as an extension of the \hyperref[code:gkp]{GKP code} construction to other group-valued spaces.
   In other words, the only requirement to construct group GKP codes is that the configuration space \(G\) is a group under some operation.
 
-  Group GKP codes are based on the following decomposition of the underlying group,
-  \begin{align}
-    G \cong \frac{G}{K} \times \frac{K}{H} \times \widehat{H}~,
-  \end{align}  
-  where \(\widehat{H}\) is the Fourier space of \(H\) obtained from the Peter-Weyl theorem.
+  For generalized GKP codes, detectable position shifts are labeled by elements of the coset space \(G/K\), logical position shifts are labeled by elements of \(K/H\), and undetectable logical phase errors are labeled by representations of \(G\) that represent \(H\) trivially but \(K\) nontrivially \cite{arxiv:1911.00099}.
   The codes' logical subspace is spanned by basis states that are equal
   superpositions of elements of cosets of \(H\) in \(K\), and can be finite- or
   infinite-dimensional depending on the chosen groups.
@@ -45,7 +41,7 @@ description: |
     \(n\) qubits & \(\mathbb{Z}_2^n\) & \(\mathbb{Z}_2^m\)
         & qubit CSS
         \\
-    \(n\) modular qudits & \(\mathbb{Z}_q^n\) & \(K\)
+    \(n\) modular qudits & \(\mathbb{Z}_q^n\) & \(\mathbb{Z}_q^m\)
         & modular-qudit CSS
         \\
     \(n\) Galois qudits & \(\mathbb{F}_q^n\) & \(\mathbb{F}_q^m\)
@@ -57,7 +53,7 @@ description: |
     \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{Z}^n \)
         & multimode GKP
         \\
-    \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{Z}^{m<n} \)
+    \(n\) modes & \( \mathbb{R}^n \) & \( \mathbb{Z}^m \)
         & oscillator-into-oscillator GKP
         \\
     \(n\) rotors & \( \mathbb{Z}^n \) & \( \mathbb{Z}^m \)
