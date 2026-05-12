@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: xz_7_3_2
+physical: qubits
+logical: qubits
+
+name: '\([[7,3,2]]\) \(X/Z\)-error-correcting code'
+introduced: '\cite{arxiv:quant-ph/9705052}'
+
+description: |
+  A seven-qubit \hyperref[topic:quantum-weight-enumerator]{pure} CSS code that corrects a single \(X\) or a single \(Z\) error, but not a single \(Y\) error.
+
+  A stabilizer tableau for the code is given by \cite[Table 8.6]{arxiv:quant-ph/9705052}\cite[ID 475]{preset:qiskit}
+  \begin{align}
+  \begin{array}{ccccccc}
+    Z & Z & Z & Z & Z & Z & Z \\
+    Y & Y & Y & Y & I & I & I \\
+    Y & Y & I & I & Y & Y & I \\
+    Y & I & Y & I & Y & I & Y
+  \end{array}~.
+  \end{align}
+  The code is CSS, but the above non-CSS form is required to correct a single \(X\) or a single \(Z\) error.
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: hamming743
+      detail: 'The \([[7,3,2]]\) \(X/Z\)-error-correcting code \(H_X\) check matrix is the parity-check matrix of the \([7,4,3]\) Hamming code, while its \(H_Z\) matrix is that of the SPC code.'
+    - code_id: parity_check
+      detail: 'The \([[7,3,2]]\) \(X/Z\)-error-correcting code \(H_X\) check matrix is the parity-check matrix of the \([7,4,3]\) Hamming code, while its \(H_Z\) matrix is that of the SPC code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-12'
