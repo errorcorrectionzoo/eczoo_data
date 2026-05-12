@@ -12,7 +12,24 @@ introduced: '\cite{arxiv:1008.1029}'
 
 description: |
   Error-detecting six-qubit BBS subsystem code with parameters \([[6,2,3,2]]\) that can suppress errors in adiabatic quantum computation \cite{arxiv:1511.01997}.
-  See Ref. \cite{arxiv:1511.01997} for its gauge generators.
+
+  The code is defined by the \(3\times 3\) binary matrix
+  \begin{align}
+  A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 1 & 0 & 1 \end{pmatrix},
+  \end{align}
+  with physical qubits placed at the six nonzero entries of \(A\) and labeled \(1\)–\(6\) in row-major order \cite{arxiv:1008.1029}.
+  The gauge generators (exluding phases) are
+  \begin{align}
+  \begin{array}{cccccc}
+    X & X & I & I & I & I \\
+    I & I & X & X & I & I \\
+    I & I & I & I & X & X \\
+    Z & I & I & I & Z & I \\
+    I & Z & Z & I & I & I \\
+    I & I & I & Z & I & Z
+  \end{array}~,
+  \end{align}
+  where each \(XX\) row corresponds to a same-row pair in \(A\) and each \(ZZ\) row to a same-column pair.
 
 protection: |
   This code detects arbitrary single-qubit errors and is used as an error-suppressing encoding with non-commuting two-local Hamiltonian terms built from gauge generators \cite{arxiv:1511.01997}.
@@ -27,6 +44,8 @@ relations:
   parents:
     - code_id: trapezoid
       detail: 'The even-logical-qubit trapezoid family at \(l=k=1\) reduces to the \([[6,2,3,2]]\) BBS code.'
+  cousins:
+    - code_id: small_distance_qubit_stabilizer
 
 
 # Begin Entry Meta Information

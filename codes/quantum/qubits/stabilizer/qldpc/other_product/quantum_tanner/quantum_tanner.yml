@@ -39,20 +39,16 @@ description: |
 
   \begin{figure}
     \includegraphics{local-view-stabilizer.png}
-    \caption{An example of a \(Z\) generator on a \(V_0\) local view when \(C_A = \{000\}\) and \(C_B=\{110, 011\}\). The faces incident to a \(V_0\) vertex are in bijection with the set \(A\times B\), and a codeword of \(C_0 = C_A\otimes C_B\) can be described using this set.}
+    \caption{An example of a \(Z\) generator on a \(V_0\) local view when \(C_A = \operatorname{span}\{111\}\) and \(C_B=\operatorname{span}\{110, 011\}\). The faces incident to a \(V_0\) vertex are in bijection with the set \(A\times B\), and a codeword of \(C_0 = C_A\otimes C_B\) can be described using this set.}
     \label{figure:local-view-stabilizer}
   \end{figure}
 
   To achieve asymptotically good parameters, fixed classical local codes are chosen so that their dual tensor codes are sufficiently robust, and the left-right Cayley complexes are chosen to be sufficiently expanding. The family is defined using a family of groups \(G\) of increasing size but constant-size generating sets \(A\), \(B\).
 
-
 protection: 'For correctly chosen complexes and local codes, the distance scales as \(d=\Theta(n)\). Minimum distance bound obtained using robustness of dual \hyperref[code:tensor]{tensor-product} codes \cite{arxiv:2208.05537}.'
 
 features:
   rate: 'Asymptotically good QLDPC codes. When \(C_A\) and \(C_B\) are chosen to have rates not equal to a half, the number of encoded qubits scales as \(k=\Theta(n)\).'
-
-#transversal_gates:
-# - 'Hadamard because quantum Tanner codes are self-dual.'
 
   decoders:
     - 'Linear-time potential-based decoder similar to the small-set-flip decoder for quantum expander codes \cite{arxiv:2206.06557}.'
@@ -61,7 +57,6 @@ features:
 
   code_capacity_threshold:
     - 'Independent \(X,Z\) noise: lower bound under potential-based decoder \cite[Corr. 15]{arxiv:2206.06557}.'
-
 
 realizations:
   - 'Used to obtain explicit lower bounds in the sum-of-squares game \cite{arxiv:2204.11469}.'
