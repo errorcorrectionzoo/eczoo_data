@@ -20,20 +20,20 @@ description: |
   Separating codes are, equivalently, codes with the \textit{secure FP (SFP)} property \cite{doi:10.1016/S0378-3758(99)00131-7}.
 
   Let us define \(\Gamma = \{w^{(1)}, \dots, w^{(n)}\} \subseteq \mathbb{F}_2^{l}\) as an ( \(l,n\) )-code.
-  Each codeword \(w^{(i)}\) correlates to a user \(u_i\).
+  Each codeword \(w^{(i)}\) corresponds to a user \(u_i\).
   Let \(C\) be a group of users.
   A bit in position \(i\) is undetectable for the group \(C\) when the words assigned to the users in the group match at the same position \(i\).
   The feasible set of the group \(C\), denoted \(F(C;\Gamma)\) or \(F(C)\), for some user \(u \in C\) contains all of the codewords that match the group's set of undetectable bits.
   Finally, if every subset \(S \subset \Gamma\) of size at most \(c\) satisfies \(F(S)\cap\Gamma = S\), then \(\Gamma\) is a \(c\)\textit{-FP} code \cite{doi:10.1007/3-540-44750-4_36}.
 
   Any \(c\)-FP code must be of length at least \(c\) \cite{doi:10.1007/3-540-44750-4_36}.
-  A length-\(l\) \(q\)-ary \(c\)-FP code has at most \(tq^{\lceil l/c \rceil} + O(q^{\lceil l/c \rceil - 1})\) codewords, where \(t\) is an integer between \(1\) and \(c\), and \(t \equiv 1\) modulo \(c\) \cite{doi:10.1137/S0895480101384633}.
+  A length-\(l\) \(q\)-ary \(c\)-FP code has at most \(tq^{\lceil l/c \rceil} + O(q^{\lceil l/c \rceil - 1})\) codewords, where \(t\) is an integer between \(1\) and \(c\), and \(t \equiv l\) modulo \(c\) \cite{doi:10.1137/S0895480101384633}.
 
 
 # Even further, the group of users cannot frame a separate user even if they know the unique codeword of the separate user.
 
 features:
-  rate: 'FP codes tend to have large minimal distance and low rate \cite{doi:10.1007/3-540-44750-4_36}. Specifically, for any positive integers \(n\) and \(c\), if \(l = 16c^{2}\log n\), then there exists a \(c\)-FP \( (l,n) \)-code which has rate \((\log n)/l\) \cite{doi:10.1007/3-540-44750-4_36}. See Ref. \cite{arxiv:1411.5782} for other bounds on FP codes.'
+  rate: 'FP codes tend to have large minimum distance and low rate \cite{doi:10.1007/3-540-44750-4_36}. Specifically, for any positive integers \(n\) and \(c\), if \(l = 16c^{2}\log n\), then there exists a \(c\)-FP \( (l,n) \)-code which has rate \((\log n)/l\) \cite{doi:10.1007/3-540-44750-4_36}. See Ref. \cite{arxiv:1411.5782} for other bounds on FP codes.'
 
 
 realizations:
