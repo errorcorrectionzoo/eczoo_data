@@ -14,19 +14,19 @@ description: |
   Two- or higher-mode extension of cat codes whose codewords are right eigenstates of powers of products of the modes' lowering operators. Many gadgets for cat codes have two-mode pair-cat analogues, with the advantage being that such gates can be done in parallel with a dissipative error-correction process.
 
   Two-mode codewords are supported by Fock states with occupation number \(\hat{n}_2-\hat{n}_1\) fixed to some integer \(\Delta\). 
-  In the \textit{two-component} case, \(|\overline{0}_{\gamma,\Delta}\rangle \sim (|\gamma_\Delta \rangle + (-1)^\Delta |i\gamma_\Delta\rangle)/\sqrt{2}\) and \(|\overline{1}_{\gamma,\Delta}\rangle \sim (|\gamma_\Delta\rangle - (-1)^\Delta |i\gamma_\Delta\rangle)/\sqrt{2}\) \cite{doi:10.1103/PhysRevA.51.1698,arxiv:1801.05897}, where
+  In the \textit{two-component} case, \(|\overline{0}_{\gamma,\Delta}\rangle \sim (|\gamma_\Delta\rangle + (-1)^\Delta |i\gamma_\Delta\rangle)/\sqrt{2}\) and \(|\overline{1}_{\gamma,\Delta}\rangle \sim (|\gamma_\Delta\rangle - (-1)^\Delta |i\gamma_\Delta\rangle)/\sqrt{2}\) \cite{doi:10.1103/PhysRevA.51.1698,arxiv:1801.05897}, where
   \begin{align}
-  |\alpha_\Delta \rangle \propto \sum_{n=0}^\infty \frac{\alpha^{2n+\Delta}}{\sqrt{n! (n+\Delta)!}} |n,n+\Delta\rangle
+  |\gamma_\Delta \rangle \propto \sum_{n=0}^\infty \frac{\gamma^{2n+\Delta}}{\sqrt{n! (n+\Delta)!}} |n,n+\Delta\rangle
   \end{align}
-  is the corresponding pair-coherent state \cite{doi:10.1088/0305-4470/9/9/011,doi:10.1007/BF01646483,doi:10.1103/PhysRevLett.57.827,doi:10.1364/JOSAB.5.001940} with complex amplitude \(\alpha\), up to normalization.
-  The asymptotic expression of the codewords is valid in the limit of large energy, \(|\alpha|^2\to\infty\).
+  is the corresponding pair-coherent state \cite{doi:10.1088/0305-4470/9/9/011,doi:10.1007/BF01646483,doi:10.1103/PhysRevLett.57.827,doi:10.1364/JOSAB.5.001940} with complex amplitude \(\gamma\), up to normalization.
+  The asymptotic expression of the codewords is valid in the limit of large energy, \(|\gamma|^2\to\infty\).
 
 protection: |
   The occupation-number differences form the syndromes, as opposed to the photon-number parity for the single-mode cat code. Any loss event or combination of losses that changes the relative occupation-number differences between modes is detectable.
 
 features:
   decoders:
-    - 'Lindbladian-based dissipative encoding and autonomous QEC utilizing two-mode two-photon absorption \cite{doi:10.1103/PhysRevLett.57.827}. Encoding passively protects against cavity dephasing, suppressing dephasing noise exponentially with \(\gamma^2\).'
+    - 'Lindbladian-based dissipative encoding and autonomous QEC utilizing two-mode two-photon absorption \cite{arxiv:1801.05897}. Encoding passively protects against cavity dephasing, suppressing dephasing noise exponentially with \(|\gamma|^2\).'
   general_gates:
     - 'Hamiltonian \(X\), \(XX\), \(Z\) gates, holonomic \(Z\) gate, control-phase gate.'
     - 'Bias-preserving gates \cite{arxiv:2208.06913}.'
