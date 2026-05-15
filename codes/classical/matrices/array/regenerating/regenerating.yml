@@ -12,7 +12,7 @@ short_name: 'RGC'
 introduced: '\cite{doi:10.1109/TIT.2010.2054295}'
 
 description: |
-    An \([n,k,d,\alpha,\beta,M]_q\) Regenerating Code \(\mathcal{C}\) is an erasure correcting code that
+    An \([n,k,d,\alpha,\beta,M]_q\) Regenerating Code \(\mathcal{C}\) is an erasure-correcting code that
     encodes \(M\) symbols from \(\mathbb{F}_q\) into an \(\alpha \times n\) matrix over \(\mathbb{F}_q\), with each column of the matrix
     treated as a coordinate of a codeword.
 
@@ -25,10 +25,10 @@ description: |
 
 
 protection: |
-    Corrects upto \(n-k\) erasures on coordinates.
+    Corrects up to \(n-k\) erasures on coordinates.
     For standard erasure codes, like RS codes, total download bandwidth for recovery of a single node is \(k\alpha\) due to the MDS property.
     For regenerating codes, it is \(d\beta\) which can be significantly less.
-    It was shown by network coding arguments that \(M \le \sum_{i=0}{k-1}\min\{\alpha,(d-i)\beta\}\).
+    It was shown by network coding arguments that \(M \le \sum_{i=0}^{k-1}\min\{\alpha,(d-i)\beta\}\).
     Depending on the relative values of \(\alpha\) and \(\beta\), a trade-off between storage per node and download bandwidth arises.
     Two extreme points of this trade-off curve are the MBR (\(\alpha = d\beta\)) and MSR (\(\alpha = (d-k+1)\beta\)) codes.
 
