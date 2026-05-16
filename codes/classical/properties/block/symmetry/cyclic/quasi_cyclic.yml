@@ -9,14 +9,13 @@ name: 'Quasi-cyclic code'
 introduced: '\cite{doi:10.1109/TIT.1967.1053974}'
 
 description: |
-  A block code of length \(n\) is quasi-cyclic if, for each codeword \(c_1 \cdots c_{\ell} c_{\ell+1} \cdots c_n\), the string \(c_{n-\ell+1} \cdots c_n c_1 \cdots c_{n-\ell}\), where each entry is cyclically shifted by \(\ell\) increments, is also a codeword.
-  Code for which \(\ell = 1\) are cyclic, while codes for which \(\ell = 2\) are called \textit{double circulant}.
+  A block code of length \(n\) is quasi-cyclic if, for each codeword \(c_1 \cdots c_{\ell} c_{\ell+1} \cdots c_n\), the cyclic shift by \(\ell\) positions, \(c_{n-\ell+1} \cdots c_n c_1 \cdots c_{n-\ell}\), is also a codeword.
+  Codes for which \(\ell = 1\) are cyclic, while codes for which \(\ell = 2\) are called \textit{double circulant}.
 
   The generator of an \([mn_0,mk_0]\) quasi-cyclic linear code is representable as a block matrix of \(m \times m\) circulant matrices \cite{preset:MacSlo,manual:{T. A. Gulliver, \href{https://www.ece.uvic.ca/~agullive/gulliverthesis.pdf}{Construction of quasi-cyclic codes}, PhD thesis, University of New Brunswick, 1989}}.
 
-  Quasi-cyclic codes can also be understood in terms of the number of automorphism-group orbits required to generate all codewords.
-  All codewords of a cyclic code can be obtained from any codeword via cyclic shifts, meaning that the code consists of only one orbit.
-  On the other hand, quasi-cyclic codes consist of multiple disjoint orbits, meaning that not all of their codewords can be obtained from each other.
+  Quasi-cyclic codes can also be understood in terms of cyclic-shift automorphisms.
+  Cyclic codes are invariant under a shift by one position, while quasi-cyclic codes are invariant under a shift by \(\ell\) positions.
 
 notes:
   - 'A database of quasi-cyclic codes with searchable parameters such as block length and dimension is constructed and displayed \href{http://www.tec.hkr.se/~chen/research/codes/qc.htm}{here}.'
