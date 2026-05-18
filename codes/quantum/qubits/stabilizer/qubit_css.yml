@@ -41,11 +41,6 @@ description: |
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
 
-  Specializing to the case when \(C_Z=[n,k]\) is dual-containing and \(C_X=C_Z\) yields an \([[n,2k-n]]\) \textit{self-dual qubit CSS code} (a.k.a. weakly self-dual or symmetric \cite{arxiv:2510.05708} qubit CSS code).
-  Its \(X\)-type and \(Z\)-type stabilizers are identically supported, and transversal Hadamard preserves the stabilizer group.
-  Self-dual CSS codes split into \textit{normal} and \textit{hyperbolic} classes depending on whether transversal Hadamard acts as logical Hadamards or as pairwise logical swaps in a suitable logical basis \cite[Sec. III]{arxiv:1703.07847}.
-  Hyperbolic codes necessarily encode an even number of logical qubits and have even blocklength and distance \cite[Sec. III]{arxiv:1703.07847}.
-
   Inequivalent CSS codes up to \(n=14\) qubits have been classified \cite{arxiv:2601.20927}.
   
   \subsection{CSS-to-homology correspondence}
@@ -107,8 +102,6 @@ protection: |
 features:
   rate: 'For a depolarizing channel with probability \(p\), CSS codes allowing for arbitrarily accurate recovery exist with asymptotic rate \(1-2h(p)\), where \(h\) is the binary entropy function \cite{arxiv:quant-ph/0110143,doi:10.1109/ISIT.2013.6620358}.'
 
-  magic_scaling_exponent: 'Normal and hyperbolic self-dual CSS codes yield magic-state distillation protocols with asymptotically constant space overhead and yield parameter \(\gamma \to 1^{+}\) \cite[Thms. 4.1 and 4.2]{arxiv:1703.07847}\cite{arxiv:1709.02789}.'
-
   encoders:
     - 'Steane Latin-rectangle encoder \cite{arxiv:quant-ph/0202036,arxiv:1410.5124}.'
     - 'Stabilizer measurement \cite{arxiv:1404.2495}.'
@@ -123,7 +116,6 @@ features:
   transversal_gates:
     - 'Transversal Pauli gates since qubit CSS codes are qubit stabilizer codes.'
     - 'Transversal CNOT gates preserve the logical subspace, up to \(X\)-type Paulis, iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}. The Paulis are necessary for when the code is stabilized by stabilizers with a minus in front of them, e.g., \(-XXXX\) and \(ZZZZ\).'
-    - 'Self-dual CSS codes admit a transversal Hadamard gate. There are criteria for when such codes realize logical gates from tensor products of \(S\) and \(S^{\dagger}\) gates \cite{arxiv:2503.19790}.'
     - '\textit{Fold-transversal} \cite{arxiv:1503.02065,arxiv:1603.02286,arxiv:2202.06647} \hyperref[topic:clifford]{Clifford gates} are transversal gates combined with qubit permutations. Some of these can be obtained from automorphism groups of the underlying classical codes \cite[Thms. 2-3]{arxiv:1302.1035}.'
     - >-
       Necessary and sufficient conditions for diagonal physical gates on a CSS code to induce logical gates in the \term{Clifford hierarchy} have been formulated \cite[Thm. 9]{arxiv:2109.13481}\cite[Thm. 5]{arxiv:2204.13176}\cite{arxiv:2406.00425}.
@@ -138,7 +130,7 @@ features:
     - 'Fault-tolerant CNOT gate using generalized lattice surgery \cite{arxiv:2505.01370}.'
   fault_tolerance:
     - 'Steane error correction \cite{arxiv:quant-ph/9611027}, where fault-tolerance is ensured by preparing ancillary encoded states and extracting syndromes via \(CNOT\) gates.'
-    - 'Fault-tolerant error correction and logical measurements using flag qubits for distance-three cyclic CSS codes \cite{arxiv:1803.09758}. Parallel syndrome extraction for distance-three codes can be done fault-tolerantly using one flag qubit \cite{arxiv:2208.00581}. \hyperref[topic:effective-distance]{Distance-preserving} flag fault-tolerant error correction can be done using lookup tables for small codes \cite{arxiv:2306.12862}. Any self-dual CSS code with bounded-weight stabilizer generators admits flag fault-tolerant syndrome extraction \cite{arxiv:1708.02246}.'
+    - 'Fault-tolerant error correction and logical measurements using flag qubits for distance-three cyclic CSS codes \cite{arxiv:1803.09758}. Parallel syndrome extraction for distance-three codes can be done fault-tolerantly using one flag qubit \cite{arxiv:2208.00581}. \hyperref[topic:effective-distance]{Distance-preserving} flag fault-tolerant error correction can be done using lookup tables for small codes \cite{arxiv:2306.12862}.'
     - 'Homomorphic gadgets fault-tolerant measurement unify Steane and Shor error correction \cite{arxiv:2211.03625}.'
     - 'A fault-tolerant error-correction protocol using \(O(d\log d)\) syndrome measurements can be applied to any CSS code with distance \(d \geq \Omega(n^{\alpha})\) for any \(\alpha > 0\) \cite{arxiv:2002.05180}.'
     - 'Fault-tolerant measurement-free scheme for low-distance CSS codes \cite{arxiv:2307.13296}.'
@@ -182,7 +174,6 @@ relations:
       detail: |
         Qubit CSS codes are qubit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings. 
         Transversal CNOT gates preserve the logical subspace iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}.
-        Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via an intermediate tetron Majorana stabilizer code \cite[Corr. 1]{arxiv:1004.3791}\cite{arxiv:1703.07847}, which preserves geometric locality of a code up to a constant factor. 
         Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
         For any non-CSS qubit stabilizer code \(\mathsf{C}\), there exists a CSS code \(\mathsf{C}^{\prime}\) such that \(\mathsf{C} = DQ\mathsf{C}^{\prime}\), where \(D\) is a diagonal Clifford operator, and where \(Q\) is an element of an XP stabilizer group \cite[Prop. B.3.1]{preset:Webster23}.
         There is a holographic relation between qubit CSS codes describing CFTs and qubit stabilizer codes describing path integrals over certain topologies \cite{arxiv:2504.08724}.
@@ -192,8 +183,6 @@ relations:
       detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: binary_linear
       detail: 'The CSS construction uses two related binary linear codes, \(C_X\) and \(C_Z\).'
-    - code_id: dual
-      detail: 'CSS codes for which \(C_X=C_Z \equiv C\) are called \textit{self-orthogonal} or \textit{homogeneous} \cite{doi:10.1109/TCOMM.2022.3231879} since \(C^{\perp} \subseteq C\). The stabilizer group of such codes is invariant under the Hadamard gate exchanging \(X\) and \(Z\).'
     - code_id: alternant
       detail: 'Alternant codes used in the CSS construction yield quantum codes that asymptotically achieve the \hyperref[topic:quantum-gv-bound]{quantum GV bound} \cite{doi:10.1109/TIT.2022.3201239}.'
     - code_id: random_stabilizer
@@ -208,8 +197,6 @@ relations:
       detail: 'The \hyperref[topic:CSS-to-homology-correspondence]{mapping of qubit CSS codes to chain complexes} allows the application of structures from topology to error correction. Chain complexes describing some QLDPC codes \cite{arxiv:2012.02249,arxiv:2309.16104}, and, more generally, CSS codes \cite{arxiv:2404.16736} can be "lifted" into higher-dimensional manifolds admitting some notion of geometric locality. Qubit CSS codes admit several dualities \cite{arxiv:1710.02646,arxiv:2310.16032}. In particular, a CSS code and two dual classical codes can be organized by the same 2-complex, and gauging \cite{arxiv:1202.3120,arxiv:1407.1025,arxiv:1603.04442,arxiv:1603.05182,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679,arXiv:2108.11402,arxiv:2310.16032,arxiv:2410.02213} either classical code yields the same CSS code up to Hadamard \cite{arxiv:2310.16032}.'
     - code_id: cft
       detail: 'There is a holographic relation between qubit CSS codes describing CFTs and qubit stabilizer codes describing path integrals over certain topologies \cite{arxiv:2504.08724}.'
-    - code_id: tetron
-      detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via an intermediate tetron Majorana stabilizer code \cite[Corr. 1]{arxiv:1004.3791}\cite{arxiv:1703.07847}, which preserves geometric locality of a code up to a constant factor.'
 
 
 # - code_id: single_shot
