@@ -1,0 +1,58 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: phantom_14_3_3
+physical: qubits
+logical: qubits
+
+name: '\([[14,3,3]]\) CSS phantom code'
+introduced: '\cite{arxiv:2601.20927}'
+
+description: |
+  CSS phantom code obtained by concatenating the \([[7,3,(d_X=3,d_Z=2)]]\) punctured hypercube code with the two-qubit phase-flip repetition code.
+
+  One stabilizer tableau for the code is
+  \begin{align}
+  \begin{smallmatrix}
+    Z & Z & Z & Z & Z & Z & I & I & I & I & I & I & Z & Z \\
+    I & I & Z & Z & I & I & Z & Z & I & I & Z & Z & Z & Z \\
+    Z & Z & Z & Z & I & I & I & I & Z & Z & Z & Z & I & I \\
+    X & X & I & I & I & I & I & I & I & I & I & I & I & I \\
+    I & I & X & X & I & I & I & I & I & I & I & I & I & I \\
+    I & I & I & I & X & X & I & I & I & I & I & I & I & I \\
+    I & I & I & I & I & I & X & X & I & I & I & I & I & I \\
+    I & I & I & I & I & I & I & I & X & X & I & I & I & I \\
+    I & I & I & I & I & I & I & I & I & I & X & X & I & I \\
+    I & I & I & I & I & I & I & I & I & I & I & I & X & X \\
+    X & I & X & I & X & I & X & I & X & I & X & I & X & I
+  \end{smallmatrix}~.
+  \end{align}
+
+protection: 'Corrects a single-qubit error. Its \(X\)- and \(Z\)-sector distances are \(d_X=3\) and \(d_Z=4\), respectively \cite{arxiv:2601.20927}.'
+
+features:
+  general_gates:
+    - 'The code is phantom, so every ordered-pair in-block logical CNOT gate between its three logical qubits can be implemented by a physical-qubit permutation \cite{arxiv:2601.20927}.'
+    - 'The Hadamard-dual code admits fold-diagonal logical \(S_iS_j\) and \(CZ_{ij}\) gates \cite{arxiv:2601.20927}.'
+
+relations:
+  parents:
+    - code_id: phantom
+      detail: 'This \([[14,3,3]]\) code is a CSS phantom code obtained from the punctured hypercube code and the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
+    - code_id: qubit_concatenated
+      detail: 'This code is a concatenation of the \([[7,3,2]]\) punctured hypercube code with the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: xz_7_3_2
+      detail: 'Concatenating the \([[7,3,(d_X=3,d_Z=2)]]\) punctured hypercube code with the two-qubit phase-flip repetition code yields this \([[14,3,(d_X=3,d_Z=4)]]\) CSS phantom code \cite{arxiv:2601.20927}.'
+    - code_id: quantum_repetition
+      detail: 'The inner code in the construction is the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-20'

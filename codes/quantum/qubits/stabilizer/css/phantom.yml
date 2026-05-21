@@ -1,0 +1,51 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: phantom
+physical: qubits
+logical: qubits
+
+name: 'Phantom code'
+introduced: '\cite{arxiv:2601.20927}'
+
+description: |
+  Qubit CSS code for which, in some logical basis, every ordered-pair logical \(\overline{\mathrm{CNOT}}_{ab}\) gate between logical qubits in the same code block can be implemented by a physical-qubit permutation \cite{arxiv:2601.20927}.
+
+protection: |
+  CSS phantom codes obey a Hamming-type constraint: if \(d=d_{\mu}\) for \(\mu\in\{X,Z\}\), then \(\eta(2^k-1)\leq B(n,d)\), where \(\eta\) counts weight-\(d\) logical operators in a fixed \(\mu\)-type logical equivalence class and \(B(n,d)\leq {n \choose d}\) is the maximum size of a binary length-\(n\) code whose pairwise sums have weight at least \(d\) \cite{arxiv:2601.20927}.
+  All phantom codes identified in Ref. \cite{arxiv:2601.20927} are non-LDPC and encode \(k=O(\log n)\) logical qubits.
+
+features:
+  transversal_gates:
+    - 'Interblock \(\overline{\mathrm{CNOT}}\) gates are transversal because phantom codes are CSS codes. Combining transversal interblock CNOTs with in-block permutation CNOTs implements any logical CNOT circuit on \(2^a\) phantom-code blocks in physical depth at most \(4(2^a-1)\), up to a residual logical-qubit permutation; for unidirectional CNOT circuits, the bound is \(2(2^a-1)\) while preserving logical-qubit order \cite{arxiv:2601.20927}.'
+    - 'A stabilizer code supporting a logical gate by qubit permutations cannot admit any strictly transversal logical gate that does not commute with that permutation-implemented logical gate, ruling out strictly transversal implementations of several gates on phantom codes \cite{arxiv:2601.20927}.'
+    - 'Additional logical Clifford and non-Clifford gates can arise from code automorphisms combining local Cliffords and qubit permutations, from fold-diagonal gates using patterned one- and two-qubit diagonal interactions, and from non-uniform diagonal single-qubit rotations \cite{arxiv:2601.20927}.'
+  general_gates:
+    - 'Certain phantom quantum RM codes admit the full logical Clifford group via fold-\(\overline{S}_i\overline{S}_j\) gates and teleported Hadamards, and admit a distance-two magic-gate scheme by temporarily projecting into hypercube-code subspaces \cite{arxiv:2601.20927}.'
+  decoders:
+    - 'Spatiotemporal sliding-window correlated list and most-likely-error decoders for Steane-style error correction \cite{arxiv:2601.20927}.'
+  fault_tolerance:
+    - 'Preselection-based fault-tolerant state preparation and Steane-style error correction for non-LDPC phantom quantum RM codes \cite{arxiv:2601.20927}.'
+
+notes:
+  - 'Ref. \cite{arxiv:2601.20927} exhaustively enumerates all \(2.71\times10^{10}\) inequivalent CSS codes with \(n\leq14\), identifying \(1.39\times10^5\) CSS phantom codes, and uses SAT-based search to find further examples up to \(n=21\).'
+
+relations:
+  parents:
+    - code_id: qubit_css
+  cousins:
+    - code_id: quantum_reed_muller
+      detail: 'Some quantum RM codes are phantom after selected logical qubits of a parent quantum RM code are fixed to \(\ket{\overline{0}}\) or \(\ket{\overline{+}}\), promoting the corresponding logical operators to stabilizers \cite{arxiv:2601.20927}.'
+    - code_id: qubit_concatenated
+      detail: 'Concatenating a phantom outer code with a one-logical-qubit inner quantum code preserves phantomness.'
+    - code_id: hypergraph_product
+      detail: 'Some hypergraph-product constructions, such as products of a classical simplex code and a repetition code, yield phantom codes, while the smallest examples have lower rates than the phantom quantum RM constructions \cite{arxiv:2601.20927}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-20'

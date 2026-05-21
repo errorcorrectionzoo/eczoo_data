@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: hgp_7_2_2
+physical: qubits
+logical: qubits
+
+name: '\([[7,2,2]]\) HGP phantom code'
+introduced: '\cite{arxiv:2601.20927}'
+
+description: |
+  Smallest member of a family of CSS phantom HGP codes obtained from the hypergraph product of a classical simplex code and a repetition code.
+
+  A stabilizer tableau for an equivalent code is given by \cite[ID 521]{preset:qiskit}
+  \begin{align}
+  \begin{array}{ccccccc}
+    Z & Z & I & I & I & I & Z \\
+    I & I & Z & I & Z & I & Z \\
+    I & I & I & Z & I & Z & Z \\
+    I & X & X & X & I & I & X \\
+    X & I & I & I & X & X & X
+  \end{array}~.
+  \end{align}
+
+
+relations:
+  parents:
+    - code_id: phantom
+      detail: 'The \([[7,2,2]]\) HGP code is the smallest member of a simplex/repetition HGP family of CSS phantom codes \cite{arxiv:2601.20927}.'
+    - code_id: hypergraph_product
+      detail: 'This code is the hypergraph product of the \([3,2,2]\) simplex code and the \([2,1,2]\) repetition code \cite{arxiv:2601.20927}.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: simplex
+      detail: 'This code is constructed from the hypergraph product of the \([3,2,2]\) simplex code and the \([2,1,2]\) repetition code \cite{arxiv:2601.20927}.'
+    - code_id: repetition
+      detail: 'This code is constructed from the hypergraph product of the \([3,2,2]\) simplex code and the \([2,1,2]\) repetition code \cite{arxiv:2601.20927}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-20'
