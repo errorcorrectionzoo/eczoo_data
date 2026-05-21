@@ -37,6 +37,7 @@ description: |
   \end{align}
   The \hyperref[topic:encoder-respecting]{encoder-respecting form} of the Shor code is a star-shaped tree graph \cite{arxiv:2411.14448}.
   The code works by \hyperref[code:qubit_concatenated]{concatenating} each qubit of a phase-flip \hyperref[code:quantum_repetition]{repetition code} with a bit-flip \hyperref[code:quantum_repetition]{repetition code}. Therefore, the code can correct both types of errors simultaneously.
+  The code is degenerate: for example, two \(Z\) errors in the same three-qubit block act identically on all codewords \cite[Ch. 2]{preset:GottesmanBook}.
 
 
 # Specifically, a state is phase-flip error-corrected by a three-qubit phase-flip \hyperref[code:quantum_repetition]{repetition code}, with stabilizer generators \(X_0 X_1I_2\) and \(X_0I_1X_2\) in \(X\) basis, where the subscript represents the qubit index. Each logical qubit is encoded using
@@ -63,7 +64,7 @@ description: |
 # \end{split}
 # \end{align}
 
-protection: 'The code detects two-qubit errors or corrects an arbitrary single-qubit error. It also corrects two-qubit \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
+protection: 'The code detects two-qubit errors or corrects an arbitrary single-qubit error. Since it corrects the single-qubit Pauli errors, linearity implies that it corrects arbitrary single-qubit errors and corresponding single-qubit error channels \cite[Ch. 2]{preset:GottesmanBook}. It also corrects two-qubit \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.'
 
 features:
   encoders:

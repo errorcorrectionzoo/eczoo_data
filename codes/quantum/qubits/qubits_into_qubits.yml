@@ -18,6 +18,7 @@ description: |
   Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code's distance.
 
   The qubit codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of single-qubit unitary operations and a qubit permutation.
+  Equivalent qubit codes have the same logical dimension and distance, and their decoding problems have the same computational complexity up to the corresponding relabeling of errors \cite[Ch. 2]{preset:GottesmanBook}.
 
 protection: |
   An \(((n,K,d))\) code with distance \(d\) detects errors acting on up to \(d-1\) qubits, corrects erasure errors on up to \(d-1\) qubits \cite{arxiv:quant-ph/9610042}, or corrects errors acting on up to \(\lfloor (d-1)/2 \rfloor\) qubits.
@@ -35,10 +36,19 @@ protection: |
   \begin{align}
     X=\begin{pmatrix}0 & 1\\
     1 & 0
-    \end{pmatrix}\,\,\text{ and }\,\,Z=\begin{pmatrix}1 & 0\\
+    \end{pmatrix}~,
+  \end{align}
+  \begin{align}
+    Y=iXZ=\begin{pmatrix}0 & -i\\
+    i & 0
+    \end{pmatrix}~,
+  \end{align}
+  \begin{align}
+    Z=\begin{pmatrix}1 & 0\\
     0 & -1
     \end{pmatrix}~.
   \end{align}
+  The operator \(X\) is a bit flip, \(Z\) is a phase flip, and \(Y\) is a combined bit and phase flip up to an overall physically irrelevant phase \cite[Ch. 1]{preset:GottesmanBook}.
   For multiple qubits, error set elements are tensor products of elements of the single-qubit error set.
   Tensor products of \(X\) (\(Z\)) Paulis acting on different qubits are called \(X\)\textit{-type} (\(Z\)\textit{-type}) Pauli strings.
   Combining the \(X\)-type and \(Z\)-type strings with \(i\) forms a group called the \textit{Pauli group} on \(n\) qubits, while combining them with \(-1\) forms the \textit{real Pauli group}.
@@ -51,10 +61,12 @@ protection: |
 
   A quantum channel that admits a set of Pauli strings as its Kraus operators is called a \textit{Pauli channel}, and such channels are typically more tractable than the more general, non-Pauli channels.
   Relevant Pauli channels include dephasing noise and depolarizing noise (a.k.a. Werner-Holevo channel \cite{arxiv:quant-ph/0203003}).
+  A single-qubit dephasing channel has Kraus operators proportional to \(I\) and \(Z\), while the single-qubit depolarizing channel has equal probabilities for the \(X\), \(Y\), and \(Z\) errors; both are Pauli channels \cite[Ch. 1]{preset:GottesmanBook}.
   One can extract a binary memoryless symmetric channel from a Pauli channel that is a classical counterpart to the Pauli channel \cite{arxiv:1904.04713}.
 
   Relevant non-Pauli channels are \hyperref[topic:ad]{AD} noise, erasure (which maps all qubit states into a third state \(|e\rangle\) outside of the qubit Hilbert space), and biased erasure \cite{arxiv:2302.03063} (in which case only the \(|1\rangle\) qubit state is mapped to \(|e\rangle\)).
-  Noise can be correlated in space or in time, with the latter being an example of a non-Markovian phenomenon \cite{arxiv:quant-ph/0505153,arxiv:2012.01894}.
+  Erasure channels are easier to correct than general channels because one can, in principle, measure whether the state left the qubit Hilbert space and thereby learn which qubits were erased without measuring the stored qubit state \cite[Ch. 1]{preset:GottesmanBook}.
+  Noise can be correlated in space or in time, with the latter being an example of a non-Markovian phenomenon \cite[Ch. 1]{preset:GottesmanBook}\cite{arxiv:quant-ph/0505153,arxiv:2012.01894}.
 
   \subsection{Quantum weight enumerators and pure distance}
   \label{topic:quantum-weight-enumerator}
