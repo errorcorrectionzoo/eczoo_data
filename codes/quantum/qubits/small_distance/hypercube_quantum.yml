@@ -19,6 +19,7 @@ description: |
   Member of a family of codes defined by placing qubits on a \(D\)-dimensional hypercube, \(Z\)-stabilizers on all two-dimensional faces, and an \(X\)-stabilizer on all vertices.
   These codes realize gates at the \((D-1)\)-st level of the Clifford hierarchy.
   The measured physical bit string can be post-processed into both a logical output string and stabilizer checks, enabling end-of-circuit error detection directly from classical samples \cite{arxiv:2404.19005}.
+  Puncturing the \([[2^D,D,2]]\) hypercube quantum code yields the \([[2^D-1,D,2]]\) punctured-hypercube family.
 
   Higher-distance generalizations include a \([[2^{2D},D,4]]\) hyperoctahedron family and a \([[2^D(2^D+1),D,4]]\) family built from distance-two \(D\)-dimensional toric/surface-code blocks \cite{arxiv:2404.19005}.
   Various other concatenations give families with increasing distance (see cousins).
@@ -45,7 +46,7 @@ relations:
     - code_id: quantum_reed_muller
       detail: '\([[2^D,D,2]]\) hypercube quantum codes are special cases of the \([[2^m,{m \choose r}, 2^r]]\) quantum RM codes for \(m=D\) and \(r=1\) \cite[Exam. 8]{arxiv:1910.09333}\cite{arxiv:1606.01904,arxiv:1606.01906,arxiv:1709.02832,arxiv:2410.23263}.'
     - code_id: phantom
-      detail: 'The \([[2^D,D,2]]\) hypercube quantum codes are phantom codes: all ordered-pair in-block logical CNOT gates can be implemented by physical-qubit permutations \cite{arxiv:2601.20927}.'
+      detail: 'The \([[2^D,D,2]]\) hypercube quantum codes are phantom codes: all ordered-pair in-block logical CNOT gates can be implemented by physical-qubit permutations \cite{arxiv:2601.20927}. The punctured hypercube family is unique among binary CSS phantom codes saturating \(n\geq 2^k-1\) for \(k=3\) and \(k\geq 5\) \cite[Thm. 4]{arxiv:2604.15111}.'
     - code_id: self_complementary
       detail: 'A basis of hypercube quantum codewords of the form \(|c\rangle+|\overline{c}\rangle\) can be obtained via the \hyperref[code:qubit_css]{qubit CSS codeword construction} since their sole \(X\)-type stabilizer generator acts on all qubits.'
   cousins:

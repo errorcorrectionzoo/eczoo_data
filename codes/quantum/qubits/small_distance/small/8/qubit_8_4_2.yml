@@ -1,0 +1,38 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qubit_8_4_2
+physical: qubits
+logical: qubits
+
+name: '\(((8,16,2))\) \(PG(3,2)\) code'
+introduced: '\cite{arxiv:2604.15111}'
+
+description: |
+  Eight-qubit code encoding four logical qubits whose logical basis consists of a GHZ state together with fifteen states built from the incidence geometry of the projective space \(PG(3,2)\).
+  
+protection: |
+  Distance two, and this is optimal because no \(((8,16,3))\) code exists \cite{arxiv:2604.15111}.
+  No Pauli stabilizer subsystem phantom code of type \([[8,4,r,d\geq2]]\) exists, so this exceptional \(k=4\) phantom code is necessarily nonstabilizer \cite{arxiv:2604.15111}.
+
+features:
+  transversal_gates:
+    - 'Even physical-qubit permutations act as \(GL(4,\mathbb{F}_2)\) on the logical basis, and odd permutations extend the permutation automorphism group to the full symmetric group \(S_8\) \cite{arxiv:2604.15111}.'
+    - '\(T^{\otimes 8}\) is a transversal non-Clifford gate implementing \(2\ketbra{\overline{0}}-\mathbbm{1}\) on the logical subspace \cite{arxiv:2604.15111}.'
+    - 'A specific odd permutation implements a non-Clifford logical involution, and the full permutation automorphism group is \(S_8\) \cite{arxiv:2604.15111}.'
+
+relations:
+  parents:
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: phantom
+      detail: 'This is the exceptional nonstabilizer \(k=4\) qubit phantom code of minimal length eight that violates the generic bound \(n\geq 2^k-1\) \cite{arxiv:2604.15111}.'
+    - code_id: self_complementary
+      detail: 'The logical basis of the \(((8,16,2))\) \(PG(3,2)\) code contains a GHZ state and linear combinations of self-complementary states \cite{arxiv:2604.15111}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:

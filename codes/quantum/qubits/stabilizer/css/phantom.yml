@@ -12,14 +12,15 @@ introduced: '\cite{arxiv:2601.20927}'
 
 description: |
   Qubit CSS code for which, in some logical basis, every ordered-pair logical \(\overline{\mathrm{CNOT}}_{ab}\) gate between logical qubits in the same code block can be implemented by a physical-qubit permutation \cite{arxiv:2601.20927}.
+  The definition has been extended to non-CSS and non-qubit codes \cite{arxiv:2604.15111}.
 
 protection: |
   CSS phantom codes obey a Hamming-type constraint: if \(d=d_{\mu}\) for \(\mu\in\{X,Z\}\), then \(\eta(2^k-1)\leq B(n,d)\), where \(\eta\) counts weight-\(d\) logical operators in a fixed \(\mu\)-type logical equivalence class and \(B(n,d)\leq {n \choose d}\) is the maximum size of a binary length-\(n\) code whose pairwise sums have weight at least \(d\) \cite{arxiv:2601.20927}.
-  All phantom codes identified in Ref. \cite{arxiv:2601.20927} are non-LDPC and encode \(k=O(\log n)\) logical qubits.
+  Any qubit phantom code of distance \(d\geq 2\) encoding \(k\geq 2\) logical qubits with \(k\neq 4\) obeys \(n\geq 2^k-1\), equivalently \(k\leq \log_2(n+1)\); this parameter bound also holds for non-CSS phantom codes and for qubit subspace or subsystem phantom-LU codes \cite{arxiv:2604.15111}.
 
 features:
   transversal_gates:
-    - 'Interblock \(\overline{\mathrm{CNOT}}\) gates are transversal because phantom codes are CSS codes. Combining transversal interblock CNOTs with in-block permutation CNOTs implements any logical CNOT circuit on \(2^a\) phantom-code blocks in physical depth at most \(4(2^a-1)\), up to a residual logical-qubit permutation; for unidirectional CNOT circuits, the bound is \(2(2^a-1)\) while preserving logical-qubit order \cite{arxiv:2601.20927}.'
+    - 'For CSS phantom codes, interblock \(\overline{\mathrm{CNOT}}\) gates are transversal. Combining transversal interblock CNOTs with in-block permutation CNOTs implements any logical CNOT circuit on \(2^a\) phantom-code blocks in physical depth at most \(4(2^a-1)\), up to a residual logical-qubit permutation; for unidirectional CNOT circuits, the bound is \(2(2^a-1)\) while preserving logical-qubit order \cite{arxiv:2601.20927}.'
     - 'A stabilizer code supporting a logical gate by qubit permutations cannot admit any strictly transversal logical gate that does not commute with that permutation-implemented logical gate, ruling out strictly transversal implementations of several gates on phantom codes \cite{arxiv:2601.20927}.'
     - 'Additional logical Clifford and non-Clifford gates can arise from code automorphisms combining local Cliffords and qubit permutations, from fold-diagonal gates using patterned one- and two-qubit diagonal interactions, and from non-uniform diagonal single-qubit rotations \cite{arxiv:2601.20927}.'
   general_gates:
