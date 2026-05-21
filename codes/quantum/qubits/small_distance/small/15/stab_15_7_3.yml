@@ -14,13 +14,26 @@ introduced: '\cite{arxiv:quant-ph/9512032,arxiv:quant-ph/9605021,manual:{J. Harr
 
 description: |
   Self-dual quantum Hamming code that admits permutation-based CZ logical gates.
-  The code is constructed using the CSS construction from the \([15,11,3]\) Hamming code and its \([15,4,8]\) dual code.
+  The code is constructed using the CSS construction from the \([15,11,3]\) Hamming code and its \([15,4,8]\) dual simplex code.
 
+  In the qubit order given by the nonzero binary four-tuples \(0001,0010,\ldots,1111\), one stabilizer tableau for the code is
+  \begin{align}
+  \begin{smallmatrix}
+    I & I & I & I & I & I & I & Z & Z & Z & Z & Z & Z & Z & Z \\
+    I & I & I & Z & Z & Z & Z & I & I & I & I & Z & Z & Z & Z \\
+    I & Z & Z & I & I & Z & Z & I & I & Z & Z & I & I & Z & Z \\
+    Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z \\
+    I & I & I & I & I & I & I & X & X & X & X & X & X & X & X \\
+    I & I & I & X & X & X & X & I & I & I & I & X & X & X & X \\
+    I & X & X & I & I & X & X & I & I & X & X & I & I & X & X \\
+    X & I & X & I & X & I & X & I & X & I & X & I & X & I & X
+  \end{smallmatrix}~.
+  \end{align}
 
 features:
   transversal_gates:
     - 'CNOT gate because it is a CSS code.'
-    - 'Single-qubit Clifford operations applied transversally yield the corresponding \hyperref[topic:clifford]{Clifford gates} on one of the logical qubits \cite{arxiv:1705.05365}.'
+    - 'In a suitable logical basis, single-qubit Clifford operations applied transversally yield the corresponding \hyperref[topic:clifford]{Clifford gates} on each of the seven logical qubits \cite{arxiv:1705.05365}.'
     - 'Automorphism groups of the underlying classical codes can yield transversal \hyperref[topic:clifford]{Clifford gates} when combined with qubit permutations \cite[Sec. IV.A]{arxiv:1302.1035}.'
     - 'Transversal interblock \(CCZ\) gate \cite{arxiv:1304.3709}.'
   general_gates:

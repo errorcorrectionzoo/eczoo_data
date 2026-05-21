@@ -10,11 +10,32 @@ logical: qubits
 name: '\([[17,1,5]]\) 4.8.8 color code'
 introduced: '\cite{arxiv:quant-ph/0605138}'
 
-
 description: |
   Seventeen-qubit doubly even 2D color code that admits a transversal implementation of the logical Clifford group.
   The smallest distance-five CSS code has \(n=17\) \cite{arxiv:1207.6512}.
   It is also a normal self-dual CSS code whose transversal Hadamard acts logically, making it suitable as an inner code for fifth-order magic-state distillation \cite{arxiv:1703.07847}.
+
+  A stabilizer tableau for the code is \cite[ID 672e4f2a4f33a38b84d76b7c]{preset:QECDB}
+  \begin{align}
+  \begin{smallmatrix}
+    X & I & I & I & I & I & I & I & I & X & I & I & X & I & I & X & I \\
+    I & X & I & I & I & I & I & I & I & X & I & I & X & I & I & I & X \\
+    I & I & X & I & I & I & I & I & I & I & I & X & I & X & X & I & I \\
+    I & I & I & X & I & I & I & I & X & X & I & I & X & I & I & I & I \\
+    I & I & I & I & X & I & I & I & X & I & X & I & X & X & X & X & X \\
+    I & I & I & I & I & X & I & I & I & I & X & X & I & X & I & I & I \\
+    I & I & I & I & I & I & X & I & X & X & X & I & I & X & X & X & X \\
+    I & I & I & I & I & I & I & X & I & I & X & X & I & I & X & I & I \\
+    Z & I & I & I & I & I & I & I & I & Z & I & I & Z & I & I & Z & I \\
+    I & Z & I & I & I & I & I & I & I & Z & I & I & Z & I & I & I & Z \\
+    I & I & Z & I & I & I & I & I & I & I & I & Z & I & Z & Z & I & I \\
+    I & I & I & Z & I & I & I & I & Z & Z & I & I & Z & I & I & I & I \\
+    I & I & I & I & Z & I & I & I & Z & I & Z & I & Z & Z & Z & Z & Z \\
+    I & I & I & I & I & Z & I & I & I & I & Z & Z & I & Z & I & I & I \\
+    I & I & I & I & I & I & Z & I & Z & Z & Z & I & I & Z & Z & Z & Z \\
+    I & I & I & I & I & I & I & Z & I & I & Z & Z & I & I & Z & I & I
+  \end{smallmatrix}~.
+  \end{align}
 
 features:
   encoders:
