@@ -16,9 +16,10 @@ alternative_names:
   - 'Rectified surface code'
 
 description: |
-  Variant of the surface code defined on a square lattice that has been rotated 45 degrees such that qubits are on vertices, and both \(X\)- and \(Z\)-type check operators occupy plaquettes in an alternating checkerboard pattern.
+  Variant of the surface code obtained by taking the medial graph of the surface code lattice (treated as a graph) and applying a procedure to construct the check operators \cite{arxiv:quant-ph/0703272,arxiv:1606.07116}\cite[Fig. 8]{arxiv:2101.09349}.
+  On a square lattice, this amounts to a rotation by 45 degrees such that qubits are on vertices, and both \(X\)- and \(Z\)-type check operators occupy plaquettes in an alternating checkerboard pattern.
 
-  Stabilizer generators for this code are shown in \ref{figure:rotated-surface-operators}.
+  Stabilizer generators for this code on a square lattice are shown in \ref{figure:rotated-surface-operators}.
   \begin{figure}
     \includegraphics{rotated-surface-operators}
     \caption{
@@ -58,7 +59,7 @@ realizations:
 relations:
   parents:
     - code_id: surface
-      detail: 'The lattice of the rotated surface code can be obtained by taking the medial graph of the surface code lattice (treated as a graph) and applying a similar procedure to construct the check operators \cite{arxiv:quant-ph/0703272,arxiv:1606.07116}\cite[Fig. 8]{arxiv:2101.09349}. Applying the quantum Tanner transformation to the surface code yields the rotated surface code \cite{manual:{N. P. Breuckmann, private communication, 2022},manual:{A. Leverrier, \href{https://github.com/errorcorrectionzoo/eczoo_data/files/9210173/rotated.pdf}{Mapping the toric code to the rotated toric code}, 2022}}. The rotated surface code presents certain savings over the original surface code \cite{arxiv:2409.14765}.'
+      detail: 'The lattice of the rotated surface code can be obtained by taking the medial graph of the surface code lattice (treated as a graph) and applying a procedure to construct the check operators \cite{arxiv:quant-ph/0703272,arxiv:1606.07116}\cite[Fig. 8]{arxiv:2101.09349}. Applying the quantum Tanner transformation to the surface code yields the rotated surface code \cite{manual:{N. P. Breuckmann, private communication, 2022},manual:{A. Leverrier, \href{https://github.com/errorcorrectionzoo/eczoo_data/files/9210173/rotated.pdf}{Mapping the toric code to the rotated toric code}, 2022}}. The rotated surface code presents certain savings over the original surface code \cite{arxiv:2409.14765}.'
     - code_id: quantum_tanner
       detail: 'Applying the quantum Tanner transformation to the surface code yields the rotated surface code \cite{manual:{N. P. Breuckmann, private communication, 2022},manual:{A. Leverrier, \href{https://github.com/errorcorrectionzoo/eczoo_data/files/9210173/rotated.pdf}{Mapping the toric code to the rotated toric code}, 2022}}.'
   cousins:
