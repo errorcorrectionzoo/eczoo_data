@@ -159,14 +159,15 @@ features:
   rate: 'The \textit{ancilla-added rate} is defined as the ratio of logical qubits to the total number of physical qubits including ancillas, \(k/(n+c)\), where \(c\) is the number of ancilla qubits. The \textit{hashing bound} states that there is a qubit stabilizer code achieving a rate \(R = 1 - H(\mathbf{p})\) for a Pauli noise channel with Pauli error probabilities \(\mathbf{p}=(p_I,p_X,p_Y,p_Z)\), where \(H(\mathbf{p})\) is the entropy of the argument \cite[Thm. 23.6.2]{doi:10.1017/CBO9781139525343}. Finite block length bounds and a refinement of the hashing bound have been developed \cite{arxiv:2408.15202}.'
   encoders:
     - |
-      \hyperref[topic:clifford]{Clifford circuits}, i.e., those consisting of CNOT, Hadamard, and certain phase gates \cite{arxiv:quant-ph/9607030}, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arxiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}. Encoding circuits can be done in linear depth, up to logarithmic corrections, for most practical use cases \cite{arxiv:2201.05215}. 
+      \hyperref[topic:clifford]{Clifford circuits}, i.e., those consisting of CNOT, Hadamard, and certain phase gates \cite{arxiv:quant-ph/9607030}, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arxiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}. 
+      Generic constructions use \(O(n^2)\) Clifford gates and can be adjusted to realize a chosen set of logical Pauli operators \cite{preset:GottesmanBook}.
+      Encoding circuits can be done in linear depth, up to logarithmic corrections, for most practical use cases \cite{arxiv:2201.05215}. 
       \begin{defterm}{Destabilizers}
       \label{topic:destabilizers}
       A Clifford encoding circuit maps the first \(k\) qubits to the logical qubits of the code, and the Pauli \(Z\) operators of the last \(r = n-k\) qubits are mapped into a set of stabilizer generators.
       The set of Pauli \(X\) operators of the first \(r\) qubits that are mapped into a set of generators for the destabilizer group \cite{arxiv:quant-ph/0406196,manual:{T. J. Yoder, "A generalization of the stabilizer formalism for simulating arbitrary quantum circuits." See \url{https://www.scottaaronson.com/showcase2/report/ted-yoder.pdf} (2012)}}.
       Each such generator anticommutes with only one stabilizer generator while commuting with the rest of the stabilizer generators.
       \end{defterm}
-
     - 'For a code given in \hyperref[topic:encoder-respecting]{encoder-respecting form} with maximum graph degree \(\Delta\), there is an efficient construction of an encoding circuit of depth at most \(2\Delta+3\) \cite{arxiv:2411.14448}.'
     - 'Circuits obtained by first constructing the CWS form of the code \cite{arxiv:0803.3232,arxiv:0708.1021}. These consist of \(n\) Hadamard gates, a classical encoder which takes at most \(n\) CX gates for a single-qubit encoding code, and at most \(n(n-1)/2\) CZ gates to create the needed graph state.'
     - 'Lindbladian-based dissipative encoding \cite{arxiv:quant-ph/9707049,arxiv:1310.1036}, for which the codespace is the steady-state space of a Lindbladian. This does not give a speedup, in terms of scaling with \(n\), over circuit-based encoders \cite{arxiv:1310.1037}. A finite-time non-Lindbladian dissipative encoder may always be constructed \cite{arxiv:2102.04531}.'
@@ -176,11 +177,13 @@ features:
     - 'The overlap with any state prepared by a depth-\(h\) Clifford circuit with a product state is at most \(2^{1-d/2^h}\) \cite{arxiv:2405.01332}.'
 
   transversal_gates:
-    - 'All stabilizer codes realize Pauli transformations transversally; for a single logical qubit, these realize a dicyclic subgroup of \(SU(2)\).
-    Several algorithms exist for finding logical Pauli operators \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.'
+    - |
+      All stabilizer codes realize Pauli transformations transversally; for a single logical qubit, these realize a dicyclic subgroup of \(SU(2)\).
+      Several algorithms exist for finding logical Pauli operators \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.
     - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite[Exam. 1]{arxiv:quant-ph/9703048}\cite{arxiv:quant-ph/9705052}.'
-    - 'Transversal logical gates are in a finite level of the \term{Clifford hierarchy}, which is shown using stabilizer \textit{disjointness} \cite{arxiv:1710.07256} (see also \cite{arxiv:0706.1382,arxiv:1409.8320}).
-    Transversal gates for \(n\in\{1,2\}\) are semi-Clifford \cite{arxiv:0712.2084}.'
+    - |
+      Transversal logical gates are in a finite level of the \term{Clifford hierarchy}, which is shown using stabilizer \textit{disjointness} \cite{arxiv:1710.07256} (see also \cite{arxiv:0706.1382,arxiv:1409.8320}).
+      Transversal gates for \(n\in\{1,2\}\) are semi-Clifford \cite{arxiv:0712.2084}.
     - 'No stabilizer code can implement a classical universal gate set transversally \cite{arxiv:1704.07798}.'
     - 'Fold-transversal gates have been extended from qubit CSS codes to qubit stabilizer codes, and there is an algorithm to determine them from the stabilizer group \cite{arxiv:2409.18175}.'
     - 'Computation can be sped up substantially for codes that admit transversal measurements of logical \(X\) and \(Z\) \cite{arxiv:1210.4626}.'
@@ -274,25 +277,28 @@ notes:
 relations:
   parents:
     - code_id: non_stabilizer
-      detail: 'A stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a USt with only the identity coset representative.
-      Conversely, if the set of coset representatives of a USt form a linear binary code, then they can be absorbed into a stabilizer group that defines the USt.'
+      detail: |
+        A stabilizer code with stabilizer group \(\mathsf{S}\) can be thought of as a USt with only the identity coset representative.
+        Conversely, if the set of coset representatives of a USt form a linear binary code, then they can be absorbed into a stabilizer group that defines the USt.
     - code_id: xp_stabilizer
       detail: 'XP stabilizer codes reduce to qubit stabilizer codes for \(N=2\).'
     - code_id: qubit_stabilizer_oaqecc
       detail: 'An OA qubit stabilizer code storing no classical information and admitting no gauge qubits is a qubit stabilizer code.'
     - code_id: qudit_stabilizer
-      detail: 'Modular-qudit stabilizer codes for \(q=2\) correspond to qubit stabilizer codes.
-      Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a \hyperref[topic:qudit-pauli]{modular-qudit Pauli group} with a unique number of generators.
-      Conversely, qubit codes can be extended to modular-qudit codes by decorating appropriate generators with powers.
-      For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\).
-      A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into local-dimension-invariant (LDI) form  \cite{arxiv:1910.08122}.
-      Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.'
+      detail: |
+        Modular-qudit stabilizer codes for \(q=2\) correspond to qubit stabilizer codes.
+        Modular-qudit stabilizer codes for prime-dimensional qudits \(q=p\) inherit most of the features of qubit stabilizer codes, including encoding an integer number of qudits and a \hyperref[topic:qudit-pauli]{modular-qudit Pauli group} with a unique number of generators.
+        Conversely, qubit codes can be extended to modular-qudit codes by decorating appropriate generators with powers.
+        For example, \([[4,2,2]]\) qubit code generators can be adjusted to \(ZZZZ\) and \(XX^{-1} XX^{-1}\).
+        A systematic procedure extending a qubit code to prime-qudit codes involves putting its generator matrix into local-dimension-invariant (LDI) form  \cite{arxiv:1910.08122}.
+        Various bounds exist on the distance of the resulting codes \cite{arxiv:2110.11510,arxiv:2110.15274}.
     - code_id: galois_true_stabilizer
       detail: 'True Galois-qudit stabilizer codes for \(q=2\) correspond to qubit stabilizer codes.'
   cousins:
     - code_id: cws
-      detail: 'CWS codes whose underlying classical code is a linear binary code are qubit stabilizer codes containing a cluster-state codeword \cite{arxiv:0708.1021,arxiv:1407.2777}.
-      Conversely, stabilizer codes admit a CWS standard form \cite{arxiv:0708.1021}; at the state level, the underlying stabilizer state can be mapped to a cluster state by a single-qubit \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.'
+      detail: |
+        CWS codes whose underlying classical code is a linear binary code are qubit stabilizer codes containing a cluster-state codeword \cite{arxiv:0708.1021,arxiv:1407.2777}.
+        Conversely, stabilizer codes admit a CWS standard form \cite{arxiv:0708.1021}; at the state level, the underlying stabilizer state can be mapped to a cluster state by a single-qubit \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
     - code_id: binary_linear
       detail: |
         Qubit stabilizer codes are the closest quantum analogues of binary linear codes because addition modulo two corresponds to multiplication of stabilizers in the quantum case. 

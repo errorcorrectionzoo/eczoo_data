@@ -79,7 +79,7 @@ protection: |
       A_{j}&=\frac{1}{K^{2}}\sum_{\text{wt-}j\text{ Paulis }P}\left|\text{tr}(P\Pi)\right|^{2}~,
     \end{split}
     \end{align}
-  where \(\Pi\) is the code projection, and where the sum is over the Pauli group modulo the subgroup of phases (hence, the dagger below is necessary in case the coset representative is not Hermitian).
+  where \(K=\mathrm{tr}(\Pi)\) is the dimension of the code subspace, \(\Pi\) is the code projection, and where the sum is over the Pauli group modulo the subgroup of phases (hence, the dagger below is necessary in case the coset representative is not Hermitian).
 
   The dual quantum weight enumerator is
     \begin{align}
@@ -89,6 +89,7 @@ protection: |
     \end{split}
     \end{align}
   and the two satisfy the \textit{quantum MacWilliams identity} \cite{arxiv:quant-ph/9610040}; see \cite[Ch. 7]{preset:GottesmanBook}.
+  Their coefficients satisfy \(A_0=B_0=1\) and \(B_j\geq A_j\geq 0\) for all \(j\) \cite{arxiv:quant-ph/9610040,preset:GottesmanBook}.
   This identity gives rise to quantum linear programming (LP) bounds \cite{arxiv:quant-ph/9611001,arxiv:quant-ph/9709049}; see the book \cite{preset:GottesmanBook}.
   Weight enumerators give rise to an analogue of Poisson summation for qubit and, more generally, modular-qudit stabilizer codes \cite{arxiv:2405.19643}.
   \end{defterm}
@@ -104,7 +105,11 @@ protection: |
   There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}.
   \end{defterm}
 
-  Other types of quantum weight enumerators are the Rains unitary enumerators \cite{arxiv:quant-ph/9612015} and the \textit{Rains shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}), and \textit{signed weight enumerators} taking into account the sign of the expectation value of a Pauli string \cite{arxiv:1702.06990}. 
+  Other types of quantum weight enumerators are the Rains unitary enumerators \cite{arxiv:quant-ph/9612015} and the \textit{Rains shadow enumerators} \cite{arxiv:quant-ph/9611001} (see also \cite{arxiv:quant-ph/0406063}), and \textit{signed weight enumerators} taking into account the sign of the expectation value of a Pauli string \cite{arxiv:1702.06990}.
+  For qubit codes, the shadow enumerator coefficients are nonnegative and are determined by the Shor-Laflamme enumerator \cite{arxiv:quant-ph/9611001,preset:GottesmanBook} via
+  \begin{align}
+    Sh(x)=\frac{K}{2^n}(1+3x)^n A\left(\frac{x-1}{1+3x}\right)~.
+  \end{align}
   Rains shadow enumerators are related to Bell sampling \cite{arxiv:2408.16914}.
   These notions can be generalized to qudit codes and other error bases \cite{arxiv:0810.2574,doi:10.1016/j.aam.2020.102085,arxiv:2211.02756,arxiv:2308.05152}.
   There are techniques to compute them for general codes \cite{arxiv:2308.05152}.
@@ -121,13 +126,15 @@ features:
     - 'A qubit code is \(U\)-\textit{quasi-transversal} if it can realize the logical gate \(U\) in the third level of the \term{Clifford hierarchy} using the physical gate \(C T^{\otimes n}\), where \(C\) is some Clifford gate \cite[Def. 4]{arxiv:1606.01904}.'
     - 'If a qubit code \(Q\) of length \(n\) has compact subgroups \(N\triangleleft G\leq \mathrm{Aut}(Q)\) such that \(G/N\) is finite, non-Abelian, simple, and not \(A_5\), then \(n\) is at least the minimal permutation degree \(\mu(G/N)\) \cite[Thm. 1]{arxiv:2604.15111}.'
   general_gates:
-    - 'Computing using \hyperref[topic:clifford]{Clifford gates} only can be efficiently simulated on a classical computer, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,manual:{E. Knill, private communication, ca. 1998}}.
-    There is a canonical form for \hyperref[topic:clifford]{Clifford circuits} \cite{arxiv:2003.09412,arxiv:2408.15202} and many algorithms for simulating them \cite{arxiv:quant-ph/0406196,arxiv:1712.03554,arxiv:2301.02356}.
-    Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
-    More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1090/gsm/047} states that any subset of gates that generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by \hyperref[topic:clifford]{Clifford gates} and a fixed set of \hyperref[topic:clifford]{non-Clifford} gates is called \textit{gate compilation} or \textit{circuit synthesis}.'
+    - |
+      Computing with \hyperref[topic:clifford]{Clifford gates}, Pauli measurements, and classical feedforward acting on stabilizer states only can be efficiently simulated on a classical computer by tracking stabilizer and logical generators, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,manual:{E. Knill, private communication, ca. 1998}}.
+      There is a canonical form for \hyperref[topic:clifford]{Clifford circuits} \cite{arxiv:2003.09412,arxiv:2408.15202} and many algorithms for simulating them \cite{arxiv:quant-ph/0406196,arxiv:1712.03554,arxiv:2301.02356}.
+      Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
+      More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1090/gsm/047} states that any subset of gates that generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by \hyperref[topic:clifford]{Clifford gates} and a fixed set of \hyperref[topic:clifford]{non-Clifford} gates is called \textit{gate compilation} or \textit{circuit synthesis}.
     - 'Non-Clifford gates are typically more difficult to implement than \hyperref[topic:clifford]{Clifford gates} and so are treated as a resource. Gate errors in circuit synthesis can sometimes add up destructively \cite{arxiv:1612.01011}. There is a threshold against depolarizing noise for any single-qubit gate that determines if the gate enables universal quantum computation \cite{arxiv:0907.3189,arxiv:1011.2497}.'
-    - 'The most studied set of universal gates is generated by the Clifford+\(T\) gate set. Exactly optimizing \(T\)-gate count in circuit synthesis is \(NP\)-hard \cite{arxiv:2310.05958,arxiv:2503.06045}. Gate compilation can be done using various heuristic procedures \cite{arxiv:1303.2042,arxiv:1308.4134,arxiv:1601.07363,arxiv:1601.07601,arxiv:1710.07345,arxiv:1712.01557,arxiv:1808.00128,arxiv:2101.12223,arxiv:2110.10292,arxiv:2506.15147}, e.g., \textit{ZX calculus} (a.k.a. Penrose spin calculus) \cite{arxiv:1903.10477,arxiv:1911.09039,arxiv:2004.05164,arxiv:2109.01076}, reinforcement learning \cite{arxiv:2105.15048,arxiv:2103.07585,arxiv:2212.04508,arxiv:2402.14396,arxiv:2404.14865,arxiv:2511.09951}, genetic algorithms \cite{arxiv:2504.09391}, or Hermitian lattices \cite{arxiv:2405.19302}.
-    There is an optimal asymptotic scaling of the number of T gates needed to prepare an arbitrary state \cite{arxiv:1812.00954,arxiv:2411.04790}.'
+    - |
+      The most studied set of universal gates is generated by the Clifford+\(T\) gate set. Exactly optimizing \(T\)-gate count in circuit synthesis is \(NP\)-hard \cite{arxiv:2310.05958,arxiv:2503.06045}. Gate compilation can be done using various heuristic procedures \cite{arxiv:1303.2042,arxiv:1308.4134,arxiv:1601.07363,arxiv:1601.07601,arxiv:1710.07345,arxiv:1712.01557,arxiv:1808.00128,arxiv:2101.12223,arxiv:2110.10292,arxiv:2506.15147}, e.g., \textit{ZX calculus} (a.k.a. Penrose spin calculus) \cite{arxiv:1903.10477,arxiv:1911.09039,arxiv:2004.05164,arxiv:2109.01076}, reinforcement learning \cite{arxiv:2105.15048,arxiv:2103.07585,arxiv:2212.04508,arxiv:2402.14396,arxiv:2404.14865,arxiv:2511.09951}, genetic algorithms \cite{arxiv:2504.09391}, or Hermitian lattices \cite{arxiv:2405.19302}.
+      There is an optimal asymptotic scaling of the number of T gates needed to prepare an arbitrary state \cite{arxiv:1812.00954,arxiv:2411.04790}.
     - 'Other gate sets for generating universal gates are Clifford + \(\sqrt{T}\) \cite{arxiv:2203.10064}, Toffoli and Hadamard \cite{arxiv:quant-ph/0205115,arxiv:1212.5069}, cosine-sine \cite{arxiv:quant-ph/0404089}, and icosahedral super-golden gates \cite{manual:{P. Sarnak (2015, February). Letter to Scott Aaronson and Andy Pollington on the Solovay-Kitaev Theorem and Golden Gates},arxiv:1704.02106,arxiv:2205.03007,arxiv:2509.09047}. The \(n\)-qubit Toffoli gates can be exactly realized using at least \(nT\) gates \cite{arxiv:1904.01124}, but this can be relaxed at the expense of some errors \cite{arxiv:2510.07223}.'
     - '\begin{defterm}{Clifford hierarchy}
       \label{topic:clifford-hierarchy}
@@ -197,12 +204,13 @@ relations:
     - code_id: spins_into_spins
       detail: 'Spin codes with spin \(\ell=1/2\) correspond to qubit codes since the single-qubit Pauli matrices generate the Lie algebra of \(SU(2)\).'
   cousins:
+    # Stabilizer part also in clifford_group
     - code_id: clifford_group
       detail: |
-        Computing using \hyperref[topic:clifford]{Clifford gates} only can be efficiently simulated on a classical computer, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,manual:{E. Knill, private communication, ca. 1998}}.
+        Computing with \hyperref[topic:clifford]{Clifford gates}, Pauli measurements, and classical feedforward acting on stabilizer states only can be efficiently simulated on a classical computer by tracking stabilizer and logical generators, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,manual:{E. Knill, private communication, ca. 1998}}.
         There is a canonical form for \hyperref[topic:clifford]{Clifford circuits} \cite{arxiv:2003.09412,arxiv:2408.15202} and many algorithms for simulating them \cite{arxiv:quant-ph/0406196,arxiv:1712.03554,arxiv:2301.02356}.
         Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
-        More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1090/gsm/047} states that any subset of gates that generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}).
+        More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1090/gsm/047} states that any subset of gates that generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by \hyperref[topic:clifford]{Clifford gates} and a fixed set of \hyperref[topic:clifford]{non-Clifford} gates is called \textit{gate compilation} or \textit{circuit synthesis}.
     - code_id: qubit_classical_into_quantum
       detail: 'Qubit c-q codes are qubit codes designed to transmit classical information.'
 

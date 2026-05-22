@@ -16,6 +16,7 @@ description: |
 
   Linear codes can be defined in terms of a \textit{generator matrix} \(G\), whose rows form a basis for the \(k\)-dimensional codespace. Given a message \(x\), the corresponding encoded codeword is \(G^T x\). The generator matrix can be reduced via coordinate permutations to its \textit{standard form} or \textit{systematic form} \(G = [I_k~~A]\), where \(I_k\) is a \(k\times k\) identity matrix and \(A\) is a \(k \times (n-k)\) \(q\)-ary matrix.
   The code also comes with a parity check matrix \(H\), whose columns make up a maximal linearly independent set of vectors that are in the kernel of \(G\).
+  For an error vector \(e\), the associated error syndrome is \(He\).
 
   The \textit{monomial group} of order \((q-1)^n n!\) is formed by \(n\)-dimensional matrices with one nonzero field element in each row and column.
   Two linear \(q\)-ary codes are (monomial) \textit{equivalent} if the codewords of one code can be mapped into those of the other under a monomial group element \cite[Ch. 8]{preset:MacSlo}\cite[Ch. 3]{doi:10.1007/978-1-4757-6568-7}.
@@ -24,7 +25,8 @@ description: |
 
 
 protection: |
-  Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number. Corrects any error set such that the difference of any pair of distinct elements of the set is a codeword.
+  Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number.
+  A linear code corrects an error set precisely when the difference of any pair of distinct errors is not a codeword, equivalently when distinct errors have distinct syndromes under the parity check matrix.
 
 
 features:

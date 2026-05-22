@@ -40,6 +40,7 @@ description: |
   \begin{align}
   |\gamma + C_Z^\perp \rangle = \frac{1}{\sqrt{|C_Z^\perp|}} \sum_{\eta \in C_Z^\perp} |\gamma + \eta\rangle.
   \end{align}
+  After a Hadamard transform on every qubit, the same code can be described using superpositions over cosets of \(C_X^\perp\) in \(C_Z\), exchanging the roles of bit-flip and phase-flip protection.
 
   Inequivalent CSS codes up to \(n=14\) qubits have been classified \cite{arxiv:2601.20927}.
   
@@ -140,6 +141,7 @@ features:
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1208.2317,arxiv:1412.6172}.'
   decoders:
+    - 'CSS syndrome decoding splits into two classical decoding problems: measuring the \(Z\)-type stabilizers yields the classical syndrome for bit-flip errors with respect to \(C_X\), while measuring the \(X\)-type stabilizers yields the classical syndrome for phase errors with respect to \(C_Z\). In the Hadamard basis, phase-error decoding is ordinary classical syndrome decoding.'
     - >-
       Coherent decoders allow for measurement-free error correction \cite{arxiv:2109.00086}.
       One method is table/multi-control decoding \cite{arxiv:1002.1536}, which scales exponentially with the number of ancillas used in syndrome measurement.
