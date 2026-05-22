@@ -17,6 +17,7 @@ alternative_names:
 
 description: |
   A \([[15,1,3]]\) quantum Reed-Muller code that is most easily thought of as a tetrahedral 3D color code.
+  It can be constructed as a CSS code from the \([15,5,8]\) punctured Reed-Muller code and its even subcode, which explains its transversal \(T^\dagger\) gate \cite{preset:GottesmanBook}.
 
   This code contains 15 qubits, represented by four vertices, four face centers, six edge centers, and one body center.
   The tetrahedron is cellulated into four identical polyhedron cells by connecting the body center to all four face centers, where each face center is then connected by three adjacent edge centers.
@@ -45,6 +46,7 @@ description: |
     X & I & X & I & X & I & X & I & X & I & X & I & X & I & X
   \end{smallmatrix}~.
   \end{align}
+  The logical \(\ket{\overline{0}}\) and \(\ket{\overline{1}}\) states are superpositions of computational-basis words of weight \(0 \bmod 8\) and \(7 \bmod 8\).
 
 features:
   encoders:

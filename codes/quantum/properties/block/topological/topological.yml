@@ -106,15 +106,19 @@ protection: |
   Certain topological codes have nontrivial \hyperref[topic:codespace-complexity]{codespace complexity} \cite{arxiv:2310.04710}.
 
 features:
-  rate: 'The logical dimension \(K\) of 2D topological codes described by unitary modular fusion categories depends on the type of manifold \(\Sigma^2\) that is tessellated to form the many-body system.
-  For closed orientable manifolds \cite{doi:10.1007/bf01217730,doi:10.1007/BF01238857},
-  \begin{align}
-    K=\sum_{a\in A}\left(d_{a}/D\right)^{\chi(\Sigma^{2})}~,
-  \end{align}
-  and a generalization of the formula to the non-orientable case can be found in Ref. \cite{arxiv:1612.07792}.'
+  rate: |
+    The logical dimension \(K\) of 2D topological codes described by unitary modular fusion categories depends on the type of manifold \(\Sigma^2\) that is tessellated to form the many-body system.
+    For closed orientable manifolds \cite{doi:10.1007/bf01217730,doi:10.1007/BF01238857},
+    \begin{align}
+      K=\sum_{a\in A}\left(d_{a}/D\right)^{\chi(\Sigma^{2})}~,
+    \end{align}
+    and a generalization of the formula to the non-orientable case can be found in Ref. \cite{arxiv:1612.07792}.
+  threshold:
+    - 'Topological-code families can be used to obtain a fault-tolerance threshold, although the numerical threshold value and overhead depend strongly on the syndrome-extraction and decoding protocol \cite[Ch. 10]{preset:GottesmanBook}.'
   encoders:
-    - 'A depth of \hyperref[topic:asymptotics]{order} \(\Omega(L)\) is necessary for a unitary circuit to initialize in a 2D topologically ordered state using geometrically local gates on an \(L\times L\) lattice \cite{arxiv:quant-ph/0603121,arxiv:quant-ph/0603114}, irrespective of whether the ground state admits Abelian or non-Abelian anyonic excitations.
-    However, only a finite-depth circuit and one round of measurements is required for non-Abelian topological orders with a Lagrangian subgroup \cite{arxiv:2209.03964}.'
+    - |
+      A depth of \hyperref[topic:asymptotics]{order} \(\Omega(L)\) is necessary for a unitary circuit to initialize in a 2D topologically ordered state using geometrically local gates on an \(L\times L\) lattice \cite{arxiv:quant-ph/0603121,arxiv:quant-ph/0603114}, irrespective of whether the ground state admits Abelian or non-Abelian anyonic excitations.
+      However, only a finite-depth circuit and one round of measurements is required for non-Abelian topological orders with a Lagrangian subgroup \cite{arxiv:2209.03964}.
     - 'Algorithm that takes in reduced density matrices and outputs a circuit preparing the global state in polynomial time \cite{arxiv:2410.23544}.'
   general_gates:
     - 'Ising anyon braiding and fusion were studied in a phenomenological model that was the first to study error correction with non-Abelian anyons \cite{arxiv:1311.0019}.'
@@ -132,9 +136,10 @@ relations:
     - code_id: block_quantum
       detail: 'Topological codes are block codes because an infinite family of tensor-product Hilbert spaces is required to formally define a phase of matter.'
     - code_id: hamiltonian
-      detail: 'Codespace of a topological code is typically the ground-state or low-energy subspace of a geometrically local Hamiltonian admitting a topological phase.
-      Logical qubits can also be created via lattice defects or by appropriately scheduling measurements of gauge generators (see Floquet codes).
-      Geometrically local frustration-free code Hamiltonians on Euclidean manifolds are stable with respect to sufficiently weak quasi-local perturbations when they satisfy local topological quantum order together with the Local-Gap condition \cite{arxiv:1109.1588,arxiv:2110.11194}.'
+      detail: |
+        Codespace of a topological code is typically the ground-state or low-energy subspace of a geometrically local Hamiltonian admitting a topological phase.
+        Logical qubits can also be created via lattice defects or by appropriately scheduling measurements of gauge generators (see Floquet codes).
+        Geometrically local frustration-free code Hamiltonians on Euclidean manifolds are stable with respect to sufficiently weak quasi-local perturbations when they satisfy local topological quantum order together with the Local-Gap condition \cite{arxiv:1109.1588,arxiv:2110.11194}.
   cousins:
     - code_id: cluster_state
       detail: 'There exist necessary and sufficient conditions for a family of cluster states to exhibit the TQO-1 property \cite{arxiv:2112.02502}.'

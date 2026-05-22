@@ -26,6 +26,8 @@ features:
   decoders:
     - 'Standard decoding proceeds in the reverse order: first decode the outer code blocks and then use the resulting data to decode the inner code.'
     - 'Maximum-likelihood decoding can be formulated as contraction of a tree tensor network, yielding exact decoders that improve on minimum-distance decoding for recursively concatenated block codes \cite{arxiv:quant-ph/0606126,arxiv:1312.4578}.'
+  fault_tolerance:
+    - 'Recursive concatenation is the standard route to threshold-theorem constructions: if one level of a fault-tolerant simulation suppresses logical error below the physical error rate, then further concatenation suppresses it rapidly, yielding the family of protocols used in polylogarithmic-overhead threshold theorems \cite[Chs. 10 and 14]{preset:GottesmanBook}.'
 
 notes:
   - 'See the book \cite{preset:GottesmanBook} for an introduction.'
