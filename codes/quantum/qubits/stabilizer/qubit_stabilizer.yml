@@ -207,6 +207,7 @@ features:
 
   decoders:
     - 'The size of the circuit extracting the syndrome depends on the weight of its corresponding stabilizer generator. Syndrome extraction circuits can be simulated efficiently using dedicated software (e.g., STIM \cite{arxiv:2103.02202}) and there are many general schemes for generating them \cite{arxiv:2408.01339} (see also \cite{arxiv:2402.04093}). Noise can be characterized without interrupting syndrome extraction \cite{arxiv:1710.03636}. Decoding of qubit stabilizer codes is an approximately optimal strategy for various quantum lights-out (QLO) games that can be played on the codes'' \hyperref[topic:encoder-respecting]{encoder-respecting form} \cite{arxiv:2411.14448}.'
+    - 'Instead of applying the Pauli recovery from a fault-tolerant syndrome-extraction gadget, one can usually track it classically as a \textit{Pauli frame}; Clifford operations update the frame by conjugation, while measurement-based non-Clifford gadgets must be interpreted relative to the current frame \cite{preset:GottesmanBook}.'
     - 'A greedy graph decoder for \hyperref[topic:encoder-respecting]{encoder-respecting forms} corrects all recoverable errors for sufficiently sparse graphs, including graphs with girth at least 13 and some lower-girth families with additional spacing constraints \cite{arxiv:2411.14448}.'
     - 'DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047}.'
     - 'Greedy syndrome measurement schedule \cite{arxiv:2409.14283}.'
@@ -238,6 +239,7 @@ features:
     - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031} (see also Steane''s ancilla factory \cite{arxiv:quant-ph/9708021}), in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
     - 'Generalization of Steane error correction for stabilizer codes \cite[Sec. 3.6]{preset:Yoder18}.'
     - 'Fault-tolerant error correction scheme by Knill (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), which is based on teleportation \cite{arxiv:quant-ph/0410199,arxiv:quant-ph/0312190}. A variant of it has been termed the Fibonacci scheme \cite{arxiv:0809.5063}.'
+    - 'For a non-CSS stabilizer code, the logical Bell-state ancilla needed for Knill error correction can be prepared by treating two code blocks as one larger stabilizer state and verifying the combined stabilizer via the Shor-style preparation procedure \cite[Sec. 13.1.3]{preset:GottesmanBook}.'
     - 'Fault-tolerant error correction using flag qubits for codes satisfying certain conditions \cite{arxiv:1708.02246}.'
     - 'GHZ state distillation for Steane error correction \cite{arxiv:2109.06248}.'
     - 'Syndrome extraction using flag qubits and classical codes \cite{arxiv:2212.10738}.'

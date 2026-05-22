@@ -131,7 +131,9 @@ features:
     - 'Fault-tolerant CNOT gate using generalized lattice surgery \cite{arxiv:2505.01370}.'
   fault_tolerance:
     - 'Steane error correction \cite{arxiv:quant-ph/9611027}, where fault-tolerance is ensured by preparing ancillary encoded states and extracting syndromes via \(CNOT\) gates.'
-    - 'Transversal computational-basis measurement followed by classical decoding is a fault-tolerant gadget for logical measurement of all encoded qubits \cite{preset:GottesmanBook}.'
+    - 'Encoded \(\ket{0}\) and \(\ket{+}\) ancillas for Steane error correction can be prepared by hierarchical Steane-style verification; without code-specific optimizations, a two-level procedure uses at least \((t+1)^2\) noisy ancillas for a distance-\(2t+1\) CSS code \cite[Secs. 13.1.2-13.1.3]{preset:GottesmanBook}.'
+    - 'Steane''s method also yields non-destructive logical Pauli measurement for CSS codes by coupling the data block transversally to encoded \(\ket{0}\) or \(\ket{+}\) ancillas and classically decoding the ancilla measurement results \cite{preset:GottesmanBook}.'
+    - 'Transversal computational-basis measurement followed by classical decoding is a fault-tolerant gadget for logical measurement of all encoded qubits \cite[Sec. 11.4]{preset:GottesmanBook}.'
     - 'Fault-tolerant error correction and logical measurements using flag qubits for distance-three cyclic CSS codes \cite{arxiv:1803.09758}. Parallel syndrome extraction for distance-three codes can be done fault-tolerantly using one flag qubit \cite{arxiv:2208.00581}. \hyperref[topic:effective-distance]{Distance-preserving} flag fault-tolerant error correction can be done using lookup tables for small codes \cite{arxiv:2306.12862}.'
     - 'Homomorphic gadgets fault-tolerant measurement unify Steane and Shor error correction \cite{arxiv:2211.03625}.'
     - 'A fault-tolerant error-correction protocol using \(O(d\log d)\) syndrome measurements can be applied to any CSS code with distance \(d \geq \Omega(n^{\alpha})\) for any \(\alpha > 0\) \cite{arxiv:2002.05180}.'
