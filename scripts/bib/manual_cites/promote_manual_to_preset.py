@@ -12,7 +12,7 @@ Usage:
 import os, re, sys, unicodedata, collections
 
 APPLY = "--apply" in sys.argv
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 PRESET_FILE = os.path.join(ROOT, "code_extra", "bib_preset.yml")
 
 def extract_manual_cites(text):
