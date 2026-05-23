@@ -11,21 +11,21 @@ name: '\([[8,2,3]]\) Hermitian code'
 introduced: '\cite{arxiv:2008.05051}'
 
 description: |
-  A non-CSS Hermitian eight-qubit stabilizer code that has the largest automorphism group of size 1728
-  among the 20 inequivalent \([[8,2,3]]\) codes \cite{arxiv:2501.17447}.
+  A non-CSS Hermitian eight-qubit stabilizer code that is the only Hermitian code and that has the largest automorphism group among the 20 inequivalent \([[8,2,3]]\) codes \cite{arxiv:2501.17447}.
   The code has an exceptionally short fault-tolerant syndrome measurement sequence \cite{arxiv:2008.05051,arxiv:2501.17447}.
 
-  A stabilizer tableau for the code is given by \cite[ID 4947]{preset:qiskit}
+  A stabilizer tableau for the code is \cite{arxiv:2605.15344}
   \begin{align}
   \begin{array}{cccccccc}
-    Y & Y & I & I & Z & I & I & Z \\
-    I & I & X & X & I & Z & Z & I \\
-    I & I & Z & Z & I & Y & Y & I \\
-    Z & Z & I & I & X & I & I & X \\
-    Y & Z & Y & Z & Y & I & Z & I \\
-    X & Z & X & Z & I & X & I & Z
-  \end{array}~.
+    X & X & X & X & I & I & I & I \\
+    Z & Z & Z & Z & I & I & I & I \\
+    I & I & I & I & X & X & X & X \\
+    I & I & I & I & Z & Z & Z & Z \\
+    I & X & Y & Z & I & X & Y & Z \\
+    I & Z & X & Y & I & Z & X & Y
+  \end{array}~,
   \end{align}
+  which is equivalent to \cite[ID 4947]{preset:qiskit}.
 
 features:
   decoders:
