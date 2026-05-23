@@ -1,0 +1,77 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_20_2_6
+physical: qubits
+logical: qubits
+
+name: '\([[20,2,6]]\) B\&C phantom code'
+short_name: '\([[20,2,6]]\)'
+introduced: '\cite{arxiv:2601.20927,arxiv:2605.15344}'
+
+description: |
+  Self-dual CSS code on 20 physical qubits encoding two logical qubits with distance 6.
+  The code is obtained by binarizing the \([[5,1,3]]_4\) code in the self-dual normal basis \(\{\omega,\omega^2\}\) to the \([[10,2,3]]\) binarized Galois-qudit code and then concatenating each qubit pair with the \([[4,2,2]]\) code \cite{arxiv:2601.20927}.
+
+  Physical qubits are arranged in five blocks of four, where block \(j\) corresponds to the \(j\)-th \(\mathbb{F}_4\) qudit of the \([[5,1,3]]_4\) code.
+  Stabilizer generators of the \([[4,2,2]]\) inner code on each block are \(ZZZZ\) and \(XXXX\); the outer stabilizers are the lifted images of the eight stabilizer generators of the \([[10,2,3]]\) code using the logical-operator map
+  \(X^\omega\mapsto XXII\), \(X^{\omega^2}\mapsto XIXI\), \(Z^\omega\mapsto IZIZ\), \(Z^{\omega^2}\mapsto IIZZ\) within each block.
+
+  A stabilizer tableau for the code is \cite{arxiv:2601.20927}
+  \begin{align}
+  \begin{smallmatrix}
+    Z & Z & Z & Z & I & I & I & I & I & I & I & I & I & I & I & I & I & I & I & I \\
+    I & I & I & I & Z & Z & Z & Z & I & I & I & I & I & I & I & I & I & I & I & I \\
+    I & I & I & I & I & I & I & I & Z & Z & Z & Z & I & I & I & I & I & I & I & I \\
+    I & I & I & I & I & I & I & I & I & I & I & I & Z & Z & Z & Z & I & I & I & I \\
+    I & I & I & I & I & I & I & I & I & I & I & I & I & I & I & I & Z & Z & Z & Z \\
+    I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & I & I & I \\
+    I & I & Z & Z & I & I & Z & Z & I & I & Z & Z & I & I & Z & Z & I & I & I & I \\
+    I & I & I & I & I & Z & I & Z & I & Z & Z & I & I & I & Z & Z & I & Z & I & Z \\
+    I & I & I & I & I & I & Z & Z & I & Z & I & Z & I & Z & Z & I & I & I & Z & Z \\
+    X & X & X & X & I & I & I & I & I & I & I & I & I & I & I & I & I & I & I & I \\
+    I & I & I & I & X & X & X & X & I & I & I & I & I & I & I & I & I & I & I & I \\
+    I & I & I & I & I & I & I & I & X & X & X & X & I & I & I & I & I & I & I & I \\
+    I & I & I & I & I & I & I & I & I & I & I & I & X & X & X & X & I & I & I & I \\
+    I & I & I & I & I & I & I & I & I & I & I & I & I & I & I & I & X & X & X & X \\
+    X & X & I & I & X & X & I & I & X & X & I & I & X & X & I & I & I & I & I & I \\
+    X & I & X & I & X & I & X & I & X & I & X & I & X & I & X & I & I & I & I & I \\
+    I & I & I & I & X & X & I & I & X & I & X & I & I & X & X & I & X & X & I & I \\
+    I & I & I & I & X & I & X & I & I & X & X & I & X & X & I & I & X & I & X & I
+  \end{smallmatrix}~.
+  \end{align}
+  Rows 1--5 are the \(Z\)-type inner stabilizers of each \([[4,2,2]]\) block; rows 6--9 are the lifted outer \(Z\)-type stabilizers; rows 10--14 are the \(X\)-type inner stabilizers; rows 15--18 are the lifted outer \(X\)-type stabilizers.
+
+protection: |
+  Detects errors on up to 5 qubits and corrects errors on up to 2 qubits.
+
+features:
+  transversal_gates:
+    - 'Logical CNOT gates in both directions between the two logical qubits are realized by qubit permutations within a code block \cite{arxiv:2601.20927,arxiv:2605.15344}.'
+    - 'Fold-diagonal logical \(SS\) gates are available from the self-duality of the outer \([[5,1,3]]_4\) code and the inner \([[4,2,2]]\) layer \cite{arxiv:2601.20927}.'
+
+  fault_tolerance:
+    - 'Selective state filtering (post-selection): logical error rates of \(\approx 2\times 10^{-6}\) per round of Steane-style error correction at physical error rate \(p=10^{-3}\), without being fully fault-tolerant \cite{arxiv:2605.15344}.'
+
+relations:
+  parents:
+    - code_id: bc_phantom
+      detail: 'The \([[20,2,6]]\) code is the B\&C phantom code obtained from the \([[5,1,3]]_4\) Galois-qudit CSS code \cite{arxiv:2601.20927,arxiv:2605.15344}.'
+    - code_id: self_dual_css
+      detail: 'The \([[20,2,6]]\) code is a self-dual CSS code obtained from the \([[5,1,3]]\) code via the BLT mapping and concatenation with \([[4,2,2]]\) \cite[Corr. 2]{arxiv:2605.15344}\cite[Corr. 1]{arxiv:1004.3791}.'
+  cousins:
+    - code_id: stab_5_1_3
+      detail: 'The \([[20,2,6]]\) code is obtained from the \([[5,1,3]]\) five-qubit code via the BLT mapping (Lemma 1) and concatenation with the \([[4,2,2]]\) code (Corollary 2) \cite{arxiv:2605.15344}\cite[Corr. 1]{arxiv:1004.3791}.'
+    - code_id: stab_4_2_2
+      detail: 'The \([[20,2,6]]\) code is obtained by concatenating each qubit pair of the \([[10,2,3]]\) binarized code with the \([[4,2,2]]\) code \cite{arxiv:2601.20927,arxiv:2605.15344}.'
+    - code_id: stab_10_2_3
+      detail: 'The \([[20,2,6]]\) code is obtained by concatenating each qubit pair of the \([[10,2,3]]\) binarized Galois-qudit code with the \([[4,2,2]]\) code \cite{arxiv:2601.20927}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-22'

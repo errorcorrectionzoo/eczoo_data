@@ -45,9 +45,11 @@ relations:
     - code_id: dual
       detail: 'Self-dual CSS codes arise from dual-containing (equivalently, self-orthogonal a.k.a. weakly self-dual) binary linear codes.'
     - code_id: qubit_stabilizer
-      detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via an intermediate tetron Majorana stabilizer code \cite[Corr. 1]{arxiv:1004.3791}\cite{arxiv:1703.07847}, which preserves geometric locality of a code up to a constant factor.'
+      detail: 'Any \([[n,k,d]]\) qubit stabilizer code maps to a \([[4n,2k,2d]]\) self-dual CSS code by applying the BLT mapping and concatenating each qubit pair with the \([[4,2,2]]\) code \cite[Corr. 2]{arxiv:2605.15344}\cite[Corr. 1]{arxiv:1004.3791}. The BLT mapping proceeds by first concatenating each qubit with the \hyperref[code:tetron]{tetron code} to obtain an intermediate \([[2n,k,2d]]_{f}\) Majorana stabilizer code.'
     - code_id: tetron
-      detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped into a \([[4n,2k,2d]]\) self-dual CSS code via an intermediate tetron Majorana stabilizer code \cite[Corr. 1]{arxiv:1004.3791}\cite{arxiv:1703.07847}, which preserves geometric locality of a code up to a constant factor.'
+      detail: 'Any \([[n,k,d]]\) qubit stabilizer code maps to a \([[4n,2k,2d]]\) self-dual CSS code by applying the BLT mapping and concatenating each qubit pair with the \([[4,2,2]]\) code \cite[Corr. 2]{arxiv:2605.15344}\cite[Corr. 1]{arxiv:1004.3791}. The BLT mapping proceeds by first concatenating each qubit with the \hyperref[code:tetron]{tetron code} to obtain an intermediate \([[2n,k,2d]]_{f}\) Majorana stabilizer code.'
+    - code_id: stab_4_2_2
+      detail: 'Any \([[n,k,d]]\) qubit stabilizer code maps to a \([[4n,2k,2d]]\) self-dual CSS code by applying the BLT mapping and concatenating each qubit pair with the \([[4,2,2]]\) code \cite[Corr. 2]{arxiv:2605.15344}\cite[Corr. 1]{arxiv:1004.3791}. The BLT mapping proceeds by first concatenating each qubit with the \hyperref[code:tetron]{tetron code} to obtain an intermediate \([[2n,k,2d]]_{f}\) Majorana stabilizer code.'
     - code_id: quantum_reed_muller
       detail: 'The \([[2^m,{m \choose r}, 2^{\min(r,m-r)}]]\) quantum RM family contains a self-dual sub-family for \(m=2r\), which admits logical Clifford group gates via permutations, transversal gates, and fold-transversal gates \cite{arxiv:2410.23263,arxiv:2602.09788}.'
     - code_id: quantum_divisible
