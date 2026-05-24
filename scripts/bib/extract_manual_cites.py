@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
-Extract text inside manual:{...} fields from \cite commands in all YML files,
-append readily formatted preset citations from code_extra/bib_preset.yml, and
-write them to resources/manual_cites.txt.
+Extract text inside manual:{...} fields from \cite commands in all YML files
+and write them to resources/manual_cites.txt.
+
+Use --presets to also append readily formatted preset citations from
+code_extra/bib_preset.yml.
 """
 
+import argparse
 import os
 import re
 
@@ -66,10 +69,17 @@ def extract_ready_formatted_presets():
     return rows
 
 
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument(
+    "--presets",
+    action="store_true",
+    help="also append preset citations from code_extra/bib_preset.yml",
+)
+args = parser.parse_args()
+
 all_cites = set()
 
 for dirpath, dirnames, filenames in os.walk(ROOT):
-    # Skip the scripts directory itself and other non-content dirs
     for fname in filenames:
         if not fname.endswith(".yml"):
             continue
@@ -83,15 +93,19 @@ for dirpath, dirnames, filenames in os.walk(ROOT):
             all_cites.add(cite.strip())
 
 sorted_cites = sorted(all_cites, key=lambda s: s.lower())
-preset_rows = sorted(extract_ready_formatted_presets(), key=lambda row: row[0].lower())
 
 with open(OUTPUT, "w", encoding="utf-8") as f:
     for cite in sorted_cites:
         f.write(cite + "\n")
-    for formatted, preset_name in preset_rows:
-        f.write(f"{formatted}\t{preset_name}\n")
+    if args.presets:
+        preset_rows = sorted(extract_ready_formatted_presets(), key=lambda row: row[0].lower())
+        for formatted, preset_name in preset_rows:
+            f.write(f"{formatted}\t{preset_name}\n")
 
-print(
-    f"Wrote {len(sorted_cites)} unique manual citations and "
-    f"{len(preset_rows)} preset citations to {OUTPUT}"
-)
+if args.presets:
+    print(
+        f"Wrote {len(sorted_cites)} unique manual citations and "
+        f"{len(preset_rows)} preset citations to {OUTPUT}"
+    )
+else:
+    print(f"Wrote {len(sorted_cites)} unique manual citations to {OUTPUT}")
