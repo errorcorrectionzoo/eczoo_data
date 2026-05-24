@@ -13,7 +13,7 @@ For each tab-separated line where col1 != col2:
 import os
 import re
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 CITES_FILE = os.path.join(ROOT, "resources", "manual_cites.txt")
 
 # ---------------------------------------------------------------------------
