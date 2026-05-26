@@ -7,8 +7,13 @@ code_id: quantum_bpsk
 physical: oscillators
 logical: reals
 
-name: 'BPSK c-q code'
+name: 'BPSK c-q modulation format'
 #introduced: '\cite{doi:10.1038/nphoton.2014.280}'
+
+alternative_names:
+  - 'BPSK c-q modulation code'
+  - 'BPSK c-q modulation scheme'
+  - 'BPSK c-q signaling format'
 
 description: 'Coherent-state c-q binary code encoding into two coherent states \(|\pm\alpha\rangle\) for complex \(\alpha\).
 A shifted version, with codewords \(\{|0\rangle,|\alpha\rangle\}\), is called binary amplitude modulation (BAM),
@@ -41,6 +46,8 @@ relations:
   parents:
     - code_id: quantum_psk
     - code_id: quantum_hadamard_bpsk
+    - code_id: squeezed_coherent_bpsk
+      detail: 'Squeezed-coherent BPSK c-q modulation reduces to coherent-state BPSK c-q modulation when the squeezing parameter is zero.'
   cousins:
     - code_id: bpsk
       detail: 'BPSK (BPSK c-q) codes are used to transmit classical information using antipodal coherent states over classical (quantum) channels.'

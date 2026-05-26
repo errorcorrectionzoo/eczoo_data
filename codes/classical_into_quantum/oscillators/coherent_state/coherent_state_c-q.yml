@@ -7,7 +7,12 @@ code_id: coherent_state_c-q
 physical: oscillators
 logical: reals
 
-name: 'Coherent-state c-q code'
+name: 'Coherent-state c-q modulation format'
+
+alternative_names:
+  - 'Coherent-state c-q modulation code'
+  - 'Coherent-state c-q modulation scheme'
+  - 'Coherent-state c-q signaling format'
 
 description: |
   Bosonic c-q code whose codewords form a constellation of coherent states.
@@ -32,7 +37,7 @@ description: |
   For a finite constellation, unambiguous state discrimination is possible only if the coherent states in the codebook are linearly independent.
 
 features:
-  rate: 'Random Gaussian-distributed coherent-state c-q codes achieve the capacity of the lossy bosonic channel \cite{arxiv:quant-ph/0308012}.'
+  rate: 'Random Gaussian-distributed coherent-state c-q codes achieve the capacity of the \hyperref[topic:ad]{pure-loss bosonic channel} \cite{arxiv:quant-ph/0308012}.'
   decoders:
     - 'Optimal receiver performance in ambiguous state discrimination is determined using the \textit{Yuen-Kennedy-Lax (YKL) conditions} \cite{doi:10.1109/TIT.1975.1055351}.
     See review \cite{doi:10.1116/5.0036959} for details on receivers used for coherent-state c-q codes.'
@@ -53,8 +58,6 @@ relations:
   cousins:
     - code_id: coherent_constellation
       detail: 'Coherent-state c-q codes encode classical alphabets into constellations of coherent states, while coherent-state constellation codes encode quantum information into superpositions of coherent states.'
-    - code_id: modulation
-      detail: 'Coherent-state c-q codes are modulation schemes for transmission of classical information over quantum optical channels.'
 
 
 # Begin Entry Meta Information

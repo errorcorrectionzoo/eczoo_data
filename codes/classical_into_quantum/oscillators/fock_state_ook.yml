@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: fock_state_ook
+physical: oscillators
+logical: reals
+
+name: 'Fock-state OOK c-q modulation format'
+short_name: 'Fock OOK c-q'
+introduced: '\cite{doi:10.1109/ITA.2012.6181832}'
+
+alternative_names:
+  - 'Number-state OOK c-q modulation format'
+  - 'Fock-state OOK c-q modulation code'
+  - 'Fock-state OOK c-q modulation scheme'
+  - 'Fock-state OOK c-q signaling format'
+  - 'Single-photon OOK c-q modulation format'
+  - 'Single-rail c-q code'
+
+description: |
+  Bosonic c-q on-off keying (OOK) modulation format whose binary alphabet consists of the vacuum state \(|0\rangle\) and the single-photon Fock state \(|1\rangle\) of one mode.
+  More generally, the nonzero OOK symbol can be a number state or a mixture of adjacent number states.
+  Fock-state OOK with photon-number detection was analyzed as a nonclassical alternative to coherent-state OOK for photon-efficient communication \cite{doi:10.1109/ITA.2012.6181832}.
+
+features:
+  decoders:
+    - 'Photon-number detection distinguishes the erasure/loss-degraded output alphabet by detecting whether photons are present in the received mode \cite{doi:10.1109/ITA.2012.6181832,arxiv:1410.4575}.'
+    - 'Number-state modulation with photon detection, including the numerical observation that the optimal prior distribution can be multimodal, was studied in Ref. \cite[Ch. 5]{manual:{S. Guha, “Classical capacity of the free-space quantum-optical channel”, S.M. thesis, Massachusetts Institute of Technology (2004), \href{http://hdl.handle.net/1721.1/87908}{URL}}}. Later work on incoherent OOK and PPM quantified improvements from sub-Poissonian nonclassical light and used Fock states as the nonclassical low-photon-number alphabet \cite{arxiv:1410.4575}.'
+
+
+relations:
+  parents:
+    - code_id: bosonic_classical_into_quantum
+  cousins:
+    - code_id: quantum_ook
+      detail: 'Fock-state OOK and coherent-state OOK both use a vacuum off symbol, but their on symbols are respectively a single-photon number state and a coherent state.'
+    - code_id: fock_state
+      detail: 'Fock-state OOK transmits classical information using Fock states, while Fock-state bosonic codes store quantum information in subspaces built from Fock states.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: SaikatGuha
+      date: '2026-05-26'
+    - user_id: VictorVAlbert
+      date: '2026-05-26'
