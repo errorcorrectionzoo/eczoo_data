@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: su3_tverberg_spin
+physical: spins
+logical: spins
+
+name: '\(SU(3)\) Tverberg spin code'
+introduced: '\cite{arxiv:1205.4517}\cite[Ex. 6.4]{manual:{I. Shors, “Quantum Error Detection and Lie Theory”, undergraduate thesis, UC Davis Mathematics REU, 2022, \href{https://reu.math.ucdavis.edu/application/files/8316/7872/4883/shors-final.pdf}{URL}}}'
+
+description: |
+  \(SU(3)\) single-spin code family obtained from the two-step Tverberg construction \cite{arxiv:quant-ph/9908066} in the totally symmetric \(N\)-particle irrep \(\mathcal{H}=\mathrm{Sym}^N(\mathbb{C}^3)\) of \(\mathfrak{su}(3)\), which has dimension \(\binom{N+2}{2}\).
+  Its weight basis is indexed by the \hyperref[topic:discrete-simplex]{discrete simplex} \(\Delta_{3,N}\), whose centered form is the triangular \(A_2\) lattice.
+
+  A distance-two intermediate subspace can be chosen as
+  \begin{align}
+    \mathcal{B}=\mathrm{span}\{|a_1a_2a_3\rangle: a_1-a_2\equiv0\pmod 3\}~,
+  \end{align}
+  giving \(\dim\mathcal{B}\approx\binom{N+2}{2}/3\) \cite{arxiv:1205.4517}\cite[Ex. 6.4]{manual:{I. Shors, “Quantum Error Detection and Lie Theory”, undergraduate thesis, UC Davis Mathematics REU, 2022, \href{https://reu.math.ucdavis.edu/application/files/8316/7872/4883/shors-final.pdf}{URL}}}.
+  A symmetric partition of this sublattice into pairs in the central hexagon and triples near the corners yields an error-detecting code for single Lie-algebra errors of dimension \(\frac{4}{27}\binom{N+2}{2}+O(N)\) \cite[Sec. 6.2.1]{manual:{Ruochuan Xu, “Classical Construction of Quantum Codes”, undergraduate thesis, January 2023}}.
+
+protection: |
+  Detects errors in the \(\mathfrak{su}(3)\) Lie-algebra error set.
+  More generally, for the Lie-type graph metric \(V_t=\mathrm{span}(\mathfrak{su}(3)\oplus \mathbb{C}I)^t\), a distance-\(d\) construction can be obtained by first choosing a graph-distance-\(d\) subset of the discrete simplex \(\Delta_{3,N}\) \cite[Secs. 5.1,6.2]{manual:{Ruochuan Xu, “Classical Construction of Quantum Codes”, undergraduate thesis, January 2023}}.
+
+features:
+  rate: |
+    For general distance \(d\), the two-step construction uses an asymptotically optimal distance-\(d\) sublattice of the centered \(\Delta_{3,N}\) discrete simplex for the intermediate space.
+    If \(d=2t\), then \(\dim\mathcal{B}=\dim\mathcal{H}/(3t^2)+O(N)\); if \(d=2t+1\), then \(\dim\mathcal{B}=\dim\mathcal{H}/(3t^2+3t+1)+O(N)\) \cite[Sec. 6.2.2]{manual:{Ruochuan Xu, “Classical Construction of Quantum Codes”, undergraduate thesis, January 2023}}.
+
+relations:
+  parents:
+    - code_id: single_spin
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-26'
