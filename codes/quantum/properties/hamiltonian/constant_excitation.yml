@@ -35,6 +35,9 @@ protection: |
 features:
   rate: 'Fock-state CE codes can be used in a protocol that achieves the two-way quantum capacity of the \hyperref[topic:ad]{AD} Gaussian channel \cite{arxiv:2203.13924}. For every \(K,t \geq 2\), there are explicitly constructible \(K\)-dimensional Fock-state CE codes with \(q=N=(K-1)t(t+1)\) modes, total excitation \(N\), and distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.'
 
+  fault_tolerance:
+    - 'Fault-tolerant QEC framework for CE CSS codes using modified Shor and Steane syndrome extraction, where weight-\(2w\) stabilizers are measured using \(w\)-CE cat states and zero-controlled NOT (\(\mathrm{C}_0 X\)) gates replace standard CNOT gates to preserve the constant-excitation structure \cite{arxiv:2507.10395}.'
+
 
 relations:
   parents:
@@ -48,8 +51,11 @@ relations:
         Qubit CE codes are protected from coherent noise in the form of transversal \(Z\)-rotations because such rotations act identically on all codewords \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
         In the case of qubit CSS codes, all codes oblivious to such rotations are CE codes \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
         Any \([[n,k,d]]\) CSS code can be made into an \([[mn,k,>d]]\) CE code \cite{doi:10.1109/ISIT45174.2021.9518206}.
+        Concatenating the dual-rail code with an inner \([[n,k,d]]\) qubit stabilizer code yields a degenerate \([[2n,k,d]]\) constant-excitation stabilizer code that avoids coherent phase errors and is equivalent to a Pauli-rotated repetition-concatenated stabilizer code \cite{arxiv:2010.00538}. CSS structure is preserved when the original code is CSS \cite{arxiv:2507.10395}.
     - code_id: stab_5_1_3
-      detail: 'The five-qubit code can be concatenated with a particular decoherence-free subspace (DFS) \cite{arxiv:quant-ph/9807004,arxiv:quant-ph/9902041,arxiv:quant-ph/9908064,arxiv:quant-ph/0007013} to yield a 20-qubit CE code \cite{arxiv:quant-ph/9809081,arxiv:quant-ph/9907096}.'
+      detail: 'The five-qubit code can be concatenated with a particular decoherence-free subspace (DFS) \cite{arxiv:quant-ph/9807004,arxiv:quant-ph/9902041,arxiv:quant-ph/9908064,arxiv:quant-ph/0007013} to yield a 20-qubit CE code \cite{arxiv:quant-ph/9809081,arxiv:quant-ph/9907096}. Dual-rail concatenation of the five-qubit code yields a \([[10,1,3]]\) CE stabilizer code \cite{arxiv:2507.10395}.'
+    - code_id: qubit_stabilizer
+      detail: 'Concatenating the dual-rail code with an inner \([[n,k,d]]\) qubit stabilizer code yields a degenerate \([[2n,k,d]]\) constant-excitation stabilizer code that avoids coherent phase errors and is equivalent to a Pauli-rotated repetition-concatenated stabilizer code \cite{arxiv:2010.00538}. CSS structure is preserved when the original code is CSS \cite{arxiv:2507.10395}.'
 
 
 # Begin Entry Meta Information

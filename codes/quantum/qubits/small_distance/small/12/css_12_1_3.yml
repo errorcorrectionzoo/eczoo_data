@@ -1,0 +1,60 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: css_12_1_3
+physical: qubits
+logical: qubits
+
+name: '\([[12,1,3]]\) CE CSS code'
+introduced: '\cite{arxiv:2507.10395}'
+
+description: |
+  Twelve-qubit constant-excitation (CE) CSS code that encodes one logical qubit with distance three.
+  It is the smallest CE CSS code that corrects a single-qubit error \cite{arxiv:2507.10395}.
+  Codewords lie in a fixed Hamming-weight subspace, making the code immune to coherent noise in the form of transversal \(Z\)-rotations.
+
+  One stabilizer tableau for the code is, up to Pauli frame \cite{arxiv:2507.10395},
+  \begin{align}
+  \begin{smallmatrix}
+    X & X & X & X & I & I & I & I & I & I & I & I \\
+    I & I & X & X & X & X & I & I & I & I & I & I \\
+    I & I & I & I & I & I & X & X & X & X & I & I \\
+    I & I & I & I & I & I & I & I & X & X & X & X \\
+    Z & I & Z & I & Z & I & Z & I & Z & I & Z & I \\
+    Z & Z & I & I & I & I & I & I & I & I & I & I \\
+    I & I & Z & Z & I & I & I & I & I & I & I & I \\
+    I & I & I & I & Z & Z & I & I & I & I & I & I \\
+    I & I & I & I & I & I & Z & Z & I & I & I & I \\
+    I & I & I & I & I & I & I & I & Z & Z & I & I \\
+    I & I & I & I & I & I & I & I & I & I & Z & Z
+  \end{smallmatrix}~.
+  \end{align}
+
+protection: |
+  Corrects any single-qubit error (distance \(d=3\)).
+  Protects from collective coherent noise in the form of transversal \(Z\)-rotations, since all codewords lie in the same Hamming-weight subspace \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
+
+features:
+  fault_tolerance:
+    - 'Fault-tolerant syndrome extraction using modified Shor and Steane methods adapted for CE codes: weight-\(2w\) stabilizers are measured using \(w\)-CE cat states, and zero-controlled NOT (\(\mathrm{C}_0 X\)) gates replace standard CNOT gates to preserve the constant-excitation structure \cite{arxiv:2507.10395}.'
+
+  threshold:
+    - 'Pseudo-threshold of \(\sim 9.28 \times 10^{-4}\) (circuit-level stochastic noise) and \(\sim 5.98 \times 10^{-4}\) (with coherent corrections, \(\gamma = 0.01\)) under collective coherent noise \cite{arxiv:2507.10395}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: constant_excitation
+    - code_id: qubit_concatenated
+      detail: 'This code is obtained by dual-rail concatenation of the \([[6,1,2]]\) CSS code \cite[ID 50]{preset:qiskit}.'
+    - code_id: small_distance_qubit_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-26'

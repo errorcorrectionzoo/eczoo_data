@@ -7,11 +7,12 @@ code_id: phantom_14_3_3
 physical: qubits
 logical: qubits
 
-name: '\([[14,3,3]]\) CSS phantom code'
-introduced: '\cite{arxiv:2601.20927}'
+name: '\([[14,3,3]]\) CE phantom code'
+introduced: '\cite{arxiv:2507.10395,arxiv:2601.20927}'
 
 description: |
   CSS phantom code obtained by concatenating the \([[7,3,(d_X=3,d_Z=2)]]\) punctured hypercube code with the two-qubit phase-flip repetition code.
+  The code is equivalent to the \([[14,3,3]]\) constant-excitation (CE) CSS code obtained by applying dual-rail concatenation to the \([[7,3,2]]\) punctured hypercube code, up to single-qubit Clifford gates, a physical-qubit permutation, and a Pauli frame \cite{arxiv:2507.10395}.
 
   One stabilizer tableau for the code is
   \begin{align}
@@ -37,16 +38,23 @@ features:
     - 'The code is phantom, so every ordered-pair in-block logical CNOT gate between its three logical qubits can be implemented by a physical-qubit permutation \cite{arxiv:2601.20927}.'
     - 'The Hadamard-dual code admits fold-diagonal logical \(S_iS_j\) and \(CZ_{ij}\) gates \cite{arxiv:2601.20927}.'
 
+  fault_tolerance:
+    - 'In the locally Clifford-equivalent CE CSS frame, fault-tolerant syndrome extraction can use modified Shor and Steane methods adapted for CE codes: weight-\(2w\) stabilizers are measured using \(w\)-CE cat states, and zero-controlled NOT (\(\mathrm{C}_0 X\)) gates replace standard CNOT gates to preserve the constant-excitation structure \cite{arxiv:2507.10395}.'
+
 relations:
   parents:
     - code_id: phantom
       detail: 'This \([[14,3,3]]\) code is a CSS phantom code obtained from the punctured hypercube code and the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
+    - code_id: constant_excitation
+      detail: 'This code is single-qubit Clifford equivalent to the \([[14,3,3]]\) CE CSS code obtained by dual-rail concatenation of the \([[7,3,2]]\) punctured hypercube code \cite{arxiv:2507.10395}.'
     - code_id: qubit_concatenated
       detail: 'This code is a concatenation of the \([[7,3,2]]\) punctured hypercube code with the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
     - code_id: small_distance_qubit_stabilizer
   cousins:
     - code_id: xz_7_3_2
-      detail: 'Concatenating the \([[7,3,(d_X=3,d_Z=2)]]\) punctured hypercube code with the two-qubit phase-flip repetition code yields this \([[14,3,(d_X=3,d_Z=4)]]\) CSS phantom code \cite{arxiv:2601.20927}.'
+      detail: 'Concatenating the \([[7,3,(d_X=3,d_Z=2)]]\) punctured hypercube code with the two-qubit phase-flip repetition code yields this \([[14,3,(d_X=3,d_Z=4)]]\) CSS phantom code \cite{arxiv:2601.20927}. Dual-rail concatenation of the same punctured hypercube code yields a single-qubit Clifford-equivalent CE CSS frame \cite{arxiv:2507.10395}.'
+    - code_id: steane
+      detail: 'Dual-rail concatenation of the \([[7,1,3]]\) Steane code yields a \([[14,1,3]]\) CE CSS code, from which the locally Clifford-equivalent \([[14,3,3]]\) CE CSS frame is obtained by removing two independent \(Z\)-type stabilizer generators \cite{arxiv:2507.10395}.'
     - code_id: quantum_repetition
       detail: 'The inner code in the construction is the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
 
