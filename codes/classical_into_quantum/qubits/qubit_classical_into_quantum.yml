@@ -17,7 +17,12 @@ protection: |
 
 features:
   decoders:
-    - 'BP with quantum messages (BPQM) decoder \cite{arxiv:1607.04833,arxiv:2109.08170,arxiv:2207.04984,arxiv:2003.04356,doi:10.1109/MBITS.2023.3285848}.'
+    - |
+      Belief propagation with quantum messages (BPQM) decoder for c-q channel communication \cite{arxiv:1607.04833}.
+      The original BPQM proposal used quantum messages to decode pure-state c-q channels, had c-q polar codes in mind, and yielded explicit capacity-achieving decoders for non-Pauli channels \cite{arxiv:1607.04833}.
+      BPQM was analyzed for a BPSK-modulated \hyperref[topic:ad]{pure-loss} channel and shown to be optimal for small tree codes \cite{arxiv:2003.04356}.
+      A later quantum message-passing formulation proved optimality of BPQM for any binary linear code with a tree Tanner graph, and proposed an extension to factor graphs with cycles using approximate cloning \cite{arxiv:2109.08170}.
+      BPQM has also been extended to symmetric classical-quantum channels using paired measurements \cite{arxiv:2207.04984}.
 
 realizations:
   - 'Quantum enhancement was demonstrated using a polarization-based non-error-correcting c-q encoding \cite{arxiv:1704.07036}.'
@@ -34,5 +39,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2025-05-26'
+    - user_id: SaikatGuha
+      date: '2025-05-26'
     - user_id: VictorVAlbert
       date: '2022-12-04'
