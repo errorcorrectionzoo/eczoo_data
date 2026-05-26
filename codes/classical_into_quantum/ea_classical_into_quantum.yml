@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ea_classical_into_quantum
+
+name: 'Entanglement-assisted (EA) c-q code'
+short_name: 'EA c-q'
+
+alternative_names:
+  - 'Entanglement-assisted classical communication (EACC) code'
+  - 'Entanglement-assisted classical code'
+
+description: |
+  Classical-quantum code whose encoding and decoding utilize pre-shared entanglement between sender and receiver.
+  The sender encodes classical information into quantum systems sent through a quantum channel, while the receiver decodes using the channel outputs together with retained halves of pre-shared entangled states.
+
+protection: |
+  A finite-block EACC code is often denoted by \([n,k,d;c]_q\), where \(n\) is the number of \(q\)-dimensional channel uses, \(q^k\) is the number of classical messages, \(d\) is the minimum distance, and \(c\) is the number of pre-shared maximally entangled qudit pairs.
+  Such a code corrects \(d-1\) erasures or \(\left\lfloor(d-1)/2\right\rfloor\) errors in the setting of Ref. \cite{arxiv:2310.19774}.
+
+features:
+  rate: |
+    The entanglement-assisted classical capacity \(C^{\rm ea}(T)\) is the highest asymptotic rate for reliable classical communication through a quantum channel \(T\) when arbitrary pre-shared entanglement is available \cite{doi:10.1103/PhysRevLett.83.3081,doi:10.1109/TIT.2002.802612}.
+    For lossy bosonic channels with high thermal noise and low transmitted photon number, pre-shared entanglement can yield a capacity ratio scaling as \(\log(1/N_S)\) relative to the unassisted Holevo capacity \cite{arxiv:2001.03934,arxiv:2208.07979}.
+    If the encoding and decoding circuits themselves are noisy, the fault-tolerant EA capacity approaches the usual EA capacity as the gate error tends to zero \cite{arxiv:2210.02939}.
+
+  encoders:
+    - 'Super-dense coding maps two \(q\)-ary classical symbols to one transmitted qudit when one maximally entangled qudit pair is available \cite{doi:10.1103/PhysRevLett.69.2881}.'
+
+relations:
+  parents:
+    - code_id: eaoaecc
+      detail: 'An EAOA QECC that has no gauge structure (e.g., gauge qubits), that has a block structure that corresponds to a classical code, that stores no quantum information, and that utilizes pre-shared entanglement is an EA c-q code.'
+  cousins:
+    - code_id: bosonic_classical_into_quantum
+      detail: 'Bosonic EA c-q schemes use pre-shared continuous-variable entanglement to assist bosonic c-q communication, including structured transceivers for lossy thermal-noise channels \cite{arxiv:2001.03934,arxiv:2208.07979}.'
+    - code_id: eacq
+      detail: 'EA c-q codes transmit only classical information with entanglement assistance, while EA hybrid QECCs transmit both classical and quantum information with entanglement assistance.'
+    - code_id: eaqecc
+      detail: 'EA c-q codes transmit classical information with entanglement assistance, while EAQECCs transmit quantum information with entanglement assistance.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-05-26'
