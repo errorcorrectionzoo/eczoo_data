@@ -7,6 +7,7 @@ code_id: xzzx
 physical: qubits
 logical: qubits
 
+# Non-CSS because of [[5,1,3]]
 name: 'XZZX surface code'
 introduced: '\cite{arxiv:quant-ph/0205004,arxiv:1108.5490,arxiv:1201.3757,arxiv:2009.07851}'
 
@@ -14,10 +15,10 @@ alternative_names:
   - 'Wen plaquette model'
 
 description: |
-  Non-CSS variant of the rotated surface code whose generators are \(XZZX\) Pauli strings associated, clockwise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).
+  A variant of the rotated surface code whose generators are \(XZZX\) Pauli strings associated, clockwise, to the vertices of each face of a two-dimensional lattice (with a qubit located at each vertex of the tessellation).
 
   \textit{XZZX toric code} often either refers to the construction on the two-dimensional torus or is an alternative name for the general construction.
-  \textit{Twisted XZZX toric code} refers to the construction on a torus with twisted (a.k.a. shifted) boundary conditions.
+  \textit{Twisted XZZX toric code} refers to the construction on a torus with twisted (a.k.a. shifted) boundary conditions; these need not be equivalent to twisted toric codes because they can be non-CSS.
   The construction on surfaces with boundaries is often called the
   \textit{XZZX planar code}.
   On a closed lattice, the Wen plaquette realization of the XZZX toric code has the same \(\mathbb{Z}_2\) topological order as the toric code, and translation by one lattice unit exchanges the \(e\) and \(m\) anyons \cite[Appx. C]{arxiv:1605.01640}.
@@ -70,9 +71,6 @@ notes:
 
 relations:
   parents:
-    - code_id: clifford-deformed_surface
-      detail: The XZZX surface code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZXZ\).
-      # detail: 'The type of topological phase realized by a code Hamiltonian on a torus is independent of the boundary conditions.'
     - code_id: twist_defect_surface
       detail: 'XZZX toric and planar codes can be treated in the general twist-defect surface code formalism \cite{arxiv:2101.09349}.'
   cousins:
@@ -90,6 +88,8 @@ relations:
       detail: 'XZZX surface code can be adapted for a heavy-hexagonal point set \cite{arxiv:2211.14038}.'
     - code_id: cluster_state
       detail: 'XZZX surface code can be foliated for a noise-bias preserving MBQC \cite{arxiv:2201.10566} or FBQC \cite{arxiv:2303.16122} protocol; see also \cite{arxiv:1308.4776}.'
+    - code_id: surface
+      detail: 'The XZZX surface code on a square lattice with non-twisted periodic boundary conditions is obtained from a surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZXZ\). While this code is equivalent to a CSS surface code with the same distance, other properties like noise-bias performance can differ significantly. Twisted XZZX surface codes are generally not equivalent to CSS surface codes via a single-qubit Clifford circuit and permutation.'
 
 
 # Begin Entry Meta Information
