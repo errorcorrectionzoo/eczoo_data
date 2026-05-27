@@ -9,6 +9,13 @@ logical: qubits
 
 name: '\([[5,1,2]]\) rotated surface code'
 
+alternative_names:
+  - '\([[5,1,2]]\) morphed Steane code'
+  - '\([[5,1,2]]\) rotated toric code'
+  - '\([[5,1,2]]\) genon code'
+  - '\([[5,1,2]]\) holographic code'
+  - '\([[5,1,2]]\) planar-perfect code'
+
 # based on qiskit database brute force search
 description: |
   A rotated surface code on one rung of a ladder, with one qubit on the rung, and four qubits surrounding it. This is the smallest code that implements a fault-tolerant logical \(S\) gate using a diagonal depth-one Clifford circuit \cite{preset:AlbertPC26}.
@@ -33,6 +40,18 @@ description: |
     Red regions correspond to \(X\) operators while blue regions correspond to \(Z\) operators.}
     \label{figure:512-operators}
   \end{figure}
+
+  A non-CSS genon-code form of the same stabilizer group, local Clifford equivalent to the above via Hadamard on the four corner qubits, is \cite{arxiv:2406.09951}
+  \begin{align}
+  \begin{array}{ccccc}
+    X & X & I & Z & I \\
+    I & I & X & Z & X \\
+    I & Z & Z & X & I \\
+    Z & I & I & X & Z
+  \end{array}~.
+  \end{align}
+  The missing external stabilizer \(YYYIY\) (product of all four generators) forms the back face when the code is viewed as a genon code on a sphere.
+
 
 
 features:
