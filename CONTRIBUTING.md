@@ -6,7 +6,7 @@ welcome.
 
 ## How to contribute content
 
-You can contribute by opening sending us an [email][eczooemail], opening an
+You can contribute by sending us an [email][eczooemail], opening an
 issue, or sending us a pull request.
 
 The content of the Zoo is entered in structured form in YAML files.  Each
