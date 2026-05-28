@@ -27,7 +27,7 @@ description: |
   The multi modular-qudit version follows naturally.
   \end{defterm}
 
-  Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \hyperref[topic:galois-symplectic-representation]{modular symplectic representation} of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
+  Each code can be represented by a \textit{check matrix} (a.k.a. \textit{stabilizer generator matrix}) \(H=(A|B)\), where each row \((a|b)\) is the \hyperref[topic:modular-symplectic-representation]{modular symplectic representation} of a stabilizer generator. The check matrix can be brought into standard form via Gaussian elimination \cite{arxiv:1101.1519}.
 
   Modular-qudit stabilizer states can be expressed in terms of linear and quadratic functions over \(\mathbb{Z}_q^n\) \cite{arxiv:quant-ph/0408190}.
   They correspond to the set of states with positive Wigner functions \cite{arxiv:quant-ph/0602001,arxiv:quant-ph/0702004} (see \cite[Thm. 8.4]{arxiv:1712.08628} for a robust version of Hudson's theorem for odd prime-dimensional qudits).
@@ -52,7 +52,7 @@ features:
     - >-
       Gates in the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} can be done using \textit{qudit gate teleportation},
       in which a gate can be obtained from a particular \textit{qudit magic state}. Magic states that are eigenstates of qudit Clifford
-      operators have been classified for prime qudit dimension 3 and 5 \cite{arxiv:2003.07164}.
+      operators have been classified for prime qudit dimensions 3 and 5 \cite{arxiv:2003.07164}.
   decoders:
     - 'Trellis decoder for prime-dimensional qudits, which builds a compact representation of the algebraic structure of the normalizer \(\mathsf{N(S)}\) \cite{arxiv:2106.08251}.'
 
@@ -78,11 +78,11 @@ relations:
     - code_id: q-ary_linear_over_zq
       detail: 'Modular-qudit stabilizer codes are the closest quantum analogues of additive codes over \(\mathbb{Z}_q\) because addition in the ring corresponds to multiplication of stabilizers in the quantum case.'
     - code_id: t-designs
-      detail: 'Stabilizer states on \(n\) prime-dimensional qudits form complex projective 2-designs on \(\mathbb{C}P^{p^n}\), and they form 3-designs if and only if \(p=2\) \cite{arxiv:1510.02767}. The prime-qudit Clifford group is a unitary 2-design on \(U(p^n)\) \cite{arxiv:2108.04200}.'
+      detail: 'Stabilizer states on \(n\) prime-dimensional qudits form complex projective 2-designs on \(\mathbb{C}P^{p^n-1}\), and they form 3-designs if and only if \(p=2\) \cite{arxiv:1510.02767}. The prime-qudit Clifford group is a unitary 2-design on \(U(p^n)\) \cite{arxiv:2108.04200}.'
     - code_id: unitary_design
-      detail: 'Stabilizer states on \(n\) prime-dimensional qudits form complex projective 2-designs on \(\mathbb{C}P^{p^n}\), and they form 3-designs if and only if \(p=2\) \cite{arxiv:1510.02767}. The prime-qudit Clifford group is a unitary 2-design on \(U(p^n)\) \cite{arxiv:2108.04200}.'
+      detail: 'The prime-qudit Clifford group is a unitary 2-design on \(U(p^n)\) \cite{arxiv:2108.04200}.'
     - code_id: complex_projective
-      detail: 'Stabilizer states on \(n\) prime-dimensional qudits form complex projective 2-designs on \(\mathbb{C}P^{p^n}\), and they form 3-designs if and only if \(p=2\) \cite{arxiv:1510.02767}. The prime-qudit Clifford group is a unitary 2-design on \(U(p^n)\) \cite{arxiv:2108.04200}.'
+      detail: 'Stabilizer states on \(n\) prime-dimensional qudits form complex projective 2-designs on \(\mathbb{C}P^{p^n-1}\) \cite{arxiv:1510.02767}.'
 
 
 # Begin Entry Meta Information
