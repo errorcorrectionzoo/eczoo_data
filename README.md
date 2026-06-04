@@ -147,7 +147,7 @@ repository](https://github.com/errorcorrectionzoo/eczoo_sitegen).
 ## I want to create the &lt;Your Favorite Topic&gt; Zoo. How did you build the EC Zoo and can I reuse your code?
 
 The error correction zoo is based on [ZooDb JS library framework](https://github.com/phfaist/zoodb).  You
-are welcome to use develop your own Zoo based on this library.  Consider starting with [this simple toy
+are welcome to develop your own Zoo based on this library.  Consider starting with [this simple toy
 example of a zoo built with ZooDb](https://github.com/phfaist/zoodb-example).
 
 Get in touch with me! I'll be happy to point to the basic tools we used and how they
