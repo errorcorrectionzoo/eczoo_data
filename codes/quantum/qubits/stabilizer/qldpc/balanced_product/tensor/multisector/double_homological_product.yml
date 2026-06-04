@@ -29,6 +29,10 @@ protection: |
 
 
 features:
+  transversal_gates:
+    - 'Logical Pauli transformations \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.'
+    - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite[Exam. 1]{arxiv:quant-ph/9703048}\cite{arxiv:quant-ph/9705052}.'
+
   rate: 'If the input classical-code family has asymptotically constant rate, then the resulting Campbell double homological product family also has asymptotically constant rate because both \(k_Q\) and \(n_Q\) scale as \(n^4\) \cite{arxiv:1805.09271}.'
   decoders:
     - 'The minimum-weight decoder optimizes the recovery operation \( E_{\text{rec}} \) to minimize the residual error \( E_{\text{rec}} \cdot E \) given a noisy syndrome \( s = \sigma(E) + u \). The decoder''s performance is intrinsically tied to the code''s soundness: when the code is \((t, f)\)-sound, the minimum-weight decoder guarantees that the residual error''s min-weight scales as \( f(2|u|) \) for measurement errors \( |u| < t/2 \) \cite{arxiv:1805.09271}. This property is particularly robust in double homological product codes, where soundness follows a cubic scaling (\( f(x) \sim x^3 \)).'

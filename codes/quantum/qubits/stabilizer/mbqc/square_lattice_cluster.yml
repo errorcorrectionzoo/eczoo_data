@@ -19,6 +19,10 @@ protection: |
   For computations longer than the available lattice extent, the original paper proposed splitting the computation into consecutive segments and stabilizing each segment using standard error-correction techniques \cite{doi:10.1103/PhysRevLett.86.5188}.
 
 features:
+  transversal_gates:
+    - 'Logical Pauli transformations \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.'
+    - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite[Exam. 1]{arxiv:quant-ph/9703048}\cite{arxiv:quant-ph/9705052}.'
+
   encoders:
     - 'Initialization of each qubit in the \(|+\rangle\) state followed by nearest-neighbor Ising-type entangling evolution, equivalently controlled-phase gates on the edges of the square lattice, prepares the resource state \cite{doi:10.1103/PhysRevLett.86.5188}.'
   general_gates:
