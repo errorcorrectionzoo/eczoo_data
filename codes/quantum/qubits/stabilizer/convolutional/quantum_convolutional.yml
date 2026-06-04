@@ -18,6 +18,10 @@ description: |-
   Quantum convolutional codes, like their classical counterparts, can also be understood in terms of frames. Let each encoding frame take in \(n\) qubits, carry \(m\) qubits of information between frames, and act on them with \(n-k\) Pauli generators. Each generator, countably infinite in length, must commute with each \(n\) register shift of itself, but need not commute with the other generators \cite{arxiv:quant-ph/0703182}. The \(m\) qubits of information carried between each frame are also stabilized by additional memory Pauli operators. It is known that the minimal value for \(m\) is given by \(\text{dim}(M)-\frac{1}{2}\text{rank}(M)\), with \(M\) being the matrix containing the required commutation relations of the memory qubits \cite{arxiv:1105.0649,arxiv:1011.5535,arxiv:0804.1404}. These operators can be efficiently determined \cite{arxiv:2206.13040}.
 
 features:
+  transversal_gates:
+    - 'Logical Pauli transformations \cite{arxiv:quant-ph/9705052,arxiv:0903.5256,arxiv:1803.06987}.'
+    - 'The four-block transversal gate mapping each \(X \to IXXX\) and each \(Z \to IZZZ\) implements the same logical gate on all qubits \cite[Exam. 1]{arxiv:quant-ph/9703048}\cite{arxiv:quant-ph/9705052}.'
+
   encoders:
     - 'Encoding is efficient and uses only \hyperref[topic:clifford]{Clifford gates}. Some encoders yield \textit{catastrophic} errors, i.e., errors that require a circuit of infinite depth to correct \cite[Def. 4.1]{arxiv:quant-ph/0401134}.'
     - 'Pearl-necklace encoding \cite{arxiv:quant-ph/0304189,arxiv:quant-ph/0401134,arxiv:quant-ph/0602129,arxiv:1004.5179}.'
