@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dual_displacement
+physical: oscillators
+logical: oscillators
+
+name: 'Dual-displacement code'
+introduced: '\cite{arxiv:2512.00481}'
+
+description: |
+  An oscillator-into-oscillator bosonic code family designed to protect
+  continuous-variable logical information against displacement errors by
+  combining complementary protection mechanisms acting at different
+  displacement scales.
+
+  In one explicit realization, an inner GKP-assisted layer suppresses
+  small Gaussian displacement noise on each mode, while an outer analog
+  Steane layer corrects rare lattice-crossing events and other large
+  abrupt displacement errors that exceed the correctable range of the
+  inner layer.
+
+  Unlike conventional concatenation schemes that recursively apply
+  functionally similar codes, dual-displacement codes separate
+  error-mitigation roles: continuous Gaussian noise suppression at the
+  inner layer and analog syndrome-based correction of residual logical
+  displacement errors at the outer layer.
+
+protection: |
+  Protects against additive Gaussian displacement noise, lattice-crossing
+  errors induced by finite-spacing GKP decoding, and other abrupt large
+  displacement shifts.
+
+  The inner layer mitigates continuous small displacements, whereas the
+  outer layer uses analog syndrome extraction to infer both the location
+  and the magnitude of residual displacement errors.
+
+relations:
+  parents:
+    - code_id: oscillators_into_oscillators
+      detail: 'Dual-displacement codes are oscillator-into-oscillator bosonic codes.'
+
+_meta:
+  changelog:
+    - user_id: FuchengGuo
+      date: '2026-04-23'
