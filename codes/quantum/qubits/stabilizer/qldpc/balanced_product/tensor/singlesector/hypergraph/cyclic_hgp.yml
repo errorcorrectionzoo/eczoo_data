@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: 'cyclic_hgp'
+physical: 'qubits'
+logical: 'qubits'
+
+name: 'Cyclic Hypergraph Product Code'
+introduced: '\cite{arxiv:2511.09683}'
+
+description: |
+  The hypergraph product code constructed using two low-weight circulant matrices. The code family \(\mathrm{C2}\) is the product of a cyclic LDPC code with itself, and the family \(\mathrm{CxR}\) is the product of the cyclic code with a repetition code. 
+  
+  The construction of \(\mathrm{C2}\) uses a single generating polynomial \(\sum a_ix^i\) for both factors, while the construction of \(\mathrm{CxR}\) uses the generating polynomial \(\sum a_ix^i\) along with the polynomial \(1+x\), where \(a_i\in\{0,1\}\).
+
+features:
+  decoders:
+    - 'BP-OSD decoder'
+
+relations:
+  parents:
+    - code_id: 'hypergraph_product'
+      detail: 'A cyclic hypergraph product code is a hypergraph product code constructed using two circulant matrices.'
+  cousins:
+    - code_id: 'qc_ldpc'
+      detail: 'A classical cyclic LDPC code with parameters \([n,k,d]\) yields a \(\mathrm{C2}\) code with parameters \([[2n^2,2k^2,d]]\) and a \(\mathrm{CxR}\) code with parameters \([[2nd,2k,d]]\).'
+    - code_id: 'lacross'
+      detail: 'The La-cross code is a reduced block length, full-rank cyclic HGP code with generator polynomials of the form \(1+x+x^k\)'
+    - code_id: 'generalized_bicycle'
+      detail: 'Cyclic HGP codes and GB codes both use circulant matrices as building blocks.'
+
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-06-08'
+    - user_id: ArdaAydin
+      date: '2026-06-08'
+    - user_id: VictorVAlbert
+      date: '2026-06-08'
