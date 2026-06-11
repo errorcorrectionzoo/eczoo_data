@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: barbell
+physical: qubits
+logical: qubits
+
+name: 'Barbell code'
+short_name: 'Barbell'
+introduced: '\cite{arxiv:2606.06062}'
+
+description: |
+  Member of a family of high-rate, two-dimensionally local CSS \hyperref[code:qldpc]{QLDPC} codes designed so that all two-qubit interactions of the QEC cycle are native to a fixed-connectivity superconducting chip layout whose hardware complexity stays constant as the code distance grows. Barbell codes are a special case of tile codes \cite{arxiv:2504.09171,arxiv:2504.08887}, with the \(X\)- and \(Z\)-type stabilizers tailored to a \textit{six-qubit star lattice plus near-local coupler} (6QSL+NLC) architecture, also called the \textit{Barbell architecture}.
+
+  Each \(X\)-check qubit is joined to a partner \(Z\)-check qubit by a single near-local coupler, and the two checks' data-qubit neighborhoods together form a \textit{barbell}. The corresponding pair of \(X\)- and \(Z\)-type stabilizers (of weight up to eight in the family studied) is supported on the six hexagonal cells of this barbell. Syndrome information is read out using superdense syndrome extraction \cite{arxiv:2312.08813}: a Bell pair is prepared on the two check qubits via the near-local coupler, the data qubits are entangled, and a Bell measurement is performed. For weight-\(w\) stabilizers this yields a QEC cycle of depth \(w+4\) (depth 12 for weight-8 stabilizers). Because all near-local couplers are parallel and of equal, distance-independent length, they route within a single additional hardware tier without air bridges.
+
+  The weight-8 family studied numerically contains the \([[242,16,8]]\), \([[288,16,9]]\), \([[338,16,10]]\), \([[392,16,11]]\), and \([[450,16,14]]\) codes, with \(n=2(L+D)(M+D)\) for an \(L\times M\) lattice and bulk-stabilizer box parameter \(D\); families with weight-6 and weight-10 bulk stabilizers, and with \(k=7\) and \(k=8\), are also given \cite{arxiv:2606.06062}. With fewer than 30 data qubits per logical qubit, barbell codes offer up to an eightfold reduction in qubit overhead relative to the rotated \hyperref[code:rotated_surface]{surface code} at comparable distance, and the weight-10 family improves the code-parameter efficiency \(kd^2/n\) by up to a factor of eight over surface-code patches.
+
+protection: |
+  Protects against Pauli noise. Under uniform depolarizing circuit-level noise, a distance-14 weight-8 barbell code reaches the teraquop regime (logical error rate below \(10^{-12}\) per round, enabling several trillion QEC cycles) at physical error rates above \(10^{-4}\). At a physical error rate of \(10^{-3}\), a distance-11 barbell code and a distance-5 rotated surface code use the same 400 data qubits to encode 16 logical qubits, but the barbell code achieves a per-round logical error rate of \(8.8\times 10^{-7}\) versus \(9.6\times 10^{-4}\) for the surface code \cite{arxiv:2606.06062}.
+
+features:
+  rate: 'High-rate QLDPC family. The weight-8 examples encode \(k=16\) logical qubits using fewer than 30 data qubits per logical qubit, an up-to-eightfold reduction in physical-qubit overhead compared with the rotated surface code of the same distance.'
+
+  decoders:
+    - 'Superdense syndrome-extraction circuit \cite{arxiv:2312.08813} of depth \(w+4\) (depth 12 for weight-8 stabilizers), using one near-local coupler per barbell to prepare and later measure a Bell pair on the paired \(X\)- and \(Z\)-check qubits. A Pauli-frame correction tracked in software relates the measurement outcomes to the stabilizer syndromes.'
+    - 'Relay-BP decoder \cite{arxiv:2506.01779} applied to detector error models constructed with Stim \cite{arxiv:2103.02202}; \(X\)- and \(Z\)-type errors are decoded separately.'
+
+  fault_tolerance:
+    - 'Fault-tolerant logical multi-qubit Pauli measurements, both within a single patch and between two patches, are realized with the planar tile-code protocol of \cite{arxiv:2506.18061} without additional connectivity requirements. The per-round logical error rate of a distance-8 logical \(ZZ\) measurement is only slightly higher than that of the corresponding memory experiment \cite{arxiv:2606.06062}.'
+
+notes:
+  - 'The 6QSL+NLC (Barbell) architecture is composed only of experimentally demonstrated components: a six-qubit star lattice of qubits coupled to central elements by tunable couplers \cite{arxiv:2503.12869}, supplemented by near-local couplers connecting check-qubit pairs. Its hardware-complexity metric is \(C_{\text{hw}}\approx 1.65\) in the framework of \cite{arxiv:2507.23011}, compared with \(C_{\text{hw}}=1\) for the surface code and \(C_{\text{hw}}>3\) for the \([[144,12,12]]\) bivariate bicycle code.'
+  - 'Logical error curves are extrapolated by fitting \(\mathrm{LER}(p)=p^{d/2}\exp(c_0+c_1 p + c_2 p^2)\) \cite{arxiv:2606.06062}.'
+  - 'Logical operators and derived automorphisms of the underlying tile codes are studied in \cite{arxiv:2511.14589}.'
+
+relations:
+  parents:
+    - code_id: tile
+      detail: 'Barbell codes are a special case of tile codes whose \(X\)- and \(Z\)-type stabilizers are tailored for measurement on the six-qubit star lattice plus near-local coupler (Barbell) architecture, with near-local couplers used exclusively to pair \(X\)- and \(Z\)-check qubits.'
+  cousins:
+    - code_id: 2d_stabilizer
+      detail: 'Barbell codes are 2D lattice stabilizer codes derived from tile codes by adding ancilla check qubits, translating the qubit positions, and embedding the qubits in the connectivity graph of the six-qubit star lattice plus near-local coupler architecture.'
+    - code_id: rotated_surface
+      detail: 'Barbell codes match the rotated surface code in logical performance per QEC round at comparable distance while reducing the physical-qubit overhead by up to a factor of eight \cite{arxiv:2606.06062}.'
+    - code_id: qcga
+      detail: 'Bivariate bicycle (BB) codes are the closest QLDPC comparison. Unlike BB codes, whose longest near-local coupler scales with the code distance and whose routing requires multiple tiers (hardware complexity \(C_{\text{hw}}>3\) for the \([[144,12,12]]\) code), the near-local couplers of a barbell code are parallel, equal-length, and distance-independent, fitting into a single additional tier.'
+    - code_id: 2d_color
+      detail: 'Barbell syndrome extraction adapts the superdense syndrome-extraction circuits originally developed to implement color codes on a square grid \cite{arxiv:2312.08813}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: TomaszAndrzejewski
+      date: '2026-06-11'
