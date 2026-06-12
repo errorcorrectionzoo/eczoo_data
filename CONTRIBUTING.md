@@ -13,12 +13,8 @@ The content of the Zoo is entered in structured form in YAML files.  Each
 error-correcting code has a corresponding YAML file in the `codes/` folder.  You
 can contribute content for the zoo by sending us pull requests for new YAML
 files or expanding on existing ones. If you prefer to avoid using git, you can
-also send us your new YAML code files [by email][eczooemail].
-
-Use the [Error Correction Zoo's own code information editor][eczooedit] so you
-don't have to edit YAML code directly.  If you edit YAML files directly, please
-make sure you understand the YAML file syntax and use an appropriate text editor
-to avoid YAML syntax errors (such as [Atom][atomurl]).
+also send us your new YAML code files [by email][eczooemail].  Use an
+appropriate text editor to avoid YAML syntax errors (such as [VS Code][vscodeurl]).
 
 
 ## Main steps to contribute
@@ -76,8 +72,6 @@ Ask us! And thanks again for your interest in contributing to the zoo.
 
 [eczooflm]: https://github.com/errorcorrectionzoo/eczoo_sitegen/blob/main/flm_howto.md
 
-[eczooedit]: https://errorcorrectionzoo.org/edit_code
-
-[atomurl]: https://atom.io/
+[vscodeurl]: https://code.visualstudio.com/
 
 [cc-by-sa-license]: https://creativecommons.org/licenses/by-sa/4.0/
