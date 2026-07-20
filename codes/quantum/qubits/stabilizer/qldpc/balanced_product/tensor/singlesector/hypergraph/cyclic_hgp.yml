@@ -4,7 +4,7 @@
 #######################################################
 
 
-code_id: 'cyclic_hgp'
+code_id: cyclic_hgp
 physical: 'qubits'
 logical: 'qubits'
 
@@ -22,18 +22,22 @@ features:
 
 relations:
   parents:
-    - code_id: 'hypergraph_product'
+    - code_id: hypergraph_product
       detail: 'A cyclic hypergraph product code is a hypergraph product code constructed using two circulant matrices.'
+    - code_id: abelian_2bga
+      detail: 'A cyclic HGP code is an Abelian 2BGA code over \(\mathbb{Z}_{n_1}\times\mathbb{Z}_{n_2}\) whose two group-algebra elements are polynomials in disjoint variables, \(a=a(x)\) and \(b=b(y)\); trivially intersecting supports turn a two-block code into a hypergraph product \cite[Statements 8 and 12]{arxiv:2306.16400}\cite{arxiv:2601.18879}.'
   cousins:
-    - code_id: 'qc_ldpc'
+    - code_id: qc_ldpc
       detail: 'A classical cyclic LDPC code with parameters \([n,k,d]\) yields a \(\mathrm{C2}\) code with parameters \([[2n^2,2k^2,d]]\) and a \(\mathrm{CxR}\) code with parameters \([[2nd,2k,d]]\).'
-    - code_id: 'lacross'
+    - code_id: lacross
       detail: 'The La-cross code is a reduced block length, full-rank cyclic HGP code with generator polynomials of the form \(1+x+x^k\)'
-    - code_id: 'generalized_bicycle'
+    - code_id: generalized_bicycle
       detail: 'Cyclic HGP codes and GB codes both use circulant matrices as building blocks.'
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: ArdaAydin

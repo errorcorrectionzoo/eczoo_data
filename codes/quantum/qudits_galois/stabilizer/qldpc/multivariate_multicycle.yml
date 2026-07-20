@@ -1,0 +1,81 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: multivariate_multicycle
+physical: galois
+logical: galois
+
+name: 'Multivariate multicycle (MM) code'
+short_name: 'MM'
+introduced: '\cite{arxiv:2506.16910,arxiv:2601.18879}'
+
+alternative_names:
+  - 'Abelian multi-cycle (AMC) code'
+
+description: |
+  A \hyperref[code:multi_block_quantum]{multi-block CSS code} whose \(t\) commuting matrices are built from an Abelian \hyperref[topic:group-algebra]{group algebra}, parameterized by \(t\) polynomials in \(D\) variables via a Koszul complex.
+  The construction unifies many known qLDPC families---including \hyperref[code:qcga]{bivariate bicycle}, \hyperref[code:abelian_2bga]{Abelian 2BGA}, \hyperref[code:generalized_bicycle]{generalized bicycle}, \hyperref[code:tricycle]{tricycle}, and \hyperref[code:higher_dimensional_toric]{toric} codes---and, for \(t \geq 4\), yields codes with metachecks in both bases that support complete \hyperref[code:single_shot]{single-shot} decoding.
+
+  Writing \(G \cong \mathbb{Z}_{\ell_1}\times\cdots\times\mathbb{Z}_{\ell_D}\), the group algebra is isomorphic to the quotient polynomial ring \(S=\mathbb{F}_q[x_1,\ldots,x_D]/\langle x_1^{\ell_1}-1,\ldots,x_D^{\ell_D}-1\rangle\), so that a code is specified by \(t\) polynomials \(F_1,\ldots,F_t \in S\) in \(D\) variables.
+  The number of polynomials \(t\) (the number of ``cycles'') and the number of variables \(D\) can be chosen independently.
+  The number of variables is moreover a matter of presentation: by the Chinese remainder theorem, coprime cyclic factors can be split or merged, so, e.g., \(\mathbb{Z}_{15}\) and \(\mathbb{Z}_{5}\times\mathbb{Z}_{3}\) present the same code with \(D=1\) and \(D=2\), respectively.
+
+  The underlying chain complex is the Koszul complex \(K_{\bullet}(F_1,\ldots,F_t;S)\), equivalently the \(t\)-fold tensor product of the two-term complexes \(S \xrightarrow{F_i} S\), or the multi-block MBC complex of the commuting matrices representing the \(F_i\) as Kronecker products of circulants \cite{arxiv:2506.16910,arxiv:2601.18879}.
+  Its level-\(q\) space is \(S^{\binom{t}{q}}\), and its boundary maps \(\partial_q\) are available in closed form.
+  In the Koszul-complex formulation \cite{arxiv:2601.18879}, qubits are placed at the middle level \(q=\lfloor t/2\rfloor\), yielding \(P_X=\partial_q^T\) and \(P_Z=\partial_{q+1}\), an \(X\)-type metacheck matrix \(M_X = \partial_{q-1}^T\) whenever \(t\geq 4\), and a \(Z\)-type metacheck matrix \(M_Z=\partial_{q+2}\) whenever \(t\geq 3\).
+  The multi-block-complex formulation \cite{arxiv:2506.16910} allows qudits to be placed at any level \(0<j<t\) and admits a general Abelian group presentation whose relators define a periodicity lattice on \(\mathbb{Z}^D\), i.e., a torus.
+
+  A CSS code equipped with metacheck matrices \(M_X\) and \(M_Z\) satisfying \(M_X P_X = 0\) and \(M_Z P_Z = 0\) can be organized into a five-term chain complex dubbed a \textit{metacheck CSS (mCSS) code}, which is \textit{balanced} when its outermost (next-to-outermost) pair of spaces have equal dimensions \cite{arxiv:2601.18879}.
+  Any five-term segment of a longer chain complex yields an mCSS code, and the middle five terms of an MM code's Koszul complex with even \(t\) yield a balanced mCSS code.
+  MM codes with \(t \geq 4\) possess metachecks in both bases as well as high confinement, permitting complete \hyperref[code:single_shot]{single-shot} decoding \cite{arxiv:2601.18879}.
+
+  \subsection{Subfamilies}
+
+  Fixing \(t\) and \(D\) recovers several known code families, each admitting an explicit realization in terms of MM polynomials \cite{arxiv:2601.18879}.
+  The case \(t=2\) yields \hyperref[code:abelian_2bga]{Abelian 2BGA codes}, which include \hyperref[code:generalized_bicycle]{GB codes} (\(D=1\)), \hyperref[code:qcga]{bivariate bicycle codes} (\(D=2\)), multivariate bicycle codes, \hyperref[code:cyclic_hgp]{cyclic HGP codes} and \hyperref[code:lacross]{La-cross codes} (\(D=2\) with polynomials in disjoint variables), and \hyperref[code:haah_cubic]{Haah cubic codes} (\(D=3\)).
+  The case \(t=3\) yields \hyperref[code:tricycle]{tricycle codes}.
+  Weight-two elements \(a_i=1+x_i\) with \(t=D\) yield \(D\)-dimensional \hyperref[code:higher_dimensional_toric]{toric codes} on regular or twisted tori, with arbitrary twists realized via general group presentations \cite{arxiv:2506.16910}.
+
+  \subsection{Examples}
+
+  New \(t \geq 4\) codes obtained via numerical search include \([[96,12,8]]\), \([[144,12,12]]\) (sharing the parameters of, but distinct from, the \([[144,12,12]]\) bivariate bicycle gross code \cite{arxiv:2308.07915}), \([[216,12,14]]\), \([[288,12,16]]\), \([[324,12,20]]\), \([[432,12,27]]\), \([[486,24,12]]\), \([[630,70,9]]\), and \([[648,18,23]]\) codes, as well as a \([[648,60,(9,9)]]\) code whose check and metacheck matrices are written out explicitly \cite{arxiv:2601.18879}.
+  A family of MM codes locally equivalent to 4D toric codes, with weight-six stabilizer generators and \(k=6\), is constructed in Ref. \cite{arxiv:2506.16910}.
+  Codes with \(t=5\) through \(t=9\) provide the first explicit instances of collapsed 5D through 9D higher-dimensional codes \cite{arxiv:2601.18879}.
+
+protection: |
+  Analytic expressions for the code dimension in two general cases, as well as lower (existence) and upper bounds on the distance, are derived in Ref. \cite{arxiv:2506.16910}.
+  Circuit-level simulations of MM codes locally equivalent to 4D toric codes show a pseudothreshold close to \(1.1\%\), better than for toric or surface codes under a similar noise model \cite{arxiv:2506.16910}.
+
+features:
+  decoders:
+    - 'BP-OSD and Tesseract decoders \cite{arxiv:2601.18879}.'
+    - 'Few-shot sliding-window decoding \cite{arxiv:2506.16910}.'
+    - 'Single-shot decoding using metachecks for \(t \geq 4\), with confinement profiles surpassing those of known single-shot-decodable CSS codes of practical block size \cite{arxiv:2601.18879}.'
+
+notes:
+  - 'See QuantumClifford.jl Julia software library for MM code instances, stabilizer states, and Clifford circuits \cite{preset:QuantumClifford,arxiv:2601.18879}.'
+
+relations:
+  parents:
+    - code_id: multi_block_quantum
+      detail: 'MM codes are multi-block CSS codes whose commuting matrices represent Abelian group-algebra elements.'
+  cousins:
+    - code_id: multisector_hypergraph
+      detail: 'MM codes are related to \(D\)-dimensional homological (hypergraph) product codes in exactly the same way that two-block codes are related to hypergraph-product codes, and can be viewed as collapsed versions of \(t\)-fold products of two-term complexes \cite{arxiv:2506.16910,arxiv:2601.18879}.'
+    - code_id: double_homological_product
+      detail: 'Both Campbell double homological product codes and MM codes with \(t \geq 4\) admit metachecks in both bases; the MM construction yields shorter codes \cite{arxiv:2506.16910}.'
+    - code_id: single_shot
+      detail: 'MM codes with \(t \geq 4\) admit metachecks in both bases and demonstrate complete single-shot decoding with record confinement profiles \cite{arxiv:2601.18879}; single-shot properties of these codes are also studied in Ref. \cite{arxiv:2506.16910}.'
+    - code_id: quantum_tanner
+      detail: 'Collapsed 5D through 9D MM codes have check weights significantly lower than those of small instances of quantum Tanner codes \cite{arxiv:2601.18879} (cf. \cite{arxiv:2508.05095,arxiv:2512.20532}).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'

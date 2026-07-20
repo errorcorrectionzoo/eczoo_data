@@ -1,0 +1,63 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: three_block_quantum
+physical: galois
+logical: galois
+
+name: 'Three-block CSS code'
+introduced: '\cite{arxiv:2506.16910,arxiv:2508.10714}'
+
+description: |
+  Galois-qudit CSS code constructed from three pairwise commuting square matrices \(A\), \(B\), and \(C\); the case \(t=3\) of \hyperref[code:multi_block_quantum]{multi-block CSS codes}. The four-term chain complex underlying the code provides a complete set of metachecks in one basis, given by explicit closed-form check matrices.
+
+  The complex \(\text{mbc}(A,B,C)\) has boundary matrices \cite{arxiv:2506.16910}
+  \begin{align}
+    Q_1=\left[C \,|\, B \;\, A\right],\quad
+    Q_2=\left[
+    \begin{array}{cc|c}
+      B& A&0\\ \hline -C&0 &A\\ 0& -C& -B
+    \end{array}
+    \right],\quad
+    Q_3=\left[
+    \begin{array}{c}
+      A\\-B\\ \hline C
+    \end{array}
+    \right]~,
+  \end{align}
+  which satisfy \(Q_1 Q_2 = 0\) and \(Q_2 Q_3 = 0\) whenever the three blocks commute.
+  The level-one code \(\text{CSS}(Q_1,Q_2^T)\) has \(H_X = Q_1\) and \(H_Z = Q_2^T\), with qudits arranged in three blocks.
+  The matrix \(M_Z = Q_3^T\) satisfies \(M_Z H_Z = 0\) and provides a complete set of \(Z\)-type metachecks; the mirror level-two code \(\text{CSS}(Q_2,Q_3^T)\) instead admits \(X\)-type metachecks provided by \(Q_1\).
+
+  For qubit codes, minus signs can be dropped, and the level-one code can be written as \cite{arxiv:2508.10714}
+  \begin{align}
+    H_X = \left[A^T\, B^T\, C^T\right],\quad
+    H_Z = \left[
+    \begin{array}{ccc}
+      C&0&A\\ 0&C&B\\ B&A&0
+    \end{array}
+    \right],\quad
+    H_{\text{meta}} = \left[B\, A\, C\right]~,
+  \end{align}
+  with metachecks satisfying \(H_{\text{meta}} H_Z = 0\).
+  There is one block of \(X\)-type checks and three blocks of \(Z\)-type checks, so only the \(Z\)-type checks are redundant; the codes can admit \hyperref[code:single_shot]{single-shot} decoding in the \(Z\) basis but not, in general, in the \(X\) basis.
+
+relations:
+  parents:
+    - code_id: multi_block_quantum
+      detail: 'Three-block CSS codes are multi-block CSS codes with \(t=3\).'
+  cousins:
+    - code_id: two_block_quantum
+      detail: 'Three-block (two-block) CSS codes are constructed from three (two) commuting square matrices.'
+    - code_id: xyz_product
+      detail: 'The XYZ product yields non-CSS codes from a three-fold product of three classical codes, while three-block CSS codes arise from a three-fold product of two-term chain complexes defined by three commuting square matrices.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'

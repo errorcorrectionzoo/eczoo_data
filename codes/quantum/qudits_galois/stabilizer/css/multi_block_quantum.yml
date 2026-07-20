@@ -1,0 +1,65 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: multi_block_quantum
+physical: galois
+logical: galois
+
+name: 'Multi-block CSS code'
+introduced: '\cite{arxiv:2506.16910}'
+
+alternative_names:
+  - 'Multi-block chain complex (MBC) code'
+
+description: |
+  Galois-qudit CSS code constructed from \(t \geq 2\) pairwise commuting square matrices \(A_1,A_2,\ldots,A_t\) via a chain complex with \(t+1\) non-trivial terms called a \textit{multi-block chain (MBC) complex} \cite{arxiv:2506.16910}.
+  Multi-block CSS codes generalize \hyperref[code:two_block_quantum]{two-block CSS codes} (the case \(t=2\)) in the same way that products of \(t\) chain complexes generalize products of two complexes, and codes drawn from a sufficiently long complex carry redundant checks (metachecks) that enable \hyperref[code:single_shot]{single-shot} decoding.
+
+  The level-\(j\) space of the MBC complex \(\text{mbc}(A_1,\ldots,A_t)\) consists of \(\binom{t}{j}\) blocks, and its boundary matrices \(Q_j\), satisfying \(Q_j Q_{j+1}=0\), admit an explicit recursive construction: given the boundary matrices \(Q_j\) of \(\text{mbc}(A_1,\ldots,A_{t-1})\) and an additional commuting block \(N=A_t\), the extended complex has boundary matrices \cite{arxiv:2506.16910}
+  \begin{align}
+    R_1=\left[N , Q_1\right],\quad
+    R_i=\left[
+    \begin{array}{cc}
+      Q_{i-1} & 0\\ (-1)^{i-1} I\otimes N & Q_i
+    \end{array}
+    \right],\quad
+    R_{t}=\left[
+    \begin{array}{c}
+      Q_{t-1}\\ (-1)^{t-1} N
+    \end{array}
+    \right]~,
+  \end{align}
+  where \(1<i<t\) and \(I\) is an identity matrix of appropriate size.
+  All \(t\) blocks enter on an equal footing: complexes built from the same blocks taken in different orders are permutation equivalent.
+
+  A quantum code is obtained by placing qudits at any level \(0<j<t\), with \(H_X=Q_j\) and \(H_Z=Q_{j+1}^T\).
+  Because consecutive boundary maps compose to zero, checks of multi-block codes are automatically redundant: \(Q_{j-1}\) yields \(X\)-type metachecks for \(j \geq 2\), and \(Q_{j+2}\) yields \(Z\)-type metachecks for \(j \leq t-2\).
+  Codes at levels \(2 \leq j \leq t-2\) (requiring \(t \geq 4\)) admit metachecks in both bases.
+  Explicit boundary matrices for \(t=3\) are listed in the \hyperref[code:three_block_quantum]{three-block CSS code} entry, and matrices for \(t=4\) are written out in Ref. \cite{arxiv:2506.16910}.
+
+protection: |
+  Code dimension and distance can be expressed in terms of ranks of matrices built out of the blocks \(A_j\); see Ref. \cite{arxiv:2506.16910} for dimension formulas and distance bounds in the Abelian group-algebra (multicycle) case.
+
+relations:
+  parents:
+    - code_id: galois_css
+  cousins:
+    - code_id: multisector_hypergraph
+      detail: 'Multi-block CSS codes are related to \(t\)-fold homological products of two-term chain complexes in the same way that two-block CSS codes are related to hypergraph-product codes: commutativity of the blocks collapses the multi-sector tensor-product structure into square blocks \cite{arxiv:2506.16910}.'
+    - code_id: single_shot
+      detail: 'Multi-block CSS codes at levels \(2 \leq j \leq t-2\) admit metachecks in both bases, which can enable single-shot decoding \cite{arxiv:2506.16910}.'
+    - code_id: data_syndrome
+      detail: |-
+        The metacheck matrix of a multi-block CSS code---the boundary map just outside the code's two-term window (\(Q_{j-1}\) for \(X\)-checks or \(Q_{j+2}\) for \(Z\)-checks)---provides linear relations that every valid syndrome must satisfy, flagging syndrome-measurement errors that violate them.
+        Such a metacheck matrix is precisely the parity-check matrix of a syndrome-measurement code, so a multi-block code with metachecks intrinsically realizes---via the chain complex---the redundant syndrome measurement that quantum data-syndrome codes adjoin extrinsically to a stabilizer code.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'

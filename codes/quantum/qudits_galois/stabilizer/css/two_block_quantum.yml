@@ -18,7 +18,8 @@ description: |
   Galois-qudit CSS code whose stabilizer generator matrices \(H_X=(A_1,B_1)\) and \(H_Z=(B^T_2,-A^T_2)\), are constructed from four matrices satisfying \(A_1 B_2 - B_1 A_2 = 0\).
   In the case the two pairs are equal, we have \(H_X=(A,B)\) and \(H_Z=(B^T,-A^T)\), constructed from a pair of square commuting matrices \(A\) and \(B\).
 
-  Generalized constructions utilizing more than two blocks have also been considered \cite{arxiv:2310.15092}.
+  Generalized constructions utilizing more than two blocks yield \hyperref[code:multi_block_quantum]{multi-block CSS codes} \cite{arxiv:2506.16910,arxiv:2508.10714}.
+  Two-block CSS codes are not hypergraph-product codes in general; they reduce to hypergraph products only in special cases, such as \hyperref[code:2bga]{2BGA codes} whose two support subgroups intersect trivially \cite{arxiv:2306.16400}.
 
 protection: |
   Code parameters are generally unknown, although they can be formally expressed in terms of ranks of some matrices related to \(A\) and \(B\).
@@ -26,7 +27,8 @@ protection: |
 
 relations:
   parents:
-    - code_id: galois_css
+    - code_id: multi_block_quantum
+      detail: 'Two-block CSS codes are multi-block CSS codes with \(t=2\).'
   cousins:
     - code_id: general_qldpc
       detail: 'When matrices \(A\) and \(B\) have row and column weights bounded by \(W\), a two-block CSS code is a quantum LDPC code with stabilizer generators bounded by \(2W\).'
@@ -38,6 +40,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

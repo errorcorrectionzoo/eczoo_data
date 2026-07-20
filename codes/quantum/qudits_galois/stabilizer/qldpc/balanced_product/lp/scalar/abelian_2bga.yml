@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: abelian_2bga
+physical: galois
+logical: galois
+
+name: 'Abelian two-block group-algebra code'
+short_name: 'Abelian 2BGA'
+introduced: '\cite{arxiv:1212.6703,manual:{G. V. Kalachev and P. A. Panteleev, “On the minimum distance in one class of quantum LDPC codes”, Intelligent systems. Theory and applications 24(4), 87-117 (2020)},arxiv:2306.16400}'
+
+alternative_names:
+  - 'Multivariate bicycle (MB) code'
+  # MB naming for the qubit case from arxiv:2406.19151
+
+description: |
+  A \hyperref[code:2bga]{2BGA code} LP\((a,b)\) whose group \(G\) is Abelian, equivalently a multi-dimensional index-two quasi-cyclic code.
+  Since any finite Abelian group is a direct product of cyclic groups, the \hyperref[topic:group-algebra]{group algebra} elements \(a\) and \(b\) can be treated as multivariate polynomials, and the family includes \hyperref[code:generalized_bicycle]{GB} (one variable), \hyperref[code:qcga]{bivariate bicycle} (two variables), and multivariate bicycle codes, providing some of the best known short codes with small stabilizer weights.
+
+  Writing \(G=\mathbb{Z}_{\ell_1}\times \mathbb{Z}_{\ell_2}\times \cdots \times \mathbb{Z}_{\ell_D}\), the elements \(a\) and \(b\) become \(D\)-variate polynomials in \(\mathbb{F}_q[x_1,\ldots,x_D]/\langle x_1^{\ell_1}-1,\ldots,x_D^{\ell_D}-1 \rangle\), yielding stabilizer generator matrices
+  \begin{align}
+    H_X=(A|B)~,\quad H_Z=(B^T|-A^T)~,
+  \end{align}
+  where \(A\) and \(B\) are Kronecker products of circulant matrices representing \(a\) and \(b\).
+  An equivalent construction in terms of Kronecker products of circulant matrices was introduced in Ref. \cite{arxiv:1212.6703}, and related higher-dimensional quasi-cyclic and convolutional quantum codes have been constructed in Ref. \cite{arxiv:2305.00137}.
+
+  The decomposition of \(G\) into cyclic factors, and hence the number of variables \(D\), is not unique: by the Chinese remainder theorem, a cyclic group \(\mathbb{Z}_{\ell}\) with \(\ell = \prod_i p_i^{k_i}\) splits into a product of coprime cyclic groups, so one may or may not use this decomposition and thereby present the same code with fewer or more variables.
+  For example, \(\mathbb{Z}_{15}\) yields a \hyperref[code:generalized_bicycle]{GB code} in one variable, whereas the isomorphic \(\mathbb{Z}_{5}\times\mathbb{Z}_{3}\) yields a \hyperref[code:qcga]{bivariate bicycle code} in two variables.
+
+  In the qubit case, Ref. \cite{arxiv:2406.19151} studied Abelian 2BGA codes built from polynomials in \(r\) variables---there named multivariate bicycle codes---focusing on the trivariate (\(r=3\)) case, whose polynomials feature a third, dependent variable \(z=xy\) supplementing the two variables of a \hyperref[code:qcga]{bivariate bicycle} code.
+  Examples include weight-five codes, such as a \([[30,4,5]]\) code, that admit bi-planar toric layouts with a single long-range connection per check and depth-seven syndrome-extraction circuits \cite{arxiv:2406.19151}.
+  Such codes with check weight at most six admit bi-planar (thickness-two) Tanner graphs, and there is a criterion for determining whether a code admits a toric layout, in which case all checks are related by translations on a torus; weight-four codes can instead admit tangled toric layouts \cite{arxiv:2406.19151}.
+
+protection: |
+  The code dimension \(k\) of an Abelian 2BGA code is always even \cite{manual:{G. V. Kalachev and P. A. Panteleev, “On the minimum distance in one class of quantum LDPC codes”, Intelligent systems. Theory and applications 24(4), 87-117 (2020)}}.
+  Bounds on code parameters and an exhaustive enumeration of codes with small row weights, including codes with \(kd \geq n\), are given in Ref. \cite{arxiv:2306.16400}.
+
+features:
+  general_gates:
+    - 'Fault-tolerant logical circuits implemented via transversal operations combined with qubit permutations have been found for several such codes using code automorphism groups \cite{arxiv:2406.19151}.'
+
+relations:
+  parents:
+    - code_id: 2bga
+      detail: 'Abelian 2BGA codes are 2BGA codes whose group is Abelian.'
+    - code_id: abelian_lifted_product
+      detail: 'Abelian 2BGA codes are the one-by-one (scalar) Abelian LP codes.'
+    - code_id: multivariate_multicycle
+      detail: 'Abelian 2BGA codes are MM codes with \(t=2\).'
+  cousins:
+    - code_id: galois_hypergraph_product
+      detail: 'An Abelian 2BGA code whose elements \(a\) and \(b\) are supported on subgroups intersecting trivially (e.g., polynomials in disjoint sets of variables) is a square-matrix hypergraph-product code constructed from a pair of classical group-algebra codes \cite[Statements 8 and 12]{arxiv:2306.16400}; see the \hyperref[code:cyclic_hgp]{cyclic HGP code} entry for the case of two cyclic codes.'
+    - code_id: translationally_invariant_stabilizer
+      detail: 'Qubit Abelian 2BGA codes admitting a toric layout have translationally invariant checks on an \(r\)-dimensional torus \cite{arxiv:2406.19151}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'

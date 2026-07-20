@@ -95,15 +95,11 @@ features:
 
 relations:
     parents:
-      - code_id: 2bga
+      - code_id: abelian_2bga
         detail: |
-          A code GB\((a,b)\) with circulants of size \(\ell\) is a 2BGA code over the cyclic group \(\mathbb{Z}_{\ell}\).
+          A code GB\((a,b)\) with circulants of size \(\ell\) is an Abelian 2BGA code over the cyclic group \(\mathbb{Z}_{\ell}\).
           More precisely, for the cyclic group \(\mathbb{Z}_{\ell}\equiv \langle x|x^\ell=1\rangle \), any element \(a\) of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[\mathbb{Z}_{\ell}]\) can be seen as a polynomial \(a(x)\in \mathbb{F}_q[x]\) over the group generator \(x\), where the polynomial degree \(\deg a(x)<\ell\).
           The 2BGA code LP\((a,b)\) is then just a generalized bicycle code GB\([a(x),b(x)]\) constructed from the polynomials \(a(x)\) and \(b(x)\) corresponding to \(a,b\in \mathbb{F}_q[\mathbb{Z}_{\ell}]\).
-      - code_id: abelian_lifted_product
-        detail: |
-          A code GB\((a,b)\) with circulants of size \(\ell\) is a special case of a lifted-product code LP\((A,B)\) code over the Abelian \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[\mathbb{Z}_{\ell}]\) associated with a cyclic group, with \(1\times 1\) matrices \(A=a(x)\), \(B=b(x)\) given by the corresponding polynomials.
-          Quasi-cyclic LP codes, i.e., LP codes constructed from cyclic groups, are equivalent to GB codes \cite[Sec. III.E]{arxiv:2012.04068}.
       - code_id: translationally_invariant_stabilizer
         detail: 'Incommensurate GB codes of row weight \(w\) are equivalent to CSS codes local in \(D \leq w-1\) Euclidean dimensions, or in \(D \leq w-2\) dimensions when \(\ell\) is prime \cite[Statement 13]{arxiv:2203.17216}\cite[Sec. II.A]{arxiv:2502.19406}.'
       # QC QLDPC parent of trans inv stab
@@ -138,6 +134,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

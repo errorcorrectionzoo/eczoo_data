@@ -21,7 +21,7 @@ description: |
   There are \(n\) \(X\) and \(Z\) check operators, with each one of weight six.
 
   See Refs. \cite{arxiv:2510.05211,arxiv:2510.06159} for examples of self-dual BB codes.
-  Several variants and generalizations exist \cite{arxiv:2406.19151,arxiv:2408.10001}.
+  Multivariate (e.g., trivariate) bicycle codes generalize BB codes to \hyperref[code:abelian_2bga]{Abelian 2BGA codes} with polynomials in more than two variables \cite{arxiv:2406.19151}; other variants and generalizations exist \cite{arxiv:2408.10001}.
   There exist qudit BB codes that achieve \(kd^2 / n = 20\) \cite{arxiv:2602.20158}.
 
 protection: |
@@ -60,10 +60,8 @@ realizations:
 relations:
     parents:
       - code_id: qubit_generalized_homological_product_css
-      - code_id: 2bga
-        detail: 'Bivariate bicycle codes are Abelian 2BGA codes over groups of the form \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\).'
-      - code_id: abelian_lifted_product
-        detail: 'Bivariate bicycle codes are Abelian LP codes over groups of the form \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\).'
+      - code_id: abelian_2bga
+        detail: 'Bivariate bicycle codes are Abelian 2BGA (equivalently, two-variable multivariate bicycle) codes over groups of the form \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\).'
       - code_id: 2d_stabilizer
         detail: 'Bivariate bicycle codes are defined on 2D lattices with periodic boundary conditions, and versions with open boundary conditions have been investigated \cite{arxiv:2410.11942,arxiv:2412.04181}. Bivariate bicycle codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators. BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699}.'
     cousins:
@@ -79,6 +77,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: MarkWebster
