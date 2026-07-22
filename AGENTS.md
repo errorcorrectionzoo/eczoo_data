@@ -103,9 +103,56 @@ describing its exact behavior and usage.
   `redundant_direct_children`, `check_duplicate_relations`,
   `find_property_codes`, `outside_folder_descendants`. Queries: `ancestors`,
   `ancestor_tree`, `children`, `children_tree`, `cousins`. Also
-  `dedup_codes.py`, which certifies CSS **permutation** equivalence of
-  stabilizer codes (weight-enumerator bucketing + a nauty canonical Tanner-graph
-  certificate; requires `numpy` + `pynauty`; run `--selftest` or `--json`).
+  `dedup_codes.py`, a **ladder of stabilizer/CSS-code equivalence tests** (requires
+  `numpy` + `pynauty`; run `--selftest`, or `--json codes.json [--lc]`). Cheapest
+  first — each early rung can only PROVE *inequivalence*, the merge is made by an
+  exact certificate:
+  (A) **weight-enumerator invariants** — genus-1 (`stab_weight_enumerator`) and the
+  strictly finer genus-2/3/4 support enumerators (`stab_weight_enumerator_genus2`/
+  `_genus3`/`_genus4`: the joint support distribution over pairs / triples /
+  4-tuples, each seeing one more order of multi-element *alignment*); all are
+  local-Clifford + permutation invariants, computed over distinct supports weighted
+  by multiplicity. They see the X–Z alignment (not just the classical `C_X`/`C_Z`
+  marginals) and work for **non-CSS** codes too: pass `stab=` (an `m×2n` symplectic
+  generator matrix, e.g. from `pauli_to_symplectic`). Cost grows as `distinct^g`:
+  genus-1/2 are routine screens, genus-3 is affordable on structured codes, and
+  **genus-4 is a last-resort tie-breaker** (`O(distinct^4)`; run it only on a
+  stubborn pair, parallelising `_genus4_partial` across processes). A higher genus
+  can still tie — an equal invariant never *proves* equivalence, only rungs C/D do;
+  (B) **classical component check** (`classical_parts_compatible`) — `C_X`/`C_Z`
+  must be individually permutation-equivalent (necessary, NOT sufficient: the
+  classical parts can match while no single permutation aligns both);
+  (C) **permutation equivalence** — certificates with DIFFERENT soundness.
+  `css_codeword_certificate` (CSS) is BASIS-INDEPENDENT and sound in BOTH directions
+  (equal ⟺ permutation-equivalent); its graph is built over the *codewords* (the
+  whole rowspaces), so use it whenever the block ranks fit under its `cap_k` (it
+  returns `None`, i.e. declines, above that). `stab_perm_certificate` is the same idea
+  for **any stabilizer code, CSS or NON-CSS** — a graph over the whole stabilizer
+  *group* with per-qubit slots coloured by Pauli type (X/Z/Y); also sound both ways,
+  declines above `cap_m` (wrapped by `stab_perm_equivalent` with a genus-1 screen).
+  `canonical_certificate` (CSS; nauty on the coloured *Tanner* graph over generator
+  ROWS) is MERGE-SOUND ONLY: equal cert proves equivalence, but an **unequal cert
+  proves nothing** — never read it as inequivalence. `_perm_equivalent` picks the
+  right CSS one (codeword cert when it applies, Tanner fallback otherwise). The
+  default (no `--lc`) merge uses this;
+  (D) **CSS local-Clifford + permutation equivalence** (`css_lc_perm_equivalent`,
+  the `--lc` flag) — the full "physical" equivalence, decided by enumerating the
+  CSS-preserving single-qubit-Clifford frames (only `I`/`H` per covered qubit) and
+  testing each frame's image with the rung-C certificate. On codes small enough for
+  the codeword cert this is a true DECISION (True proves equivalence, False proves
+  inequivalence); on larger codes it falls back to the Tanner cert where only True
+  stays sound, so it takes a `decisive=` flag (raises rather than return an unsound
+  False by default; dedup passes `decisive=False` to accept safe under-merging).
+  **Footgun: `rref` your generators first** — the Tanner certificate is
+  per-*presentation*, so a redundant generating set (e.g. all plaquettes of a toric
+  code) gives a spurious mismatch; the routines reduce by default. But note `rref`
+  only canonicalises for a *fixed column order* — two permutation-equivalent codes
+  still reduce to different bases, which is why the Tanner cert is merge-only and
+  why the basis-independent codeword cert exists. All rungs are *sound-toward-
+  separation* (a missed merge only costs time; a wrong merge would transplant a
+  code's verdict onto a different code). **When you need a definitive
+  equivalent/inequivalent verdict (not just a merge), rely on the codeword cert /
+  the `decisive` path — an unequal Tanner cert alone is never a proof.**
 - `scripts/lint/` — prose/format linters: `find_incorrect_description_first_paragraphs`
   (rule 1), `spellcheck` (+ `spellcheck_wordlist.txt`), `remove_trailing_block_apostrophes`,
   `standardize_citation_locators`, `link`, and `pick_unchecked_yml.sh`.
