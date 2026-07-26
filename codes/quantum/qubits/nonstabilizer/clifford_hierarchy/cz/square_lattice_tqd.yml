@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: square_lattice_tqd
+physical: qubits
+logical: qubits
+
+name: 'Square-lattice TQD code'
+introduced: '\cite{arxiv:2405.11719}'
+
+description: |
+  A square-lattice Clifford-stabilizer realization of the \(2+1\)D \(l=m=n=1\) cubic theory code, equivalently the Type-III \(\mathbb{Z}_2^3\) TQD phase.
+  The square-lattice TQD code places three qubits on every edge and provides an intermediate non-Pauli encoding for fault-tolerant non-Clifford operations on 2D topological codes \cite{arxiv:2405.11719,arxiv:2511.02900,arxiv:2604.02033}.
+
+  For each of the three qubit colors, every face supports a weight-four Pauli-\(Z\) plaquette generator.
+  Every vertex supports a Clifford generator consisting of Pauli-\(X\) operators on the four incident qubits of one color and two \(CZ\) gates acting on nearby qubits of the other two colors \cite[Fig. 1]{arxiv:2604.02033}.
+  Vertex generators of different colors need not commute on the full Hilbert space, but they commute within the simultaneous \(+1\) eigenspace of the plaquette generators \cite{arxiv:2405.11719,arxiv:2511.02900}.
+
+  A syndrome-extraction circuit follows by slicing the Type-III Dijkgraaf-Witten path integral on a cubic spacetime cellulation.
+  The circuit augments three square-lattice toric-code syndrome-extraction circuits with \(CCZ\) gates that implement the cocycle twist \cite{arxiv:2403.12119,arxiv:2503.15751}.
+
+protection: |
+  For the phenomenological noise model studied on an \(L\times L\) torus, numerical simulations indicate an effective distance of approximately \(L/2\) for both just-in-time and global decoding of \(X\)-like errors, as well as exponential suppression of the logical error rate with \(L\) below threshold \cite{arxiv:2604.02033}.
+
+features:
+  transversal_gates:
+    - 'On a square-lattice patch with three gapped boundaries encoding one logical qubit, a constant-depth automorphism circuit implements a logical \(T^\dagger\) gate \cite{arxiv:2511.02900}.'
+  decoders:
+    - 'A minimum-weight perfect-matching just-in-time decoder commits the required \(X\) corrections using only the syndrome history available at each time step \cite{arxiv:2604.02033}.'
+    - 'A completing-the-loop and graph-reduction heuristic uses the committed \(X\) corrections to reweight the subsequent global decoder for twisted \(Z\) errors \cite{arxiv:2604.02033}.'
+  fault_tolerance:
+    - 'Code switching between a folded surface code and the square-lattice TQD code, combined with just-in-time decoding and the logical \(T^\dagger\) gate, fault-tolerantly prepares a logical \(T\) magic state in \(O(d)\) rounds \cite{arxiv:2511.02900}.'
+  threshold:
+    - 'Under equal-rate phenomenological Pauli-\(X\) and plaquette-measurement noise, the matching-based just-in-time decoder has threshold \(2.51\pm0.31\%\), compared with \(2.90\pm0.12\%\) for a global decoder \cite{arxiv:2604.02033}.'
+    - 'For the full phenomenological noise model with equal \(X\)-like and \(Z\)-like error rates, just-in-time \(X\) decoding followed by the reweighted global \(Z\) decoder has threshold \(2.17\pm0.17\%\), compared with \(1.81\pm0.11\%\) for naive unheralded \(Z\) decoding \cite{arxiv:2604.02033}.'
+
+relations:
+  parents:
+    - code_id: cubic_theory
+      detail: 'The square-lattice TQD code is the \(D=3\), \(l=m=n=1\) hypercubic specialization of the cubic theory code \cite{arxiv:2405.11719}.'
+    - code_id: tqd_abelian
+      detail: 'The square-lattice TQD code is a Type-III \(\mathbb{Z}_2^3\) Abelian TQD code whose codewords realize non-Abelian topological order \cite{arxiv:2405.11719,arxiv:2511.02900}.'
+  cousins:
+    - code_id: hexagonal_cz
+      detail: 'The square-lattice TQD code and the hexagonal \(CZ\) code are distinct microscopic lattice realizations of the same Type-III \(\mathbb{Z}_2^3\) TQD phase \cite{arxiv:1508.03468,arxiv:2405.11719,arxiv:2503.15751,arxiv:2604.02033}.'
+    - code_id: brickwork
+      detail: 'The square-lattice TQD code and the brickwork \(XS\) stabilizer code are distinct microscopic codes realizing the same Type-III \(\mathbb{Z}_2^3\) TQD phase \cite{arxiv:2503.15751,arxiv:2604.02033}.'
+    - code_id: quantum_double_dihedral
+      detail: 'The square-lattice TQD code realizes the same topological order as the \(G=D_4\) member of the dihedral quantum-double code family \cite{arxiv:hep-th/9511195,arxiv:2405.11719}.'
+    - code_id: surface
+      detail: 'Code switching by gauging measurements connects a folded surface code to the square-lattice TQD code while preserving the encoded logical state \cite{arxiv:2511.02900}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-25'
