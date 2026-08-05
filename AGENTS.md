@@ -75,8 +75,12 @@ They catch, respectively: a primary parent already implied via a
 secondary-parent chain; a direct child already reachable through an
 intermediate code; and duplicate/conflicting relations (both sides declaring
 the same cousin, or a pair related as both parent and cousin).
-`check_duplicate_relations.py` exits non-zero on violations. See
-`scripts/script_list_for_checking.txt` for the fuller routine-check list.
+`check_duplicate_relations.py` exits non-zero on violations.
+
+Before submitting, also run `scripts/relations/find_property_codes.py` and the
+lint scripts `spellcheck.py`, `remove_trailing_block_apostrophes.py`, and
+`find_incorrect_description_first_paragraphs.py` (all in `scripts/lint/`).
+This is the routine-check list in `scripts/script_list_for_checking.txt`.
 
 ## Relation semantics
 
