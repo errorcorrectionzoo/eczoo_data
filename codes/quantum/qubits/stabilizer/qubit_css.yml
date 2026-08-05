@@ -42,6 +42,9 @@ description: |
   \end{align}
   After a Hadamard transform on every qubit, the same code can be described using superpositions over cosets of \(C_X^\perp\) in \(C_Z\), exchanging the roles of bit-flip and phase-flip protection.
 
+  A CSS code is \textit{em}-symmetric if its \(X\)- and \(Z\)-type parity-check matrices are equivalent up to row and column permutations \cite{arxiv:2607.21160}.
+  A CSS code is self-dual if \(C_X=C_Z\).
+
   Inequivalent CSS codes up to \(n=14\) qubits have been classified \cite{arxiv:2601.20927}.
   
   \subsection{CSS-to-homology correspondence}
@@ -142,6 +145,7 @@ features:
     - 'Fault-tolerant CNOT gate using generalized lattice surgery \cite{arxiv:2505.01370}.'
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1208.2317,arxiv:1412.6172}.'
+    - 'The statistical mechanical models of \textit{em}-symmetric CSS codes are self-dual under a generalized Kramers-Wannier duality up to a mixing of logical sectors, which becomes subextensive for zero-rate code families. For zero-rate \textit{em}-symmetric families with a unique threshold, this self-duality pins the fully postselected (clean) critical point to the self-dual temperature and constrains the optimal code capacity threshold under bit-flip noise to a single universal value at leading order in a replica limit \cite{arxiv:2607.21160}.'
   decoders:
     - 'CSS syndrome decoding splits into two classical decoding problems: measuring the \(Z\)-type stabilizers yields the classical syndrome for bit-flip errors with respect to \(C_X\), while measuring the \(X\)-type stabilizers yields the classical syndrome for phase errors with respect to \(C_Z\). In the Hadamard basis, phase-error decoding is ordinary classical syndrome decoding.'
     - >-
@@ -211,6 +215,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-29'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: MichaelGullans

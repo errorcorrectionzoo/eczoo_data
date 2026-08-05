@@ -36,11 +36,12 @@ description: |
 protection: 'Cubic codes protect against simultaneous independent Pauli errors on different sites (not qubits, since there can be 2 qubits per site). Codes CC0-CC4 are known to have distance \(d \ge L\), meaning they can achieve macroscopic code distance as \(L\to\infty\).'
 
 features:
+  rate: 'The encoding rate depends on the code implemented, but code CC0 has been shown to have \(k \ge L\) on a periodic finite cubic lattice of side length \(L\). In general, we expect the number of logical qubits to scale as \(k = \Omega(L)\).'
   decoders:
     - 'Hard-decisions RG decoder \cite{arxiv:1112.3252}.'
     - 'BP-OSD decoder \cite{arxiv:1904.02703}.'
-  threshold:
-    - 'The encoding rate depends on the code implemented, but code CC0 has been shown to have \(k \ge L\) on a periodic finite cubic lattice of side length \(L\). In general, we expect the number of logical qubits to scale as \(k = \Omega(L)\).'
+  code_capacity_threshold:
+    - 'A threshold of \(\approx 0.0797\) under BP-OSD decoding for code capacity bit-flip noise on periodic odd-side-length lattices \cite{arxiv:2607.21160}. Under full postselection, the associated clean statistical mechanical model is the fractal Ising model, whose self-duality pins the critical point to \(p=1/(2+\sqrt{2})\approx 0.2929\), consistent with numerics \cite{arxiv:2607.21160}.'
 
 #notes:
 #  - 'A relation \(k d = O(L^3) \) between code parameters on 3D lattices \cite{arxiv:0909.5200}, meaning that we must have fewer qubits per site \(m\) than types of generator \(t\), since if \(t < m\) then \(d = O(1)\).'
@@ -72,6 +73,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-29'
     - user_id: VictorVAlbert
       date: '2026-07-18'
     - user_id: VictorVAlbert

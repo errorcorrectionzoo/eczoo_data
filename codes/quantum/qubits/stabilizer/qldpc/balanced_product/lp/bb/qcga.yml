@@ -43,6 +43,9 @@ features:
   fault_tolerance:
     - 'Fault-tolerant state initialization using lattice surgery techniques \cite{arxiv:2110.10794,arxiv:2308.08648} and an ancillary surface code \cite{arxiv:2308.07915}.'
 
+  code_capacity_threshold:
+    - 'Fully postselected logical failure rates of weight-six bivariate bicycle codes under code capacity bit-flip noise cross close to a clean self-dual critical point \(p=1/(2+\sqrt{2})\approx 0.2929\) \cite{arxiv:2607.21160}.'
+
   decoders:
     - 'Syndrome extraction circuit requires seven layers of CNOT gates regardless of code length. BP-OSD decoder \cite{arxiv:1904.02703} has been extended \cite{arxiv:2308.07915} to account for measurement errors (i.e., the circuit-based noise model \cite{arxiv:0803.0272}).'
     - 'The depth-7 syndrome extraction schedules studied in Ref. \cite{arxiv:2308.07915} are not generally \hyperref[topic:effective-distance]{distance-preserving}; for the \([[144,12,12]]\) code, all \(936\) depth-7 variants obtained by reordering the CNOT layers satisfy \(d_{\mathrm{circ}}\leq 10 < d\).'
@@ -51,9 +54,6 @@ features:
     - 'Decoding under circuit-level noise has been studied for the BP, BP+OSD, and AutDEC decoders \cite{arxiv:2503.01738}.'
     - 'Transformer-based neural-network decoder \cite{arxiv:2504.13043}.'
     - 'Matching decoder \cite{arxiv:2602.22770}.'
-
-realizations:
-  - 'Superconducting circuits: syndrome extraction has been implemented for the \([[18,4,4]]\) BB code on a 32-qubit Kunlun device by the Wang, Song, and Deng groups \cite{arxiv:2505.09684}. The same is also shown for an \([[18,6,3]]\) code obtained by removing two check operators from the former code \cite{arxiv:2505.09684}.'
 
 
 # Parent is qubit_css because primary parent needs to be qubit
@@ -66,7 +66,7 @@ relations:
         detail: 'Bivariate bicycle codes are defined on 2D lattices with periodic boundary conditions, and versions with open boundary conditions have been investigated \cite{arxiv:2410.11942,arxiv:2412.04181,arxiv:2504.08887}. Bivariate bicycle codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators. BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699}.'
     cousins:
       - code_id: triangular_color
-        detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite{arxiv:2412.04181}.'
+        detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}.'
       - code_id: topological_abelian
         detail: 'BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699}.'
       - code_id: generalized_bicycle
@@ -77,6 +77,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-29'
     - user_id: VictorVAlbert
       date: '2026-07-18'
     - user_id: VictorVAlbert

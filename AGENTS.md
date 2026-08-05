@@ -48,7 +48,20 @@ the matching `features:` key (`general_gates`, `transversal_gates`,
 genuinely miscellaneous remarks (databases, software, historical asides).
 Check every notes item against the features keys before finalizing.
 
-**6. Run the relation checkers after any hierarchical edit.** Whenever you add,
+**6. Say `pure`, not "nondegenerate", and hyperlink it.** Express (non)degeneracy
+in the zoo's weight-enumerator vocabulary, always as a link:
+`\hyperref[topic:quantum-weight-enumerator]{pure}` and `{impure}`. For a
+stabilizer code the two notions coincide — it is degenerate if and only if it is
+impure (`qubit_stabilizer.yml`) — and a code is pure exactly when every
+non-identity stabilizer element has weight at least the distance, so state that
+fact rather than asserting "nondegenerate" bare. E.g. "Self-dual
+\hyperref[topic:quantum-weight-enumerator]{pure} CSS code that ...". Use
+`\hyperref[topic:degeneracy]{degenerate}` only when the decoding-side meaning is
+the one intended. Outside the stabilizer setting the equivalence is one-way:
+degenerate qubit codes are impure, but impure codes need not be degenerate
+(`qubits_into_qubits.yml`).
+
+**7. Run the relation checkers after any hierarchical edit.** Whenever you add,
 move, or reparent parents/cousins, run all three from the repo root and fix
 what they report:
 
@@ -87,6 +100,13 @@ the same cousin, or a pair related as both parent and cousin).
   parent in the same directory (this is common in the repo). Directory nesting
   is organizational only; the hierarchy is defined entirely by `relations`, not
   by the folder tree.
+- An entry that carries ANCILLARY FILES (a figure it `\includegraphics`, or any
+  other companion asset) DOES get its own directory named after its `code_id`,
+  with the `.yml` and the assets inside it and sharing that name — e.g.
+  `small_distance/small/18/stab_18_4_4/{stab_18_4_4.yml,stab_18_4_4.svg}`.
+  Reference the figure by bare basename, `\includegraphics{stab_18_4_4}`, with
+  no path and no extension. An entry with no ancillary files stays a lone
+  `.yml` file.
 
 ## `_meta` changelog
 

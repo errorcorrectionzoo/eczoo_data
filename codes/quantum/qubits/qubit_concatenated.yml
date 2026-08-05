@@ -15,6 +15,8 @@ description: |
 
   Concatenating an \(((n,2,d))\) qubit code can be done recursively, with the \(r\)\textit{th level} of concatenation yielding an \(((n^r,2,d^r))\) code.
 
+  For qubit CSS codes, concatenation is generalized by the \hyperref[code:mapping_cone]{mapping cone} framework of quantum code embedding \cite{arxiv:2507.05361}.
+
 
 protection: |
   Any distance-three recursively concatenated code protects against an open set of errors \cite{arxiv:quant-ph/0409084}.
@@ -25,12 +27,14 @@ features:
     - 'Adaptive syndrome extraction for a concatenation of a small error-detecting code and a high-rate, high-distance QLDPC code \cite{arxiv:2502.14835}.'
     - 'The effective channel for a concatenation of codes is the composition of the codes'' effective channels \cite{arxiv:quant-ph/0206061}.'
     - 'Message passing algorithm for concatenated codes can be equivalent to ML decoding \cite{arxiv:quant-ph/0606126}.'
+    - 'In the statistical mechanical mapping of maximum-likelihood decoding, recursively concatenated codes yield classical models on hierarchical lattices, and optimal decoding admits a hierarchical message-passing formulation that, in the fully postselected limit, reduces to an exact real-space renormalization group flow \cite{arxiv:2607.21160}.'
   fault_tolerance:
     - 'Fault-tolerant message passing between devices \cite{arxiv:2408.05260}.'
     - 'Blocklet concatenation uses concatenation and transversal gates in a way that is tailored to FBQC platforms \cite{arxiv:2506.13619}.'
   threshold:
     - |
       The first methods to achieve a \hyperref[topic:computational-threshold]{concatenated threshold} against local stochastic noise use concatenated qubit stabilizer codes \cite{arxiv:quant-ph/9702058,arxiv:quant-ph/9705031,arxiv:quant-ph/9903099,arxiv:quant-ph/9906129,arxiv:quant-ph/0410047,arxiv:quant-ph/0504218,arxiv:quant-ph/0703230,arxiv:quant-ph/0604090}; see the book \cite{preset:GottesmanBook}.
+    - 'Generalized Kramers-Wannier self-duality of the statistical mechanical model of a \([[n,1,d]]\) CSS code whose \(X\)- and \(Z\)-type parity-check matrices are equivalent up to row and column permutations is preserved under recursive concatenation, constraining the optimal code capacity threshold of the concatenated family. Below threshold, topological and concatenated code families are instead distinguished by a tradeoff between distance scaling and the number of minimum-weight logical operators, which produces a finite-size crossover in physical overhead \cite{arxiv:2607.21160}.'
 
 
 relations:
@@ -48,6 +52,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-29'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

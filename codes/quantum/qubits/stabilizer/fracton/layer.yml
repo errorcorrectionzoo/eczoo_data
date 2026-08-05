@@ -14,6 +14,7 @@ description: |
   Member of a family of qubit QLDPC CSS codes with stabilizer generator weights \(\leq 6\) that are obtained by coupling layers of 2D surface codes according to the Tanner graph of a QLDPC code (or a more general qubit stabilizer code).
   Geometric locality is maintained because, instead of being concatenated, each pair of parallel surface-code squares is fused (or quasi-concatenated) with perpendicular surface-code squares via lattice surgery.
 
+
 features:
   rate: 'Layer codes achieve the 3D \hyperref[topic:bpt-bound]{BPT bound}, with parameters  \([[n,\Theta(n^{1/3}),\Theta(n^{1/3})]]\), when asymptotically good QLDPC codes are used in the construction.'
 
@@ -22,7 +23,8 @@ features:
 
 relations:
   parents:
-    - code_id: qubit_css
+    - code_id: mapping_cone
+      detail: 'Layer codes are height-2 mapping cones whose embedded code is the input QLDPC code; the levels are stacks of 2D surface codes with appropriate boundary conditions, and the string defects correspond to the chain homotopy of the cone \cite{arxiv:2507.05361}.'
     - code_id: qldpc
       detail: 'Layer codes are constructed by coupling layers of 2D surface codes according to the Tanner graph of a QLDPC code.'
   cousins:
@@ -42,6 +44,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-29'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

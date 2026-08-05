@@ -1,0 +1,53 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mapping_cone
+physical: qubits
+logical: qubits
+
+name: 'Mapping cone code'
+introduced: '\cite{arxiv:2507.05361}'
+
+alternative_names:
+  - 'Height-\(n\) cone code'
+
+description: |
+  A CSS code obtained from an input CSS code, called the \textit{embedded code}, by adding physical qubits and parity checks in a way that guarantees a natural isomorphism between the logical operators of the input and output codes.
+  The framework unifies various quantum code embedding procedures, including code concatenation, \hyperref[topic:weight-reduction]{weight reduction}, layer codes, geometrically local codes obtained by subdivision, and gauging-based fault-tolerant logical measurement \cite{arxiv:2507.05361}.
+
+  Formally, a \textit{height-\(n\) cone} is a chain complex \(C\) whose spaces decompose into direct sums, \(C_i = C_i^n \oplus C_i^{n-1} \oplus \cdots \oplus C_i^0\), with a boundary operator that is lower triangular with respect to the decomposition.
+  The diagonal blocks \(\partial^s\) define chain complexes \(C^s\) called the \textit{levels} of the cone, while the sub-diagonal blocks \(g_s\), called \textit{gluing maps}, induce maps on homology that assemble the level homologies into the embedded complex \(H_n(\partial^n) \to H_{n-1}(\partial^{n-1}) \to \cdots \to H_0(\partial^0)\).
+  If the levels have trivial homology away from the appropriate degrees, a condition called \textit{regularity}, then the logical operators of the cone are naturally isomorphic to those of the embedded code \cite{arxiv:2507.05361}.
+  The construction is an iterated application of the mapping cone of homological algebra.
+  
+
+protection: |
+  A cleaning lemma states that, whenever a level boundary map and a gluing map satisfy an isoperimetric inequality, any logical representative of the cone can be cleaned out of the corresponding level, yielding a lower bound on the code distance of the cone in terms of the minimal weight of representatives of embedded-code logical operators \cite{arxiv:2507.05361}.
+  This lemma unifies distance bounds for layer codes, subdivision-based geometrically local codes, weight-reduced codes, and codes obtained by gauging logical operators \cite{arxiv:2507.05361}.
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+      detail: 'A mapping cone code is a qubit CSS code equipped with a direct-sum decomposition of its chain complex into levels, with lower-triangular boundary operator, such that the associated embedded code has naturally isomorphic logical operators.'
+  cousins:
+    - code_id: qubit_concatenated
+      detail: 'The mapping cone framework can be regarded as a generalization of code concatenation for CSS codes \cite{arxiv:2507.05361}.'
+    - code_id: distance_balanced
+      detail: 'Height-1 cones underlie Hastings' coning procedure for \hyperref[topic:weight-reduction]{weight reduction} \cite{arxiv:2102.10030} as well as fault-tolerant logical measurement schemes \cite{arxiv:2410.02753,arxiv:2410.02213,arxiv:2407.18393}, while general quantum embeddings require cones of height at least two \cite{arxiv:2507.05361}.'
+    - code_id: good_qldpc
+      detail: 'Optimal embeddings of good QLDPC codes into \(D\)-dimensional Euclidean space via layer codes and subdivided square complexes fit within the mapping cone framework, which streamlines their logical-preservation and distance proofs \cite{arxiv:2507.05361}.'
+    - code_id: higher_dimensional_surface
+      detail: 'Homological codes with various boundary conditions, which need not be realizable by a CW complex, can be obtained as mapping cones at the chain-complex level, without reference to the point-set topology of an underlying manifold \cite{arxiv:2507.05361}.'
+    - code_id: general_qldpc
+      detail: 'Gauging-based fault-tolerant logical measurement schemes for QLDPC codes \cite{arxiv:2410.02753,arxiv:2410.02213,arxiv:2407.18393} are height-1 mapping cones: measuring a logical operator corresponds to adding it as a parity check and reducing its weight via an ancillary complex \cite{arxiv:2507.05361}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-07-29'
