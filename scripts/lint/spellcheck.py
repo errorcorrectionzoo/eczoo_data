@@ -8,11 +8,18 @@ Usage:
   python scripts/lint/spellcheck.py                         # check all codes/
   python scripts/lint/spellcheck.py codes/quantum/qubits/   # specific subtree
   python scripts/lint/spellcheck.py --wordlist extra.txt    # extra word whitelist
+  python scripts/lint/spellcheck.py --codespell /path/to/codespell
+
+The codespell executable is found automatically; see resolve_codespell().
+
+Exit status: 0 clean, 1 spelling issues found, 2 codespell unavailable.
 """
 
 import argparse
+import importlib.util
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -179,6 +186,127 @@ def iter_yaml_files(root: str):
 
 
 # ---------------------------------------------------------------------------
+# Locating codespell
+# ---------------------------------------------------------------------------
+
+INSTALL_HINT = """\
+Error: codespell not found.
+
+Install it, for example with one of:
+    pipx install codespell
+    pip install --user codespell
+    python3 -m venv .venv && .venv/bin/pip install codespell
+
+Or point this script at an existing copy:
+    scripts/lint/spellcheck.py --codespell /path/to/codespell
+    CODESPELL=/path/to/codespell scripts/lint/spellcheck.py\
+"""
+
+
+def _is_exe(path: str) -> bool:
+    return bool(path) and os.path.isfile(path) and os.access(path, os.X_OK)
+
+
+def resolve_codespell(explicit: str | None = None) -> list[str] | None:
+    """Return the argv prefix that runs codespell, or None if unavailable.
+
+    Searched in order: an explicit --codespell value, the CODESPELL environment
+    variable, PATH, a codespell next to the running interpreter (so that
+    ``.venv/bin/python spellcheck.py`` works without activating anything), the
+    codespell_lib module importable by the running interpreter, and finally a
+    virtualenv inside the repo.  An explicit choice is never silently replaced
+    by a fallback: if it is unusable, this returns None so the caller can say so.
+    """
+    chosen = explicit or os.environ.get("CODESPELL")
+    if chosen:
+        if _is_exe(chosen):
+            return [chosen]
+        found = shutil.which(chosen)
+        return [found] if found else None
+
+    found = shutil.which("codespell")
+    if found:
+        return [found]
+
+    interpreter_dir = os.path.dirname(os.path.abspath(sys.executable))
+    for name in ("codespell", "codespell.exe"):
+        sibling = os.path.join(interpreter_dir, name)
+        if _is_exe(sibling):
+            return [sibling]
+
+    if importlib.util.find_spec("codespell_lib") is not None:
+        return [sys.executable, "-m", "codespell_lib"]
+
+    for sub in (".venv", "venv"):
+        for bindir, name in (("bin", "codespell"), ("Scripts", "codespell.exe")):
+            cand = os.path.join(ROOT, sub, bindir, name)
+            if _is_exe(cand):
+                return [cand]
+
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Mapping findings back to source lines
+# ---------------------------------------------------------------------------
+
+# A codespell finding reads "mispelling ==> misspelling" or, with several
+# suggestions, "Linke ==> Linked, Link, Links".  The flagged text precedes "==>".
+_FLAGGED_RE = re.compile(r'^(.*?)\s*==>')
+
+_WHITESPACE_RE = re.compile(r'\s+')
+
+# path -> source lines, so a file with several findings is read only once.
+_SOURCE_CACHE: dict[str, list[str]] = {}
+
+
+def flagged_text(message: str) -> str:
+    """Return the text codespell flagged, given its ``word ==> fix`` message."""
+    m = _FLAGGED_RE.match(message)
+    return m.group(1).strip() if m else ""
+
+
+def _source_lines(path: str) -> list[str]:
+    if path not in _SOURCE_CACHE:
+        try:
+            with open(path, encoding="utf-8") as f:
+                _SOURCE_CACHE[path] = f.readlines()
+        except OSError:
+            _SOURCE_CACHE[path] = []
+    return _SOURCE_CACHE[path]
+
+
+def locate_in_source(path: str, phrase: str) -> list[int]:
+    r"""Return the 1-based lines of *path* on which *phrase* appears.
+
+    codespell only ever sees the temp file of extracted, LaTeX-stripped prose,
+    so the line numbers it reports bear no relation to the original YAML.  A
+    line map cannot be threaded through extraction either: fields are visited
+    out of order, YAML folds multi-line scalars into one line, and whole math
+    environments are deleted.  So we look the flagged text back up in the
+    source instead.  Whitespace within a multi-word finding is matched loosely,
+    since a folded line break arrives here as a single space.
+    """
+    words = [re.escape(w) for w in _WHITESPACE_RE.split(phrase) if w]
+    if not words:
+        return []
+    body = r'\s+'.join(words)
+    lines = _source_lines(path)
+    # Prefer an exact-case hit; fall back to case-insensitive.
+    for flags in (0, re.IGNORECASE):
+        pattern = re.compile(rf'(?<![A-Za-z]){body}(?![A-Za-z])', flags)
+        hits = [i + 1 for i, line in enumerate(lines) if pattern.search(line)]
+        if hits:
+            return hits
+        # A folded line break can split a multi-word phrase across two lines.
+        text = "".join(lines)
+        m = pattern.search(text)
+        if m:
+            return [text.count("\n", 0, m.start()) + 1]
+    return []
+
+
+# ---------------------------------------------------------------------------
 # Core logic
 # ---------------------------------------------------------------------------
 
@@ -197,7 +325,8 @@ def load_prose(path: str) -> str:
     return strip_latex(raw)
 
 
-def run_spellcheck(search_path: str, wordlist: str | None) -> int:
+def run_spellcheck(search_path: str, wordlist: str | None,
+                   codespell_cmd: list[str]) -> int:
     """
     Write cleaned prose for each YAML file into a temp dir, run codespell,
     and print results mapped back to original paths.  Returns error count.
@@ -225,28 +354,50 @@ def run_spellcheck(search_path: str, wordlist: str | None) -> int:
                 f.write(prose)
             path_map[os.path.normpath(tmp_path)] = orig_path
 
-        cmd = ["codespell", tmpdir]
+        cmd = [*codespell_cmd, tmpdir]
         if wordlist and os.path.isfile(wordlist):
             cmd += ["--ignore-words", wordlist]
 
-        result = subprocess.run(cmd, capture_output=True, text=True)
+        try:
+            result = subprocess.run(cmd, capture_output=True, text=True)
+        except OSError as exc:
+            print(f"Error: could not run {cmd[0]}: {exc}", file=sys.stderr)
+            raise SystemExit(2)
         output = result.stdout + result.stderr
+
+        # (file, flagged text) -> findings already reported, so repeats of one
+        # typo walk through its successive source lines.
+        seen_counts: dict[tuple[str, str], int] = {}
 
         for line in output.splitlines():
             # codespell line format:  /path/to/file.txt:N: word ==> correction
+            # Its N indexes the stripped-prose temp file, so it is discarded in
+            # favour of the real line found by locate_in_source().
             colon_parts = line.split(":", 2)
             if len(colon_parts) < 3:
                 continue
             tmp_path_raw = os.path.normpath(colon_parts[0])
-            lineno = colon_parts[1].strip()
             message = colon_parts[2].strip()
 
             orig = path_map.get(tmp_path_raw)
-            if orig:
-                rel = os.path.relpath(orig, ROOT)
-                print(f"{rel}:{lineno}: {message}")
-            else:
+            if orig is None:
                 print(line)
+                error_count += 1
+                continue
+
+            rel = os.path.relpath(orig, ROOT)
+            phrase = flagged_text(message)
+            hits = locate_in_source(orig, phrase)
+            if not hits:
+                # Stripping can join or split words, so the flagged text is not
+                # always literally present; report the file without a line.
+                print(f"{rel}: {message}")
+            else:
+                # codespell emits one finding per occurrence, so hand the n-th
+                # finding the n-th source line rather than repeating the first.
+                nth = seen_counts.get((orig, phrase), 0)
+                seen_counts[(orig, phrase)] = nth + 1
+                print(f"{rel}:{hits[min(nth, len(hits) - 1)]}: {message}")
             error_count += 1
 
     return error_count
@@ -265,13 +416,28 @@ def main():
         default=DEFAULT_WORDLIST,
         help="File of words to ignore, one per line.",
     )
+    parser.add_argument(
+        "--codespell",
+        default=None,
+        help="Path to the codespell executable (default: auto-detect; "
+             "also settable via the CODESPELL environment variable).",
+    )
     args = parser.parse_args()
 
     if not os.path.exists(args.path):
         print(f"Error: path not found: {args.path}", file=sys.stderr)
         sys.exit(1)
 
-    count = run_spellcheck(args.path, args.wordlist)
+    codespell_cmd = resolve_codespell(args.codespell)
+    if codespell_cmd is None:
+        requested = args.codespell or os.environ.get("CODESPELL")
+        if requested:
+            print(f"Error: codespell not usable at {requested!r}.", file=sys.stderr)
+        else:
+            print(INSTALL_HINT, file=sys.stderr)
+        sys.exit(2)
+
+    count = run_spellcheck(args.path, args.wordlist, codespell_cmd)
     print(f"\nFound {count} spelling issue(s).")
     sys.exit(0 if count == 0 else 1)
 
