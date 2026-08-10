@@ -8,8 +8,11 @@ physical: qubits
 logical: qubits
 
 # TODO: link doubly even codes to quantum_divisible (and make self-dual doubly-even CSS entry)
-name: '\([[16,4,4]]\) symplectic-double code'
-introduced: '\cite{arxiv:2403.16054,arxiv:2510.05211,arxiv:2510.18753}'
+name: '\([[16,4,4]]\) twisted color code'
+introduced: '\cite{arxiv:2008.05051,arxiv:2112.03785}'
+
+alternative_names:
+  - '\([[16,4,4]]\) symplectic-double code'
 
 description: |
   Self-dual doubly-even CSS code obtained by concatenating the non-CSS \([[4,2,2]]\) code, defined by stabilizer generators \(XZZX,ZXXZ\), with the \hyperref[topic:symplectic-doubling]{symplectic double} of itself.
@@ -35,6 +38,20 @@ description: |
   \end{align}
   Rows 1--4 are the \(Z\)-type inner stabilizers of each \([[4,2,2]]\) block; rows 5--6 are the \(Z\)-type outer stabilizers inherited from the double cover; rows 7--10 are the \(X\)-type inner stabilizers; rows 11--12 are the \(X\)-type outer stabilizers.
 
+  Geometrically the code is the \hyperref[code:488_color]{4.8.8 color code} on the smallest torus, shown in \ref{figure:16-4-4-488}.
+  Fattening each vertex of the \(2\times 2\) square lattice into a square yields four square faces and four octagonal faces, the latter two-colored in checkerboard fashion, for eight faces on 16 qubits and 24 edges.
+  The torus is twisted, in that one pair of opposite boundaries is glued only after a shift by half a period; gluing them straight yields a different code.
+
+  \begin{figure}
+    \includegraphics{stab_16_4_4}
+    \caption{
+    The eight faces of the 4.8.8 color code on the smallest torus, four squares and four octagons, each carrying a \(X\)-type and a \(Z\)-type generator on its qubits.
+    Shaded circles are the 16 physical qubits; a white circle is a periodic image of the shaded qubit carrying the same letter.
+    The two dashed arrows are the boundary identifications, the second of which glues top to bottom only after a shift by half a period.
+    }
+    \label{figure:16-4-4-488}
+  \end{figure}
+
 protection: |
   Detects errors on up to 3 qubits and corrects errors on 1 qubit.
 
@@ -43,7 +60,10 @@ features:
     - 'A fault-tolerant, bare-ancilla state-preparation procedure for the logical \(|\overline{0}\rangle\) and \(|\overline{+}\rangle\) states is given in \cite{arxiv:2510.18753}.'
 
   transversal_gates:
-    - 'SWAP-transversal gates lifted from automorphisms of the seed \([[4,2,2]]\) code, together with the \(ZX\)-duality gates \(\overline{H}_\tau\) and \(\overline{S}_\tau\) inherited from the symplectic double, generate \(216\) unique logical gates and, with a global logical phase gate, the group \((A_8\times A_8)\rtimes(C_2\times C_2)\subset \mathrm{Sp}_8(\mathbb{F}_2)\); a targeted logical \(S\) gate on any logical qubit instead generates the full symplectic group \(\mathrm{Sp}_8(\mathbb{F}_2)\) \cite{arxiv:2510.18753}.'
+    - |
+      SWAP-transversal gates lifted from automorphisms of the seed \([[4,2,2]]\) code, together with the \(ZX\)-duality gates \(\overline{H}_\tau\) and \(\overline{S}_\tau\) inherited from the symplectic double, give \(216\) unique logical gates and, with a global logical phase gate, the group \((A_8\times A_8)\rtimes(C_2\times C_2)\subset Sp(8,\mathbb{F}_2)\) \cite{arxiv:2510.18753}.
+      Only one of the \(20\) \(ZX\)-dualities admits a phase-type gate, and the permissible qubit permutations \(C_2\times S_4\) act non-faithfully with image \(D_6\). Together with all two-qubit entangling gates, they generate the logical orthogonal subgroup \(\Omega^{+}(8,\mathbb{F}_2)\) \cite{arxiv:2202.06647}.
+      Adjoining a targeted logical \(S\) on a single logical qubit yields all of \(Sp(8,\mathbb{F}_2)\) \cite{arxiv:2510.18753}, meaning the entire logical Clifford group is realized two-fold transversally, i.e., by stacking depth-one two-local code-preserving circuits \cite{arxiv:2608.05688}.
 
   general_gates:
     - 'Any logical Clifford circuit on the four logical qubits can be compiled using the SWAP-transversal gateset together with at most a small number of logical phase-gate injections via state teleportation \cite{arxiv:2510.18753}.'
@@ -57,6 +77,8 @@ realizations:
 
 relations:
   parents:
+    - code_id: 488_color
+      detail: 'The \([[16,4,4]]\) code is the 4.8.8 color code on the smallest torus, whose two pairs of opposite boundaries are glued straight and with a half-period shift, respectively.'
     - code_id: self_dual_css
     - code_id: qcga
       detail: 'The \([[16,4,4]]\) code is among the weight-eight self-dual bivariate bicycle (BB) codes on twisted tori enumerated in \cite{arxiv:2510.05211}.'
@@ -68,10 +90,14 @@ relations:
       detail: 'The \([[16,4,4]]\) code is a \(C_4\)-based (\([[4,2,2]]\)-based) instance of the many-hypercubes code family, complementing Goto''s original \([[6,4,2]]\)-based many-hypercube construction \cite{arxiv:2403.16054,arxiv:2510.18753}.'
     - code_id: qubit_concatenated
       detail: 'The \([[16,4,4]]\) code is obtained by concatenating the \([[4,2,2]]\) code with the \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code along a \(ZX\)-duality \cite{arxiv:2510.18753}.'
+    - code_id: stab_16_6_4
+      detail: 'The \([[16,4,4]]\) code is obtained from the tesseract color code by promoting one \(X\)-type and one \(Z\)-type weight-four logical operator to stabilizers \cite{arxiv:2008.05051,arxiv:2112.03785}, equivalently by fixing the weight-four gauge operators of the \([[16,4,2,4]]\) tesseract subsystem code \cite{arxiv:2409.04628}.'
 
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-08'
     - user_id: VictorVAlbert
       date: '2026-07-08'
