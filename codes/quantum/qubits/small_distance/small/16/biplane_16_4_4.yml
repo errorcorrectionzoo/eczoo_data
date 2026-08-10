@@ -1,0 +1,80 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: biplane_16_4_4
+physical: qubits
+logical: qubits
+
+name: '\([[16,4,4]]\) biplane code'
+introduced: '\cite{arxiv:2608.05688}'
+
+alternative_names:
+  - '\([[16,4,4]]\) quadric code'
+
+description: |
+  Self-dual \hyperref[topic:quantum-weight-enumerator]{pure} CSS code whose \(X\)- and \(Z\)-type stabilizer generators are both supported on the \([16,6,6]\) binary code spanned by the blocks of the biplane of order four, i.e., the symmetric \(2\)-\((16,6,2)\) design whose automorphism group is the affine symplectic group \(\mathbb{Z}_{2}^{4}\rtimes Sp(4,\mathbb{Z}_2)\) of order \(11520\).
+  Equivalently, the underlying classical code is the first-order RM code \(\text{RM}(1,4)\) enlarged by the indicator vector of an elliptic quadric in \(\mathbb{F}_2^4\), so that the code is obtained from the \hyperref[code:stab_16_6_4]{tesseract color code} by adding one \(X\)-type and one \(Z\)-type stabilizer generator supported on that quadric.
+  The code admits weight-six stabilizer generators of both types and realizes its full logical Clifford group using depth-one two-local physical circuits.
+
+  Labeling the qubits by the points of \(\mathbb{F}_2^{4}\) in binary order, the first five generators of each type are the affine functions spanning \(\text{RM}(1,4)\) and the sixth is the zero set \(\{x: Q(x)=0\}\) of the elliptic form \(Q=x_1x_2+x_3+x_3x_4+x_4\), giving the stabilizer tableau
+  \begin{align}
+  \begin{smallmatrix}
+    X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+    I & X & I & X & I & X & I & X & I & X & I & X & I & X & I & X \\
+    I & I & X & X & I & I & X & X & I & I & X & X & I & I & X & X \\
+    I & I & I & I & X & X & X & X & I & I & I & I & X & X & X & X \\
+    I & I & I & I & I & I & I & I & X & X & X & X & X & X & X & X \\
+    X & X & X & I & I & I & I & X & I & I & I & X & I & I & I & X \\
+    Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & Z \\
+    I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z \\
+    I & I & Z & Z & I & I & Z & Z & I & I & Z & Z & I & I & Z & Z \\
+    I & I & I & I & Z & Z & Z & Z & I & I & I & I & Z & Z & Z & Z \\
+    I & I & I & I & I & I & I & I & Z & Z & Z & Z & Z & Z & Z & Z \\
+    Z & Z & Z & I & I & I & I & Z & I & I & I & Z & I & I & I & Z
+  \end{smallmatrix}~.
+  \end{align}
+  Rows 1--5 and 7--11 are the tesseract color-code generators, while rows 6 and 12 are the added quadric generators.
+  The sixteen weight-six codewords of the underlying classical code are the blocks of the biplane; each block contains six qubits and each qubit lies in six blocks, and any six linearly independent blocks form an alternative generating set consisting entirely of weight-six checks.
+
+  The permutation automorphism group of the underlying classical code is the group of affine symplectic maps \(x\mapsto Mx+a\) of \(\mathbb{F}_2^4\), where \(M\) preserves the polar form of \(Q\).
+  Such maps preserve \(\text{RM}(1,4)\) and send \(Q\) into its own coset, and there are \(2^4\cdot|Sp(4,\mathbb{Z}_2)|=11520\) of them.
+
+
+features:
+  transversal_gates:
+    - 'CNOT gate between two blocks because the code is CSS, and transversal Hadamard because the code is self-dual.'
+    - 'Transversal \(S\) and \(\sqrt{X}\) are valid logical gates up to Pauli corrections because every codeword of the underlying classical code has even weight.'
+    - 'Fold-transversal gates built from involutions of the order-\(11520\) affine symplectic automorphism group, such as the \(15\) fixed-point-free translations \(x\mapsto x+a\) of \(\mathbb{F}_2^4\), each of which contributes a layer of eight \(CZ\) gates \cite{arxiv:2608.05688}.'
+    - 'The transversal and fold-transversal gates above, all of which are depth-one two-local physical Clifford circuits, generate the full logical Clifford group \(Sp(8,\mathbb{Z}_2)\) on the four logical qubits \cite{arxiv:2608.05688}.'
+
+
+relations:
+  parents:
+    - code_id: self_dual_css
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: stab_16_6_4
+      detail: |
+        The \([[16,4,4]]\) biplane code is obtained from the tesseract color code by adding one \(X\)-type and one \(Z\)-type stabilizer generator supported on an elliptic quadric of \(\mathbb{F}_2^4\), reducing the number of logical qubits from six to four.
+        The promoted generators are a minimum-weight representative of one of the \(28\) logical classes of the tesseract code, which is why the resulting code remains \hyperref[topic:quantum-weight-enumerator]{pure}.
+    - code_id: quantum_reed_muller
+      detail: 'The underlying classical code of the \([[16,4,4]]\) biplane code is the first-order RM code \(\text{RM}(1,4)\) enlarged by the indicator vector of an elliptic quadric in \(\mathbb{F}_2^4\).'
+    - code_id: nordstrom_robinson
+      detail: 'The underlying \([16,6,6]\) classical code of the \([[16,4,4]]\) biplane code is, up to a coordinate permutation, a linear subcode of the NR code, consisting of \(\text{RM}(1,4)\) together with one of the seven nontrivial cosets of \(\text{RM}(1,4)\) making up the NR code.'
+    - code_id: combinatorial_design
+      detail: 'The sixteen minimum-weight codewords of the underlying \([16,6,6]\) classical code of the \([[16,4,4]]\) biplane code are the blocks of the symmetric \(2\)-\((16,6,2)\) design, i.e., the biplane of order four whose automorphism group is \(\mathbb{Z}_{2}^{4}\rtimes Sp(4,\mathbb{Z}_2)\).'
+    - code_id: stab_16_4_4
+      detail: |
+        The \([[16,4,4]]\) biplane code and the \([[16,4,4]]\) symplectic-double code are the two self-dual CSS gauge fixings of the \([[16,4,2,4]]\) tesseract subsystem code \cite{arxiv:2409.04628}, obtained by promoting the weight-six and the weight-four gauge operators, respectively.
+    - code_id: quadric_tower
+      detail: 'Both the \([[16,4,4]]\) biplane code and the quadric tower codes are self-dual CSS codes built from quadratic forms over \(\mathbb{F}_2\), the former using a quadric as an extra stabilizer generator and the latter using a quadric as the qubit set.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-08'
