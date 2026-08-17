@@ -26,30 +26,46 @@ class Change:
 
 
 def block_scalar_header(line: str) -> Tuple[int, bool]:
-    """Return (indent, True) if line starts a YAML block scalar, else (_, False)."""
+    """Return (indent, True) if line starts a YAML block scalar, else (_, False).
+
+    All three spellings the zoo uses are recognised:
+
+        description: |      a mapping value
+        - |                 a bare LIST ITEM, e.g. under features.transversal_gates
+        - detail: |         a mapping nested inside a list item
+
+    The list-item forms have no key before the indicator, so requiring a ``:``
+    used to miss them -- and those are exactly where long multi-paragraph
+    feature and relation entries live.
+    """
     if not line.strip() or line.lstrip().startswith("#"):
         return 0, False
 
     indent = len(line) - len(line.lstrip(" "))
     text = line.strip()
 
-    # Match "key: |", "key: >", including optional chomping/indent indicators.
-    if ":" not in text:
+    # Peel off any leading list-item dashes ("- ", and nested "- - ").
+    while text.startswith("-") and (len(text) == 1 or text[1] in " \t"):
+        text = text[1:].strip()
+        if not text:
+            return indent, False  # a bare "-" opens nothing
+
+    # What remains is either "key: <indicator>" or a bare "<indicator>".
+    if ":" in text:
+        key, rhs = text.split(":", 1)
+        if "|" in key or ">" in key:
+            return indent, False  # the colon came after the indicator
+        rhs = rhs.strip()
+    else:
+        rhs = text
+
+    if not rhs or rhs[0] not in "|>":
         return indent, False
 
-    _, rhs = text.split(":", 1)
-    rhs = rhs.strip()
-    if not rhs:
-        return indent, False
-
-    if rhs[0] not in "|>":
-        return indent, False
-
-    if len(rhs) > 1:
-        # Allow optional YAML modifiers after | or > (e.g., |-, >+, |2).
-        for ch in rhs[1:]:
-            if ch not in "-+0123456789":
-                return indent, False
+    # Allow YAML modifiers after | or > (e.g. |-, >+, |2) and a trailing comment.
+    for ch in rhs[1:].split("#", 1)[0].strip():
+        if ch not in "-+0123456789":
+            return indent, False
 
     return indent, True
 
@@ -70,47 +86,57 @@ def should_trim_apostrophe(line: str) -> bool:
     return True
 
 
-def fix_file(path: str) -> List[Change]:
-    with open(path, encoding="utf-8") as f:
-        lines = f.readlines()
+def detect_changes(lines: List[str]) -> List[Change]:
+    """Find the trailing-apostrophe fixes for ``lines`` (does not mutate it).
 
+    Block membership is decided BEFORE header detection: a content line inside a
+    block scalar is never re-examined as a possible header, so prose that merely
+    looks like ``- |...`` cannot confuse the scanner.
+    """
     changes: List[Change] = []
     in_block = False
     block_indent = 0
 
     for i, line in enumerate(lines):
+        if in_block:
+            if not line.strip():
+                continue  # blank lines stay inside the block
+            curr_indent = len(line) - len(line.lstrip(" "))
+            if curr_indent > block_indent:
+                if should_trim_apostrophe(line):
+                    new_line = (line[:-2] + "\n") if line.endswith("\n") else line[:-1]
+                    changes.append(
+                        Change(i + 1, line.rstrip("\n"), new_line.rstrip("\n"))
+                    )
+                continue
+            # Dedented to the header's level or less: the block is over. Fall
+            # through so this same line can open a new one.
+            in_block = False
+
         header_indent, starts_block = block_scalar_header(line)
         if starts_block:
             in_block = True
             block_indent = header_indent
-            continue
 
-        if not in_block:
-            continue
+    return changes
 
-        # End block when non-empty content dedents to block indentation or less.
-        if line.strip():
-            curr_indent = len(line) - len(line.lstrip(" "))
-            if curr_indent <= block_indent:
-                in_block = False
-                # Re-check this same line as non-block content.
-                continue
 
-        # Inside block scalar content.
-        if should_trim_apostrophe(line):
-            old_line = line
-            # Remove the final apostrophe before newline (if any).
-            if line.endswith("\n"):
-                new_line = line[:-2] + "\n"
-            else:
-                new_line = line[:-1]
-            lines[i] = new_line
-            changes.append(Change(i + 1, old_line.rstrip("\n"), new_line.rstrip("\n")))
+def apply_changes(lines: List[str], changes: List[Change]) -> List[str]:
+    out = list(lines)
+    for ch in changes:
+        i = ch.line_no - 1
+        out[i] = ch.new_line + ("\n" if lines[i].endswith("\n") else "")
+    return out
 
-    if changes:
+
+def fix_file(path: str, apply: bool = True) -> List[Change]:
+    with open(path, encoding="utf-8") as f:
+        lines = f.readlines()
+
+    changes = detect_changes(lines)
+    if changes and apply:
         with open(path, "w", encoding="utf-8") as f:
-            f.writelines(lines)
-
+            f.writelines(apply_changes(lines, changes))
     return changes
 
 
@@ -141,44 +167,7 @@ def main():
 
     for path in iter_yaml_files(args.root):
         total_files += 1
-
-        # In dry-run mode, avoid writing: run detection on a copy of content.
-        if args.apply:
-            changes = fix_file(path)
-        else:
-            with open(path, encoding="utf-8") as f:
-                original = f.readlines()
-
-            # Simulate fix logic without writing.
-            lines = original[:]
-            changes = []
-            in_block = False
-            block_indent = 0
-
-            for i, line in enumerate(lines):
-                header_indent, starts_block = block_scalar_header(line)
-                if starts_block:
-                    in_block = True
-                    block_indent = header_indent
-                    continue
-
-                if not in_block:
-                    continue
-
-                if line.strip():
-                    curr_indent = len(line) - len(line.lstrip(" "))
-                    if curr_indent <= block_indent:
-                        in_block = False
-                        continue
-
-                if should_trim_apostrophe(line):
-                    old_line = line
-                    if line.endswith("\n"):
-                        new_line = line[:-2] + "\n"
-                    else:
-                        new_line = line[:-1]
-                    lines[i] = new_line
-                    changes.append(Change(i + 1, old_line.rstrip("\n"), new_line.rstrip("\n")))
+        changes = fix_file(path, apply=args.apply)
 
         if changes:
             rel = os.path.relpath(path, args.root)
