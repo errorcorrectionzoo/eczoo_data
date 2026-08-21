@@ -1,0 +1,48 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: coset_code
+physical: galois
+logical: galois
+
+name: 'Coset-based quantum LDPC code'
+introduced: '\cite{arxiv:2606.17268}'
+
+description: |
+  A \hyperref[code:two_block_quantum]{two-block CSS code} \(Q_G^H(a,b)\) built from the action of a finite group \(G\) on the left cosets \(G/H\) of a subgroup \(H\), generalizing \hyperref[code:2bga]{2BGA codes} to a much larger family of quantum LDPC codes. The length \(n=2[G:H]\) is even, being twice the index of \(H\) in \(G\).
+
+  The building blocks are permutation matrices \(\mathbf{L}(g)\) and \(\mathbf{R}(g)\) representing, respectively, the left action of \(G\) and the right action of the normalizer \(N_G(H)\) on the \(m=[G:H]\) cosets.
+  These two actions commute, so for \hyperref[topic:group-algebra]{group algebra} elements \(a\in\mathbb{F}_q[G]\) and \(b\in\mathbb{F}_q[N_G(H)]\) the matrices \(\mathbf{L}(a)\) and \(\mathbf{R}(b)\) commute and yield a valid CSS code with parity-check matrices
+  \begin{align}
+    H_X=[\mathbf{L}(a)\mid \mathbf{R}(b)]~,\qquad H_Z=[-\mathbf{R}(b)^T\mid \mathbf{L}(a)^T]
+  \end{align}
+  on \(n=2m\) qudits, with stabilizer generators of weight at most \(w_a+w_b\), where \(w_a\) and \(w_b\) are the weights of \(a\) and \(b\) \cite{arxiv:2606.17268}.
+
+  A computer search over non-abelian groups and their non-normal subgroups yields new weight-six codes \([[48,8,6]]\), \([[96,8,10]]\), and \([[224,12,16]]\), and weight-eight codes \([[84,16,8]]\), \([[112,16,10]]\), \([[128,16,12]]\), and \([[168,16,15]]\) \cite{arxiv:2606.17268}.
+
+
+features:
+  decoders:
+    - 'BP-OSD decoding; performance under several decoders is compared in Ref. \cite{arxiv:2606.17268}.'
+    - 'A maximally packed syndrome-extraction circuit of depth \(w+2\), including state initialization and measurement, exists for any code of maximum stabilizer weight \(w\), generalizing the depth-eight bivariate bicycle schedule \cite{arxiv:2606.17268}.'
+
+  threshold:
+    - 'Circuit-level noise thresholds of \(\approx 0.65\%\) for the weight-six family and \(\approx 0.35\%\) for the weight-eight family under BP-OSD decoding \cite{arxiv:2606.17268}.'
+
+
+relations:
+  parents:
+    - code_id: two_block_quantum
+      detail: 'Coset-based codes are two-block CSS codes whose commuting blocks \(\mathbf{L}(a)\) and \(\mathbf{R}(b)\) are the matrices of a group acting on the left and right of the cosets of a subgroup \cite{arxiv:2606.17268}.'
+    - code_id: general_qldpc
+      detail: 'A coset-based code \(Q_G^H(a,b)\) has stabilizer generators of weight at most \(w_a+w_b\), so it is a quantum LDPC code when \(a\) and \(b\) have bounded weight \cite{arxiv:2606.17268}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-19'
