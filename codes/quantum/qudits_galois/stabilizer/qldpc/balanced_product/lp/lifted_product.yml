@@ -13,6 +13,7 @@ introduced: '\cite{arxiv:1904.02703,arxiv:2012.04068,arxiv:2111.03654}'
 
 alternative_names:
   - 'Panteleev-Kalachev (PK) code'
+  - 'Generalized hypergraph product code'
 
 description: |
   Galois-qudit code that utilizes the notion of a lifted product in its construction. Lifted products of certain classical Tanner codes are the first (asymptotically) \textit{good QLDPC codes}.
@@ -23,13 +24,14 @@ description: |
   More technically, a \textit{lifted product over} a ring \(R\) is a product of two chain complexes whose chains are free modules over \(R\).
   An interesting case is when \(R=\mathbb{F}_q [G]\), the \hyperref[topic:group-algebra]{group-\(G\) algebra} over the finite field \({\mathbb{F}}_q = \mathbb{F}_q\); in this case, the product can be called a \(G\)-\textit{lifted product}.
   Just like its further generalization the balanced product, a lifted product code generalizes a hypergraph product code in that a reduction of symmetry is exploited to decrease the number of physical qubits required.
-  The first version of this construction appeared as a family of generalized hypergraph product codes that contains hypergraph product codes in the case where one of the two input parity-check matrices is square \cite{arxiv:1904.02703}.
+  The first version of this construction contains hypergraph-product codes in the case where one of the two input parity-check matrices is square \cite{arxiv:1904.02703}.
 
   The key operation behind the \(G\)-lifted product is the \(G\)-\textit{lift}, a \hyperref[topic:group-algebra]{group-algebraic} version of the \hyperref[topic:lifting]{lifting} procedure of protograph LDPC codes.
   A combination of the lift and the usual hypergraph product yields lifted-product codes.
   The two operations commute: one can first take the usual hypergraph product of two chain complexes, and then lift the resulting product complex; equivalently, one can take the hypergraph product of the two lifted complexes.
 
-  Lifted products over non-Abelian group algebras have been studied, e.g., over the dihedral group algebra \(\mathbb{F}_q[D_{2n}]\), whose Wedderburn decomposition yields short non-Abelian quantum MDPC codes---dubbed \textit{dihedral quantum codes}---with an explicit dimension formula and distance bound \cite{arxiv:2310.15092}.
+  Lifted products over non-Abelian group algebras have been studied, e.g., over the dihedral group algebra \(\mathbb{F}_q[D_{2n}]\), whose Wedderburn decomposition yields short non-Abelian quantum moderate-density parity-check codes---dubbed \textit{dihedral quantum codes}---with an explicit dimension formula and distance bound \cite{arxiv:2310.15092}.
+  Non-Abelian lifts also underlie \hyperref[code:mitten]{mitten codes}, whose non-commutativity removes a distance ceiling that constrains \hyperref[code:abelian_lifted_product]{Abelian LP codes} of the same base-matrix shape \cite{arxiv:2607.28795}.
 
 
 
@@ -44,13 +46,10 @@ features:
   decoders:
     - 'Linear time iterative decoder \cite{arxiv:2504.01728}.'
 
-notes:
-  - 'Formerly known as \textit{generalized hypergraph product codes} \cite{arxiv:1904.02703}, and later renamed to lifted-product codes \cite{arxiv:2012.04068,arxiv:2103.06309}.'
-
 relations:
   parents:
     - code_id: balanced_product
-      detail: 'Coarsely speaking, a lifted product is a balanced product where the group \(G\) acts freely. In principle, a lifted product can be defined for rings that are more general than \hyperref[topic:group-algebra]{group algebras} \( \mathbb{F}_q G \).'
+      detail: 'Coarsely speaking, a lifted product is a balanced product where the group \(G\) acts freely. In principle, a lifted product can be defined for rings that are more general than \hyperref[topic:group-algebra]{group algebras} \( \mathbb{F}_q G \) \cite{arxiv:2012.09271}.'
 
 #  cousins:
 #
@@ -67,6 +66,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'
     - user_id: VictorVAlbert
       date: '2026-07-18'
     - user_id: VictorVAlbert

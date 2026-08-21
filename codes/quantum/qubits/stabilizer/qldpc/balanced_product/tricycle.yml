@@ -31,7 +31,7 @@ description: |
   \end{align}
   where \(A\), \(B\), and \(C\) are Kronecker products of circulant matrices representing \(a\), \(b\), and \(c\), and where \(H_{\text{meta}} H_Z = 0\) \cite{arxiv:2508.10714}.
   There are \(|G|\) \(X\)-type checks of weight \(\text{wt}(a)+\text{wt}(b)+\text{wt}(c)\) and \(3|G|\) \(Z\)-type checks; codes are often labeled by their element weights, e.g., \(2\)-\(2\)-\(2\) or \(4\)-\(2\)-\(2\).
-  Decomposing \(G\) into one, two, or three cyclic factors yields \textit{generalized}, \textit{bivariate}, and \textit{trivariate} tricycle codes, respectively \cite{arxiv:2508.10714}.
+  Representations in which \(G\) is decomposed into one, two, or three cyclic factors use one, two, or three circulant tensor factors, respectively \cite{arxiv:2508.10714}.
 
   Connected tricycle codes, i.e., those for which the supports of \(a\), \(b\), and \(c\) generate \(G\), are three-fold homological products over the ring \(R=\mathbb{F}_2[N]\), where \(N\) is the intersection of the three support subgroups \cite{arxiv:2508.10714}.
   Example codes include \([[48,6,(8,4)]]\), \([[108,15,(12,6)]]\), and \([[270,24,(15,8)]]\) codes, with distances listed as \((d_X,d_Z)\) \cite{arxiv:2508.10714}, as well as a \([[72,6,(12,6)]]\) code \cite{arxiv:2508.08191}.
@@ -43,9 +43,9 @@ protection: |
 features:
   rate: 'Tricycle code rates are lower than those of comparable bivariate bicycle codes but much higher than those of three-dimensional homological product codes of comparable block length, including the 3D color code \cite{arxiv:2508.10714}.'
   general_gates:
-    - 'Constant-depth circuits of physical \(CCZ\) gates acting across three code blocks realize logical \(CCZ\) circuits; such circuits are constructed via a symmetric triple cup product modifying the framework of Ref. \cite{arxiv:2410.16250}, with \(4\)-\(2\)-\(2\) codes hosting depth-eight circuits. Applying them to logical \(|+\rangle\) states yields hypergraph magic states \cite{arxiv:2508.10714}.'
-    - 'Fault-tolerant logical gates are studied in Ref. \cite{arxiv:2508.08191}.'
+    - 'Constant-depth circuits of physical \(CCZ\) gates acting across three code blocks realize logical \(CCZ\) circuits; such circuits are constructed via a symmetric triple cup product modifying the framework of Ref. \cite{arxiv:2410.16250}, with \(4\)-\(2\)-\(2\) codes hosting depth-eight circuits. Applying them to logical \(|+\rangle\) states yields hypergraph magic states \cite{arxiv:2508.10714}. Reference \cite{arxiv:2602.23307} determined the pre-orientation conditions for such \textit{copy-cup} gates combinatorially, showing that the non-associative 3-copy-cup gate forces distance two whereas the symmetric variant used here can reach higher distance.'
   fault_tolerance:
+    - 'Fault-tolerant logical operations include transversal \(CZ\) gates between code blocks and shift-automorphism Clifford gates within a block; selected constructions also admit constant-depth logical \(CCZ\) circuits \cite{arxiv:2508.08191}.'
     - 'Single-shot magic-state generation protocol combining single-shot logical-state preparation, constant-depth \(CCZ\) circuits, and single-shot error correction \cite{arxiv:2508.10714}.'
     - 'Optimal-depth syndrome-extraction circuits, along with an implementation protocol for reconfigurable neutral-atom arrays \cite{arxiv:2508.10714}.'
     - 'Weight \(2\)-\(2\)-\(2\) tricycle-type codes appear in transversal dimension-jump code-switching schemes \cite{arxiv:2510.07269}.'
@@ -57,12 +57,12 @@ features:
 
 relations:
   parents:
-    - code_id: multivariate_multicycle
-      detail: 'Tricycle codes are MM codes with \(t=3\), with qubits placed at a level admitting \(Z\)-type metachecks.'
-    - code_id: three_block_quantum
-      detail: 'Tricycle codes are three-block CSS codes whose commuting matrices are constructed from an Abelian \hyperref[topic:group-algebra]{group algebra}.'
     - code_id: qubit_generalized_homological_product_css
       detail: 'Tricycle codes are three-dimensional balanced products of classical group-algebra codes \cite{arxiv:2508.10714}.'
+    - code_id: multivariate_multicycle
+      detail: 'Tricycle codes are MM codes with \(t=3\), with qubits placed at a level admitting \(Z\)-type metachecks \cite{arxiv:2508.10714}.'
+    - code_id: three_block_quantum
+      detail: 'Tricycle codes are three-block CSS codes whose commuting matrices are constructed from an Abelian \hyperref[topic:group-algebra]{group algebra} \cite{arxiv:2508.08191,arxiv:2508.10714}.'
   cousins:
     - code_id: single_shot
       detail: 'Tricycle codes support single-shot decoding in the \(Z\) basis, with single-shot distance equal to \(d_Z\) \cite{arxiv:2508.08191}; soundness has been proven for a subclass of codes, and there is numerical evidence for single-shot logical-state preparation \cite{arxiv:2508.10714}.'
@@ -78,5 +78,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-19'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
     - user_id: VictorVAlbert
       date: '2026-07-18'

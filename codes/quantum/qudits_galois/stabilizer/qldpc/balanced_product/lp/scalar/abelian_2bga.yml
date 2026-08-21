@@ -16,7 +16,7 @@ alternative_names:
   # MB naming for the qubit case from arxiv:2406.19151
 
 description: |
-  A \hyperref[code:2bga]{2BGA code} LP\((a,b)\) whose group \(G\) is Abelian, equivalently a multi-dimensional index-two quasi-cyclic code.
+  A \hyperref[code:2bga]{2BGA code} LP\((a,b)\) whose group \(G\) is Abelian, equivalently a multi-dimensional index-two quasi-cyclic code. 
   Since any finite Abelian group is a direct product of cyclic groups, the \hyperref[topic:group-algebra]{group algebra} elements \(a\) and \(b\) can be treated as multivariate polynomials, and the family includes \hyperref[code:generalized_bicycle]{GB} (one variable), \hyperref[code:qcga]{bivariate bicycle} (two variables), and multivariate bicycle codes, providing some of the best known short codes with small stabilizer weights.
 
   Writing \(G=\mathbb{Z}_{\ell_1}\times \mathbb{Z}_{\ell_2}\times \cdots \times \mathbb{Z}_{\ell_D}\), the elements \(a\) and \(b\) become \(D\)-variate polynomials in \(\mathbb{F}_q[x_1,\ldots,x_D]/\langle x_1^{\ell_1}-1,\ldots,x_D^{\ell_D}-1 \rangle\), yielding stabilizer generator matrices
@@ -40,6 +40,7 @@ protection: |
 features:
   general_gates:
     - 'Fault-tolerant logical circuits implemented via transversal operations combined with qubit permutations have been found for several such codes using code automorphism groups \cite{arxiv:2406.19151}.'
+    - 'Certain qubit Abelian 2BGA codes admit a constant-depth inter-code logical \(CZ\) gate (acting between two copies of the code) via the 2-copy-cup gate when the check polynomials satisfy a pre-orientation condition equivalent to a graph perfect-matching problem; examples include the \hyperref[code:copycup_16_6_4]{\([[16,6,4]]\) copy-cup code} and check-weight-six codes such as \([[72,8,6]]\), \([[108,12,6]]\), and \([[144,16,6]]\) \cite{arxiv:2602.23307}.'
 
   code_capacity_threshold:
     - 'Abelian 2BGA codes are \(em\)-symmetric. As a result, zero-rate qubit Abelian 2BGA code families with fixed check weight, polynomially growing distance, and a unique threshold have optimal code capacity thresholds constrained by a generalized Kramers-Wannier self-duality of the associated statistical mechanical models \cite{arxiv:2607.21160}.'
@@ -63,6 +64,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-19'
     - user_id: VictorVAlbert
       date: '2026-07-29'
     - user_id: VictorVAlbert

@@ -17,7 +17,7 @@ alternative_names:
 
 description: |
   A \hyperref[code:multi_block_quantum]{multi-block CSS code} whose \(t\) commuting matrices are built from an Abelian \hyperref[topic:group-algebra]{group algebra}, parameterized by \(t\) polynomials in \(D\) variables via a Koszul complex.
-  The construction unifies many known qLDPC families---including \hyperref[code:qcga]{bivariate bicycle}, \hyperref[code:abelian_2bga]{Abelian 2BGA}, \hyperref[code:generalized_bicycle]{generalized bicycle}, \hyperref[code:tricycle]{tricycle}, and \hyperref[code:higher_dimensional_toric]{toric} codes---and, for \(t \geq 4\), yields codes with metachecks in both bases that support complete \hyperref[code:single_shot]{single-shot} decoding.
+  The construction unifies many known QLDPC families---including \hyperref[code:qcga]{bivariate bicycle}, \hyperref[code:abelian_2bga]{Abelian 2BGA}, \hyperref[code:generalized_bicycle]{generalized bicycle}, \hyperref[code:tricycle]{tricycle}, and \hyperref[code:higher_dimensional_toric]{toric} codes---and, for \(t \geq 4\), yields codes with metachecks in both bases that support complete \hyperref[code:single_shot]{single-shot} decoding.
 
   Writing \(G \cong \mathbb{Z}_{\ell_1}\times\cdots\times\mathbb{Z}_{\ell_D}\), the group algebra is isomorphic to the quotient polynomial ring \(S=\mathbb{F}_q[x_1,\ldots,x_D]/\langle x_1^{\ell_1}-1,\ldots,x_D^{\ell_D}-1\rangle\), so that a code is specified by \(t\) polynomials \(F_1,\ldots,F_t \in S\) in \(D\) variables.
   The number of polynomials \(t\) (the number of ``cycles'') and the number of variables \(D\) can be chosen independently.
@@ -32,16 +32,12 @@ description: |
   Any five-term segment of a longer chain complex yields an mCSS code, and the middle five terms of an MM code's Koszul complex with even \(t\) yield a balanced mCSS code.
   MM codes with \(t \geq 4\) possess metachecks in both bases as well as high confinement, permitting complete \hyperref[code:single_shot]{single-shot} decoding \cite{arxiv:2601.18879}.
 
-  \subsection{Subfamilies}
-
   Fixing \(t\) and \(D\) recovers several known code families, each admitting an explicit realization in terms of MM polynomials \cite{arxiv:2601.18879}.
-  The case \(t=2\) yields \hyperref[code:abelian_2bga]{Abelian 2BGA codes}, which include \hyperref[code:generalized_bicycle]{GB codes} (\(D=1\)), \hyperref[code:qcga]{bivariate bicycle codes} (\(D=2\)), multivariate bicycle codes, \hyperref[code:cyclic_hgp]{cyclic HGP codes} and \hyperref[code:lacross]{La-cross codes} (\(D=2\) with polynomials in disjoint variables), and \hyperref[code:haah_cubic]{Haah cubic codes} (\(D=3\)).
+  The case \(t=2\) yields \hyperref[code:abelian_2bga]{Abelian 2BGA codes}, which include \hyperref[code:generalized_bicycle]{GB codes} (\(D=1\)), \hyperref[code:qcga]{bivariate bicycle codes} (\(D=2\)), higher-variable Abelian 2BGA codes, \hyperref[code:cyclic_hgp]{cyclic hypergraph-product codes} (\(D=2\) with polynomials in disjoint variables), \hyperref[code:lacross]{La-cross codes} with periodic boundary conditions (\(D=2\), with \(G=\mathbb{Z}_n\times\mathbb{Z}_n\)), and \hyperref[code:haah_cubic]{Haah cubic codes} on a cubic lattice (\(D=3\)).
   The case \(t=3\) yields \hyperref[code:tricycle]{tricycle codes}.
   Weight-two elements \(a_i=1+x_i\) with \(t=D\) yield \(D\)-dimensional \hyperref[code:higher_dimensional_toric]{toric codes} on regular or twisted tori, with arbitrary twists realized via general group presentations \cite{arxiv:2506.16910}.
 
-  \subsection{Examples}
-
-  New \(t \geq 4\) codes obtained via numerical search include \([[96,12,8]]\), \([[144,12,12]]\) (sharing the parameters of, but distinct from, the \([[144,12,12]]\) bivariate bicycle gross code \cite{arxiv:2308.07915}), \([[216,12,14]]\), \([[288,12,16]]\), \([[324,12,20]]\), \([[432,12,27]]\), \([[486,24,12]]\), \([[630,70,9]]\), and \([[648,18,23]]\) codes, as well as a \([[648,60,(9,9)]]\) code whose check and metacheck matrices are written out explicitly \cite{arxiv:2601.18879}.
+  New \(t \geq 4\) codes obtained via numerical search include \([[96,12,8]]\), \([[144,12,12]]\) (sharing the parameters of, but distinct from, the \([[144,12,12]]\) \hyperref[code:gross]{gross code} \cite{arxiv:2308.07915}), \([[216,12,14]]\), \([[288,12,16]]\), \([[324,12,20]]\), \([[432,12,27]]\), \([[486,24,12]]\), \([[630,70,9]]\), and \([[648,18,23]]\) codes, as well as a \([[648,60,(9,9)]]\) code whose check and metacheck matrices are written out explicitly \cite{arxiv:2601.18879}.
   A family of MM codes locally equivalent to 4D toric codes, with weight-six stabilizer generators and \(k=6\), is constructed in Ref. \cite{arxiv:2506.16910}.
   Codes with \(t=5\) through \(t=9\) provide the first explicit instances of collapsed 5D through 9D higher-dimensional codes \cite{arxiv:2601.18879}.
 
@@ -61,8 +57,10 @@ notes:
 relations:
   parents:
     - code_id: multi_block_quantum
-      detail: 'MM codes are multi-block CSS codes whose commuting matrices represent Abelian group-algebra elements.'
+      detail: 'MM codes are multi-block CSS codes whose commuting matrices represent Abelian group-algebra elements \cite{arxiv:2506.16910,arxiv:2601.18879}.'
   cousins:
+    - code_id: lacross
+      detail: 'La-cross codes with periodic boundary conditions are \(t=2\) MM codes over \(\mathbb{Z}_n\times\mathbb{Z}_n\); their open-boundary versions fall outside the periodic group-algebra construction \cite{arxiv:2404.13010,arxiv:2601.18879}.'
     - code_id: multisector_hypergraph
       detail: 'MM codes are related to \(D\)-dimensional homological (hypergraph) product codes in exactly the same way that two-block codes are related to hypergraph-product codes, and can be viewed as collapsed versions of \(t\)-fold products of two-term complexes \cite{arxiv:2506.16910,arxiv:2601.18879}.'
     - code_id: double_homological_product
@@ -77,5 +75,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'
     - user_id: VictorVAlbert
       date: '2026-07-18'

@@ -11,22 +11,25 @@ name: 'La-cross code'
 introduced: '\cite{arxiv:2404.13010}'
 
 description: |-
-  Code constructed using a hypergraph product of two copies of a cyclic LDPC code.
-  The construction uses cyclic LDPC codes with \hyperref[topic:Cyclic-to-polynomial-correspondence]{generating polynomials} \(1+x+x^k\) for some \(k\).
-  Using a length-\(n\) seed code yields an \([[2n^2,2k^2]]\) family for periodic boundary conditions and an \([[(n-k)^2+n^2,k^2]]\) family for open boundary conditions.
+  La-cross codes are hypergraph products of two copies of a classical seed code with \hyperref[topic:Cyclic-to-polynomial-correspondence]{generating polynomial} \(1+x+x^k\) for some \(k\) \cite{arxiv:2404.13010}.
+  They are high-rate quantum LDPC codes with moderate-range, weight-six checks suited to neutral-atom registers.
+
+  A square circulant seed of length \(n\) gives a periodic-boundary code with parameters \([[2n^2,2k^2]]\).
+  A rectangular full-rank seed \(H\in\mathbb{F}_2^{(n-k)\times n}\) instead gives an open-boundary code with parameters \([[(n-k)^2+n^2,k^2]]\).
 
 relations:
   parents:
     - code_id: hypergraph_product
-      detail: 'La-cross codes are constructed using a hypergraph product of a cyclic LDPC code with itself.'
-    - code_id: quantum_cyclic
+      detail: 'La-cross codes are hypergraph products of two identical classical seed codes with generating polynomial \(1+x+x^k\) \cite{arxiv:2404.13010}.'
   cousins:
     - code_id: qc_ldpc
-      detail: 'La-cross codes are constructed using a hypergraph product of a cyclic LDPC code with itself.'
+      detail: 'Periodic-boundary La-cross codes are hypergraph products of classical quasi-cyclic (cyclic) LDPC seed codes \cite{arxiv:2404.13010}.'
 
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-19'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: 'VictorVAlbert'
