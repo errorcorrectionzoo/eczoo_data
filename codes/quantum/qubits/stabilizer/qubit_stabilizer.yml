@@ -115,6 +115,17 @@ description: |
   Properties of the underlying graph are related to properties of the code; for example, bipartite encoder-respecting graphs yield CSS codes, and graph degree controls bounds on code distance, stabilizer weight, and encoding-circuit depth \cite{arxiv:2411.14448}.
   \end{defterm}
 
+  The \hyperref[topic:CSS-to-homology-correspondence]{qubit CSS-to-homology correspondence} extends to arbitrary stabilizer codes via the \hyperref[topic:symplectic-complex]{symplectic complex} representation \cite{arxiv:2608.16995}.
+
+  \begin{defterm}{Symplectic complex}
+  \label{topic:symplectic-complex}
+  Any stabilizer code can be written as a \textit{symplectic complex}, a three-term chain complex \(S\xrightarrow{\sigma}P\xrightarrow{\hat{\sigma}}\bar{S}\).
+  Its terms are the check space \(S\), the Pauli space \(P=\mathbb{F}_2^{2n}\) equipped with a symplectic form, and the syndrome space \(\bar{S}\).
+  The symplectic form and stabilizer map \(\sigma\) determine the syndrome map \(\hat{\sigma}\) \cite{arxiv:2608.16995}.
+  The homology of the middle term consists of the equivalence classes of logical operators, and it inherits an induced symplectic form encoding their commutation relations \cite{arxiv:2608.16995}.
+  For CSS codes, the symplectic complex is the direct sum of the code's CSS chain complex and the corresponding cochain complex, each acting on one of the two Pauli sectors \cite{arxiv:2608.16995}.
+  \end{defterm}
+
   Alternative representations include the \textit{decoupling representation}, in which Pauli strings are represented as vectors over \(\mathbb{F}_2\) using three bits \cite{arxiv:2305.17505}.
 
 
@@ -343,6 +354,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

@@ -1,0 +1,68 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: symplectic_cone
+physical: qubits
+logical: qubits
+
+name: 'Symplectic cone code'
+introduced: '\cite{arxiv:2608.16995}'
+
+description: |
+  Qubit stabilizer code obtained by attaching a CSS ancillary complex to an input stabilizer code represented as a symplectic complex.
+  Gluing and defect maps preserve the symplectic commutation structure, while an embedded column complex controls the logical operators of the output.
+  The construction generalizes the \hyperref[code:mapping_cone]{mapping cone} framework of quantum code embedding from CSS codes to arbitrary stabilizer codes, thereby extending fault-tolerant logical measurement, geometrically local embedding, and \hyperref[topic:weight-reduction]{weight reduction} to codes and logical operators that admit no CSS structure \cite{arxiv:2608.16995}.
+
+  Formally, the input code is written as a \hyperref[topic:symplectic-complex]{symplectic complex}.
+  A symplectic cone code is a height-two cone whose middle level is the input-code symplectic complex.
+  Its top and bottom levels are an ancillary cochain complex and the corresponding chain complex, respectively.
+  The levels are glued together by a chain map that is compatible with a defect map, and the cone carries a mixed symplectic form pairing the two ancillary sectors.
+  If the ancillary complex \(A\) has \(H_1(A)=0\), the logical space \(H_1(C)\) is naturally isomorphic to that of the embedded column complex \(H^0(A)\to H_1(D)\to H_0(A)\) \cite[Thm. 2]{arxiv:2608.16995}.
+  This column-complex homology need not equal the logical space of the input code \(D\).
+  The Layer code and weight-reduction applications choose the column complex to preserve the input logical space.
+  For measurement of one logical operator \(\ell^{\star}\), it instead gives \(H_1(C)\cong[\ell^{\star}]^{\perp}/[\ell^{\star}]\), so the deformed code has one fewer logical qubit.
+  Although the ancilla is CSS in isolation, its checks are generically dressed with extra Pauli support of the opposite type once glued, so the output code is generally non-CSS even when the input code is CSS \cite{arxiv:2608.16995}.
+
+protection: |
+  The distance of a symplectic cone code can be lower bounded in terms of the distance of its embedded code via the cleaning lemma of the \hyperref[code:mapping_cone]{mapping cone} framework \cite{arxiv:2507.05361,arxiv:2608.16995}.
+
+features:
+  fault_tolerance:
+    - |
+      A single weight-\(W\) non-CSS logical operator of a QLDPC code can be measured fault-tolerantly using an \(O(W\log W)\)-qubit ancilla \cite[Thm. 32]{arxiv:2608.16995}.
+      When the measurement graph has constant expansion, the deformed code retains distance \(\Omega(d)\).
+      A spacetime fault complex establishes a threshold for the procedure.
+      Native parallel measurement of general commuting non-CSS logical operators remains open \cite{arxiv:2608.16995}.
+    - |
+      The fast-surgery framework \cite{arxiv:2510.04521} extends conditionally to non-CSS logical measurement when a suitable CSS ancilla with meta-syndromes and relative expansion is available \cite[Appx. D]{arxiv:2608.16995}.
+      The paper does not construct low-overhead fast-surgery ancillas for arbitrary commuting logical sets that cannot all be made CSS by one tensor product of single-qubit Clifford gates \cite{arxiv:2608.16995}.
+
+relations:
+  parents:
+    - code_id: qubit_stabilizer
+      detail: |-
+        A symplectic cone code is a qubit stabilizer code whose \hyperref[topic:symplectic-complex]{symplectic complex} has an ancillary cochain level, an input-code level, and an ancillary chain level.
+        Its stabilizer map is lower triangular, and a mixed symplectic form pairs the two ancillary sectors.
+        When \(H_1(A)=0\), the output logical space is naturally isomorphic to the homology of the embedded column complex \cite[Thm. 2]{arxiv:2608.16995}.
+  cousins:
+    - code_id: mapping_cone
+      detail: 'The symplectic cone framework generalizes height-two CSS mapping cones to arbitrary stabilizer codes. The full mapping-cone family also contains cones of other heights, so neither family contains the other \cite{arxiv:2507.05361,arxiv:2608.16995}.'
+    - code_id: qldpc
+      detail: 'For a QLDPC input and a bounded-degree expanding measurement graph, the symplectic-cone construction remains QLDPC and measures a single non-CSS logical operator without first converting it to a CSS representative by a local Clifford circuit \cite{arxiv:2608.16995}.'
+    - code_id: surface
+      detail: 'Measurement of a logical \(Y\) operator of the surface code is an example of non-CSS surgery, with the defect map dressing the attached CSS ancilla such that the deformed code is non-CSS \cite[Fig. 1]{arxiv:2608.16995}.'
+    - code_id: distance_balanced
+      detail: 'Symplectic cones extend \hyperref[topic:weight-reduction]{weight reduction} to non-CSS input codes, producing codes with maximum stabilizer-generator weight nine, total qubit degree at most eight, and block length \(O(w^4q^4)n\) for an \(n\)-qubit input of check weight \(w\) and total qubit degree \(q\) \cite[Thm. 53]{arxiv:2608.16995}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
+    - user_id: VictorVAlbert
+      date: '2026-08-22'

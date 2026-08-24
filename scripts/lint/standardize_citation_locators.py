@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
-"""Standardize malformed citation locators in YAML files.
+r"""Standardize malformed citation locators in YAML files.
 
 This rewrites prose patterns like
 
     Ch. 9 of Ref. \cite{foo}
     see section 2.2.1 Ref. \cite{foo}
     (\cite{foo}, Ch. 27)
+    Appx. A of Ref. \cite{foo}
 
 into LaTeX locator form
 
     \cite[Ch. 9]{foo}
     see \cite[Sec. 2.2.1]{foo}
-    (\cite[Ch. 27]{foo})
+    \cite[Ch. 27]{foo}
+    \cite[Appx. A]{foo}
+
+A locator is only ever a structured reference (7, 2.2.1, III, II.A, A, 3a,
+"4.1 and 4.2"), never free prose, so sentences like "many examples of X are
+given in Ref. \cite{y}" are left alone.
 
 By default, the script reports proposed changes. Pass ``--write`` to update files.
+Pass ``--selftest`` to run the built-in rewrite / false-positive tests.
 """
 
 from __future__ import annotations
@@ -29,8 +36,22 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CODES_DIR = ROOT / "codes"
 
-CITE_RE = r"\\cite\{[^}]+\}"
-LOCATOR_VALUE_RE = r"[A-Za-z0-9().,\-–/ ]+?"
+# A cite key may itself contain braces, e.g. \cite{manual:{A. Author, "Title", 2024}}.
+# Allow one level of nesting so such keys are matched (and rewritten) in full.
+CITE_RE = r"\\cite\{(?:[^{}]|\{[^{}]*\})+\}"
+
+# A locator is a structured reference (7, 2.2.1, III, II.A, A, 3a, 152-160,
+# "4.1 and 4.2") -- never free prose. Constraining it to these atoms is what
+# keeps ordinary sentences such as "many examples of X are given in Ref. \cite{y}"
+# from being parsed as <kind="examples", locator="of X are given in">.
+# (?-i: ...) keeps the atom case-sensitive even though the surrounding patterns
+# are compiled with re.IGNORECASE. Without it, [A-Z][a-z]? matches English words
+# like "in" and "of", which is how prose slipped through as a locator.
+_LOCATOR_ATOM = (
+    r"(?-i:(?:[0-9]+|[IVXLCDM]+|[A-Z])(?:\.(?:[0-9]+|[IVXLCDM]+|[A-Z]))*[a-z]?)"
+)
+_LOCATOR_SEP = r"(?:\s*[,&]\s*|\s*[-–]\s*|\s+(?:and|to)\s+)"
+LOCATOR_VALUE_RE = rf"{_LOCATOR_ATOM}(?:{_LOCATOR_SEP}{_LOCATOR_ATOM})*"
 
 
 @dataclass(frozen=True)
@@ -69,16 +90,18 @@ def _abbrev(kind: str, locator_value: str) -> str:
         "props": ("Prop.", "Props."),
         "proposition": ("Prop.", "Props."),
         "propositions": ("Prop.", "Props."),
-        "cor": ("Cor.", "Cors."),
-        "cors": ("Cor.", "Cors."),
-        "corr": ("Cor.", "Cors."),
-        "corollary": ("Cor.", "Cors."),
-        "corollaries": ("Cor.", "Cors."),
-        "ex": ("Ex.", "Exs."),
-        "exs": ("Ex.", "Exs."),
-        "exam": ("Ex.", "Exs."),
-        "example": ("Ex.", "Exs."),
-        "examples": ("Ex.", "Exs."),
+        "cor": ("Corr.", "Corrs."),
+        "cors": ("Corr.", "Corrs."),
+        "corr": ("Corr.", "Corrs."),
+        "corrs": ("Corr.", "Corrs."),
+        "corollary": ("Corr.", "Corrs."),
+        "corollaries": ("Corr.", "Corrs."),
+        "ex": ("Exam.", "Exams."),
+        "exs": ("Exam.", "Exams."),
+        "exam": ("Exam.", "Exams."),
+        "exams": ("Exam.", "Exams."),
+        "example": ("Exam.", "Exams."),
+        "examples": ("Exam.", "Exams."),
         "fig": ("Fig.", "Figs."),
         "figs": ("Fig.", "Figs."),
         "figure": ("Fig.", "Figs."),
@@ -89,10 +112,20 @@ def _abbrev(kind: str, locator_value: str) -> str:
         "eqs": ("Eq.", "Eqs."),
         "equation": ("Eq.", "Eqs."),
         "equations": ("Eq.", "Eqs."),
-        "app": ("App.", "Apps."),
-        "apps": ("App.", "Apps."),
-        "appendix": ("App.", "Apps."),
-        "appendices": ("App.", "Apps."),
+        "app": ("Appx.", "Appxs."),
+        "apps": ("Appx.", "Appxs."),
+        "appx": ("Appx.", "Appxs."),
+        "appxs": ("Appx.", "Appxs."),
+        "appendix": ("Appx.", "Appxs."),
+        "appendices": ("Appx.", "Appxs."),
+        "def": ("Def.", "Defs."),
+        "defs": ("Def.", "Defs."),
+        "definition": ("Def.", "Defs."),
+        "definitions": ("Def.", "Defs."),
+        "rem": ("Rem.", "Rems."),
+        "rems": ("Rem.", "Rems."),
+        "remark": ("Rem.", "Rems."),
+        "remarks": ("Rem.", "Rems."),
         "pg": ("pg.", "pp."),
         "page": ("pg.", "pp."),
         "pages": ("pg.", "pp."),
@@ -111,16 +144,15 @@ def _normalize_locator(kind: str, locator_value: str) -> str:
 
 
 def _inject_locator(cite: str, locator: str) -> str:
-    match = re.fullmatch(r"\\cite\{([^}]+)\}", cite)
+    match = re.fullmatch(r"\\cite\{((?:[^{}]|\{[^{}]*\})+)\}", cite)
     if not match:
         return cite
     return f"\\cite[{locator}]{{{match.group(1)}}}"
 
 
 def _strip_wrapping_cite_parentheses(text: str) -> str:
-    wrapped_cite_re = re.compile(
-        r"\((\\cite(?:\[[^]]*\])?\{[^}]+\}(?:\\cite(?:\[[^]]*\])?\{[^}]+\})*)\)"
-    )
+    inner = r"\\cite(?:\[[^]]*\])?\{(?:[^{}]|\{[^{}]*\})+\}"
+    wrapped_cite_re = re.compile(rf"\(({inner}(?:{inner})*)\)")
     return wrapped_cite_re.sub(r"\1", text)
 
 
@@ -143,7 +175,9 @@ LOCATOR_KIND_RE = (
     r"Fig(?:s|ures?)?\.?|"
     r"Tables?|"
     r"Eq(?:s|uations?)?\.?|"
-    r"App(?:s|end(?:ix|ices))?\.?|"
+    r"Appxs?\.?|App(?:s|end(?:ix|ices))?\.?|"
+    r"Defs?\.?|Definitions?|"
+    r"Rems?\.?|Remarks?|"
     r"pg\.?|pages?"
 )
 
@@ -259,9 +293,57 @@ def process_files(write: bool, files: list[Path] | None = None) -> int:
     return changed
 
 
+SELFTEST_REWRITES = [
+    # (input, expected output) -- prose that really does carry a locator
+    (r"Ch. 9 of Ref. \cite{foo}", r"\cite[Ch. 9]{foo}"),
+    (r"see section 2.2.1 Ref. \cite{foo}", r"see \cite[Sec. 2.2.1]{foo}"),
+    (r"(\cite{foo}, Ch. 27)", r"\cite[Ch. 27]{foo}"),
+    (r"Thms. 4.1 and 4.2 of Ref. \cite{foo}", r"\cite[Thms. 4.1 and 4.2]{foo}"),
+    (r"Sec. II.A of Ref. \cite{foo}", r"\cite[Sec. II.A]{foo}"),
+    (r"Appendix B of Ref. \cite{foo}", r"\cite[Appx. B]{foo}"),
+]
+
+SELFTEST_UNCHANGED = [
+    # Ordinary prose in which a locator keyword happens to appear. Every one of
+    # these was mangled by the pre-2026-08 locator regex, which let the locator
+    # group swallow arbitrary words.
+    r"Examples in Ref. \cite{arxiv:2410.18713} are the tessellations",
+    r"In the three explicit examples of Ref. \cite{arxiv:2410.18713}, errors are correctable",
+    r"another example of monodromy under the notion of parallel transport introduced in Ref. \cite{arxiv:1309.7062}.",
+    r"Many examples have been found by computer algebra programs. Ref. \cite{arxiv:1007.1697} gives examples",
+    r"A table of non-stabilizer Knill codes is available in Ref. \cite{manual:{A. Klappenecker, Title, 4(2), 152-160 (2004)}}.",
+    r"Some upper and lower bounds on parameters and many examples of 2BGA codes are given in Ref. \cite{arxiv:2306.16400}.",
+    # Already in locator form: must be left alone.
+    r"\cite[Sec. IV]{arxiv:1234.5678}",
+    r"\cite[Ch. 1, pg. 13]{doi:10.1007/978-1-4757-6568-7}",
+]
+
+
+def run_selftest() -> int:
+    failures = 0
+    for text, expected in SELFTEST_REWRITES:
+        got = standardize_text(text)
+        if got != expected:
+            failures += 1
+            print(f"REWRITE FAIL\n  in:       {text}\n  expected: {expected}\n  got:      {got}")
+    for text in SELFTEST_UNCHANGED:
+        got = standardize_text(text)
+        if got != text:
+            failures += 1
+            print(f"FALSE POSITIVE\n  in:  {text}\n  got: {got}")
+    total = len(SELFTEST_REWRITES) + len(SELFTEST_UNCHANGED)
+    print(f"selftest: {total - failures}/{total} passed")
+    return 1 if failures else 0
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true", help="rewrite files in place")
+    parser.add_argument(
+        "--selftest",
+        action="store_true",
+        help="run the built-in rewrite/false-positive tests and exit",
+    )
     parser.add_argument(
         "paths",
         nargs="*",
@@ -287,6 +369,8 @@ def expand_paths(paths: list[Path]) -> list[Path]:
 
 def main() -> int:
     args = parse_args()
+    if args.selftest:
+        return run_selftest()
     files = expand_paths(args.paths)
     changed = process_files(write=args.write, files=files)
     mode = "updated" if args.write else "would update"

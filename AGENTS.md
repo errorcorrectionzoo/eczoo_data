@@ -61,7 +61,13 @@ the one intended. Outside the stabilizer setting the equivalence is one-way:
 degenerate qubit codes are impure, but impure codes need not be degenerate
 (`qubits_into_qubits.yml`).
 
-**7. Run the relation checkers after any hierarchical edit.** Whenever you add,
+**7. Typical sentence length.** Write prose sentences in line with the length of
+typical sentences in this repo: one main clause plus at most a modifier or two,
+one sentence per line. Do not chain several constructions into a single long
+sentence with "and"/"whose"/"with"/participles — split it into consecutive
+shorter sentences. If a sentence needs re-reading to parse, it is too long.
+
+**8. Run the relation checkers after any hierarchical edit.** Whenever you add,
 move, or reparent parents/cousins, run all three from the repo root and fix
 what they report:
 
