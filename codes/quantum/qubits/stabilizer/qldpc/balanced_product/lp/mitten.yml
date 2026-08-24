@@ -1,0 +1,80 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: mitten
+physical: qubits
+logical: qubits
+
+name: 'Mitten code'
+introduced: '\cite{arxiv:2607.28795}'
+
+description: |
+  Member of a family of \hyperref[code:lifted_product]{LP codes} of stabilizer generator weight nine and encoding rate at least \(20\%\), built from one-by-two base matrices over the group algebra of a non-Abelian group.
+  The shape of the base matrices fixes the rate, while taking the lift group non-Abelian removes a distance ceiling suffered by Abelian lifts of the same shape, allowing distances of about \(20\) with only a few hundred data qubits.
+  Their small block size, together with a logical basis permuted by the group action, admits low-overhead and highly parallel logical operations.
+
+  The code is \(\mathrm{LP}(A,B)\), i.e., the \(G\)-\hyperref[topic:lifting]{lift} of base matrices \(A=[a_0~a_1]\) and \(B=[b_0~b_1]\) over the group algebra \(\mathbb{F}_2[G]\) of a non-Abelian group \(G\), in the canonical form
+  \begin{align}
+    A = [\,g_1+g_2+g_3~~e+g_4+g_5\,]~,\qquad B = [\,h_1+h_2+h_3~~e+h_4+h_5\,]~,
+  \end{align}
+  where \(e\) is the identity and \(g_i,h_i\) are group elements, and where the left regular representation of \(a_1\) and the right regular representation of \(b_1\) are required to be full rank.
+  The resulting code has five blocks of \(|G|\) data qubits and two blocks each of \(X\)- and \(Z\)-type checks.
+  The name comes from the block structure of the check matrices, in which each check has four similar columns (the fingers) together with a distinguished one (the thumb).
+
+  Instances have been obtained by an automated search \cite{arxiv:2607.28795}, including \([[150,30,10]]\) over \(C_5 \times S_3\), \([[200,40,12]]\) over \(C_4 \times D_{10}\) (the dihedral group of order ten), \([[300,60,14]]\) over \(C_{10} \times S_3\), \([[500,100,16]]\) over \(C_5 \rtimes C_{20}\), and \([[540,108,18]]\) over \(C_9 \rtimes C_{12}\), whose distances are exact.
+  Three larger reported instances have parameters \([[630,126,\leq 20]]\), \([[780,156,\leq 22]]\), and \([[975,195,\leq 24]]\).
+
+protection: |
+  Were the lift group Abelian, the minimum-weight codeword of the first base matrix would produce a logical operator of that weight, capping the distance at the weight of the base matrices and hence at six for this shape; a non-Abelian lift group removes the cap \cite{arxiv:2607.28795}.
+
+features:
+  rate: 'The one-by-two shape of the base matrices guarantees an encoding rate of at least \(20\%\), and every reported instance realizes exactly that rate \cite{arxiv:2607.28795}.'
+
+  general_gates:
+    - |
+      Mitten codes admit a canonical logical basis whose \(X\)- and \(Z\)-type representatives each form a single orbit of the group action on an identity-element representative \cite{arxiv:2607.28795}.
+      Each representative is supported on only two of the five data blocks, and the supports of a conjugate pair intersect in exactly one data qubit.
+      This structure yields a modular logical toolkit based on graph surgery: all Clifford operations follow either from bridging two reusable seed surgery gadgets of tens of qubits each, or from a single fixed extractor that can measure any logical Pauli product.
+    - 'Many logical measurements can be executed in parallel by parallel surgery, and magic states can be injected into all logical qubits at once, supplying the non-Clifford resource for universal computation \cite{arxiv:2607.28795}.'
+
+  decoders:
+    - |
+      Telescoping decoder, which sends progressively harder shots through successive BP, Relay-BP, and integer-programming stages \cite{arxiv:2607.28795}.
+
+  fault_tolerance:
+    - |
+      Searches with sQetch found syndrome-extraction schedules estimated to preserve circuit-level distance for the reported instances other than the \([[150,30,10]]\) code, whose best schedule has estimated circuit-level distance eight \cite{arxiv:2607.28795}.
+      Distance preservation for both the memory and surgery schedules is supported by randomized circuit-distance estimates rather than exhaustive certificates.
+
+  threshold:
+    - |
+      Circuit-level numerics under depolarizing noise, with no idling noise, are consistent with an effective finite-size threshold of about \(0.7\%\) for the family as a memory \cite{arxiv:2607.28795}.
+    - |
+      Under the same noise model and without extrapolation, the \([[300,60,14]]\) code attains a block logical error rate of about \(10^{-11}\) per round at \(0.1\%\) physical error rate.
+      At \(0.4\%\), the \([[975,195,\leq 24]]\) code reaches about \(4\times 10^{-8}\), nearly two orders of magnitude below a \([[112320,195,24]]\) stack of rotated surface codes decoded by MWPM while using two orders of magnitude fewer physical qubits \cite{arxiv:2607.28795}.
+      Decoding \(15\) billion logical surgery operations on the \([[540,108,18]]\) code at \(0.1\%\) yielded two logical failures.
+
+
+relations:
+  parents:
+    - code_id: qubit_generalized_homological_product_css
+      detail: 'Mitten codes are qubit CSS codes obtained from a product of chain complexes over a group algebra \cite{arxiv:2607.28795}.'
+    - code_id: lifted_product
+      detail: 'Mitten codes are LP codes of one-by-two base matrices over a non-Abelian group algebra, taken in a canonical form in which the left regular representation of \(a_1\) and the right regular representation of \(b_1\) are full rank \cite{arxiv:2607.28795}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
+    - user_id: VictorVAlbert
+      date: '2026-08-22'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'

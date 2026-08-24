@@ -75,13 +75,19 @@ what they report:
 python3 scripts/relations/redundant_primary_parent.py
 python3 scripts/relations/redundant_direct_children.py
 python3 scripts/relations/check_duplicate_relations.py
+python3 scripts/relations/primary_parent_kingdom.py
 ```
 
 They catch, respectively: a primary parent already implied via a
 secondary-parent chain; a direct child already reachable through an
-intermediate code; and duplicate/conflicting relations (both sides declaring
-the same cousin, or a pair related as both parent and cousin).
-`check_duplicate_relations.py` exits non-zero on violations.
+intermediate code; duplicate/conflicting relations (both sides declaring
+the same cousin, or a pair related as both parent and cousin); and a
+primary-parent chain that leaves the code's home kingdom (the PRIMARY parent
+determines where the site's hierarchy displays a code, so a cross-kingdom
+parent — e.g. a Galois-qudit entry above a purely-qubit code — must be
+demoted to secondary and an in-kingdom parent promoted to first).
+`check_duplicate_relations.py` and `primary_parent_kingdom.py` exit non-zero
+on violations.
 
 Before submitting, also run `scripts/relations/find_property_codes.py` and the
 lint scripts `spellcheck.py`, `remove_trailing_block_apostrophes.py`, and
@@ -131,7 +137,7 @@ describing its exact behavior and usage.
 
 - `scripts/relations/` — hierarchy tools. Checkers: `redundant_primary_parent`,
   `redundant_direct_children`, `check_duplicate_relations`,
-  `find_property_codes`, `outside_folder_descendants`. Queries: `ancestors`,
+  `primary_parent_kingdom`, `find_property_codes`, `outside_folder_descendants`. Queries: `ancestors`,
   `ancestor_tree`, `children`, `children_tree`, `cousins`. Also
   `dedup_codes.py`, a **ladder of stabilizer/CSS-code equivalence tests** (requires
   `numpy` + `pynauty`; run `--selftest`, or `--json codes.json [--lc]`). Cheapest
