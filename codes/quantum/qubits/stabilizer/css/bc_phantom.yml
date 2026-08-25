@@ -19,9 +19,13 @@ description: |
   The subsequent \([[4,2,2]]\) layer maps a single \(\mathbb{F}_4\)-qudit Pauli to four-qubit Paulis, e.g.,
   \(X^\omega\mapsto XXII\), \(X^{\omega^2}\mapsto XIXI\), \(X^1\mapsto IXXI\), and similarly \(Z^{\omega^2}\mapsto IIZZ\), \(Z^\omega\mapsto IZIZ\), \(Z^1\mapsto IZZI\) \cite{arxiv:2601.20927}.
 
+  This binarization-and-concatenation step is the second stage of \hyperref[topic:symplectic-doubling]{concatenated symplectic doubling}, which concatenates each binarized qubit pair with the \([[4,2,2]]\) code along a \(ZX\) duality \cite[Corr. 1]{arxiv:1004.3791}\cite[Corr. 2]{arxiv:2605.15344}.
+  The starting Galois-qudit CSS code is a \hyperref[topic:symplectic-doubling]{symplectic double} of a qubit stabilizer code if and only if it is \hyperref[code:galois_css]{Hermitian self-dual}.
+  In that case the resulting code is the concatenated symplectic double of that qubit stabilizer code and is a \hyperref[code:self_dual_css]{self-dual CSS code}, while codes built from Euclidean self-dual starting codes are not obtained this way \cite{arxiv:2601.20927,arxiv:2605.15344}.
+
 protection: |
   A starting \([[n,1,d]]_4\) CSS code yields a qubit CSS code with parameters \([[4n,2,\geq 2d]]\) after binarization and concatenation with the \([[4,2,2]]\) code \cite{arxiv:2601.20927}.
-  The inner \([[4,2,2]]\) blocks contribute many weight-four stabilizers, while completing the stabilizer group may require generators whose weight is at least the code distance.
+  The outer \([[4,2,2]]\) blocks contribute many weight-four stabilizers, while completing the stabilizer group may require generators whose weight is at least the code distance.
 
 features:
   transversal_gates:
@@ -38,12 +42,14 @@ relations:
     - code_id: galois_3_1_2
       detail: 'Binarizing the \([[3,1,2]]_4\) Galois-qudit CSS code and concatenating each qubit pair with the \([[4,2,2]]\) code yields the \([[12,2,4]]\) carbon code \cite{arxiv:2601.20927}.'
     - code_id: stab_4_2_2
-      detail: 'The \([[4,2,2]]\) code is used as the inner code for each binarized \(\mathbb{F}_4\)-qudit pair \cite{arxiv:2601.20927}.'
+      detail: 'The \([[4,2,2]]\) code is used as the outer code for each binarized \(\mathbb{F}_4\)-qudit pair \cite{arxiv:2601.20927}.'
 
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

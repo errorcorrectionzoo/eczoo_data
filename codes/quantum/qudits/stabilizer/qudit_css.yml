@@ -58,12 +58,12 @@ relations:
     - code_id: qudit_stabilizer
       detail: |
         Modular-qudit CSS codes are modular-qudit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings. 
-        Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]_{\mathbb{Z}_q}\) \hyperref[code:two_block_quantum]{two-block CSS code} code via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
+        Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,d^{\prime}]]_{\mathbb{Z}_q}\) \hyperref[code:two_block_quantum]{two-block CSS code} with \(d\leq d^{\prime}\leq 2d\) via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
     - code_id: css
     # Add Leonid's reverse mapping to stabilizers
   cousins:
     - code_id: two_block_quantum
-      detail: 'Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]_{\mathbb{Z}_q}\) \hyperref[code:two_block_quantum]{two-block CSS code} code via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
+      detail: 'Any \([[n,k,d]]_{\mathbb{Z}_q}\) stabilizer code can be mapped onto a \([[2n,2k,d^{\prime}]]_{\mathbb{Z}_q}\) \hyperref[code:two_block_quantum]{two-block CSS code} with \(d\leq d^{\prime}\leq 2d\) via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: q-ary_linear_over_zq
       detail: 'The modular-qudit CSS construction uses two related \(q\)-ary linear codes over \(\mathbb{Z}_q\), \(C_X\) and \(C_Z\).'
 
@@ -72,6 +72,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: LeonidPryadko

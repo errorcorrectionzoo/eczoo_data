@@ -1,0 +1,90 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: tetron_subsystem
+physical: qubits
+logical: qubits
+
+name: 'Tetron subsystem code'
+introduced: '\cite{doi:10.1088/1367-2630/ad4737}'
+
+alternative_names:
+  - 'BC\(\mapsto\)FS code'
+
+description: |
+  Member of a family of Majorana subsystem stabilizer codes on tetrons, obtained from a qubit stabilizer code together with a classical binary code.
+  Tetron parity operators are placed in the gauge group rather than the stabilizer group.
+  This allows the code to correct both odd- and even-weight Majorana errors while using fewer stabilizer generators than the earlier non-subsystem tetron construction with the same capability \cite{doi:10.1088/1367-2630/ad4737}.
+
+  A \textit{tetron} is a superconducting island hosting four Majorana zero modes \(\gamma_a,\gamma_b,\gamma_c,\gamma_d\), and stores a qubit in the form of operator parity.
+  Its six weight-two Majorana operators split into two sets,
+  \begin{align}
+    \mathcal{R} &= \{\gamma_b\gamma_c,~\gamma_a\gamma_c,~\gamma_a\gamma_b\}\\
+    \mathcal{R}^{\prime} &= \{\gamma_a\gamma_d,~\gamma_d\gamma_b,~\gamma_c\gamma_d\}~,
+  \end{align}
+  identified with the Pauli operators \(X,Y,Z\) and their primed counterparts, respectively \cite[Fig. 1]{doi:10.1088/1367-2630/ad4737}.
+  Corresponding operators of the two sets return the same parity under an even-weight error and opposite parities under an odd-weight error.
+  Comparing them therefore reveals whether an error has odd weight, and requires no measurement beyond the conventional two-Majorana-per-tetron parity measurements \cite{doi:10.1088/1367-2630/ad4737}.
+
+  The construction takes a non-subsystem \([[n,k_b,d_b]]\) qubit stabilizer code together with an \([n,k,d_c]\) classical binary code.
+  One tetron is assigned to each qubit, and the Pauli operators of the qubit code are mapped onto the Majorana operators of the set \(\mathcal{R}\).
+  Each row of the classical parity-check matrix \(H\) contributes a stabilizer equal to the product of the tetron parity operators on its support.
+  Since a tetron parity cannot be measured directly, such a stabilizer is realized as the product of an existing stabilizer supported on those tetrons and a modified copy of it in which the operators on those tetrons are switched from \(\mathcal{R}\) to \(\mathcal{R}^{\prime}\).
+  The two codes must therefore be \textit{compatible}: every row of \(H\) has to admit a stabilizer of the qubit code supported on at least the tetrons in that row \cite{doi:10.1088/1367-2630/ad4737}.
+
+  Each row of the systematic generator matrix \(G=[I_k|P]\) contributes two gauge operators: the tetron operator at the row's first nonzero entry, and the \(\gamma_d\)-string supported on all of its nonzero entries.
+  These \(2k\) operators generate a gauge group of order \(2^{2k}\), yielding \(k\) gauge qubits.
+  The output is a \([[2n,k_b,k,d_f]]\) Majorana subsystem code on \(n\) tetrons, i.e., \(2n\) fermionic modes, with \(n-k_b\) stabilizers inherited from the qubit code and \(n-k\) from the classical code \cite{doi:10.1088/1367-2630/ad4737}.
+  The classical code thus interpolates between two familiar constructions.
+  Taking it to have no logical bits places every tetron parity in the stabilizer group and leaves no gauge qubits, recovering concatenation with the \hyperref[code:tetron]{tetron code} \cite{arxiv:cond-mat/0506438}\cite[Lemma 1]{arxiv:1004.3791}\cite[Sec. IV]{arxiv:2311.01779}.
+
+  Reported instances are the \([[10,1,2,3]]\) code from the \hyperref[code:stab_5_1_3]{five-qubit perfect code} and the \([5,2,3]\) classical code, the \([[12,1,1,6]]\) and \([[12,1,3,3]]\) codes from the \([[6,1,3]]\) code with the \([6,1,6]\) repetition and \([6,3,3]\) classical codes, and the \([[14,1,4,3]]\) code from the \hyperref[code:steane]{Steane code} and the \([7,4,3]\) \hyperref[code:hamming]{Hamming code} \cite{doi:10.1088/1367-2630/ad4737}.
+
+protection: |
+  Protects against both errors affecting an even number of Majorana modes and \textit{fermionic} errors affecting an odd number.
+  Conventional tetron encodings rely on high charging energy to suppress odd-weight errors rather than correcting them \cite{arxiv:1812.08477}.
+  The fermionic distance \(d_f\) is the least Majorana weight of a nontrivial dressed logical operator, and satisfies \(d_b\leq d_f\leq 2d_b\) in terms of the distance \(d_b\) of the bosonic input code \cite{doi:10.1088/1367-2630/ad4737}.
+
+  Three of the four reported instances have \(d_f=3\) from inputs with \(d_b=3\), while the \([[12,1,1,6]]\) code built from the \([6,1,6]\) repetition code retains \(d_f=2d_b=6\) \cite[Table 1]{doi:10.1088/1367-2630/ad4737}.
+  The least Majorana weight of the fermionic gauge operators equals the distance \(d_c\) of the classical input code \cite{doi:10.1088/1367-2630/ad4737}.
+
+features:
+  decoders:
+    - 'BP-OSD decoder \cite{arxiv:2005.07016}, run with belief propagation in the product-sum mode, ordered-statistics post-processing in combination-sweep mode, at most five iterations, and search depth \(2n+1\) for \(n\) tetrons \cite{doi:10.1088/1367-2630/ad4737}.'
+
+  fault_tolerance:
+    - |
+      Ordering the stabilizer measurements carefully, and adding redundant measurements where required, yields syndrome-extraction sequences tolerating one even or one odd error, either at the input or at an intermediate stage \cite[Appx. A]{doi:10.1088/1367-2630/ad4737}.
+      The \([[10,1,2,3]]\) code admits the shortest such sequence, of length eight and using a single redundant measurement, and attains the highest fault-tolerant pseudothreshold of the reported instances.
+
+
+relations:
+  parents:
+    - code_id: majorana_subsystem
+      detail: 'Tetron subsystem codes are Majorana subsystem stabilizer codes whose gauge group is generated by tetron parity operators together with \(\gamma_d\)-strings determined by a classical binary code \cite{doi:10.1088/1367-2630/ad4737}.'
+  cousins:
+    - code_id: tetron
+      detail: 'Tetron subsystem codes are defined on \(n\) tetrons, whose parity operators serve as gauge generators. Placing these operators in the gauge group rather than fixing them by high charging energy is what exposes odd-weight errors to correction \cite{doi:10.1088/1367-2630/ad4737}.'
+    - code_id: qubit_stabilizer
+      detail: 'The tetron subsystem construction converts an \([[n,k_b,d_b]]\) qubit stabilizer code, together with a compatible classical code, into a \([[2n,k_b,k,d_f]]\) Majorana subsystem code by mapping Pauli operators to weight-two Majorana operators on tetrons \cite{doi:10.1088/1367-2630/ad4737}.'
+    - code_id: binary_linear
+      detail: 'The classical input code determines the gauge sector of a tetron subsystem code: rows of its parity-check matrix become tetron stabilizers, while rows of its systematic generator matrix become gauge operators, one gauge qubit per row \cite{doi:10.1088/1367-2630/ad4737}.'
+    - code_id: stab_5_1_3
+      detail: 'The \([[10,1,2,3]]\) tetron subsystem code is obtained from the five-qubit perfect code together with the \([5,2,3]\) classical code \cite[Sec. 3.5]{doi:10.1088/1367-2630/ad4737}.'
+    - code_id: steane
+      detail: 'The \([[14,1,4,3]]\) tetron subsystem code is obtained from the Steane code together with the \([7,4,3]\) Hamming code \cite[Sec. 3.7]{doi:10.1088/1367-2630/ad4737}.'
+    - code_id: hamming
+      detail: 'The \([[14,1,4,3]]\) tetron subsystem code is obtained from the Steane code together with the \([7,4,3]\) Hamming code \cite[Sec. 3.7]{doi:10.1088/1367-2630/ad4737}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-24'

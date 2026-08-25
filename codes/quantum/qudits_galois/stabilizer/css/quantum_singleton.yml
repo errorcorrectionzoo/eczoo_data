@@ -14,7 +14,7 @@ description: |
   A member of an approximate quantum code family of rate \(R\) that can tolerate adversarial errors nearly saturating the quantum Singleton bound of \((1-R)/2\).
   The formulation of such codes relies on a notion of \textit{quantum list decoding} \cite{arxiv:quant-ph/0605086,arxiv:2212.09935}.
 
-  One construction first builds constant-alphabet quantum list-decodable CSS codes from folded quantum Reed-Solomon outer codes, random CSS inner codes, and quantum Alon-Edmonds-Luby distance amplification/alphabet reduction, and then compiles them into AQECCs using purity-testing codes and robust secret sharing \cite{arxiv:2212.09935}.
+  Using the concatenation convention of the Zoo, one construction first builds constant-alphabet quantum list-decodable CSS codes from folded quantum Reed-Solomon inner codes, random CSS outer codes, and quantum Alon-Edmonds-Luby distance amplification/alphabet reduction, and then compiles them into AQECCs using purity-testing codes and robust secret sharing \cite{arxiv:2212.09935}.
   The resulting codes are efficiently encodable and decodable, and descriptions of the codes can be sampled by an efficient randomized algorithm with \(2^{-\Omega(n)}\) failure probability.
 
 protection: For any \(\gamma>0\) and rate \(0<R<1\), these approximate quantum \([[n,R \cdot n]]_q\) codes have constant Galois-qudit dimension \(q=2^{O(1/\gamma^5)}\) and correct errors acting on \((1-R-\gamma) \cdot n/2\) registers, up to a recovery error of \(2^{-\Omega(n)}\) \cite{arxiv:2212.09935}.
@@ -43,6 +43,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

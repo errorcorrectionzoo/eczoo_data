@@ -67,7 +67,20 @@ one sentence per line. Do not chain several constructions into a single long
 sentence with "and"/"whose"/"with"/participles — split it into consecutive
 shorter sentences. If a sentence needs re-reading to parse, it is too long.
 
-**8. Run the relation checkers after any hierarchical edit.** Whenever you add,
+**8. Never mix the subspace and subsystem hierarchies.** The subspace and
+subsystem branches are kept separate all the way up to their respective KINGDOM
+ROOT codes — `qubits_into_qubits` vs `subsystem_qubits_into_qubits`, and
+likewise for qudits, Galois qudits, and groups. They meet only above those
+roots, at the operator-algebra root (`oa_qubits_into_qubits`). So a subsystem
+entry must NEVER take a subspace entry as a parent, primary or secondary, even
+when the families are obviously counterparts. E.g. `majorana_subsystem` must
+not have `fermions` or `majorana_stab` as a parent; both are cousins, and the
+"with no gauge qubits it reduces to X" statement goes in a cousin `detail`.
+Each branch instead reaches its own kingdom root through the matching
+subsystem entry (`qubit_subsystem_stabilizer`, `subsystem_stabilizer`, …).
+(Lint: `scripts/relations/subspace_subsystem_split.py`.)
+
+**9. Run the relation checkers after any hierarchical edit.** Whenever you add,
 move, or reparent parents/cousins, run all three from the repo root and fix
 what they report:
 
@@ -76,6 +89,7 @@ python3 scripts/relations/redundant_primary_parent.py
 python3 scripts/relations/redundant_direct_children.py
 python3 scripts/relations/check_duplicate_relations.py
 python3 scripts/relations/primary_parent_kingdom.py
+python3 scripts/relations/subspace_subsystem_split.py
 ```
 
 They catch, respectively: a primary parent already implied via a
@@ -85,9 +99,10 @@ the same cousin, or a pair related as both parent and cousin); and a
 primary-parent chain that leaves the code's home kingdom (the PRIMARY parent
 determines where the site's hierarchy displays a code, so a cross-kingdom
 parent — e.g. a Galois-qudit entry above a purely-qubit code — must be
-demoted to secondary and an in-kingdom parent promoted to first).
-`check_duplicate_relations.py` and `primary_parent_kingdom.py` exit non-zero
-on violations.
+demoted to secondary and an in-kingdom parent promoted to first); and a parent
+edge crossing between the subspace and subsystem hierarchies (rule 8).
+`check_duplicate_relations.py`, `primary_parent_kingdom.py`, and
+`subspace_subsystem_split.py` exit non-zero on violations.
 
 Before submitting, also run `scripts/relations/find_property_codes.py` and the
 lint scripts `spellcheck.py`, `remove_trailing_block_apostrophes.py`, and
@@ -137,7 +152,8 @@ describing its exact behavior and usage.
 
 - `scripts/relations/` — hierarchy tools. Checkers: `redundant_primary_parent`,
   `redundant_direct_children`, `check_duplicate_relations`,
-  `primary_parent_kingdom`, `find_property_codes`, `outside_folder_descendants`. Queries: `ancestors`,
+  `primary_parent_kingdom`, `subspace_subsystem_split`, `find_property_codes`,
+  `outside_folder_descendants`. Queries: `ancestors`,
   `ancestor_tree`, `children`, `children_tree`, `cousins`. Also
   `dedup_codes.py`, a **ladder of stabilizer/CSS-code equivalence tests** (requires
   `numpy` + `pynauty`; run `--selftest`, or `--json codes.json [--lc]`). Cheapest

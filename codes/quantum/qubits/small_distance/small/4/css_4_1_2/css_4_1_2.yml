@@ -50,7 +50,7 @@ description: |
   \begin{align}
     |\overline{\pm}\rangle = \frac{1}{2}(|00\rangle \pm |11\rangle)^{\otimes 2}~.
   \end{align}
-  This code can be thought of as a concatenation of a two-qubit bit-flip with a two-qubit phase-flip code.
+  Using the concatenation convention of the Zoo, this code can be viewed as a concatenation of a two-qubit phase-flip repetition code (inner code) with a two-qubit bit-flip repetition code (outer code).
 
 
 protection: |
@@ -58,6 +58,10 @@ protection: |
   The code also approximately corrects a single \hyperref[topic:ad]{AD} error, with recovery fidelity \(1-5\gamma^2+O(\gamma^3)\) \cite{arxiv:quant-ph/9704002}.
   A \hyperref[topic:complementary-channel]{complementary-channel} analysis shows that the optimal worst-case entanglement-fidelity distance for this code under \hyperref[topic:ad]{AD} noise is of order \(\gamma\), improving over the uncorrected order \(\sqrt{\gamma}\), and that no recovery can improve this asymptotic scaling \cite{arxiv:0907.5391}.
   The \(\{|\overline{01}\rangle,|\overline{11}\rangle\}\) \([[4,1,2]]\) subcode \cite{arxiv:quant-ph/0103042} also approximately corrects a single \hyperref[topic:ad]{AD} error, and is a constant-excitation code.
+
+features:
+  fault_tolerance:
+    - 'Recursive concatenation of a \([[4,1,2]]\) error-detecting block, together with message passing across concatenation levels, yields fault-tolerant schemes; a one-dimensional nearest-neighbor architecture has a reported accuracy threshold of approximately \(10^{-5}\) per elementary operation \cite{arxiv:0902.2658,arxiv:0902.4506}.'
 
 realizations:
   - 'Linear optical networks \cite{arxiv:0804.2268,arxiv:1404.5498}.'
@@ -73,8 +77,9 @@ relations:
       detail: 'The \([[4,1,2]]\) LNCY code is a small planar rotated surface code \cite{arxiv:2006.03071,arxiv:1912.09410,arxiv:2102.06132,arxiv:2102.13071}.'
     - code_id: quantum_parity
       detail: |
-        The \([[4,1,2]]\) LNCY code is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
+        The \([[4,1,2]]\) LNCY code is the smallest QPC, i.e., a concatenation of a two-qubit phase-flip repetition code (inner code) with a two-qubit bit-flip repetition code (outer code), using the concatenation convention of the Zoo.
         An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of its constant-excitation version with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}.
+        Recursive concatenation of a \([[4,1,2]]\) error-detecting block admits message-passing fault-tolerance schemes \cite{arxiv:0902.2658,arxiv:0902.4506}.
     - code_id: ampdamp_stabilizer
       detail: 'The \([[4,1,2]]\) LNCY code (approximately) corrects a single \hyperref[topic:ad]{AD} error \cite{arxiv:quant-ph/9704002} and is the smallest member of the amplitude-damping stabilizer family of Ref. \cite{arxiv:0710.1052}.'
     - code_id: jump
@@ -93,12 +98,6 @@ relations:
       detail: |
         Magic states prepared using a \([[4,1,2]]\) subcode can be injected into the heavy-hex code \cite{arxiv:2110.04285,arxiv:2305.13581}.
         The \(d=2\) heavy-hex code is closely related to the \([[4,1,2]]\) LNCY code.
-    - code_id: qubit_concatenated
-      detail: |
-        The \([[4,1,2]]\) LNCY code is the smallest QPC, i.e., a concatenation of a two-qubit bit-flip with a two-qubit phase-flip repetition code.
-        An \([[8,1,2]]\) QPC correcting a single \hyperref[topic:ad]{AD} error is equivalent to a concatenation of its constant-excitation version with the dual-rail code \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0501184,arxiv:2010.00538}.
-        More generally, an \([[m^2,1,m]]\) QPC corrects \(m-1\) \hyperref[topic:ad]{AD} errors \cite{arxiv:1001.2356}.
-        Recursively concatenating a \([[4,1,2]]\) LNCY subcode attains a threshold \cite{arxiv:0902.2658,arxiv:0902.4506}.
     - code_id: cluster_state
       detail: 'A \([[4,1,2]]\) LNCY code can be thought of as a cluster-state code \cite{arxiv:1407.2777}.'
     - code_id: quantum_polar
@@ -108,6 +107,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

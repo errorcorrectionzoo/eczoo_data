@@ -14,9 +14,11 @@ introduced: '\cite{arxiv:2510.18753,arxiv:2601.20927,arxiv:2605.15344}'
 description: |
   Self-dual doubly-even CSS code on 20 physical qubits encoding two logical qubits with distance 6.
   The code is obtained by binarizing the \([[5,1,3]]_4\) code in the self-dual normal basis \(\{\omega,\omega^2\}\) to the \([[10,2,3]]\) binarized Galois-qudit code and then concatenating each qubit pair with the \([[4,2,2]]\) code \cite{arxiv:2601.20927}.
+  Equivalently, the code is the \hyperref[topic:symplectic-doubling]{concatenated symplectic double} of the \([[5,1,3]]\) five-qubit code \cite[Corr. 1]{arxiv:1004.3791}\cite[Corr. 2]{arxiv:2605.15344}.
 
   Physical qubits are arranged in five blocks of four, where block \(j\) corresponds to the \(j\)-th \(\mathbb{F}_4\) qudit of the \([[5,1,3]]_4\) code.
-  Stabilizer generators of the \([[4,2,2]]\) inner code on each block are \(ZZZZ\) and \(XXXX\); the outer stabilizers are the lifted images of the eight stabilizer generators of the \([[10,2,3]]\) code using the logical-operator map
+  Using the concatenation convention of the Zoo, the \([[10,2,3]]\) code is the inner code and the \([[4,2,2]]\) code is the outer code.
+  Stabilizer generators of the \([[4,2,2]]\) outer code on each block are \(ZZZZ\) and \(XXXX\); the inner stabilizers are the lifted images of the eight stabilizer generators of the \([[10,2,3]]\) code using the logical-operator map
   \(X^\omega\mapsto XXII\), \(X^{\omega^2}\mapsto XIXI\), \(Z^\omega\mapsto IZIZ\), \(Z^{\omega^2}\mapsto IIZZ\) within each block.
 
   A stabilizer tableau for the code is \cite{arxiv:2601.20927}
@@ -42,7 +44,7 @@ description: |
     I & I & I & I & X & I & X & I & I & X & X & I & X & X & I & I & X & I & X & I
   \end{smallmatrix}~.
   \end{align}
-  Rows 1--5 are the \(Z\)-type inner stabilizers of each \([[4,2,2]]\) block; rows 6--9 are the lifted outer \(Z\)-type stabilizers; rows 10--14 are the \(X\)-type inner stabilizers; rows 15--18 are the lifted outer \(X\)-type stabilizers.
+  Rows 1--5 are the \(Z\)-type outer stabilizers of each \([[4,2,2]]\) block; rows 6--9 are the lifted inner \(Z\)-type stabilizers; rows 10--14 are the \(X\)-type outer stabilizers; rows 15--18 are the lifted inner \(X\)-type stabilizers.
   This code is equivalent, up to qubit permutations and single-qubit Clifford gates, to three \([[20,2,6]]\) self-dual CSS codes in QECDB \cite[ID 672e6e9c34d5954e0cb7d1b7]{preset:QECDB}\cite[ID 67a388ef9d65c7b409826879]{preset:QECDB}\cite[ID 67a3890a9d65c7b40982687b]{preset:QECDB}.
 
 protection: |
@@ -53,7 +55,7 @@ features:
     - 'Non-fault-tolerant encoding circuits \cite{arxiv:2605.15344}.'
   transversal_gates:
     - 'Logical CNOT gates in both directions between the two logical qubits are realized by qubit permutations within a code block \cite{arxiv:2601.20927,arxiv:2605.15344}.'
-    - 'Fold-diagonal logical \(SS\) gates are available from the self-duality of the outer \([[5,1,3]]_4\) code and the inner \([[4,2,2]]\) layer \cite{arxiv:2601.20927}.'
+    - 'Fold-diagonal logical \(SS\) gates are available from the self-duality of the inner \([[5,1,3]]_4\) code and the outer \([[4,2,2]]\) layer \cite{arxiv:2601.20927}.'
     - 'All logical Clifford gates can be realized as two-fold transversal gates, i.e., by depth-one circuits of two-local code-preserving physical gates \cite{arxiv:2510.18753,arxiv:2601.20927,arxiv:2606.13521,arxiv:2608.05688}.'
 
   fault_tolerance:
@@ -69,18 +71,18 @@ relations:
     - code_id: group
       detail: 'The \([[20,2,6]]\) code is equivalent to a group-algebra CSS code with \(c=\{0,1,2,4,6,7,10,16\}\) \cite{arxiv:2606.13521}.'
     - code_id: stab_5_1_3
-      detail: 'The \([[20,2,6]]\) code is obtained from the \([[5,1,3]]\) five-qubit code via the BLT mapping\cite[Corr. 1]{arxiv:1004.3791} and concatenation with the \([[4,2,2]]\) code \cite[Table I]{arxiv:2510.18753}\cite{arxiv:2605.15344}.'
+      detail: 'The \([[20,2,6]]\) code is obtained from the \([[5,1,3]]\) five-qubit code by \hyperref[topic:symplectic-doubling]{concatenated symplectic doubling} \cite[Corr. 1]{arxiv:1004.3791}\cite[Table I]{arxiv:2510.18753}\cite{arxiv:2605.15344}. The same code arises by binarizing the \([[5,1,3]]_4\) Galois-qudit CSS code and concatenating each qubit pair with the \([[4,2,2]]\) code, since that Galois-qudit code is a \hyperref[topic:symplectic-doubling]{symplectic double} of the five-qubit code \cite{arxiv:2601.20927}.'
     - code_id: stab_4_2_2
       detail: 'The \([[20,2,6]]\) code is obtained by concatenating each qubit pair of the \([[10,2,3]]\) binarized code with the \([[4,2,2]]\) code \cite{arxiv:2601.20927,arxiv:2605.15344}.'
     - code_id: stab_10_2_3
-      detail: 'The \([[20,2,6]]\) code is obtained by concatenating each qubit pair of the \([[10,2,3]]\) binarized Galois-qudit code with the \([[4,2,2]]\) code \cite{arxiv:2601.20927}.'
-    - code_id: qubit_concatenated
       detail: 'The \([[20,2,6]]\) code is obtained by concatenating each qubit pair of the \([[10,2,3]]\) binarized Galois-qudit code with the \([[4,2,2]]\) code \cite{arxiv:2601.20927}.'
 
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-08-17'
     - user_id: VictorVAlbert

@@ -20,14 +20,14 @@ features:
 
   decoders:
     - 'Decoding is performed as in a standard \hyperref[code:qubit_concatenated]{concatenated code} using decoders for the inner and outer codes.
-    The syndrome extraction circuit depth for the outer code is optimized using a permutation routing algorithm \cite{doi:10.1145/97444.97707}.
+    The syndrome extraction circuit depth for the inner QLDPC code is optimized using a permutation routing algorithm \cite{doi:10.1145/97444.97707}.
     The bilayer architecture allows for logical entangling gates between logical surface-code patches.'
     - 'Soft output decoding \cite{arxiv:2405.07433}.'
 
   threshold:
     - 'Threshold exists for the locally decaying error model; see \cite[Thm. 1.3]{arxiv:2303.04798}.
     However, the logical error rate below threshold falls super-polynomially (as opposed to exponentially) with the code distance.
-    The code family possesses a threshold equal to that of surface codes given by tuning the inner code size for any fixed physical error rate.'
+    The code family possesses a threshold equal to that of surface codes given by tuning the outer surface-code size for any fixed physical error rate.'
 
   fault_tolerance:
     - '2D geometrically local syndrome extraction circuits of depth of \hyperref[topic:asymptotics]{order} \(O(\sqrt{n}/R)\) that utilize Clifford and SWAP gates of range \(R\) and that require \hyperref[topic:asymptotics]{order} \(O(n)\) data and ancilla qubits.
@@ -44,6 +44,8 @@ relations:
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: 'ChrisPattison'

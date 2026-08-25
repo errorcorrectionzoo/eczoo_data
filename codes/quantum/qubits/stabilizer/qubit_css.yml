@@ -185,13 +185,13 @@ relations:
       detail: |
         Qubit CSS codes are qubit stabilizer codes whose stabilizer groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings. 
         Transversal CNOT gates preserve the logical subspace iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}.
-        Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
+        Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,d^{\prime}]]\) \hyperref[code:two_block_quantum]{two-block CSS code} with \(d\leq d^{\prime}\leq 2d\) via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
         For any non-CSS qubit stabilizer code \(\mathsf{C}\), there exists a CSS code \(\mathsf{C}^{\prime}\) such that \(\mathsf{C} = DQ\mathsf{C}^{\prime}\), where \(D\) is a diagonal Clifford operator, and where \(Q\) is an element of an XP stabilizer group \cite[Prop. B.3.1]{preset:Webster23}.
         There is a holographic relation between qubit CSS codes describing CFTs and qubit stabilizer codes describing path integrals over certain topologies \cite{arxiv:2504.08724}.
     - code_id: movassagh_ouyang
       detail: 'Qubit CSS codes encoding one logical qubit are a subset of Movassagh-Ouyang codes.'
     - code_id: two_block_quantum
-      detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,\geq d]]\) \hyperref[code:two_block_quantum]{two-block CSS code} via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
+      detail: 'Any \([[n,k,d]]\) stabilizer code can be mapped onto a \([[2n,2k,d^{\prime}]]\) \hyperref[code:two_block_quantum]{two-block CSS code} with \(d\leq d^{\prime}\leq 2d\) via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.'
     - code_id: binary_linear
       detail: 'The CSS construction uses two related binary linear codes, \(C_X\) and \(C_Z\).'
     - code_id: alternant
@@ -218,6 +218,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-07-29'
     - user_id: VictorVAlbert

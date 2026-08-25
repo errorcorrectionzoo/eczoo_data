@@ -15,8 +15,8 @@ alternative_names:
   - '\([[16,4,4]]\) symplectic-double code'
 
 description: |
-  Self-dual doubly-even CSS code obtained by concatenating the non-CSS \([[4,2,2]]\) code, defined by stabilizer generators \(XZZX,ZXXZ\), with the \hyperref[topic:symplectic-doubling]{symplectic double} of itself.
-  Concretely, the \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code yields a non-CSS-seeded \([[8,4,2]]\) code, and concatenating this \([[8,4,2]]\) code with the \([[4,2,2]]\) code \(C_4\) along the \(ZX\)-duality \(\tau\) yields the \([[16,4,4]]\) concatenated \hyperref[topic:symplectic-doubling]{symplectic double} (CSD) code.
+  Self-dual doubly-even CSS code obtained by concatenating the \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code with the \([[4,2,2]]\) code itself \cite{arxiv:2510.18753}.
+  Symplectic doubling maps the \([[4,2,2]]\) code to an \([[8,4,2]]\) CSS code, which serves as the inner code, and each of its four qubit pairs is encoded into an outer \([[4,2,2]]\) block.
   This code is isomorphic to the \(L=2\), \(C_4\)-based many-hypercubes (MHC) code \cite{arxiv:2403.16054,arxiv:2510.18753}.
 
   A stabilizer tableau for the code is \cite{arxiv:2510.18753}
@@ -36,7 +36,7 @@ description: |
     X & I & X & I & X & X & I & I & X & X & I & I & X & I & X & I
   \end{smallmatrix}~.
   \end{align}
-  Rows 1--4 are the \(Z\)-type inner stabilizers of each \([[4,2,2]]\) block; rows 5--6 are the \(Z\)-type outer stabilizers inherited from the double cover; rows 7--10 are the \(X\)-type inner stabilizers; rows 11--12 are the \(X\)-type outer stabilizers.
+  Rows 1--4 are the \(Z\)-type outer stabilizers of each \([[4,2,2]]\) block; rows 5--6 are the \(Z\)-type inner stabilizers inherited from the \hyperref[topic:symplectic-doubling]{symplectic double}; rows 7--10 are the \(X\)-type outer stabilizers; rows 11--12 are the \(X\)-type inner stabilizers.
 
   Geometrically the code is the \hyperref[code:488_color]{4.8.8 color code} on the smallest torus, shown in \ref{figure:16-4-4-488}.
   Fattening each vertex of the \(2\times 2\) square lattice into a square yields four square faces and four octagonal faces, the latter two-colored in checkerboard fashion, for eight faces on 16 qubits and 24 edges.
@@ -61,7 +61,7 @@ features:
 
   transversal_gates:
     - |
-      SWAP-transversal gates lifted from automorphisms of the seed \([[4,2,2]]\) code, together with the \(ZX\)-duality gates \(\overline{H}_\tau\) and \(\overline{S}_\tau\) inherited from the symplectic double, give \(216\) unique logical gates and, with a global logical phase gate, the group \((A_8\times A_8)\rtimes(C_2\times C_2)\subset Sp(8,\mathbb{F}_2)\) \cite{arxiv:2510.18753}.
+      SWAP-transversal gates lifted from automorphisms of the seed \([[4,2,2]]\) code, together with the \(ZX\)-duality gates \(\overline{H}_\tau\) and \(\overline{S}_\tau\) inherited from the \hyperref[topic:symplectic-doubling]{symplectic double}, give \(216\) unique logical gates and, with a global logical phase gate, the group \((A_8\times A_8)\rtimes(C_2\times C_2)\subset Sp(8,\mathbb{F}_2)\) \cite{arxiv:2510.18753}.
       Only one of the \(20\) \(ZX\)-dualities admits a phase-type gate, and the permissible qubit permutations \(C_2\times S_4\) act non-faithfully with image \(D_6\). Together with all two-qubit entangling gates, they generate the logical orthogonal subgroup \(\Omega^{+}(8,\mathbb{F}_2)\) \cite{arxiv:2202.06647}.
       Adjoining a targeted logical \(S\) on a single logical qubit yields all of \(Sp(8,\mathbb{F}_2)\) \cite{arxiv:2510.18753,arxiv:2608.05688}.
 
@@ -69,7 +69,7 @@ features:
     - 'Any logical Clifford circuit on the four logical qubits can be compiled using the SWAP-transversal gateset together with at most a small number of logical phase-gate injections via state teleportation \cite{arxiv:2510.18753}.'
 
   fault_tolerance:
-    - 'The transversal phase gate on the outer \([[8,4,2]]\) \hyperref[topic:symplectic-doubling]{symplectic double} code requires performing logical global phase gates on each \([[4,2,2]]\) block to remain SWAP-transversal on the concatenated code; this can be implemented fault-tolerantly, but requires two-qubit gates \cite[Appx. D.7]{arxiv:2510.18753}\cite{arxiv:2510.18753}.'
+    - 'The transversal phase gate on the inner \([[8,4,2]]\) \hyperref[topic:symplectic-doubling]{symplectic double} code requires performing logical global phase gates on each \([[4,2,2]]\) block to remain SWAP-transversal on the concatenated code; this can be implemented fault-tolerantly, but requires two-qubit gates \cite[Appx. D.7]{arxiv:2510.18753}.'
     - 'An automorphism gate that swaps logical qubits between different \([[4,2,2]]\) blocks requires additional \([[4,2,2]]\) ancilla blocks to implement fault-tolerantly \cite[Appx. D.8]{arxiv:2510.18753}.'
 
 realizations:
@@ -82,14 +82,14 @@ relations:
     - code_id: self_dual_css
     - code_id: qcga
       detail: 'The \([[16,4,4]]\) code is among the weight-eight self-dual bivariate bicycle (BB) codes on twisted tori enumerated in \cite{arxiv:2510.05211}.'
+    - code_id: qubit_concatenated
+      detail: 'Using the concatenation convention of the Zoo, the \([[16,4,4]]\) twisted color code is a block concatenation of the inner \([[8,4,2]]\) \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code with outer \([[4,2,2]]\) blocks along a \(ZX\) duality \cite{arxiv:2510.18753}.'
     - code_id: small_distance_qubit_stabilizer
   cousins:
     - code_id: stab_4_2_2
-      detail: 'The \([[16,4,4]]\) CSD code is obtained by concatenating the \([[4,2,2]]\) code with the \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code, and is isomorphic to the \(L=2\), \(C_4\)-based many-hypercubes code \cite{arxiv:2510.18753}.'
+      detail: 'The \([[16,4,4]]\) twisted color code is obtained by concatenating the inner \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code with outer \([[4,2,2]]\) blocks, and is isomorphic to the \(L=2\), \([[4,2,2]]\)-based many-hypercubes code \cite{arxiv:2510.18753}.'
     - code_id: stab_6_4_2
       detail: 'The \([[16,4,4]]\) code is a \(C_4\)-based (\([[4,2,2]]\)-based) instance of the many-hypercubes code family, complementing Goto''s original \([[6,4,2]]\)-based many-hypercube construction \cite{arxiv:2403.16054,arxiv:2510.18753}.'
-    - code_id: qubit_concatenated
-      detail: 'The \([[16,4,4]]\) code is obtained by concatenating the \([[4,2,2]]\) code with the \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[4,2,2]]\) code along a \(ZX\)-duality \cite{arxiv:2510.18753}.'
     - code_id: stab_16_6_4
       detail: 'The \([[16,4,4]]\) code is obtained from the tesseract color code by promoting one \(X\)-type and one \(Z\)-type weight-four logical operator to stabilizers \cite{arxiv:2008.05051,arxiv:2112.03785}, equivalently by fixing the weight-four gauge operators of the \([[16,4,2,4]]\) tesseract subsystem code \cite{arxiv:2409.04628}.'
 
@@ -97,6 +97,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-08-08'
     - user_id: VictorVAlbert

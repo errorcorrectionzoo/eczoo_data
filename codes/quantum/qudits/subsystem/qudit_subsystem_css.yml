@@ -26,7 +26,7 @@ description: |
 
   \begin{defterm}{Symplectic doubling}
   \label{topic:symplectic-doubling}
-  Any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,\geq d]]_{\mathbb{Z}_q}\) subsystem CSS code, with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003} (see also \cite{arxiv:1004.3791}\cite[Thm. 1]{arxiv:1212.6703}).
+  Any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,d^{\prime}]]_{\mathbb{Z}_q}\) subsystem CSS code with \(d\leq d^{\prime}\leq 2d\), with the mapping preserving geometric locality of a code up to a constant factor \cite{arxiv:2311.18003} (see also \cite[Thm. 1]{arxiv:1212.6703}\cite[Sec. 3]{arxiv:2406.09951}).
   In the \hyperref[topic:modular-symplectic-representation]{modular symplectic representation}, the gauge-group generator matrix of the former is mapped into that of latter as follows,
   \begin{align}
     \begin{pmatrix}G_{X} & G_{Z}\end{pmatrix}
@@ -37,8 +37,28 @@ description: |
     \end{pmatrix}~,
   \end{align}
   where the first two columns of the latter matrix correspond to the \(X\)-type part of the gauge-group generator matrix of the output subsystem CSS code.
+  The map is linear in the rows of the generator matrix, so the double depends only on the gauge group and not on the choice of generating set.
+  It does depend on that group, and not merely on the code the group defines.
+  A local Clifford on an input qudit changes the group, and acts on the corresponding output pair by a transformation that is not itself a local Clifford, so locally equivalent codes can have inequivalent doubles.
+
   In the case of a stabilizer code, the stabilizer generator matrix is mapped instead to yield a \hyperref[code:two_block_quantum]{two-block CSS code} (see \cite[Thm. 1]{arxiv:1212.6703} for the case of qubit stabilizer codes).
   For geometrically local 2D stabilizer codes with twist defects, this mapping yields a twisted double cover of the underlying qudit geometry \cite{arxiv:2406.09951}.
+
+  For qubit stabilizer codes, this map is also known as the \textit{BLT \(n\to 2n\) mapping}, and its output can be packaged as an \([[n,k,d]]_4\) \hyperref[code:galois_css]{Galois-qudit CSS code} \cite[Lemma 1]{arxiv:2605.15344}\cite{arxiv:1004.3791}.
+  The Galois-qudit distance is exactly \(d\) because the Galois-qudit support of the image coincides with the symplectic support of the input, while splitting each Galois qudit into two qubits can double the weight of a logical operator.
+  Conversely, a Galois-qudit CSS code arises as a symplectic double of a qubit stabilizer code if and only if it is \hyperref[code:galois_css]{Hermitian self-dual} \cite{arxiv:2601.20927,arxiv:2605.15344}.
+
+  \textit{Concatenated symplectic doubling}, also known as the \textit{BLT \(n\to 4n\) mapping}, follows the above map with concatenation of each output qubit pair with the \([[4,2,2]]\) code along a \(ZX\) duality.
+  This yields a \([[4n,2k,2d]]\) \hyperref[code:self_dual_css]{self-dual CSS code} from an \([[n,k,d]]\) qubit stabilizer code \cite[Corr. 1]{arxiv:1004.3791}\cite[Corr. 2]{arxiv:2605.15344}\cite[Sec. 4.4]{arxiv:2406.09951}.
+  Equivalently, one first concatenates each qubit with the \hyperref[code:tetron]{tetron code} to obtain a \([[2n,k,2d]]_{f}\) \hyperref[code:majorana_stab]{Majorana stabilizer code}, and then assigns one qubit to each Majorana mode \cite[Lemmas 1 and 2]{arxiv:1004.3791}.
+  The second stage of the \(n\to 4n\) mapping, applied to the \([[n,k,d]]_4\) packaging of the double, is the binarization-and-concatenation step used to build \hyperref[code:bc_phantom]{B\&C phantom codes} \cite{arxiv:2601.20927}.
+
+  The two routes agree for the following reason.
+  Tetron concatenation assigns Majorana modes \(b_j^x,b_j^y,b_j^z,c_j\) to each qubit \(j\), realizing its Pauli operators as \(X_j = i b_j^x c_j\), \(Y_j = i b_j^y c_j\), and \(Z_j = i b_j^z c_j\), and adjoining the parity operator \(D_j = b_j^x b_j^y b_j^z c_j\) as a stabilizer generator \cite[Lemma 1]{arxiv:1004.3791}.
+  Assigning one qubit to each Majorana mode then sends a Majorana monomial supported on a set \(S\) to an \(X\)-type and a \(Z\)-type Pauli operator, both supported on \(S\) \cite[Lemma 2]{arxiv:1004.3791}.
+  Each \(D_j\) therefore becomes the pair \(XXXX\) and \(ZZZZ\) on the four qubits of block \(j\), which generate the \([[4,2,2]]\) stabilizer group.
+  Each single-qubit Pauli of the input becomes a pair of weight-two operators of opposite type sharing a common support, up to multiplication by the \([[4,2,2]]\) stabilizer generators, i.e., a pair of \([[4,2,2]]\) logical operators exchanged by the \(ZX\) duality.
+  The output is thus the \([[4,2,2]]\) code on every block of four qubits, with the symplectic double of the input code acting on the resulting logical qubits.
   \end{defterm}
 
 features:
@@ -50,7 +70,7 @@ relations:
   parents:
     - code_id: qudit_subsystem_stabilizer
       detail: 'Subsystem modular-qudit CSS codes are subsystem modular-qudit stabilizer codes whose gauge groups admit a generating set of pure-\(X\) and pure-\(Z\) Pauli strings.
-      Any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,\geq d]]_{\mathbb{Z}_q}\) subsystem CSS code via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
+      Any \([[n,k,r,d]]_{\mathbb{Z}_q}\) subsystem stabilizer code can be mapped onto a \([[2n,2k,2r,d^{\prime}]]_{\mathbb{Z}_q}\) subsystem CSS code with \(d\leq d^{\prime}\leq 2d\) via \hyperref[topic:symplectic-doubling]{symplectic doubling}, which preserves geometric locality of a code up to a constant factor.
       Every subsystem prime-qudit stabilizer code can be constructed from two nested subsystem prime-qudit CSS codes satisfying certain constraints \cite{arxiv:2311.18003}.'
     - code_id: subsystem_css
   cousins:
@@ -62,6 +82,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
