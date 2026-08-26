@@ -20,6 +20,9 @@ description: |
 
   Non-CSS codes can be derived from such codes by modifying the \(X\)-type stabilizers \cite{arxiv:quant-ph/9608026}.
 
+  CSS codes formed from a single RM code are also possible: CSS\((\text{RM}(r,m), \text{RM}(r,m))\), valid whenever \(2r < m-1\) (so that \(\text{RM}(r,m) \subset \text{RM}(r,m)^{\perp} = \text{RM}(m-r-1,m)\)), has parameters \([[2^m, 2^m - 2\sum_{j=0}^{r} {m \choose j}, 2^{r+1}]]\).
+  Its distance \(2^{r+1}\) follows from the RM minimum-weight theorem \cite[Ch. 13]{preset:MacSlo}: \(X\)-type logicals are cosets of \(C \setminus C^{\perp}\), whose minimum weight is that of \(\text{RM}(m-r-1,m)\), i.e., \(2^{m-(m-r-1)} = 2^{r+1}\); \(Z\)-type logicals follow by symmetry.
+
 protection: 'Detects errors on \(d-1\) qubits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qubits.'
 
 features:
@@ -62,6 +65,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: sdoygb
+      date: '2026-08-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
