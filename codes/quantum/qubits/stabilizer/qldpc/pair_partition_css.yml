@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: pair_partition_css
+physical: qubits
+logical: qubits
+
+name: 'Pair-partition CPM code'
+introduced: '\cite{arxiv:2607.14091}'
+
+description: |
+  Qubit CSS code whose \(X\)- and \(Z\)-type stabilizer generator matrices are equal-shape arrays of circulant permutation matrices obtained by a \(G\)-\hyperref[topic:lifting]{lift} of a complete protograph over a cyclic group, with the CSS orthogonality condition imposed combinatorially by an array of pair partitions of the column types.
+  Matching the column types in pairs forces every overlap between an \(X\)-type and a \(Z\)-type generator to occur an even number of times, so that the two matrices commute without any product structure being imposed.
+
+  Fix a column weight \(J\), an even row weight \(L\) exceeding \(J\), and a prime lift size \(P\).
+  Both generator matrices are \(J\)-by-\(L\) arrays of \(P\)-by-\(P\) circulant permutation matrices, giving length \(n=LP\), row weight \(L\), and column weight \(J\) in each basis.
+  One first chooses a \(J\)-by-\(J\) array of pair partitions of the \(L\) column types. For each pair \((u,v)\) matched in the cell associated with block rows \(i,j\), the mixed-difference equation \(e_{iu}-d_{ju}=e_{iv}-d_{jv}\) makes the two circulant-permutation-matrix contributions from column types \(u\) and \(v\) to the corresponding \(P\)-by-\(P\) block of \(H_XH_Z^T\) identical, so they cancel over \(\mathbb{F}_2\).
+  Pairing graphs screen the partition array for forced short cycles before the resulting homogeneous system is solved over \(\mathbb{F}_P\). Candidate exponent assignments are then screened for lift-dependent short cycles and low-weight logical operators \cite{arxiv:2607.14091}.
+
+protection: |
+  Every CPM lift of the complete \(J\)-by-\(L\) protograph with \(J\geq 2\) and \(L\geq 3\) has Tanner girth at most twelve \cite{arxiv:2607.14091}.
+  For odd \(P\), \(J\geq 2\), \(L\geq 2J+1\), and maximal binary ranks \(\operatorname{rank}H_X=\operatorname{rank}H_Z=J(P-1)+1\), permanent-based logical witnesses give the lift-size-independent bound \(d_X,d_Z,d\leq (J+1)!\) \cite{arxiv:2607.14091}.
+
+  The reported list contains thirty-six regular CSS codes with exact distances: twenty-nine have Tanner girth six, while the girth-eight instances are \([[472,122,16]]\), \([[584,150,18]]\), \([[1112,282,20]]\), \([[1336,338,22]]\), \([[1630,656,20]]\), \([[1784,450,24]]\), and \([[2230,896,24]]\) \cite{arxiv:2607.14091}.
+  Girth-six examples include the \([[944,478,20]]\) code and the compact column-weight-four codes \([[492,170,20]]\), \([[516,178,20]]\), and \([[708,242,22]]\). Reported exact distances reach \(24\), and the \([[1414,812,12]]\) code has rate \(0.574\) \cite{arxiv:2607.14091}.
+
+  Each exact distance is computer certified by a complete lower-bound search on the fixed matrices together with an explicit non-stabilizer zero-syndrome vector of matching weight \cite{arxiv:2607.14091}.
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: qldpc
+      detail: 'Both stabilizer generator matrices are sparse arrays of circulant permutation matrices, with constant column weight \(J\), constant row weight \(L\), and Tanner girth at least six in the reported instances \cite{arxiv:2607.14091}.'
+    - code_id: quasi_cyclic_qldpc
+      detail: 'Both stabilizer generator matrices of a pair-partition CPM code are arrays of circulant permutation matrices, so the code is invariant under simultaneous cyclic shifts of the lift coordinates, an automorphism of order equal to the prime lift size \cite{arxiv:2607.14091}.'
+  cousins:
+    - code_id: two_branch_css
+      detail: 'Both constructions realize CSS commutation by matching overlaps in pairs, with the pair-partition construction parameterizing the matching as a free combinatorial array of pair partitions solved by linear paired-difference equations, and the two-branch construction inducing it from the structure of a multiplicative subgroup of a finite field \cite{arxiv:2607.14091,arxiv:2605.23894}.'
+    - code_id: kasai
+      detail: 'Replacing the circulant permutation matrices by affine permutation matrices extends the pair-partition construction, and a structured subfamily of that extension has the same check matrices as the active rows of Kasai codes. A separate condition on the pair partitions reproduces the complementary latent rows \cite{arxiv:2607.14091,arxiv:2601.08824}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-22'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'

@@ -1,0 +1,65 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: gala_132
+physical: qubits
+logical: qubits
+
+name: '\([[132,30,12]]\) self-dual GALA code'
+introduced: '\cite{arxiv:2608.07431}'
+
+description: |
+  A hyperbolic self-dual \hyperref[code:gala]{GALA code} whose Hadamard-type and phase-type fold-transversal Clifford operations are implemented physically by depth-one layers of single-qubit gates.
+
+  The code is \(\mathrm{GALA}_{12,5}(e\times C_{11})\): the row weight is \(L=12\), the number of active block rows is \(J=5\), the non-Abelian top is trivial, and the Abelian bottom is the cyclic group \(C_{11}\), giving \(n=12\times1\times11=132\) qubits at rate \(0.227\) \cite{arxiv:2608.07431}.
+  Every entry of the \(G\)-\hyperref[topic:lifting]{lift} is a single group element, so the code is monomial.
+  Its \(ZX\) duality comes from a reflection-type sector involution, which is why the Tanner graph has girth four rather than the girth of at least six targeted elsewhere in the family.
+  The duality permutation is the identity, which is what reduces both fold-transversal operations to depth-one layers of single-qubit gates \cite{arxiv:2608.07431}.
+
+  Since the duality permutation is the identity, the two fold-transversal operators are
+  \begin{align}
+    H_{\tau}=H^{\otimes 132}~,\qquad S_{\tau}=(S^{\dagger})^{\otimes 132}~,
+  \end{align}
+  each a depth-one layer of single-qubit gates \cite{arxiv:2608.07431}.
+  In an orthonormal logical basis, \(H_{\tau}\) acts as fifteen copies of \((\bar H\otimes\bar H)\overline{\mathrm{SWAP}}\), while \(S_{\tau}\) acts as fifteen disjoint logical controlled-\(Z\) gates together with single-logical-qubit phases on thirteen of the thirty logical qubits \cite{arxiv:2608.07431}.
+
+protection: |
+  The rate is \(0.227\) and the Tanner graph has girth four \cite{arxiv:2608.07431}.
+  Since \(J>L/4\), the parent matrices are fully orthogonal, and an independent latent row supplies a weight-\(L\) logical operator. An exhaustive search certifies \(d=L=12\), so the code attains that cap exactly \cite{arxiv:2608.07431}.
+
+  Minimum-weight bases of \(X\)-type and of \(Z\)-type logical operators attain the code distance on every logical qubit, with all representatives of weight 12, but the two bases are not symplectic partners \cite{arxiv:2608.07431}. Completing the minimum-weight \(X\)-type basis to a symplectic basis requires \(Z\)-type partners of weights 18 to 24.
+
+features:
+  transversal_gates:
+    - 'The physical depth-one layers \(H^{\otimes 132}\) and \((S^{\dagger})^{\otimes 132}\) implement Hadamard-type and phase-type logical Clifford operations. In an orthonormal logical basis these are, respectively, fifteen \((\bar H\otimes\bar H)\overline{\mathrm{SWAP}}\) operations and fifteen disjoint logical controlled-\(Z\) gates together with phases on thirteen logical qubits \cite{arxiv:2608.07431}.'
+
+  decoders:
+    - 'At physical error rate \(10^{-3}\), a two-stage Relay-BP cascade with a mixed-integer linear-programming fallback ran five million circuit-level shots without a recorded logical failure \cite{arxiv:2608.07431}.'
+
+  general_gates:
+    - 'A cyclic shift automorphism is implemented by a single rigid qubit permutation, shifting the bottom chains by one while fixing the top chain \cite{arxiv:2608.07431}. The shift is termed dirty because each chain of eleven sites carries only ten logical qubits, so the eleven-cycle permutes an overcomplete labeling rather than a basis.'
+
+
+relations:
+  parents:
+    - code_id: gala
+      detail: 'The code is the GALA instance \(\mathrm{GALA}_{12,5}(e\times C_{11})\), with trivial non-Abelian top and cyclic Abelian bottom \cite{arxiv:2608.07431}.'
+    - code_id: self_dual_css
+      detail: 'The code is a hyperbolic self-dual CSS code: the column weight \(J=5\) is odd, so the all-ones vector lies in each row space and every logical operator has even weight, forcing the pairing matrix to be alternating in every basis and hence admitting no normal magic basis \cite[Sec. III]{arxiv:1703.07847}\cite{arxiv:2608.07431}. Consistently, transversal Hadamard acts pairwise rather than as thirty logical Hadamards, and \(n\), \(k\), and \(d\) are all even.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'

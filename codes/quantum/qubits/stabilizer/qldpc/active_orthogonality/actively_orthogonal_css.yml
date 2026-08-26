@@ -1,0 +1,69 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: actively_orthogonal_css
+physical: qubits
+logical: qubits
+
+name: 'Actively orthogonal CSS code'
+introduced: '\cite{arxiv:2601.08824,arxiv:2608.07431}'
+
+description: |
+  Qubit CSS code whose stabilizer generators are an \textit{active} subset of the rows of a larger pair of block-circulant parent matrices, so that the CSS orthogonality condition is imposed only on the retained rows.
+  The construction is designed so that low-weight combinations of the discarded \textit{latent} rows fail to commute with the active checks, and therefore do not automatically become logical operators as they would were orthogonality enforced on every row.
+  Evading this mechanism circumvents a barrier that otherwise caps the distance of a row-deleted low-density construction at the stabilizer generator weight, allowing sparse, regular, high-girth checks to be combined with encoding rate at or above one half.
+
+  In the strict monomial construction, two block-circulant parent matrices \(\hat{H}_X\) and \(\hat{H}_Z\), with \(L/2\) block rows and \(L\) block columns, are assembled by a \(G\)-\hyperref[topic:lifting]{lift} in which every nonzero proto-matrix entry is replaced by a permutation matrix drawn from a group \(G\).
+  Writing \(\mathcal{F}=\{F_i\}\) and \(\mathcal{G}=\{G_i\}\) for the two lists of lifts and \(\Gamma\) for a chosen \textit{active set} of index pairs, the lifts are required to commute, \([F_i,G_j]=0\), for every \((i,j)\in\Gamma\), while commutation is deliberately broken for at least one pair outside \(\Gamma\).
+  The lift group is generally a product of two factors with distinct roles. The \textit{top factor} is the one whose non-commutativity creates the broken commutators that active orthogonality relies on, while the remaining \textit{bottom factor} is Abelian and supplies code automorphisms.
+  In the sectors whose top factor is Abelian or trivial no pair need fail to commute at all, and the parent matrices are then fully orthogonal \cite{arxiv:2608.07431}.
+  The stabilizer generator matrices \(H_X\) and \(H_Z\) are then the first \(J\) block rows of the parents.
+  Because the block-circulant structure makes the \((i,j)\) block of \(\hat{H}_X\hat{H}_Z^T\) depend only on the offset \(j-i\), collecting the commutators of all lift pairs whose indices sum to that offset, a suitable choice of \(\Gamma\) makes these blocks vanish for all \(0 \leq i,j < J\), so the retained rows define a CSS code \cite{arxiv:2601.08824}.
+
+  Polynomial variants replace a single permutation in each lift entry by a sum of group elements, while loose active orthogonality requires only the aggregate commutator sum at each active offset to vanish, rather than requiring every contributing pair to commute individually \cite{arxiv:2608.07431}.
+  These variants remain actively orthogonal, but the pairwise condition above and the sharp monomial bounds below no longer apply.
+
+protection: |
+  Retaining \(J\) block rows in each basis yields encoding rate at least \(1-2J/L\), so that \(J \leq L/4\) guarantees rate at least one half \cite{arxiv:2608.07431}.
+  Sparse, regular, high-girth checks are targeted alongside rate, girth eight being attained by the flagship Kasai code and girth at least six by most of the compact GALA instances.
+
+  Distance is constrained by the latent rows.
+  Any latent-row combination that commutes with the opposite-type active checks but lies outside the same-type stabilizer row space represents a logical operator, and the least weight of such a combination upper bounds the minimum distance \cite{arxiv:2601.08824}.
+  Controlled non-orthogonality can therefore let the distance exceed the stabilizer generator weight by preventing low-weight latent rows from becoming logical operators.
+
+  The sharpest limitations are proved for strict monomial GALA and Kasai lifts, for which every stabilizer row has weight \(L\) \cite{arxiv:2608.07431}.
+  Taking \(J>L/4\) forces full orthogonality of the parents. Provided at least one latent row lies outside the retained row space of its type, that row is a weight-\(L\) logical operator and \(d\leq L\).
+  If every latent row is already in the retained row space, the retained code equals its fully orthogonal parent and this augmentation argument supplies no distance bound.
+  At the other extreme, \(J\leq 2\) gives \(d\leq g/2\), where \(g\) is the Tanner-graph girth.
+  Thus a monomial lift can break the weight barrier only in the window \(L\geq 12\) and \(2<J\leq L/4\), apart from the possibility of a block length exponential in the target distance.
+
+relations:
+  parents:
+    - code_id: qubit_css
+    - code_id: qldpc
+    - code_id: two_block_quantum
+      detail: 'Retaining the first \(J\) block rows of the parent matrices \(\hat{H}_X=[F|G]\) and \(\hat{H}_Z=[G^{T}|F^{T}]\) gives \(H_X=(A_1,B_1)\) and \(H_Z=(B_2^{T},A_2^{T})\), where \(A_1,B_1\) are the active block rows of the two block circulants and \(A_2,B_2\) their active block columns. Active orthogonality \(H_XH_Z^{T}=0\) is exactly the two-block condition \(A_1B_2-B_1A_2=0\), and the GALA sectors are defined as two-block CSS codes outright \cite[Defs. 4, 6, and 8]{arxiv:2608.07431}\cite{arxiv:2601.08824}.'
+  cousins:
+    - code_id: pair_partition_css
+      detail: 'Both families impose CSS orthogonality algebraically rather than through a product construction, but by different mechanisms. Pair-partition CPM codes match column types in pairs so that every overlap between an \(X\)-type and a \(Z\)-type generator occurs an even number of times \cite{arxiv:2607.14091}, whereas actively orthogonal CSS codes impose the condition only on the active rows retained from a larger pair of parent matrices \cite{arxiv:2601.08824}.'
+    - code_id: two_branch_css
+      detail: 'Both families impose CSS orthogonality algebraically rather than through a product construction, but by different mechanisms. Two-branch coset CSS codes reduce the commutation condition to equalities and disjointness conditions on multiplicative cosets of a finite field \cite{arxiv:2605.23894}, whereas actively orthogonal CSS codes impose the condition only on the active rows retained from a larger pair of parent matrices \cite{arxiv:2601.08824}.'
+    - code_id: lifted_product
+      detail: 'LP codes enforce the CSS orthogonality condition as an algebraic identity on all rows, whereas actively orthogonal CSS codes impose it only on the retained rows \cite{arxiv:2601.08824,arxiv:2608.07431}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-22'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'

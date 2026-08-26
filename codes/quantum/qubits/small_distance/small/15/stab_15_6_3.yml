@@ -37,7 +37,6 @@ protection: |
 
 features:
   transversal_gates:
-    - 'There are exactly 35 weight-3 \(X\)-type logical operators, corresponding to the weight-3 codewords of the \([15,11,3]\) Hamming code, while every \(Z\)-type logical operator has even weight at least 4.'
     - 'Qubit permutations combined with transversal CNOT gates realize the full logical linear group \(GL(6,2)\) on one code block and the full \(GL(12,2)\) on pairs of code blocks \cite[Sec. IV.A]{arxiv:1302.1035}.'
     - 'Transversal \(\sqrt{X}\) preserves the code \cite{arxiv:2608.05688} and implements an order-two logical gate that is a product of Hadamard-conjugated controlled-\(Z\) gates on nine pairs of logical qubits, up to a logical Pauli correction.'
     - 'All logical Clifford gates can be realized as two-fold transversal gates, i.e., by depth-one circuits of two-local code-preserving physical gates \cite{arxiv:2608.05688}.'
@@ -47,6 +46,8 @@ relations:
   parents:
     - code_id: quantum_reed_muller
       detail: 'The \([[15,6,3]]\) code is a CSS code constructed from the \([15,5,7]\) punctured first-order RM code and the \([15,4,8]\) shortened first-order RM code.'
+    - code_id: quantum_bch
+      detail: 'Both classical codes underlying the \([[15,6,3]]\) code are BCH codes: the \([15,5,7]\) punctured first-order RM code is the BCH code of designed distance seven, and the \([15,4,8]\) simplex code is the BCH code of designed distance eight.'
     - code_id: quantum_cyclic
       detail: 'The \([[15,6,3]]\) code is cyclic in a qubit ordering in which both underlying classical codes are cyclic.'
     - code_id: small_distance_qubit_stabilizer
@@ -63,5 +64,9 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
     - user_id: VictorVAlbert
       date: '2026-08-08'

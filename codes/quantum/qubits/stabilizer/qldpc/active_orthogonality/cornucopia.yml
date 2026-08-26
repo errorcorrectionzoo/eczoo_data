@@ -1,0 +1,62 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: cornucopia
+physical: qubits
+logical: qubits
+
+name: 'Cornucopia code'
+introduced: '\cite{arxiv:2608.02773}'
+
+description: |
+  \hyperref[code:gala]{GALA code} with rate just above one half whose \(G\)-\hyperref[topic:lifting]{lift} entries are affine permutations of a \(\mathbb{Z}_3\times\mathbb{Z}_q\) grid.
+  The layout and the syndrome-extraction schedule are designed together, so that a full syndrome cycle takes twelve entangling layers regardless of the code size.
+
+  The code has \(n=36q\) qubits partitioned into twelve blocks of \(P=3q\) with \(\gcd(q,3)=1\), each block laid out as a \(3\times q\) array, and three blocks of checks of each type.
+  The twelve lift entries \(A_k\) and \(B_k\), for \(k\in\mathbb{Z}_6\), each act on the grid as an affine map \((x,y)\mapsto(ax+b,y+s)\), so the row part lies in the affine group of \(\mathbb{Z}_3\), which is isomorphic to \(S_3\), while the column part is a cyclic shift.
+  Two entries invert the row coordinate and two translate it, while the remaining eight are pure column shifts.
+  Among the pairs \((A_i,B_j)\) that enter the orthogonality condition, only \((A_1,B_2)\) and \((A_0,B_3)\) fail to commute, and both have \(i+j\equiv3 \bmod 6\), an offset that the three retained check rows never realize \cite{arxiv:2608.02773}.
+  The twelve column shifts are left unconstrained by orthogonality and are the free parameters of the code search.
+
+protection: |
+  Every stabilizer generator has weight twelve, one qubit in each data block.
+  The reported instances all satisfy \(k=n/2+4\), giving rate just above one half \cite{arxiv:2608.02773}.
+
+  A weight-preserving bijection between the two logical sectors forces \(d_X=d_Z\) \cite[Lemma 1]{arxiv:2608.02773}.
+  Distances are certified exactly for \([[252,130,6]]\), \([[576,292,8]]\), \([[900,454,10]]\), \([[1044,526,12]]\), \([[1764,886,14]]\), \([[2304,1156,16]]\), and \([[2844,1426,18]]\), the last three of which exceed the generator weight \cite{arxiv:2608.02773}.
+
+features:
+  general_gates:
+    - 'The global column shift \(y\mapsto y+1\) is a code automorphism. For the reported instances, its logical action decomposes into parallel cyclic shifts of eighteen logical registers of length \(q\), together with four invariant logical modes \cite[Prop. 2]{arxiv:2608.02773}.'
+
+  decoders:
+    - 'Relay belief propagation, with belief propagation and ordered-statistics decoding as a fallback for shots it does not resolve \cite{arxiv:2608.02773}.'
+
+  fault_tolerance:
+    - 'The circuit-level distance, the least number of independent faults of the syndrome-extraction circuit producing an undetectable logical error, is reported only as an upper bound, and that bound falls strictly below \(d\) for the \([[252,130,6]]\) and \([[1044,526,12]]\) instances \cite[Tab. 1]{arxiv:2608.02773}.'
+
+  threshold:
+    - 'Circuit-level simulations give pseudo-thresholds above \(0.4\%\), defined by the break-even condition that the logical error rate per logical qubit per cycle equal the physical error rate \cite{arxiv:2608.02773}. At physical error rate \(10^{-3}\), the \([[2844,1426,18]]\) code has an extrapolated logical error rate of \(2.6\times10^{-16}\) at an overhead of about three physical qubits per logical qubit.'
+
+relations:
+  parents:
+    - code_id: gala
+      detail: 'Cornucopia codes lie in the direct-product monomial GALA sector with non-Abelian top factor \(S_3\) and Abelian bottom factor \(C_q\), and were obtained independently \cite{arxiv:2608.07431}. The affine maps of the \(\mathbb{Z}_3\times\mathbb{Z}_q\) grid realize \(S_3\times C_q\) because the row part of an affine map on \(\mathbb{Z}_3\) ranges over the affine group of \(\mathbb{Z}_3\), which is isomorphic to \(S_3\). The depth-twelve syndrome-extraction schedule is the \(J=L/4\) case of the GALA schedule condition, in which the two halves of the lift decouple \cite{arxiv:2608.07431}.'
+    - code_id: kasai
+      detail: 'Since \(\gcd(q,3)=1\), the Chinese remainder theorem relabels the \(P=3q\) coordinates of each block, identifying \(\mathbb{Z}_3\times\mathbb{Z}_q\) with the ring \(\mathbb{Z}_{3q}\) \cite{arxiv:2608.02773}. Affine maps are preserved under this identification, so each lift entry \((x,y)\mapsto(ax+b,y+s)\) becomes a single affine permutation of \(3q\) letters, whose multiplier reduces to \(a\) modulo \(3\) and to one modulo \(q\) \cite{arxiv:2608.02773}.'
+  cousins:
+    - code_id: kasai_1152
+      detail: 'The \([[1152,580,\leq 12]]\) code is permutation equivalent to a \(\mathrm{GALA}_{12,3}(S_3\times\mathbb{Z}_{32})\) code \cite{arxiv:2608.07431}, drawn from the same direct-product GALA sector as the Cornucopia family. It need not lie in the family itself since its lift takes mutually inverse row translations where the Cornucopia construction repeats a single one \cite{arxiv:2604.16209,arxiv:2608.02773}. Its \([[2304,1156]]\) sibling has non-cyclic Abelian factor \(\mathbb{Z}_2\times\mathbb{Z}_{32}\) and also lies outside the family \cite{arxiv:2608.07431}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
+    - user_id: VictorVAlbert
+      date: '2026-08-25'

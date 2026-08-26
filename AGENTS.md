@@ -65,9 +65,18 @@ degenerate qubit codes are impure, but impure codes need not be degenerate
 typical sentences in this repo: one main clause plus at most a modifier or two,
 one sentence per line. Do not chain several constructions into a single long
 sentence with "and"/"whose"/"with"/participles — split it into consecutive
-shorter sentences. If a sentence needs re-reading to parse, it is too long.
+shorter sentences. If a sentence needs re-reading to parse, it is too long. In
+particular, avoid the semicolon: a semicolon almost always joins two sentences
+that should simply be two sentences. Prefer a period.
 
-**8. Never mix the subspace and subsystem hierarchies.** The subspace and
+**8. Stay hardware-agnostic.** Describe what a code and its operations ARE, not
+the machine that runs them. Write "qubit permutation" rather than "atom
+rearrangement", and "single-qubit gate layer" rather than "tweezer pulse". Name
+a platform only where it is genuinely the point, namely a realization or a
+design constraint the construction was built to satisfy. Name it once, in
+`realizations:` or in the one sentence explaining the design choice.
+
+**9. Never mix the subspace and subsystem hierarchies.** The subspace and
 subsystem branches are kept separate all the way up to their respective KINGDOM
 ROOT codes — `qubits_into_qubits` vs `subsystem_qubits_into_qubits`, and
 likewise for qudits, Galois qudits, and groups. They meet only above those
@@ -80,7 +89,7 @@ Each branch instead reaches its own kingdom root through the matching
 subsystem entry (`qubit_subsystem_stabilizer`, `subsystem_stabilizer`, …).
 (Lint: `scripts/relations/subspace_subsystem_split.py`.)
 
-**9. Run the relation checkers after any hierarchical edit.** Whenever you add,
+**10. Run the relation checkers after any hierarchical edit.** Whenever you add,
 move, or reparent parents/cousins, run all three from the repo root and fix
 what they report:
 
@@ -100,7 +109,7 @@ primary-parent chain that leaves the code's home kingdom (the PRIMARY parent
 determines where the site's hierarchy displays a code, so a cross-kingdom
 parent — e.g. a Galois-qudit entry above a purely-qubit code — must be
 demoted to secondary and an in-kingdom parent promoted to first); and a parent
-edge crossing between the subspace and subsystem hierarchies (rule 8).
+edge crossing between the subspace and subsystem hierarchies (rule 9).
 `check_duplicate_relations.py`, `primary_parent_kingdom.py`, and
 `subspace_subsystem_split.py` exit non-zero on violations.
 

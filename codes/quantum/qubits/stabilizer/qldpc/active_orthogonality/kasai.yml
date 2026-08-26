@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: kasai
+physical: qubits
+logical: qubits
+
+name: 'Kasai code'
+introduced: '\cite{arxiv:2601.08824}'
+
+description: |
+  Qubit \hyperref[code:actively_orthogonal_css]{actively orthogonal CSS code} whose block-circulant parent matrices are obtained by a \(G\)-\hyperref[topic:lifting]{lift} with affine permutation matrices.
+  Since affine permutations need not commute, the CSS orthogonality condition can be imposed on a chosen subset of block rows while being deliberately broken elsewhere, which allows regular, high-girth stabilizer generator matrices at encoding rate at or above one half.
+
+  An affine permutation matrix \(\mathrm{APM}(a,b,P)\) is the permutation matrix of the map \(x \mapsto ax+b \bmod P\) with \(\gcd(a,P)=1\). These form the group of affine permutations on \(P\) letters.
+  Given \(L\), \(J\), and an active set \(\Gamma\), the code is specified by lifts \(\mathcal{F}=\{F_i\}\) and \(\mathcal{G}=\{G_i\}\) drawn from this group that commute, \([F_i,G_j]=0\), for every \((i,j)\in\Gamma\), with commutation deliberately broken on at least one pair outside \(\Gamma\).
+  The stabilizer generator matrices are the first \(J\) block rows of the block-circulant parents built from \(\mathcal{F}\) and \(\mathcal{G}\), giving \(n=LP\) qubits.
+
+  Co-designs for reconfigurable neutral-atom arrays impose the additional requirement that every syndrome-extraction transition permutation commute with a fixed reference affine permutation, so that each atom-rearrangement step compiles into a few global cyclic shifts \cite{arxiv:2604.16209}.
+  That work does not require the girth-eight condition of the original construction, imposing girth at least six instead, and reports much smaller instances such as \([[1152,580,\leq 12]]\), \([[2304,1156,\leq 14]]\), and the movement-compatible \([[2304,1156,\leq 16]]\) and \([[4608,2308,\leq 22]]\) \cite{arxiv:2604.16209}.
+
+protection: |
+  The parameters must satisfy \(L \geq 4J\): otherwise active orthogonality forces every block of the parent product to vanish, the latent rows become orthogonal as well, and the construction degenerates to a row-deleted fully orthogonal code \cite{arxiv:2601.08824}.
+  Since the rank of each active matrix is at most \(JP\), the encoding rate is at least \(1-2J/L\), hence at least one half in this regime \cite{arxiv:2608.07431}.
+
+  Reported distances are latent-based upper bounds obtained from the deleted rows. Certified lower bounds are not established \cite{arxiv:2601.08824}.
+  Girth eight is a structural ceiling rather than merely an achieved value: once \(J \geq 3\) and the required commutation conditions hold, the active Tanner graphs necessarily contain an eight-cycle \cite{arxiv:2601.08824}.
+
+  The smallest instance constructed in Ref. \cite{arxiv:2601.08824} is a \((3,12)\)-regular, girth-eight \([[9216,4612,\leq 48]]\) code with \(P=768\) and rate approximately \(0.5004\), which attains a frame error rate of \(10^{-8}\) on the depolarizing channel at physical error rate \(4\%\).
+
+features:
+  decoders:
+    - 'Belief propagation with post-processing, using a library of elementary trapping sets, flip history, and local ordered-statistics decoding \cite{arxiv:2601.08824}.'
+
+
+relations:
+  parents:
+    - code_id: actively_orthogonal_css
+      detail: 'Kasai codes are actively orthogonal CSS codes whose lifts are affine permutation matrices \cite{arxiv:2601.08824}.'
+  cousins:
+    - code_id: apm_ldpc
+      detail: 'The blocks of the Kasai parent matrices are affine permutation matrices, the same building blocks used in APM-LDPC codes \cite{arxiv:2601.08824}.'
+    - code_id: quasi_cyclic_qldpc
+      detail: 'Kasai codes with trivial multiplier \(a=1\) reduce to the QC-QLDPC codes of Hagiwara and Imai: the lifts are commuting cyclic shifts, so orthogonality holds on all rows and the distance is capped by the row weight when a removed row is independent of the retained rows \cite{arxiv:quant-ph/0701020,arxiv:2601.08824}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-22'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'

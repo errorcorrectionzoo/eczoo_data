@@ -1,0 +1,55 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: two_branch_css
+physical: qubits
+logical: qubits
+
+name: 'Two-branch coset CSS code'
+introduced: '\cite{arxiv:2605.23894}'
+
+description: |
+  Qubit CSS code whose base stabilizer generator matrices place the support of each check on translated cosets of a multiplicative subgroup of a finite field, distributed over two column classes called branches that each carry their own coefficient arrays.
+  The construction also provides a cyclic circulant-permutation-matrix lifting stage that can randomize the edge connections while preserving the sparse CSS constraints.
+  Expressing the incidences through coset arithmetic reduces both the CSS commutation condition and the absence of same-type four-cycles to sufficient equalities and disjointness conditions on multiplicative cosets, turning the search for a regular base pair into a finite check on field coefficients.
+
+  Let \(M\) be a multiplicative subgroup of the multiplicative group of a finite field.
+  Columns are indexed by a branch label, a field translation, and a subgroup element, and the \(X\)- and \(Z\)-type rows are incident through coefficient arrays, giving column weight \(J\) and row weight \(L=2|M|\).
+  CSS commutation follows from an equality of cosets of differences of the two coefficient arrays across the branches, and freedom from same-type four-cycles from disjointness of the corresponding difference cosets.
+  A base pair can then be given a \(G\)-\hyperref[topic:lifting]{lift} over a cyclic group, realized by circulant permutation matrices whose shifts are chosen to raise the girth and to remove targeted low-weight logical operators. The worked finite-length construction applies this stage to one \((3,10)\)-regular base \cite{arxiv:2605.23894}.
+
+protection: |
+  Base codes include \([[42,10,3]]\), \([[72,22,6]]\), \([[110,48,6]]\), \([[156,82,3]]\), \([[104,6,12]]\), and \([[110,28,10]]\), for column weights three and four, along with a \([[110,8,12]]\) code of column weight five \cite{arxiv:2605.23894}.
+  A lifted instance is a \([[10240,4108,10 \leq d \leq 32]]\) code of rate \(0.401\) whose same-type Tanner graphs have girth at least eight, obtained from a \([[160,76,4]]\) base over \(\mathbb{F}_{16}\) by a \(64\)-fold lift \cite{arxiv:2605.23894}.
+  A \((3,30)\)-regular base over \(\mathbb{F}_{31}\) yields a \([[930,748,6]]\) code attaining the design rate \(1-2J/L=0.8\), and this field size and base length are the smallest possible at that design rate under the two-branch coset conditions \cite{arxiv:2605.23894}.
+
+features:
+  decoders:
+    - 'Joint belief propagation with low-complexity deterministic post-processing \cite{arxiv:2605.23894}. For the specific \([[10240,4108,10 \leq d \leq 32]]\) code at depolarizing probability \(p=0.058\), this decoder recorded 18 failures in 180 million trials, a finite-sample frame error rate of \(10^{-7}\). This is not an asymptotic threshold estimate.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+      detail: 'Multiplicative-coset conditions make the two binary stabilizer generator matrices orthogonal, so they define a qubit CSS code \cite{arxiv:2605.23894}.'
+    - code_id: qldpc
+      detail: 'Both base stabilizer generator matrices are sparse and regular, with constant column weight \(J\) and row weight \(L=2|M|\) \cite{arxiv:2605.23894}.'
+  cousins:
+    - code_id: quasi_cyclic_qldpc
+      detail: 'The optional cyclic lift produces QC-QLDPC codes whose stabilizer generator matrices are arrays of circulant permutation blocks and are invariant under a simultaneous shift of the lift coordinates \cite{arxiv:2605.23894}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-22'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'

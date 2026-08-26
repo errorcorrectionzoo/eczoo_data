@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+
+code_id: kasai_1152
+physical: qubits
+logical: qubits
+
+name: '\([[1152,580,\leq 12]]\) co-designed Kasai code'
+introduced: '\cite{arxiv:2604.16209}'
+
+description: |
+  A \hyperref[code:kasai]{Kasai code} of rate just above one half, co-designed with reconfigurable neutral-atom hardware, in which every qubit permutation required by syndrome extraction reduces to at most one horizontal shift together with one vertical shift or swap on a three-by-thirty-two grid.
+  It is the smaller of the two instances used to demonstrate that ultra-high-rate quantum LDPC codes can reach logical error rates approaching the teraquop regime while remaining implementable under realistic parallel-control constraints.
+
+  The code uses \(J=3\) active block rows, \(L=12\) block columns, and lift size \(P=96\), giving \(n=LP=1152\) qubits at rate \(0.503\), girth at least six, and non-commutativity imposed on the index pairs \((0,3)\) and \((1,2)\) \cite{arxiv:2604.16209}.
+  The twelve affine permutations \(f_i(x)=a_ix+b_i\) and \(g_i(x)=c_ix+d_i\) defining the \(G\)-\hyperref[topic:lifting]{lift} are tabulated in Ref. \cite{arxiv:2604.16209}.
+  Its defining co-design property is that all syndrome-extraction transition permutations commute with a reference affine permutation having three orbits of length \(32\), which is what produces the three-by-thirty-two layout and the at-most-one-horizontal-plus-one-vertical-move schedule.
+
+  The same construction yields a \([[2304,1156,\leq 14]]\) instance, along with movement-compatible \([[2304,1156,\leq 16]]\) and \([[4608,2308,\leq 22]]\) codes \cite{arxiv:2604.16209}.
+
+  This code also belongs to a second family: it is permutation equivalent, as verified numerically, to the \hyperref[code:gala]{GALA code} \(\mathrm{GALA}_{12,3}(S_3\times\mathbb{Z}_{32})\), with its \([[2304,1156]]\) sibling likewise permutation equivalent to \(\mathrm{GALA}_{12,3}(S_3\times\mathbb{Z}_2\times\mathbb{Z}_{32})\) \cite{arxiv:2608.07431}.
+  The non-Abelian factor \(S_3\) and Abelian factor \(\mathbb{Z}_{32}\) of that presentation reproduce the reference-permutation orbit structure, recovering the same optimal movement schedule from the group data.
+
+protection: |
+  The encoding rate is \(0.503\), and the distance is reported only as the upper bound \(d \leq 12\) \cite{arxiv:2604.16209}.
+
+  Under a circuit-level noise model at physical error rate \(10^{-3}\) without idling noise, the average per-logical-qubit-per-round error rate is directly observed to be \(2.9^{+3.1}_{-1.5}\times10^{-11}\). The \([[2304,1156,\leq 14]]\) instance reaches \(1.3^{+3.0}_{-0.9}\times10^{-13}\) \cite{arxiv:2604.16209}.
+  Both lie close to a heuristic finite-blocklength Pareto frontier relating block length, encoding rate, and logical error rate.
+
+features:
+  decoders:
+    - 'Hierarchical decoder combining the throughput of belief propagation with an exact integer-programming fallback \cite{arxiv:2604.16209}.'
+
+  fault_tolerance:
+    - 'Syndrome extraction requires at most one horizontal shift together with one vertical shift or swap per step, on a three-by-thirty-two qubit layout \cite{arxiv:2604.16209}.'
+
+relations:
+  parents:
+    - code_id: kasai
+      detail: 'This Kasai code satisfies the reference-affine-permutation commutation condition, which relaxes the girth from eight to six in exchange for qubit-permutation schedules of constant cost \cite{arxiv:2604.16209}.'
+    - code_id: gala
+      detail: 'The code is permutation equivalent to \(\mathrm{GALA}_{12,3}(S_3\times\mathbb{Z}_{32})\) \cite{arxiv:2608.07431}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
+    - user_id: VictorVAlbert
+      date: '2026-08-25'
+    - user_id: VictorVAlbert
+      date: '2026-08-17'
+    - user_id: VictorVAlbert
+      date: '2026-08-15'
