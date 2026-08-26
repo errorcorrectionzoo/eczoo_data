@@ -1,0 +1,68 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: directional
+physical: qubits
+logical: qubits
+
+name: 'Directional code'
+introduced: '\cite{arxiv:2507.19430}'
+
+description: |
+  Member of a family of BB codes on a torus whose stabilizer generators are each supported on a translate of one bounded connected string of the square lattice.
+  The string is traced out by a fixed word in the four lattice directions, and the same word doubles as the schedule of a syndrome-extraction circuit built only from nearest-neighbor iSWAP gates.
+  The exchange action of those gates carries the check qubits through the lattice, so the connectivity needed to measure a high-weight stabilizer generator is produced during the circuit rather than built into the qubit connectivity graph.
+
+  Data and check qubits sit on the two sublattices of a checkerboard coloring of \(\mathbb{Z}^2\), and each check qubit has four data-qubit neighbors.
+  Applying a CXSWAP gate between every check qubit and its data-qubit neighbor in a fixed direction accumulates one stabilizer term on each check qubit.
+  It also translates the check-qubit sublattice one step in that direction and the data-qubit sublattice one step the opposite way, changing which data qubits each check qubit is adjacent to.
+  A \textit{directional word} \(\mathfrak{D}=\vec{d}_1\vec{d}_2\cdots\vec{d}_w\), with each \(\vec{d}_i\) one of the four lattice directions, therefore specifies a depth-\(w\) circuit measuring one weight-\(w\) stabilizer generator per check qubit.
+  Check qubits carry an \(X\)- or \(Z\)-type label, and CXSWAP or CZSWAP gates are applied accordingly.
+  Both gates are local-Clifford equivalent to the iSWAP gate.
+  Not every pairing of a word with an assignment of check-qubit labels yields a deterministic circuit, and the admissible pairings are characterized in Ref. \cite{arxiv:2507.19430}.
+
+  A finite code is obtained by wrapping the infinite lattice around a parallelogram spanned by two lattice vectors.
+  Axis-parallel vectors give a regular torus, and other choices give a twisted torus.
+  The families constructed explicitly use the words \(N^{\alpha}E^{\beta}N^{\alpha}\) with \(\alpha\geq 1\) and \(\beta\geq 2\), whose stabilizer generators have weight \(2\alpha+\beta\).
+  For each word there is a \textit{rotated} family on a diamond-shaped twisted torus with \(n=\alpha\beta L^2/2\), and a \textit{rectangular} family on a regular torus with \(n=3\alpha\beta L^2/4\), both defined for a size parameter \(L\) divisible by four.
+  A \textit{filler} family on a regular torus supplies an instance with \(n=24\alpha\beta\).
+  All three satisfy \(k\geq 2(2\alpha-1)(\beta-1)\), and the words \(NE^3N\), \(N^2E^2N^2\), \(N^2E^3N^2\), and \(N^2E^4N^2\) attain this bound with four, six, twelve, and eighteen logical qubits, respectively.
+
+  Examples include the \([[48,12,4]]\) and \([[192,12,8]]\) rotated \(N^2E^3N^2\) codes, whose code-parameter efficiency is \(kd^2/n=4\).
+  The rotated \(N^2E^4N^2\) codes \([[64,18,4]]\) and \([[256,18,8]]\) reach \(kd^2/n=4.5\).
+  The unrotated \hyperref[code:toric]{toric code} is recovered as the \(NE^2N\) code on a square torus.
+
+protection: |
+  The code distance equals the size parameter \(L\) for the \(L=4,8,12\) members of the rotated and rectangular families of all four words studied, as verified using integer programming \cite{arxiv:2507.19430}.
+  The filler codes all have code distance six.
+
+features:
+  rate: 'The ratio \(n/d^2\), with \(d\) the code distance, equals \(\alpha\beta/2\), \(2\alpha\beta/3\), and \(3\alpha\beta/4\) for the rotated, filler, and rectangular families, respectively. The code-parameter efficiency \(kd^2/n\) reaches 4.5 for the rotated \(N^2E^4N^2\) codes \cite{arxiv:2507.19430}.'
+
+  decoders:
+    - 'Tesseract search-based decoder \cite{arxiv:2503.10988} with a short beam setting, applied to detector error models constructed with Stim \cite{arxiv:2103.02202}.'
+
+  fault_tolerance:
+    - 'Under a superconducting-inspired circuit-level Pauli noise model at physical error rate \(10^{-3}\), the best family studied matches the logical error rate of the rotated toric code while using a quarter to a third as many physical qubits \cite{arxiv:2507.19430}.'
+    - 'Syndrome extraction requires only nearest-neighbor connectivity on a square grid, and some directional words require only the sparser degree-three hexagonal grid \cite{arxiv:2507.19430}.'
+    - 'Every other syndrome-extraction round is reversed, making the circuits two-round morphing circuits. The circuit-level distance computed from a single-round memory circuit therefore agrees with the one computed from \(d\) rounds \cite{arxiv:2507.19430}.'
+    - 'Among the instances whose circuit-level distance was computed, only the distance-six \(NE^3N\) filler code falls short of the code distance, having circuit-level distance five. The rotated toric code implemented with a uniform directional schedule has circuit-level distance \(\lceil 3d/4\rceil\), and the full distance is recovered using the standard scheduling with controlled-Pauli gates \cite{arxiv:2507.19430}.'
+
+
+relations:
+  parents:
+    - code_id: qcga
+      detail: 'Directional codes form a subfamily of BB codes. Writing the support of an \(X\)-type stabilizer generator on horizontal and vertical edges as bivariate polynomials \(f\) and \(g\), the parity-check matrices are \(H_X=[B(f)\mid B(g)]\) and \(H_Z=[B(\overline{g})\mid B(\overline{f})]\), where \(B\) denotes the binary representation of the quotient ring and the bar denotes the reciprocal polynomial \cite{arxiv:2606.19482}. Every stabilizer generator then has weight \(w\), and every data qubit participates in exactly \(w\) checks, so the Tanner graph is \((w,w)\)-regular \cite{arxiv:2606.19482}.'
+  cousins:
+    - code_id: toric
+      detail: 'The unrotated toric code is the \(NE^2N\) directional code on a square torus, obtained with uniform scheduling and retaining full circuit-level distance \cite{arxiv:2507.19430}. The rotated toric code arises from the same word on a diamond-shaped twisted torus for even distance.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'

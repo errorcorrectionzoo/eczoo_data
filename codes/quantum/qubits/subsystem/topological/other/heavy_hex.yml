@@ -12,17 +12,17 @@ introduced: '\cite{arxiv:1907.09528}'
 
 description: |
   Subsystem stabilizer code on the heavy-hexagonal point set that combines Bacon-Shor and surface-code stabilizers.
-  Encodes one logical qubit into \(n=(5d^2-2d-1)/2\) physical qubits with distance \(d\).
+  Has parameters \([[d^2,1,d]]\), with \(d\) data qubits along each row and column of the lattice \cite{arxiv:1907.09528}.
+  A distance-\(d\) implementation additionally requires \((d+1)(d-1)/2\) syndrome-measurement qubits and \(d(d-1)\) flag qubits, for a total of \((5d^2-2d-1)/2\) qubits.
   The heavy-hexagonal point set allows for low degree (at most 3) connectivity between all the data and ancilla qubits, which is suitable for fixed-frequency transmon qubits subject to frequency collision errors.
   The code can be split into a surface and a Bacon-Shor code, with the idling qubits of one code serving as the physical qubits of the other \cite{arxiv:2404.15989}.
 
   Data qubits and ancillas of the code are placed on a heavy-hexagonal point set, i.e., the vertices and edges of a tiling of hexagons. A subset of the ancilla qubits are flag qubits used for detecting high-weight errors arising from fewer faults. The code stabilizers for detecting \(X\)-type errors are measured by measuring weight-two \(Z\)-type gauge operators whose product produces stabilizers of the surface code. \(X\)-type stabilizers are column operators corresponding to stabilizers of the Bacon-Shor code, which are measured by taking products of weight-four and weight-two \(X\)-type gauge operators.
 
 
-protection: 'Protects against Pauli noise. The code has no threshold for \(Z\)-type Pauli errors since they are detected by Bacon-Shor-type stabilizers.'
 
 features:
-  rate: '\(1/n\) for a distance-\(d\) heavy-hexagon code on \(n = (5d^2-2d-1)/2\) qubits.'
+  rate: '\(1/d^2\) for a distance-\(d\) heavy-hexagon code, whose implementation occupies \((5d^2-2d-1)/2\) qubits once syndrome-measurement and flag qubits are counted \cite{arxiv:1907.09528}.'
 
   encoders:
     - 'For a logical-zero state, prepare all data qubits in the physical-zero state and then measure the \(X\)-type Bacon-Shor stabilizers. For logical-plus state, prepare all data qubits in the physical-plus state and then measure \(Z\)-type surface code stabilizers.'
@@ -46,8 +46,8 @@ features:
     - 'Stabilizer measurements are measured fault-tolerantly using one-flag circuits since some single-fault events can result in weight-two data qubit errors which are parallel to the code''s logical operators. Hence, using information from the flag-qubit measurements is crucial to fault-tolerantly measure the code stabilizers.'
 
   threshold:
-    - '\(0.45\%\) for \(X\) errors under a full circuit-level depolarizing noise model (obtained from Monte Carlo simulations).'
-    - '\(Z\)-errors have no threshold given the \(X\)-type Bacon-Shor stabilizers.'
+    - '\(0.45\%\) for \(X\) errors under a full circuit-level depolarizing noise model (obtained from Monte Carlo simulations) \cite{arxiv:1907.09528}.'
+    - 'There is no threshold for \(Z\)-type Pauli errors, which are corrected using the \hyperref[code:bacon_shor]{Bacon-Shor} column stabilizer generators \cite{arxiv:1907.09528}. The number of those generators scales sublinearly with the system size, so they do not yield a topological threshold in the large-size limit. Low logical error rates were nevertheless observed over the range of distances simulated, \(d\leq 13\).'
 
 realizations:
   - 'Superconducting qubits: Logical state preparation and flag-qubit error correction realized in superconducting-circuit devices (specifically, fixed-frequency transmon qubit architectures) by IBM for \(d=2\) \cite{arxiv:1705.09259,arxiv:2110.04285} and \(d=3\) \cite{arxiv:2203.07205}.
@@ -56,7 +56,7 @@ realizations:
 relations:
   parents:
     - code_id: compass_model
-      detail: 'The heavy-hex code is a compass code on a heavy-hexagonal lattice, combining weight-two \(XX\) and \(ZZ\) gauge operators that are partially gauge-fixed to yield surface-code \(Z\)-type stabilizers and Bacon-Shor \(X\)-type stabilizers \cite{arxiv:1907.09528}.'
+      detail: 'The heavy-hexagon code is a compass code on a heavy-hexagonal lattice, combining weight-two \(XX\) and \(ZZ\) gauge operators that are partially gauge-fixed to yield surface-code \(Z\)-type stabilizers and Bacon-Shor \(X\)-type stabilizers \cite{arxiv:1907.09528}.'
   cousins:
     - code_id: surface
       detail: 'Surface code stabilizers are used to measure the Z-type stabilizers of the code.
@@ -69,6 +69,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: ChristopherChamberland

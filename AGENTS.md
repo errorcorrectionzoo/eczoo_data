@@ -89,8 +89,34 @@ Each branch instead reaches its own kingdom root through the matching
 subsystem entry (`qubit_subsystem_stabilizer`, `subsystem_stabilizer`, …).
 (Lint: `scripts/relations/subspace_subsystem_split.py`.)
 
-**10. Run the relation checkers after any hierarchical edit.** Whenever you add,
-move, or reparent parents/cousins, run all three from the repo root and fix
+**10. Logical Paulis and permutation-type gates go in `transversal_gates`.**
+For a stabilizer code the logical Pauli operators are themselves transversal
+gates, so a statement describing a logical Pauli basis belongs under
+`transversal_gates:`, not `general_gates:`. The same holds for qubit-permutation
+gates, including those induced by code automorphisms, and for fold-transversal
+gates. Reserve `general_gates:` for gates that are not of this form, such as
+those requiring lattice surgery, code deformation, or state injection.
+
+**11. Do not record what a source did not study.** Omit anything a paper only
+postulates, calls itself merely "compatible with", or leaves to future work.
+This includes noise mechanisms the paper explicitly does not model, protocols it
+describes but does not benchmark, speculative applications or open directions,
+and remarks that a quantity was not or could not be computed. A bound the paper
+proves (e.g., \(d\leq 84\)) is a result and belongs; a sentence narrating the
+absence of a computation does not. An entry records what is established, not what is anticipated. If a
+headline number rests on an unsimulated assumption or an idealized decoder, drop
+the number rather than quoting it with a hedge.
+
+**12. Circuit-level statements go in `fault_tolerance`, not `protection`.**
+`protection:` is for the code's own error-correcting capability: distance,
+parameter bounds, and which errors the code corrects or detects. Anything about
+the syndrome-extraction circuit belongs under `fault_tolerance:` instead —
+circuit-level distance, hook errors, gate schedules and their depth, and any
+logical error rate quoted under a circuit-level noise model. (A genuine
+threshold still goes under `threshold:`.)
+
+**13. Run the relation checkers after any hierarchical edit.** Whenever you add,
+move, or reparent parents/cousins, run all five from the repo root and fix
 what they report:
 
 ```
@@ -131,6 +157,12 @@ This is the routine-check list in `scripts/script_list_for_checking.txt`.
 - A relation `detail:` should describe the actual relationship and cite it. If
   a `detail` reads "X is a Y" it is asserting a parent relation, so it should
   not sit under `cousins:`.
+- A parent `detail:` says what distinguishes THIS code inside the parent family
+  — the extra constraint or structure it imposes, and what that constraint
+  buys. Do NOT use it to contrast the code with its SIBLING codes: a reader of
+  one child should not have to learn another child's construction to understand
+  this one. Where a cross-child comparison is genuinely useful, it belongs in
+  the parent entry, which can describe each child in turn.
 
 ## File placement
 

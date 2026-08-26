@@ -31,7 +31,7 @@ description: |
 
 protection: |
   The \([[L^2,1,L]]\) planar rotated surface code variant \cite{arxiv:quant-ph/0703272} includes the \([[9,1,3]]\) \hyperref[code:surface-17]{surface-17} code, named as such because 8 ancilla qubits are used for check operator measurements alongside the 9 physical qubits.
-  The \([[L^2,2,L]]\) periodic variant is a rotated toric or checkerboard code, whose smallest example is the \([[4,2,2]]\) code.
+  The \([[L^2,2,L]]\) periodic variant is a rotated toric code, whose smallest example is the \([[4,2,2]]\) code.
   Non-bipartite rotated toric codes with odd distance include the family \([[t^2+(t+1)^2,1,2t+1]]\) \cite[Exam. 4]{arxiv:1202.0928}.
 
 features:
@@ -39,6 +39,7 @@ features:
     - 'Unitary encoder based on code conversion between rotated and regular surface codes \cite{arxiv:2506.04084}.'
   transversal_gates:
     - 'Fold-transversal \(S\) gate \cite{arXiv:2412.01391,arxiv:2502.00957}.'
+    - 'The logical Hadamard gate is transversal, but under the alternating six-layer gate sequence the detecting regions of the two boundary orientations do not align \cite{arxiv:2605.30455}. Alignment is restored either by one additional layer of boundary CNOT gates, needed only once every \(6d\) layers and benchmarked to have negligible impact on the logical error rate, or by applying the transversal Hadamard at a square-shaped end cycle and reflecting the subsequent gate sequence, which takes six cycles and needs no CXSWAP gates.'
   general_gates:
     - 'Injection of the \(|Y\rangle\) state \cite{arxiv:2501.15566}.'
   decoders:
@@ -50,6 +51,7 @@ features:
     - 'Thresholds for various amounts of erasure, Pauli, correlated, and measurement noise are known \cite{arxiv:2408.00829,arxiv:2410.23779}.'
   fault_tolerance:
     - 'A particular choice of CNOT gates during syndrome extraction is required to avoid \hyperref[topic:effective-distance]{hook errors} and be fault-tolerant to syndrome qubit errors \cite{arxiv:quant-ph/0110143,arxiv:1208.0928,arxiv:1404.3747}.'
+    - 'Memory, lattice surgery, and walking operations all fit within a bounding box of \(2d^2\) physical qubits per distance-\(d\) patch, rather than the \(2(d+1)^2\) required by earlier schemes \cite{arxiv:2605.30455}. The construction modifies the patch boundaries and uses an alternating six-layer gate sequence, namely one reset layer, four layers of two-qubit gates, and one measurement layer, in both the \(X\)-top and \(Z\)-top boundary configurations. Memory and lattice surgery need only a degree-three connectivity graph, and lattice surgery requires no padding region between patches. The walking operation instead needs a square grid together with CXSWAP gates on the boundary.'
 
 
 realizations:
@@ -64,9 +66,9 @@ relations:
       detail: 'Applying the quantum Tanner transformation to the surface code yields the rotated surface code \cite{manual:{N. P. Breuckmann, private communication, 2022},manual:{A. Leverrier, “Mapping the toric code to the rotated toric code”, 2022 \href{https://github.com/errorcorrectionzoo/eczoo_data/files/9210173/rotated.pdf}{URL}}}.'
   cousins:
     - code_id: hypergraph_product
-      detail: 'Periodic checkerboard or rotated-toric codes on the same lattice can be obtained from hypergraph products of two cyclic linear binary codes with palindromic check polynomials \cite[Sec. IV.D]{arxiv:1202.0928}.'
+      detail: 'Periodic rotated toric codes on the same lattice can be obtained from hypergraph products of two cyclic linear binary codes with palindromic check polynomials \cite[Sec. IV.D]{arxiv:1202.0928}.'
     - code_id: binary_cyclic
-      detail: 'Periodic checkerboard or rotated-toric codes on the same lattice can be obtained from hypergraph products of two cyclic linear binary codes with palindromic check polynomials \cite[Sec. IV.D]{arxiv:1202.0928}.'
+      detail: 'Periodic rotated toric codes on the same lattice can be obtained from hypergraph products of two cyclic linear binary codes with palindromic check polynomials \cite[Sec. IV.D]{arxiv:1202.0928}.'
     - code_id: heavy_hex
       detail: 'A rotated surface code can be mapped onto a heavy square lattice, resulting in a code similar to the heavy-hexagon code \cite{arxiv:1907.09528}.'
     - code_id: hierarchical
@@ -84,6 +86,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: EricHuang

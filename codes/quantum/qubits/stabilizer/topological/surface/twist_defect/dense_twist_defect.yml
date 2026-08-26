@@ -1,0 +1,66 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: dense_twist_defect
+physical: qubits
+logical: qubits
+
+name: 'Dense twist-defect surface code'
+introduced: '\cite{arxiv:2605.30455}'
+
+alternative_names:
+  - 'Denser planar surface code'
+
+description: |
+  Member of a family of \hyperref[code:twist_defect_surface]{twist-defect surface codes} whose twist defects are packed as densely as circuit-level error mechanisms allow, roughly doubling the number of logical qubits per physical qubit relative to \hyperref[code:rotated_surface]{rotated surface-code} patches.
+  The packing is made practical by a syndrome-extraction cycle for the weight-five twist-defect stabilizer generators that needs only degree-three qubit connectivity, six layers of operations, and decoding by minimum-weight perfect matching.
+  Twist positions are chosen against measured circuit-level error rates rather than against the code distance.
+
+  Twist defects sit at the endpoints of a domain wall and carry non-CSS weight-five stabilizer generators containing a \(Y\) Pauli operator.
+  Rather than measuring such a generator directly, the construction measures lower-weight gauge operators that commute with the stabilizer group but anticommute with each other.
+  Individual gauge outcomes are random, while the parity of two of them reconstructs the twist-defect stabilizer generator.
+  An additional weight-two domain wall removes matchable interior boundaries.
+  The resulting cycle uses one reset layer, four layers of two-qubit gates, and one measurement layer, on a degree-three connectivity graph.
+  It loses no distance parallel to the domain wall and one unit perpendicular to it, or no distance at all in an eight-layer variant.
+  Earlier twist-defect circuits needed at least seven layers and degree-six connectivity \cite{arxiv:1709.02318,arxiv:2201.05678}, or halved the distance along the domain wall and gave up matching-based decoding \cite{arxiv:2307.10147}.
+
+  Three packings are given.
+  A rectangular patch with two twist defects encodes three logical qubits in the footprint of two distance-\(d\) rotated surface-code patches, and one example has an end-cycle stabilizer group forming a \([[49,3,5]]\) code.
+  Merging the boundaries of a grid of \(n_{\text{row}}\times m_{\text{col}}\) such rectangles gives a single patch encoding \(3 n_{\text{row}} m_{\text{col}}\) logical qubits, approaching one logical qubit per \(d(d-1)\) physical qubits.
+  Concatenating each column of that packing with an \hyperref[code:iceberg]{\([[n,n-2,2]]\) error-detecting code} roughly doubles the distance.
+
+protection: |
+  Placement of the twist defects is governed by two competing error mechanisms.
+  Logical \(X\) and \(Z\) errors propagate diagonally, with a distance set by the \(L_\infty\) norm, whereas logical \(Y\) errors propagate horizontally or vertically, with a distance set by the \(L_1\) norm.
+  Maintaining the distance therefore requires placing twist defects far enough from each other and from the boundaries of the patch \cite{arxiv:2605.30455}.
+
+features:
+  decoders:
+    - 'Correlated minimum-weight perfect matching via sparse blossom \cite{arxiv:2303.15933}, applied to detector error models constructed with Stim \cite{arxiv:2103.02202}. The gauge-operator measurement scheme is designed to keep the code matchable, unlike lower-depth twist implementations that forfeit polynomial-time decoding \cite{arxiv:2307.10147}.'
+
+  fault_tolerance:
+    - 'Diagonally propagating \(YY\) hook errors would halve the circuit-level distance, but their probability is suppressed because they require one specific low-entropy configuration of two-qubit depolarizing faults, each of small probability \cite{arxiv:2605.30455}. Twist defects are therefore placed according to the larger effective distance seen in simulation rather than the graphlike distance. Neither the code-level nor the circuit-level distance is an upper or a lower bound on the performance of these codes.'
+    - 'Under a uniform depolarizing circuit-level noise model at physical error rate \(10^{-3}\), the per-logical per-round logical error rate is \(3.5^{-d}/10\) for both the three-qubit rectangular patch and the dense packing, against \(4^{-d}/10\) for an idling rotated surface-code patch \cite{arxiv:2605.30455}.'
+    - 'Twist defects can be walked one lattice spacing every two rounds by reversing the controls and targets of the two-qubit gates and alternating with a reflection, extending the walking technique for surface-code patches \cite{arxiv:2302.02192}.'
+
+
+relations:
+  parents:
+    - code_id: twist_defect_surface
+  cousins:
+    - code_id: yoked_surface
+      detail: 'Each column of the twist-defect dense packing is concatenated with an \([[n,n-2,2]]\) error-detecting code as the inner code, in the concatenation convention of the Zoo, which roughly doubles the distance \cite{arxiv:2605.30455}. The inner stabilizer generators are \(X^{\otimes n}\) and \(Z^{\otimes n}\), and two of the \(n\) outer code blocks serve as yoke qubits, so that the \(j\)th encoded qubit can be given the logical basis \(X_j X_{n-1}\) and \(Z_j Z_{n-2}\). This is the twist-defect analogue of the yoked surface code, which uses a column of one-qubit rotated surface-code patches in place of the dense packing. Unlike in that case, the logical operators of the dense packing generally lie in the interior, and must be moved to a boundary by twist-defect lattice surgery before the parity checks can be measured.'
+    - code_id: qubit_concatenated
+      detail: 'Each column of the twist-defect dense packing is concatenated with an \([[n,n-2,2]]\) error-detecting code as the inner code, in the concatenation convention of the Zoo, which roughly doubles the distance \cite{arxiv:2605.30455}. The inner stabilizer generators are \(X^{\otimes n}\) and \(Z^{\otimes n}\), and two of the \(n\) outer code blocks serve as yoke qubits, so that the \(j\)th encoded qubit can be given the logical basis \(X_j X_{n-1}\) and \(Z_j Z_{n-2}\). This is the twist-defect analogue of the yoked surface code, which uses a column of one-qubit rotated surface-code patches in place of the dense packing. Unlike in that case, the logical operators of the dense packing generally lie in the interior, and must be moved to a boundary by twist-defect lattice surgery before the parity checks can be measured.'
+    - code_id: iceberg
+      detail: 'Each column of the twist-defect dense packing is concatenated with an \([[n,n-2,2]]\) error-detecting code as the inner code, in the concatenation convention of the Zoo, which roughly doubles the distance \cite{arxiv:2605.30455}. The inner stabilizer generators are \(X^{\otimes n}\) and \(Z^{\otimes n}\), and two of the \(n\) outer code blocks serve as yoke qubits, so that the \(j\)th encoded qubit can be given the logical basis \(X_j X_{n-1}\) and \(Z_j Z_{n-2}\). This is the twist-defect analogue of the yoked surface code, which uses a column of one-qubit rotated surface-code patches in place of the dense packing. Unlike in that case, the logical operators of the dense packing generally lie in the interior, and must be moved to a boundary by twist-defect lattice surgery before the parity checks can be measured.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'

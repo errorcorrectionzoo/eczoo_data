@@ -1,0 +1,65 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: barbell
+physical: qubits
+logical: qubits
+
+name: 'Barbell quantum code'
+introduced: '\cite{arxiv:2606.06062}'
+
+description: |
+  Member of a family of high-rate, two-dimensionally local CSS \hyperref[code:qldpc]{QLDPC} codes designed so that every two-qubit interaction of the QEC cycle is native to a fixed-connectivity chip layout.
+  The hardware complexity of that layout stays constant as the code distance grows.
+  Barbell codes are \hyperref[code:tile]{tile codes} \cite{arxiv:2504.08887,arxiv:2504.09171} equipped with a pairing of \(X\)- and \(Z\)-check qubits.
+  The pairing is chosen so that every data qubit in the support of either check is adjacent, in a given connectivity graph, to one of the two paired check qubits.
+  The family studied is realized on a \textit{six-qubit star lattice plus near-local coupler} (6QSL+NLC) architecture, also called the \textit{Barbell architecture}.
+
+  Each \(X\)-check qubit is joined to a partner \(Z\)-check qubit by a single near-local coupler, and the two checks' data-qubit neighborhoods together form a \textit{barbell}.
+  The corresponding pair of \(X\)- and \(Z\)-type stabilizers is supported on the six hexagonal cells of this barbell.
+  Syndrome information is read out using superdense syndrome extraction \cite{arxiv:2312.08813}: a Bell pair is prepared on the two check qubits via the near-local coupler, the data qubits are entangled, and a Bell measurement is performed.
+  For weight-\(w\) stabilizers this yields a QEC cycle of depth \(w+4\) (depth 12 for weight-8 stabilizers).
+  Because all near-local couplers are parallel and of equal, distance-independent length, they route within a single additional hardware tier without air bridges.
+
+  The weight-8 family studied numerically contains the \([[242,16,8]]\), \([[288,16,9]]\), \([[338,16,10]]\), \([[392,16,11]]\), and \([[450,16,14]]\) codes.
+  Here \(n=2LM\) for an \(L\times M\) data-qubit lattice with bulk-stabilizer boxes of size \((D+1)\times(D+1)\).
+  Two weight-6 families with \(k=7\) and \(k=8\) are also given, along with a weight-10 family with \(k=16\) that reaches \([[512,16,16]]\) \cite{arxiv:2606.06062}.
+  With fewer than 30 data qubits per logical qubit, the weight-8 barbell codes reduce qubit overhead by up to a factor of 7.0 relative to the \hyperref[code:rotated_surface]{rotated surface code} of the same distance.
+  The weight-10 family reaches the maximal factor of eight \cite{arxiv:2606.06062}.
+
+features:
+  rate: 'High-rate QLDPC family. The weight-8 examples encode \(k=16\) logical qubits using fewer than 30 data qubits per logical qubit, an up-to-sevenfold reduction in physical-qubit overhead compared with the rotated surface code of the same distance.'
+
+  general_gates:
+    - 'For underlying stabilizer tiles not confined to a strip and giving rise to total topological order, derived automorphisms of the underlying tile codes implement products of logical CNOT gates by extending the lattice on one side and shrinking it on the other \cite{arxiv:2511.14589}.'
+
+  decoders:
+    - 'Relay-BP decoder \cite{arxiv:2506.01779} applied to detector error models constructed with Stim \cite{arxiv:2103.02202}. The \(X\)- and \(Z\)-type errors are decoded separately.'
+
+  fault_tolerance:
+    - 'Superdense syndrome-extraction circuit \cite{arxiv:2312.08813} of depth \(w+4\), which is depth 12 for weight-8 stabilizer generators. One near-local coupler per barbell prepares and later measures a Bell pair on the paired \(X\)- and \(Z\)-check qubits. A Pauli-frame correction tracked in software relates the measurement outcomes to the stabilizer syndromes.'
+    - 'Under uniform depolarizing circuit-level noise, a distance-14 weight-8 barbell code reaches the teraquop regime, meaning a logical error rate below \(10^{-12}\) per round, at physical error rates above \(10^{-4}\) \cite{arxiv:2606.06062}. At a physical error rate of \(10^{-3}\), one patch of the distance-11 barbell code \([[392,16,11]]\) and 16 patches of the distance-5 \hyperref[code:rotated_surface]{rotated surface code} use essentially the same number of data qubits, 392 versus 400, to encode 16 logical qubits. The barbell code achieves a per-round logical error rate of \(8.8\times 10^{-7}\) against \(9.6\times 10^{-4}\) for the surface code.'
+    - 'The logical multi-qubit Pauli measurement protocol for tile codes \cite{arxiv:2506.18061} applies directly. The per-round logical error rate of a distance-8 logical \(ZZ\) measurement is only slightly higher than that of the corresponding memory experiment \cite{arxiv:2606.06062}.'
+
+
+relations:
+  parents:
+    - code_id: tile
+      detail: 'Barbell codes are tile codes that constrain the pairing of \(X\)- and \(Z\)-type check qubits, so that each pair shares a single near-local coupler and every data qubit in the support of either check is adjacent to one of the two paired check qubits. Constraining the pairing in this way gives a syndrome-extraction cycle of depth \(w+4\) for stabilizer generators of weight \(w\), and keeps all near-local couplers parallel, of equal length, and independent of the code distance \cite{arxiv:2606.06062}. Barbell codes are obtained from tile codes by adding ancilla check qubits, translating the qubit positions, and embedding the qubits in the connectivity graph of the six-qubit star lattice plus near-local coupler architecture.'
+  cousins:
+    - code_id: 2d_color
+      detail: 'Barbell syndrome extraction adapts the superdense syndrome-extraction circuits originally developed to implement color codes on a square grid \cite{arxiv:2312.08813}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
+    - user_id: VictorVAlbert
+      date: '2026-06-11'
+    - user_id: TomaszAndrzejewski
+      date: '2026-06-11'
