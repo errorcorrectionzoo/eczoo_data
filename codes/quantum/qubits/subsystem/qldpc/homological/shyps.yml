@@ -22,11 +22,6 @@ description: |
     SHYPS codes exhibit practical single-shot features, so only \hyperref[topic:asymptotics]{order} \(O(m)\) rounds of syndrome extraction are required to fault-tolerantly execute any logical \(m\)-qubit \hyperref[topic:clifford]{Clifford circuit}.
 
 
-protection: |
-  Memory simulations of the \([[49, 9, 4]]\) and \([[225, 16, 8]]\) SHYPS codes under circuit-level noise, using a sliding-window BPLSD decoder, yield pseudo-thresholds of approximately \(0.32\%\) and \(0.35\%\), respectively \cite{arxiv:2502.07150}.
-  Depth-126 logical \hyperref[topic:clifford]{Clifford-circuit} simulations on two blocks of the \([[49, 9, 4]]\) SHYPS code were also performed in \cite{arxiv:2502.07150}.
-
-
 features:
   rate: 'The exact encoding rate is \(k/n = r^2/(2^r-1)^2\), i.e., \hyperref[topic:asymptotics]{asymptotically} as \(\Theta( (\log n)^2/n )\) \cite{arxiv:2502.07150}.'
   transversal_gates:
@@ -42,6 +37,10 @@ features:
 
   fault_tolerance:
     - 'Logical Clifford operation on \(b\) blocks can be implemented fault-tolerantly in depth \(4br^2( 1+o(1) )\) while remaining compatible with one syndrome-extraction round between logical generators \cite{arxiv:2502.07150}.'
+    - 'Depth-126 logical \hyperref[topic:clifford]{Clifford-circuit} simulations on two blocks of the \([[49, 9, 4]]\) SHYPS code were performed in Ref. \cite{arxiv:2502.07150}.'
+
+  threshold:
+    - 'Memory simulations of the \([[49, 9, 4]]\) and \([[225, 16, 8]]\) SHYPS codes under circuit-level noise, using a sliding-window BPLSD decoder, yield \hyperref[topic:pseudo-threshold]{pseudo-thresholds} of approximately \(0.32\%\) and \(0.35\%\), respectively \cite{arxiv:2502.07150}.'
 
 relations:
   parents:
@@ -57,6 +56,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: AlexisSchotte

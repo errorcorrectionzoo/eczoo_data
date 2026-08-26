@@ -43,13 +43,15 @@ description: |
 
 protection: |
   Analytic expressions for the code dimension in two general cases, as well as lower (existence) and upper bounds on the distance, are derived in Ref. \cite{arxiv:2506.16910}.
-  Circuit-level simulations of MM codes locally equivalent to 4D toric codes show a pseudothreshold close to \(1.1\%\), better than for toric or surface codes under a similar noise model \cite{arxiv:2506.16910}.
 
 features:
   decoders:
     - 'BP-OSD and Tesseract decoders \cite{arxiv:2601.18879}.'
     - 'Few-shot sliding-window decoding \cite{arxiv:2506.16910}.'
     - 'Single-shot decoding using metachecks for \(t \geq 4\), with confinement profiles surpassing those of known single-shot-decodable CSS codes of practical block size \cite{arxiv:2601.18879}.'
+
+  threshold:
+    - 'Circuit-level simulations of MM codes locally equivalent to 4D toric codes show a \hyperref[topic:pseudo-threshold]{pseudo-threshold} close to \(1.1\%\), better than for toric or surface codes under a similar noise model \cite{arxiv:2506.16910}.'
 
 notes:
   - 'See QuantumClifford.jl Julia software library for MM code instances, stabilizer states, and Clifford circuits \cite{preset:QuantumClifford,arxiv:2601.18879}.'
@@ -75,6 +77,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-26'
     - user_id: VictorVAlbert
       date: '2026-08-17'
     - user_id: VictorVAlbert
