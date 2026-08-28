@@ -110,7 +110,6 @@ Usage:
 """
 import json, re, sys, argparse
 from collections import defaultdict
-from itertools import combinations
 from pathlib import Path
 
 import numpy as np
