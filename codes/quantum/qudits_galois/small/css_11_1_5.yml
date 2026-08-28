@@ -1,0 +1,42 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: css_11_1_5
+physical: galois
+logical: galois
+
+name: '\([[11,1,5]]_4\) Galois-qudit CSS code'
+introduced: '\cite{arxiv:quant-ph/0508070}'
+
+description: |
+  Eleven-Galois-qudit \hyperref[topic:quantum-weight-enumerator]{pure} CSS code over \(\mathbb{F}_4=\{0,1,\omega,\omega^2\}\) that encodes one logical Galois qudit and corrects up to two single-qudit errors.
+  It is the quantum QR code of length eleven for \(q=4\).
+
+  Its \(X\)- and \(Z\)-type stabilizer check matrices are both generator matrices of the self-orthogonal \([11,5,6]_4\) expurgated QR code, which is the cyclic code with generator polynomial
+  \begin{align}
+    (x+1)\,g(x)\quad\text{with}\quad g(x)=x^5+\omega x^4+x^3+x^2+\omega^2 x+1~.
+  \end{align}
+  The Euclidean dual of the expurgated QR code is the \([11,6,5]_4\) QR code with generator polynomial \(g(x)\), whose weight-five codewords furnish minimum-weight logical operators.
+
+relations:
+  parents:
+    - code_id: galois_quad_residue
+      detail: 'The \([[11,1,5]]_4\) code is the quantum QR code constructed from the length-11 quaternary QR code \cite[Thm. 40]{arxiv:quant-ph/0508070}.'
+    - code_id: small_distance_quantum
+  cousins:
+    - code_id: karlin
+      detail: 'The \([[11,1,5]]_4\) code is constructed from the expurgated QR code obtained by shortening the \([12,6,6]_4\) extended QR code.
+      The binary image of that extended QR code is the \([24,12,8]\) Karlin code \cite[Ch. 16]{preset:MacSlo}\cite{doi:10.1006/ffta.2001.0333}.'
+    - code_id: stab_22_2_6
+      detail: 'Binarizing the \([[11,1,5]]_4\) code in the self-dual normal basis \(\{\omega,\omega^2\}\) yields the \([[22,2,6]]\) shortened Golay code, raising the distance from five to six.'
+
+
+# Begin Entry Meta Information
+_meta:
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-08-28'
+    - user_id: ShubhamPJain
+      date: '2026-08-28'
