@@ -110,7 +110,6 @@ Usage:
 """
 import json, re, sys, argparse
 from collections import defaultdict
-from itertools import combinations
 from pathlib import Path
 
 import numpy as np
@@ -155,14 +154,15 @@ def reduce_code(CX, CZ):
 def stab_weight_enumerator(CX, CZ, n, exact_cap=18, chunk_bits=16):
     """genus-1: multiset of support weights of all 2^{n-k} stabilizer elements.
 
-    Returns (kind, tuple).  `kind` is "exact" or "truncated"; the truncated form
-    keeps only weights <= w and is still an LC+permutation invariant, because a
-    weight-<=w element maps to a weight-<=w element.
+    Returns (kind, tuple).  `kind` is "exact" or "skipped".  Codes above the
+    direct-enumeration cap are enumerated through distinct supports when their
+    stabilizer rank is at most 22; larger codes are skipped rather than screened
+    with a presentation-dependent bounded-depth search.
 
     The exact path is CHUNKED: materialising all `2^m` vectors at once is
     `2^m x 2n` bytes -- 800 MB at m=24 -- which is a memory bomb, not a hash."""
-    CX = np.asarray(CX, np.uint8) % 2
-    CZ = np.asarray(CZ, np.uint8) % 2
+    CX = rref(np.asarray(CX, np.uint8) % 2)
+    CZ = rref(np.asarray(CZ, np.uint8) % 2)
     rows = np.concatenate([np.concatenate([CX, np.zeros_like(CX)], axis=1),
                            np.concatenate([np.zeros_like(CZ), CZ], axis=1)])
     m = rows.shape[0]
@@ -187,19 +187,18 @@ def stab_weight_enumerator(CX, CZ, n, exact_cap=18, chunk_bits=16):
             for v, c in zip(vals.tolist(), cnts.tolist()):
                 counts[v] = counts.get(v, 0) + c
         return "exact", tuple(sorted(counts.items()))
-    # truncated: low-weight elements only, by bounded-depth combination search
-    w = 8
-    seen = {}
-    base = [r for r in rows]
-    for depth in range(1, 4):
-        for comb in combinations(range(m), depth):
-            v = np.zeros(2 * n, dtype=np.uint8)
-            for i in comb:
-                v ^= base[i]
-            sw = int((v[:n] | v[n:]).sum())
-            if sw <= w:
-                seen[sw] = seen.get(sw, 0) + 1
-    return "truncated", tuple(sorted(seen.items()))
+    # Exact support-compressed path.  A former bounded-depth search counted only
+    # combinations of up to three RREF rows.  That count changed under a qubit
+    # permutation because RREF is not permutation-covariant, so it was not a valid
+    # invariant and could falsely separate equivalent codes.
+    distinct = _distinct_supports(CX, CZ, n, enum_bits=22)
+    if distinct is None:
+        return "skipped", ()
+    masks, multiplicities = distinct
+    counts = {}
+    for weight, count in zip(_popcount64(masks).tolist(), multiplicities.tolist()):
+        counts[weight] = counts.get(weight, 0) + count
+    return "exact", tuple(sorted(counts.items()))
 
 
 def _popcount64(a):
@@ -980,6 +979,8 @@ def selftest():
     cx_red = np.concatenate([cx, (cx[0] ^ cx[1])[None, :]])   # add a dependency
     check("redundant generators certify == reduced (rref fix)",
           canonical_certificate(cx_red, cz, n) == canonical_certificate(cx, cz, n))
+    check("weight enumerator ignores redundant generators",
+          stab_weight_enumerator(cx_red, cz, n) == stab_weight_enumerator(cx, cz, n))
     check("redundant generators would DIFFER without reduce (footgun is real)",
           canonical_certificate(cx_red, cz, n, reduce=False)
           != canonical_certificate(cx, cz, n, reduce=False))
@@ -1006,7 +1007,28 @@ def selftest():
     check("Steane classical parts compatible",
           classical_parts_compatible(cxs, czs, cxs, czs, ns) is True)
 
-    # 5a. REGRESSION: support must be supp(x) OR supp(z), never XOR.  A single
+    # 5a. REGRESSION: the genus-1 screen must remain permutation-invariant above
+    #     the direct-enumeration cap.  This rank-20 MCR code exposed the former
+    #     bounded-depth search, whose count changed from 280 to 308 under `mcrp`.
+    f = np.zeros(11, dtype=np.uint8); f[[0, 1]] = 1
+    q = np.zeros(11, dtype=np.uint8); q[[1, 3, 4, 5, 9]] = 1
+    qf = np.zeros(11, dtype=np.uint8)
+    for i in np.flatnonzero(q):
+        for j in np.flatnonzero(f):
+            qf[(i + j) % 11] ^= 1
+    circ = lambda v: np.vstack([np.roll(v, i) for i in range(11)])
+    A, B = circ(f), circ(qf)
+    mcr22 = (rref(np.hstack([A, B])), rref(np.hstack([B.T, A.T])), 22)
+    mcrp = [1, 11, 20, 15, 7, 12, 21, 17, 16, 2, 10,
+            3, 4, 5, 8, 0, 9, 14, 18, 13, 6, 19]
+    mcr22p = _permute(mcr22, mcrp)
+    mcr_we = stab_weight_enumerator(*mcr22)
+    check("rank-20 genus-1 screen is exact and permutation-invariant",
+          mcr_we[0] == "exact" and mcr_we == stab_weight_enumerator(*mcr22p))
+    check("rank-20 permutation copy passes the default equivalence path",
+          prove_equivalent(mcr22, mcr22p))
+
+    # 5b. REGRESSION: support must be supp(x) OR supp(z), never XOR.  A single
     #     Y-bearing stabilizer YY has support {0,1} (weight 2); the XOR bug would
     #     cancel it to weight 0.  This distinguishes the true Pauli support
     #     enumerator from the classical C_X+C_Z one.
@@ -1015,7 +1037,7 @@ def selftest():
     check("Y-bearing support is union not XOR (weights {0,2})",
           sorted(int(bin(int(m)).count('1')) for m in masks_yy) == [0, 2])
 
-    # 5b. NON-CSS support enumerators via stab=: the [[5,1,3]] perfect code
+    # 5c. NON-CSS support enumerators via stab=: the [[5,1,3]] perfect code
     #     (XZZXI and cyclic shifts).  Genus enumerators must be permutation-invariant
     #     and total to |group|^g even with no CSS structure.
     perf = pauli_to_symplectic(["XZZXI"[-i:] + "XZZXI"[:-i] for i in range(4)], 5)
@@ -1030,7 +1052,7 @@ def selftest():
         check(f"perfect code genus-{g} total == |group|^{g}",
               sum(c for _, c in a[1]) == 16 ** g)
 
-    # 5c. NON-CSS basis-independent PERMUTATION certificate (`stab_perm_certificate`):
+    # 5d. NON-CSS basis-independent PERMUTATION certificate (`stab_perm_certificate`):
     #     sound both directions, over the whole stabilizer GROUP with type-coloured
     #     edges.  Must be permutation-invariant and must SEPARATE genuinely different
     #     codes (here two [[5,1,*]] non-CSS codes with different distance).
@@ -1046,7 +1068,7 @@ def selftest():
           stab_perm_certificate(perf, 5) != stab_perm_certificate(other5, 5))
     check("stab_perm_equivalent says they are NOT equivalent",
           not stab_perm_equivalent(perf, other5, 5))
-    # 5d. the non-CSS certificate agrees with the CSS one on a CSS code's verdicts
+    # 5e. the non-CSS certificate agrees with the CSS one on a CSS code's verdicts
     _stx = _stab_symplectic(*_steane())
     _p = rng.permutation(7)
     _stxp = np.concatenate([_stx[:, :7][:, _p], _stx[:, 7:][:, _p]], axis=1)
