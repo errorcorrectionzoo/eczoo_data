@@ -36,7 +36,7 @@ protection: |
   Writing \(n_j\), \(k_j\), \(d_j\) for the block length, logical dimension, and homological distance of the \(j\)-th sector of \(\mathcal{A}\), and primes for the corresponding parameters of the product, the Künneth theorem gives
   \(n_j'=n_{j-1}c+n_j r\) and \(k_j'=k_{j-1}(c-u)+k_j(r-u)\).
   The main result of \cite[Thm. 1]{arxiv:1810.01519} establishes tight bounds on the homological distance:
-  \(d_j'=\min(d_j,d_{j-1}\delta)\) when \(r>u\) (P does not have full row rank), and \(d_j'=d_{j-1}\delta\) when \(r=u\) (P has full row rank).
+  \(d_j'=\min(d_j,d_{j-1}\delta)\) when \(r>u\) (\(P\) does not have full row rank), and \(d_j'=d_{j-1}\delta\) when \(r=u\) (\(P\) has full row rank).
 
 features:
   rate: |
@@ -54,7 +54,7 @@ features:
   transversal_gates:
     - 'Transversal gates for multi-dimensional HGP codes of all dimensions lie in the Clifford group \cite{arxiv:2507.16797}.'
   general_gates:
-    - 'Gates in the \term{Clifford hierarchy} can be implemented via constant-depth circuits \cite{arxiv:2507.16797}.'
+    - 'The dimension of the product bounds the level of the \term{Clifford hierarchy} that is accessible to constant-depth circuits. Sector-preserving and shape-preserving constant-depth circuits realize logical gates only up to the \(\lfloor \ell_X/\ell_Z\rfloor+1\)-th level, where \(\ell_Z\) and \(\ell_X\) are the dimensions of the canonical \(Z\)- and \(X\)-type logical representatives and \(\ell_Z+\ell_X\) is the dimension of the code \cite[Table I]{arxiv:2507.16797}. This bound holds when the code distance is sufficiently large compared to the number of logical qubits. Orientation-preserving constant-depth circuits realize only Clifford gates.'
     - 'Parallel Pauli product measurements via homomorphic CNOT gates for 3- and 4-dimensional HGP codes \cite{arxiv:2407.18490}.'
 
 
