@@ -46,10 +46,12 @@ features:
 relations:
   parents:
     - code_id: hypergraph_product
-    - code_id: galois_expander
     - code_id: single_shot
       detail: 'Quantum expander codes are single-shot \cite{arxiv:1808.03821}.'
   cousins:
+    # Galois-qudit expander codes impose Reed-Solomon local checks, so neither code family contains the other.
+    - code_id: galois_expander
+      detail: 'Both families are constructed from expander-code complexes. Galois-qudit expander codes impose Reed-Solomon local checks \cite{arxiv:2410.14662}.'
     - code_id: expander
       detail: 'Quantum expander codes are quantum analogues of expander codes.'
     - code_id: topological
