@@ -12,7 +12,7 @@ introduced: '\cite{arxiv:1411.7046,arxiv:2108.00018,arxiv:2201.03568}'
 
 description: |
   Kitaev surface code on a fractal geometry obtained by puncturing a higher-dimensional lattice at all length scales.
-  A related construction, the \textit{fractal product code}, is a hypergraph product of two classical codes defined on a Sierpinski carpet graph \cite{arxiv:1411.7046}. 
+  A related construction, the \textit{fractal product code}, is a homological product of two surface codes defined on Sierpinski carpet graphs \cite{arxiv:1411.7046}. 
   The underlying classical codes form classical self-correcting memories \cite{arxiv:cond-mat/0212497,arxiv:1002.1227,doi:10.1239/jap/1019737983}.
 
 features:
@@ -22,15 +22,17 @@ features:
 relations:
   parents:
     - code_id: higher_dimensional_surface
-      detail: 'Fractal surface codes are obtained by removing qubits from the 3D surface code on a cubic lattice.'
+      detail: 'Fractal surface codes are obtained by puncturing a higher-dimensional lattice at all length scales.'
   cousins:
     - code_id: 3d_surface
       detail: '3D fractal surface codes are obtained by removing qubits from the 3D surface code on a cubic lattice.'
-    - code_id: hypergraph_product
-      detail: 'The related fractal product code is a hypergraph product of two classical codes defined on a Sierpinski carpet graph \cite{arxiv:1411.7046}.'
+    # Cousin changed from hypergraph_product to homological_product.
+    # The fractal product code is the middle homological product of two surface codes on Sierpinski carpet graphs, i.e., of two length-three chain complexes, and so is not a hypergraph product of classical codes.
+    - code_id: homological_product
+      detail: 'The related fractal product code is a homological product of two surface codes defined on Sierpinski carpet graphs \cite{arxiv:1411.7046}.'
     # Not a parent because locality is different
     - code_id: binary_linear
-      detail: 'The fractal product code is a hypergraph product of two classical codes defined on a Sierpinski carpet graph \cite{arxiv:1411.7046}.'
+      detail: 'The classical codes underlying the surface codes that are used to build the fractal product code are Ising models on Sierpinski carpet graphs \cite{arxiv:1411.7046}.'
     - code_id: self_correct
       detail: 'The classical codes underlying the fractal product code form classical self-correcting memories \cite{arxiv:cond-mat/0212497,arxiv:1002.1227,doi:10.1239/jap/1019737983}.'
 
