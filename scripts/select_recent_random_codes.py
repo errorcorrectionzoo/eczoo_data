@@ -135,23 +135,28 @@ def main() -> None:
     parser.add_argument("--months", type=int, default=3, help="Lookback window in months (default: 3).")
     parser.add_argument("--count", type=int, default=5, help="Number of code_id keys to print (default: 5).")
     parser.add_argument("--seed", type=int, default=None, help="Random seed, for reproducible sampling.")
+    parser.add_argument(
+        "--paths",
+        action="store_true",
+        help="Print 'code_id<TAB>repo-relative path' so a caller need not look the files up.",
+    )
     args = parser.parse_args()
 
     reference_date = args.date
     start_date = months_before(reference_date, args.months)
 
     candidates = sorted(
-        code_id
-        for code_id in (
-            extract_code_id(path)
+        (code_id, path.relative_to(REPO_ROOT).as_posix())
+        for code_id, path in (
+            (extract_code_id(path), path)
             for path in find_substantively_edited_paths(start_date, reference_date)
         )
         if code_id is not None
     )
 
     rng = random.Random(args.seed)
-    for code_id in rng.sample(candidates, min(args.count, len(candidates))):
-        print(code_id)
+    for code_id, rel_path in rng.sample(candidates, min(args.count, len(candidates))):
+        print(f"{code_id}\t{rel_path}" if args.paths else code_id)
 
 
 if __name__ == "__main__":
