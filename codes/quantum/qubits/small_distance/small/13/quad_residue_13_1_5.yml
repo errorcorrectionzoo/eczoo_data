@@ -17,8 +17,15 @@ description: |
 relations:
   parents:
     - code_id: stabilizer_over_gf4
-    - code_id: galois_quad_residue
     - code_id: small_distance_qubit_stabilizer
+  cousins:
+    # galois_quad_residue demoted from parent to cousin: that entry is the Galois-qudit
+    # CSS construction applied to a dual-containing QR code, while this code is a
+    # non-CSS qubit code coming from a quaternary QR code via the Hermitian construction.
+    - code_id: galois_quad_residue
+      detail: 'The \([[13,1,5]]\) code is obtained from a quaternary QR code via the Hermitian construction and is not CSS, in contrast to quantum QR codes, which are obtained via the CSS construction \cite[pg. 11]{arxiv:quant-ph/9704019}.'
+    - code_id: q-ary_quad_residue
+      detail: 'The stabilizer group of the \([[13,1,5]]\) code is defined by a quaternary QR code of length 13 \cite[pg. 11]{arxiv:quant-ph/9704019}.'
 
 
 # Begin Entry Meta Information
