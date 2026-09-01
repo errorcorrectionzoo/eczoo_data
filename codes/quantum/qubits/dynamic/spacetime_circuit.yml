@@ -38,11 +38,14 @@ notes:
   - 'See \cite[Sec. 2]{arxiv:2502.16408} for a brief overview of spacetime circuits.'
 
 relations:
+  # 20260901 QLDPC demoted from parent to cousin: the spacetime code of a general Clifford circuit is not LDPC, as the detail itself notes that sparsification is required to obtain a QLDPC spacetime code. Qubit stabilizer promoted to primary parent, following the entry's definition.
   parents:
-    - code_id: qldpc
-      detail: 'Spacetime circuit codes are useful for constructing fault-tolerant syndrome extraction circuits for qubit QLDPC codes. General spacetime circuit codes can be sparsified to yield QLDPC spacetime circuit codes \cite{arxiv:2304.05943}.'
+    - code_id: qubit_stabilizer
+      detail: 'The stabilizer generators of a spacetime circuit code are obtained by backpropagating the parity checks of the outcome code of a Clifford circuit \cite{arxiv:2304.05943}.'
     - code_id: dynamic_gen
   cousins:
+    - code_id: qldpc
+      detail: 'Spacetime circuit codes are useful for constructing fault-tolerant syndrome extraction circuits for qubit QLDPC codes. General spacetime circuit codes can be sparsified to yield QLDPC spacetime circuit codes \cite{arxiv:2304.05943}.'
     - code_id: binary_linear
       detail: |
         The set of measurement outcomes of a \hyperref[topic:clifford]{Clifford circuit} can be made into a classical binary linear code.
