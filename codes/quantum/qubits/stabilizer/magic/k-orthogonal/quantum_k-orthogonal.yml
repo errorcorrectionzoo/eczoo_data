@@ -12,12 +12,12 @@ introduced: '\cite{arxiv:1503.08800,arxiv:1906.11394,arxiv:2210.14066}'
 # 1906.11394 also defines ell-orthogonal
 
 description: |
-  Qubit stabilizer code whose \(X\)-type logicals and generators form a \(k\)-orthogonal matrix (defined below) in the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.
-  In other words, the overlap between any \(k\) \(X\)-type code-preserving Paulis (including the identity) is even.
-  The original definition is for qubit CSS codes \cite{arxiv:1503.08800}, but it can be extended to more general qubit stabilizer codes \cite[Def. 1]{arxiv:2210.14066}.
+  Qubit stabilizer code for which the binary space \(S_X\) of \(X\) components of stabilizers is \(k\)-orthogonal in the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.
+  In other words, the overlap of any \(j\) vectors in \(S_X\) is even for every \(1\leq j\leq k\) \cite[Def. 4]{arxiv:2210.14066}.
+  This definition applies to general qubit stabilizer codes and does not require a CSS presentation.
   This entry is formulated for qubits, but an extension exists for modular qudits \cite{arxiv:1503.08800}.
 
-  A matrix is \(k\)-orthogonal \cite[Def. 4]{arxiv:2210.14066} if
+  Equivalently, a generator matrix for \(S_X\) is \(k\)-orthogonal if
   \begin{align}
     |x^1|&\equiv 0 \mod 2 \\
     |x^1\cdot x^2|&\equiv 0 \mod 2 \\
@@ -25,7 +25,7 @@ description: |
     &\vdots \\
     |x^1\cdot x^2\cdot x^3\cdot\ldots\cdot x^k|&\equiv 0 \mod 2 
   \end{align}
-  for all its rows \(x^j\), where the generalized dot-product notation means a sum of products of the respective coordinates of all vectors.
+  for all vectors \(x^j\) in its row space, where the generalized dot-product notation means a sum of products of the respective coordinates of all vectors.
 
 relations:
   parents:
@@ -40,6 +40,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-06'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

@@ -1,0 +1,96 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: weakly_divisible_css
+physical: qubits
+logical: qubits
+
+name: 'Weakly divisible CSS code'
+introduced: '\cite{arxiv:1509.03239}\cite[Defs. I.4 and I.5]{arxiv:2408.12752}'
+
+description: |
+  A weakly \(\Delta\)-divisible CSS code for \(\Delta>1\) is a CSS code whose \(X\)-type stabilizer space obeys a signed divisibility condition on two disjoint sets of qubits.
+  The condition allows coordinates outside those sets and does not constrain the logical \(X\) representatives.
+  Weakly four-divisible and weakly eight-divisible CSS codes are also called \(\mathrm{DE}^*\) and \(\mathrm{TE}^*\) codes, respectively.
+
+  More explicitly, the binary space \(C_2\) of \(X\)-type stabilizers is weakly \(\Delta\)-divisible if there are disjoint subsets \(M^+,M^-\subseteq[n]\) such that
+  \begin{align}
+    |u\cap M^+|-|u\cap M^-|\equiv0\pmod\Delta
+  \end{align}
+  for every \(u\in C_2\) \cite[Defs. I.4 and I.5]{arxiv:2408.12752}.
+  At least one of \(M^+\) and \(M^-\) is required to be nonempty \cite{arxiv:1509.03239}.
+  Coordinates outside \(M^+\cup M^-\) do not contribute to the congruence.
+  Ordinary \(\Delta\)-divisibility is recovered by taking \(M^+=[n]\) and \(M^-=\emptyset\).
+  Weak \(\Delta\)-divisibility implies weak \(\Delta^{\prime}\)-divisibility for every divisor \(\Delta^{\prime}\) of \(\Delta\).
+
+  \subsection{Coset divisibility}
+  A stronger condition applies to a CSS code defined by binary linear codes \(C_2\subseteq C_1\) and a character vector \(y\) fixing the signs of the \(Z\)-type stabilizers.
+  Coset divisibility requires the codeword weights to be constant modulo \(\Delta\) within each coset of \(C_2\) in \(C_1+y\) \cite[Thm. 7]{arxiv:2109.13481}\cite[Cor. 7]{arxiv:2204.13176}.
+
+  More explicitly, coset divisibility requires
+  \begin{align}
+    \operatorname{wt}(u+w)\equiv\operatorname{wt}(w)\pmod\Delta
+  \end{align}
+  for every \(u\in C_2\) and \(w\in C_1+y\).
+  Taking \(w=y\) shows that every coset-divisible code is weakly divisible with \(M^-=\operatorname{supp}(y)\) and \(M^+=[n]\setminus M^-\).
+  The converse need not hold because weak divisibility tests only this one element of \(C_1+y\), rather than every logical coset representative.
+  Positive signs correspond to \(y=0\), in which case the trivial coset shows that \(C_2\) is a \(\Delta\)-divisible classical code.
+  A \(\Delta\)-coset-divisible code is also \(\Delta^{\prime}\)-coset-divisible for every divisor \(\Delta^{\prime}\) of \(\Delta\).
+
+  For \(\Delta=2^\nu\) and \(y=0\), the above is equivalent to \(2^\nu\) dividing \(\operatorname{wt}(u)\) for every \(u\in C_2\), together with \(2^{\nu-1}\) dividing \(\operatorname{wt}(u*w)\) for every \(u\in C_2\) and \(w\in C_1\) \cite[Rem. 13]{arxiv:2109.13481}.
+  Here \(*\) denotes the entrywise product.
+
+features:
+  transversal_gates:
+    - |
+      A weakly triply even \([[n,1,d]]\) CSS code with a strongly transversal logical \(X\) gate admits a partitioned transversal physical \(T\) gate that realizes \(\overline{T}^m\), where \(m=|M^+|-|M^-| \pmod 8\) \cite{arxiv:1509.03239}\cite[Lemma I.3]{arxiv:2408.12752}.
+      The logical gate is non-Clifford when \(m\) is odd.
+    - |
+      For the coset-divisible subclass, the uniform transversal gate \(\operatorname{diag}(1,e^{2\pi i/\Delta})\) preserves the code space and induces a logical diagonal gate determined by the coset residues \cite[Cor. 7]{arxiv:2204.13176}.
+      For \(\Delta=2^\nu\), this gate corresponds to the all-ones exponent vector in the group of diagonal transversal gates preserving the code \cite[Thm. 3.2 and Rem. 3.16]{arxiv:2601.21514}.
+      Algorithms determine this group for a given CSS code \cite{arxiv:2303.15615,arxiv:2607.26477}.
+    - |
+      Consider a CSS code whose \(X\)-type stabilizers form a \(\nu\)-even space, and for which the entrywise product of every \(X\)-type logical operator and \(X\)-type stabilizer has weight divisible by \(2^{\nu-1}\).
+      Such a code admits a diagonal transversal gate at the \(\nu\)th level of the \term{Clifford hierarchy} \cite[Prop. 8]{arxiv:1906.11394}.
+    - |
+      Transversal \(T^\dagger\) preserves the quadratic-form family and induces, up to global phase, \(\exp(i\pi Z^{\otimes k}/8)\) on its \(k\) logical qubits \cite[Thm. 10]{arxiv:2204.13176}.
+      This logical gate decomposes into \(T\) on every logical qubit, controlled-Phase\(^\dagger\) on every pair, and \(CCZ\) on every triple.
+
+  fault_tolerance:
+    - |
+      The \([[31,5,3]]\) and \([[63,7,3]]\) members can serve as outer codes for the five-qubit and Steane codes, respectively.
+      The resulting layered constructions implement a fault-tolerant logical \(T\) gate on the inner code without teleporting magic states \cite[Sec. V]{arxiv:2204.13176}.
+      Encoding and decoding are required to pass between the inner and outer codes.
+
+realizations:
+  - 'Triply even codes can yield secure multi-party quantum computation \cite{arxiv:2206.04871}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+      detail: 'Weakly divisible CSS codes are CSS codes whose \(X\)-type stabilizer spaces satisfy a signed divisibility condition \cite[Def. I.5]{arxiv:2408.12752}.'
+  cousins:
+    - code_id: generalized_quantum_divisible
+      detail: |
+        Weak divisibility constrains signed weights in the \(X\)-type stabilizer space, while generalized quantum divisibility constrains the joint matrix of logical \(X\) representatives and stabilizers using odd coefficients on every qubit.
+    - code_id: simplex
+      detail: |
+        One coset-divisible family takes \(C_2\) to be the length-\(2^m-1\) simplex code and obtains \(C_1\) by adjoining evaluation vectors of bounded-rank quadratic forms \cite[Lemma 9]{arxiv:2204.13176}.
+        This yields \([[2^m-1,k,3]]\) codes for \(m\geq4\) with \(k=1+\sum_{i=1}^{m-4}(m-i)\) \cite[Thm. 10]{arxiv:2204.13176}.
+        Deleting quadratic-form rows from the logical generator matrix gives the members with smaller \(k\) \cite[Rem. 12]{arxiv:2204.13176}.
+    - code_id: quantum_triorthogonal
+      detail: 'The \([[31,5,3]]\) member together with the five-qubit code can be viewed as a factorization of a \([[31,1,3]]\) triorthogonal code \cite[Sec. V]{arxiv:2204.13176}.'
+    - code_id: qubit_concatenated
+      detail: 'Particular coset-divisible codes can be used as outer codes in layered constructions that implement a fault-tolerant \(T\) gate on the five-qubit or Steane code \cite[Sec. V]{arxiv:2204.13176}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-06'
+    - user_id: VictorVAlbert
+      date: '2026-09-01'

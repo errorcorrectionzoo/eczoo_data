@@ -22,10 +22,14 @@ features:
   transversal_gates:
     - 'A physical transversal \(T\) gate is either the identity (up to a global phase) or a logical gate \cite{arxiv:1910.09333}.'
 
-
 relations:
   parents:
-    - code_id: qubit_css
+    - code_id: weakly_divisible_css
+      detail: |
+        CSS-T codes are weakly eight-divisible CSS codes that satisfy the stronger coset-divisibility condition at \(\Delta=8\).
+        A strongly transversal \(T\) gate preserves the code space if and only if \(\operatorname{wt}(x)-2\operatorname{wt}(x*z)\equiv0\pmod 8\) for every \(x\in C_2\) and every \(z\in C_1+y\) \cite[Thm. I.1]{arxiv:2408.12752}.
+        Here \(*\) is the entrywise product and \(y\) is the character vector.
+        The identity \(\operatorname{wt}(x+z)-\operatorname{wt}(z)=\operatorname{wt}(x)-2\operatorname{wt}(x*z)\) makes this coset divisibility at \(\Delta=8\).
   cousins:
     - code_id: binary_linear
       detail: 'CSS-T codes are constructed from a pair of linear binary codes via the CSS construction, with the pair satisfying certain conditions \cite{arxiv:2312.17518}.'
@@ -39,6 +43,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-06'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
