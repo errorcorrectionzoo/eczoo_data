@@ -17,13 +17,13 @@ features:
   rate: 'Asymptotically good QLDPC codes.'
 
   decoders:
-    - 'Linear-time decoder utilizing the small set-flip decoder \cite{arxiv:2206.06557} for \(Z\) errors and a reconstruction procedure for \(X\) errors \cite{arxiv:2206.07750}.'
+    - 'Linear-time decoder utilizing the small set-flip decoder \cite{arxiv:1504.00822} for \(Z\) errors and a reconstruction procedure for \(X\) errors \cite{arxiv:2206.07750}.'
 
 relations:
   parents:
     - code_id: qubit_generalized_homological_product_css
     - code_id: lifted_product
-      detail: 'DHLV codes are LP codes \cite[Footnote 7]{arxiv:2403.03651}.'
+      detail: 'DHLV codes are LP codes that can be obtained from a balanced product of two expander codes \cite[Footnote 7]{arxiv:2403.03651}.'
   cousins:
     - code_id: good_qldpc
       detail: 'DHLV code construction yields asymptotically good QLDPC codes.'
@@ -31,8 +31,9 @@ relations:
       detail: 'Regular binary Tanner codes are used in constructing quantum DHLV codes.'
     - code_id: tensor
       detail: 'Tensor codes are used in constructing quantum DHLV codes.'
-    - code_id: balanced_product
-      detail: 'DHLV codes can be obtained from a balanced product of two expander codes \cite{arxiv:2403.03651}.'
+    # The balanced-product cousin relation was removed because balanced_product is
+    # already an ancestor of this code via the lifted_product parent, and its detail
+    # asserted an is-a statement; that statement now sits in the lifted_product detail.
     - code_id: topological
       detail: 'DHLV codes are expected to realize topological quantum spin glass order \cite{arxiv:2412.13248}.'
 

@@ -4,8 +4,8 @@
 #######################################################
 
 code_id: holographic_hyperinvariant
-physical: qubits
-logical: qubits
+physical: qudits
+logical: qudits
 
 name: 'Hyperinvariant tensor-network (HTN) code'
 short_name: 'HTN'
@@ -16,7 +16,7 @@ alternative_names:
 
 description: |
   Holographic tensor-network code constructed out of a hyperinvariant tensor network \cite{arxiv:1704.04229}, i.e., a MERA-like network admitting a hyperbolic geometry.
-  The network is defined using two layers A and B, with constituent tensors satisfying isometry conditions (a.k.a. multitensor constraints).
+  The network is defined using two tensors \(A\) and \(B\), placed on the vertices and edges of a hyperbolic tessellation and satisfying isometry conditions (a.k.a. multitensor constraints).
 
   This code produces boundary correlation functions that align with those expected from conformal field theory (CFT) boundary states.
   HTN codes exhibit state-dependent breakdown of complementary recovery, consistent with quantum gravity corrections in AdS/CFT.
@@ -30,7 +30,8 @@ features:
 
 relations:
   parents:
-    - code_id: qubit_stabilizer
+    # The original construction is a ququart stabilizer code, and later instances include qubit codes.
+    - code_id: qudit_stabilizer
     - code_id: holographic_tensor
       detail: 'The encoding of an HTN code is a hyperinvariant tensor network.'
   cousins:

@@ -14,7 +14,7 @@ introduced: '\cite{arxiv:2608.07431}'
 description: |
   A hyperbolic self-dual \hyperref[code:gala]{GALA code} whose Hadamard-type and phase-type fold-transversal Clifford operations are implemented physically by depth-one layers of single-qubit gates.
 
-  The code is \(\mathrm{GALA}_{12,5}(e\times C_{11})\): the row weight is \(L=12\), the number of active block rows is \(J=5\), the non-Abelian top is trivial, and the Abelian bottom is the cyclic group \(C_{11}\), giving \(n=12\times1\times11=132\) qubits at rate \(0.227\) \cite{arxiv:2608.07431}.
+  The code is \(\mathrm{GALA}_{12,5}(e\times C_{11})\): the row weight is \(L=12\), the number of active block rows is \(J=5\), the top factor is trivial, and the Abelian bottom is the cyclic group \(C_{11}\), giving \(n=12\times1\times11=132\) qubits at rate \(0.227\) \cite{arxiv:2608.07431}.
   Every entry of the \(G\)-\hyperref[topic:lifting]{lift} is a single group element, so the code is monomial.
   Its \(ZX\) duality comes from a reflection-type sector involution, which is why the Tanner graph has girth four rather than the girth of at least six targeted elsewhere in the family.
   The duality permutation is the identity, which is what reduces both fold-transversal operations to depth-one layers of single-qubit gates \cite{arxiv:2608.07431}.
@@ -35,12 +35,10 @@ protection: |
 features:
   transversal_gates:
     - 'The physical depth-one layers \(H^{\otimes 132}\) and \((S^{\dagger})^{\otimes 132}\) implement Hadamard-type and phase-type logical Clifford operations. In an orthonormal logical basis these are, respectively, fifteen \((\bar H\otimes\bar H)\overline{\mathrm{SWAP}}\) operations and fifteen disjoint logical controlled-\(Z\) gates together with phases on thirteen logical qubits \cite{arxiv:2608.07431}.'
+    - 'A cyclic shift automorphism is implemented by a single rigid qubit permutation, shifting the bottom chains by one while fixing the top chain \cite{arxiv:2608.07431}. The shift is termed dirty because each chain of eleven sites carries only ten logical qubits, so the eleven-cycle permutes an overcomplete labeling rather than a basis.'
 
   decoders:
     - 'At physical error rate \(10^{-3}\), a two-stage Relay-BP cascade with a mixed-integer linear-programming fallback ran five million circuit-level shots without a recorded logical failure \cite{arxiv:2608.07431}.'
-
-  general_gates:
-    - 'A cyclic shift automorphism is implemented by a single rigid qubit permutation, shifting the bottom chains by one while fixing the top chain \cite{arxiv:2608.07431}. The shift is termed dirty because each chain of eleven sites carries only ten logical qubits, so the eleven-cycle permutes an overcomplete labeling rather than a basis.'
 
 
 relations:
