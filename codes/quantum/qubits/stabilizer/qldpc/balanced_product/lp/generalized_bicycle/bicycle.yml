@@ -11,7 +11,7 @@ name: 'Bicycle code'
 introduced: '\cite{arxiv:quant-ph/0304161}'
 
 description: |
-  An even-length CSS code whose stabilizer generator matrix blocks are \(H_{X}=H_{Z}=(A|A^T)\), where \(A\) is a circulant matrix.
+  An even-length CSS code whose stabilizer generator matrix blocks are \(H_{X}=H_{Z}=(A|A^T)\), where \(A\) is a sparse circulant matrix.
   The fact that \(A\) commutes with its transpose ensures that the CSS condition is satisfied.
   Bicycle codes are the first QLDPC codes.
 
@@ -23,7 +23,7 @@ relations:
     - code_id: generalized_bicycle
       detail: |
         A GB code whose circulants satisfy \(B = A^T\) reduces to a bicycle code.
-  cousins:
+    # Bicycle codes are sparse GB codes and therefore qubit QLDPC codes.
     - code_id: qldpc
       detail: 'Bicycle codes are the first QLDPC codes \cite{arxiv:quant-ph/0304161}.'
 
