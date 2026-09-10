@@ -1,0 +1,55 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: stab_20_8_4
+physical: qubits
+logical: qubits
+
+name: '\([[20,8,4]]\) triples code'
+introduced: '\cite{arxiv:2608.05688}'
+
+description: |
+  Self-dual \hyperref[topic:quantum-weight-enumerator]{pure} CSS code on the 20 three-element subsets of a six-element set.
+  For each of the six points, an \(X\)-type and a \(Z\)-type generator are supported on the ten triples that contain that point.
+
+  The underlying classical code is a singly-even self-orthogonal \([20,6,8]\) code with weight enumerator \(1 + 15y^{8} + 32y^{10} + 15y^{12} + y^{20}\).
+  Its codewords are indexed by the subsets \(S\) of the six-element set, with the codeword for \(S\) supported on the triples that meet \(S\) in an odd number of points.
+  The 15 codewords of weight eight correspond to the 15 four-element subsets, and the 15 codewords of weight twelve are their complements.
+
+  Its permutation automorphism group is isomorphic to \(\mathbb{Z}_{2}^{5}\rtimes S_{6}\), of order 23040.
+  The group is transitive on the 20 qubits and has rank three, with point-stabilizer orbits of sizes 1, 18, and 1.
+  The group is imprimitive, and its only nontrivial block system is the set of ten pairs of complementary triples.
+
+  Rows of the following stabilizer tableau are indexed by the six points, and columns by the 20 triples in lexicographic order \cite{arxiv:2608.05688}
+  \begin{align}
+  \begin{smallmatrix}
+    Z & Z & Z & Z & Z & Z & Z & Z & Z & Z & I & I & I & I & I & I & I & I & I & I \\
+    Z & Z & Z & Z & I & I & I & I & I & I & Z & Z & Z & Z & Z & Z & I & I & I & I \\
+    Z & I & I & I & Z & Z & Z & I & I & I & Z & Z & Z & I & I & I & Z & Z & Z & I \\
+    I & Z & I & I & Z & I & I & Z & Z & I & Z & I & I & Z & Z & I & Z & Z & I & Z \\
+    I & I & Z & I & I & Z & I & Z & I & Z & I & Z & I & Z & I & Z & Z & I & Z & Z \\
+    I & I & I & Z & I & I & Z & I & Z & Z & I & I & Z & I & Z & Z & I & Z & Z & Z
+  \end{smallmatrix}~.
+  \end{align}
+
+
+features:
+  transversal_gates:
+    - 'Transversal Hadamard because the code is self-dual, and transversal \(\sqrt{X}\) up to Pauli corrections because every codeword of the underlying classical code has even weight.'
+    - 'All logical Clifford gates can be realized as two-fold transversal gates, i.e., by depth-one circuits of two-local code-preserving physical gates \cite{arxiv:2608.05688}.'
+
+
+relations:
+  parents:
+    - code_id: self_dual_css
+    - code_id: small_distance_qubit_stabilizer
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-10'
