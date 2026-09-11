@@ -37,6 +37,7 @@ features:
     - 'The GDG sliding-window decoder \cite{arxiv:2403.18901}, with a realization achieving a worst-case decoding latency of 3ms per window.'
     - 'AC decoder is faster than ordinary BP-OSD with no reduction of fidelity \cite{arxiv:2406.14527}.'
     - 'Transformer-based neural-network decoder \cite{arxiv:2504.13043}.'
+    - 'The \href{https://github.com/aleverrier/frontier}{Frontier decoder}, a pruned ordered dynamic-programming decoder, was benchmarked under circuit-level noise using per-side detector error model matrices of size \(936\times 8784\). At \(p=10^{-3}\), its reported full-FER comparison with beam-search and Tesseract decoders used an average retained frontier of fewer than 100 states \cite{arxiv:2606.20513}.'
 
   fault_tolerance:
     - 'At physical error rate \(p=10^{-3}\) under circuit-level noise, the code suppresses the logical error rate to about \(2\times 10^{-7}\), enough to preserve \(12\) logical qubits for nearly one million syndrome cycles using \(288\) total physical qubits \cite{arxiv:2308.07915}.'
@@ -62,6 +63,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: AnthonyLeverrier
+      date: '2026-07-22'
     - user_id: VictorVAlbert
       date: '2026-08-26'
     - user_id: VictorVAlbert
