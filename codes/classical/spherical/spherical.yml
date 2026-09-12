@@ -60,7 +60,10 @@ protection: |
   Other bounds on spherical codes include the Fejes Toth bound \cite{manual:{L. Fejes Toth, Uber die Abschatzung des kiirzesten Abstandes zweier Punkte eines auf einer Kugelflache liegenden Punktsystemes, Jber. Deut. Math. Verein., 53, pp. 66-68, 1943}}, the Wyner bound \cite{doi:10.1002/j.1538-7305.1965.tb04170.x} and the apple-picking bound \cite{doi:10.1109/TIT.1987.1057277}.
 
 features:
-  rate: 'The Kabatiansky-Levenshtein bound \cite{preset:KLbounds}\cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7} is the best known upper bound on the rate of a spherical code with fixed Euclidean distance.'
+  rate: |
+    The Kabatiansky-Levenshtein bound \cite{preset:KLbounds}\cite[Ch. 9]{doi:10.1007/978-1-4757-6568-7} is a classical upper bound on the rate of a spherical code with fixed Euclidean distance.
+    For every fixed maximum inner product \(0<s<1\), a hierarchy of two-point linear-programming certificates gives asymptotic upper bounds on the rate of unrestricted spherical codes that strictly improve the optimized Kabatiansky-Levenshtein exponent, including its spherical-cap optimization \cite[Thm. 1.2 and Cor. 1.3]{manual:{OpenAI, “Improved Bounds for Binary and Spherical Codes”, Chapter 2 in \emph{Ten Advances in Mathematics and Theoretical Computer Science} (updated August 6, 2026), \href{https://cdn.openai.com/pdf/ten-proofs-oai.pdf}{URL}}}.
+    These are converse bounds on code size; they do not supply code constructions, encoders, or decoders.
 
 notes:
   - 'See \cite{preset:EricZin,preset:Sloane04} for more details and tables of optimal codes.'
@@ -79,6 +82,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: DevanshSehgal
+      date: '2026-08-07'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
