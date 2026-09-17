@@ -12,7 +12,7 @@ short_name: '\([[8, 3, 3]]\)'
 introduced: '\cite{arxiv:quant-ph/9604038,arxiv:quant-ph/9605005,arxiv:quant-ph/9605021,arxiv:quant-ph/9607030}'
 
 description: |
-   Eight-qubit \hyperref[topic:degeneracy]{non-degenerate} code that can be obtained from a modified CSS construction using the \([8,4,4]\) extended Hamming code and a \([8,7,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.
+   Eight-qubit \hyperref[topic:quantum-weight-enumerator]{pure} code that can be obtained from a modified CSS construction using the \([8,4,4]\) extended Hamming code and a \([8,7,2]\) even-weight code \cite{arxiv:quant-ph/9605021}.
    The modification introduces signs between the codewords.
 
    See \cite[Table 3.3]{arxiv:quant-ph/9705052} for its stabilizer generator matrix.
@@ -34,7 +34,22 @@ features:
     - 'Permutation-based gates \cite[Sec. IV.D]{arxiv:1302.1035}.'
     - 'No gates outside of the \hyperref[topic:pauli]{Pauli group} were found in Ref. \cite{arxiv:1912.10063}.'
   general_gates:
-    - 'Logical Trotter circuits can be implemented via symplectic transvections \cite{arxiv:2504.11444}.'
+    - 'Logical Trotter circuits can be implemented via symplectic transvections \cite{arxiv:2504.11444}, with explicit encoded parity circuits for this code given in Ref. \cite[Sec. III.C]{arxiv:2609.16159}.'
+
+  decoders:
+    - 'Weight-one lookup-table decoder built from the distinct syndromes of the 24 weight-one Pauli errors \cite[Sec. III.A]{arxiv:2609.16159}.'
+    - 'Bitwise majority vote over repeated syndrome measurement rounds under phenomenological measurement noise \cite[Sec. III.A]{arxiv:2609.16159}.'
+
+  fault_tolerance:
+    - 'Chao-Reichardt flagged syndrome extraction using one syndrome ancilla and one flag qubit per stabilizer generator \cite{arxiv:1705.02329}\cite[Sec. III.B]{arxiv:2609.16159}.'
+    - 'Encoded Pauli rotations built from compute-rotate-uncompute parity circuits have \hyperref[topic:effective-distance]{circuit-level distance} one in the logical \(Z\) sector \cite[Sec. III.C]{arxiv:2609.16159}. A single phase-type fault on the parity ancilla propagates into a logical \(Z\) operator with trivial syndrome.'
+    - 'Flag-conditioned recovery, \(Z\)-biased noise tailoring, CliNR resource verification, and flag postselection each suppress only the logical sector transverse to the rotation axis \cite[Secs. III.D--III.F]{arxiv:2609.16159}.'
+
+  code_capacity_threshold:
+    - '\(4\%\) \hyperref[topic:pseudo-threshold]{pseudo-threshold} under depolarizing noise with a weight-one lookup-table decoder \cite[Sec. III.A]{arxiv:2609.16159}.'
+
+  threshold:
+    - '\(1.5\times 10^{-3}\) \hyperref[topic:pseudo-threshold]{pseudo-threshold} for circuit-level depolarizing noise under one round of flagged error correction, assuming an ideal final round of weight-one correction \cite[Sec. III.B]{arxiv:2609.16159}.'
 
 
 relations:
@@ -49,6 +64,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-17'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: FerozAhmedMian
