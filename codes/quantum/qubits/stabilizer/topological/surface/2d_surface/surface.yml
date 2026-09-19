@@ -56,6 +56,7 @@ features:
   encoders:
     - 'A depth-\(L^2\) circuit that grows the code out of a small patch on an \(L\times L\) square lattice using CNOT gates (i.e., "local moves") \cite{arxiv:quant-ph/0110143,arxiv:0712.0348}.'
     - 'Teleportation-based state injection into the planar code \cite{arxiv:1202.1016}.'
+    - 'Adaptively initialized teleportation, in which one \(X\)-type stabilizer generator is left unmeasured during initialization so that the logical \(Z\) operator of the patch is temporarily three-body \cite[Sec. III.B]{arxiv:2605.21867}. This allows a logical \(ZZ\) measurement against the low-weight logical operators of another code.'
     - 'Graph-state based adaptive circuit \cite{arxiv:quant-ph/0703143,arxiv:1105.2111}.'
     - 'For an \(L\times L\) lattice, deterministic state preparation can be done with a geometrically local unitary \(O(L)\)-depth circuit \cite{arxiv:2002.00362,arxiv:2110.02020} or an \(O(\log{L})\)-depth unitary circuit with non-local two-qubit gates \cite{arxiv:0712.0348,arxiv:0806.4583,arxiv:1207.0253} (matching lower bounds \cite{arxiv:quant-ph/0603121,arxiv:quant-ph/0603114,arxiv:1810.03912}). The geometric entanglement measure of a ground state of the surface code scales as \hyperref[topic:asymptotics]{order} \(\Omega(L^2)\) \cite{arxiv:2405.07970}.'
     - 'Stabilizer measurement-based circuit of linear depth \cite{arxiv:quant-ph/0110143,arxiv:1404.2495}.'
@@ -102,7 +103,8 @@ features:
     - 'Flag fault-tolerant syndrome extraction \cite{arxiv:1708.02246}.'
     - 'Homomorphic measurement protocols for arbitrary surface codes \cite{arxiv:2211.03625}.'
     - 'Non-geometrically local connectivity can reduce overhead cost \cite{arxiv:2211.15465}.'
-    - 'Magic-state distillation protocols \cite{arxiv:1208.0928,arxiv:1209.0510,arxiv:2212.00813,arxiv:2403.03991} leading up to magic-state cultivation \cite{arxiv:2409.17595}.'
+    - 'Magic-state distillation protocols \cite{arxiv:1208.0928,arxiv:1209.0510,arxiv:2212.00813,arxiv:2403.03991,arxiv:2605.21867}.'
+    - 'Magic-state cultivation \cite{arxiv:2409.17595}.'
     - 'Framework of fault tolerance utilizing ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725} that is applicable to MBQC, FBQC, and conventional computation versions of the surface code \cite{arxiv:2303.08829}.'
     - 'Syndrome extraction circuits consisting of CNOT gates and ancillary measurements \cite{arxiv:1208.0928}. Measurement schedules can be optimized using spacetime circuit codes to yield what is known as the \textit{3CX surface code} \cite{arxiv:2302.02192}. Schedules can also be optimized via ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}. Inspired by the honeycomb Floquet code, various weight-two measurement schemes have been designed \cite{arxiv:2007.00307,arxiv:2206.12780,arxiv:2310.12981}, with the scheme in Ref. \cite{arxiv:2206.12780} being a special case of DWR.'
     - 'LUCI framework for syndrome extraction circuits \cite{arxiv:2410.14891,arxiv:2502.10355}.'
@@ -225,6 +227,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-17'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: BaileyGu
