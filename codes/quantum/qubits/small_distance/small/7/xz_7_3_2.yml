@@ -11,7 +11,7 @@ name: '\([[7,3,2]]\) punctured hypercube code'
 introduced: '\cite{arxiv:quant-ph/9705052}'
 
 description: |
-  A seven-qubit \hyperref[topic:quantum-weight-enumerator]{pure} CSS code that corrects a single \(X\) or a single \(Z\) error, but not a single \(Y\) error.
+  A seven-qubit \hyperref[topic:quantum-weight-enumerator]{pure} CSS code that corrects any single \(X\) or \(Y\) error and detects any single \(Z\) error.
   It is the punctured version of the \([[8,3,2]]\) hypercube quantum code and is a phantom code \cite{arxiv:2601.20927}.
 
   A CSS stabilizer tableau for the code is given by \cite[Table 8.6]{arxiv:quant-ph/9705052}\cite[ID 475]{preset:qiskit}
@@ -24,7 +24,12 @@ description: |
   \end{array}~.
   \end{align}
 
-protection: 'Distance two. As the \(k=3\) punctured hypercube code, it saturates the general qubit phantom-code bound \(n\geq 2^k-1\) \cite{arxiv:2604.15111}.'
+protection: |
+  Distance two, with asymmetric distances \((d_x,d_z)=(3,2)\).
+  The three \(Z\)-type stabilizer generators distinguish the seven single-qubit \(X\) errors.
+  The single \(X\)-type generator distinguishes them from the seven single-qubit \(Y\) errors, which also have distinct syndromes.
+  Every single-qubit \(Z\) error has the same syndrome, so their locations cannot be distinguished.
+  As the \(k=3\) punctured hypercube code, it saturates the general qubit phantom-code bound \(n\geq 2^k-1\) \cite{arxiv:2604.15111}.
 
 relations:
   parents:
@@ -37,14 +42,16 @@ relations:
     - code_id: stab_8_3_2
       detail: 'The \([[7,3,2]]\) code is obtained by puncturing one qubit from the \([[8,3,2]]\) hypercube quantum code \cite{arxiv:2601.20927}.'
     - code_id: hamming743
-      detail: 'The \([[7,3,2]]\) punctured hypercube code \(H_X\) check matrix is the parity-check matrix of the \([7,4,3]\) Hamming code, while its \(H_Z\) matrix is that of the SPC code.'
+      detail: 'The \([[7,3,2]]\) punctured hypercube code \(H_Z\) check matrix is the parity-check matrix of the \([7,4,3]\) Hamming code, while its \(H_X\) matrix is that of the SPC code.'
     - code_id: parity_check
-      detail: 'The \([[7,3,2]]\) punctured hypercube code \(H_X\) check matrix is the parity-check matrix of the \([7,4,3]\) Hamming code, while its \(H_Z\) matrix is that of the SPC code.'
+      detail: 'The \([[7,3,2]]\) punctured hypercube code \(H_Z\) check matrix is the parity-check matrix of the \([7,4,3]\) Hamming code, while its \(H_X\) matrix is that of the SPC code.'
 
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-19'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

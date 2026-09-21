@@ -14,9 +14,14 @@ description: |
   Qubit CSS code for which, in some logical basis, every ordered-pair logical \(\overline{\mathrm{CNOT}}_{ab}\) gate between logical qubits in the same code block can be implemented by a physical-qubit permutation \cite{arxiv:2601.20927}.
   The definition has been extended to non-CSS and non-qubit codes \cite{arxiv:2604.15111}.
 
+  Gluing copies of the \([[4,2,2]]\) code with \(X\)-type stabilizers yields CSS phantom codes with parameters \([[4m,2,(d_X=2,d_Z=2m)]]\).
+  Puncturing one qubit gives \([[4m-1,2,(d_X=2,d_Z=2m-1)]]\), for \(m\geq1\) \cite{arxiv:2601.20927}.
+
 protection: |
   CSS phantom codes obey a Hamming-type constraint: if \(d=d_{\mu}\) for \(\mu\in\{X,Z\}\), then \(\eta(2^k-1)\leq B(n,d)\), where \(\eta\) counts weight-\(d\) logical operators in a fixed \(\mu\)-type logical equivalence class and \(B(n,d)\leq {n \choose d}\) is the maximum size of a binary length-\(n\) code whose pairwise sums have weight at least \(d\) \cite{arxiv:2601.20927}.
   Any qubit phantom code of distance \(d\geq 2\) encoding \(k\geq 2\) logical qubits with \(k\neq 4\) obeys \(n\geq 2^k-1\), equivalently \(k\leq \log_2(n+1)\); this parameter bound also holds for non-CSS phantom codes and for qubit subspace or subsystem phantom-LU codes \cite{arxiv:2604.15111}.
+  For qubit stabilizer codes supporting every logical CX gate by single-qubit Clifford gates and qubit permutations, the bound holds for all \(k\) and distances except the \([[2,2,1]]\) code \cite[Thm. 15]{arxiv:2609.19250}.
+  A nonstabilizer \(((8,2^4,2))\) phantom code shows why the \(k=4\) exception remains necessary for general quantum codes \cite{arxiv:2604.15111}.
 
 features:
   transversal_gates:
@@ -48,6 +53,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-20'
     - user_id: VictorVAlbert
       date: '2026-08-24'
     - user_id: VictorVAlbert

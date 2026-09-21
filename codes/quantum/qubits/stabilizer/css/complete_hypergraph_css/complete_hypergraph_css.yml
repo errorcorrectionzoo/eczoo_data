@@ -1,0 +1,61 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: complete_hypergraph_css
+physical: qubits
+logical: qubits
+
+name: 'Complete-hypergraph CSS code'
+introduced: '\cite{arxiv:2205.09517,arxiv:2609.19250}'
+
+description: |
+  Family of qubit CSS codes, one for each rank \(t\geq2\) and each number \(k\geq t\) of logical qubits, whose physical qubits store the parities of all subsets of at most \(t\) logical qubits.
+  A layer of physical single-qubit diagonal gates at level \(t\) of the \term{Clifford hierarchy} realizes every addressable diagonal logical gate at that level, at the smallest block length for which this is possible \cite{arxiv:2609.19250}.
+
+  One physical qubit is placed on each nonempty subset \(A\subseteq\{1,\dots,k\}\) of size at most \(t\), so that \(n=\sum_{s=1}^{t}\binom{k}{s}\).
+  For fixed \(t\), this is of \hyperref[topic:asymptotics]{order} \(\Theta(k^t)\) \cite{arxiv:2609.19250}.
+  There are no \(X\)-type stabilizer generators.
+  The \(Z\)-type generators are the weight-three checks \(Z_A Z_{A\setminus\{i\}} Z_{\{i\}}\) for \(|A|\geq2\) and a chosen \(i\in A\), which together enforce \(z_A=\bigoplus_{i\in A}z_{\{i\}}\) \cite{arxiv:2609.19250}.
+  Logical operators are \(\overline{Z}_i=Z_{\{i\}}\) on a singleton qubit and \(\overline{X}_i=\prod_{A\ni i}X_A\).
+  The \(X\)-logical subspace is the classical simplex code punctured to the coordinates labelled by subsets of size at most \(t\).
+  Physical qubits carrying the parity of more than two logical qubits were introduced as the higher-order parity encoding \cite{arxiv:2205.09517}.
+  The rank-\(t\) family is that encoding with a completely symmetric choice of codespace, taking every subset of size at most \(t\).
+
+  At rank \(t=k\) the puncturing is trivial.
+  There are \(n=2^k-1\) physical qubits, one per nonzero vector of \(\mathbb{F}_2^k\), the \(Z\)-type stabilizer space is the classical Hamming code, and the \(X\)-logical subspace is the full simplex code.
+  This member is the \textit{simplex phantom code} \cite{arxiv:2601.20927} which attains the phantom-code bound \(n\geq2^k-1\) \cite{arxiv:2604.15111}.
+
+protection: |
+  The \(X\)-distance is \(d_x=\sum_{s=0}^{t-1}\binom{k-1}{s}\), attained by the logical operators \(\overline{X}_i\) \cite{arxiv:2609.19250}.
+  For fixed \(t\), this is of \hyperref[topic:asymptotics]{order} \(\Theta(k^{t-1})\).
+  Every logical \(Z\) operator has a weight-one representative on a singleton qubit, so phase errors are not protected \cite{arxiv:2609.19250}.
+
+features:
+  transversal_gates:
+    - 'A tensor product of physical \(Z^{(t)}=Z^{1/2^{t-1}}\) rotations and their powers realizes every element of the addressable diagonal logical group at level \(t\) of the \term{Clifford hierarchy} \cite{arxiv:2609.19250}. The block length \(n=\sum_{s=1}^{t}\binom{k}{s}\) is exactly the minimum at which that logical group can be realized by transversal single-qubit diagonal gates \cite{arxiv:2609.19250}.'
+    - 'A parity qubit carrying the parity of \(t\) logical qubits turns the diagonal logical rotation \(\exp(i\phi\overline{Z}_{q_1}\cdots\overline{Z}_{q_t})\) into a physical single-qubit rotation, at arbitrary angle \cite{arxiv:2205.09517}.'
+    - 'At rank two, physical \(S\) gates and their powers give every addressable logical \(S\) and CZ gate. At rank three, physical \(T\) gates give every addressable logical \(T\), CS, and CCZ gate \cite{arxiv:2609.19250}.'
+
+
+relations:
+  parents:
+    - code_id: qubit_css
+  cousins:
+    - code_id: phantom
+      detail: 'The simplex phantom code is a member of this family \cite{arxiv:2601.20927}. It attains the phantom-code bound \(n\geq2^k-1\) \cite{arxiv:2604.15111}.'
+    - code_id: simplex
+      detail: 'The \(X\)-logical subspace of a rank-\(t\) complete-hypergraph CSS code is the simplex code punctured to the coordinates labelled by subsets of size at most \(t\), and is the full simplex code for the simplex phantom code.'
+    - code_id: hamming
+      detail: 'The \(Z\)-type stabilizer space of the simplex phantom code is the Hamming code.'
+    - code_id: hypercube_quantum
+      detail: 'The simplex phantom code is obtained from the \([[2^k,k,2]]\) hypercube quantum code by deleting one qubit and discarding the \(X\)-type stabilizer generator \cite{arxiv:2609.19250}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-19'
