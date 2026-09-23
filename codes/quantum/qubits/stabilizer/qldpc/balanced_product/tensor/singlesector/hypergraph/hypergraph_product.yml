@@ -29,7 +29,7 @@ description: |
   \end{align}
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
-  The case when the two seed codes are equal, \(C_1=C_2\), is called a \textit{square hypergraph product code}.
+  The case when both seed codes use the same check matrix, \(H_1=H_2=H\), is called a \textit{square hypergraph product code} \cite{arxiv:2204.10812}.
   If, in addition, \(\text{im} H = \text{im} H^T\), the hypergraph product code is called a \textit{symmetric hypergraph product code} \cite{arxiv:2204.10812}.
 
   In terms of the \ref{topic:CSS-to-homology-correspondence}, the hypergraph product can be viewed as a homological product of two length-one chain complexes. The resulting code corresponds to the length-two chain complex that is called the \textit{total chain complex} of the product of the input complexes (see \cite[Sec. II.C]{arxiv:2601.18879}).
@@ -40,8 +40,10 @@ description: |
 protection: |
   If \([n_i, k_i, d_i]\) and \([r_i, k_i^T, d_i^T]\) are the parameters of the codes \(\mathrm{ker}H_i\) and \(\mathrm{ker}H_i^T\), respectively, taking \(d_i^T=\infty\) when \(k_i^T=0\), then the hypergraph product has parameters \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, \min(d_1, d_2, d_1^T, d_2^T)]]\).
 
-  An algebraic reformulation of HGP codes, together with rate-improved square, symmetric, and two-tile variants, was given in Ref. \cite{arxiv:1202.0928}.
-  Using square seed parity-check matrices yields \([[2n_1 n_2,2k_1 k_2,\min(d_1,d_2)]]\), symmetric seeds yield \([[n_1 n_2,k_1 k_2,\min(d_1,d_2)]]\), and two-tile cyclic constructions yield \([[n_1^2,2k_1^2,d_1]]\); these variants improve the rate of the original Tillich-Zemor family by factors up to four at small block length \cite{arxiv:1202.0928}.
+  An algebraic reformulation of HGP codes, together with several rate-improved variants, was given in Ref. \cite{arxiv:1202.0928}.
+  Seed parity-check matrices with as many rows as columns yield \([[2n_1 n_2,2k_1 k_2,\min(d_1,d_2)]]\) codes.
+  Symmetric seed matrices, \(H_i=H_i^T\), yield \([[n_1 n_2,k_1 k_2,\min(d_1,d_2)]]\) codes, and two-tile cyclic constructions yield \([[n_1^2,2k_1^2,d_1]]\) codes.
+  These variants improve the rate of the original construction from full-rank seed matrices by factors up to four at small block length \cite{arxiv:1202.0928}.
 
 #notes:
 # VVA: Added already as cousin entry. - 'The surface code can be constructed form the hypergraph product of two repetition codes. Similarily, the toric code is obtained from the hypergraph product of two closed-loop repetition codes.'
@@ -93,6 +95,8 @@ relations:
     - code_id: galois_hypergraph_product
       detail: 'Hypergraph product codes are Galois-qudit hypergraph-product codes for qudit dimension \(q=2\).'
   cousins:
+    - code_id: perm_self_dual_css
+      detail: 'Square hypergraph product codes are permutationally self-dual. Reflecting each of the two grids of qubits about its principal diagonal is an involutive \(XZ\)-duality. Composed with transversal Hadamard, it yields the Hadamard-SWAP logical gate \cite[Sec. 3.1]{arxiv:2204.10812}.'
     - code_id: ltc
       detail: 'Applying the hypergraph product to an LTC yields a code which provides an explicit example of \textit{No Low-Error Trivial States (NLETS)} \cite{arxiv:1510.02082}.'
     - code_id: xyz_product
@@ -109,6 +113,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-23'
+    - user_id: VictorVAlbert
+      date: '2026-09-22'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

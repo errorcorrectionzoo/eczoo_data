@@ -45,7 +45,7 @@ features:
     - 'Syndrome extraction circuits called \textit{morphing circuits} \cite{arxiv:2407.16336}, generalizing circuits for the color code \cite{arxiv:2312.08813}.'
 
   code_capacity_threshold:
-    - 'Fully postselected logical failure rates of weight-six bivariate bicycle codes under code capacity bit-flip noise cross close to a clean self-dual critical point \(p=1/(2+\sqrt{2})\approx 0.2929\) \cite{arxiv:2607.21160}.'
+    - 'Fully postselected failure rates of weight-six BB codes under bit-flip noise cross near \(p=1/(2+\sqrt{2})\approx 0.2929\) \cite{arxiv:2607.21160}. This value is the self-dual critical point of zero-rate \hyperref[code:perm_self_dual_css]{PSD code} families with a unique threshold \cite{arxiv:2607.21160}. Without postselection, the \(k=12\) weight-six family of Ref. \cite{arxiv:2511.13560} has a threshold of \(8.38(6)\%\) under BP-OSD decoding \cite{arxiv:2607.21160}.'
 
   threshold:
     - 'Admits a \(0.8\%\) \hyperref[topic:pseudo-threshold]{pseudo-threshold} for circuit-level noise under BP-OSD decoder \cite{arxiv:2308.07915} (cf. \cite{arxiv:0803.0272}).'
@@ -65,6 +65,8 @@ relations:
         detail: 'Bivariate bicycle codes are Abelian 2BGA (equivalently, two-variable multivariate bicycle) codes over groups of the form \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\).'
       - code_id: 2d_stabilizer
         detail: 'Bivariate bicycle codes are defined on 2D lattices with periodic boundary conditions, and versions with open boundary conditions have been investigated \cite{arxiv:2410.11942,arxiv:2412.04181,arxiv:2504.08887}. Bivariate bicycle codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators. BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699}.'
+      - code_id: perm_self_dual_css
+        detail: 'Bivariate bicycle codes are permutationally self-dual. Their standard \(XZ\)-duality exchanges the two blocks of qubits while sending \(x\mapsto x^{-1}\) and \(y\mapsto y^{-1}\). This involution yields a Hadamard-type fold-transversal gate \cite[Secs. 3 and 4.3]{arxiv:2407.03973}. BB codes on \(\mathbb{Z}_{\ell}\times\mathbb{Z}_{\ell}\) whose two polynomials are exchanged by swapping \(x\) and \(y\) admit a second \(XZ\)-duality. It sends \(x\mapsto y^{-1}\) and \(y\mapsto x^{-1}\) within each block and yields a phase-type fold-transversal gate \cite[Sec. 4.3]{arxiv:2407.03973}.'
     cousins:
       - code_id: triangular_color
         detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}.'
@@ -78,6 +80,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-23'
+    - user_id: VictorVAlbert
+      date: '2026-09-22'
     - user_id: VictorVAlbert
       date: '2026-08-26'
     - user_id: VictorVAlbert

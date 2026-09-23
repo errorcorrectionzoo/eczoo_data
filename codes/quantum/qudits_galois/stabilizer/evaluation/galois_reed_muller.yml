@@ -13,7 +13,7 @@ short_name: 'QRM'
 introduced: '\cite{arxiv:quant-ph/0502001}'
 
 description: |
-  True Galois-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes via the Galois-qudit Hermitian construction, the Galois-qudit CSS construction, or directly from their parity-check matrices \cite{arxiv:quant-ph/0502001}\cite[Sec. 4.2]{arxiv:0712.0103}.
+  True Galois-qudit stabilizer code constructed from generalized Reed-Muller (GRM) codes, their punctured or shortened versions, or projective RM codes, via the Galois-qudit Hermitian construction, the Galois-qudit CSS construction, or directly from their parity-check matrices \cite{arxiv:quant-ph/0502001}\cite[Sec. 4.2]{arxiv:0712.0103}\cite{doi:10.1201/9781584889007-18}\cite[Sec. 6.2]{arxiv:0812.5104}.
 
   The CSS construction yields the code
   \begin{align}
@@ -27,6 +27,7 @@ description: |
   \end{align}
   where \(m(q-1)-v=(q-1)Q+R\) so that \(0\leq R\leq q-1\).
   Here \(0\leq v_1,v_2 \leq m(q-1)-1\), \(q\) is a prime power, and \(m\) is a positive integer.
+  For \(0\leq v_1\leq v_2<n\leq q\), evaluating at only \(n\) of the points for \(m=1\) yields \([[n,v_2-v_1,\min(v_1+2,n-v_2)]]_q\) codes.
 
   Using the code GRM\(_{q^2}(v,m)\) for \(0\leq v \leq m(q-1)-1\), the Hermitian construction yields the \hyperref[topic:quantum-weight-enumerator]{pure} quantum code
   \begin{align}
@@ -39,6 +40,7 @@ description: |
   \end{align}
   with \(v+1 = (q^2 - 1)Q + R\).
 
+  The quantum code itself can also be punctured.
   For a CSS code constructed from classical codes \(C_1\) and \(C_2\), the punctured code is defined as
   \begin{align}
     P(C) = \{(a_ib_i)_{i=1}^{n} \mid a \in C_1, b \in C_2^{\perp}\}^{\perp}~.
@@ -52,7 +54,8 @@ description: |
 #   A linear code \([n,k]_{q^{2}}\) contained in its Hermitian dual implies the existence of \([[n,n-2k,d]]_q\) quantum code where \(d = \min( wt(C^{\perp_{h}}\C) )\).
 
 protection: |
-  The CSS family is \hyperref[topic:quantum-weight-enumerator]{pure} with distance \(\min\{d(v_1^\perp),d(v_2)\}\), while the Hermitian family is \hyperref[topic:quantum-weight-enumerator]{pure} with distance \(d(v^\perp)\); punctured descendants retain at least the parent distance \cite{arxiv:quant-ph/0502001}.
+  The CSS family is \hyperref[topic:quantum-weight-enumerator]{pure} with distance \(\min\{d(v_1^\perp),d(v_2)\}\), while the Hermitian family is \hyperref[topic:quantum-weight-enumerator]{pure} with distance \(d(v^\perp)\), both for GRM codes evaluated at all points \cite{arxiv:quant-ph/0502001}.
+  Punctured descendants of the quantum code retain at least the parent distance \cite{arxiv:quant-ph/0502001}.
   QRM\(_{d}(m)\) quantum codes are \(\mathcal{M}_{d}^{m}\) distillation codes of distance \(D=2\). We define a \(\mathcal{M}_{d}^{m}\) distillation code as any \(n\) Galois-qudit stabilizer code \(C\) having the following properties: (a) All \(M \in \mathcal{M}_{d}^{m}\) are transversal so that \(M^{\otimes n}C(M^{\otimes n})^{\dagger} = M_{L}^{\dagger}CM_{L}\), (b) the code has distance \(D \geq 2\), and (c) the code has logical pauli operators \(X_{L} = X[\mathbf{1}]\) and \(Z_{L} = Z[(d-1)\mathbf{1}]\). Here, \(\mathbf{1}\) is a shorthand for the vector \((1,1, \dots, 1)\).
 
 features:
@@ -78,6 +81,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-23'
+    - user_id: VictorVAlbert
+      date: '2026-09-22'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

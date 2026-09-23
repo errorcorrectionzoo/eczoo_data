@@ -8,12 +8,12 @@ physical: galois
 logical: galois
 
 name: '\([[3,1,2]]_4\) three-Galois-quartrit code'
-introduced: '\cite{doi:10.1016/0097-3165(78)90021-3,arxiv:2601.20927}'
+introduced: '\cite{arxiv:2601.20927}'
 
 description: |
   Three-Galois-qudit CSS code over \(\mathbb{F}_4=\{0,1,\omega,\omega^2\}\) that encodes one logical Galois qudit and detects a single-qudit error.
 
-  Its \(X\)- and \(Z\)-type stabilizer check matrices are both
+  Its \(X\)- and \(Z\)-type stabilizer check matrices are both \cite{arxiv:2601.20927}
   \begin{align}
     H_X=H_Z=\begin{pmatrix}1&\omega&\omega^2\end{pmatrix}~.
   \end{align}
@@ -26,7 +26,7 @@ relations:
     - code_id: galois_polynomial
       detail: 'The \([[3,1,2]]_4\) code is constructed from the shortened RS\(_4\) code \cite{arxiv:2601.20927}.'
     - code_id: galois_quad_residue
-      detail: 'The \([[3,1,2]]_4\) code is constructed from the shortened RS\(_4\) code \cite{arxiv:2601.20927}.'
+      detail: 'The \([[3,1,2]]_4\) code is the \(p=3\) member of the quantum QR codes over \(\mathbb{F}_4\) of prime length \(p\) \cite{arxiv:2601.20927}. It is constructed from the shortened \hyperref[code:reed_solomon_4]{RS\(_4\)} code, which is the smallest quaternary QR code. Its \(X\)- and \(Z\)-type stabilizer spaces both equal the dual of this QR code, spanned by \((1,\omega,\omega^2)\). This dual is self-orthogonal, as it is for all prime lengths \(p\equiv 3\) modulo 8 \cite{doi:10.1016/0097-3165(78)90021-3,arxiv:2601.20927}.'
     - code_id: quantum_mds
       detail: 'The \([[3,1,2]]_4\) code saturates the quantum Singleton bound.'
     - code_id: small_distance_quantum
@@ -42,6 +42,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-23'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

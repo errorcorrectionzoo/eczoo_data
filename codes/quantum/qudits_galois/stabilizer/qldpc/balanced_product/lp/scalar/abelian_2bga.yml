@@ -43,7 +43,7 @@ features:
     - 'Certain qubit Abelian 2BGA codes admit a constant-depth inter-code logical \(CZ\) gate (acting between two copies of the code) via the 2-copy-cup gate when the check polynomials satisfy a pre-orientation condition equivalent to a graph perfect-matching problem; examples include the \hyperref[code:copycup_16_6_4]{\([[16,6,4]]\) copy-cup code} and check-weight-six codes such as \([[72,8,6]]\), \([[108,12,6]]\), and \([[144,16,6]]\) \cite{arxiv:2602.23307}.'
 
   code_capacity_threshold:
-    - 'Abelian 2BGA codes are \(em\)-symmetric. As a result, zero-rate qubit Abelian 2BGA code families with fixed check weight, polynomially growing distance, and a unique threshold have optimal code capacity thresholds constrained by a generalized Kramers-Wannier self-duality of the associated statistical mechanical models \cite{arxiv:2607.21160}.'
+    - 'Qubit Abelian 2BGA families with fixed check weight and polynomially growing distance have vanishing rate \cite{arxiv:2607.21160}. When such a family has a unique threshold, its optimal code capacity threshold under bit-flip noise is constrained by the Kramers-Wannier self-duality of zero-rate \hyperref[code:perm_self_dual_css]{PSD codes} \cite{arxiv:2607.21160}.'
 
 relations:
   parents:
@@ -58,12 +58,18 @@ relations:
       detail: 'An Abelian 2BGA code whose elements \(a\) and \(b\) are supported on subgroups intersecting trivially (e.g., polynomials in disjoint sets of variables) is a square-matrix hypergraph-product code constructed from a pair of classical group-algebra codes \cite[Statements 8 and 12]{arxiv:2306.16400}; see the \hyperref[code:cyclic_hgp]{cyclic HGP code} entry for the case of two cyclic codes.'
     - code_id: translationally_invariant_stabilizer
       detail: 'Qubit Abelian 2BGA codes admitting a toric layout have translationally invariant checks on an \(r\)-dimensional torus \cite{arxiv:2406.19151}.'
+    - code_id: perm_self_dual_css
+      detail: 'Qubit Abelian 2BGA codes are permutationally self-dual \cite[Thm. 6]{arxiv:2306.16400}. Exchanging the two blocks of qubits while inverting each group element is an involutive \(XZ\)-duality \cite[Sec. 3]{arxiv:2407.03973}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-23'
+    - user_id: VictorVAlbert
+      date: '2026-09-22'
     - user_id: VictorVAlbert
       date: '2026-08-19'
     - user_id: VictorVAlbert

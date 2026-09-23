@@ -41,7 +41,7 @@ features:
     - 'Hard-decision RG decoder \cite{arxiv:1112.3252}.'
     - 'BP-OSD decoder \cite{arxiv:1904.02703}.'
   code_capacity_threshold:
-    - 'A threshold of \(\approx 0.0797\) under BP-OSD decoding for code capacity bit-flip noise on periodic odd-side-length lattices \cite{arxiv:2607.21160}. Under full postselection, the associated clean statistical mechanical model is the fractal Ising model, whose self-duality pins the critical point to \(p=1/(2+\sqrt{2})\approx 0.2929\), consistent with numerics \cite{arxiv:2607.21160}.'
+    - 'Cubic code 1 has a threshold of \(7.97(4)\%\) under BP-OSD decoding for code capacity bit-flip noise \cite{arxiv:2607.21160}. This estimate uses periodic lattices of odd side length on which the code encodes \(k=2\) logical qubits \cite{arxiv:2607.21160}. Under full postselection, the clean statistical mechanical model of cubic code 1 is the self-dual fractal Ising model \cite{arxiv:2607.21160}. This model has a unique transition at \(p=1/(2+\sqrt{2})\approx 0.2929\), the self-dual value shared by zero-rate \hyperref[code:perm_self_dual_css]{PSD codes} with a unique threshold \cite{arxiv:2607.21160}.'
 
 #notes:
 #  - 'A relation \(k d = O(L^3) \) between code parameters on 3D lattices \cite{arxiv:0909.5200}, meaning that we must have fewer qubits per site \(m\) than types of generator \(t\), since if \(t < m\) then \(d = O(1)\).'
@@ -67,12 +67,18 @@ relations:
       detail: 'A lifted-product code constructed with coefficients in the ring \(R=\mathbb{F}_2[x,y,z]/(x^L-1,y^L-1,z^L-1)\) is a cubic code \cite[Appx. B]{arxiv:2111.03654}.'
     - code_id: sierpinsky_fractal_liquid
       detail: 'The Haah A-code can be written in a similar form as the Sierpinski prism model code \cite{arxiv:2112.14717}.'
+    - code_id: perm_self_dual_css
+      detail: 'CSS cubic codes are qubit Abelian 2BGA codes \cite[Sec. III.A]{arxiv:2012.04068}, so they are permutationally self-dual \cite[Thm. 6]{arxiv:2306.16400}. For cubic code 1, transversal Hadamard composed with the spatial inversion \(\vec{r}\to-\vec{r}\) and a swap of the two qubits on each site exchanges the \(X\)- and \(Z\)-type stabilizers \cite{arxiv:2401.17359}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-23'
+    - user_id: VictorVAlbert
+      date: '2026-09-22'
     - user_id: VictorVAlbert
       date: '2026-07-29'
     - user_id: VictorVAlbert
