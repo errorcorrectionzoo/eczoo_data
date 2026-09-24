@@ -41,16 +41,16 @@ description: |
     \label{figure:512-operators}
   \end{figure}
 
-  A non-CSS form of the same stabilizer group, local Clifford equivalent to the above via Hadamard on the four corner qubits, is \cite{arxiv:2406.09951}
+  A non-CSS form, local Clifford equivalent to the above via \(X\to Y\to Z\to X\) on qubits 0 and 2 and \(Y\leftrightarrow Z\) on qubits 1 and 4, is \cite{arxiv:2406.09951}
   \begin{align}
   \begin{array}{ccccc}
-    X & X & I & Z & I \\
-    I & I & X & Z & X \\
-    I & Z & Z & X & I \\
-    Z & I & I & X & Z
+    X & Y & I & Z & I \\
+    I & I & X & Z & Y \\
+    I & X & Y & X & I \\
+    Y & I & I & X & X
   \end{array}~.
   \end{align}
-  The missing external stabilizer \(YYYIY\) (product of all four generators) forms the back face when the code is viewed as a twist-defect surface code on a sphere.
+  The missing external stabilizer \(YYYIY\) (product of all four CSS generators) forms the back face when the code is viewed as a twist-defect surface code on a sphere.
 
 
 features:
@@ -83,6 +83,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
