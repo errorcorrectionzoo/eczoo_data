@@ -12,29 +12,27 @@ name: 'Mitten code'
 introduced: '\cite{arxiv:2607.28795}'
 
 description: |
-  Member of a family of \hyperref[code:lifted_product]{LP codes} of stabilizer generator weight nine and encoding rate at least \(20\%\).
-  The code is built from one-by-two base matrices over the group algebra \(\mathbb{F}_2[G]\) of a non-Abelian group \(G\).
-  The non-Abelian lift group removes a distance ceiling suffered by Abelian lifts of the same shape, allowing distances of about \(20\) with a few hundred data qubits.
+  Member of a family of \hyperref[code:lifted_product]{LP codes} \(\mathrm{LP}(A,B)\) with one-by-two base matrices \(A=[a_0~a_1]\) and \(B=[b_0~b_1]\) whose entries are weight-three elements of the group algebra \(\mathbb{F}_2[G]\) of a non-Abelian group \(G\) \cite{arxiv:2607.28795}.
+  The \(G\)-\hyperref[topic:lifting]{lift} of this shape yields five blocks of \(|G|\) data qubits and two blocks each of \(X\)- and \(Z\)-type checks, hence check weight nine and encoding rate at least \(20\%\).
+  A non-Abelian \(G\) evades the distance ceiling of Abelian lifts of the same shape, allowing distances of about \(20\) with a few hundred data qubits.
 
-  The code is \(\mathrm{LP}(A,B)\), the \(G\)-\hyperref[topic:lifting]{lift} of base matrices \(A=[a_0~a_1]\) and \(B=[b_0~b_1]\), in the canonical form
+  In the canonical form of the base matrices,
   \begin{align}
     A = [\,g_1+g_2+g_3~~e+g_4+g_5\,]~,\qquad B = [\,h_1+h_2+h_3~~e+h_4+h_5\,]~,
   \end{align}
-  where \(e\) is the identity and \(g_i,h_i\) are group elements.
-  The left regular representation of \(a_1\) and the right regular representation of \(b_1\) are required to be full rank.
-  The code has five blocks of \(|G|\) data qubits and two blocks each of \(X\)- and \(Z\)-type checks.
-  The name comes from the block structure of the check matrices, in which each check has four similar columns (the fingers) and a distinguished one (the thumb).
+  \(e\) is the identity and \(g_i,h_i\) are group elements, and the left regular representation of \(a_1\) and the right regular representation of \(b_1\) are required to be full rank \cite{arxiv:2607.28795}.
+  Each row of the block check matrices spans five column blocks, four similar ones (the \textit{fingers}) carrying one regular action of \(G\) and a distinguished one (the \textit{thumb}) carrying the other, whence the name.
+  The full-rank condition guarantees a canonical logical basis related by the group action, which underlies the modular surgery toolkit \cite{arxiv:2607.28795}.
 
-  Instances with exact distances include \([[150,30,10]]\) over \(C_5 \times S_3\), \([[200,40,12]]\) over \(C_4 \times D_{10}\) (the dihedral group of order ten), \([[300,60,14]]\) over \(C_{10} \times S_3\), \([[500,100,16]]\) over \(C_5 \rtimes C_{20}\), and \([[540,108,18]]\) over \(C_9 \rtimes C_{12}\) \cite{arxiv:2607.28795}.
-  Three larger instances have parameters \([[630,126,\leq 20]]\), \([[780,156,\leq 22]]\), and \([[975,195,\leq 24]]\).
+  Instances include a \([[540,108,18]]\) code over \(C_9 \rtimes C_{12}\) \cite{arxiv:2607.28795}.
+  See Ref. \cite[Table I]{arxiv:2607.28795} for eight instances from \([[150,30,10]]\) to \([[975,195,\leq 24]]\) and their lift groups.
 
 protection: |
   For an Abelian lift group, the minimum-weight codeword of the first base matrix produces a logical operator of that weight \cite{arxiv:2607.28795}.
   This caps the distance at the weight of the base matrices, hence at six for this shape.
-  A non-Abelian lift group removes the cap \cite{arxiv:2607.28795}.
 
 features:
-  rate: 'The one-by-two shape of the base matrices guarantees an encoding rate of at least \(20\%\), and every reported instance realizes exactly that rate \cite{arxiv:2607.28795}.'
+  rate: 'Every reported instance realizes an encoding rate of exactly \(20\%\) \cite{arxiv:2607.28795}.'
 
   general_gates:
     - |
@@ -73,9 +71,7 @@ relations:
     - code_id: qubit_generalized_homological_product_css
       detail: 'Mitten codes are qubit CSS codes obtained from a product of chain complexes over a group algebra \cite{arxiv:2607.28795}.'
     - code_id: lifted_product
-      detail: |-
-        Mitten codes are LP codes of one-by-two base matrices over a non-Abelian group algebra \cite{arxiv:2607.28795}.
-        The base matrices are taken in a canonical form in which the left regular representation of \(a_1\) and the right regular representation of \(b_1\) are full rank.
+      detail: 'Mitten codes are LP codes of one-by-two base matrices over a non-Abelian group algebra \cite{arxiv:2607.28795}.'
 
 
 # Begin Entry Meta Information

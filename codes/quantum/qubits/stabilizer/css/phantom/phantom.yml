@@ -12,10 +12,14 @@ introduced: '\cite{arxiv:2601.20927}'
 
 description: |
   Qubit CSS code for which, in some logical basis, every ordered-pair logical \(\overline{\mathrm{CNOT}}_{ab}\) gate between logical qubits in the same code block can be implemented by a physical-qubit permutation \cite{arxiv:2601.20927}.
+  Such a permutation maps the code onto itself and acts on the logical Pauli operators as the CNOT gate.
+  It can therefore be absorbed into circuit compilation as a relabeling of the physical qubits, at zero overhead and with perfect fidelity \cite{arxiv:2601.20927}.
   The definition has been extended to non-CSS and non-qubit codes \cite{arxiv:2604.15111}.
 
-  Gluing copies of the \([[4,2,2]]\) code with \(X\)-type stabilizers yields CSS phantom codes with parameters \([[4m,2,(d_X=2,d_Z=2m)]]\).
-  Puncturing one qubit gives \([[4m-1,2,(d_X=2,d_Z=2m-1)]]\), for \(m\geq1\) \cite{arxiv:2601.20927}.
+  The smallest phantom code is the \([[4,2,2]]\) code with logical operators \(\overline{X}_1=XXII\), \(\overline{X}_2=XIXI\), \(\overline{Z}_1=ZIZI\), and \(\overline{Z}_2=ZZII\), for which swapping qubits 1 and 3 implements \(\overline{\mathrm{CNOT}}_{12}\) and swapping qubits 1 and 2 implements \(\overline{\mathrm{CNOT}}_{21}\) \cite[Fig. 1]{arxiv:2601.20927}.
+  Gluing \(m\) copies of the \([[4,2,2]]\) code into a tube, with \(X\)-type stabilizers on the faces joining consecutive copies, yields CSS phantom codes with parameters \([[4m,2,(d_X=2,d_Z=2m)]]\).
+  Each logical CNOT of the glued code is one transposition applied in every copy.
+  Puncturing one qubit gives \([[4m-1,2,(d_X=2,d_Z=2m-1)]]\), for \(m\geq1\) \cite[Thm. 8]{arxiv:2601.20927}.
 
 protection: |
   CSS phantom codes obey a Hamming-type constraint \cite{arxiv:2601.20927}.

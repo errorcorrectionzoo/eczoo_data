@@ -14,24 +14,20 @@ alternative_names:
   - 'Denser planar surface code'
 
 description: |
-  Member of a family of \hyperref[code:twist_defect_surface]{twist-defect surface codes} whose twist defects are packed as densely as circuit-level error mechanisms allow.
-  The packing roughly doubles the number of logical qubits per physical qubit relative to \hyperref[code:rotated_surface]{rotated surface-code} patches.
-  Twist positions are chosen against measured circuit-level error rates rather than against the code distance.
+  Member of a family of \hyperref[code:twist_defect_surface]{twist-defect surface codes} whose twist defects are packed as densely as circuit-level error mechanisms allow, so that a rectangular patch of height \(d\) and width \(2d\) holding one domain wall encodes three logical qubits \cite{arxiv:2605.30455}.
+  Each twist defect at an end of the domain wall is a new endpoint for logical operators, which flip between \(X\) and \(Z\) type across the wall, so that loops and mixed Pauli strings become additional independent logical operators.
+  Merging the boundaries of an \(n_{\text{row}}\times m_{\text{col}}\) grid of such rectangles gives one patch encoding \(3 n_{\text{row}} m_{\text{col}}\) logical qubits, approaching one logical qubit per \(d(d-1)\) physical qubits, roughly twice the rate of \hyperref[code:rotated_surface]{rotated surface-code} patches \cite{arxiv:2605.30455}.
 
-  The packing is made practical by a syndrome-extraction cycle for the weight-five twist-defect stabilizer generators that keeps the code decodable by minimum-weight perfect matching.
-  Twist defects sit at the endpoints of a domain wall and carry non-CSS weight-five stabilizer generators containing a \(Y\) Pauli operator.
-  Rather than measuring such a generator directly, the construction measures lower-weight gauge operators that commute with the stabilizer group but anticommute with each other.
+  Twist defects carry non-CSS weight-five stabilizer generators containing a \(Y\) Pauli operator, and the packing is made practical by a syndrome-extraction cycle for them that keeps the code decodable by minimum-weight perfect matching.
+  Rather than measuring such a generator directly, the cycle measures lower-weight gauge operators that commute with the stabilizer group but anticommute with each other.
   Individual gauge outcomes are random, while the parity of two of them reconstructs the twist-defect stabilizer generator.
   An additional weight-two domain wall removes matchable interior boundaries.
   The resulting cycle uses one reset layer, four layers of two-qubit gates, and one measurement layer, on a degree-three connectivity graph.
   It loses no distance parallel to the domain wall and one unit perpendicular to it, or no distance at all in an eight-layer variant.
   Earlier twist-defect circuits needed at least seven layers and degree-six connectivity \cite{arxiv:1709.02318,arxiv:2201.05678}, or halved the distance along the domain wall and gave up matching-based decoding \cite{arxiv:2307.10147}.
 
-  Three packings are given.
-  A rectangular patch with two twist defects encodes three logical qubits in the footprint of two distance-\(d\) rotated surface-code patches.
-  One example has an end-cycle stabilizer group forming a \([[49,3,5]]\) code.
-  Merging the boundaries of a grid of \(n_{\text{row}}\times m_{\text{col}}\) such rectangles gives a single patch encoding \(3 n_{\text{row}} m_{\text{col}}\) logical qubits, approaching one logical qubit per \(d(d-1)\) physical qubits.
-  Concatenating each column of that packing with an \hyperref[code:iceberg]{\([[n,n-2,2]]\) error-detecting code} roughly doubles the distance.
+  One rectangular patch with two twist defects has an end-cycle stabilizer group forming a \([[49,3,5]]\) code \cite[Fig. 10]{arxiv:2605.30455}.
+  Concatenating each column of the dense packing with an \hyperref[code:iceberg]{\([[n,n-2,2]]\) error-detecting code} roughly doubles the distance \cite{arxiv:2605.30455}.
 
 protection: |
   Placement of the twist defects is governed by two competing error mechanisms.

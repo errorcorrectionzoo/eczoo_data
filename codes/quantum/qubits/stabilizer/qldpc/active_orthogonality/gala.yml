@@ -13,53 +13,44 @@ short_name: 'GALA'
 introduced: '\cite{arxiv:2608.07431}'
 
 description: |
-  Qubit \hyperref[code:actively_orthogonal_css]{actively orthogonal CSS code} whose block-circulant parent matrices are obtained by a \(G\)-\hyperref[topic:lifting]{lift}.
-  In the direct-product monomial construction, a small, generally non-Abelian factor supplies the controlled non-commutativity that makes active orthogonality possible.
-  A larger Abelian factor supplies code automorphisms and parallelizable syndrome-extraction schedules.
+  \hyperref[code:actively_orthogonal_css]{Actively orthogonal CSS code} whose lifts are drawn from a direct product \(H_k \times C_m\), or a semidirect product \(H_k \ltimes C_m^k\), of a small non-Abelian group \(H_k\) and a large Abelian group \(C_m\) \cite{arxiv:2608.07431}.
+  For a direct product, two lifts commute exactly when their \(H_k\) parts commute, so the non-Abelian \textit{top factor} alone decides the active orthogonality pattern.
+  The Abelian \textit{bottom factor} is unconstrained by that pattern, and its shifts are code automorphisms.
+  They also make the qubit permutation between syndrome-extraction rounds one rigid row move and one rigid column move, the parallel moves native to crossed acousto-optic deflectors \cite{arxiv:2608.07431}.
 
-  Polynomial and special sectors can instead have an Abelian or trivial top factor.
   Given \(L\), \(J \leq L/2\), and an active set \(\Gamma\), a \textit{direct product} GALA code \(\mathrm{GALA}_{L,J}(H_k \times C_m)\) is defined on \(n=Lkm\) qubits by choosing lifts
   \begin{align}
     \mathcal{F}=\{(F_i,f_i)\}_{i\in[L/2]}~,\qquad \mathcal{G}=\{(G_i,g_i)\}_{i\in[L/2]}~,
   \end{align}
-  with \(F_i,G_i\) in a non-Abelian permutation group \(H_k\) and \(f_i,g_i\) in an Abelian permutation group \(C_m\), such that \([F_i,G_j]=0\) for every \((i,j)\in\Gamma\).
-  When the top factor is Abelian or trivial, the group ring is commutative and no pair fails to commute.
-  The parents are then fully orthogonal \cite{arxiv:2608.07431}.
-  Commutativity of a pair of lifts depends only on their non-Abelian parts.
-  The entire orthogonality pattern is thus decided inside \(H_k\).
-  The Abelian entries are unconstrained by it and can be chosen freely to improve girth and distance.
+  with \(F_i,G_i\) in the non-Abelian permutation group \(H_k\) and \(f_i,g_i\) in the Abelian permutation group \(C_m\), such that \([F_i,G_j]=0\) for every \((i,j)\in\Gamma\).
   The stabilizer generator matrices are the first \(J\) block rows of the parents \(\hat{H}_X=[F|G]\) and \(\hat{H}_Z=[G^T|F^T]\).
-
-  Several generalizations are given in Ref. \cite{arxiv:2608.07431}.
-  Semidirect product GALA codes replace the direct product with \(H_k \ltimes C_m^k\).
-  Polynomial GALA codes replace each single-element lift by a sum of group elements.
-  Loose active orthogonality requires only the aggregate commutator sums to cancel rather than each term individually.
+  The Abelian entries are unconstrained by the commutation pattern and can be chosen freely to improve girth and distance \cite{arxiv:2608.07431}.
+  Semidirect product GALA codes replace the direct product with \(H_k \ltimes C_m^k\), in which \(H_k\) permutes the \(k\) blocks and \(C_m\) acts within each block \cite{arxiv:2608.07431}.
+  Polynomial GALA codes replace each single-element lift by a sum of group elements, which decouples the stabilizer generator weight from \(L\), and admit loose active orthogonality \cite{arxiv:2608.07431}.
+  When the top factor is Abelian or trivial, the group ring is commutative and no pair fails to commute, so the parents are fully orthogonal \cite{arxiv:2608.07431}.
 
   When \(4 \mid L\), a ZX duality is obtained by requiring \(F_i G_{r(i)} = t\) for a group element \(t\) and one of four block-index involutions \(r\) \cite{arxiv:2608.07431}.
   The involutions are \(i\mapsto i\) and \(i\mapsto i+L/4\) (translations) or \(i\mapsto -i\) and \(i\mapsto L/4-i\) (reflections).
   The duality is a qubit permutation \(\tau\) with \(H_Z = H_X \tau\).
-  For monomial GALA codes, one reflection-type involution forces girth four whenever \(J\geq 2\).
-  The same holds for the other reflection in the balanced case \(J=L/4\).
-  In that balanced case the latter reflection also forces full parent orthogonality and, subject to the latent-row proviso below, \(d\leq L\) \cite{arxiv:2608.07431}.
+  For monomial GALA codes, the reflection \(i\mapsto -i\) forces girth four whenever \(J\geq 2\), and the reflection \(i\mapsto L/4-i\) does so in the balanced case \(J=L/4\).
+  In that balanced case the latter reflection also forces full parent orthogonality and, whenever some latent row lies outside the retained row space, \(d\leq L\) \cite{arxiv:2608.07431}.
   Within the parameter range covered by these results, only translation-type involutions are compatible with girth at least six.
 
+  The \([[2232,1120,16]]\) code has stabilizer generator weight \(12\) and an exactly certified distance above that weight at rate above one half \cite{arxiv:2608.07431}.
+  See Ref. \cite[Tables S3, S4, and S5]{arxiv:2608.07431} for all certified instances.
+
 protection: |
-  Every GALA code has encoding rate at least \(1-2J/L\), so that \(J=L/4\) yields rate at least one half.
-  For monomial lifts this sharpens to \(1-2J/L+2(J-1)/n\) \cite{arxiv:2608.07431}.
+  For monomial lifts, the encoding rate bound \(1-2J/L\) of the parent family sharpens to \(1-2J/L+2(J-1)/n\) \cite{arxiv:2608.07431}.
 
   Distance bounds follow both directly from \(J\) and \(L\) and from the quotient codes obtained by collapsing subgroups of the lift group \cite{arxiv:2608.07431}.
-  For monomial lifts, \(J>L/4\) forces full parent orthogonality.
-  If at least one latent row lies outside the retained row space of its type, it is a weight-\(L\) logical operator and \(d\leq L\).
-  If instead all latent rows are already retained-row dependencies, this augmentation argument does not apply.
+  For monomial lifts, \(J>L/4\) forces full parent orthogonality and, whenever some latent row lies outside the retained row space of its type, \(d\leq L\).
   Taking \(J\leq2\) instead gives \(d\leq g/2\), and for \(L<12\) the weight barrier persists unless \(n\geq L(L-1)^{d/2-1}\) \cite{arxiv:2608.07431}.
   Polynomial lifts evade the \(J\leq2\) mechanism, which is how the compact \(L=8\), weight-\(12\) instances below reach distances \(10\) and \(12\) \cite{arxiv:2608.07431}.
-  Apart from that exponentially large-block-length exception, the weight barrier can therefore only be broken in the window \(L \geq 12\) and \(2<J\leq L/4\).
 
-  Every reported instance has its distance certified exactly \cite{arxiv:2608.07431}.
-  All of the following have stabilizer generator weight 12 and girth at least six unless noted.
+  All of the following have exactly certified distances, stabilizer generator weight \(12\), and girth at least six unless noted \cite{arxiv:2608.07431}.
   Rate-one-half instances include \([[480,240,10]]\), \([[672,336,12]]\), and \([[720,360,12]]\), the latter two sitting at the ceiling where the distance equals the generator weight.
   The \([[672,336,12]]\) code has a trivial top factor, showing that the Abelian sector together with a polynomial lift already suffices for a compact rate-one-half code at that ceiling \cite{arxiv:2608.07431}.
-  Instances with distance above the generator weight include \([[1752,880,14]]\) and \([[2232,1120,16]]\).
+  The \([[1752,880,14]]\) code also has distance above the generator weight.
   Instances with a ZX duality include \([[1056,532,12]]\) and the girth-four \hyperref[code:gala_132]{\([[132,30,12]]\) self-dual GALA code}.
 
 features:
@@ -71,10 +62,10 @@ features:
     - 'Collapsing a subgroup of the Abelian factor gives a chain homomorphism onto a quotient code, yielding transversal CNOT gadgets and logical measurements addressing several logical qubits in parallel \cite{arxiv:2608.07431}. These gadgets are in principle sufficient for arbitrary logical Clifford operations, but fault tolerance is not established because the quotient maps are not distance preserving in general.'
 
   decoders:
-    - 'Two-stage Relay-BP decoding cascade with a mixed-integer linear-programming fallback for the cases it does not resolve \cite{arxiv:2608.07431}.'
+    - 'Relay-BP decoding cascade with a mixed-integer linear-programming fallback \cite{arxiv:2608.07431}.'
 
   fault_tolerance:
-    - 'For monomial direct-product and restricted semidirect-product lifts, syndrome extraction runs in \(L\) rounds. The Abelian factor is written as \(C_m\cong C_p\times C_q\) and the qubits are laid out on a \(kp\times Lq\) array. The permutation relating consecutive rounds then factors into a rigid row move and a rigid column move \cite[Prop. 24]{arxiv:2608.07431}. The two act on disjoint coordinates and can be applied at the same time. This factorization is the design purpose of the Abelian factor, which active orthogonality otherwise leaves unconstrained. The non-Abelian factor is placed on the row axis so that its permutations do not conflict. The motivation is hardware that performs one rigid row move and one rigid column move in parallel. Unrestricted semidirect products instead give per-block shifts applied in sequence \cite{arxiv:2608.07431}. Polynomial lifts, whose stabilizer weight can exceed \(L\), use a separately colored syndrome-extraction circuit \cite{arxiv:2608.07431}.'
+    - 'For monomial direct-product and restricted semidirect-product lifts, syndrome extraction runs in \(L\) rounds. The Abelian factor is written as \(C_m\cong C_p\times C_q\) and the qubits are laid out on a \(kp\times Lq\) array. The permutation relating consecutive rounds then factors into a rigid row move and a rigid column move \cite[Prop. 24]{arxiv:2608.07431}. The two act on disjoint coordinates and can be applied at the same time. The non-Abelian factor is placed on the row axis so that its permutations do not conflict. Unrestricted semidirect products instead give per-block shifts applied in sequence \cite{arxiv:2608.07431}. Polynomial lifts, whose stabilizer weight can exceed \(L\), use a separately colored syndrome-extraction circuit \cite{arxiv:2608.07431}.'
 
   threshold:
     - 'Circuit-level noise: \hyperref[topic:pseudo-threshold]{pseudo-thresholds} of about \(0.4\%\) \cite{arxiv:2608.07431}. At physical error rate \(10^{-3}\), the \([[672,336,12]]\) code has an extrapolated logical error rate of about \(5\times10^{-11}\) at an overhead of three physical qubits per logical qubit.'
@@ -90,7 +81,7 @@ relations:
     - code_id: quasi_cyclic_qldpc
       detail: 'GALA codes with a cyclic Abelian lift action are QC-QLDPC codes, but the framework also permits more general Abelian permutation actions \cite{arxiv:2608.07431}.'
     - code_id: kasai
-      detail: 'Kasai codes whose reference affine permutation acts freely, or which admit a coprime factorization of the lift size with commuting reductions, are GALA codes \cite{arxiv:2608.07431}. The GALA framework replaces the affine permutations, whose symmetries arise incidentally, with an explicit group product in which the non-Abelian factor governs orthogonality and the Abelian factor governs symmetry.'
+      detail: 'Kasai codes whose reference affine permutation acts freely, or which admit a coprime factorization of the lift size with commuting reductions, are GALA codes \cite{arxiv:2608.07431}.'
 
 
 # Begin Entry Meta Information

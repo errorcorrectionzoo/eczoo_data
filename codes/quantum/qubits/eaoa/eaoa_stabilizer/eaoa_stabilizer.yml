@@ -11,23 +11,29 @@ name: 'EAOA qubit stabilizer code'
 introduced: '\cite{arxiv:2411.14389}'
 
 description: |-
-  Entanglement-assisted qubit stabilizer code in the operator-algebra framework.
-  In the generalized stabilizer formalism of Ref. \cite{arxiv:2411.14389}, such a code is specified on an extended qubit space by Pauli data consisting of stabilizer, gauge, logical, and sector-labeling operators.
-  On the original system, it is viewed as using noiseless ebits shared with a receiver.
+  Entanglement-assisted operator-algebra (EAOA) qubit code that becomes an OA qubit stabilizer code on \(n+e\) qubits once the receiver's halves of its \(e\) noiseless ebits are counted as physical qubits.
+  Each anticommuting pair of generators of a possibly non-Abelian subgroup \(H\) of the \(n\)-qubit Pauli group is extended by \(X\) and \(Z\) on one ebit so that the extended group \(S\) is Abelian.
+  The stabilizer subspace of \(S\) then carries gauge qubits, logical qubits, and orthogonal copies of itself that encode classical strings \cite{arxiv:2411.14389}.
 
-  EAOA qubit stabilizer codes are denoted by \([[n,k; r,e,c_b]]\) or \([[n,k,d; r,e,c_b]]\).
-  Here, \(n\) is the number of transmitted physical qubits, \(k\) is the number of logical qubits, and \(r\) is the number of gauge qubits.
-  The number of ebits is \(e\), and \(c_b\) is the number of classical strings encoded.
-  When the hybrid component encodes \(c\) classical bits, one has \(c_b=2^c\).
-  This family encompasses ordinary entanglement-assisted qubit stabilizer codes, entanglement-assisted subsystem stabilizer codes, entanglement-assisted hybrid stabilizer codes, and operator-algebra generalizations described within that stabilizer formalism.
-  The family contains EA hybrid subspace and EA subsystem stabilizer codes that lie outside the earlier EACQ and EAOQECC formalisms \cite{arxiv:2411.14389}.
+  The isotropic part of \(H\) has \(s\) commuting generators and its symplectic part has \(e\) anticommuting pairs, so the stabilizer subspace of \(S\) encodes \(n-e-s\) qubits.
+  These split into \(r\) gauge qubits acted on by gauge operators \(G_0\) and \(k\) logical qubits acted on by logical operators \(L_0\), all of which act trivially on the ebits.
+  A set \(T_0\) of \(c_b\) representatives of distinct cosets of the normalizer \(N(S)\), containing the identity and called \textit{transversal operators}, maps the code space to \(c_b\) mutually orthogonal sectors, one per encoded classical string.
+  The transversal operators can also be chosen to act trivially on the ebits.
+  The sender encodes the \(k\) logical qubits, the \(s\) isotropic qubits, and her halves of the ebits into the \(n\) transmitted qubits.
+  The receiver measures the generators of \(S\) on all \(n+e\) qubits.
+  Such a code is denoted by \([[n,k;r,e,c_b]]\) or \([[n,k,d;r,e,c_b]]\), with \(c_b=2^c\) when the hybrid component encodes \(c\) classical bits \cite{arxiv:2411.14389}.
 
-  There exist four constructions of EAOA qubit stabilizer codes with distance lower bounds:
-  gauge fixing \([[n,k,d;r,e,c_b]] \to [[n,k,d';r-y,e,\leq 2^y c_b]]\),
-  clean qubits \([[n,k,d;r,0,c_b]] \to [[n-e,k,d';r,e,c_b]]\),
-  entanglement-assisted gauge fixing \([[n,k,d;r,0,c_b]] \to [[n,k,d';r-e,e,c_b]]\), and
-  general gauge fixing \([[n,k,d;r,e,c_b]] \to [[n,k,d';r-y_I-y_S,e+y_S,\leq 2^{y_I}c_b]]\)
-  \cite{arxiv:2411.14389}.
+  EA qubit stabilizer codes are the case \(G_0=\varnothing\) and \(T_0=\{I\}\), EA subsystem stabilizer codes the case \(T_0=\{I\}\), and EA hybrid subspace codes the case \(G_0=\varnothing\).
+  The family thus encompasses ordinary entanglement-assisted qubit stabilizer codes, entanglement-assisted subsystem stabilizer codes, entanglement-assisted hybrid stabilizer codes, and operator-algebra generalizations described within that stabilizer formalism.
+  It contains EA hybrid subspace and EA subsystem stabilizer codes that lie outside the earlier EACQ and EAOQECC formalisms \cite{arxiv:2411.14389}.
+
+  There exist four constructions of EAOA qubit stabilizer codes from subsystem codes with distance lower bounds \cite[Table 1]{arxiv:2411.14389}.
+  Gauge fixing turns \(y\) gauge pairs into stabilizer and transversal operators, \([[n,k,d;r,e,c_b]] \to [[n,k,d';r-y,e,\leq 2^y c_b]]\).
+  The clean-qubits construction replaces \(e\) isotropic stabilizers by ebit-extended symplectic pairs, \([[n,k,d;r,0,c_b]] \to [[n-e,k,d';r,e,c_b]]\).
+  Entanglement-assisted gauge fixing turns \(e\) anticommuting gauge pairs into ebit-extended stabilizers, \([[n,k,d;r,0,c_b]] \to [[n,k,d';r-e,e,c_b]]\).
+  General gauge fixing combines the first and third, \([[n,k,d;r,e,c_b]] \to [[n,k,d';r-y_I-y_S,e+y_S,\leq 2^{y_I}c_b]]\) \cite{arxiv:2411.14389}.
+  For example, the clean-qubits construction applied to a \([[15,1,2;6,0,3]]\) hybrid subsystem code derived from the \([[15,1,3;6]]\) subsystem color code yields a \([[13,1,3;6,2,3]]\) code \cite[Sec. 7.2]{arxiv:2411.14389}.
+  Its distance rises from two to three because two of its qubits become noiseless ebits.
 
 protection: |-
   Explicit Pauli error-correction conditions for errors acting on the sender's qubits are given in Ref. \cite{arxiv:2411.14389}.

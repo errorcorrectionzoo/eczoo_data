@@ -12,21 +12,21 @@ name: 'Symplectic cone code'
 introduced: '\cite{arxiv:2608.16995}'
 
 description: |
-  Qubit stabilizer code obtained by attaching a CSS ancillary complex to an input stabilizer code represented as a \hyperref[topic:symplectic-complex]{symplectic complex}.
-  Gluing and defect maps preserve the symplectic commutation structure, while an embedded column complex controls the logical operators of the output.
+  Qubit stabilizer code obtained by attaching a CSS ancilla code to an input stabilizer code represented as a \hyperref[topic:symplectic-complex]{symplectic complex}, with the output logical operators determined by an \textit{embedded column complex} \cite{arxiv:2608.16995}.
+  \textit{Gluing maps} extend the ancilla \(X\)-type checks onto the input qubits and the input checks onto the ancilla qubits.
+  A \textit{defect map} then adds \(Z\)-type support on the ancilla's own qubits to the ancilla \(X\)-type checks so that all extended checks commute.
   The construction generalizes the \hyperref[code:mapping_cone]{mapping cone} framework of quantum code embedding from CSS codes to arbitrary stabilizer codes \cite{arxiv:2608.16995}.
 
   The generalization extends fault-tolerant logical measurement, geometrically local embedding, and \hyperref[topic:weight-reduction]{weight reduction} to codes and logical operators that admit no CSS structure \cite{arxiv:2608.16995}.
-  A symplectic cone code is a height-two cone whose middle level is the input-code symplectic complex.
-  Its top and bottom levels are an ancillary cochain complex and the corresponding chain complex, respectively.
-  The levels are glued together by a chain map that is compatible with a defect map.
-  The cone carries a mixed symplectic form pairing the two ancillary sectors.
-  If the ancillary complex \(A\) has \(H_1(A)=0\), the logical space \(H_1(C)\) is naturally isomorphic to that of the embedded column complex \(H^0(A)\to H_1(D)\to H_0(A)\) \cite[Thm. 2]{arxiv:2608.16995}.
+  Formally, a symplectic cone is a height-two cone whose middle level is the input-code symplectic complex \(D\).
+  Its top and bottom levels are the cochain complex and the chain complex of the ancilla code \(A\), respectively.
+  Its stabilizer map is block lower triangular, with the level maps on the diagonal, the gluing maps below the diagonal, and the defect map in the corner \cite[Eq. (10)]{arxiv:2608.16995}.
+  The gluing maps form a chain map compatible with the defect map, and this compatibility is what makes the cone a symplectic complex, i.e., keeps the extended checks commuting \cite{arxiv:2608.16995}.
+  If \(H_1(A)=0\), the logical space \(H_1(C)\) is naturally isomorphic to that of the embedded column complex \(H^0(A)\to H_1(D)\to H_0(A)\) \cite[Thm. 2]{arxiv:2608.16995}.
   This column-complex homology need not equal the logical space of the input code \(D\).
-  The Layer code and weight-reduction applications choose the column complex to preserve the input logical space.
-  For measurement of one logical operator \(\ell^{\star}\), it instead gives \(H_1(C)\cong[\ell^{\star}]^{\perp}/[\ell^{\star}]\), so the deformed code has one fewer logical qubit.
-  The ancilla is CSS in isolation.
-  Once glued, its checks are generically dressed with extra Pauli support of the opposite type.
+  The \hyperref[code:layer]{Layer code} and weight-reduction applications choose the column complex to preserve the input logical space.
+  For measurement of one logical operator \(\ell^{\star}\), it instead gives \(H_1(C)\cong[\ell^{\star}]^{\perp}/[\ell^{\star}]\), so the deformed code has one fewer logical qubit \cite[Thm. 32]{arxiv:2608.16995}.
+  The ancilla is CSS in isolation, but once glued its \(X\)-type checks are generically dressed with \(Z\)-type support by the defect map.
   The output code is therefore generally non-CSS even when the input code is CSS \cite{arxiv:2608.16995}.
 
 protection: |
@@ -45,13 +45,10 @@ features:
 relations:
   parents:
     - code_id: qubit_stabilizer
-      detail: |-
-        A symplectic cone code is a qubit stabilizer code whose \hyperref[topic:symplectic-complex]{symplectic complex} has an ancillary cochain level, an input-code level, and an ancillary chain level.
-        Its stabilizer map is lower triangular, and a mixed symplectic form pairs the two ancillary sectors.
-        When \(H_1(A)=0\), the output logical space is naturally isomorphic to the homology of the embedded column complex \cite[Thm. 2]{arxiv:2608.16995}.
+      detail: 'The symplectic form of a symplectic cone code is that of the input code extended by a mixed form pairing the two ancilla sectors of the cone \cite[Eq. (6)]{arxiv:2608.16995}.'
   cousins:
     - code_id: mapping_cone
-      detail: 'The symplectic cone framework generalizes height-two CSS mapping cones to arbitrary stabilizer codes. The full mapping-cone family also contains cones of other heights, so neither family contains the other \cite{arxiv:2507.05361,arxiv:2608.16995}.'
+      detail: 'Symplectic cone codes generalize height-two CSS mapping cones to arbitrary stabilizer codes, while the mapping-cone family also contains cones of other heights, so neither family contains the other \cite{arxiv:2507.05361,arxiv:2608.16995}.'
     - code_id: qldpc
       detail: 'For a QLDPC input and a bounded-degree expanding measurement graph, the symplectic-cone construction remains QLDPC \cite{arxiv:2608.16995}. It measures a single non-CSS logical operator without first converting it to a CSS representative by a local Clifford circuit \cite{arxiv:2608.16995}.'
     - code_id: surface

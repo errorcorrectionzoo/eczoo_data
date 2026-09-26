@@ -16,10 +16,10 @@ alternative_names:
 
 description: |
   Galois-qudit CSS code constructed from \(t \geq 2\) pairwise commuting square matrices \(A_1,A_2,\ldots,A_t\) via a chain complex with \(t+1\) non-trivial terms called a \textit{multi-block chain (MBC) complex} \cite{arxiv:2506.16910}.
-  Multi-block CSS codes generalize \hyperref[code:two_block_quantum]{two-block CSS codes} (the case \(t=2\)) in the same way that products of \(t\) chain complexes generalize products of two complexes.
+  Its boundary maps have the block form of a \(t\)-fold product of two-term complexes with the Kronecker-product blocks replaced by the commuting matrices \(A_i\), so that \hyperref[code:two_block_quantum]{two-block CSS codes} are the case \(t=2\) \cite{arxiv:2506.16910}.
   Codes drawn from a sufficiently long complex carry redundant checks (metachecks) that enable \hyperref[code:single_shot]{single-shot} decoding.
 
-  The level-\(j\) space of the MBC complex \(\text{mbc}(A_1,\ldots,A_t)\) consists of \(\binom{t}{j}\) blocks, and its boundary matrices \(Q_j\) satisfy \(Q_j Q_{j+1}=0\).
+  The level-\(j\) space of the MBC complex \(\text{mbc}(A_1,\ldots,A_t)\) consists of \(\binom{t}{j}\) blocks, and its boundary matrices \(Q_j\) satisfy \(Q_j Q_{j+1}=0\) because the blocks commute.
   Given the boundary matrices \(Q_j\) of \(\text{mbc}(A_1,\ldots,A_{t-1})\) and an additional commuting block \(N=A_t\), the extended complex has boundary matrices \cite{arxiv:2506.16910}
   \begin{align}
     R_1=\left[N , Q_1\right],\quad
@@ -50,9 +50,7 @@ relations:
     - code_id: galois_css
   cousins:
     - code_id: multisector_hypergraph
-      detail: |-
-        Multi-block CSS codes are related to \(t\)-fold homological products of two-term chain complexes in the same way that two-block CSS codes are related to hypergraph-product codes \cite{arxiv:2506.16910}.
-        Commutativity of the blocks collapses the multi-sector tensor-product structure into square blocks \cite{arxiv:2506.16910}.
+      detail: 'Multi-block CSS codes are related to \(t\)-fold homological products of two-term chain complexes in the same way that two-block CSS codes are related to hypergraph-product codes \cite{arxiv:2506.16910}.'
     - code_id: single_shot
       detail: 'Multi-block CSS codes at levels \(2 \leq j \leq t-2\) admit metachecks in both bases, which can enable single-shot decoding \cite{arxiv:2506.16910}.'
     - code_id: data_syndrome

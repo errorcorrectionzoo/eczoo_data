@@ -16,11 +16,12 @@ alternative_names:
   # TT strictly refers to the case of a group with three cyclic factors
 
 description: |
-  A three-dimensional generalization of \hyperref[code:2bga]{2BGA} and \hyperref[code:qcga]{bivariate bicycle} codes, equivalently the case \(t=3\) of \hyperref[code:multivariate_multicycle]{MM codes}.
-  Such codes are \hyperref[code:three_block_quantum]{three-block CSS codes} constructed from three commuting elements \(a,b,c\) of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_2[G]\) of a finite Abelian group \(G\).
-  The redundancy of the \(Z\)-type checks makes tricycle codes \hyperref[code:single_shot]{single-shot} decodable in the \(Z\) basis, and they host constant-depth transversal \(CCZ\) circuits useful for magic-state generation.
+  A \hyperref[code:three_block_quantum]{three-block CSS code} whose commuting matrices represent three elements \(a,b,c\) of the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_2[G]\) of a finite Abelian group \(G\).
+  The code is the balanced product over \(\mathbb{F}_2[G]\) of the three classical group-algebra codes defined by \(a\), \(b\), and \(c\), extending the two-block \hyperref[code:2bga]{2BGA} construction to three homological dimensions \cite{arxiv:2508.08191,arxiv:2508.10714}.
+  The third dimension provides \(Z\)-type metachecks, which make the code \hyperref[code:single_shot]{single-shot} decodable in the \(Z\) basis, and a cup product, which yields constant-depth transversal \(CCZ\) circuits for magic-state generation \cite{arxiv:2508.10714}.
 
-  The code is supported on \(n=3|G|\) qubits arranged in three blocks, with check and metacheck matrices
+  Each element defines a two-term complex \(\mathbb{F}_2[G]\xrightarrow{a}\mathbb{F}_2[G]\), and the product of the three complexes is a four-term complex \(\mathbb{F}_2[G]\to\mathbb{F}_2[G]^3\to\mathbb{F}_2[G]^3\to\mathbb{F}_2[G]\) \cite{arxiv:2508.10714}.
+  The \(n=3|G|\) qubits sit at the second term, the \(X\)-type checks at the first, the \(Z\)-type checks at the third, and the \(Z\)-type metachecks at the fourth, giving check and metacheck matrices
   \begin{align}
     H_X = \left[A^T\, B^T\, C^T\right],\quad
     H_Z = \left[
@@ -36,7 +37,8 @@ description: |
   Codes are often labeled by their element weights, e.g., \(2\)-\(2\)-\(2\) or \(4\)-\(2\)-\(2\).
 
   Tricycle codes are \textit{connected} when the supports of \(a\), \(b\), and \(c\) generate \(G\) \cite{arxiv:2508.10714}.
-  Example codes include \([[48,6,(8,4)]]\), \([[108,15,(12,6)]]\), and \([[270,24,(15,8)]]\) codes, with distances listed as \((d_X,d_Z)\) \cite{arxiv:2508.10714}, as well as a \([[72,6,(12,6)]]\) code \cite{arxiv:2508.08191}.
+  A \(4\)-\(2\)-\(2\) example is the \([[48,6,(8,4)]]\) code, with distances listed as \((d_X,d_Z)\) \cite{arxiv:2508.10714}.
+  See Refs. \cite[Table 1]{arxiv:2508.10714} and \cite[Table I]{arxiv:2508.08191} for further instances.
 
 protection: |
   All connected tricycle codes satisfy \(d_Z \leq d_X\), and their distance is bounded below as \(d \geq \frac{1}{|N|}\min(d_A,d_B,d_C)\) \cite{arxiv:2508.10714}.
@@ -81,14 +83,12 @@ relations:
   cousins:
     - code_id: single_shot
       detail: |-
-        Tricycle codes support single-shot decoding in the \(Z\) basis, with single-shot distance equal to \(d_Z\) \cite{arxiv:2508.08191}.
+        Tricycle codes support single-shot decoding in the \(Z\) basis \cite{arxiv:2508.08191}.
         Soundness has been proven for a subclass of codes, and there is numerical evidence for single-shot logical-state preparation \cite{arxiv:2508.10714}.
     - code_id: higher_dimensional_toric
       detail: 'Tricycle codes with weight-two elements \(a_i = 1+x_i\) are locally equivalent to 3D toric codes \cite{arxiv:2506.16910}.'
     - code_id: 3d_color
-      detail: |-
-        Both 3D color codes and tricycle codes admit constant-depth \(CCZ\) circuits stemming from cup products on three-dimensional chain complexes \cite{arxiv:2508.10714}.
-        Tricycle codes attain much higher rates at comparable block lengths \cite{arxiv:2508.10714}.
+      detail: 'Both 3D color codes and tricycle codes admit constant-depth \(CCZ\) circuits stemming from cup products on three-dimensional chain complexes \cite{arxiv:2508.10714}.'
     - code_id: multisector_hypergraph
       detail: |-
         Connected tricycle codes are three-fold homological product codes over the ring \(\mathbb{F}_2[N]\) of the intersection subgroup \(N\) \cite{arxiv:2508.10714}.

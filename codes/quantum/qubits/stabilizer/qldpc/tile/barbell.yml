@@ -11,27 +11,24 @@ name: 'Barbell quantum code'
 introduced: '\cite{arxiv:2606.06062}'
 
 description: |
-  Member of a family of high-rate, two-dimensionally local CSS \hyperref[code:qldpc]{QLDPC} codes designed so that every two-qubit interaction of the QEC cycle is native to a fixed-connectivity layout.
-  Such codes are \hyperref[code:tile]{tile codes} \cite{arxiv:2504.08887,arxiv:2504.09171} equipped with a pairing of \(X\)- and \(Z\)-check qubits.
+  Member of a family of \hyperref[code:tile]{tile codes} \cite{arxiv:2504.08887,arxiv:2504.09171} whose \(X\)- and \(Z\)-type check qubits are paired, with each pair joined by one \textit{near-local coupler} and read out by superdense syndrome extraction \cite{arxiv:2312.08813}.
+  A Bell pair prepared across the coupler lets both check qubits collect syndrome information for both stabilizers of the pair, so a stabilizer need only lie within the union of the two check qubits' neighborhoods in the connectivity graph \cite{arxiv:2606.06062}.
+  Every two-qubit gate of the QEC cycle is thereby native to a fixed-connectivity layout whose complexity does not grow with the code distance.
 
-  The pairing is chosen so that every data qubit in the support of either check is adjacent, in a given connectivity graph, to one of the two paired check qubits.
-  The complexity of the layout does not grow with the code distance.
-  The codes are laid out on the \textit{six-qubit star lattice plus near-local coupler} (6QSL+NLC) architecture, also called the \textit{Barbell architecture}.
-  Each \(X\)-check qubit is joined to a partner \(Z\)-check qubit by a single near-local coupler.
-  The two checks' data-qubit neighborhoods together form a \textit{barbell}.
-  The corresponding pair of \(X\)- and \(Z\)-type stabilizers is supported on the six hexagonal cells of this barbell.
-  Syndrome information is read out using superdense syndrome extraction \cite{arxiv:2312.08813}.
-  A Bell pair is prepared on the two check qubits via the near-local coupler, the data qubits are entangled, and a Bell measurement is performed.
-  All near-local couplers are parallel and of equal, distance-independent length.
-  They can therefore be routed in a single additional connectivity layer without crossings.
+  The codes are built for the \textit{six-qubit star lattice plus near-local coupler} (6QSL+NLC) architecture, also called the \textit{Barbell architecture}, a superconducting chip layout with two connectivity layers \cite{arxiv:2606.06062}.
+  The first layer is a honeycomb of hexagonal cells whose six qubits share one multi-qubit coupler, so that any two qubits in a cell can interact.
+  The second layer holds the near-local couplers, each joining an \(X\)-check qubit to its partner \(Z\)-check qubit.
+  The six cells containing the two check qubits form a \textit{barbell}, and the corresponding pair of \(X\)- and \(Z\)-type stabilizers is supported on its data qubits.
+  A barbell code is obtained from a tile code in three steps \cite{arxiv:2606.06062}.
+  Dummy stabilizers with empty support are added so that \(X\)- and \(Z\)-type stabilizers correspond one to one, and a check qubit is placed at each stabilizer.
+  Each qubit type is then translated by a fixed vector so that every data qubit in the support of either stabilizer of a pair is adjacent to one of its two check qubits.
+  Because the tile code is translation invariant, all near-local couplers are parallel and of equal, distance-independent length, and can be routed in a single additional connectivity layer without crossings.
 
-  The weight-8 family contains the \([[242,16,8]]\), \([[288,16,9]]\), \([[338,16,10]]\), \([[392,16,11]]\), and \([[450,16,14]]\) codes \cite{arxiv:2606.06062}.
-  Here \(n=2LM\) for an \(L\times M\) data-qubit lattice with bulk-stabilizer boxes of size \((D+1)\times(D+1)\).
-  Two weight-6 families with \(k=7\) and \(k=8\) also exist \cite{arxiv:2606.06062}.
-  A weight-10 family with \(k=16\) reaches \([[512,16,16]]\) \cite{arxiv:2606.06062}.
+  The weight-8 family with \(k=16\) has \(n=2LM\) for an \(L\times M\) data-qubit lattice with bulk-stabilizer boxes of size \((D+1)\times(D+1)\), e.g., the \([[450,16,14]]\) code \cite{arxiv:2606.06062}.
+  See Ref. \cite[Table 3]{arxiv:2606.06062} for the weight-6, weight-8, and weight-10 families.
 
 features:
-  rate: 'High-rate QLDPC family. The weight-8 examples encode \(k=16\) logical qubits using fewer than 30 data qubits per logical qubit. This is a reduction in physical-qubit overhead by up to a factor of 7.0 compared with the rotated surface code of the same distance \cite{arxiv:2606.06062}. The weight-10 family reaches the maximal factor of eight \cite{arxiv:2606.06062}.'
+  rate: 'High-rate QLDPC family. The weight-8 examples encode \(k=16\) logical qubits using fewer than 30 data qubits per logical qubit. This is a reduction in physical-qubit overhead by up to a factor of 7.0 compared with the rotated surface code of the same distance \cite{arxiv:2606.06062}. The weight-10 family reaches the maximal factor of eight with the \([[512,16,16]]\) code \cite{arxiv:2606.06062}.'
 
   general_gates:
     - 'For stabilizer tiles not confined to a strip and giving rise to total topological order, derived automorphisms of the underlying tile codes implement products of logical CNOT gates \cite{arxiv:2511.14589}. The automorphisms extend the lattice on one side and shrink it on the other \cite{arxiv:2511.14589}.'
@@ -48,7 +45,7 @@ features:
 relations:
   parents:
     - code_id: tile
-      detail: 'Barbell codes are tile codes that constrain the pairing of \(X\)- and \(Z\)-type check qubits. Each pair shares a single near-local coupler, and every data qubit in the support of either check is adjacent to one of the two paired check qubits. Constraining the pairing in this way gives a syndrome-extraction cycle of depth \(w+4\) for stabilizer generators of weight \(w\) \cite{arxiv:2606.06062}. It also keeps all near-local couplers parallel, of equal length, and independent of the code distance \cite{arxiv:2606.06062}. Barbell codes are obtained from tile codes by adding ancilla check qubits and translating the qubit positions. The qubits are then embedded in the connectivity graph of the six-qubit star lattice plus near-local coupler architecture.'
+      detail: 'Barbell codes are tile codes whose \(X\)- and \(Z\)-type check qubits are paired and read out jointly through one near-local coupler per pair \cite{arxiv:2606.06062}.'
   cousins:
     - code_id: 2d_color
       detail: 'Barbell syndrome extraction adapts the superdense syndrome-extraction circuits originally developed to implement color codes on a square grid \cite{arxiv:2312.08813}.'
