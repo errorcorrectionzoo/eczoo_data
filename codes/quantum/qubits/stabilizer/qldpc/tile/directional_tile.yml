@@ -58,10 +58,10 @@ features:
 relations:
   parents:
     - code_id: tile
-      detail: 'Directional tile codes are tile codes whose two tiles are the same ordered connected string on the primal and dual lattices. The string is traced by a directional word that also schedules the nearest-neighbor measurement circuit \cite{arxiv:2606.19482}.'
+      detail: 'Directional tile codes are tile codes that constrain the shape and ordering of the tile. The two tiles form the same ordered connected string on the primal and dual lattices, respectively. A parity condition on the displacement vectors of that string is imposed so that the associated syndrome-extraction circuit is deterministic. Constraining the tile in this way means that no two-qubit connectivity beyond nearest neighbors is needed. One syndrome-extraction round then has depth \(w\) for stabilizer generators of weight \(w\), at the cost of \(\mathcal{O}(\sqrt{n})\) routing qubits \cite{arxiv:2606.19482}.'
   cousins:
     - code_id: directional
-      detail: 'Directional tile codes are the open-boundary (planar) analogues of directional codes, in the same way that tile codes are the open-boundary analogues of BB codes \cite{arxiv:2606.19482}.'
+      detail: 'Directional tile codes are the open-boundary (planar) analogues of directional codes, in the same way that tile codes are the open-boundary analogues of BB codes \cite{arxiv:2606.19482}. A directional tile code can equivalently be viewed as an open-boundary patch cut from a directional code, or as a planar tessellation by connected-string tiles \cite{arxiv:2606.19482}. Preserving the ordered walk on the open patch is what keeps every bulk and boundary stabilizer generator measurable by the same nearest-neighbor dynamics.'
     - code_id: 2d_color
       detail: 'The boundary-dominated routing overhead of directional tile codes is analogous to the routing overhead established for color-code circuits built from CXSWAP gates \cite{arxiv:2510.00370}.'
 

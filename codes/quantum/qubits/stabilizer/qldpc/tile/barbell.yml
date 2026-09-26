@@ -45,7 +45,7 @@ features:
 relations:
   parents:
     - code_id: tile
-      detail: 'Barbell codes are tile codes whose \(X\)- and \(Z\)-type check qubits are paired and read out jointly through one near-local coupler per pair \cite{arxiv:2606.06062}.'
+      detail: 'Barbell codes are tile codes that constrain the pairing of \(X\)- and \(Z\)-type check qubits. Each pair shares a single near-local coupler, and every data qubit in the support of either check is adjacent to one of the two paired check qubits. Constraining the pairing in this way gives a syndrome-extraction cycle of depth \(w+4\) for stabilizer generators of weight \(w\) \cite{arxiv:2606.06062}. It also keeps all near-local couplers parallel, of equal length, and independent of the code distance \cite{arxiv:2606.06062}. Barbell codes are obtained from tile codes by adding ancilla check qubits and translating the qubit positions. The qubits are then embedded in the connectivity graph of the six-qubit star lattice plus near-local coupler architecture.'
   cousins:
     - code_id: 2d_color
       detail: 'Barbell syndrome extraction adapts the superdense syndrome-extraction circuits originally developed to implement color codes on a square grid \cite{arxiv:2312.08813}.'

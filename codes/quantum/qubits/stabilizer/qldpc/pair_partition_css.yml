@@ -39,12 +39,18 @@ relations:
   parents:
     - code_id: qubit_css
     - code_id: qldpc
-      detail: 'Both stabilizer generator matrices have column weight \(J\) and row weight \(L\) independent of the lift size \(P\) \cite{arxiv:2607.14091}.'
+      detail: 'Both stabilizer generator matrices are sparse arrays of circulant permutation matrices with constant column weight \(J\) and constant row weight \(L\) \cite{arxiv:2607.14091}. The reported instances have Tanner girth at least six \cite{arxiv:2607.14091}.'
     - code_id: quasi_cyclic_qldpc
-      detail: 'The circulant structure makes a pair-partition CPM code invariant under a simultaneous cyclic shift of the lift coordinates, an automorphism of order equal to the prime lift size \cite{arxiv:2607.14091}.'
+      detail: |
+        Both stabilizer generator matrices of a pair-partition CPM code are arrays of circulant permutation matrices.
+        This structure makes the code invariant under simultaneous cyclic shifts of the lift coordinates.
+        This automorphism has order equal to the prime lift size \cite{arxiv:2607.14091}.
   cousins:
     - code_id: two_branch_css
-      detail: 'Both pair-partition CPM codes and two-branch coset CSS codes realize CSS commutation by matching \(X\)-\(Z\) overlaps in pairs \cite{arxiv:2607.14091,arxiv:2605.23894}. The pair-partition array is a free combinatorial choice, whereas the two-branch construction induces the matching from a multiplicative subgroup of a finite field.'
+      detail: |
+        Both pair-partition CPM codes and two-branch coset CSS codes realize CSS commutation by matching overlaps in pairs \cite{arxiv:2607.14091,arxiv:2605.23894}.
+        The pair-partition construction parameterizes the matching as a free combinatorial array of pair partitions solved by linear paired-difference equations.
+        The two-branch construction induces the matching from the structure of a multiplicative subgroup of a finite field.
     - code_id: kasai
       detail: |
         Replacing the circulant permutation matrices by affine permutation matrices extends the pair-partition construction.
