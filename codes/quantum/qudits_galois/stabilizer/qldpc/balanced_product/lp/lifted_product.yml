@@ -44,7 +44,12 @@ features:
   rate: 'There is no known simple way to compute the logical dimension \(k\) in the general case \cite{arxiv:2012.04068}.'
 
   general_gates:
-    - 'Transversal dimension jump, a code switching protocol between two LP codes \cite{arxiv:2510.07269}.'
+    - |
+      Transversal dimension jump, a \hyperref[topic:code-switching]{code-switching} protocol between a 3D LP code \(LP(A,B,C)\) over an Abelian \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_2[G]\) and any of its 2D component codes, such as \(LP(A,B)\) \cite{arxiv:2510.07269}.
+      The 2D code embeds as a slice of the 3D code via an inclusion chain map \cite{arxiv:2510.07269}.
+      Physical CNOTs controlled by the 3D qubits of the slice and targeting their 2D partners form a one-way transversal logical CNOT \cite{arxiv:2510.07269}.
+      Whenever the induced map on logical \(Z\) operators is injective, one-bit teleportation through this CNOT switches logical qubits between the two codes \cite{arxiv:2510.07269}.
+      Several copies of the 2D code coupled to disjoint slices can be switched in parallel \cite{arxiv:2510.07269}.
 
   decoders:
     - 'Linear time iterative decoder \cite{arxiv:2504.01728}.'
@@ -69,6 +74,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
     - user_id: VictorVAlbert
       date: '2026-08-24'
     - user_id: VictorVAlbert
