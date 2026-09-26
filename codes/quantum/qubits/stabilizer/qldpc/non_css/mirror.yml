@@ -1,0 +1,57 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mirror
+physical: qubits
+logical: qubits
+
+name: 'Mirror code'
+introduced: '\cite{arxiv:2603.05496}'
+
+description: |
+  Stabilizer code defined by a finite group \(G\) and two subsets \(A,B\subseteq G\), with one qubit per group element \cite{arxiv:2603.05496}.
+  Each stabilizer generator acts as \(Z\) on a translate of \(A\) and as \(X\) on a translate of \(B\), so the check weight is at most \(|A|+|B|\).
+  Mirror codes contain all qubit \hyperref[code:abelian_2bga]{Abelian 2BGA codes} up to qubit permutations and Hadamard gates, and are not CSS in general.
+
+  The \textit{symmetric} mirror code has stabilizer generators
+  \begin{align}
+    S(g) = Z(Ag)\,X(Bg^{-1})~,\qquad g\in G~,
+  \end{align}
+  where \(Ag=\{ag \mid a\in A\}\) and \(Z(T)\), \(X(T)\) denote products of \(Z\), \(X\) over the qubits in \(T\).
+  The \textit{asymmetric} mirror code uses \(X(g^{-1}B)\) instead, and neither family contains the other \cite[Thm. B.2]{arxiv:2603.05496}.
+  For Abelian \(G\), the two constructions coincide and any \(A,B\) yield commuting generators.
+  An Abelian mirror code is equivalent to a CSS code via Hadamard gates iff \(A\) and \(B\) lie in different cosets of an index-two subgroup of \(G\) \cite[Thm. 3.15]{arxiv:2603.05496}.
+
+protection: |
+  Weight-six mirror codes include \([[60,4,10]]\), \([[36,6,6]]\), \([[48,8,6]]\), and \([[85,8,9]]\) codes, none of which is equivalent to a CSS code via Hadamard gates \cite[Table 1]{arxiv:2603.05496}.
+  Weight-seven mirror codes with \(kd>n\) exist, e.g., a \([[48,10,6]]\) code \cite[Table 1]{arxiv:2603.05496}.
+
+features:
+  fault_tolerance:
+    - '\textit{Superdense} syndrome extraction with one ancilla per check, adapted from the color-code circuit of Ref. \cite{arxiv:2312.08813}, pairs generators so that each flags faults on the other \cite{arxiv:2603.05496}.'
+    - 'The CSS-FT6 circuit uses three ancillas per check and is fault tolerant for all CSS codes with check weight at most six \cite{arxiv:2603.05496}.'
+    - 'The FT6 circuit uses six ancillas per check and is fault tolerant for all stabilizer codes with check weight at most six \cite{arxiv:2603.05496}.'
+
+  threshold:
+    - 'SI1000 circuit-level noise: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of order \(0.2\%\) \cite{arxiv:2603.05496}.'
+
+notes:
+  - 'See Ref. \cite[Table 1]{arxiv:2603.05496} for a table of Abelian mirror codes.'
+
+relations:
+  parents:
+    - code_id: qldpc
+      detail: 'Every qubit of a mirror code lies in the support of at most \(|A|+|B|\) stabilizer generators \cite[Prop. 3.1]{arxiv:2603.05496}.'
+  cousins:
+    - code_id: 2bga
+      detail: 'Any qubit 2BGA code with normal subsets \(A,B\) is equivalent to a mirror code on \(\mathbb{Z}_2\times G\) via Hadamard gates on one block and a qubit permutation \cite[Prop. 3.21]{arxiv:2603.05496}. Neither family contains the other \cite[Prop. 3.22]{arxiv:2603.05496}\cite[Thm. B.2]{arxiv:2603.05496}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'

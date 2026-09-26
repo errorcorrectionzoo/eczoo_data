@@ -24,7 +24,6 @@ description: |
     H_1 \otimes I_2 + I_1 \otimes H_2~,
   \end{align}
   where \(I_i\) is the identity on the check space of code \(i\).
-  The logical dimension \(k = k_1 k_2\).
 
 # The image \(im\partial\) forms the parity-check space, and any basis for this space corresponds to the \(Z\)-type stabilizer group generators. 
 # The same rule holds for \(im\partial^{T}\), which gives \(X\)-type stabilizer generators. 
@@ -40,6 +39,10 @@ description: |
 
 
 protection: |
+  The product of two codes \([[n_i,k_i]]\) is an \([[n_1 n_2,k_1 k_2]]\) code \cite[Sec. II.B]{arxiv:1311.0885}.
+  Its \(X\)-type and \(Z\)-type distances satisfy \(\max(d_1^{\alpha},d_2^{\alpha})\leq d^{\alpha}\leq d_1^{\alpha}d_2^{\alpha}\) for \(\alpha\in\{X,Z\}\) \cite[Lemma 2]{arxiv:1311.0885}.
+  The product of two random codes of length \(M\) and dimension \(\rho M\) has distance \(\Omega(M^2)\) with high probability for small enough \(\rho>0\) \cite[Thm. 3]{arxiv:1311.0885}.
+  This yields a family of \([[n,\Theta(n),\Theta(n)]]\) codes with stabilizer weight \(O(\sqrt{n})\) \cite[Thm. 1]{arxiv:1311.0885}.
   Square homological-product codes admit different properties than those with rectangular boundary operators \cite[Sec. 3.4]{arxiv:1512.07081}.
 
 relations:
@@ -52,6 +55,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

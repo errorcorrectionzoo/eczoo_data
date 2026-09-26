@@ -19,6 +19,7 @@ description: |
   The gross code is equivalent to 8 copies of the surface code via a constant-depth Clifford circuit, and is an element of a larger family of 2D stabilizer codes \cite{arxiv:2410.11942}.
   The name stems from the fact that a gross is a dozen dozen.
 
+  The polynomials \(A=x^3+y+y^2\) and \(B=y^3+x+x^2\) of the \hyperref[code:gross]{gross code} on \(\ell=m=12\) yield an indecomposable \([[288,16,12]]\) code \cite[Table III]{arxiv:2606.02418}.
   A different BB QLDPC code with the same parameters was introduced in \cite{arxiv:2407.16336}.
 # https://twitter.com/jaygambetta/status/1773099803561381995
 
@@ -42,6 +43,9 @@ features:
     - 'At physical error rate \(p=10^{-3}\) under circuit-level noise, the code suppresses the logical error rate to about \(2\times 10^{-7}\), enough to preserve \(12\) logical qubits for nearly one million syndrome cycles using \(288\) total physical qubits \cite{arxiv:2308.07915}.'
     - 'Fault-tolerant modular quantum computing framework \cite{arxiv:2506.03094}.'
 
+  code_capacity_threshold:
+    - 'Bit-flip noise: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of \(\approx 5\%\) for the block logical error rate under BP-OSD decoding \cite{arxiv:2606.02418}.'
+
   threshold:
     - 'Admits a \hyperref[topic:pseudo-threshold]{pseudo-threshold} of \(\approx 0.7\%\) for the circuit-based noise model \cite{arxiv:2308.07915}.'
 
@@ -62,6 +66,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'
     - user_id: VictorVAlbert
       date: '2026-08-26'
     - user_id: VictorVAlbert

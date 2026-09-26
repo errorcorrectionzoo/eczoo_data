@@ -32,10 +32,11 @@ description: |
 
 
 protection: |
-  Given two codes \([[n_i, k_i, d_i, w_i]]\) for \(i\in\{1,2\}\), where \(w_i\) denotes the maximum hamming weight of all rows and columns of \(\partial_i\), the homological product code has parameter \([[n=n_1 n_2, k=k_1 k_2, d\leq d_1 d_2, w\leq w_1+w_2]]\).
-  From this formula, and the fact that a randomly selected boundary operator \(\partial\) yields a CSS code that is good with high probability, we see that the product code has \(k=\Theta(n)\) and \(w=O(\sqrt{n})\) with high probability.
-  The main result in Ref. \cite{arxiv:1311.0885} is to show that the product code has linear distance with high probability as well.
-  To sum up, it is shown that we have a family of \([[n,k=c_1 n, d=c_2 n, w=c_3 \sqrt{n}]]\) codes given small enough \(c_1,c_2,c_3\).
+  The tensor product of the chain complexes of two CSS codes \([[n_i,k_i]]\) yields a code with \(n=n_1 n_2+m_1^X m_2^Z+m_1^Z m_2^X\) and \(k=k_1 k_2+\ell_1^X \ell_2^Z+\ell_1^Z \ell_2^X\) \cite[Prop. 1.12]{arxiv:1512.07081}\cite{arxiv:2603.08711}.
+  Here, \(m_i^X\) (\(m_i^Z\)) is the number of \(X\)-type (\(Z\)-type) stabilizer generators of code \(i\).
+  The number of independent relations among these generators is \(\ell_i^X\) (\(\ell_i^Z\)).
+  The row and column weights of the product boundary operators are at most \(w_1+w_2\) \cite[Prop. 1.12]{arxiv:1512.07081}\cite[Lemma 2]{arxiv:1311.0885}.
+  Here, \(w_i\) is the maximum row and column weight of the boundary operators of the \(i\)th complex.
 
 features:
   general_gates:
@@ -56,7 +57,7 @@ relations:
       detail: 'A fiber-bundle code can be viewed as a homological product code with a twisted product.'
   cousins:
     - code_id: random_stabilizer
-      detail: 'Random homological codes are asymptotically good with high probability \cite[Thm. 1]{arxiv:1301.1363}.'
+      detail: 'Random homological codes are asymptotically good with high probability \cite[Thm. 3]{arxiv:1311.0885}.'
     - code_id: single_shot
       detail: 'It is conjectured that a particular class of codes called three-dimensional product codes is single shot \cite{arxiv:2009.11790}.'
 
@@ -65,6 +66,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

@@ -1,0 +1,50 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: perturbed_bb
+physical: qubits
+logical: qubits
+
+name: 'Perturbed bivariate bicycle (PBB) code'
+short_name: 'PBB'
+introduced: '\cite{arxiv:2606.02418}'
+
+description: |
+  Qubit stabilizer code defined over the ring \(R=\mathbb{F}_2[x,y]/(x^{\ell}-1,y^{m}-1)\) by four polynomials \(A,B,C,D\in R\) \cite{arxiv:2606.02418}.
+  The polynomials \(C\) and \(D\) add \(Z\)-type support to the \(X\)-type checks of the BB code defined by \(A\) and \(B\).
+  Such codes are not CSS in general.
+
+  With each polynomial represented by an \(\ell m\times\ell m\) circulant matrix, the stabilizer matrix in symplectic \((X|Z)\) form is
+  \begin{align}
+    H=\begin{pmatrix} A & B & C & D \\ 0 & 0 & B^{\top} & A^{\top} \end{pmatrix}~,
+  \end{align}
+  where \(A^{\top}\) is the image of \(A\) under \(x\mapsto x^{-1}\) and \(y\mapsto y^{-1}\).
+  All generators commute iff \(AC^{\top}+BD^{\top}\) is symmetric over \(\mathbb{F}_2\) \cite{arxiv:2606.02418}.
+  Some PBB codes are equivalent to CSS codes under single-qubit Hadamard or \(S\) gates \cite[Appx. F]{arxiv:2606.02418}.
+
+
+features:
+  decoders:
+    - 'BP-OSD decoder applied to the full symplectic check matrix \cite{arxiv:2606.02418}.'
+
+notes:
+  - 'A catalogue of PBB codes found by LLM-guided search is available at \href{https://github.com/qiskit-community/qcode-discovery}{qcode-discovery} \cite{arxiv:2606.02418}.'
+
+relations:
+  parents:
+    - code_id: qldpc
+      detail: 'PBB codes have stabilizer generators of weight at most the total number of terms of \(A\), \(B\), \(C\), and \(D\) \cite{arxiv:2606.02418}.'
+    - code_id: 2d_stabilizer
+      detail: 'PBB codes are defined on 2D lattices with periodic boundary conditions.'
+    - code_id: gross
+      detail: 'The \([[144,12,12]]\) PBB code perturbs the \hyperref[code:gross]{gross-code} polynomials \(A=x^3+y+y^2\) and \(B=y^3+x+x^2\) by \(C=y+x^3y\) and \(D=y^3+x^3y^3\), with mixed stabilizer generators of weight eight \cite[Table II]{arxiv:2606.02418}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'

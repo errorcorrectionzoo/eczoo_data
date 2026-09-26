@@ -24,8 +24,12 @@ description: |
   
 
 protection: |
-  A cleaning lemma states that, whenever a level boundary map and a gluing map satisfy an isoperimetric inequality, any logical representative of the cone can be cleaned out of the corresponding level, yielding a lower bound on the code distance of the cone in terms of the minimal weight of representatives of embedded-code logical operators \cite{arxiv:2507.05361}.
-  This lemma unifies distance bounds for layer codes, subdivision-based geometrically local codes, weight-reduced codes, and codes obtained by gauging logical operators \cite{arxiv:2507.05361}.
+  A cleaning lemma bounds the \(Z\)-distance of a height-2 cone from below \cite[Sec. I.B]{arxiv:2507.05361}.
+  It applies when the top-level boundary operator and the gluing map \(g_2\) satisfy an isoperimetric inequality with coefficient \(\alpha\).
+  The \(Z\)-distance is then at least \(\alpha\) times the minimum weight of a middle-level representative of a nontrivial logical operator of the embedded code.
+  The lemma yields distance bounds for subdivided square complexes \cite[Sec. IV.B]{arxiv:2507.05361}.
+  For gauging-based logical measurement, the lemma shows that the \(Z\)-distance of the cone is at least \(\min(h,1)\) times that of the input code \cite[Sec. V.A]{arxiv:2507.05361}.
+  Here, \(h\) is the Cheeger constant of the connected graph used to build the cone.
 
 
 relations:
@@ -36,18 +40,22 @@ relations:
     - code_id: qubit_concatenated
       detail: 'The mapping cone framework can be regarded as a generalization of code concatenation for CSS codes \cite{arxiv:2507.05361}.'
     - code_id: distance_balanced
-      detail: 'Height-1 cones underlie Hastings'' coning procedure for \hyperref[topic:weight-reduction]{weight reduction} \cite{arxiv:2102.10030} as well as fault-tolerant logical measurement schemes \cite{arxiv:2410.02753,arxiv:2410.02213,arxiv:2407.18393}, while general quantum embeddings require cones of height at least two \cite{arxiv:2507.05361}.'
+      detail: 'The coning step of the \hyperref[topic:weight-reduction]{weight reduction} procedure of Ref. \cite{arxiv:2102.10030} is a height-1 cone \cite[Sec. V.A]{arxiv:2507.05361}. The triangulation and thickening steps used in this procedure are regular height-2 cones \cite[Sec. V.B]{arxiv:2507.05361}.'
     - code_id: good_qldpc
-      detail: 'Optimal embeddings of good QLDPC codes into \(D\)-dimensional Euclidean space via layer codes and subdivided square complexes fit within the mapping cone framework, which streamlines their logical-preservation and distance proofs \cite{arxiv:2507.05361}.'
+      detail: 'Optimal embeddings of good QLDPC codes into \(D\)-dimensional Euclidean space use layer codes \cite{arxiv:2309.16503} or subdivided square complexes \cite{arxiv:2309.16104}. Both constructions yield regular height-2 cones whose embedded code is the input code \cite[Sec. IV]{arxiv:2507.05361}.'
+    - code_id: surface
+      detail: 'Surface codes on honeycomb and triangular lattices, with periodic or alternating smooth and rough boundaries, are regular cones whose embedded code is the square-lattice surface code \cite[Sec. III.A]{arxiv:2507.05361}. The planar surface code cannot be realized by any 2D CW complex \cite[Sec. I]{arxiv:2507.05361}.'
     - code_id: higher_dimensional_surface
-      detail: 'Homological codes with various boundary conditions, which need not be realizable by a CW complex, can be obtained as mapping cones at the chain-complex level, without reference to the point-set topology of an underlying manifold \cite{arxiv:2507.05361}.'
-    - code_id: general_qldpc
-      detail: 'Gauging-based fault-tolerant logical measurement schemes for QLDPC codes \cite{arxiv:2410.02753,arxiv:2410.02213,arxiv:2407.18393} are height-1 mapping cones: measuring a logical operator corresponds to adding it as a parity check and reducing its weight via an ancillary complex \cite{arxiv:2507.05361}.'
+      detail: 'The barycentric subdivision of an \(n\)-dimensional simplicial complex is a regular height-\(n\) cone whose embedded complex is the original complex \cite[Sec. III.B]{arxiv:2507.05361}. The homological codes of the two complexes therefore have isomorphic logical operators.'
+    - code_id: qldpc
+      detail: 'Gauging-based logical measurement for QLDPC codes \cite{arxiv:2410.02213} is a regular height-1 cone built from a connected graph \cite[Sec. V.A]{arxiv:2507.05361}. The \(Z\)-type logical operators of this cone are those of the input code modulo the measured one \cite[Sec. V]{arxiv:2507.05361}. Homological measurement is also formulated using height-1 cones \cite{arxiv:2410.02753,arxiv:2507.05361}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-24'
     - user_id: VictorVAlbert
       date: '2026-07-29'

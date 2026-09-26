@@ -19,13 +19,18 @@ description: |
 
   The qubit connectivity graph is not quite a 2D grid and is instead decomposable into two planar subgraphs of degree three; there exists an optimized layout minimizing Euclidean communication distance for check operators \cite{arxiv:2404.18809}.
   There are \(n\) \(X\) and \(Z\) check operators, with each one of weight six.
+  Bivariate bicycle codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators.
 
   See Refs. \cite{arxiv:2510.05211,arxiv:2510.06159} for examples of self-dual BB codes.
   Multivariate (e.g., trivariate) bicycle codes generalize BB codes to \hyperref[code:abelian_2bga]{Abelian 2BGA codes} with polynomials in more than two variables \cite{arxiv:2406.19151}; other variants and generalizations exist \cite{arxiv:2408.10001}.
+  Versions with open boundary conditions are \hyperref[code:tile]{tile codes} \cite{arxiv:2504.09171}, obtained by pruning \cite{arxiv:2412.04181} or by condensing boundary anyons \cite{arxiv:2410.11942,arxiv:2504.08887}.
   There exist qudit BB codes that achieve \(kd^2 / n = 20\) \cite{arxiv:2602.20158}.
+
+protection: 'A BB code with \(A=B\) and \(k>0\) has distance two regardless of check weight \cite[Thm. 1]{arxiv:2606.02418}.'
 
 notes:
   - 'A database of bivariate bicycle codes is available in QECDB \cite{preset:QECDB}.'
+  - 'A catalogue of BB codes found by LLM-guided search is available at \href{https://github.com/qiskit-community/qcode-discovery}{qcode-discovery} \cite{arxiv:2606.02418}.'
 
 features:
   transversal_gates:
@@ -63,10 +68,12 @@ relations:
       - code_id: qubit_generalized_homological_product_css
       - code_id: abelian_2bga
         detail: 'Bivariate bicycle codes are Abelian 2BGA (equivalently, two-variable multivariate bicycle) codes over groups of the form \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\).'
-      - code_id: 2d_stabilizer
-        detail: 'Bivariate bicycle codes are defined on 2D lattices with periodic boundary conditions, and versions with open boundary conditions have been investigated \cite{arxiv:2410.11942,arxiv:2412.04181,arxiv:2504.08887}. Bivariate bicycle codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators. BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699}.'
       - code_id: perm_self_dual_css
         detail: 'Bivariate bicycle codes are permutationally self-dual. Their standard \(XZ\)-duality exchanges the two blocks of qubits while sending \(x\mapsto x^{-1}\) and \(y\mapsto y^{-1}\). This involution yields a Hadamard-type fold-transversal gate \cite[Secs. 3 and 4.3]{arxiv:2407.03973}. BB codes on \(\mathbb{Z}_{\ell}\times\mathbb{Z}_{\ell}\) whose two polynomials are exchanged by swapping \(x\) and \(y\) admit a second \(XZ\)-duality. It sends \(x\mapsto y^{-1}\) and \(y\mapsto x^{-1}\) within each block and yields a phase-type fold-transversal gate \cite[Sec. 4.3]{arxiv:2407.03973}.'
+      - code_id: perturbed_bb
+        detail: 'BB codes are PBB codes with \(C=D=0\) \cite{arxiv:2606.02418}.'
+      - code_id: mirror
+        detail: 'BB codes are mirror codes up to qubit permutations and Hadamard gates \cite[Prop. 3.21]{arxiv:2603.05496}.'
     cousins:
       - code_id: triangular_color
         detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}.'
@@ -80,6 +87,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
+    - user_id: VictorVAlbert
+      date: '2026-09-24'
     - user_id: VictorVAlbert
       date: '2026-09-23'
     - user_id: VictorVAlbert

@@ -1,0 +1,36 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: mirror_36_6_6
+physical: qubits
+logical: qubits
+
+name: '\([[36,6,6]]\) mirror code'
+introduced: '\cite{arxiv:2603.05496}'
+
+description: |
+  Abelian mirror code on \(G=\mathbb{Z}_6\times\mathbb{Z}_6\) with check weight six that is not equivalent to a CSS code via Hadamard gates \cite[Fig. 1]{arxiv:2603.05496}.
+  Its \hyperref[topic:symplectic-doubling]{symplectic double} is the \hyperref[code:bb72]{half-gross code}.
+
+  The subsets defining the code are \(A=\{(1,2),(4,3),(4,4)\}\) and \(B=\{(2,4),(3,1),(4,1)\}\) \cite[Fig. 1]{arxiv:2603.05496}.
+  Qubits form a \(6\times 6\) periodic square lattice, and each stabilizer generator acts as \(Z\) on a translate of \(A\) and as \(X\) on the mirror-image translate of \(B\).
+  Table 1 of Ref. \cite{arxiv:2603.05496} lists an equivalent presentation over \(\mathbb{Z}_2\times\mathbb{Z}_2\times\mathbb{Z}_3\times\mathbb{Z}_3\).
+  The code is not equivalent to a CSS code under local Clifford gates and qubit permutations.
+
+
+relations:
+  parents:
+    - code_id: mirror
+  cousins:
+    - code_id: bb72
+      detail: 'The \hyperref[topic:symplectic-doubling]{symplectic double} of the \([[36,6,6]]\) mirror code is the half-gross code \cite{manual:{V. V. Albert, unpublished computation, 2026}}. The other symplectic halves of the half-gross code have parameters \([[36,6,5]]\) and \([[36,6,3]]\).'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
