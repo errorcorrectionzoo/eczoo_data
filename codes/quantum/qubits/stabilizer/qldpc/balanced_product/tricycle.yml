@@ -57,7 +57,7 @@ features:
       Such circuits are constructed via a symmetric triple cup product modifying the framework of Ref. \cite{arxiv:2410.16250}.
       Applying them to logical \(|+\rangle\) states yields hypergraph magic states \cite{arxiv:2508.10714}.
       Weight \(4\)-\(2\)-\(2\) codes host depth-eight circuits \cite{arxiv:2508.10714}.
-      Codes with binomial elements \(a\), \(b\), and \(c\) host depth-two circuits \cite{arxiv:2510.07269}.
+      The \([[27,3,3]]\), \([[45,3,4]]\), \([[81,3,5]]\), and \([[210,3,7]]\) codes with binomial elements host depth-two circuits \cite{arxiv:2510.07269}.
       The pre-orientation conditions for such \textit{copy-cup} gates are determined combinatorially in Ref. \cite{arxiv:2602.23307}.
       The non-associative 3-copy-cup gate forces distance two, whereas the symmetric variant used for tricycle codes can reach higher distance \cite{arxiv:2602.23307}.
     - |
@@ -65,12 +65,13 @@ features:
       Physical CNOTs from the \(a\)- and \(b\)-block qubits of the tricycle code onto the corresponding Abelian 2BGA qubits form a one-way transversal logical CNOT \cite{arxiv:2510.07269}.
       When \(|G|\) is odd and \(c\) lies in the ideal \((a,b)\), the CNOT couples each Abelian 2BGA logical qubit to a distinct tricycle logical qubit \cite[Appx. C]{arxiv:2510.07269}.
       One-bit teleportation through it then switches logical qubits between the two codes \cite{arxiv:2510.07269}.
-      For bivariate pairs, the teleportation circuit decoded with BP-OSD retains the memory pseudo-threshold and logical error rate of the tricycle code under circuit-level noise \cite[Fig. 2]{arxiv:2510.07269}.
   fault_tolerance:
     - |
       Fault-tolerant logical operations include transversal \(CZ\) gates between code blocks and shift-automorphism Clifford gates within a block \cite{arxiv:2508.08191}.
       Selected constructions also admit constant-depth logical \(CCZ\) circuits \cite{arxiv:2508.08191}.
-    - 'Single-shot magic-state generation protocol combining single-shot logical-state preparation, constant-depth \(CCZ\) circuits, and single-shot error correction \cite{arxiv:2508.10714}.'
+    - |
+      Single-shot magic-state generation protocol combining single-shot logical-state preparation, constant-depth \(CCZ\) circuits, and single-shot error correction \cite{arxiv:2508.10714}.
+      An error-detection variant postselects on the final \(X\)-type detectors after a depth-two \(CCZ\) circuit \cite{arxiv:2510.07269}.
     - 'Optimal-depth syndrome-extraction circuits, along with an implementation protocol for reconfigurable qubit arrays \cite{arxiv:2508.10714}.'
   decoders:
     - |
@@ -79,7 +80,7 @@ features:
     - 'MWPM decoder for \(Z\)-type errors of codes with binomial elements, whose \(X\)-type check matrix has column weight two \cite{arxiv:2510.07269}.'
   threshold:
     - 'Circuit-level noise threshold above \(0.5\%\) for a family of \(4\)-\(2\)-\(2\) codes, and about \(0.4\%\) for \(4\)-\(4\)-\(4\) codes \cite{arxiv:2508.10714}.'
-    - 'Circuit-level depolarizing noise without idling errors: memory \hyperref[topic:pseudo-threshold]{pseudo-threshold} of about \(0.4\%\) for bivariate codes with binomial elements under MWPM decoding \cite{arxiv:2510.07269}.'
+    - 'Circuit-level depolarizing noise without idling errors: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of about \(0.4\%\) for the \([[27,3,3]]\), \([[45,3,4]]\), and \([[81,3,5]]\) bivariate codes under MWPM decoding \cite{arxiv:2510.07269}.'
 
 
 relations:
@@ -116,8 +117,6 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: VictorVAlbert
-      date: '2026-09-26'
     - user_id: VictorVAlbert
       date: '2026-09-26'
     - user_id: VictorVAlbert

@@ -23,6 +23,14 @@ description: |
 features:
   rate: 'For cyclic groups \(G=\mathbb{Z}_{\ell}\) with \(\ell=\Theta(n/\log n)\), quasi-cyclic expander LP codes yield families with parameters \([[n,k=\Theta(\log n),d=\Theta(n/\log n)]]\) \cite{arxiv:2012.04068}. Related balanced-product reformulations and other explicit Abelian LP constructions appear in \cite{arxiv:2012.09271,arxiv:2112.01647}.'
 
+  general_gates:
+    - |
+      Transversal dimension jump, a \hyperref[topic:code-switching]{code-switching} protocol between a 3D LP code \(LP(A,B,C)\) over \(\mathbb{F}_2[G]\) and any of its 2D component codes, such as \(LP(A,B)\) \cite{arxiv:2510.07269}.
+      The 2D code embeds as a slice of the 3D code via an inclusion chain map \cite{arxiv:2510.07269}.
+      Physical CNOTs controlled by the 3D qubits of the slice and targeting their 2D partners form a one-way transversal logical CNOT \cite{arxiv:2510.07269}.
+      Whenever the induced map on logical \(Z\) operators is injective, one-bit teleportation through this CNOT switches logical qubits between the two codes \cite{arxiv:2510.07269}.
+      Several copies of the 2D code coupled to disjoint slices can be switched in parallel \cite{arxiv:2510.07269}.
+
   decoders:
     - 'Ensemble BP decoder for codes without short cycles of length 4 \cite{arxiv:2401.06874}.'
     - 'Efficient decoder correcting \hyperref[topic:asymptotics]{order} \(\Theta(n/\log n)\) errors \cite{arxiv:2411.04464}.'
@@ -46,6 +54,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
     - user_id: VictorVAlbert
       date: '2026-07-18'
     - user_id: VictorVAlbert
