@@ -25,6 +25,10 @@ description: |
   A code is permutationally self-dual (PSD) if there is a permutation \(\pi \in S_n\) with \(\pi(C_X)=C_Z\) and \(\pi(C_Z)=C_X\) \cite{arxiv:2609.19250}.
   Equivalently, the physical operator \(U_\pi H^{\otimes n}\) preserves the stabilizer group \cite{arxiv:2609.19250}.
   Such a \(\pi\) is called an \(XZ\)-duality, \(ZX\)-duality \cite{arxiv:2202.06647}, or em symmetry \cite{arxiv:2401.17359}.
+
+  A CSS code on \(2n\) qubits is the \hyperref[topic:symplectic-doubling]{symplectic double} of an \(n\)-qubit stabilizer code iff it admits a fixed-point-free involutory \(XZ\)-duality \cite[Thm. 3.5]{arxiv:2406.09951}.
+  The halved code is read off along the orbits of the duality, with the two qubits of each orbit supplying the \(X\) and \(Z\) coordinates of one qubit.
+  Inequivalent stabilizer codes can have equivalent symplectic doubles \cite[Sec. 4.2]{arxiv:2406.09951}.
   
   Ref. \cite{arxiv:2607.21160} instead defines em symmetry by the weaker condition \(H_X = P_1 H_Z P_2\) for some permutation matrices \(P_1\) and \(P_2\).
   Ref. \cite{arxiv:1804.01950} calls this condition weak self-duality.
@@ -55,12 +59,16 @@ relations:
   cousins:
     - code_id: dual
       detail: 'The \(X\)- and \(Z\)-type stabilizer spaces of a permutationally self-dual CSS code are permutation-equivalent binary linear codes.'
+    - code_id: stab_4_2_2
+      detail: 'Concatenating a PSD code with copies of the \([[4,2,2]]\) code along a fixed-point-free involutory \(XZ\)-duality yields a \hyperref[code:self_dual_css]{self-dual CSS code} \cite[Thm. 3.5]{arxiv:2406.09951}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
     - user_id: VictorVAlbert
       date: '2026-09-23'
     - user_id: VictorVAlbert

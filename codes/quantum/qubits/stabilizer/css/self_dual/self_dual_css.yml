@@ -20,8 +20,9 @@ description: |
   A qubit CSS code for which transversal Hadamard is a logical operation.
   Equivalently, a qubit CSS code constructed from a Euclidean self-orthogonal code.
 
-  Specializing the CSS construction to the case when \(C_Z=[n,k]\) is dual-containing (equivalently, \(C_Z^{\perp}\) is self-orthogonal) and \(C_X=C_Z\) yields an \([[n,2k-n]]\) self-dual qubit CSS code (a.k.a. weakly self-dual, symmetric \cite{arxiv:2510.05708}, self-orthogonal, or homogeneous \cite{doi:10.1109/TCOMM.2022.3231879} qubit CSS code).
+  Specializing the CSS construction to the case when \(C_Z=[n,k]\) is dual-containing (equivalently, \(C_Z^{\perp}\) is self-orthogonal) and \(C_X=C_Z\) yields an \([[n,2k-n]]\) self-dual qubit CSS code.
   Its \(X\)-type and \(Z\)-type stabilizers are identically supported, and transversal Hadamard preserves the stabilizer group.
+  Such codes are also called weakly self-dual, symmetric \cite{arxiv:2510.05708}, self-orthogonal, or homogeneous \cite{doi:10.1109/TCOMM.2022.3231879} qubit CSS codes.
 
   Self-dual CSS codes split into \textit{normal} and \textit{hyperbolic} classes depending on whether transversal Hadamard acts as logical Hadamards or as pairwise logical swaps in a suitable logical basis \cite[Sec. III]{arxiv:1703.07847}.
   Hyperbolic codes necessarily encode an even number of logical qubits and have even blocklength and distance \cite[Sec. III]{arxiv:1703.07847}.
@@ -32,7 +33,9 @@ features:
   transversal_gates:
     - 'Self-dual CSS codes admit a transversal Hadamard gate. There are criteria for when such codes realize logical gates from tensor products of \(S\) and \(S^{\dagger}\) gates \cite{arxiv:2503.19790}.'
     - 'Diagonal transversal \hyperref[topic:clifford]{Clifford gates} on \(\ell\) codeblocks of a CSS code form \(Sp(2\ell,2)\) for self-dual CSS codes \cite{arxiv:2507.10519}.'
-    - 'A self-dual weakly doubly even \([[n,1,d]]\) CSS code admits a partitioned transversal physical \(S\) gate that realizes \(\overline{S}^m\), where \(m=|M^+|-|M^-| \pmod 4\); for odd \(m\), together with transversal Hadamard and CNOT, this yields the full logical Clifford group transversally \cite{arxiv:1509.03239}\cite[Lemma I.4]{arxiv:2408.12752}.'
+    - |
+      A self-dual weakly doubly even \([[n,1,d]]\) CSS code admits a partitioned transversal physical \(S\) gate that realizes \(\overline{S}^m\), where \(m=|M^+|-|M^-| \pmod 4\).
+      For odd \(m\), this gate together with transversal Hadamard and CNOT yields the full logical Clifford group transversally \cite{arxiv:1509.03239}\cite[Lemma I.4]{arxiv:2408.12752}.
     - 'Transversal single-qubit Clifford gates on an indecomposable self-dual CSS code realize exactly the logical group \(S_3\), independently of \(n\), \(k\), and \(d\) \cite{arxiv:2609.19250}.'
     - |
       Among indecomposable CSS codes, only self-dual codes with \(k=1\) generate the full logical Clifford group across several blocks using single-qubit Clifford gates, qubit permutations, and transversal interblock CX gates \cite[Thm. 7]{arxiv:2609.19250}.
@@ -40,12 +43,14 @@ features:
 
   fault_tolerance:
     - 'Any self-dual CSS code with bounded-weight stabilizer generators admits flag fault-tolerant syndrome extraction \cite{arxiv:1708.02246}.'
-    - 'Triorthogonal codes realizing logical \(T\) gates using only physical \(T\) gates can be paired up with self-dual CSS codes to yield a transversal CNOT gate and universal fault-tolerant gates using Steane error correction \cite{arxiv:2510.05708}.'
+    - |
+      Triorthogonal codes realizing logical \(T\) gates using only physical \(T\) gates can be paired up with self-dual CSS codes.
+      Such a pair yields a transversal CNOT gate and universal fault-tolerant gates using Steane error correction \cite{arxiv:2510.05708}.
 
 relations:
   parents:
     - code_id: perm_self_dual_css
-      detail: 'Self-dual CSS codes are the permutationally self-dual CSS codes for which the \(XZ\)-duality can be taken to be the identity permutation.'
+      detail: 'Self-dual CSS codes are the permutationally self-dual CSS codes for which the \(XZ\)-duality can be taken to be the identity permutation. A PSD code on \(2n\) qubits with a fixed-point-free involutory \(XZ\)-duality becomes self-dual after concatenation with \(n\) copies of the \([[4,2,2]]\) code along the duality \cite[Thm. 3.5]{arxiv:2406.09951}.'
     - code_id: stabilizer_over_gf4
       detail: 'If \(H_X = H_Z = C\), then the associated additive \(\mathbb{F}_4\) stabilizer code is \(C + \omega C \subset \mathbb{F}_4^n\). This set is closed under multiplication by \(\omega\) because \(\omega(a + \omega b) = b + \omega(a+b)\), and \(a,b,a+b \in C\), so the code is \(\mathbb{F}_4\)-linear.'
   cousins:
@@ -60,18 +65,26 @@ relations:
     - code_id: quantum_reed_muller
       detail: 'The \([[2^m,{m \choose r}, 2^{\min(r,m-r)}]]\) quantum RM family contains a self-dual sub-family for \(m=2r\), which admits logical Clifford group gates via permutations, transversal gates, and fold-transversal gates \cite{arxiv:2410.23263,arxiv:2602.09788}.'
     - code_id: quantum_divisible
-      detail: 'A self-dual weakly doubly even \([[n,1,d]]\) CSS code admits a partitioned transversal physical \(S\) gate that realizes \(\overline{S}^m\), where \(m=|M^+|-|M^-| \pmod 4\); for odd \(m\), together with transversal Hadamard and CNOT, this yields the full logical Clifford group transversally \cite{arxiv:1509.03239}\cite[Lemma I.4]{arxiv:2408.12752}.'
+      detail: |
+        A self-dual weakly doubly even \([[n,1,d]]\) CSS code admits a partitioned transversal physical \(S\) gate that realizes \(\overline{S}^m\), where \(m=|M^+|-|M^-| \pmod 4\).
+        For odd \(m\), this gate together with transversal Hadamard and CNOT yields the full logical Clifford group transversally \cite{arxiv:1509.03239}\cite[Lemma I.4]{arxiv:2408.12752}.
     - code_id: generalized_quantum_divisible
       detail: 'Any self-dual CSS code yields a level-three generalized quantum divisible code when level-lifted \cite[Thm. V.6]{arxiv:1709.08658}.'
     - code_id: quantum_triorthogonal
-      detail: 'Triorthogonal codes realizing logical \(T\) gates using only physical \(T\) gates can be paired up with self-dual CSS codes to yield a transversal CNOT gate and universal fault-tolerant gates using Steane error correction \cite{arxiv:2510.05708}.'
+      detail: |
+        Triorthogonal codes realizing logical \(T\) gates using only physical \(T\) gates can be paired up with self-dual CSS codes.
+        Such a pair yields a transversal CNOT gate and universal fault-tolerant gates using Steane error correction \cite{arxiv:2510.05708}.
     - code_id: majorana_stab
-      detail: 'An odd-length self-dual CSS code can be converted into a complex-fermion code by replacing qubit \(Z\)-type and \(X\)-type operators with \(\gamma\)-type and \(\tilde{\gamma}\)-type Majorana operators, respectively \cite{arxiv:2411.08955}.'
+      detail: |
+        An odd-length self-dual CSS code can be converted into a complex-fermion code.
+        The conversion replaces qubit \(Z\)-type and \(X\)-type operators with \(\gamma\)-type and \(\tilde{\gamma}\)-type Majorana operators, respectively \cite{arxiv:2411.08955}.
 
 
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
     - user_id: VictorVAlbert
       date: '2026-09-20'
     - user_id: VictorVAlbert
