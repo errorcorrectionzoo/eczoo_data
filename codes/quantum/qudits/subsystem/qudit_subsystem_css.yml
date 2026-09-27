@@ -44,13 +44,12 @@ description: |
   In the case of a stabilizer code, the stabilizer generator matrix is mapped instead to yield a \hyperref[code:two_block_quantum]{two-block CSS code} (see \cite[Thm. 1]{arxiv:1212.6703} for the case of qubit stabilizer codes).
   For geometrically local 2D stabilizer codes with twist defects, this mapping yields a twisted double cover of the underlying qudit geometry \cite{arxiv:2406.09951}.
 
-  \textit{Symplectic halving} is the inverse map, defined for qubit CSS codes on \(2n\) qubits that admit a fixed-point-free involutory \hyperref[code:perm_self_dual_css]{\(XZ\)-duality} \cite[Thm. 3.5]{arxiv:2406.09951}\cite{arxiv:2609.30069}.
+  \textit{Symplectic halving} is the inverse map, defined for qubit CSS codes on \(2n\) qubits that admit a fixed-point-free involutory \hyperref[code:perm_self_dual_css]{\(ZX\) duality} \cite[Thm. 3.5]{arxiv:2406.09951}\cite{arxiv:2609.30069}.
   Order the qubits so that the duality exchanges the two halves.
   For a suitable choice of generators, the check matrices then take the form \(H_X=(A|B)\) and \(H_Z=(B|A)\), and the halved code has symplectic check matrix \((A|B)\) \cite{arxiv:2609.30069}.
-  The two members of each exchanged pair supply the \(X\) and \(Z\) coordinates of one halved qubit.
-  Halving an \([[2n,2k,d^{\prime}]]\) code yields an \([[n,k,d]]\) code with \(\lceil d^{\prime}/2\rceil\leq d\leq d^{\prime}\), preserving the rate and not increasing check weights \cite{arxiv:2609.30069}.
-  Swapping the roles of the two members of a pair acts as a Hadamard gate on the halved qubit, so all choices give locally Clifford-equivalent halves \cite{arxiv:2609.30069}.
-  Halved non-CSS codes include \hyperref[code:hypergraph_product]{hypergraph-product} codes \cite{arxiv:1202.0928}, hyperbicycle codes \cite{arxiv:1212.6703}, and \hyperref[code:pair_partition_css]{pair-partition CPM codes}, which reach a given distance at shorter length than their CSS parents \cite{arxiv:2609.30069}.
+  Halving an \([[2n,2k,d^{\prime}]]\) code yields an \([[n,k,d]]\) code with \(\lceil d^{\prime}/2\rceil\leq d\leq d^{\prime}\) and does not increase check weights \cite{arxiv:2609.30069}.
+  Swapping the two members of a pair acts as a Hadamard gate on the halved qubit, so all orientations of a given duality yield locally Clifford-equivalent codes \cite{arxiv:2609.30069}.
+  Symplectic halving has been applied to \hyperref[code:hypergraph_product]{hypergraph-product} codes \cite{arxiv:1202.0928}, hyperbicycle codes \cite{arxiv:1212.6703}, \hyperref[code:pair_partition_css]{pair-partition CPM codes}, and \hyperref[code:mitten]{mitten codes} \cite{arxiv:2609.30069}.
 
   For qubit stabilizer codes, this map is also known as the \textit{BLT \(n\to 2n\) mapping}, and its output can be packaged as an \([[n,k,d]]_4\) \hyperref[code:galois_css]{Galois-qudit CSS code} \cite[Lemma 1]{arxiv:2605.15344}\cite{arxiv:1004.3791}.
   The Galois-qudit distance is exactly \(d\) because the Galois-qudit support of the image coincides with the symplectic support of the input, while splitting each Galois qudit into two qubits can double the weight of a logical operator.
@@ -65,8 +64,7 @@ description: |
   Tetron concatenation assigns Majorana modes \(b_j^x,b_j^y,b_j^z,c_j\) to each qubit \(j\), realizing its Pauli operators as \(X_j = i b_j^x c_j\), \(Y_j = i b_j^y c_j\), and \(Z_j = i b_j^z c_j\), and adjoining the parity operator \(D_j = b_j^x b_j^y b_j^z c_j\) as a stabilizer generator \cite[Lemma 1]{arxiv:1004.3791}.
   Assigning one qubit to each Majorana mode then sends a Majorana monomial supported on a set \(S\) to an \(X\)-type and a \(Z\)-type Pauli operator, both supported on \(S\) \cite[Lemma 2]{arxiv:1004.3791}.
   Each \(D_j\) therefore becomes the pair \(XXXX\) and \(ZZZZ\) on the four qubits of block \(j\), which generate the \([[4,2,2]]\) stabilizer group.
-  Each single-qubit Pauli of the input becomes a pair of weight-two operators of opposite type sharing a common support, up to multiplication by the \([[4,2,2]]\) stabilizer generators.
-  These are a pair of \([[4,2,2]]\) logical operators exchanged by the \(ZX\) duality.
+  Each single-qubit Pauli of the input becomes a pair of weight-two operators of opposite type sharing a common support, up to multiplication by the \([[4,2,2]]\) stabilizer generators, i.e., a pair of \([[4,2,2]]\) logical operators exchanged by the \(ZX\) duality.
   The output is thus the \([[4,2,2]]\) code on every block of four qubits, with the symplectic double of the input code acting on the resulting logical qubits.
   \end{defterm}
 
