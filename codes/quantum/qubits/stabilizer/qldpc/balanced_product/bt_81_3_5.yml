@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bt_81_3_5
+physical: qubits
+logical: qubits
+
+name: '\([[81,3,5]]\) bivariate tricycle code'
+introduced: '\cite{arxiv:2510.07269}'
+
+alternative_names:
+  - '\([[81,3,5]]\) BT code'
+
+description: |
+  Bivariate tricycle code that can \hyperref[topic:code-switching]{code switch} into a \hyperref[code:qcga]{BB code} and that admits a depth-two cup-product \(CCZ\) gate \cite{arxiv:2510.07269}.
+  It is defined over \(\mathbb{F}_2[x,y]/(x^3+1,y^9+1)\) by the binomial elements \(a=xy^3+x^2y\), \(b=1+xy^8\), and \(c=x^2y^4+x^2y^6\) \cite[Table III]{arxiv:2510.07269}.
+
+  Dropping \(c\) yields the 2D component code \(LP(a,b)\), the \([[54,2,6]]\) BB code \cite{arxiv:2510.07269}.
+  Since \(|G|=27\) is odd and \(c=(y^3+y^4)a+(xy^6+xy^7)b\) lies in the ideal \((a,b)\), a one-way transversal CNOT couples each BB logical qubit to a distinct tricycle logical qubit \cite[Appx. C]{arxiv:2510.07269}.
+
+protection: '\(d=d_Z=5\) and \(d_X>d_Z\) \cite[Appx. F]{arxiv:2510.07269}.'
+
+features:
+  general_gates:
+    - 'Depth-two logical \(CCZ\) circuit via the cup product \cite{arxiv:2510.07269}.'
+
+relations:
+  parents:
+    - code_id: tricycle
+      detail: 'The \([[81,3,5]]\) bivariate tricycle code is the tricycle code over \(\mathbb{Z}_3\times\mathbb{Z}_9\) with binomial elements \(a=xy^3+x^2y\), \(b=1+xy^8\), and \(c=x^2y^4+x^2y^6\) \cite[Table III]{arxiv:2510.07269}.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: qcga
+      detail: |-
+        The \([[54,2,6]]\) BB code with \(a=xy^3+x^2y\) and \(b=1+xy^8\) is the 2D component code of the \([[81,3,5]]\) bivariate tricycle code \cite{arxiv:2510.07269}.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'

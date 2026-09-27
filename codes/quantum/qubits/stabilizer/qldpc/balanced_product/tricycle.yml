@@ -35,6 +35,8 @@ description: |
   Each cyclic factor in the chosen decomposition of \(G\) contributes one circulant tensor factor \cite{arxiv:2508.10714}.
   There are \(|G|\) \(X\)-type checks of weight \(\text{wt}(a)+\text{wt}(b)+\text{wt}(c)\) and \(3|G|\) \(Z\)-type checks.
   Codes are often labeled by their element weights, e.g., \(2\)-\(2\)-\(2\) or \(4\)-\(2\)-\(2\).
+  Bivariate tricycle codes, i.e., those over \(\mathbb{Z}_{\ell_x}\times\mathbb{Z}_{\ell_y}\), can be laid out on a triangular lattice on a 2D torus with three qubits per site \cite[Appx. D]{arxiv:2510.07269}.
+  All \(X\)-type checks are then translates of a single check, and so are the \(Z\)-type checks within each of the three rows of \(H_Z\) \cite[Appx. D]{arxiv:2510.07269}.
 
   Tricycle codes are \textit{connected} when the supports of \(a\), \(b\), and \(c\) generate \(G\) \cite{arxiv:2508.10714}.
   A \(4\)-\(2\)-\(2\) example is the \([[48,6,(8,4)]]\) code, with distances listed as \((d_X,d_Z)\) \cite{arxiv:2508.10714}.
@@ -55,21 +57,30 @@ features:
       Such circuits are constructed via a symmetric triple cup product modifying the framework of Ref. \cite{arxiv:2410.16250}.
       Applying them to logical \(|+\rangle\) states yields hypergraph magic states \cite{arxiv:2508.10714}.
       Weight \(4\)-\(2\)-\(2\) codes host depth-eight circuits \cite{arxiv:2508.10714}.
+      Several codes with binomial elements host depth-two circuits \cite[Table I]{arxiv:2510.07269}.
       The pre-orientation conditions for such \textit{copy-cup} gates are determined combinatorially in Ref. \cite{arxiv:2602.23307}.
       The non-associative 3-copy-cup gate forces distance two, whereas the symmetric variant used for tricycle codes can reach higher distance \cite{arxiv:2602.23307}.
+    - |
+      Transversal dimension jump, a \hyperref[topic:code-switching]{code-switching} protocol with the qubit \hyperref[code:abelian_2bga]{Abelian 2BGA code} defined by \(a\) and \(b\), a 2D component code of the tricycle code \cite{arxiv:2510.07269}.
+      Physical CNOTs from the \(a\)- and \(b\)-block qubits of the tricycle code onto the corresponding Abelian 2BGA qubits form a one-way transversal logical CNOT \cite{arxiv:2510.07269}.
+      When \(|G|\) is odd and \(c\) lies in the ideal \((a,b)\), the CNOT couples each Abelian 2BGA logical qubit to a distinct tricycle logical qubit \cite[Appx. C]{arxiv:2510.07269}.
+      One-bit teleportation through it then switches logical qubits between the two codes \cite{arxiv:2510.07269}.
   fault_tolerance:
     - |
       Fault-tolerant logical operations include transversal \(CZ\) gates between code blocks and shift-automorphism Clifford gates within a block \cite{arxiv:2508.08191}.
       Selected constructions also admit constant-depth logical \(CCZ\) circuits \cite{arxiv:2508.08191}.
-    - 'Single-shot magic-state generation protocol combining single-shot logical-state preparation, constant-depth \(CCZ\) circuits, and single-shot error correction \cite{arxiv:2508.10714}.'
+    - |
+      Single-shot magic-state generation protocol combining single-shot logical-state preparation, constant-depth \(CCZ\) circuits, and single-shot error correction \cite{arxiv:2508.10714}.
+      An error-detection variant postselects on the final \(X\)-type detectors after a depth-two \(CCZ\) circuit \cite{arxiv:2510.07269}.
     - 'Optimal-depth syndrome-extraction circuits, along with an implementation protocol for reconfigurable qubit arrays \cite{arxiv:2508.10714}.'
-    - 'Weight \(2\)-\(2\)-\(2\) tricycle-type codes appear in transversal dimension-jump code-switching schemes \cite{arxiv:2510.07269}.'
   decoders:
     - |
       BP+LSD decoding combined with cluster-based post-selection \cite{arxiv:2508.10714}.
       With full error detection, a \([[48,6,(8,4)]]\) code reaches logical error rates of about \(6\times 10^{-10}\) at a \(30\%\) acceptance fraction \cite{arxiv:2508.10714}.
+    - 'MWPM decoder for \(Z\)-type errors of codes with binomial elements, whose \(X\)-type check matrix has column weight two \cite{arxiv:2510.07269}.'
   threshold:
     - 'Circuit-level noise threshold above \(0.5\%\) for a family of \(4\)-\(2\)-\(2\) codes, and about \(0.4\%\) for \(4\)-\(4\)-\(4\) codes \cite{arxiv:2508.10714}.'
+    - 'Circuit-level depolarizing noise without idling errors: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of about \(0.4\%\) for the \([[27,3,3]]\), \([[45,3,4]]\), and \([[81,3,5]]\) bivariate codes under MWPM decoding \cite{arxiv:2510.07269}.'
 
 
 relations:
@@ -95,6 +106,11 @@ relations:
       detail: |-
         Connected tricycle codes are three-fold homological product codes over the ring \(\mathbb{F}_2[N]\) of the intersection subgroup \(N\) \cite{arxiv:2508.10714}.
         They are binary three-dimensional hypergraph-product codes only in special cases, such as when \(N\) is trivial \cite{arxiv:2508.10714}.
+    - code_id: abelian_2bga
+      detail: |-
+        The qubit Abelian 2BGA code defined by \(a\) and \(b\) is a 2D component code of the tricycle code defined by \(a\), \(b\), and \(c\) \cite{arxiv:2510.07269}.
+        A one-way transversal CNOT from the tricycle code to the Abelian 2BGA code yields teleportation-based code switching between the two codes \cite{arxiv:2510.07269}.
+        This holds when \(|G|\) is odd and \(c\) lies in the ideal \((a,b)\) \cite[Appx. C]{arxiv:2510.07269}.
 
 
 # Begin Entry Meta Information

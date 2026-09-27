@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: bt_27_3_3
+physical: qubits
+logical: qubits
+
+name: '\([[27,3,3]]\) bivariate tricycle code'
+introduced: '\cite{arxiv:2510.07269}'
+
+alternative_names:
+  - '\([[27,3,3]]\) BT code'
+
+description: |
+  Bivariate tricycle code that can \hyperref[topic:code-switching]{code switch} into a \hyperref[code:qcga]{BB code} and that admits a depth-two cup-product \(CCZ\) gate \cite{arxiv:2510.07269}.
+  It is defined over \(\mathbb{F}_2[x,y]/(x^3+1,y^3+1)\) by the binomial elements \(a=x^2y+x^2y^2\), \(b=1+xy^2\), and \(c=x+x^2y\) \cite[Table III]{arxiv:2510.07269}.
+
+  Dropping \(c\) yields the 2D component code \(LP(a,b)\), the \([[18,2,3]]\) BB code \cite{arxiv:2510.07269}.
+  Since \(|G|=9\) is odd and \(c=a+xb\) lies in the ideal \((a,b)\), a one-way transversal CNOT couples each BB logical qubit to a distinct tricycle logical qubit \cite[Appx. C]{arxiv:2510.07269}.
+
+protection: '\(d=d_Z=3\) and \(d_X>d_Z\) \cite[Appx. F]{arxiv:2510.07269}.'
+
+features:
+  general_gates:
+    - 'Depth-two logical \(CCZ\) circuit via the cup product \cite{arxiv:2510.07269}.'
+
+relations:
+  parents:
+    - code_id: tricycle
+      detail: 'The \([[27,3,3]]\) bivariate tricycle code is the tricycle code over \(\mathbb{Z}_3\times\mathbb{Z}_3\) with binomial elements \(a=x^2y+x^2y^2\), \(b=1+xy^2\), and \(c=x+x^2y\) \cite[Table III]{arxiv:2510.07269}.'
+    - code_id: small_distance_qubit_stabilizer
+  cousins:
+    - code_id: qcga
+      detail: |-
+        The \([[18,2,3]]\) BB code with \(a=x^2y+x^2y^2\) and \(b=1+xy^2\) is the 2D component code of the \([[27,3,3]]\) bivariate tricycle code \cite{arxiv:2510.07269}.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-26'
