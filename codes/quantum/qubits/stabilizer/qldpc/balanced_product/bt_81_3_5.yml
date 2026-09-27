@@ -14,8 +14,10 @@ alternative_names:
   - '\([[81,3,5]]\) BT code'
 
 description: |
-  Tricycle code over \(\mathbb{F}_2[x,y]/(x^3+1,y^9+1)\) with binomial elements \(a=xy^3+x^2y\), \(b=1+xy^8\), and \(c=x^2y^4+x^2y^6\) \cite[Table III]{arxiv:2510.07269}.
-  Dropping \(c\) yields the 2D component code \(LP(a,b)\), the \([[54,2,6]]\) \hyperref[code:qcga]{BB code} \cite{arxiv:2510.07269}.
+  Bivariate tricycle code that can \hyperref[topic:code-switching]{code switch} into a \hyperref[code:qcga]{BB code} and that admits a depth-two cup-product \(CCZ\) gate \cite{arxiv:2510.07269}.
+  It is defined over \(\mathbb{F}_2[x,y]/(x^3+1,y^9+1)\) by the binomial elements \(a=xy^3+x^2y\), \(b=1+xy^8\), and \(c=x^2y^4+x^2y^6\) \cite[Table III]{arxiv:2510.07269}.
+
+  Dropping \(c\) yields the 2D component code \(LP(a,b)\), the \([[54,2,6]]\) BB code \cite{arxiv:2510.07269}.
   Since \(|G|=27\) is odd and \(c=(y^3+y^4)a+(xy^6+xy^7)b\) lies in the ideal \((a,b)\), a one-way transversal CNOT couples each BB logical qubit to a distinct tricycle logical qubit \cite[Appx. C]{arxiv:2510.07269}.
 
 protection: '\(d=d_Z=5\) and \(d_X>d_Z\) \cite[Appx. F]{arxiv:2510.07269}.'
@@ -33,8 +35,6 @@ relations:
     - code_id: qcga
       detail: |-
         The \([[54,2,6]]\) BB code with \(a=xy^3+x^2y\) and \(b=1+xy^8\) is the 2D component code of the \([[81,3,5]]\) bivariate tricycle code \cite{arxiv:2510.07269}.
-        A one-way transversal CNOT from the tricycle code to the BB code couples the two BB logical qubits to two of the three tricycle logical qubits \cite{arxiv:2510.07269}.
-        One-bit teleportation through it switches logical qubits between the two codes \cite{arxiv:2510.07269}.
 
 
 # Begin Entry Meta Information
