@@ -3,22 +3,35 @@
 ##       https://github.com/errorcorrectionzoo       ##
 #######################################################
 
+code_id: internet_checksum
+physical: bits
+logical: bits
 
+name: 'Internet checksum code'
+introduced: '\cite{doi:10.17487/RFC760,doi:10.17487/RFC761}'
 
-code_id: 'internet_checksum'
+description: |
+  Checksum code that divides a binary string into 16-bit words and appends the one's complement of their one's complement sum \cite{doi:10.17487/RFC1071}.
+  One's complement addition of 16-bit words is addition modulo \(2^{16}-1\), so a received string passes the check when all of its words, including the checksum, sum to zero modulo \(2^{16}-1\).
 
-name: 'Internet Checksum code'
-
-description: 'A classical error-detection method that treats data as a sequence of numerical values and computes their sum. In most network protocols, the data is divided into equal-sized segments (typically 16-bit words) and added together using 1''s complement arithmetic. The final sum is then bitwise complemented to generate the checksum value.'
-
-introduced: '\cite{doi:10.17487/RFC1071}'
-
-protection: 'Detects all single-bit errors and any burst error up to the length of the checksum (e.g., 16 bits). However, it is unable to detect errors that do not change the arithmetic sum, such as the reordering of data segments (transpositions) or the addition of zero-valued blocks.'
+protection: |
+  Detects all single-bit errors and all burst errors of length at most 15 \cite{doi:10.1109/TDSC.2007.70216}.
+  Errors that preserve the sum modulo \(2^{16}-1\) go undetected, e.g., reordering of the 16-bit words \cite[Sec. 2]{doi:10.17487/RFC1071} or insertion of all-zero words.
 
 realizations:
-  - 'Used extensively in the internet protocol suite (TCP/IP) for headers and data integrity as defined in RFC 1071 \cite{doi:10.17487/RFC1071}.'
-  - 'Advanced variants like the Fletcher checksum \cite{manual:{J. G. Fletcher, "An Arithmetic Checksum for Serial Transmissions," 1982.}} and Adler-32 include positional information to detect transposition errors.'
+  - 'Error detection for the IPv4 header and for TCP and UDP segments \cite{doi:10.17487/RFC791,doi:10.17487/RFC793,doi:10.17487/RFC768}.'
 
+
+relations:
+  parents:
+    - code_id: bits_into_bits
+    - code_id: checksum
+      detail: 'The Internet checksum is the one''s complement of the one''s complement sum of a message''s 16-bit words \cite{doi:10.17487/RFC1071}.'
+
+
+# Begin Entry Meta Information
 _meta:
-  
-  stub: false
+  # Change log - most recent first
+  changelog:
+    - user_id: VaibhavVasudevan
+      date: '2025-12-29'
