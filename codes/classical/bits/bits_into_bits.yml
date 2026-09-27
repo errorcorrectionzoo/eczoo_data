@@ -33,8 +33,12 @@ protection: |
 
 
 features:
-  rate: 'The rate of a binary code is usually defined as \(R=\frac{1}{n}\log_{2}K\) bits per symbol.
-  The maximum rate of a binary code with linear distance is upper bounded by the McEliece, Rodemich, Rumsey and Welch (MRRW) bound \cite{doi:10.1109/TIT.1977.1055688} (see Refs. \cite{doi:10.1007/s00454-008-9128-0,doi:10.1137/S0895480102408353,doi:10.1142/9789812832245_0002,doi:10.1134/S0032946006020025,arxiv:2104.14587,arxiv:2303.16619} for other proofs).'
+  rate: |
+    The rate of a binary code is usually defined as \(R=\frac{1}{n}\log_{2}K\) bits per symbol.
+    The maximum rate of a binary code with linear distance is upper bounded by the McEliece, Rodemich, Rumsey and Welch (MRRW) bound \cite{doi:10.1109/TIT.1977.1055688} (see Refs. \cite{doi:10.1007/s00454-008-9128-0,doi:10.1137/S0895480102408353,doi:10.1142/9789812832245_0002,doi:10.1134/S0032946006020025,arxiv:2104.14587,arxiv:2303.16619} for other proofs).
+    Two-point linear-programming bounds strictly improve the MRRW bound for every relative distance \(0<\delta<1/2\) \cite[Ch. 2, Thm. 1.1]{preset:OpenAITenAdvances}.
+    Rate bounds derived from classical-quantum channels and the pretty good measurement also strictly improve the MRRW bound \cite{arxiv:2608.09347}.
+    The two approaches yield the same improvement of the first MRRW bound \cite{arxiv:2609.01860}.
 
   general_gates:
     - 'The group of reversible binary operations is the permutation group \(S_{2^n}\) of all possible \(n\)-bit strings. Reversible gate sets have been classified \cite{arxiv:1504.05155}.'
@@ -64,6 +68,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: DevanshSehgal
+      date: '2026-08-07'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
