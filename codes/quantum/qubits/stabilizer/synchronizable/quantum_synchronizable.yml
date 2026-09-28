@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Quantum synchronizable code'
-introduced: '\cite{arxiv:1206.0260}'
+introduced: '\cite{arxiv:1206.0260,arxiv:1304.0502}'
 
 description: |-
   A qubit stabilizer code designed to protect against synchronization errors (a.k.a. misalignment), which are errors that misalign the code block in a larger block by one or more locations. 
@@ -17,19 +17,19 @@ description: |-
   The receiver may not properly identify the first qubit in the desired code block, leading to a misalignment of the block.
   A quantum synchronizable code is denoted by \((a_l,a_r)-[[n+a_l+a_r,k]]\), correcting misalignment by up to \(a_l\) (\(a_r\)) qubits to the left (right).
 
-  The initial construction of quantum synchronizable codes was based on the CSS construction \cite{arxiv:1206.0260}, but later work extended it to non-CSS stabilizer codes \cite{arxiv:2409.11312}.
+  The initial construction of quantum synchronizable codes was based on the CSS construction \cite{arxiv:1206.0260,arxiv:1304.0502}, but later work extended it to non-CSS stabilizer codes \cite{arxiv:2409.11312}.
 
 protection: |
-  In the original CSS construction based on cyclic codes \(C \subset D\) with parameters \([n,k_1,d_1]\) and \([n,k_2,d_2]\), one obtains an \((a_l,a_r)-[[n+a_l+a_r,2k_1-n]]\) code whenever \(a_l+a_r<k_2-k_1\), correcting at least \(\lfloor (d_1-1)/2\rfloor\) phase errors and \(\lfloor (d_2-1)/2\rfloor\) bit errors \cite[Thm. 1]{arxiv:1206.0260}.
+  In the original CSS construction based on cyclic codes \(C \subset D\) with parameters \([n,k_1,d_1]\) and \([n,k_2,d_2]\), one obtains an \((a_l,a_r)-[[n+a_l+a_r,2k_1-n]]\) code whenever \(a_l+a_r<k_2-k_1\), correcting at least \(\lfloor (d_1-1)/2\rfloor\) phase errors and \(\lfloor (d_2-1)/2\rfloor\) bit errors \cite[Thm. 1]{arxiv:1206.0260}\cite{arxiv:1304.0502}.
 
 relations:
   parents:
     - code_id: qubit_stabilizer
   cousins:
     - code_id: binary_cyclic
-      detail: 'The original construction of quantum synchronizable codes is based on pairs of binary cyclic codes satisfying \(C^\perp \subseteq C \subset D\) \cite{arxiv:1206.0260}.'
+      detail: 'The original construction of quantum synchronizable codes is based on pairs of binary cyclic codes satisfying \(C^\perp \subseteq C \subset D\) \cite{arxiv:1206.0260,arxiv:1304.0502}.'
     - code_id: bch
-      detail: 'BCH codes can be used to construct quantum synchronizable codes via the CSS construction \cite{arxiv:1206.0260}.'
+      detail: 'BCH codes can be used to construct quantum synchronizable codes via the CSS construction \cite{arxiv:1206.0260,arxiv:1304.0502}.'
     - code_id: binary_quad_residue
       detail: 'Binary QR codes can be used to construct quantum synchronizable codes via the CSS construction \cite{arxiv:1403.6192}.'
     - code_id: qubit_stabilizer_oaqecc
@@ -40,6 +40,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-28'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
