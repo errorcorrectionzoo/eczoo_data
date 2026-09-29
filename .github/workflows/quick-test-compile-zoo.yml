@@ -83,9 +83,20 @@ jobs:
           restore-keys: |
             zoodb-citations-cache-LOCAL-
 
+      # --------------------------------
+
+      # Install any missing modules
+      - name: Yarn install
+        run: 'yarn'
+        working-directory: ./eczoo_sitegen/
+
+      # Merge restored citations cache with the sitegen repo's one (needs node_modules)
       - name: Initialize local citation information cache if applicable
         run: |
           mkdir -p _zoodb_citations_cache_LOCAL
+          if [ -e _zoodb_citations_cache_LOCAL/citations.jsonl ] ; then
+            yarn node node_modules/@phfaist/zoodb/tools/merge_citations_cache.mjs --cache-dir _zoodb_citations_cache_LOCAL --from _zoodb_citations_cache  || echo "merge skipped"
+          fi
           for f in _zoodb_citations_cache/*; do
             if [ ! -e "_zoodb_citations_cache_LOCAL/$(basename "$f")" ] ; then
               echo "Citations cache file ‘$f’ not found, using sitegen repo cache file"
@@ -93,27 +104,6 @@ jobs:
             fi
           done
         working-directory: ./eczoo_sitegen
-
-      # # Cache Yarn Modules
-      # - name: Get yarn cache directory path
-      #   id: yarn-cache-dir-path
-      #   run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-      #   shell: bash
-      #   working-directory: ./eczoo_sitegen
-      # - name: Restore yarn cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #     key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-      #     restore-keys: |
-      #       yarn-cache-folder-
-
-      # --------------------------------
-
-      # Install any missing modules
-      - name: Yarn install
-        run: 'yarn'
-        working-directory: ./eczoo_sitegen/
 
       # --------------------------------
 
