@@ -90,7 +90,7 @@ jobs:
       - name: Initialize local citation information cache if applicable
         run: |
           mkdir -p _zoodb_citations_cache_LOCAL
-          for f in _zoodb_citations_cache/*.json; do
+          for f in _zoodb_citations_cache/*; do
             if [ ! -e "_zoodb_citations_cache_LOCAL/$(basename "$f")" ] ; then
               echo "Citations cache file ‘$f’ not found, using sitegen repo cache file"
               cp "$f" _zoodb_citations_cache_LOCAL/
