@@ -29,8 +29,7 @@ class Violation:
 
 def iter_yaml_files(root: str) -> Iterable[str]:
     for dirpath, dirnames, filenames in os.walk(root):
-        if ".git" in dirnames:
-            dirnames.remove(".git")
+        dirnames[:] = [d for d in dirnames if not d.startswith(".")]
         for filename in filenames:
             if filename.endswith((".yml", ".yaml")):
                 yield os.path.join(dirpath, filename)
@@ -150,16 +149,19 @@ def main() -> int:
     args = parser.parse_args()
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(script_dir)
+    repo_root = os.path.dirname(os.path.dirname(script_dir))
 
     violations: list[Violation] = []
+    scanned = 0
     for path in iter_yaml_files(repo_root):
+        scanned += 1
         violation = analyze_file(path, repo_root, args.max_sentences, args.max_chars)
         if violation:
             violations.append(violation)
 
     violations.sort(key=lambda v: v.path)
 
+    print(f"Scanned {scanned} YAML files under {repo_root}.")
     if not violations:
         print("No incorrect first description paragraphs found.")
         return 0
