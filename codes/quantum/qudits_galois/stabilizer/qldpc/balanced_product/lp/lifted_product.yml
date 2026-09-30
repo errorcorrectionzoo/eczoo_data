@@ -37,12 +37,8 @@ description: |
 
 protection: |
   Code performance strongly depends on the group \(G\) used in the product \cite{arxiv:2012.04068}.
-  For \(q=2\), the distance of \(LP(A,B)\) is at most the smaller distance of its two classical base codes \cite[Thm. 8]{arxiv:2607.28795}.
-  This requires wide base matrices \(A\) and \(B\) whose left and right regular representations, respectively, have full row rank.
-  A \([[200,13,10]]\) LP code over \(\mathbb{F}_2[C_4\times C_2]\) whose base codes have distance eight shows that the full-rank condition cannot be dropped \cite[Remark 12]{arxiv:2607.28795}.
-  For a one-row base matrix, the base-code distance is at most \((\mathrm{wt}(a_i)+\mathrm{wt}(a_j))\,|[G,G]|\) for any two entries \(a_i,a_j\) \cite[Prop. 4]{arxiv:2607.28795}.
-  The bound requires that the sum of the elements of the commutator subgroup \([G,G]\) not annihilate both entries.
-  An entry \(1+g\) in a one-row base matrix bounds the base-code distance, and hence the LP-code distance, by the order of \(g\) \cite[Thm. 9]{arxiv:2607.28795}.
+  For Abelian lift groups, commutativity can cause codewords of the base matrices to lift directly to logical operators, imposing construction-dependent upper bounds on the quantum distance.
+  Non-Abelian lifts can evade such Abelian obstructions, although non-Abelianness alone does not guarantee high distance; for the one-by-two construction underlying \hyperref[code:mitten]{mitten codes}, it removes the Abelian bound \(d\leq 6\) \cite{arxiv:2607.28795}.
 
 features:
   rate: 'There is no known simple way to compute the logical dimension \(k\) in the general case \cite{arxiv:2012.04068}.'
@@ -70,8 +66,6 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: VictorVAlbert
-      date: '2026-09-30'
     - user_id: VictorVAlbert
       date: '2026-09-26'
     - user_id: VictorVAlbert
