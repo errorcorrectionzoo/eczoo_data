@@ -13,23 +13,24 @@ introduced: '\cite{arxiv:quant-ph/9608006}'
 
 description: |
   Eleven-qubit \hyperref[topic:quantum-weight-enumerator]{pure} stabilizer code that is the smallest qubit stabilizer code to correct two-qubit errors.
-  It can be obtained from the non-additive dodecacode by puncturing \cite[Table IV]{arxiv:quant-ph/9608006}.
+  It can be obtained from the additive but not \(\mathbb{F}_4\)-linear dodecacode by puncturing \cite[Table IV]{arxiv:quant-ph/9608006}.
 
-  A stabilizer tableau for the code is given by \cite[Table 8.5]{arxiv:quant-ph/9705052}\cite{arxiv:quant-ph/0406063}
+  A stabilizer tableau for the code is given by \cite[Sec. V]{arxiv:quant-ph/0406063}
   \begin{align}
   \begin{array}{ccccccccccc}
-    Z & Z & Z & Z & Z & Z & I & I & I & I & I \\
-    X & X & X & X & X & X & I & I & I & I & I \\
-    I & I & I & Z & X & Y & Y & Y & Y & X & Z \\
-    I & I & I & X & Y & Z & Z & Z & Z & Y & X \\
-    Z & Y & X & I & I & I & Z & Y & X & I & I \\
-    X & Z & Y & I & I & I & X & Z & Y & I & I \\
-    I & I & I & Z & Y & X & X & Y & Z & I & I \\
-    I & I & I & X & Z & Y & Z & X & Y & I & I \\
-    Z & X & Y & I & I & I & Z & Z & Z & X & Y \\
-    Y & Z & X & I & I & I & Y & Y & Y & Z & X
+    X & I & I & I & I & Z & Z & Z & I & X & X \\
+    I & X & I & I & I & Z & Z & Y & Z & I & Y \\
+    I & I & X & I & I & Z & Z & X & X & Z & I \\
+    I & I & I & X & I & Z & Y & I & X & X & Y \\
+    I & I & I & I & X & Z & X & I & Z & Z & X \\
+    I & I & Z & I & I & X & Y & I & Y & Z & Z \\
+    I & Z & Z & I & I & I & X & Z & I & X & Z \\
+    I & Z & I & I & Z & I & Z & X & X & I & Z \\
+    Z & Z & Z & I & Z & I & I & Z & X & Z & X \\
+    I & Z & I & Z & I & I & Z & I & Z & X & X
   \end{array}~.
   \end{align}
+  It is the quaternary generator matrix of that reference, translated into Paulis by the \hyperref[topic:gf4-representation]{\(\mathbb{F}_4\) representation} with \(\omega\to X\), \(\omega^2\to Z\), and \(1\to Y\).
   The code has paired support despite not being Hermitian \cite{arxiv:2605.15344}.
 
 protection: 'Smallest stabilizer code that protects against errors on any two qubits. Detects four-qubit errors.'
@@ -41,12 +42,14 @@ features:
 relations:
   parents:
     - code_id: small_distance_qubit_stabilizer
-# Not over \mathbb{F}_4 because dodecacode is not additive
+# Not over \mathbb{F}_4 because dodecacode is additive but not \mathbb{F}_4-linear
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-30'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
