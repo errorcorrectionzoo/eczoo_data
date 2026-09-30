@@ -44,6 +44,12 @@ description: |
   In the case of a stabilizer code, the stabilizer generator matrix is mapped instead to yield a \hyperref[code:two_block_quantum]{two-block CSS code} (see \cite[Thm. 1]{arxiv:1212.6703} for the case of qubit stabilizer codes).
   For geometrically local 2D stabilizer codes with twist defects, this mapping yields a twisted double cover of the underlying qudit geometry \cite{arxiv:2406.09951}.
 
+  \textit{Symplectic halving} is the inverse map, defined for qubit CSS codes on \(2n\) qubits that admit a fixed-point-free involutory \hyperref[code:perm_self_dual_css]{\(ZX\) duality} \cite[Thm. 3.5]{arxiv:2406.09951}\cite{arxiv:2609.30069}.
+  Order the qubits so that the duality exchanges the two halves.
+  For a suitable choice of generators, the check matrices then take the form \(H_X=(A|B)\) and \(H_Z=(B|A)\), and the halved code has symplectic check matrix \((A|B)\) \cite{arxiv:2609.30069}.
+  Halving an \([[2n,2k,d^{\prime}]]\) code yields an \([[n,k,d]]\) code with \(\lceil d^{\prime}/2\rceil\leq d\leq d^{\prime}\) and does not increase check weights \cite{arxiv:2609.30069}.
+  Swapping the two members of a pair acts as a Hadamard gate on the halved qubit, so all orientations of a given duality yield locally Clifford-equivalent codes \cite{arxiv:2609.30069}.
+
   For qubit stabilizer codes, this map is also known as the \textit{BLT \(n\to 2n\) mapping}, and its output can be packaged as an \([[n,k,d]]_4\) \hyperref[code:galois_css]{Galois-qudit CSS code} \cite[Lemma 1]{arxiv:2605.15344}\cite{arxiv:1004.3791}.
   The Galois-qudit distance is exactly \(d\) because the Galois-qudit support of the image coincides with the symplectic support of the input, while splitting each Galois qudit into two qubits can double the weight of a logical operator.
   Conversely, a Galois-qudit CSS code arises as a symplectic double of a qubit stabilizer code if and only if it is \hyperref[code:galois_css]{Hermitian self-dual} \cite{arxiv:2601.20927,arxiv:2605.15344}.
@@ -82,6 +88,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-09-27'
     - user_id: VictorVAlbert
       date: '2026-08-25'
     - user_id: VictorVAlbert
