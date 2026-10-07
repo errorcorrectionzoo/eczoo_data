@@ -24,6 +24,10 @@ description: |
   The rank-\(n\) tensor formed by the encoding isometry of such codes is a \textit{perfect tensor} (a.k.a. multi-unitary tensor), meaning that it is proportional to an isometry for any bipartition of its indices into a set \(A\) and a complementary set \(A^{\perp}\) such that \(|A|\leq|A^{\perp}|\).
   Absolutely maximal entanglement exists for non-normalizable states of continuous-variable (CV) systems, whose reduced density matrices are proportional to the infinite-dimensional identity matrix; such states are called CV AME or CV MMES \cite{arxiv:0901.1488,arxiv:2503.15698}.
   Explicit Gaussian and non-Gaussian CV AME constructions are known \cite{arxiv:2503.15698}.
+  A \hyperref[code:fermions]{fermionic} analogue uses the \(M\)-body reduced density matrix of an \(N\)-fermion state, obtained by tracing out \(N-M\) of the fermions rather than a subset of modes \cite{arxiv:2412.09576}.
+  An \(N\)-fermion state is \textit{maximally \(M\)-body entangled} if this matrix is proportional to the identity \cite[Sec. II.B]{arxiv:2412.09576}.
+  Such a state is also maximally \(M'\)-body entangled for all \(M' \leq M\) \cite[App. C]{arxiv:2412.09576}.
+  An \(N\)-fermion state is absolutely maximally entangled if it is maximally \(M\)-body entangled for all \(M \leq N/2\) \cite[Sec. IV.D]{arxiv:2412.09576}.
   \end{defterm}
 
   Stabilizer Galois-qudit perfect-tensor codes can be converted to \hyperref[topic:ame]{AME states} via established shortening/lengthening procedures \cite[Table 1]{arxiv:quant-ph/0508070}\cite{arxiv:1502.05267}.
@@ -58,7 +62,11 @@ relations:
         \hyperref[topic:ame]{AME states} for even \(n\) are examples of quantum MDS codes with no logical qubits \cite{arxiv:quant-ph/0310137,arxiv:1701.03359,arxiv:1907.11253}.
         A family of conjectured perfect-tensor codes is quantum MDS \cite{arxiv:quant-ph/0312164}.
     - code_id: combinatorial_design
-      detail: 'Combinatorial designs and \(d\)-uniform quantum states are related \cite{arxiv:1506.08857,arxiv:1708.05946,arxiv:2111.04055}.'      
+      detail: |
+        Combinatorial designs and \(d\)-uniform quantum states are related \cite{arxiv:1506.08857,arxiv:1708.05946,arxiv:2111.04055}.
+        Blocks of a combinatorial \(M\)-\((D,N,\lambda)\)-design that pairwise share fewer than \(N-M\) elements can be taken as the occupied-orbital sets of \(N\)-fermion Slater determinants on \(D\) orbitals.
+        Their superposition with amplitudes of equal magnitude is a \hyperref[topic:ame]{maximally \(M\)-body entangled} fermionic state, i.e., one whose \(M\)-body reduced density matrix is proportional to the identity \cite[App. B]{arxiv:2412.09576}.
+        For \(N=2M\), only Steiner systems \(S(M,2M,D)\) yield such states \cite[Sec. III.D]{arxiv:2412.09576}.
     - code_id: orthogonal_array
       detail: 'Orthogonal arrays and \(d\)-uniform quantum states are related \cite{arxiv:1404.3586,arxiv:1708.05946,arxiv:2303.15001,doi:10.1038/s41534-019-0165-8,doi:10.1103/PhysRevA.99.042332,doi:10.3390/e25040680}.'
     - code_id: mds
@@ -83,6 +91,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-07'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
