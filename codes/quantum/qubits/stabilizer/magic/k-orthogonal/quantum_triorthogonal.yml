@@ -12,13 +12,23 @@ introduced: '\cite[Secs. III-IV]{arxiv:1209.2426}'
 
 description: |
   Qubit CSS code whose \(X\)-type logicals and stabilizer generators form a triorthogonal matrix (defined below) in the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.
+  The logical rows of a \textit{generalized triorthogonal} code are allowed odd overlaps, which realize diagonal non-Clifford gates other than \(T\) \cite[Sec. 2.3]{arxiv:1709.02832}.
 
   An \(m \times n\) binary matrix is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\) modulo \(2\), with binary addition and multiplication.
   The triorthogonal CSS code associated with the matrix is constructed by mapping nonzero entries in even-weight rows to \(X\)-type stabilizer generators, odd-weight rows to \(X\)-type logical operators, and \(Z\) operators for each row in the orthogonal complement.
 
   Generalized versions of triorthogonality allow odd pair and triple overlaps inside the logical-row block \(K\) while keeping every overlap involving an \(S\)-row even, which yields quasitransversal logical gates beyond a single logical \(T\) gate \cite[Appx. D]{arxiv:1606.01904}\cite[Sec. 2.3]{arxiv:1709.02832}.
+  The parities of the weights, pair overlaps, and triple overlaps of the logical rows form a symmetric trilinear form \cite[Sec. 2.3]{arxiv:1709.02832}\cite{arxiv:2609.30860}.
+  This form determines the logical gate realized by transversal \(T\) up to a diagonal Clifford correction, namely a product of \(T\), \(CS\), and \(CCZ\) gates on the logical qubits \cite{arxiv:2609.30860}.
+  For three logical rows of even weight with even pair overlaps and odd triple overlap, these conditions are necessary and sufficient for the logical gate to be \(CCZ\) \cite[Thm. 3.3]{arxiv:2610.09341}.
 
-protection: 'Weight \(t\) Pauli errors, where \(t\) depends on the family. For example, Ref. \cite[Sec. VII]{arxiv:1209.2426} provides a family of distance \(2\) codes.'
+protection: |
+  Weight \(t\) Pauli errors, where \(t\) depends on the family. For example, Ref. \cite[Sec. VII]{arxiv:1209.2426} provides a family of distance \(2\) codes.
+
+  Consider distillation protocols implemented as circuits of \(Z\)-type Pauli-product rotations on \(N\) qubits, i.e., triorthogonal matrices with \(N\) rows.
+  No \(T\)-to-\(T\) protocol with \(N\leq7\) exceeds distance three, and no \(T\)-to-\(CCZ\) protocol with \(N\leq7\) exceeds distance two \cite[Sec. V]{arxiv:2606.07734}.
+  Among generalized triorthogonal codes with \(n\leq54\) and \(d_Z\geq3\), five single-output \(T\)-distillation protocols are Pareto-optimal in \(T\)-count \(n\) and row count \(N\) \cite[Table II]{arxiv:2609.30860}.
+  Their parameters \((n,N,d)\) are \((15,5,3)\), \((52,10,4)\), \((48,11,4)\), \((53,11,5)\), and \((49,12,5)\).
 
 features:
   encoders:
@@ -39,16 +49,27 @@ features:
 
 notes:
   - 'Reference \cite{arxiv:2107.09684} presents a classification of triorthogonal codes up to \(n + k \leq 38\) by associating each triorthogonal code with a RM code polynomial.'
+  - 'Reference \cite{arxiv:2609.30860} classifies unital triorthogonal spaces, i.e., triorthogonal binary spaces containing the all-ones vector, through length 54.
+  It also classifies all generalized triorthogonal codes with \(n\leq54\) and \(d_Z\geq3\), yielding 74 Pareto-optimal distillation protocols with up to seven output qubits \cite{arxiv:2609.30860}.
+  The number of unital triorthogonal spaces grows from one at length 16 to 293,172,583 at length 54 \cite[Table I]{arxiv:2609.30860}.
+  Two spaces of length 36 are missing from the catalogue of Ref. \cite{arxiv:2107.09684} \cite{arxiv:2609.30860}.
+  Matrices and catalogues are available at \href{https://doi.org/10.6084/m9.figshare.33717319}{Figshare}.'
+  - 'See Ref. \cite[Table II]{arxiv:2606.07734} for a table of single-output \(T\)- and \(CCZ\)-state distillation protocols found by SAT search.
+  It includes \([[64,1,4]]\) and \([[65,1,5]]\) codes with nine and ten \(X\)-type stabilizer generators, whose matrices are given in Ref. \cite[App. D]{arxiv:2606.07734}.
+  The table also lists a canonical family with one protocol per row count \(N\) \cite[Thm. 1 and Table I]{arxiv:2606.07734}.
+  Each member uses Pauli-product rotations on all triples of qubits and, depending on \(N \bmod 4\), on all pairs and all single qubits.
+  Its distance is \(\lceil N/3\rceil\) for even \(N\) and the smallest odd integer at least \(N/3\) for odd \(N\) \cite[Thm. 1]{arxiv:2606.07734}.'
   - 'A database of triorthogonal codes is available in QECDB \cite{preset:QECDB}.'
 
 relations:
   parents:
     - code_id: quantum_k-orthogonal
       detail: 'The \(X\)-type stabilizer space of a triorthogonal code is 3-orthogonal.
-      Triorthogonal codes additionally have a CSS presentation with odd-weight logical-\(X\) rows whose pair and triple overlaps with the full matrix are even \cite[Secs. III-IV]{arxiv:1209.2426}.'
-    - code_id: qudit_triorthogonal
-      detail: 'Prime-qudit triorthogonal codes reduce to triorthogonal codes when \(p=2\).'
+      Triorthogonal codes additionally have a CSS presentation with logical-\(X\) rows whose pair and triple overlaps with the stabilizer rows are even \cite[Secs. III-IV]{arxiv:1209.2426}\cite[Sec. 2.3]{arxiv:1709.02832}.'
   cousins:
+    - code_id: qudit_triorthogonal
+      detail: 'Prime-qudit triorthogonal codes reduce to triorthogonal codes when \(p=2\).
+      Generalized triorthogonal codes with odd overlaps among their logical rows lie outside the prime-qudit definition.'
     - code_id: quantum_reed_muller
       detail: 'Classification of triorthogonal codes yields a connection to RM code polynomials \cite{arxiv:2107.09684}.'
     - code_id: self_dual
@@ -61,6 +82,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-08'
     - user_id: VictorVAlbert
       date: '2026-09-06'
     - user_id: VictorVAlbert
