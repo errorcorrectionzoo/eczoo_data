@@ -11,8 +11,13 @@ name: 'Prime-qudit triorthogonal code'
 introduced: '\cite{arxiv:1811.08461}'
 
 description: |
-  An \(m \times n\) matrix over \(\mathbb{F}_p=\mathbb{Z}_p\) is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\) modulo \(p\), where addition and multiplication are done on \(\mathbb{F}_p\).
+  Prime-qudit CSS code whose \(X\)-type logical and stabilizer generators form a matrix over \(\mathbb{F}_p\) with overlap conditions under which a transversal diagonal non-Clifford gate acts as a diagonal non-Clifford gate on the logical qudits.
+  Every overlap involving a stabilizer row vanishes modulo \(p\), and the overlaps among the logical rows determine the logical gate.
+  The qubit case \(p=2\) consists of the triorthogonal codes and their generalized versions.
+
+  In the strict definition, an \(m \times n\) matrix over \(\mathbb{F}_p=\mathbb{Z}_p\) is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\) modulo \(p\), where addition and multiplication are done on \(\mathbb{F}_p\).
   The triorthogonal prime-qudit CSS code associated with the matrix is constructed by mapping nonzero entries in self-orthogonal rows to \(X\) operators, and \(Z\) operators for each row in the orthogonal complement \cite{arxiv:1811.08461,arxiv:2403.06228}.
+  A variant for odd \(p\) drops the pairwise condition, allows nonzero coordinate weights, and requires the weighted cubic overlap to vanish on every triple of rows other than a logical row repeated three times \cite{arxiv:2610.08012}.
 
 features:
   transversal_gates:
@@ -29,6 +34,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-08'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
