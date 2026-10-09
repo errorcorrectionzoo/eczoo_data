@@ -11,17 +11,18 @@ name: 'Prime-qudit triorthogonal code'
 introduced: '\cite{arxiv:1811.08461}'
 
 description: |
-  Prime-qudit CSS code whose \(X\)-type logical and stabilizer generators form a matrix over \(\mathbb{F}_p\) with overlap conditions under which a transversal diagonal non-Clifford gate acts as a diagonal non-Clifford gate on the logical qudits.
-  Every overlap involving a stabilizer row vanishes modulo \(p\), and the overlaps among the logical rows determine the logical gate.
+  Prime-qudit CSS code whose \(X\)-type logical and stabilizer generators satisfy overlap conditions under which a transversal diagonal non-Clifford gate, followed by a diagonal Clifford correction, acts as a diagonal non-Clifford gate on the logical qudits.
+  Cubic overlaps of rows, repeated rows included and possibly with coordinate weights, vanish modulo \(p\) whenever a stabilizer row is involved, and the logical-row overlaps determine the logical gate.
   The qubit case \(p=2\) consists of the triorthogonal codes and their generalized versions.
 
   In the strict definition, an \(m \times n\) matrix over \(\mathbb{F}_p=\mathbb{Z}_p\) is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\) modulo \(p\), where addition and multiplication are done on \(\mathbb{F}_p\).
   The triorthogonal prime-qudit CSS code associated with the matrix is constructed by mapping nonzero entries in self-orthogonal rows to \(X\) operators, and \(Z\) operators for each row in the orthogonal complement \cite{arxiv:1811.08461,arxiv:2403.06228}.
-  A variant for odd \(p\) drops the pairwise condition, allows nonzero coordinate weights, and requires the weighted cubic overlap to vanish on every triple of rows other than a logical row repeated three times \cite{arxiv:2610.08012}.
+  A variant for odd \(p\) drops the pairwise condition and allows nonzero coordinate weights \cite{arxiv:2610.08012}.
+  It requires the weighted cubic overlap to vanish on every triple of rows except a logical row repeated three times, where it must be nonzero \cite{arxiv:2610.08012}.
 
 features:
   transversal_gates:
-    - 'Admits a transversal gate from the third level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} \cite{arxiv:1811.08461}.'
+    - 'Strict-definition codes admit a transversal gate from the third level of the \hyperref[topic:qudit-clifford-hierarchy]{qudit Clifford hierarchy} \cite{arxiv:1811.08461}.'
 
 
 relations:
