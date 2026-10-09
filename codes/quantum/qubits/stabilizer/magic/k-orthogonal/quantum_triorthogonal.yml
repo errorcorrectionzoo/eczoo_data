@@ -12,13 +12,20 @@ introduced: '\cite[Secs. III-IV]{arxiv:1209.2426}'
 
 description: |
   Qubit CSS code whose \(X\)-type logicals and stabilizer generators form a triorthogonal matrix (defined below) in the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.
+  A \textit{generalized triorthogonal} code keeps every overlap involving a stabilizer row even but allows odd overlaps among its logical rows, which realize diagonal non-Clifford gates other than \(T\) \cite[Appx. D]{arxiv:1606.01904}\cite[Sec. 2.3]{arxiv:1709.02832}.
 
   An \(m \times n\) binary matrix is triorthogonal if its rows \(r_1, \ldots, r_m\) satisfy \(|r_i \cdot r_j| = 0\) and \(|r_i \cdot r_j \cdot r_k| = 0\) modulo \(2\), with binary addition and multiplication.
   The triorthogonal CSS code associated with the matrix is constructed by mapping nonzero entries in even-weight rows to \(X\)-type stabilizer generators, odd-weight rows to \(X\)-type logical operators, and \(Z\) operators for each row in the orthogonal complement.
 
-  Generalized versions of triorthogonality allow odd pair and triple overlaps inside the logical-row block \(K\) while keeping every overlap involving an \(S\)-row even, which yields quasitransversal logical gates beyond a single logical \(T\) gate \cite[Appx. D]{arxiv:1606.01904}\cite[Sec. 2.3]{arxiv:1709.02832}.
+  The parities of the weights, pair overlaps, and triple overlaps of the logical rows form a symmetric trilinear form \cite[Sec. 2.3]{arxiv:1709.02832}\cite{arxiv:2609.30860}.
+  This form determines the logical gate realized by transversal \(T\) up to a diagonal Clifford correction, namely a product of \(T\), \(CS\), and \(CCZ\) gates on the logical qubits \cite{arxiv:2609.30860}.
+  A CSS code with three logical qubits realizes a logical \(CCZ\) gate by \(T^{\otimes n}\) followed by a diagonal Clifford correction if and only if it satisfies the nine \textit{Campbell-Howard conditions} \cite[Thm. 3.3]{arxiv:2610.09341}\cite{arxiv:1606.01904}.
+  These require the code to be generalized triorthogonal with logical rows of even weight, even pair overlaps, and odd triple overlap.
 
-protection: 'Weight \(t\) Pauli errors, where \(t\) depends on the family. For example, Ref. \cite[Sec. VII]{arxiv:1209.2426} provides a family of distance \(2\) codes.'
+protection: |
+  Weight \(t\) Pauli errors, where \(t\) depends on the family. For example, Ref. \cite[Sec. VII]{arxiv:1209.2426} provides a family of distance \(2\) codes.
+
+  Generalized triorthogonal matrices with at most seven rows yield \(T\)-to-\(T\) distillation protocols of distance at most three and \(T\)-to-\(CCZ\) protocols of distance at most two \cite[Sec. V]{arxiv:2606.07734}.
 
 features:
   encoders:
@@ -39,13 +46,17 @@ features:
 
 notes:
   - 'Reference \cite{arxiv:2107.09684} presents a classification of triorthogonal codes up to \(n + k \leq 38\) by associating each triorthogonal code with a RM code polynomial.'
+  - 'Reference \cite{arxiv:2609.30860} classifies generalized triorthogonal codes with \(n\leq54\) and \(d_Z\geq3\) through a classification of unital triorthogonal spaces, i.e., triorthogonal binary spaces containing the all-ones vector.
+  See Ref. \cite[Table II]{arxiv:2609.30860} for the resulting Pareto-optimal distillation protocols and \href{https://doi.org/10.6084/m9.figshare.33717319}{Figshare} for their matrices.'
+  - 'See Ref. \cite[Tables I and II]{arxiv:2606.07734} for tables of single-output \(T\)- and \(CCZ\)-state distillation protocols.'
+  - 'See Ref. \cite[Table 3]{arxiv:2610.09341} for codes with a \(T/T^\dagger\) logical \(CCZ\) gate whose \(X\)-type stabilizer columns are subspace complements in \(PG(s-1,2)\) for \(s\leq9\).'
   - 'A database of triorthogonal codes is available in QECDB \cite{preset:QECDB}.'
 
 relations:
   parents:
     - code_id: quantum_k-orthogonal
       detail: 'The \(X\)-type stabilizer space of a triorthogonal code is 3-orthogonal.
-      Triorthogonal codes additionally have a CSS presentation with odd-weight logical-\(X\) rows whose pair and triple overlaps with the full matrix are even \cite[Secs. III-IV]{arxiv:1209.2426}.'
+      Triorthogonal codes additionally have a CSS presentation with logical-\(X\) rows whose pair and triple overlaps with the stabilizer rows are even \cite[Secs. III-IV]{arxiv:1209.2426}\cite[Sec. 2.3]{arxiv:1709.02832}.'
     - code_id: qudit_triorthogonal
       detail: 'Prime-qudit triorthogonal codes reduce to triorthogonal codes when \(p=2\).'
   cousins:
@@ -61,6 +72,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-08'
     - user_id: VictorVAlbert
       date: '2026-09-06'
     - user_id: VictorVAlbert
