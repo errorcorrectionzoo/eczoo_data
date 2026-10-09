@@ -12,47 +12,35 @@ introduced: '\cite[Sec. V.C]{arxiv:2606.07734}'
 
 # The shortening statement at the end of the description was verified by computation on the matrices of arXiv:2606.07734, App. D; it is not stated in the papers.
 description: |
-  A \([[47,3,3]]\) generalized triorthogonal CSS code whose logical \(CCZ\) gate is realized by physical \(T\) gates followed by a diagonal Clifford correction \cite{arxiv:2606.07734}.
-  It distills a \(CCZ\) magic state from 47 noisy \(T\) states at distance three \cite{arxiv:2606.07734}.
+  A \([[47,3,3]]\) generalized triorthogonal CSS code that distills a \(CCZ\) magic state from 47 noisy \(T\) states at distance three \cite[Sec. V.C]{arxiv:2606.07734}.
+  Its columns come from a nine-qubit circuit of 47 \(Z\)-type Pauli-product \(\pi/8\) rotations that implements \(CCZ\) with one of its three qubits encoded in a seven-qubit phase-flip repetition code \cite[Secs. III.D and V.C]{arxiv:2606.07734}.
   It is the smallest known CSS code with three logical qubits, \(d_Z\geq3\), and a quasi-transversal \(CCZ\) gate \cite{arxiv:2610.09341}.
 
-  The code is specified by a nine-row generalized triorthogonal matrix with three logical rows and six \(X\)-type stabilizer rows \cite[App. D]{arxiv:2606.07734}.
-  Its columns come from a circuit of \(Z\)-type Pauli-product \(\pi/8\) rotations on nine qubits that implements a logical \(CCZ\) gate \cite[Sec. V.C]{arxiv:2606.07734}.
-  One target qubit of the gate is encoded in a seven-qubit phase-flip repetition code, and decoding that code turns the rotation supports into the matrix columns \cite[Secs. III.D and V.C]{arxiv:2606.07734}.
-  The logical rows have even weight, even pair overlaps, and odd triple overlap.
-  Every overlap involving a stabilizer row is even, and the stabilizer columns are distinct and nonzero.
-  The matrix therefore satisfies the nine Campbell-Howard conditions for a quasi-transversal \(CCZ\) gate and has \(d_Z\geq3\) \cite[Ex. 3.7]{arxiv:2610.09341}.
+  The matrix has three logical rows and six \(X\)-type stabilizer rows with distinct nonzero stabilizer columns, and it satisfies the nine Campbell-Howard conditions \cite[App. D]{arxiv:2606.07734}\cite[Ex. 3.7]{arxiv:2610.09341}.
 
-  The same construction yields a \([[48,3,4]]\) code with seven \(X\)-type stabilizer generators \cite[App. D]{arxiv:2606.07734}.
-  It distills a \(CCZ\) state from 48 \(T\) states on ten qubits at distance four, with output error \(2816p^4\) \cite[Sec. V.C]{arxiv:2606.07734}.
+  The same construction yields a 48-qubit code with three logical qubits and seven \(X\)-type stabilizer generators whose \(CCZ\)-state distillation protocol has distance four and output error \(2816p^4\) \cite[Sec. V.C and App. D]{arxiv:2606.07734}.
   The \([[47,3,3]]\) code is a shortening of this \([[48,3,4]]\) code.
-  Restricting to the \(X\)-type stabilizers and logical operators supported away from any one of 16 particular qubits, and deleting that qubit, yields a code equivalent to the \([[47,3,3]]\) code up to qubit permutations.
 
 protection: |
   Distance three, with \(d_X=16\) and \(d_Z=3\) \cite[Ex. 3.7]{arxiv:2610.09341}.
   No CSS code with three logical qubits, \(d_Z\geq3\), and a quasi-transversal \(CCZ\) gate exists for \(n\leq38\) \cite[Thm. 4.5]{arxiv:2610.09341}.
-  In the classification of generalized triorthogonal codes with \(n\leq54\) and \(d_Z\geq3\), the code is the only Pareto-optimal distance-three \(CCZ\)-state distillation protocol in \(T\)-count and row count \cite[Table II]{arxiv:2609.30860}.
+  Its \(T\)-count 47 and nine matrix rows form the only Pareto-optimal point for distance-three \(CCZ\)-state distillation among generalized triorthogonal codes with \(n\leq54\) \cite[Table II]{arxiv:2609.30860}.
 
 features:
   transversal_gates:
     - 'Logical \(CCZ\) gate from physical \(T\) gates followed by a diagonal Clifford correction \cite{arxiv:2606.07734}. No pattern of single-qubit \(T\) and \(T^\dagger\) gates implements the logical \(CCZ\) gate, so the correction must contain entangling \(CZ\) gates \cite[Ex. 3.7]{arxiv:2610.09341}.'
 
   general_gates:
-    - 'Distills a \(CCZ\) magic state from 47 noisy \(T\) states on nine qubits, with output error \(236p^3\) for input error \(p\) \cite[Sec. V.C]{arxiv:2606.07734}. This is the first distance-three \(T\)-to-\(CCZ\) distillation protocol with a single output \cite{arxiv:2606.07734}.'
+    - 'Output error \(236p^3\) for input error \(p\) \cite[Sec. V.C]{arxiv:2606.07734}.'
 
 relations:
   parents:
     - code_id: quantum_triorthogonal
       detail: 'The \([[47,3,3]]\) \(CCZ\) distillation code is a generalized triorthogonal code \cite{arxiv:2606.07734}.
       Its three logical rows have even weight, even pair overlaps, and odd triple overlap, which realizes a logical \(CCZ\) gate \cite[Ex. 3.7]{arxiv:2610.09341}.'
-    # The weight distribution in the next detail was verified by computation from the matrix in arXiv:2606.07734, App. D; it is not stated in the papers.
+    # Parent kept without detail: triple evenness of the X-type stabilizer code was verified by computation from the matrix in arXiv:2606.07734, App. D; it is not stated in the papers.
     - code_id: weakly_divisible_css
-      detail: 'The \(X\)-type stabilizer code of the \([[47,3,3]]\) \(CCZ\) distillation code is triply even, with two codewords of weight 16, 60 of weight 24, and one of weight 32.'
     - code_id: small_distance_qubit_stabilizer
-  cousins:
-    - code_id: campbell_howard
-      detail: 'Both the \([[47,3,3]]\) \(CCZ\) distillation code and Campbell-Howard codes satisfy the nine Campbell-Howard conditions for a quasi-transversal \(CCZ\) gate \cite[Table 1]{arxiv:2610.09341}\cite{arxiv:1606.01904}.
-      The former has distance three, while the latter have distance two.'
 
 
 # Begin Entry Meta Information

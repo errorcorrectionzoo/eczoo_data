@@ -11,23 +11,19 @@ name: '\([[48,3,3]]\) transversal \(CCZ\) code'
 introduced: '\cite{arxiv:2610.09341}'
 
 description: |
-  A \([[48,3,3]]\) generalized triorthogonal CSS code whose logical \(CCZ\) gate is implemented by physical \(T\) gates on 26 qubits and \(T^\dagger\) gates on the other 22, with no entangling Clifford correction \cite{arxiv:2610.09341}.
-  It is the smallest known code with three logical qubits and distance at least three whose logical \(CCZ\) gate is realized by single-qubit gates alone \cite{arxiv:2610.09341}.
+  A \([[48,3,3]]\) generalized triorthogonal CSS code whose logical \(CCZ\) gate is a pattern of physical \(T\) and \(T^\dagger\) gates, with no entangling Clifford correction \cite{arxiv:2610.09341}.
+  Its \(X\)-type stabilizer columns are the 48 points of \(PG(5,2)\) outside a solid \(PG(3,2)\), which makes the stabilizer space triply even and guarantees \(d_Z\geq3\) for any logical rows \cite[Sec. 2]{arxiv:2610.09341}.
+  It is the smallest known CSS code with three logical qubits and \(d_Z\geq3\) whose logical \(CCZ\) gate is a pattern of physical \(T\) and \(T^\dagger\) gates \cite{arxiv:2610.09341}.
 
-  The columns of the \(X\)-type stabilizer generator matrix are the 48 nonzero vectors of \(\mathbb{F}_2^6\) outside a fixed four-dimensional subspace, i.e., the points of \(PG(5,2)\) outside a solid \(PG(3,2)\) \cite[Sec. 2]{arxiv:2610.09341}.
-  Its rows span a two-weight \([48,6]\) code, called FG48, with 60 codewords of weight 24 and three of weight 32.
-  FG48 is triply even and is the unique projective triply-even \([48,6]\) code up to coordinate permutations \cite[Prop. 2.3]{arxiv:2610.09341}.
-  Triple evenness enforces the stabilizer-only Campbell-Howard conditions.
-  The distinct nonzero columns make every weight-one or weight-two \(Z\) error detectable, so \(d_Z\geq3\) holds for any choice of logical rows \cite[Lemma 2.1]{arxiv:2610.09341}.
-  Three \(X\)-type logical rows satisfying the remaining Campbell-Howard conditions were then found by a SAT solver \cite[Table 2]{arxiv:2610.09341}.
-  FG48 admits exactly two inequivalent sets of logical rows with a single-qubit transversal \(CCZ\) gate \cite[Table 3]{arxiv:2610.09341}.
+  The stabilizer generator matrix spans a two-weight \([48,6]\) code, called FG48, with 60 codewords of weight 24 and three of weight 32 \cite[Prop. 2.3]{arxiv:2610.09341}.
+  FG48 is the unique projective triply-even \([48,6]\) code up to coordinate permutations \cite[Prop. 2.3]{arxiv:2610.09341}.
+  The three \(X\)-type logical rows are listed in Ref. \cite[Table 2]{arxiv:2610.09341}.
 
   Writing each column as \((u,w)\) with \(u\in\mathbb{F}_2^4\) and \(w\in\mathbb{F}_2^2\setminus\{0\}\), the qubits receiving \(T^\dagger\) are those where
   \begin{align}
     \gamma(u,w)=u_3+w_1(u_1+u_2+u_3+u_1u_3+u_2u_3+u_2u_4)+w_2(u_3+u_4+u_1u_2+u_1u_4+u_3u_4)
   \end{align}
   evaluates to one \cite[Prop. 3.9]{arxiv:2610.09341}.
-  Subspace-complement supports \(PG(s-1,2)\setminus PG(p-1,2)\) with \(s\leq9\) yield further such codes at thirteen block lengths \(n=2^s-2^p\) from 48 to 496, with \(d_Z\in\{3,4\}\) \cite[Table 3]{arxiv:2610.09341}.
 
 protection: 'Distance three, with \(d_X=16\) and \(d_Z=3\) \cite[Sec. 3.2]{arxiv:2610.09341}.'
 
@@ -45,17 +41,8 @@ relations:
       Its codewords also have signed weights divisible by eight with respect to the 22 qubits carrying \(T^\dagger\) \cite[Prop. 3.9]{arxiv:2610.09341}.'
     - code_id: small_distance_qubit_stabilizer
   cousins:
-    - code_id: campbell_howard
-      detail: 'Both the \([[48,3,3]]\) transversal \(CCZ\) code and Campbell-Howard codes satisfy the nine Campbell-Howard conditions for a quasi-transversal \(CCZ\) gate \cite{arxiv:2610.09341}.
-      The former needs no Clifford correction beyond single-qubit \(S^\dagger\) gates \cite[Prop. 3.9]{arxiv:2610.09341}.'
-    # The last sentence of the next detail (shared stabilizer support) was verified by computation on the matrices of arXiv:2606.07734, App. D; it is not stated in the papers.
-    - code_id: stab_47_3_3
-      detail: 'Both codes satisfy the nine Campbell-Howard conditions with \(d_X=16\) and \(d_Z=3\) \cite[Ex. 3.7]{arxiv:2610.09341}.
-      The \([[47,3,3]]\) \(CCZ\) distillation code admits no pattern of single-qubit \(T\) and \(T^\dagger\) gates implementing its logical \(CCZ\), whereas the \([[48,3,3]]\) transversal \(CCZ\) code does \cite[Ex. 3.7 and Prop. 3.9]{arxiv:2610.09341}.
-      The \(X\)-type stabilizer columns of the \([[47,3,3]]\) code are the FG48 point set translated by one of its points, with the point moved to the origin deleted.'
     - code_id: simplex
-      detail: 'The \(X\)-type stabilizer code FG48 of the \([[48,3,3]]\) transversal \(CCZ\) code is the \([63,6,32]\) simplex code punctured on the 15 points of a solid \(PG(3,2)\) \cite[Sec. 2]{arxiv:2610.09341}.
-      It is thus a \([48,6,24]\) MacDonald code.'
+      detail: 'The \(X\)-type stabilizer code FG48 of the \([[48,3,3]]\) transversal \(CCZ\) code is the \([63,6,32]\) simplex code punctured on the 15 points of a solid \(PG(3,2)\) \cite[Sec. 2]{arxiv:2610.09341}.'
     - code_id: projective_two_weight
       detail: 'The \(X\)-type stabilizer code FG48 of the \([[48,3,3]]\) transversal \(CCZ\) code is a projective two-weight code with weights 24 and 32 \cite[Prop. 2.3]{arxiv:2610.09341}.
       It is the binary member of the Calderbank-Kantor subspace-complement family \cite[Sec. 2]{arxiv:2610.09341}.'
