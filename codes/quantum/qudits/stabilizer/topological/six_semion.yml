@@ -1,0 +1,43 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: six_semion
+physical: qudits
+logical: qudits
+
+name: 'Six-semion stabilizer code'
+introduced: '\cite{arxiv:2112.11394}'
+
+description: |
+  A 2D lattice modular-qudit stabilizer code with qudit dimension \(q=4\) and two qudits per edge of the square lattice that realizes the six-semion topological order.
+  The code is obtained from two copies of the \(\mathbb{Z}_4\) toric code by \hyperref[topic:code-switching]{condensing} the bosons \(e_1^2 m_1^2\) and \(e_1^2 e_2^2 m_2^2\) \cite{arxiv:2112.11394,arxiv:2312.11170}.
+  Its stabilizer generators are four terms from the stabilizer group of the two toric codes together with four condensation terms \cite[Sec. VI.C]{arxiv:2312.11170}.
+
+  The six-semion anyon theory is the Abelian TQD of \(G=\mathbb{Z}_2\times\mathbb{Z}_2\) with both Type-I cocycles and the Type-II cocycle \cite{arxiv:2112.11394}.
+  Its 16 anyons obey \(\mathbb{Z}_4\times\mathbb{Z}_4\) fusion rules and consist of four bosons, six semions, and six anti-semions \cite{arxiv:2112.11394}.
+  All other \(\mathbb{Z}_2\times\mathbb{Z}_2\) TQDs contain a fermion \cite{arxiv:2112.11394}.
+  The theory is the \(r=2\) member of the family \(F_{2^r}\) of Abelian anyon theories with fusion group \(\mathbb{Z}_{2^r}\times\mathbb{Z}_{2^r}\), whose \(r=1\) member is the three-fermion theory \cite{arxiv:2112.11394,doi:10.1088/1751-8121/abc6c0}.
+  Anyon string operators, fusion rules, and topological spins have been extracted algorithmically from the stabilizer polynomials \cite[Sec. VI.C and Appx. C]{arxiv:2312.11170}.
+  Two basis anyons of order four have topological spin \(-i\) and mutual braiding phase \(i\) \cite[Table IV]{arxiv:2312.11170}.
+
+relations:
+  parents:
+    - code_id: tqd_abelian_stabilizer
+      detail: 'The six-semion code realizes the Abelian TQD of \(G=\mathbb{Z}_2\times\mathbb{Z}_2\) with both Type-I cocycles and the Type-II cocycle, and is obtained by condensing bosons in two \(\mathbb{Z}_4\) toric codes \cite{arxiv:2112.11394}.'
+  cousins:
+    - code_id: qudit_surface
+      detail: 'The six-semion code is obtained from two copies of the \(\mathbb{Z}_4\) surface code by condensing the bosons \(e_1^2 m_1^2\) and \(e_1^2 e_2^2 m_2^2\) \cite{arxiv:2112.11394,arxiv:2312.11170}.'
+    - code_id: double_semion
+      detail: 'The double-semion and six-semion codes are obtained by condensing bosons in one and two copies of the \(\mathbb{Z}_4\) toric code, respectively \cite{arxiv:2112.11394}.'
+    - code_id: three_fermion
+      detail: 'The six-semion and three-fermion anyon theories are the \(r=2\) and \(r=1\) members of the family \(F_{2^r}\) of Abelian anyon theories with fusion group \(\mathbb{Z}_{2^r}\times\mathbb{Z}_{2^r}\) \cite{arxiv:2112.11394,doi:10.1088/1751-8121/abc6c0}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-11'
