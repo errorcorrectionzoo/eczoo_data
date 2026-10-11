@@ -45,35 +45,20 @@ description: |
   The maximum \(k=k_{\max}\) is attained iff \(y^{\alpha}-1\) and \(x^{\beta}y^{\gamma}-1\) lie in the ideal \(\langle A,B\rangle\) \cite[Corr. 2.2]{arxiv:2503.03827}.
   Otherwise, \(k<k_{\max}\) \cite{arxiv:2503.03827,arxiv:2503.04699}.
 
-  \subsection{Generalized toric codes}
-
-  \textit{Generalized toric codes} are weight-six BB codes with \(A=1+x+x^ay^b\) and \(B=1+y+x^cy^d\), i.e., toric-code polynomials with one extra monomial each, labeled by \((a,b,c,d)\) \cite{arxiv:2503.03827}.
-  The \((1,1,1,1)\) code is the 6.6.6 color code with \(k_{\max}=4\) \cite[Exam. 2]{arxiv:2503.03827}.
-  The \((-1,3,3,-1)\) code has the gross-code checks and \(k_{\max}=16\), more than the gross code's \(k=12\) \cite[Exam. 3]{arxiv:2503.03827}.
+  Weight-six BB codes whose polynomials \(A=1+x+x^ay^b\) and \(B=1+y+x^cy^d\) extend the toric-code pair \(1+x\), \(1+y\) by one monomial each include the checks of the 6.6.6 color code and of the gross code \cite[Exams. 2 and 3]{arxiv:2503.03827}.
   The \([[120,8,12]]\) code with \(A=1+x+x^{-2}y\) and \(B=1+y+xy^2\) on the torus with lattice vectors \((0,10)\) and \((6,4)\) has the best known \(kd^2/n\) for \(n<144\) \cite[Sec. III.A]{arxiv:2503.03827}.
-
-  \subsection{Self-dual BB codes}
-
-  \textit{Self-dual BB codes} are BB codes with \(B=\overline{A}\), for which \(H_X=H_Z\) \cite{arxiv:2510.05211}.
-  Such codes are naturally drawn on the honeycomb lattice, with the two qubits of a unit cell on its two vertices \cite{arxiv:2510.05211}.
-  A weight-six self-dual BB code with \(A=1+x^ay^b+x^cy^d\) has \(k_{\max}=4|ad-bc|\) and consists of \(|ad-bc|\) decoupled copies of the 6.6.6 color code, which is the case \(A=1+x+y\) \cite[Thm. 1 and Exam. 2]{arxiv:2510.05211}.
-  Weight-eight self-dual BB codes have doubly even stabilizers \cite{arxiv:2510.05211}.
-  The most local weight-eight polynomial is \(A=1+x+y+y^{-1}\), whose topological order is four copies of the toric code \cite{arxiv:2510.05211}.
-  It yields the \([[16,4,4]]\) code on the twisted torus with lattice vectors \((0,4)\) and \((2,2)\), and the \([[64,8,8]]\) code on the torus with lattice vectors \((0,8)\) and \((4,4)\) \cite[Table I]{arxiv:2510.05211}.
-  This polynomial is the \textit{modified color code C} of Ref. \cite{arxiv:2312.11170}, which adds inversion-symmetric vertices to the hexagonal plaquette \cite{arxiv:2510.05211}.
 
 protection: 'A BB code with \(A=B\) and \(k>0\) has distance two regardless of check weight \cite[Thm. 1]{arxiv:2606.02418}.'
 
 notes:
   - 'A database of bivariate bicycle codes is available in QECDB \cite{preset:QECDB}.'
   - 'A catalogue of BB codes found by LLM-guided search is available at \href{https://github.com/qiskit-community/qcode-discovery}{qcode-discovery} \cite{arxiv:2606.02418}.'
-  - 'See Ref. \cite[Tables I-IV]{arxiv:2503.03827} for optimal weight-six generalized toric codes on twisted tori with \(n\leq 400\), and Ref. \cite[Tables I and II]{arxiv:2510.05211} for optimal weight-eight self-dual BB codes with \(n\leq 200\).'
+  - 'See Ref. \cite[Tables I-IV]{arxiv:2503.03827} for optimal weight-six BB codes with \(A=1+x+x^ay^b\) and \(B=1+y+x^cy^d\) on twisted tori with \(n\leq 400\), and Ref. \cite[Tables I and II]{arxiv:2510.05211} for optimal weight-eight self-dual BB codes with \(n\leq 200\).'
   - 'See Ref. \cite{arxiv:2510.06159} for further self-dual BB codes.'
 
 features:
   transversal_gates:
     - 'Logical Pauli operators and fold-transversal gates studied in Ref. \cite{arxiv:2407.03973,arxiv:2409.18175}.'
-    - 'Self-dual BB codes admit a transversal Hadamard gate, which exchanges logical \(X\)-type and \(Z\)-type operators pairwise in a suitable basis \cite{arxiv:2510.05211}. Those with doubly even stabilizers, such as the weight-eight codes, also admit a transversal \(S\) gate \cite{arxiv:2510.05211}.'
 
   general_gates:
     - 'Certain bivariate bicycle codes admit a cup product structure and can thus have logical gates in the \term{Clifford hierarchy} implemented by constant-depth Clifford circuits \cite{arxiv:2410.16250}.'
@@ -118,13 +103,13 @@ relations:
         detail: 'A BB code with polynomials \(A\) and \(B\) is the quotient by a torus \(\mathbb{Z}^2/\Lambda\) of a 2D translation-invariant CSS code with two qubits per unit cell \cite{arxiv:2503.03827,arxiv:2510.05211}. The generators of that code are \((A,B|0,0)\) and \((0,0|\overline{B},\overline{A})\), with range given by the degrees of the Laurent representatives of \(A\) and \(B\) \cite{arxiv:2503.03827}. Holding the polynomials fixed while enlarging the torus, including twisted tori, yields a 2D lattice stabilizer code family with checks of bounded range \cite{arxiv:2410.11942,arxiv:2503.03827}.'
     cousins:
       - code_id: triangular_color
-        detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}. The 6.6.6 color code on a torus is the generalized toric code with \(A=1+x+xy\) and \(B=1+y+xy\) and the weight-six self-dual BB code with \(A=1+x+y\) \cite[Exam. 2]{arxiv:2503.03827}\cite[Exam. 2]{arxiv:2510.05211}.'
+        detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}. The 6.6.6 color code on a torus is the self-dual BB code with \(A=1+x+y\) \cite[Exam. 2]{arxiv:2510.05211}.'
+      - code_id: self_dual_css
+        detail: 'BB codes with \(B=\overline{A}\), where the bar denotes the antipode map \(x^iy^j\mapsto x^{-i}y^{-j}\), have \(H_X=H_Z\) and are self-dual CSS codes \cite{arxiv:2510.05211}. Drawn on the honeycomb lattice, such a code with weight-six checks, \(A=1+x^ay^b+x^cy^d\), consists of \(|ad-bc|\) decoupled copies of the 6.6.6 color code \cite[Thm. 1 and Exam. 2]{arxiv:2510.05211}. Weight-eight self-dual BB codes are doubly even, e.g., \(A=1+x+y+y^{-1}\) yields the \([[16,4,4]]\) and \([[64,8,8]]\) codes \cite[Table I]{arxiv:2510.05211}.'
       - code_id: topological_abelian
         detail: 'BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699,arxiv:2503.03827}. A BB code satisfies the topological order condition iff its polynomials are coprime \cite{arxiv:2503.03827}. Its \(m\)-type anyons are then the elements of \(\mathbb{F}_2[x^{\pm1},y^{\pm1}]/\langle A,B\rangle\), and the number of logical qubits on any torus is at most twice the dimension of this ring \cite[Thm. 1]{arxiv:2503.03827}.'
       - code_id: generalized_bicycle
         detail: 'GB codes (BB codes) are 2BGA codes over the cyclic group \(\mathbb{Z}_{\ell}\) (Abelian group \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\)). The two codes are the same when \(r\) and \(s\) are relatively prime due to the isomorphism \(\mathbb{Z}_{r} \times \mathbb{Z}_{s} \cong \mathbb{Z}_{\ell = rs}\). BB codes on twisted tori with lattice vectors \((0,\ell)\) and \((1,\gamma)\) reduce to GB codes upon substituting \(x=y^{-\gamma}\) \cite[Sec. III.C]{arxiv:2503.03827}.'
-      - code_id: higher_dimensional_toric
-        detail: 'The 2D toric code on a torus \(\mathbb{Z}^2/\Lambda\) is the BB code with \(A=1+x\) and \(B=1+y\), and generalized toric codes add one monomial to each polynomial \cite[Exam. 1]{arxiv:2503.03827}.'
 
 
 # Begin Entry Meta Information
