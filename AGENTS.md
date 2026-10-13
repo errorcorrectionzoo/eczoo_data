@@ -145,7 +145,7 @@ lint scripts `spellcheck.py`, `remove_trailing_block_apostrophes.py`, and
 `scripts/params/check_tableaux.py`.
 This is the routine-check list in `scripts/script_list_for_checking.txt`.
 
-**14. Explicit codes with \(d\leq 5\) get a small-distance parent.** An entry
+**15. Explicit codes with \(d\leq 5\) get a small-distance parent.** An entry
 for one explicit code whose distance is at most five also lists a
 small-distance family as a parent. Use `small_distance_qubit_stabilizer` for
 qubit stabilizer codes only, `small_distance_quantum` for any other block
