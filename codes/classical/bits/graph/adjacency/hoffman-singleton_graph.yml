@@ -14,8 +14,6 @@ description: |
   A graph-based code whose generator matrix is the row space of the adjacency matrix of the Hoffman-Singleton graph \cite{doi:10.1147/rd.45.0497}.
   This \([50,22,7]\) code is dual to a \([50,28,8]\) code \cite[Table III]{doi:10.1109/18.568714}.
 
-  The Hoffman-Singleton graph is distance-transitive and hence a finite two-point homogeneous space \cite{doi:10.1007/978-3-642-74341-2}.
-
 features:
   decoders:
     - 'The rows of the adjacency matrix serve as orthogonal parity checks enabling majority decoding of the \([50,28,8]\) dual code up to three errors (its full error-correcting capacity) \cite{doi:10.1109/18.568714}.'
@@ -25,6 +23,9 @@ features:
 relations:
   parents:
     - code_id: graph
+  cousins:
+    - code_id: 2pt_homogeneous
+      detail: 'The Hoffman-Singleton graph is distance-transitive, hence it is a finite two-point homogeneous space \cite{doi:10.1007/978-3-642-74341-2}.'
 
 
 
@@ -32,8 +33,6 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
-    - user_id: VictorVAlbert
-      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
