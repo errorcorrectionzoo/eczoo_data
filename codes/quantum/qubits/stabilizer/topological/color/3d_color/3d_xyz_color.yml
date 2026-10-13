@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: 3d_xyz_color
+physical: qubits
+logical: qubits
+
+name: '3D XYZ color code'
+introduced: '\cite{arxiv:1012.0859,arxiv:2509.18324}'
+
+description: |
+  Stabilizer code on a four-colorable 3D lattice that realizes a single copy of the \hyperref[code:3d_fermionic_surface]{3D fermionic surface code} phase \cite{arxiv:2509.18324}.
+  Qubits sit on vertices, and each face hosts an \(X\)-, \(Y\)-, or \(Z\)-type generator, depending on the two color labels of the face.
+
+  The model of Ref. \cite{arxiv:1012.0859} is a version of the 3D XYZ color code on a particular lattice \cite{arxiv:2509.18324}.
+
+
+protection: |
+  On a closed 3-manifold, the code encodes \(k=b_2\) logical qubits, where \(b_2\) is the second Betti number over \(\mathbb{Z}_2\) \cite[Sec. 3.4]{arxiv:2509.18324}.
+
+
+relations:
+  parents:
+    - code_id: qldpc
+    - code_id: 3d_stabilizer
+  cousins:
+    - code_id: xyz_color
+      detail: 'The XYZ color code is a 2D color-code variant that is equivalent to the 6.6.6 color code via single-qubit Clifford gates. The 3D XYZ color code is a 3D variant that realizes a phase different from that of the 3D color code \cite{arxiv:2509.18324}.'
+    - code_id: 3d_fermionic_surface
+      detail: 'The 3D XYZ color code realizes a single copy of the 3D fermionic surface code phase \cite{arxiv:2509.18324}.'
+    - code_id: 3d_color
+      detail: 'The 3D XYZ color code is defined on the same lattices as the 3D color code, with \(X\)-, \(Y\)-, or \(Z\)-type face generators fixed by color labels. On a closed 3-manifold, it encodes \(b_2\) logical qubits, while the 3D color code encodes \(3b_2\) \cite[Sec. 3.4]{arxiv:2509.18324}.'
+    - code_id: 3d_subsystem_color
+      detail: 'The stabilizer group of the 3D XYZ color code lies in the gauge group of the 3D subsystem color code \cite{arxiv:2509.18324}. Hence, gauge fixing the 3D subsystem color code yields the 3D XYZ color code. On a closed manifold, single-shot error correction in the 3D subsystem color code prepares a codeword of the 3D XYZ color code \cite[Sec. 3.5]{arxiv:2509.18324}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
