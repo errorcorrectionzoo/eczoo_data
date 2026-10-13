@@ -15,7 +15,7 @@ description: |
   Qubit stabilizer code for which the binary space \(S_X\) of \(X\) components of stabilizers is \(k\)-orthogonal in the \hyperref[topic:binary-symplectic-representation]{symplectic representation}.
   In other words, the overlap of any \(j\) vectors in \(S_X\) is even for every \(1\leq j\leq k\) \cite[Def. 4]{arxiv:2210.14066}.
   This definition applies to general qubit stabilizer codes and does not require a CSS presentation.
-  This entry is formulated for qubits, but an extension exists for modular qudits \cite{arxiv:1503.08800}.
+  The notion extends to modular qudits \cite{arxiv:1503.08800}.
 
   Equivalently, a generator matrix for \(S_X\) is \(k\)-orthogonal if
   \begin{align}
@@ -39,6 +39,13 @@ relations:
     - code_id: qudit_color
       detail: 'The notion of \(k\)-orthogonality can be extended to modular-qudit codes and is known as \(k^{\star}\)-orthogonality \cite[Def. 2]{arxiv:1503.08800}.
       Modular-qudit lattice color codes defined on lattices in \(D\) spatial dimension whose \(X\)-type stabilizers are placed on cells of dimension \(\nu \leq D\) are \(k^{\star}\)-orthogonal for all \(k \leq \nu\) \cite[Lemma 5]{arxiv:1503.08800}.'
+    - code_id: reed_muller
+      detail: 'A unital \(k\)-orthogonal space is a \(k\)-orthogonal binary space containing the all-ones vector.
+      For dimension \(m+1\), its generator matrix has columns \((1,y)\) for \(y\) in a subset \(Y\subseteq\mathbb{F}_2^m\), and the overlap of any \(j\leq k\) rows, repetitions allowed, is the sum over \(Y\) of a monomial of degree at most \(j\).
+      The indicator function of \(Y\) is therefore orthogonal to \(RM(k,m)\), i.e., it is a codeword of \(RM(m-k-1,m)\).
+      For \(k=3\), unital triorthogonal spaces correspond one-to-one to affine-equivalence classes of \(RM(m-4,m)\) codewords whose weight equals the length of the space and that are not divisible by a nonconstant affine function \cite{arxiv:2107.09684}\cite[Supp. Sec. III]{arxiv:2609.30860}.
+      The correspondence yielded a classification of unital triorthogonal spaces through length 38 via the Kasami-Tokura classification of low-weight RM codewords \cite{arxiv:2107.09684}.
+      It was extended through length 54 by a directional-derivative recursion that reconstructs a codeword from its derivative along a direction with the fewest pairs of support points \cite[Supp. Sec. III]{arxiv:2609.30860}.'
 
 
 # Begin Entry Meta Information
@@ -47,6 +54,8 @@ _meta:
   changelog:
     - user_id: RodrigoSanJose
       date: '2026-10-05'
+    - user_id: VictorVAlbert
+      date: '2026-10-12'
     - user_id: VictorVAlbert
       date: '2026-09-06'
     - user_id: VictorVAlbert
