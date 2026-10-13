@@ -145,6 +145,23 @@ lint scripts `spellcheck.py`, `remove_trailing_block_apostrophes.py`, and
 `scripts/params/check_tableaux.py`.
 This is the routine-check list in `scripts/script_list_for_checking.txt`.
 
+**14. Check the code lists after adding a code or changing its relations.** The
+lists in `codelists/` select codes mostly by descendancy and cousinhood (e.g.
+`descendant_of: color`). A code placed outside the expected branch therefore
+drops out of a list where it belongs, and nothing reports it. For each new or
+reparented code, run
+
+```
+python3 scripts/codelists/count_list_codes.py --code <code_id>
+```
+
+It prints the lists that contain the code, then the lists that contain one of
+its parents, children, or cousins but not the code itself. Go through the second
+group. Where the code belongs in a list, fix its relations or add it to that
+list's `select`, and say so in the PR. E.g. `3d_xyz_color` has no color-code
+ancestor, so `list_color` (descendants of `color` and `twist_defect_color`)
+misses it.
+
 ## Relation semantics
 
 - Relations are declared on the CHILD, in its `relations.parents` list; the
@@ -253,7 +270,9 @@ describing its exact behavior and usage.
 - `scripts/bib/` — bibliography/citation tooling: extract arXiv IDs, DOIs,
   manual cites and presets; append reference counts.
 - `scripts/queries/` — external lookups: `query_qecdb`, `semantic_scholar_recommend`.
-- `scripts/codelists/` — code-list tooling: `count_list_codes`.
+- `scripts/codelists/` — code-list tooling: `count_list_codes` (list sizes; with
+  `--code <code_id>`, the lists that contain a code and the lists that miss it
+  while containing a relative, per rule 14).
 - `scripts/params/` — code-parameter checks (Python >= 3.10 and `PyYAML` only).
   `check_tableaux.py` (routine) reads every Pauli tableau displayed in an entry
   (`array`/`smallmatrix` blocks with I/X/Y/Z cells, and "cyclic permutations of
