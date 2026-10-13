@@ -12,13 +12,22 @@ introduced: '\cite{arxiv:1012.0859,arxiv:2509.18324}'
 
 description: |
   Stabilizer code on a four-colorable 3D lattice that realizes a single copy of the \hyperref[code:3d_fermionic_surface]{3D fermionic surface code} phase \cite{arxiv:2509.18324}.
-  Qubits sit on vertices, and each face hosts an \(X\)-, \(Y\)-, or \(Z\)-type generator, depending on the two color labels of the face.
+  Qubits sit on vertices, and each face carries one generator whose Pauli type is set by the colors of the two volumes it borders.
 
-  The model of Ref. \cite{arxiv:1012.0859} is a version of the 3D XYZ color code on a particular lattice \cite{arxiv:2509.18324}.
+  Faces colored \(AB\) or \(CD\) carry \(X\)-type generators, \(AC\) or \(BD\) faces \(Y\)-type, and \(AD\) or \(BC\) faces \(Z\)-type \cite{arxiv:2509.18324}.
+  Faces that share a single vertex have complementary colors and hence the same Pauli type, so all generators commute \cite{arxiv:1012.0859,arxiv:2509.18324}.
+  The model of Ref. \cite{arxiv:1012.0859} is a version of the 3D XYZ color code on the bitruncated cubic honeycomb \cite{arxiv:1012.0859,arxiv:2509.18324}.
+  The \(\mathbb{Z}_d^{(\alpha)}\) chiral color code generalizes the 3D XYZ color code to qudits \cite[Sec. 5]{arxiv:2509.18324}.
 
 
 protection: |
-  On a closed 3-manifold, the code encodes \(k=b_2\) logical qubits, where \(b_2\) is the second Betti number over \(\mathbb{Z}_2\) \cite[Sec. 3.4]{arxiv:2509.18324}.
+  On a closed 3-manifold, the code encodes \(k=b_2\) logical qubits, where \(b_2\) is the second Betti number over \(\mathbb{Z}_2\) \cite{arxiv:1012.0859}\cite[Sec. 3.4]{arxiv:2509.18324}.
+  On the 15-qubit tetrahedral lattice with four colored boundaries, the code has parameters \([[15,1,3]]\) \cite[Sec. 4.3]{arxiv:2509.18324}.
+
+
+features:
+  fault_tolerance:
+    - 'Single-shot error correction via gauge fixing from the 3D subsystem color code, which the code lacks as a standalone stabilizer code \cite[Sec. 3.3]{arxiv:2509.18324}.'
 
 
 relations:
@@ -27,13 +36,13 @@ relations:
     - code_id: 3d_stabilizer
   cousins:
     - code_id: xyz_color
-      detail: 'The XYZ color code is a 2D color-code variant that is equivalent to the 6.6.6 color code via single-qubit Clifford gates. The 3D XYZ color code is a 3D variant that realizes a phase different from that of the 3D color code \cite{arxiv:2509.18324}.'
+      detail: 'Both codes are non-CSS variants of color codes. The XYZ color code is equivalent to the 6.6.6 color code via single-qubit Clifford gates \cite{arxiv:2203.16534}. The 3D XYZ color code realizes a phase different from that of the 3D color code \cite{arxiv:2509.18324}.'
     - code_id: 3d_fermionic_surface
       detail: 'The 3D XYZ color code realizes a single copy of the 3D fermionic surface code phase \cite{arxiv:2509.18324}.'
     - code_id: 3d_color
       detail: 'The 3D XYZ color code is defined on the same lattices as the 3D color code, with \(X\)-, \(Y\)-, or \(Z\)-type face generators fixed by color labels. On a closed 3-manifold, it encodes \(b_2\) logical qubits, while the 3D color code encodes \(3b_2\) \cite[Sec. 3.4]{arxiv:2509.18324}.'
     - code_id: 3d_subsystem_color
-      detail: 'The stabilizer group of the 3D XYZ color code lies in the gauge group of the 3D subsystem color code \cite{arxiv:2509.18324}. Hence, gauge fixing the 3D subsystem color code yields the 3D XYZ color code. On a closed manifold, single-shot error correction in the 3D subsystem color code prepares a codeword of the 3D XYZ color code \cite[Sec. 3.5]{arxiv:2509.18324}.'
+      detail: 'The 3D XYZ color code is obtained by gauge fixing the 3D subsystem color code, since its stabilizer group lies in the latter''s gauge group \cite[Sec. 3.1]{arxiv:2509.18324}. On a closed manifold, single-shot error correction in the 3D subsystem color code prepares a particular codeword of the 3D XYZ color code, stabilized by its membrane logical operators \cite[Sec. 3.5]{arxiv:2509.18324}.'
 
 
 # Begin Entry Meta Information
