@@ -8,7 +8,7 @@ Standardize manual_cites.txt second column:
 import re
 from pathlib import Path
 
-INPUT = Path(__file__).resolve().parent.parent / "resources" / "manual_cites.txt"
+INPUT = Path(__file__).resolve().parents[3] / "resources" / "manual_cites.txt"
 
 # ---------------------------------------------------------------------------
 # 1. LaTeX fixes

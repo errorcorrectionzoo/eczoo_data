@@ -2,8 +2,9 @@
 
 set -euo pipefail
 
-codes_dir="$HOME/eczoo_data/codes/quantum"
-checklist="$HOME/eczoo_data/resources/checked_files.txt"
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+codes_dir="$repo_root/codes/quantum"
+checklist="$repo_root/resources/checked_files.txt"
 
 if [[ ! -d "$codes_dir" ]]; then
   echo "Error: directory not found: $codes_dir" >&2

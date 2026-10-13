@@ -139,9 +139,10 @@ edge crossing between the subspace and subsystem hierarchies (rule 9).
 `check_duplicate_relations.py`, `primary_parent_kingdom.py`, and
 `subspace_subsystem_split.py` exit non-zero on violations.
 
-Before submitting, also run `scripts/relations/find_property_codes.py` and the
+Before submitting, also run `scripts/relations/find_property_codes.py`, the
 lint scripts `spellcheck.py`, `remove_trailing_block_apostrophes.py`, and
-`find_incorrect_description_first_paragraphs.py` (all in `scripts/lint/`).
+`find_incorrect_description_first_paragraphs.py` (all in `scripts/lint/`), and
+`scripts/params/check_tableaux.py`.
 This is the routine-check list in `scripts/script_list_for_checking.txt`.
 
 ## Relation semantics
@@ -253,5 +254,19 @@ describing its exact behavior and usage.
   manual cites and presets; append reference counts.
 - `scripts/queries/` — external lookups: `query_qecdb`, `semantic_scholar_recommend`.
 - `scripts/codelists/` — code-list tooling: `count_list_codes`.
+- `scripts/params/` — code-parameter checks (Python >= 3.10 and `PyYAML` only).
+  `check_tableaux.py` (routine) reads every Pauli tableau displayed in an entry
+  (`array`/`smallmatrix` blocks with I/X/Y/Z cells, and "cyclic permutations of
+  the Pauli string" sentences). It computes \(n\), \(k\), the exact distance and
+  purity from the stabilizer weight enumerator via the quantum MacWilliams
+  identity. It then checks them against the \([[n,k,d]]\) in the entry's `name`
+  and against a rule-6 `pure`/`impure` claim. On a mismatch it prints a
+  minimum-weight logical as a witness, and it exits non-zero. Tableaux that list
+  one row per X-type/Z-type generator pair must be added to `DOUBLED_ROWS`, and
+  gauge-generator tableaux of subsystem codes to `GAUGE_TABLEAUX`. A coverage
+  floor makes it fail rather than pass silently if it finds too few tableaux.
+  Run `--selftest` for the brute-force self-test and `--list` for one line per
+  tableau. Computed values check transcriptions; they are not a citable source
+  (rule 11).
 - `scripts/script_list_for_checking.txt` — the routine set of checks to run
   before submitting changes.

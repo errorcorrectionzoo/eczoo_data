@@ -11,7 +11,7 @@ manual_cites.txt and make manual corrections before running apply_manual_cites.p
 import re
 import os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 INPUT = os.path.join(ROOT, "resources", "manual_cites.txt")
 OUTPUT = os.path.join(ROOT, "resources", "manual_cites.txt")
 

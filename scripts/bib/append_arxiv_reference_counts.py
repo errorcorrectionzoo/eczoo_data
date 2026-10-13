@@ -14,7 +14,7 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CODES_DIR = ROOT / "codes"
 ARXIV_PATTERN = re.compile(r"arxiv:([^,\}\s]+)", re.IGNORECASE)
 

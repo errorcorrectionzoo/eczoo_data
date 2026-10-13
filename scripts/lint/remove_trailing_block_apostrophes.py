@@ -15,7 +15,7 @@ import os
 from dataclasses import dataclass
 from typing import List, Tuple
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 @dataclass

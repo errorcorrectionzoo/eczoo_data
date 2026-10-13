@@ -3,11 +3,11 @@
 
 Intended usage:
 ```bash
-> ./link_codes.py                                       # load yaml files from `../codes/`, and search `../codes/`
-> ./link_codes.py --codes_path /home/feynman/codes/     # load yaml files from custom path, and search there
+> python3 scripts/lint/link.py                          # load yaml files from the repo's `codes/`, and search there
+> python3 scripts/lint/link.py --codes_path /home/feynman/codes/   # load yaml files from custom path, and search there
 
 # load yaml files from custom path, and search a separate custom path
-> ./link_codes.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
+> python3 scripts/lint/link.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
 ```
 
 """
@@ -16,6 +16,8 @@ import sys
 import os
 import argparse
 import ruamel.yaml
+
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def print_error(msg: str) -> None:
@@ -154,17 +156,17 @@ def main(args) -> int:
     is populated from these files.
 
     Non-yaml files in the directory are ignored.
-    This argument defaults to "../codes/". Possible usage:
+    This argument defaults to the repo's `codes/`. Possible usage:
     ```bash
-    > ./link_codes.py
-    > ./link_codes.py --codes_path=/home/feynman/codes/
+    > python3 scripts/lint/link.py
+    > python3 scripts/lint/link.py --codes_path=/home/feynman/codes/
     ```
 
     It also accepts a path to a directory of yaml files to update (`--search_path`).
     If not included, this argument defaults to the value of `--codes_path`, which
-    itself defaults to `../codes/`. Possible usage:
+    itself defaults to the repo's `codes/`. Possible usage:
     ```bash
-    > ./link_codes.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
+    > python3 scripts/lint/link.py --codes_path=/home/feynman/codes/ --search_path=/home/woit/codes_to_update/
     ```
 
     For developers:
@@ -341,7 +343,7 @@ def main(args) -> int:
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
     # dir path to populate codes from
-    parser.add_argument('--codes_path', type=str, default='../codes/')
+    parser.add_argument('--codes_path', type=str, default=os.path.join(REPO_ROOT, 'codes'))
     # dir path to update codes from 
     parser.add_argument('--search_path', type=str, default=None)
     return parser.parse_args()
