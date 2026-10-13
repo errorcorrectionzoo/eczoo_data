@@ -156,7 +156,7 @@ python3 scripts/codelists/count_list_codes.py --code <code_id>
 ```
 
 It prints the lists that contain the code, then the lists that contain one of
-its parents, children, or cousins but not the code itself. Go through the second
+its children or cousins but not the code itself. Go through the second
 group. Where the code belongs in a list, fix its relations or add it to that
 list's `select`, and say so in the PR. E.g. `3d_xyz_color` has no color-code
 ancestor, so `list_color` (descendants of `color` and `twist_defect_color`)

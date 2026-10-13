@@ -14,7 +14,7 @@
 #   python3 scripts/codelists/count_list_codes.py --code 3d_xyz_color
 #
 # With --code X, print instead the lists that contain X, followed by the lists
-# that contain a parent, child, or cousin of X but not X itself. Check that
+# that contain a child or cousin of X but not X itself. Check that
 # second group after adding or reparenting a code: it is where a code is most
 # often missed (AGENTS.md rule 14).
 #
@@ -28,7 +28,7 @@
 #   cousin_of: X                 – candidates = cousin-neighbours of X (both dirs)
 #   property_set: a.b            – candidates = codes whose YAML has the dotted key set
 #   domain: D                    – candidates = codes in domain D
-#   manual_code_ids: [A,B]       – explicit code list
+#   manual_code_list: [A,B]       – explicit code list
 #   not_descendant_of: X         – remove descendants of X from candidates
 #   not_all_descendant_of: [A,B] – remove codes that are descendants of ALL of A,B
 
@@ -233,7 +233,7 @@ _LIST_VALUE_SELECTORS = frozenset({
     "any_cousin_of", "all_cousin_of",
     "not_any_cousin_of", "not_all_cousin_of",
     "any_domain", "not_any_domain",
-    "manual_code_ids", "exclude",
+    "manual_code_list", "exclude",
 })
 
 _SELECTORS = (
@@ -245,7 +245,7 @@ _SELECTORS = (
     "cousin_of",
     "property_set",
     "not_any_domain", "any_domain", "not_domain", "domain",
-    "manual_code_ids", "exclude",
+    "manual_code_list", "exclude",
 )
 
 
@@ -394,7 +394,7 @@ _POSITIVE_KEYS = frozenset({
     "cousin_of", "any_cousin_of", "all_cousin_of",
     "property_set",
     "domain", "any_domain",
-    "manual_code_ids",
+    "manual_code_list",
 })
 
 _NEGATIVE_KEYS = frozenset({
@@ -545,8 +545,8 @@ def list_members(
             dom_set = set(group["any_domain"])
             _ix({c for c, d in code_domain.items() if d in dom_set})
 
-        if "manual_code_ids" in group:
-            _ix({cid for cid in group["manual_code_ids"] if cid in known})
+        if "manual_code_list" in group:
+            _ix({cid for cid in group["manual_code_list"] if cid in known})
 
         if candidates is None:
             candidates = set()
@@ -626,7 +626,7 @@ def _parse_args() -> argparse.Namespace:
         metavar="CODE_ID",
         help=(
             "Print the lists that contain CODE_ID, then the lists that contain "
-            "a parent, child, or cousin of CODE_ID but not CODE_ID itself."
+            "a child or cousin of CODE_ID but not CODE_ID itself."
         ),
     )
     return parser.parse_args()
@@ -646,8 +646,7 @@ def report_code(
     if code_id not in known:
         print(f"Unknown code_id '{code_id}'", file=sys.stderr)
         return 1
-    parents = {p for p, kids in p2c.items() if code_id in kids}
-    relatives = parents | set(p2c.get(code_id, [])) | cout.get(code_id, set()) \
+    relatives = set(p2c.get(code_id, [])) | cout.get(code_id, set()) \
         | cin.get(code_id, set())
     inside: list[tuple[str, str]] = []
     missing: list[tuple[str, str, list[str]]] = []
