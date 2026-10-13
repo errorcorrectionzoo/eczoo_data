@@ -15,6 +15,11 @@ description: |
   A further variation called the \textit{domain wall color code} admits generators of the form \(XXXZZZ\) and \(ZZZXXX\) \cite{arxiv:2307.00054}.
   While such codes are equivalent to CSS color codes with the same distance, other properties like noise-bias performance can differ significantly.
 
+  The \textit{3D XYZ color code} is defined on a four-colorable 3D lattice, with qubits on vertices and one generator per face \cite{arxiv:2509.18324}.
+  Each face generator is an \(X\)-, \(Y\)-, or \(Z\)-type Pauli string, depending on the two color labels of the face.
+  This code realizes a single copy of the \hyperref[code:3d_fermionic_surface]{3D fermionic surface code} phase \cite{arxiv:2509.18324}.
+  The non-CSS model of Ref. \cite{arxiv:1012.0859} is a version of the 3D XYZ color code on a particular lattice \cite{arxiv:2509.18324}.
+
 
 features:
   decoders:
@@ -35,12 +40,16 @@ relations:
       detail: 'The XZZX surface (XYZ color) is a non-CSS analogue of the rotated surface (6.6.6 color) code such that the two codes are related by single-qubit Clifford rotations.'
     - code_id: fracton
       detail: 'The XYZ color code resembles a Type-II fracton code in the limit of infinite noise bias \cite{arxiv:2203.16534}.'
+    - code_id: 3d_fermionic_surface
+      detail: 'The 3D XYZ color code realizes a single copy of the 3D fermionic surface code phase \cite{arxiv:2509.18324}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
