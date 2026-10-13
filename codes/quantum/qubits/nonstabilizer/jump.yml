@@ -30,12 +30,11 @@ notes:
 relations:
   parents:
     - code_id: qubits_into_qubits
-    - code_id: ampdamp
-      detail: 'Jump codes are designed to protect against qubit \hyperref[topic:ad]{AD} noise.'
-    - code_id: constant_excitation
-  cousins:
     - code_id: chuang-leung-yamamoto
-      detail: 'Jump codes can be thought of as qubit analogues of uniform CLY codes.'
+      detail: 'The single-rail encoding identifies each qubit with an oscillator restricted to its two lowest Fock states.
+      Under this identification, an \(((n,K,t))_w\) jump code is a uniform CLY code with \(w\) total excitations.
+      Jump codes correct qubit \hyperref[topic:ad]{AD} errors at known positions \cite{arxiv:quant-ph/0103042,arxiv:quant-ph/0208140}.'
+  cousins:
     - code_id: iceberg
       detail: 'The subcode of the \([[2m,2m-2,2]]\) error-detecting code consisting of codewords labeled by weight-\(m\) bitstrings is a \(((2m,\frac{1}{2}{2m \choose m},1))_{m}\) optimal jump code \cite{arxiv:quant-ph/0208140}\cite[Corr. 9]{doi:10.1023/A:1024188005329}.'
     - code_id: combinatorial_design
@@ -48,6 +47,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
