@@ -17,7 +17,7 @@ description: |
   A nonlinear binary code consisting of the 10 weight-two five-bit strings, thereby providing an encoding for the decimal digits 0 through 9. 
 
 protection: |
-  Detects some single bit-flips as well as unidirectional errors using the fact that each codeword has weight two. The code fails for any sequence of flips that maintains the constant weight.
+  Detects all single bit-flips as well as unidirectional errors using the fact that each codeword has weight two. The code fails for any sequence of flips that maintains the constant weight.
 
 realizations:
   - 'Used in the United States Postal Service''s POSTNET barcode system as well as the Postal Alphanumeric Encoding Technique (PLANET).'
@@ -31,12 +31,15 @@ relations:
     - code_id: binary_group_orbit
       detail: 'The two-in-five code is a binary group-orbit code with group \(S_5\).'
     - code_id: weight_two
+    - code_id: small_distance
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
