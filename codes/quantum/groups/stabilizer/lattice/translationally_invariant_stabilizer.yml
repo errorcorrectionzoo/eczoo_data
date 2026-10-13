@@ -37,6 +37,12 @@ description: |
   For open boundary conditions, this mapping extends the mapping used in quantum convolutional codes to multiple spatial dimensions.
   \end{defterm}
 
+  In this representation, the syndrome of a Pauli operator is the vector of its symplectic products with the stabilizer generators, which defines the \textit{excitation map} \cite{arxiv:1204.1063,arxiv:2312.11170}.
+  A code satisfies the \textit{topological order condition} if the kernel of the excitation map is the stabilizer module \cite{arxiv:1204.1063,arxiv:2312.11170}.
+  In other words, every local operator commuting with all stabilizers must be a product of stabilizers \cite{arxiv:1204.1063}.
+  This condition stems from the \hyperref[topic:tqo]{TQO-1 condition} \cite{arxiv:2312.11170}.
+  For qubit codes with as many generators as qubits per unit cell, the number of logical qubits on a torus is the dimension of the cokernel of the excitation map \cite{arxiv:1204.1063}.
+
   \subsection{Bosonic lattice stabilizer codes}
 
   Bosonic lattice stabilizer codes can contain discrete or continuous subgroups and can admit logical qudit and/or oscillator logical subspaces.
@@ -111,6 +117,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-11'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

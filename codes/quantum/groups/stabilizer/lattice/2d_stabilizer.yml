@@ -16,7 +16,12 @@ description: |
   Any 2D topological order requires weight-four Hamiltonian terms, i.e., it cannot be stabilized via weight-two or weight-three terms on 2D lattices of qubits or qutrits \cite{arxiv:quant-ph/0308021,arxiv:1102.0770,arxiv:1803.02213}.
 
   Translation-invariant 2D prime-qudit lattice stabilizer codes are equivalent to several copies of the prime-qudit surface code and a trivial code via a local constant-depth Clifford circuit \cite{arxiv:1812.11193}.
-  There are algorithms which determine the fusion and braiding rules \cite{arxiv:2312.11170} as well as boundaries and twist defects \cite{arxiv:2410.11942} of a 2D translationally invariant modular-qudit stabilizer code for any qudit dimension.
+  An algorithm checks the topological order condition of a 2D translationally invariant modular-qudit stabilizer code of any qudit dimension and extracts its anyon string operators, fusion rules, topological spins, and braiding \cite{arxiv:2312.11170}.
+  Another algorithm determines boundaries and twist defects \cite{arxiv:2410.11942}.
+
+  On a finite torus, an anyon whose translation period does not divide the torus lengths is absent \cite{arxiv:2503.03827}.
+  The ground-state degeneracy can then be smaller than the number of anyon types of the underlying topological order \cite{arxiv:2211.00299,arxiv:2503.03827,arxiv:2503.04699}.
+  See the \hyperref[code:qcga]{BB code} entry for the logical dimension of BB codes on twisted tori.
 
 features:
   encoders:
@@ -49,6 +54,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-11'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
