@@ -73,11 +73,13 @@ relations:
   parents:
     - code_id: twist_defect_surface
       detail: 'XZZX toric and planar codes can be treated in the general twist-defect surface code formalism \cite{arxiv:2101.09349}.'
+    - code_id: topological_abelian
+      detail: 'The XZZX surface code realizes \(\mathbb{Z}_2\) topological order, since its bulk differs from that of the surface code by Hadamard gates on alternate qubits \cite{arxiv:2009.07851}\cite[Appx. C]{arxiv:1605.01640}.'
   cousins:
     - code_id: quantum_double_abelian
       detail: 'The XZZX surface code is an example of \(\mathbb{Z}_2\) topological order as manifest in the Wen plaquette model \cite{arxiv:quant-ph/0205004}.'
     - code_id: rotated_surface
-      detail: 'The XZZX code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZZX\). Both rotated and XZZX codes offer improved performance over the original surface code for biased noise \cite{arxiv:2312.17057}.'
+      detail: 'The XZZX code is obtained from the rotated surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZZX\). This map needs a checkerboard sublattice of qubits. Such a sublattice exists for planar patches and for some tori, but not for every torus. For example, the five-qubit perfect code is a twisted XZZX toric code \cite[Exam. 11 and Fig. 3]{arxiv:1108.5490}. It is not equivalent to any CSS code, since the smallest qubit CSS code correcting a single-qubit error has seven qubits \cite{arxiv:0803.1495}. Both rotated and XZZX codes offer improved performance over the original surface code for biased noise \cite{arxiv:2312.17057}.'
     - code_id: chamon
       detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{preset:Maurice21}; see \cite[Sec. 3.4]{arxiv:2011.09746}. Using only two repetition codes in the analogous 2D construction yields the XZZX code, making it a 2D analogue of the Chamon code \cite[Sec. 2]{arxiv:2011.09746}.'
     - code_id: repetition
@@ -89,13 +91,15 @@ relations:
     - code_id: cluster_state
       detail: 'XZZX surface code can be foliated for a noise-bias preserving MBQC \cite{arxiv:2201.10566} or FBQC \cite{arxiv:2303.16122} protocol; see also \cite{arxiv:1308.4776}.'
     - code_id: surface
-      detail: 'The XZZX surface code on a square lattice with non-twisted periodic boundary conditions is obtained from a surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZZX\). While this code is equivalent to a CSS surface code with the same distance, other properties like noise-bias performance can differ significantly. Twisted XZZX surface codes are generally not equivalent to CSS surface codes via a single-qubit Clifford circuit and permutation.'
+      detail: 'The XZZX surface code on a square lattice with even linear dimensions and non-twisted periodic boundary conditions is obtained from a surface code by applying Hadamard gates on a subset of qubits such that \(XXXX\) and \(ZZZZ\) generators are both mapped to \(XZZX\). While this code is equivalent to a CSS surface code with the same distance, other properties like noise-bias performance can differ significantly. Twisted XZZX toric codes need not be equivalent to any CSS code via a single-qubit Clifford circuit and permutation. For example, the five-qubit perfect code is a twisted XZZX toric code \cite[Exam. 11 and Fig. 3]{arxiv:1108.5490} with no CSS counterpart, since the smallest qubit CSS code correcting a single-qubit error has seven qubits \cite{arxiv:0803.1495}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: EricHuang
