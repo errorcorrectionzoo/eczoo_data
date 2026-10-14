@@ -129,7 +129,7 @@ features:
     - |
       Computing with \hyperref[topic:clifford]{Clifford gates}, Pauli measurements, and classical feedforward acting on stabilizer states only can be efficiently simulated on a classical computer by tracking stabilizer and logical generators, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,preset:KnillPC98}.
       There is a canonical form for \hyperref[topic:clifford]{Clifford circuits} \cite{arxiv:2003.09412,arxiv:2408.15202} and many algorithms for simulating them \cite{arxiv:quant-ph/0406196,arxiv:1712.03554,arxiv:2301.02356}.
-      Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
+      Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9906054}.
       More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1090/gsm/047} states that any subset of gates that generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by \hyperref[topic:clifford]{Clifford gates} and a fixed set of \hyperref[topic:clifford]{non-Clifford} gates is called \textit{gate compilation} or \textit{circuit synthesis}.
     - 'Non-Clifford gates are typically more difficult to implement than \hyperref[topic:clifford]{Clifford gates} and so are treated as a resource. Gate errors in circuit synthesis can sometimes add up destructively \cite{arxiv:1612.01011}. There is a threshold against depolarizing noise for any single-qubit gate that determines if the gate enables universal quantum computation \cite{arxiv:0907.3189,arxiv:1011.2497}.'
     - |
@@ -174,7 +174,7 @@ features:
         When different classes of circuit locations have different error rates, the single-number threshold generalizes to a \textit{threshold surface} in the space of error-rate vectors. A one-level crossing where a particular logical location becomes more reliable is then not a full-fledged threshold for the entire circuit; deciding whether a protocol really improves may require following the coupled recurrence relations through additional concatenation levels \cite[Sec. 14.7.6]{preset:GottesmanBook}.
         Fault-tolerant computations with no notion of locality can be made local on a 2D or 3D geometry with minimal overhead \cite{arxiv:2402.13863}.
         \end{defterm}
-    - 'There is an upper bound on the threshold under local update recovery that is derived via quantum optimal transport \cite{arxiv:quant-ph/0310136} (see also Ref. \cite{arxiv:2309.16241}).'
+    - 'The threshold noise rate is at most \(1/2\), assuming \(\mathsf{QP}\not\subseteq\mathsf{QNC}^1\) \cite{arxiv:quant-ph/0310136}. See Ref. \cite{arxiv:2309.16241} for an upper bound on the threshold under local update recovery derived via quantum optimal transport.'
     - 'There is a threshold against depolarizing noise for any single-qubit gate that determines if the gate enables universal quantum computation \cite{arxiv:0907.3189,arxiv:1011.2497}.'
     - '\begin{defterm}{Measurement threshold}
       \label{topic:measurement-threshold}
@@ -210,7 +210,7 @@ relations:
       detail: |
         Computing with \hyperref[topic:clifford]{Clifford gates}, Pauli measurements, and classical feedforward acting on stabilizer states only can be efficiently simulated on a classical computer by tracking stabilizer and logical generators, according to the \textit{Gottesman-Knill theorem} \cite{arxiv:quant-ph/9807006,preset:KnillPC98}.
         There is a canonical form for \hyperref[topic:clifford]{Clifford circuits} \cite{arxiv:2003.09412,arxiv:2408.15202} and many algorithms for simulating them \cite{arxiv:quant-ph/0406196,arxiv:1712.03554,arxiv:2301.02356}.
-        Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9503016}.
+        Universal quantum computing can be achieved using \hyperref[topic:clifford]{Clifford gates} and a single type of \hyperref[topic:clifford]{non-Clifford} gate, such as the \(T\) gate \cite{arxiv:quant-ph/9906054}.
         More generally, the \textit{Solovay-Kitaev} theorem \cite{doi:10.1070/RM1997v052n06ABEH002155,doi:10.1090/gsm/047} states that any subset of gates that generates a dense subgroup of the full \(n\)-qubit gate group can be used to construct any gate to arbitrary accuracy (see \cite{arxiv:quant-ph/0505030}\cite[Appx. 3]{doi:10.1017/cbo9780511976667.019}). The task of approximating a desired gate by \hyperref[topic:clifford]{Clifford gates} and a fixed set of \hyperref[topic:clifford]{non-Clifford} gates is called \textit{gate compilation} or \textit{circuit synthesis}.
     - code_id: qubit_classical_into_quantum
       detail: 'Qubit c-q codes are qubit codes designed to transmit classical information.'
@@ -220,6 +220,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-12'
     - user_id: VictorVAlbert
       date: '2026-09-28'
     - user_id: VictorVAlbert

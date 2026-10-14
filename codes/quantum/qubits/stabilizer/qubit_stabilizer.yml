@@ -154,7 +154,7 @@ protection: |
   \label{topic:cleaning-lemma}
   If all logical operators act trivially on some subset of qubits in a stabilizer code, then any logical Pauli operator can be represented on the complementary qubit subset via a stabilizer.
   More technically, given any subset \(M\) of qubits that is correctable (under erasure), any logical Pauli operator \(P\) can be \textit{cleaned off} of \(M\) using a stabilizer \(S\) such that \(PS\) is supported on \(M^{\perp}\).
-  More generally, for any \(M\), we have \(g(M)+g(M^{\perp}) = 2k\), where \(g(M)\) is the number of logical-\(X\) and logical-\(Z\) Pauli operators supported fully on \(M\) (up to stabilizers).
+  More generally, for any \(M\), we have \(g(M)+g(M^{\perp}) = 2k\), where \(g(M)\) is the number of logical-\(X\) and logical-\(Z\) Pauli operators supported fully on \(M\) (up to stabilizers) \cite[Thm. 1]{arxiv:1002.0085}.
   The Cleaning Lemma was originally proven \cite{arxiv:0810.1983}, where an analogous result is stated for subsystem codes; see also Ref. \cite{arxiv:2204.04699}.
   \end{defterm}
 
@@ -167,7 +167,7 @@ protection: |
 # A stabilizer code is \textit{geometrically local} if the support of the stabilizer generators is bounded by a ball of size independent of \(n\).
 
 features:
-  rate: 'The \textit{ancilla-added rate} is defined as the ratio of logical qubits to the total number of physical qubits including ancillas, \(k/(n+c)\), where \(c\) is the number of ancilla qubits. The \textit{hashing bound} states that there is a qubit stabilizer code achieving a rate \(R = 1 - H(\mathbf{p})\) for a Pauli noise channel with Pauli error probabilities \(\mathbf{p}=(p_I,p_X,p_Y,p_Z)\), where \(H(\mathbf{p})\) is the entropy of the argument \cite[Thm. 23.6.2]{doi:10.1017/CBO9781139525343}. Finite block length bounds and a refinement of the hashing bound have been developed \cite{arxiv:2408.15202}.'
+  rate: 'The \textit{ancilla-added rate} is defined as the ratio of logical qubits to the total number of physical qubits including ancillas, \(k/(n+c)\), where \(c\) is the number of ancilla qubits. The \textit{hashing bound} states that there is a qubit stabilizer code achieving a rate \(R = 1 - H(\mathbf{p})\) for a Pauli noise channel with Pauli error probabilities \(\mathbf{p}=(p_I,p_X,p_Y,p_Z)\), where \(H(\mathbf{p})\) is the entropy of the argument \cite[Thm. 23.6.2]{doi:10.1017/CBO9781139525343}. \hyperref[topic:degeneracy]{Degenerate} codes can exceed the hashing bound \cite{arxiv:quant-ph/9604006}. Concatenating repetition codes inside random stabilizer codes yields nonzero rate on the depolarizing channel for fidelity \(f>0.80944\), whereas the hashing bound requires \(f>0.81071\) \cite{arxiv:quant-ph/9706061}. Finite block length bounds and a refinement of the hashing bound have been developed \cite{arxiv:2408.15202}.'
   encoders:
     - |
       \hyperref[topic:clifford]{Clifford circuits}, i.e., those consisting of CNOT, Hadamard, and certain phase gates \cite{arxiv:quant-ph/9607030}, using an algorithm \cite{arxiv:2301.02356} based on the Gottesman-Knill theorem \cite{arxiv:quant-ph/0406196} or using ZX calculus \cite{doi:10.1007/978-3-540-70583-3_25,arxiv:0906.4725}. 
@@ -260,6 +260,7 @@ features:
     - 'Fault-tolerant error correction scheme by Knill (a.k.a. telecorrection \cite{arxiv:quant-ph/0601066}), which is based on teleportation \cite{arxiv:quant-ph/0410199,arxiv:quant-ph/0312190}. A variant of it has been termed the Fibonacci scheme \cite{arxiv:0809.5063}.'
     - 'For a non-CSS stabilizer code, the logical Bell-state ancilla needed for Knill error correction can be prepared by treating two code blocks as one larger stabilizer state and verifying the combined stabilizer via the Shor-style preparation procedure \cite[Sec. 13.1.3]{preset:GottesmanBook}.'
     - 'Fault-tolerant error correction using flag qubits for codes satisfying certain conditions \cite{arxiv:1708.02246}.'
+    - 'Flag error correction for any stabilizer code, using \(d+1\) extra qubits with fast measurement and reset \cite{arxiv:1912.09549}.'
     - 'GHZ state distillation for Steane error correction \cite{arxiv:2109.06248}.'
     - 'Syndrome extraction using flag qubits and classical codes \cite{arxiv:2212.10738}.'
     - 'Fault-tolerant constant-depth unencoder transforming logical states into physical states using single-qubit measurements \cite{arxiv:2408.06299}.'
@@ -364,6 +365,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-12'
     - user_id: VictorVAlbert
       date: '2026-09-20'
     - user_id: VictorVAlbert

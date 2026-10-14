@@ -162,6 +162,18 @@ list's `select`, and say so in the PR. E.g. `3d_xyz_color` has no color-code
 ancestor, so `list_color` (descendants of `color` and `twist_defect_color`)
 misses it.
 
+**15. Explicit codes with \(d\leq 5\) get a small-distance parent.** An entry
+for one explicit code whose distance is at most five also lists a
+small-distance family as a parent. Use `small_distance_qubit_stabilizer` for
+qubit stabilizer codes only, `small_distance_quantum` for any other block
+quantum code, and `small_distance` for classical codes. Never list both quantum
+ones, since `small_distance_qubit_stabilizer` descends from
+`small_distance_quantum`. Omit the parent only when another parent already
+implies it (e.g., `hamming743` inherits `small_distance` through `hamming`),
+because the relation checkers flag the redundant edge. These parents feed the
+small-code lists (`list_small.yml`, `list_small_qubit_stabilizer.yml`,
+`list_small_quantum.yml`), so an explicit code without one drops out of them.
+
 ## Relation semantics
 
 - Relations are declared on the CHILD, in its `relations.parents` list; the

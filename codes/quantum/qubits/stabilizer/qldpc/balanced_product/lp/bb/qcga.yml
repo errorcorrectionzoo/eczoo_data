@@ -18,19 +18,42 @@ description: |
   Codes can be classified by the weight of their checks, e.g., by BB\(w\) where \(w\) is the check weight.
 
   The qubit connectivity graph is not quite a 2D grid and is instead decomposable into two planar subgraphs of degree three; there exists an optimized layout minimizing Euclidean communication distance for check operators \cite{arxiv:2404.18809}.
-  There are \(n\) \(X\) and \(Z\) check operators, with each one of weight six.
-  Bivariate bicycle codes are on par with the surface code in terms of threshold, but admit a much higher ancilla-added encoding rate at the expense of having non-geometrically local weight-six check operators.
+  There are \(n\) \(X\) and \(Z\) check operators, each of weight \(|A|+|B|\).
+  The weight-six BB codes of Ref. \cite{arxiv:2308.07915} are on par with the surface code in terms of threshold and admit a much higher ancilla-added encoding rate.
+  The price is check operators that are not geometrically local in a two-layer nearest-neighbor layout \cite{arxiv:2308.07915}.
 
-  See Refs. \cite{arxiv:2510.05211,arxiv:2510.06159} for examples of self-dual BB codes.
   Multivariate (e.g., trivariate) bicycle codes generalize BB codes to \hyperref[code:abelian_2bga]{Abelian 2BGA codes} with polynomials in more than two variables \cite{arxiv:2406.19151}; other variants and generalizations exist \cite{arxiv:2408.10001}.
   Versions with open boundary conditions are \hyperref[code:tile]{tile codes} \cite{arxiv:2504.09171}, obtained by pruning \cite{arxiv:2412.04181} or by condensing boundary anyons \cite{arxiv:2410.11942,arxiv:2504.08887}.
   There exist qudit BB codes that achieve \(kd^2 / n = 20\) \cite{arxiv:2602.20158}.
+
+  \subsection{BB codes as lattice codes on twisted tori}
+
+  A BB code with polynomials \(A\) and \(B\) is the quotient by a torus of a 2D translation-invariant CSS code with two qubits per unit cell \cite{arxiv:2503.03827}.
+  In the \hyperref[topic:quantum-polynomial-mapping]{polynomial representation}, the stabilizer generators of that code are \((A,B|0,0)\) and \((0,0|\overline{B},\overline{A})\) and their translations \cite{arxiv:2503.03827}.
+  The bar denotes the antipode map \(x^iy^j\mapsto x^{-i}y^{-j}\).
+  The torus is specified by two lattice vectors \((0,\alpha)\) and \((\beta,\gamma)\), which impose \(y^{\alpha}=1\) and \(x^{\beta}y^{\gamma}=1\) on \(n=2\alpha\beta\) qubits \cite{arxiv:2503.03827}.
+  Every torus can be brought to this form by a unimodular change of basis, and the case \(\gamma\neq 0\) is called a \textit{twisted torus} \cite[Sec. II.B]{arxiv:2503.03827}.
+  The polynomials of the \hyperref[code:gross]{gross code} on the twisted torus with lattice vectors \((0,30)\) and \((6,6)\) yield a \([[360,12,d\leq 24]]\) code whose checks have range three \cite[Sec. III.B and Table IV]{arxiv:2503.03827}.
+
+  A BB code satisfies the topological order condition iff \(A\) and \(B\) are coprime as Laurent polynomials \cite{arxiv:2503.03827,arxiv:2510.05211}.
+  Its \(m\)-type anyons are then the elements of the quotient ring \(\mathbb{F}_2[x^{\pm1},y^{\pm1}]/\langle A,B\rangle\) \cite{arxiv:2503.03827}.
+  The number of logical qubits on any torus is at most \(k_{\max}=2\dim\mathbb{F}_2[x^{\pm1},y^{\pm1}]/\langle A,B\rangle\), twice the number of independent \(m\)-type anyons \cite[Thm. 1]{arxiv:2503.03827}.
+  On the torus with lattice vectors \((0,\alpha)\) and \((\beta,\gamma)\), the number of logical qubits is \cite[Thm. 3]{arxiv:2503.03827}
+  \begin{align}
+    k=2\dim\frac{\mathbb{F}_2[x^{\pm1},y^{\pm1}]}{\langle A,B,y^{\alpha}-1,x^{\beta}y^{\gamma}-1\rangle}~.
+  \end{align}
+  The maximum \(k=k_{\max}\) is attained iff \(y^{\alpha}-1\) and \(x^{\beta}y^{\gamma}-1\) lie in the ideal \(\langle A,B\rangle\) \cite[Corr. 2.2]{arxiv:2503.03827}.
+  Otherwise, \(k<k_{\max}\) \cite{arxiv:2503.03827,arxiv:2503.04699}.
+
+  Weight-six BB codes whose polynomials \(A=1+x+x^ay^b\) and \(B=1+y+x^cy^d\) extend the toric-code pair \(1+x\), \(1+y\) by one monomial each include the checks of the 6.6.6 color code and of the gross code \cite[Exams. 2 and 3]{arxiv:2503.03827}.
 
 protection: 'A BB code with \(A=B\) and \(k>0\) has distance two regardless of check weight \cite[Thm. 1]{arxiv:2606.02418}.'
 
 notes:
   - 'A database of bivariate bicycle codes is available in QECDB \cite{preset:QECDB}.'
   - 'A catalogue of BB codes found by LLM-guided search is available at \href{https://github.com/qiskit-community/qcode-discovery}{qcode-discovery} \cite{arxiv:2606.02418}.'
+  - 'See Ref. \cite[Tables I-IV]{arxiv:2503.03827} for weight-six BB codes of this form on twisted tori with \(n\leq 400\), and Ref. \cite[Tables I and II]{arxiv:2510.05211} for weight-eight self-dual BB codes with \(n\leq 200\).'
+  - 'See Ref. \cite{arxiv:2510.06159} for further self-dual BB codes.'
 
 features:
   transversal_gates:
@@ -39,7 +62,7 @@ features:
   general_gates:
     - 'Certain bivariate bicycle codes admit a cup product structure and can thus have logical gates in the \term{Clifford hierarchy} implemented by constant-depth Clifford circuits \cite{arxiv:2410.16250}.'
 
-  rate: 'When ancilla qubit overhead is included, the encoding rate surpasses that of the surface code.
+  rate: 'When ancilla qubit overhead is included, the encoding rate of the weight-six codes of Ref. \cite{arxiv:2308.07915} surpasses that of the surface code.
   A general \([[n,k,d]]\) bivariate bicycle code requires \(n\) ancilla qubits for encoding, meaning that its \textit{ancilla-added encoding rate} is \(k/2n\).
   BB codes have zero design rate, so all of their logical qubits come from dependent stabilizer generators \cite{arxiv:2609.30069}.'
 
@@ -75,19 +98,25 @@ relations:
         detail: 'BB codes are PBB codes with \(C=D=0\) \cite{arxiv:2606.02418}.'
       - code_id: mirror
         detail: 'BB codes are mirror codes up to qubit permutations and Hadamard gates \cite[Prop. 3.21]{arxiv:2603.05496}.'
+      - code_id: 2d_stabilizer
+        detail: 'A BB code with polynomials \(A\) and \(B\) is the quotient by a torus \(\mathbb{Z}^2/\Lambda\) of a 2D translation-invariant CSS code with two qubits per unit cell \cite{arxiv:2503.03827,arxiv:2510.05211}. The generators of that code are \((A,B|0,0)\) and \((0,0|\overline{B},\overline{A})\), with range given by the degrees of the Laurent representatives of \(A\) and \(B\) \cite{arxiv:2503.03827}. Holding the polynomials fixed while enlarging the torus, including twisted tori, yields a 2D lattice stabilizer code family with checks of bounded range \cite{arxiv:2410.11942,arxiv:2503.03827}.'
     cousins:
       - code_id: triangular_color
-        detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}.'
+        detail: 'Certain bivariate bicycle codes are equivalent to a family of 6.6.6 color codes \cite[Exam. 1]{arxiv:2412.04181}. The 6.6.6 color code on a torus is the self-dual BB code with \(A=1+x+y\) \cite[Exam. 2]{arxiv:2510.05211}.'
+      - code_id: self_dual_css
+        detail: 'BB codes with \(B=\overline{A}\), where the bar denotes the antipode map \(x^iy^j\mapsto x^{-i}y^{-j}\), have \(H_X=H_Z\) and are self-dual CSS codes \cite{arxiv:2510.05211}. Weight-six ones, \(A=1+x^ay^b+x^cy^d\), have \(k_{\max}=4|ad-bc|\) and reduce to \(|ad-bc|\) decoupled copies of the 6.6.6 color code \cite[Thm. 1 and Exam. 2]{arxiv:2510.05211}. Weight-eight ones are doubly even, and \(A=1+x+y+y^{-1}\) yields the \([[16,4,4]]\) and \([[64,8,8]]\) codes \cite[Table I]{arxiv:2510.05211}.'
       - code_id: topological_abelian
-        detail: 'BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699}.'
+        detail: 'BB codes have been investigated in terms of their anyons and topological order \cite{arxiv:2503.04699,arxiv:2503.03827}. A BB code satisfies the topological order condition iff its polynomials are coprime \cite{arxiv:2503.03827}. Its \(m\)-type anyons are then the elements of \(\mathbb{F}_2[x^{\pm1},y^{\pm1}]/\langle A,B\rangle\), and the number of logical qubits on any torus is at most twice the dimension of this ring \cite[Thm. 1]{arxiv:2503.03827}.'
       - code_id: generalized_bicycle
-        detail: 'GB codes (BB codes) are 2BGA codes over the cyclic group \(\mathbb{Z}_{\ell}\) (Abelian group \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\)). The two codes are the same when \(r\) and \(s\) are relatively prime due to the isomorphism \(\mathbb{Z}_{r} \times \mathbb{Z}_{s} \cong \mathbb{Z}_{\ell = rs}\).'
+        detail: 'GB codes (BB codes) are 2BGA codes over the cyclic group \(\mathbb{Z}_{\ell}\) (Abelian group \(\mathbb{Z}_{r} \times \mathbb{Z}_{s}\)). The two codes are the same when \(r\) and \(s\) are relatively prime due to the isomorphism \(\mathbb{Z}_{r} \times \mathbb{Z}_{s} \cong \mathbb{Z}_{\ell = rs}\). BB codes on twisted tori with lattice vectors \((0,\ell)\) and \((1,\gamma)\) reduce to GB codes upon substituting \(x=y^{-\gamma}\) \cite[Sec. III.C]{arxiv:2503.03827}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-11'
     - user_id: VictorVAlbert
       date: '2026-09-27'
     - user_id: VictorVAlbert
