@@ -27,12 +27,11 @@ features:
 
 relations:
   parents:
-    - code_id: twist_defect_color
-  cousins:
     - code_id: triangular_color
-      detail: 'The XYZ color code is obtained from the 6.6.6 color code by applying single-qubit Clifford rotations on a subset of qubits such that the \(X\)- and \(Z\)-type generators are mapped to \(XZXZXZ\) and \(ZYZYZY\), respectively.'
+      detail: 'The XYZ color code is a 6.6.6 color code presented in non-CSS form. It is obtained by applying a single-qubit Clifford rotation to every qubit on one sublattice of the honeycomb \cite[Sec. 2.1]{arxiv:2203.16534}. This rotation maps the \(X\)- and \(Z\)-type generators to \(XZXZXZ\) and \(ZYZYZY\), respectively. The domain wall color code is likewise obtained by applying Hadamard gates to half of the qubits \cite{arxiv:2307.00054}. Since both codes are defined by such rotations, every instance is equivalent to a CSS 6.6.6 color code.'
+  cousins:
     - code_id: xzzx
-      detail: 'The XZZX surface (XYZ color) is a non-CSS analogue of the rotated surface (6.6.6 color) code such that the two codes are related by single-qubit Clifford rotations.'
+      detail: 'The XZZX surface (XYZ color) code is a non-CSS analogue of the rotated surface (6.6.6 color) code. On lattices with a checkerboard sublattice of qubits, each is related to its CSS counterpart by single-qubit Clifford rotations.'
     - code_id: fracton
       detail: 'The XYZ color code resembles a Type-II fracton code in the limit of infinite noise bias \cite{arxiv:2203.16534}.'
 
@@ -41,6 +40,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
