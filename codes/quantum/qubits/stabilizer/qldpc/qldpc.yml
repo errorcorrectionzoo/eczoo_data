@@ -23,6 +23,9 @@ description: |
   A \textit{geometrically local qubit stabilizer code} is a qubit QLDPC code where the sites involved in any syndrome value are contained in a fixed volume that does not scale with \(n\).
   As opposed to general stabilizer codes, syndrome extraction of the constant-weight check operators of a QLDPC code can be done using a constant-depth circuit.
 
+  The first code proposed as a quantum version of an LDPC code is a \([[15,4]]\) \hyperref[code:pg_qldpc]{FG-QLDPC code} \cite{arxiv:quant-ph/0108131}\cite[Sec. 1]{arxiv:1207.0732}\cite[Sec. III]{arxiv:1503.02372}.
+  The first families of QLDPC codes, including the \hyperref[code:bicycle]{bicycle codes}, are CSS codes built from dual-containing sparse-graph codes \cite{arxiv:quant-ph/0304161}\cite[Sec. III]{arxiv:1503.02372}.
+
 protection: |
   Detects errors on \(d-1\) sites, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) sites.
   Code distance may not be a reliable marker of code performance.
@@ -150,6 +153,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
