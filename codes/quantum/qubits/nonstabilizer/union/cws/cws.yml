@@ -38,9 +38,19 @@ features:
     - 'If the classical code \( \mathcal{C} \) has an encoder of complexity \(f(n)\), then the CWS code \( \mathcal{Q} = (\mathcal{G},\mathcal{C}) \) has an encoder of complexity \(\max( n^2, f(n) )\), obtained by preparing the graph state and applying the classical encoder \cite{arxiv:0708.1021}.'
     - 'Sequential encoder related to MBQC \cite{arxiv:2405.06142}.'
   decoders:
-    - 'There is no known \textit{efficient} algorithm to decode \textit{non-additive} (non-stabilizer) CWS codes.'
+    - 'There is no known \textit{efficient} algorithm to decode an arbitrary \textit{non-additive} (non-stabilizer) CWS code.
+    CWS codes whose graph is sampled at random as below admit an efficient keyed decoder \cite{arxiv:2609.38986}.'
     - 'Clustered bounded-distance decoder \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,preset:Li10}.'
-    - 'Structured error recovery \cite{arxiv:0912.3245}, which reduces to syndrome-based recovery for additive (i.e., stabilizer) CWS codes.'
+    - 'Structured error recovery \cite{arxiv:0912.3245}, which reduces to syndrome-based recovery for additive (i.e., stabilizer) CWS codes.
+    It takes superpolynomial time when correcting errors on \(\omega(\log n)\) qubits \cite{arxiv:2609.38986}.'
+    - 'Keyed decoder for CWS codes whose graph is a random bipartite graph of degree \(d=O(\log^2 n)\) \cite{arxiv:2609.38986}.
+    The classical code can be any efficiently decodable code, linear or not, that corrects a constant fraction of bit flips.
+    The graph is the XOR of \(d\) uniformly random perfect matchings between two halves of the qubits.
+    The graph-state unitary conjugates a Pauli error \(Z^vX^u\) into the bit error \(v\oplus Au\) and the phase error \(Z^u\), where \(A\) is the adjacency matrix.
+    The classical decoder removes the bit error coherently, and a measurement of the residual register reveals \(e=v\oplus Au\).
+    The \textit{Recover} bit-flipping algorithm on the graph then obtains \(u\) from \(e\), and the phase error is cancelled.
+    A uniformly random Pauli frame, also part of the secret key, twirls arbitrary noise into Pauli noise.
+    The decoder runs in polynomial time and corrects all key-independent \(o(n\log\log n/\log n)\)-local noise on average over the key \cite{arxiv:2609.38986}.'
 
 notes:
   - 'See Ref. \cite{doi:10.1017/CBO9781139034807.012} for an overview of CWS codes.'
@@ -77,6 +87,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
