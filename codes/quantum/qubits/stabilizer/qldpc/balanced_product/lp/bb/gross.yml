@@ -47,6 +47,12 @@ features:
   fault_tolerance:
     - 'At physical error rate \(p=10^{-3}\) under circuit-level noise, the code suppresses the logical error rate to about \(2\times 10^{-7}\), enough to preserve \(12\) logical qubits for nearly one million syndrome cycles using \(288\) total physical qubits \cite{arxiv:2308.07915}.'
     - 'Fault-tolerant modular quantum computing framework \cite{arxiv:2506.03094}.'
+    - |
+      Cut the torus into two halves of six columns each.
+      Exact syndrome extraction across this cut needs at least \(30\) crossing two-qubit operations, or \(60\) if all crossing operations are CNOT gates \cite[Sec. 4.1]{arxiv:2609.39705}.
+      With all other operations local to the halves, exactly \(60\) shared Bell pairs are necessary and sufficient \cite[Prop. 4.1]{arxiv:2609.39705}.
+      The optimum is attained with a basis of \(72\) original checks supported within one half and \(60\) crossing original checks, each measured with one remote-parity gadget \cite{arxiv:2609.39705}.
+      The twelve omitted syndrome bits are reconstructed classically \cite{arxiv:2609.39705}.
 
   code_capacity_threshold:
     - 'Bit-flip noise: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of \(\approx 5\%\) for the block logical error rate under BP-OSD decoding \cite{arxiv:2606.02418}.'
@@ -72,6 +78,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert

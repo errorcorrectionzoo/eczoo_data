@@ -272,6 +272,14 @@ features:
     - 'Algorithm for fault-tolerant magic-state initialization \cite{arxiv:2501.10291}.'
     - 'Fault tolerance of qubit stabilizer codes has been formalized \cite{arxiv:2501.14380}.'
     - 'Fault-tolerant flag-based non-transversal logical gates \cite{arxiv:2510.08402}.'
+    - |
+      The \textit{intrinsic cut cost} of a bipartition of the data qubits into \(U\) and \(U^c\) is \(\chi_U=\dim\mathsf{S}-\dim\mathsf{S}_U-\dim\mathsf{S}_{U^c}\) \cite{arxiv:2609.39705}.
+      Here \(\mathsf{S}_U\) is the subgroup of stabilizers supported entirely in \(U\), and dimensions count independent generators.
+      The cost is the minimum number of cut-crossing generators over all generating sets of \(\mathsf{S}\), and it can be computed from three ranks of any check matrix \cite{arxiv:2609.39705}.
+      It also equals the mutual information between \(U\) and \(U^c\) in the maximally mixed code state \cite{arxiv:2609.39705}.
+      Every exact syndrome-extraction circuit, adaptive or not, applies at least \(\chi_U/2\) two-qubit operations across the cut \cite[Thm. 3.5]{arxiv:2609.39705}.
+      It applies at least \(\chi_U\) if every crossing operation is a CNOT gate \cite{arxiv:2609.39705}.
+      With free local processing on each side, exact extraction is possible with \(m\) shared Bell pairs if and only if \(m\geq\chi_U\) \cite[Thm. 3.8]{arxiv:2609.39705}.
 
 
   code_capacity_threshold:
@@ -365,6 +373,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
