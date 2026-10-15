@@ -27,6 +27,10 @@ protection: |
   Up to equivalence, the gross code is the only qubit \hyperref[code:abelian_2bga]{Abelian 2BGA code} with check weight six and \(n\leq 200\) that reaches \(kd^2/n=12\) \cite{arxiv:2610.13880}.
   It has the largest \(kd^2/n\) among all qubit 2BGA codes with check weight six and \(n\leq 191\) \cite{arxiv:2610.13880}.
 
+  The parameters \(k=12\) and \(d=12\) are formally verified in the Lean proof assistant \cite{arxiv:2610.03214}.
+  The lower bound \(d \geq 12\) comes from a formalized homological argument \cite{manual:{S. Jain, “QECLean: Formalized Quantum Error Correction”, GitHub repository (2025) \href{https://github.com/Stavan-Jain/QECLean}{URL}}}.
+  The upper bound comes from an explicit weight-twelve logical operator, proved nontrivial by an anticommuting logical operator \cite{arxiv:2610.03214}.
+
 features:
   rate: 'An ancilla-added rate of \(1/24\). In contrast, the distance-13 surface code has ancilla-added rate \(1/338\).'
   # 12 logical qubits would require nearly 3000 physical qubits with separate surface-code patches in the comparison of Ref. \cite{arxiv:2308.07915}.
@@ -72,6 +76,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
