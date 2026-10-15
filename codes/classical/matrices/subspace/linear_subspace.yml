@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: linear_subspace
+physical: matrices
+
+name: 'Linear subspace code'
+introduced: '\cite{arxiv:1103.3117}'
+
+alternative_names:
+  - 'Linear code in projective space'
+
+
+description: |
+  Subspace code equipped with an addition \(\boxplus\) under which it is an elementary Abelian 2-group with the zero subspace as identity and the subspace distance is translation invariant \cite{arxiv:1103.3117}.
+  The code is thus an \(\mathbb{F}_2\)-vector space, so its size is a power of two.
+  The dimension of \(X \boxplus Y\) equals the subspace distance between codewords \(X\) and \(Y\) \cite{arxiv:1103.3117}.
+
+  The spans of all subsets of a fixed basis of \(\mathbb{F}_2^n\) form a linear subspace code with \(2^n\) codewords \cite{arxiv:1103.3117}.
+  The addition is the symmetric difference of the index sets, and such a code is said to be \textit{derived from a fixed basis} \cite{arxiv:1103.3117}.
+
+protection: |
+  A linear subspace code in \(\mathbb{F}_2^n\) has at most \(2^n\) codewords \cite{arxiv:2609.33719}.
+  The bound is attained by the code derived from a fixed basis \cite{arxiv:1103.3117}.
+  It is also attained by the \textit{Fano-plane code}, whose nonzero codewords are the seven two-dimensional subspaces of \(\mathbb{F}_2^3\) \cite{arxiv:1103.3117,arxiv:2107.10820}.
+  If the full space \(\mathbb{F}_2^n\) is a codeword, a code attaining the bound is derived from a fixed basis \cite{arxiv:1410.2725}.
+  For every prime power \(q>2\), there is an \(n\) for which \(\mathbb{F}_q^n\) admits a linear subspace code with more than \(2^n\) codewords \cite{arxiv:2107.10820}.
+
+relations:
+  parents:
+    - code_id: subspace
+      detail: 'A linear subspace code is a subspace code equipped with an addition under which it is an elementary Abelian 2-group and the subspace distance is translation invariant \cite{arxiv:1103.3117}.'
+  cousins:
+    - code_id: binary_linear
+      detail: 'Linear subspace codes are analogues of linear binary codes in projective space, with the subspace distance translation invariant under the code addition \cite{arxiv:1103.3117}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
