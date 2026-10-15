@@ -20,7 +20,9 @@ description: |
   A concatenated quantum code with self-simulating control elements based on work by Gacs \cite{doi:10.1145/800061.808730,doi:10.1016/0022-0000(86)90002-4,preset:Gacs89,arxiv:math/0003117} yields a self-correcting quantum memory in 2D \cite{arxiv:2601.20818}.
 
   The effect of a Markovian thermal environment consists of a Lindbladian in Davies form admitting a Gibbs steady state at some temperature \(T\) \cite{arxiv:1411.6643}.
-  To test whether a system is self-correcting, an initial codeword \(\rho(0)\) is evolved under the Davies Lindbladian and the code Hamiltonian (or, if we are to allow extra passive protection, the code Lindbladian) to the state \(\rho(t)\) at time \(t\), after which it is decoded via decoding map \(\cal{D}\).
+  To test whether a system is self-correcting, an initial codeword \(\rho(0)\) is evolved under the Davies Lindbladian and the code Hamiltonian to the state \(\rho(t)\) at time \(t\).
+  The code Hamiltonian can be replaced by a code Lindbladian if extra passive protection is allowed.
+  The state \(\rho(t)\) is then decoded via a decoding map \(\cal{D}\).
   The memory time \(\tau\) is defined to be
   \begin{align}
     \tau=\sup\left\{ t>0\,|\left\Vert {\cal D}( \rho(t) )-\rho(0)\right\Vert _{1}<\epsilon\right\}
@@ -43,7 +45,6 @@ protection: |
   An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858} including Abelian \cite{arxiv:1601.01324} and non-Abelian \cite{arxiv:2107.01628} quantum doubles.
   Two-dimensional stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not admit such a barrier.
   No-go theorems for 3D models are much more restrictive \cite{arxiv:1105.4159}, e.g., a 3D lattice stabilizer code with a locality-preserving non-Clifford gate cannot have a microscopic energy barrier \cite{arxiv:1408.1720}.
-  2D stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not have an energy barrier.
   More generally, translationally invariant CSS codes are not self-correcting at high temperature \cite{arxiv:2510.03090}.
   There exist several candidates for self-correction as well as several partially self-correcting memories (see cousins below).
 
@@ -74,7 +75,7 @@ relations:
     - code_id: color
       detail: 'The 6D color code is a self-correcting quantum memory and admits a fault-tolerant universal gate set in 7D \cite{arxiv:0907.5228}.'
     - code_id: haah_cubic
-      detail: 'Cubic code 1 is partially self-correcting with a logarithmic energy barrier \cite{arxiv:1112.3252}.'
+      detail: 'Cubic code 1 is partially self-correcting with a logarithmic energy barrier \cite{arxiv:1112.3252}, but it is not a self-correcting quantum memory. Under Davies dynamics with single-qubit couplings, it thermalizes rapidly at every positive temperature, reaching the Gibbs state from any initial state in time \(O(\log n)\) \cite{arxiv:2609.39959}. Its passive memory time is therefore at most logarithmic in \(n\), regardless of the decoder \cite{arxiv:2609.39959}.'
     - code_id: translationally_invariant_stabilizer
       detail: 'Translationally invariant CSS codes are not self-correcting at high temperature \cite{arxiv:2510.03090}.'
     - code_id: quantum_repetition
@@ -104,6 +105,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
