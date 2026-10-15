@@ -14,6 +14,7 @@ alternative_names:
   - '3D toric code'
   - '3D cubic code'
   - 'Bosonic-charge bosonic-loop (BcBl) surface code'
+  - 'Solid code'
 
 
 description: |
@@ -27,7 +28,11 @@ description: |
   \textit{3D planar code}.
   In the open-boundary hypercubic family of \cite{arxiv:1708.09286}, setting one linear dimension of the tesseract construction to \(1\) yields a single-qubit \textit{cubic code} that interpolates between the planar surface code and the 4D tesseract code.
   There exists a rotated version of the 3D surface code, the \textit{3D rotated surface code}, akin to the (2D) rotated surface code \cite{arxiv:2211.02116}.
-  The \textit{welded surface code} \cite{arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
+  The \textit{welded surface code} \cite{arxiv:1208.3496,arxiv:1406.4227} consists of several 3D surface codes stitched together in a way that the distance scales faster than the linear size of the system.
+  \textit{Welding} identifies the qubits on a shared rough boundary and keeps all \(X\)-type stabilizers, merging the string-like \(Z\)-type logical operators into one branching string \cite{arxiv:1208.3496}.
+  A \(Z\) error on a welded qubit excites an \(X\)-type stabilizer in each code sharing it, so excitations split at every weld \cite{arxiv:1208.3496}.
+  The codes are the edges of a cubic graph whose vertices are the welded boundaries \cite{arxiv:1208.3496}.
+  The branching string then has the energy barrier of the Ising model on that graph \cite{arxiv:1208.3496}.
   In the rectified picture, three 3D surface codes can be supported on the same rectified cubic lattice, and the corresponding cubic-lattice realization is a gauge choice of the 3D Bacon-Shor code \cite{arxiv:1801.04255}.
 
   Related models \cite{arxiv:cond-mat/0607736} on lattices with certain colorability are equivalent to several copies of the 3D surface code \cite{arxiv:1908.08049}.
@@ -36,6 +41,11 @@ description: |
 protection: |
   The planar 3D surface code family on a cubic lattice of length \(L\) has parameters \([[2L(L-1)^2+L^3,1,d_X=L^2,d_Z=L]]\), while the 3D toric code has parameters \([[3L^3,3,d_X=L^2,d_Z=L]]\).
   Rectangular open-boundary 3D versions furnish single-qubit \([[71,1,6]]\), \([[177,1,9]]\), \([[331,1,12]]\), and \([[616,1,16]]\) codes, illustrating an \(n\propto 3d^2\) tradeoff between the 2D surface and 4D tesseract families \cite{arxiv:1708.09286}.
+  The membrane-like logical operator has an energy barrier of \hyperref[topic:asymptotics]{order} \(O(L)\), while the string-like logical operator has a constant energy barrier \cite{arxiv:1208.3496}.
+
+  The welded surface code on a cube of side length \(L\) has parameters \([[O(L^3),1,O(L^{4/3})]]\) and an energy barrier of \hyperref[topic:asymptotics]{order} \(O(L^{2/3})\) \cite{arxiv:1208.3496,arxiv:1406.4227}.
+  For a cubic graph \(R\) codes wide and codes \(d\) qubits wide, the string and membrane barriers are \(O(R^2)\) and \(O(d)\), balanced by \(d \propto R^2\) \cite{arxiv:1208.3496}.
+  The code breaks microscopic translation invariance, evading the no-go theorems for translationally invariant 3D stabilizer codes \cite{arxiv:1208.3496,arxiv:1406.4227}.
 
   Stability against Hamiltonian perturbations was determined using a tensor-network representation \cite{arxiv:2012.15346}. The phase diagram of the perturbed tensor network maps to that of a 3D Ising gauge theory.
 
@@ -97,6 +107,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
