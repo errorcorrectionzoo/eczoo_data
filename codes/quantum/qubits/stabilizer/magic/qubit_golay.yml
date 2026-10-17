@@ -45,14 +45,14 @@ features:
     - 'Meggitt decoding for the cyclic CSS structure was used in comparative logical-CNOT simulations \cite{arxiv:0711.1556}.'
 
   fault_tolerance:
-    - 'Fault-tolerant logical zero preparation by verifying four encoded copies against one another with transversal CNOT gates \cite{arxiv:1106.2190}. Each copy is prepared by the 57-CNOT overlap circuit with a different qubit permutation, and the verified preparation uses 297 CNOT gates in total \cite{arxiv:1106.2190}\cite[Table I]{arxiv:2508.14200}.'
-    - 'Flag-at-origin fault-tolerant preparation of the logical zero state uses 237 CNOT gates and 80 flag qubits \cite[Table I]{arxiv:2508.14200}. Every \(Z\)-type error is equivalent, up to stabilizers and the logical \(Z\) operator, to an error of weight at most three because the classical Golay code is perfect. Three \(Z\)-type faults are therefore always correctable, and \(Z\)-detecting flag gadgets designed for distance five suffice \cite[Sec. II.C]{arxiv:2508.14200}.'
+    - 'Fault-tolerant logical zero preparation with 297 CNOT gates that verifies four differently permuted copies of the 57-CNOT encoding circuit against one another via transversal CNOT gates \cite{arxiv:1106.2190}.'
+    - 'Flag-at-origin fault-tolerant preparation of the logical zero state with 237 CNOT gates and 80 flag qubits \cite[Table I]{arxiv:2508.14200}.'
 
   threshold:
     - '\(1.32\times 10^{-3}\)-per gate error rate for depolarizing noise upon recursive concatenation \cite{arxiv:1106.2190}, improving previous lower bounds \cite{arxiv:quant-ph/0207119,arxiv:0711.1556,manual:{B. Reichardt and Y. Ouyang. Unpublished (2006)}}. A numerical study \cite{arxiv:quant-ph/0207119} found that the Golay code achieved the highest threshold among a dozen well-known codes at the time \cite{arxiv:0711.1556}.'
 
 realizations:
-  - 'Trapped-ion devices: fault-tolerant flag-at-origin preparation of the logical zero state on the H2-1 device by Quantinuum, with two logical errors among 6,140 accepted preparation attempts \cite{arxiv:2508.14200}. The logical SPAM error rate of \(3.3\times 10^{-4}\) at an acceptance rate of \(47.23\%\) is below the physical \(\ket{0}\) SPAM error rate of \(6.0\times 10^{-4}\) within \(95\%\) confidence intervals \cite{arxiv:2508.14200}.'
+  - 'Trapped-ion devices: flag-at-origin preparation of the logical zero state on the H2-1 device by Quantinuum, with logical error rate \(3.3\times 10^{-4}\) at \(47\%\) acceptance \cite{arxiv:2508.14200}.'
 
 notes:
   - 'See Ref. \cite{arxiv:quant-ph/0612004} for more details.'
@@ -81,7 +81,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: YinchenLiu

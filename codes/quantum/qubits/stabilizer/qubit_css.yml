@@ -147,14 +147,11 @@ features:
     - 'Fault-tolerant homological measurement of logical Pauli operators \cite{arxiv:2410.02753}.'
     - 'Fault-tolerant CNOT gate using generalized lattice surgery \cite{arxiv:2505.01370}.'
     - >-
-      \textit{Flag-at-origin} fault-tolerant preparation of any \textit{CSS state} at any distance \cite{arxiv:2508.14200}.
-      A CSS state is a logical state stabilized by \(X\)-type and \(Z\)-type operators, such as a logical \(\ket{0}\), \(\ket{+}\), or GHZ state.
-      Any such state is prepared by a bipartite CNOT circuit whose control qubits start in \(\ket{+}\) and whose target qubits start in \(\ket{0}\) \cite[Appx. A]{arxiv:2508.14200}.
-      In such a circuit, \(X\) errors propagate only from control to target qubits, and \(Z\) errors only from target to control qubits.
-      An \(X\)-detecting flag gadget is therefore appended to every control qubit and a \(Z\)-detecting flag gadget to every target qubit.
-      Restarting the preparation whenever a flag fires makes the circuit fault tolerant against up to \(\lfloor d/2 \rfloor\) faults \cite{arxiv:2508.14200}.
-      Each gadget's size depends only on the distance and on the number of CNOT gates acting on its qubit, so gadgets are reusable across codes \cite{arxiv:2508.14200}.
-      Explicit circuits exist for codes up to distance 11 \cite[Table I]{arxiv:2508.14200}.
+      \textit{Flag-at-origin} fault-tolerant preparation of any \textit{CSS state}, i.e., a stabilizer state whose stabilizer generators are each \(X\)-type or \(Z\)-type \cite{arxiv:2508.14200}.
+      Such a state is prepared by a bipartite CNOT circuit whose controls start in \(\ket{+}\) and whose targets start in \(\ket{0}\) \cite[Appx. A]{arxiv:2508.14200}.
+      In this circuit, \(X\) errors propagate only from controls to targets, and \(Z\) errors only from targets to controls.
+      Appending \(X\)-detecting flag gadgets to controls and \(Z\)-detecting flag gadgets to targets, and restarting whenever a flag fires, makes the preparation tolerate up to \(\lfloor d/2 \rfloor\) faults \cite{arxiv:2508.14200}.
+      Each gadget depends only on \(d\) and on the number of CNOT gates acting on its qubit \cite{arxiv:2508.14200}.
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1208.2317,arxiv:1412.6172}.'
     - >-
@@ -235,7 +232,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-09-23'
     - user_id: VictorVAlbert
