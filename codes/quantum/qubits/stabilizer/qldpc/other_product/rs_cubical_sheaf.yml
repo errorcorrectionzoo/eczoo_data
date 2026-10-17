@@ -11,25 +11,18 @@ name: 'Reed-Solomon cubical sheaf code'
 introduced: '\cite{arxiv:2609.28028}'
 
 description: |
-  DLV code whose cubical complex is an arithmetic quotient of a product of \(r\) Bruhat-Tits trees and whose local codes are Reed-Solomon codes on the projective line \cite{arxiv:2609.28028}.
-  For \(r=4\) and \(k=2\), the family is an asymptotically good binary \(c^3\)-QLTC, with constant rate, linear distance, constant soundness, and bounded check weight \cite[Thm. 1.2]{arxiv:2609.28028}.
+  DLV code on the degree-\(k\) cochains of a Reed-Solomon Tanner sheaf over an arithmetic quotient of a product of \(r\) Bruhat-Tits trees \cite{arxiv:2609.28028}.
+  Its Reed-Solomon local codes are product expanding with a constant independent of their length \cite[Thm. 5.4]{arxiv:2609.28028}.
+  The tree degrees can therefore be raised until the complex expands enough for the DLV local-to-global argument, yielding binary \(c^3\)-QLTCs for every \(r\geq4\) and \(2\leq k\leq r-2\) \cite[Thm. 6.2]{arxiv:2609.28028}.
 
-  The complex is a congruence quotient of a product of \((q_i+1)\)-regular trees by a quaternionic lattice over \(\mathbb{F}_2(y)\) \cite{arxiv:1808.03290,arxiv:2504.15087}.
-  Its parallel-face graphs are Ramanujan at every size, with normalized second eigenvalue at most \(\max_i 2\sqrt{q_i}/(q_i+1)\) \cite[Prop. 4.3]{arxiv:2609.28028}.
+  The quotient is by a congruence subgroup of a quaternionic lattice over \(\mathbb{F}_2(y)\) \cite{arxiv:1808.03290,arxiv:2504.15087}.
+  Its parallel-face graphs are Ramanujan at every size \cite[Prop. 4.3]{arxiv:2609.28028}.
   The \(q_i+1\) edges in direction \(i\) at a vertex are indexed by \(\mathbb{P}^1(\mathbb{F}_{q_i})\).
   The direction-\(i\) local code consists of evaluations of homogeneous polynomials of degree \(d_i\) at these points.
-  A Frobenius twist of the local codes at vertices of one color, with \(\sqrt{q_i}-1\) dividing \(d_i\), makes the product sheaf equivariant under the lattice.
-  The sheaf therefore descends to the quotient \cite[Prop. 4.6]{arxiv:2609.28028}.
+  Twisting the lattice action by Frobenius at color-0 vertices, with \(\sqrt{q_i}-1\) dividing \(d_i\), makes the product sheaf equivariant, so it descends to the quotient \cite[Lemma 4.4 and Prop. 4.6]{arxiv:2609.28028}.
+  The local codes are monomially equivalent to Reed-Solomon codes on the norm-one sets \(\{z\in\mathbb{F}_{q_i^2}:z^{q_i+1}=1\}\), for which the product-expansion constant is \(c_r\beta^r\) at relative redundancy at least \(\beta\) \cite[Thm. 5.4]{arxiv:2609.28028}.
 
-  The local codes are monomially equivalent to Reed-Solomon codes on the norm-one sets \(\{z\in\mathbb{F}_{q_i^2}:z^{q_i+1}=1\}\) with \(q_i=2^{2(A+i)}\).
-  Any tuple of such codes with relative redundancies at least \(\beta\) is product expanding with a constant \(c_r\beta^r\) independent of the code lengths \cite[Thm. 5.4]{arxiv:2609.28028}.
-  Increasing \(A\) thus improves the spectral expansion of the complex without degrading the local coboundary expansion of the sheaf and its dual.
-  This removes the polylogarithmic losses of the Abelian-lift DLV construction.
-
-protection: |
-  For fixed \(r\geq 4\) and \(2\leq k\leq r-2\), the degree-\(k\) codes form an explicit polynomial-time computable family with \(K=\Omega(N)\), \(D=\Omega(N)\), and soundness \(\rho=\Omega(1)\) \cite[Thm. 6.2]{arxiv:2609.28028}.
-  The soundness bound holds for both \(H_X\) and \(H_Z\), whose rows and columns have uniformly bounded weight.
-  For \(r=4\) and \(k=2\), the family is binary with \(K\geq\alpha N\), \(D\geq\delta N\), and soundness \(\rho\) for absolute constants \(\alpha,\delta,\rho>0\) \cite[Thm. 1.2]{arxiv:2609.28028}.
+protection: 'For fixed \(r\geq4\) and \(2\leq k\leq r-2\), the degree-\(k\) codes form a binary family with \(K=\Omega(N)\), \(D=\Omega(N)\), soundness \(\rho=\Omega(1)\), and bounded check weight and qubit degree \cite[Thm. 6.2]{arxiv:2609.28028}.'
 
 features:
   rate: 'Rate \(K/N\geq 1/(2\binom{r}{k}2^{r-k})\), obtained by giving \(k\) directions small local dimension and the remaining directions the complementary dimension \cite[Prop. 6.1 and Thm. 6.2]{arxiv:2609.28028}.'
@@ -37,14 +30,16 @@ features:
 relations:
   parents:
     - code_id: dlv
-      detail: 'Reed-Solomon cubical sheaf codes are DLV codes whose cubical complex is an arithmetic quotient of a product of Bruhat-Tits trees and whose local codes are Reed-Solomon codes. Their parallel-face graphs are Ramanujan at every size, which removes the polylogarithmic losses in distance and soundness of the Abelian-lift construction \cite{arxiv:2609.28028}.'
+      detail: 'Reed-Solomon cubical sheaf codes are DLV codes whose cubical complex is an arithmetic quotient of a product of Bruhat-Tits trees, with generating sets that commute only setwise. Their Reed-Solomon local codes are product expanding uniformly in their length, which removes the polylogarithmic losses in distance and soundness of the Abelian-lift DLV construction \cite{arxiv:2609.28028}.'
     - code_id: qltc
-      detail: 'Reed-Solomon cubical sheaf codes with \(r=4\) and \(k=2\) form an asymptotically good binary \(c^3\)-QLTC family, with constant rate, linear distance, constant soundness, and bounded check weight \cite[Thm. 1.2]{arxiv:2609.28028}.'
+      detail: 'For fixed \(r\geq4\) and \(2\leq k\leq r-2\), Reed-Solomon cubical sheaf codes form binary \(c^3\)-QLTC families with constant rate, linear distance, constant soundness, and bounded check weight \cite[Thm. 6.2]{arxiv:2609.28028}.'
   cousins:
     - code_id: good_qldpc
-      detail: 'Reed-Solomon cubical sheaf codes are asymptotically good QLDPC codes that are also locally testable with constant soundness \cite{arxiv:2609.28028}.'
+      detail: 'The Reed-Solomon cubical sheaf construction yields asymptotically good QLDPC codes that are also \(c^3\)-QLTCs \cite[Thm. 6.2]{arxiv:2609.28028}.'
     - code_id: reed_solomon
-      detail: 'The local codes of a Reed-Solomon cubical sheaf code are projective Reed-Solomon codes on \(\mathbb{P}^1(\mathbb{F}_{q})\), which are monomially equivalent to Reed-Solomon codes on the norm-one set \(\{z\in\mathbb{F}_{q^2}:z^{q+1}=1\}\) \cite[Lemma 4.5]{arxiv:2609.28028}.'
+      detail: 'The local codes of Reed-Solomon cubical sheaf codes are monomially equivalent to projective Reed-Solomon codes on \(\mathbb{P}^1(\mathbb{F}_{q})\) and to Reed-Solomon codes on the norm-one set \(\{z\in\mathbb{F}_{q^2}:z^{q+1}=1\}\) \cite[Lemmas 4.4 and 4.5]{arxiv:2609.28028}.'
+    - code_id: extended_reed_solomon
+      detail: 'The projective Reed-Solomon local codes of Reed-Solomon cubical sheaf codes evaluate homogeneous polynomials at all \(q+1\) points of \(\mathbb{P}^1(\mathbb{F}_q)\), i.e., they are doubly extended Reed-Solomon codes \cite[Sec. 4.3]{arxiv:2609.28028}.'
 
 
 # Begin Entry Meta Information
