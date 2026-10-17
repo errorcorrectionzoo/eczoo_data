@@ -57,13 +57,11 @@ features:
 
   fault_tolerance:
     - |
-      Fix a family satisfying the full hypotheses of the construction.
-      There are constants \(\eta,\tau>0\) such that every set \(U\) of at most \(\eta n/2\) qubits of every sufficiently large member has intrinsic cut cost \(\chi_U\geq 2\tau|U|\) \cite[Thm. 6.1]{arxiv:2609.39705}.
-      Here \(\chi_U\) is the minimum number of generators crossing the cut over all generating sets of the stabilizer group \cite{arxiv:2609.39705}.
-      Every such \(U\) is correctable, and every pure code state has entanglement entropy at least \(\tau|U|\) across it \cite{arxiv:2609.39705}.
-      Consider any placement of the data on any hardware graph.
-      A region holding \(|U|\leq\eta n/2\) data qubits behind \(b>0\) hardware edges forces exact syndrome-extraction depth at least \(\tau|U|/b\) \cite[Cor. 6.2]{arxiv:2609.39705}.
-      On a square grid of \(N\) sites with \(n\leq N\leq cn^2\), the minimum exact extraction depth over circuits and data placements is \(\Theta(\max\{1,n/\sqrt{N}\})\) \cite[Cor. 7.3]{arxiv:2609.39705}.
+      For asymptotically good quantum Tanner codes built from TNC Ramanujan complexes with sufficiently large fixed local degree, there are constants \(\eta,\tau>0\) with the following property \cite[Thm. 6.1]{arxiv:2609.39705}.
+      For large enough \(n\), every qubit set \(U\) with \(|U|\leq\eta n/2\) is correctable and has \hyperref[code:qubit_stabilizer]{intrinsic cut cost} \(\chi_U\geq 2\tau|U|\) \cite[Thm. 6.1]{arxiv:2609.39705}.
+      Every pure code state has entanglement entropy at least \(\tau|U|\) across such a \(U\) \cite[Thm. 6.1]{arxiv:2609.39705}.
+      Under any data placement on any hardware graph, a region holding such a \(U\) behind \(b>0\) hardware edges forces exact syndrome-extraction depth at least \(\tau|U|/b\) \cite[Cor. 6.2]{arxiv:2609.39705}.
+      On a square grid of \(N\) sites with \(n\leq N\leq cn^2\) for fixed \(c>0\), the minimum depth over circuits and data placements is \(\Theta(\max\{1,n/\sqrt{N}\})\) \cite[Cor. 7.3]{arxiv:2609.39705}.
 
   code_capacity_threshold:
     - 'Independent \(X,Z\) noise: lower bound under potential-based decoder \cite[Corr. 15]{arxiv:2206.06557}.'
@@ -97,7 +95,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: BaileyGu

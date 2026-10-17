@@ -110,14 +110,10 @@ features:
     - 'LUCI framework for syndrome extraction circuits \cite{arxiv:2410.14891,arxiv:2502.10355}.'
     - 'Fault-tolerant constant-depth encoder and unencoder using measurements \cite{arxiv:2408.06299}.'
     - |
-      The surface code on a square annulus of width \(L\) has parameters \([[16L^2+8L,1,L+1]]\) \cite{arxiv:2609.39705}.
-      It admits an independent generating list of weight at most \(132\) and qubit incidence at most \(36\) whose contracted Tanner graph has edge expansion at least \(1/18\) \cite[Thm. 5.1]{arxiv:2609.39705}.
-      The contracted Tanner graph joins two qubits whenever a listed generator acts on both.
-      The list is obtained by multiplying each star generator of one checkerboard color by its predecessors adjacent to it in a bounded-degree expander graph \cite{arxiv:2609.39705}.
-      The syndrome of this list is extracted exactly by a depth-\(13\) nearest-neighbor Clifford circuit on a \((6L+1)\times(6L+1)\) grid \cite{arxiv:2609.39705}.
-      The circuit measures the original stars and plaquettes and recombines the outcomes classically \cite{arxiv:2609.39705}.
-      Corollary 1 of the first arXiv version of Ref. \cite{arxiv:2109.14599} asserts extraction depth \(\Omega(n/\sqrt{N})\) on an \(N\)-qubit grid for such expanding lists.
-      This family is a counterexample to that corollary as stated \cite[Cor. 5.3]{arxiv:2609.39705}.
+      The surface code on a \(3L\times 3L\) square annulus with an \(L\times L\) hole has parameters \([[16L^2+8L,1,L+1]]\) \cite{arxiv:2609.39705}.
+      It admits an independent generating set of weight at most \(132\) and qubit incidence at most \(36\) whose contracted Tanner graph is an expander \cite[Thm. 5.1]{arxiv:2609.39705}.
+      Each star of one checkerboard color is multiplied by the earlier such stars adjacent to it in a bounded-degree expander graph on those stars \cite{arxiv:2609.39705}.
+      A depth-\(13\) nearest-neighbor circuit on a \((6L+1)\times(6L+1)\) grid measures the original stars and plaquettes, and the syndrome of the new set follows by classical recombination \cite[Thm. 5.1]{arxiv:2609.39705}.
 
   decoders:
     - 'Using data from multiple syndrome measurements prior to decoding allows for correcting syndrome measurement errors.
@@ -239,7 +235,7 @@ relations:
 _meta:
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
