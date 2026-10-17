@@ -16,10 +16,10 @@ description: |
   These codes can be interpreted as quantum versions of FG-LDPC codes, but some of them \cite{arxiv:1207.0732,arxiv:1512.07081} are not strictly QLDPC.
 
   A nested pair of classical codes can be obtained from a cyclic EG-LDPC code \(C_1\) by \textit{row splitting} \cite{arxiv:quant-ph/0108131}.
-  Each row of the parity-check matrix of \(C_1\) is split into several rows of smaller weight, and the additional checks cut out a cyclic subcode \(C_2 \subset C_1\).
-  The CSS code of \(C_1\) over \(C_2\) then corrects bit flips with \(C_1\) and phase flips with \(C_2^{\perp}\) \cite{arxiv:quant-ph/0108131}.
-  For the \([15,7,5]\) EG-LDPC code of the plane EG\((2,4)\), splitting each row in two yields a \([15,3]\) subcode whose dual is also an LDPC code \cite{arxiv:quant-ph/0108131}.
-  The resulting \([[15,4]]\) CSS code has \(Z\)-type checks of weight four and \(X\)-type checks of weight five \cite{arxiv:quant-ph/0108131}.
+  Each row of the parity-check matrix of \(C_1\) is replaced by several lower-weight rows that share out its ones in rotation.
+  The resulting matrix defines a cyclic subcode \(C_2 \subset C_1\) \cite{arxiv:quant-ph/0108131}.
+  For the \([15,7,5]\) EG-LDPC code of EG\((2,4)\), splitting each row in two yields a \([15,3]\) subcode \cite{arxiv:quant-ph/0108131}.
+  The CSS code of this pair is a \([[15,4]]\) code with \(Z\)-type checks of weight four and \(X\)-type checks of weight five.
 
 relations:
   parents:
@@ -28,7 +28,7 @@ relations:
   cousins:
     - code_id: pg_ldpc
       detail: 'Quantum versions of PG-LDPC and EG-LDPC codes can be constructed via the CSS construction \cite{arxiv:quant-ph/0108131,arxiv:0712.4115,arxiv:1207.0732}.
-      One such nested pair consists of a cyclic EG-LDPC code and the subcode obtained by splitting the rows of its parity-check matrix \cite{arxiv:quant-ph/0108131}.'
+      The CSS construction can pair a cyclic EG-LDPC code with the subcode obtained by splitting the rows of its parity-check matrix \cite{arxiv:quant-ph/0108131}.'
     - code_id: projective
       detail: 'PG-QLDPC codes are constructed from linear binary codes whose parity-check or generator matrices are incidence matrices of structures in finite geometries.'
     - code_id: multisector_hypergraph
@@ -40,7 +40,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
