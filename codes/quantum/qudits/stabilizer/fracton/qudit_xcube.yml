@@ -14,20 +14,18 @@ alternative_names:
   - '\(\mathbb{Z}_q\) X-cube model'
 
 description: |
-  Generalization of the X-cube model code to modular qudits \cite{arxiv:1701.00762}.
-  Qudits lie on the edges of a cubic lattice.
-  Cube stabilizers are products of \(Z\) and \(Z^{\dagger}\) over the twelve edges of a cube.
-  Vertex stabilizers are products of \(X\) and \(X^{\dagger}\) over the four coplanar edges at a vertex, one for each lattice plane \cite{arxiv:1701.00762}.
+  Generalization of the X-cube model code to modular qudits on the edges of a cubic lattice \cite{arxiv:1701.00762}.
+  Each cube stabilizer applies \(Z\) and \(Z^{\dagger}\) to alternate edges in each set of four parallel cube edges.
+  Each vertex carries three stabilizers, one per coordinate plane, applying \(X\) and \(X^{\dagger}\) to the two opposite edges along each in-plane axis \cite[Fig. 7]{arxiv:1701.00762}.
 
-  The code arises from three orthogonal stacks of modular-qudit surface codes sharing two qudits per edge, with each pair coupled by a strong \(X\)-type term \cite{arxiv:1701.00762}.
-  The coupling condenses composite flux loops, i.e., quartets of fluxes in orthogonal layers.
-  The star operators survive as the vertex stabilizers, and the product of the six plaquette operators around a cube survives as the cube stabilizer \cite{arxiv:1701.00762}.
+  The code is obtained from three orthogonal stacks of modular-qudit surface codes with two qudits per edge, one from each layer containing it \cite{arxiv:1701.00762}.
+  A strong \(X\)-type coupling of the two qudits on each edge condenses composite flux loops, i.e., quartets of fluxes in orthogonal layers.
+  The star operators survive as the vertex stabilizers, and the six plaquette operators around a cube combine into the cube stabilizer \cite{arxiv:1701.00762}.
 
-  For prime \(q\) and \(L = q^n - 1\), the ground-state degeneracy on the length-\(L\) three-torus is \(q^{6L-3}\) \cite{arxiv:1701.00762}.
-  A planar pair of fractons of magnetic charge \(a\) has mutual statistics phase \(e^{2\pi i ab/q}\) with a lineon of electric charge \(b\) in its plane \cite{arxiv:1701.00762}.
-
-  With only the \(X\)-type layer coupling, the transition from decoupled layers into the qudit X-cube phase is direct and first order for \(q<5\).
-  For \(q\geq 5\), an intermediate gapless phase dual to the Coulomb phase of \((3+1)\)D \(\mathbb{Z}_q\) lattice gauge theory intervenes \cite{arxiv:1701.00762}.
+  On an \(L_x\times L_y\times L_z\) three-torus, the ground-state degeneracy is \(q^{2(L_x+L_y+L_z)-3}\) \cite{arxiv:2504.09847} (see Ref. \cite{arxiv:1701.00762} for prime \(q\) and \(L_x=L_y=L_z=q^n-1\)).
+  A planar pair of fractons of magnetic charge \(m\) has mutual statistics phase \(e^{2\pi i mc/q}\) with a lineon of electric charge \(c\) in its plane \cite{arxiv:1701.00762}.
+  With only the \(X\)-type coupling and \(q\geq 5\), an intermediate gapless phase separates the decoupled layers from the qudit X-cube phase \cite{arxiv:1701.00762}.
+  This phase is dual to the Coulomb phase of \((3+1)\)D \(\mathbb{Z}_q\) lattice gauge theory \cite{arxiv:1701.00762}.
 
   The model is the \(a_x=a_y=a_z=1\) member of a family of qudit X-cube models with stabilizer exponents set by integers \((a_x,a_y,a_z)\) \cite{arxiv:2504.09847}.
 
@@ -40,9 +38,9 @@ relations:
       detail: 'A field-theoretic description of the qudit X-cube model can be obtained by coupling layers of 2D \(\mathbb{Z}_q\) gauge theory \cite{arxiv:2505.13604}. For three orthogonal foliations with \(\mathbb{Z}_q\) layers, the string-membrane-net model is equivalent to the qudit X-cube model code \cite{arxiv:1812.01613}. String-membrane-net models are phase-equivalent to cage-net models under generalized local unitaries \cite{arxiv:2505.13604}.'
   cousins:
     - code_id: qudit_surface
-      detail: 'The qudit X-cube model code is obtained from three orthogonal stacks of modular-qudit surface codes sharing two qudits per edge \cite{arxiv:1701.00762}. A strong \(X\)-type coupling of each pair condenses composite flux loops and yields the X-cube stabilizers \cite{arxiv:1701.00762}. A field-theoretic description of the qudit X-cube model can be obtained by coupling layers of 2D \(\mathbb{Z}_q\) gauge theory \cite{arxiv:2505.13604}.'
+      detail: 'The qudit X-cube model code is obtained from three orthogonal stacks of modular-qudit surface codes with two qudits per edge, one from each layer containing it \cite{arxiv:1701.00762}. A strong \(X\)-type coupling of each pair condenses composite flux loops and yields the X-cube stabilizers \cite{arxiv:1701.00762}. A field-theoretic description of the qudit X-cube model can be obtained by coupling layers of 2D \(\mathbb{Z}_q\) gauge theory \cite{arxiv:2505.13604}.'
     - code_id: qudit_3d_surface
-      detail: 'Three orthogonal stacks of modular-qudit surface codes sharing two qudits per edge yield the modular-qudit 3D surface code when composite charges condense \cite{arxiv:1701.00762}. The same layers yield the qudit X-cube model code when composite flux loops condense. The transition from decoupled layers into the qudit X-cube phase is dual to the flux-loop condensation transition out of the modular-qudit 3D surface-code phase \cite{arxiv:1701.00762}.'
+      detail: 'Three orthogonal stacks of modular-qudit surface codes with two qudits per edge, one from each layer containing it, yield the modular-qudit 3D surface code when composite charges condense \cite{arxiv:1701.00762}. The same layers yield the qudit X-cube model code when composite flux loops condense. With only the \(X\)-type coupling, the transition from decoupled layers into the qudit X-cube model phase is dual to flux-loop condensation out of the modular-qudit 3D surface-code phase \cite{arxiv:1701.00762}.'
 
 
 # Begin Entry Meta Information
@@ -50,7 +48,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
