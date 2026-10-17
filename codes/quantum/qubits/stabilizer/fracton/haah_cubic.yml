@@ -34,14 +34,13 @@ description: |
   CC1A and CC1B have been generalized to manifolds more general than 3D lattices \cite{arxiv:1812.02101,arxiv:1902.04543}.
 
 protection: |
-  Cubic codes protect against simultaneous independent Pauli errors on different sites (not qubits, since there can be 2 qubits per site). Codes CC0-CC4 are known to have distance \(d \ge L\), meaning they can achieve macroscopic code distance as \(L\to\infty\).
+  Cubic codes protect against simultaneous independent Pauli errors on different sites (not qubits, since there can be 2 qubits per site).
+  Codes CC0-CC4 are known to have distance \(d \ge L\), meaning they can achieve macroscopic code distance as \(L\to\infty\).
 
-  Cubic code 1 is not a self-correcting quantum memory \cite{arxiv:2609.39959}.
-  Under Davies dynamics with single-qubit \(X\) and \(Z\) bath couplings on a periodic lattice, it thermalizes rapidly at every positive temperature \cite{arxiv:2609.39959}.
-  The Davies generator satisfies a modified logarithmic Sobolev inequality with a constant independent of \(L\) \cite{arxiv:2609.39959}.
+  Under Davies dynamics with single-qubit \(X\) and \(Z\) couplings on a periodic lattice, cubic code 1 thermalizes rapidly at every positive temperature \cite{arxiv:2609.39959}.
   Any initial state is within trace distance \(\varepsilon\) of the Gibbs state after time \(O(\log n + \log \varepsilon^{-1})\) \cite{arxiv:2609.39959}.
-  The passive memory time is therefore at most logarithmic in \(n\) regardless of the decoder \cite{arxiv:2609.39959}.
-  The bound is compatible with partial self-correction \cite{arxiv:1112.3252} below its temperature-dependent cutoff since the prefactor may grow rapidly as the temperature decreases \cite{arxiv:2609.39959}.
+  Its passive memory time is therefore at most logarithmic in \(n\) for any decoder, so it is not \hyperref[code:self_correct]{self-correcting} \cite{arxiv:2609.39959}.
+  This bound is compatible with partial self-correction below a temperature-dependent system-size cutoff \cite{arxiv:1112.3252,arxiv:2609.39959}.
 
 features:
   rate: 'The encoding rate depends on the code implemented, but code CC0 has been shown to have \(k \ge L\) on a periodic finite cubic lattice of side length \(L\). In general, we expect the number of logical qubits to scale as \(k = \Omega(L)\).'
@@ -66,7 +65,7 @@ relations:
     - code_id: 3d_color
       detail: 'The 3D color and cubic code families both include 3D codes that do not admit string-like operators.'
     - code_id: 4d_surface
-      detail: 'The 4D toric code is a self-correcting quantum memory \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}, but cubic code 1 is not. Under Davies dynamics, cubic code 1 thermalizes rapidly at every positive temperature, with mixing time \(O(\log n)\) \cite{arxiv:2609.39959}.'
+      detail: 'Neither code has string-like logical operators \cite{arxiv:quant-ph/0110143,arxiv:1101.1962}, whose constant energy cost of creation precludes self-correction \cite{arxiv:0810.1983,arxiv:1103.1885}. The membrane logical operators of the \((2,2)\) loop toric code give an energy barrier that grows with \(L\) and a self-correcting memory \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}. Cubic code 1 has only a logarithmic energy barrier \cite{arxiv:1105.4159} and thermalizes rapidly at every positive temperature under Davies dynamics \cite{arxiv:2609.39959}.'
     - code_id: abelian_2bga
       detail: 'CSS cubic codes are Abelian 2BGA codes over the group \(G=\mathbb{Z}_{L}^{\times 3}\) \cite[Sec. III.A]{arxiv:2012.04068}; e.g., cubic code 1 corresponds to group-algebra elements \(a = 1+x+y+z\) and \(b = 1+xy+xz+yz\) \cite{arxiv:2601.18879}.'
     - code_id: cluster_state
@@ -84,7 +83,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-15'
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-09-23'
     - user_id: VictorVAlbert
