@@ -16,20 +16,17 @@ description: |
   The scalar case with \(G\) a cyclic group is a GB code \cite[Sec. III.E]{arxiv:2012.04068}.
   A particular family with \(G=\mathbb{Z}_{\ell}\) yields codes with parameters \([[n,k=\Theta(\log n),d=\Theta(n/\log n)]]\) \cite{arxiv:2012.04068}.
 
-  \textit{Canonical LP codes} are binary LP codes over a cyclic group \(\mathbb{Z}_{\ell}\) that admit a logical basis inherited from the base codes \cite[Def. 3.4]{arxiv:2607.28605}.
-  Each qubit of the hypergraph product of the base matrices \(A\) and \(B\) \hyperref[topic:lifting]{lifts} to a \textit{fiber} of \(\ell\) qubits.
-  For \(A\) of size \(m_A\times n_A\) and \(B\) of size \(m_B\times n_B\), the first block of qubits forms an \(n_A\times m_B\) grid of fibers.
-  A logical \(Z\)-type operator is a codeword of the classical base code \(\ker A\) placed along one column of this grid \cite[Prop. 3.5]{arxiv:2607.28605}.
-  Its conjugate \(X\)-type operator is a codeword of \(\ker B^{*}\) placed along one row, and the pair overlaps on exactly one qubit \cite[Prop. 3.5]{arxiv:2607.28605}.
-  The cyclic shift within the fibers maps each such operator to another one.
-  The \(k_c = r_A r_B^* \ell\) canonical logical qubits \(\bar{q}_{i,j,m}\) thus form an \(r_A\times r_B^*\) grid of \textit{logical fibers}, i.e., cyclic orbits of \(\ell\) logical qubits, with \(r_A=n_A-m_A\) and \(r_B^*=m_B-n_B\) \cite[Prop. 3.5]{arxiv:2607.28605}.
-  This is the canonical logical basis of \hyperref[code:hypergraph_product]{HGP codes} with each logical qubit replaced by a cyclic orbit.
-  For a symmetric code \(LP(A,A^*)\), transposing the grid of fibers is an \(XZ\)-duality \cite[Prop. 3.5]{arxiv:2607.28605}.
-  It exchanges the \(X\)-type logical operators of logical fiber \((i,j)\) with the \(Z\)-type ones of logical fiber \((j,i)\) \cite[Prop. 3.5]{arxiv:2607.28605}.
-  Suppose that the lifts of \(A\) and \(B^*\) have full row rank.
-  Then such a basis exists iff the first \(r_A\) columns of \(A\) lift into an information set of the kernel of the lift of \(A\), up to column permutations \cite[Prop. 3.7]{arxiv:2607.28605}.
-  The same must hold for the first \(r_B^*\) columns of \(B^*\), and then \(k=k_c\) \cite[Prop. 3.7]{arxiv:2607.28605}.
-  Otherwise, there can be \textit{residual} logical qubits outside the canonical basis, e.g., \(16\) of the \(148\) logical qubits of the \([[1122,148,\leq 20]]\) code \cite[Sec. IV.A]{arxiv:2607.28605}.
+  \textit{Canonical LP codes} are binary LP codes over a cyclic group \(\mathbb{Z}_{\ell}\) whose canonical logical operators are base-code codewords laid along the rows and columns of a grid of \(\ell\)-qubit fibers \cite[Def. 3.4]{arxiv:2607.28605}.
+  Cyclic shifts group the logical qubits into logical fibers of \(\ell\) qubits, so logical operators related by qubit permutations share one surgery gadget \cite[Thm. 4]{arxiv:2607.28605}.
+  This is the canonical logical basis of \hyperref[code:hypergraph_product]{HGP codes} with each logical qubit replaced by a cyclic orbit \cite{arxiv:2607.28605}.
+
+  For \(A\) of size \(m_A\times n_A\) and \(B\) of size \(m_B\times n_B\), the left block of qubits forms an \(n_A\times m_B\) grid of fibers.
+  Each canonical logical \(Z\)-type operator is a codeword of \(\ker A\) placed along one column of this grid \cite[Def. 3.4]{arxiv:2607.28605}.
+  Its conjugate \(X\)-type operator is a codeword of \(\ker B^{*}\) placed along one row, and the two meet on one qubit \cite[Prop. 3.5]{arxiv:2607.28605}.
+  Cyclically shifting all fibers maps each canonical logical operator to that of the next logical qubit in its logical fiber \cite[Prop. 3.5]{arxiv:2607.28605}.
+  The \(k_c=r_A r_B^*\ell\) canonical logical qubits \(\bar{q}_{i,j,m}\) form an \(r_A\times r_B^*\) grid of logical fibers \((i,j)\), with \(r_A=n_A-m_A\) and \(r_B^*=m_B-n_B\) \cite[Def. 3.4]{arxiv:2607.28605}.
+  When the lifts of \(A\) and \(B^*\) have full row rank, the basis exists iff the first \(r_A\) columns of \(A\) and the first \(r_B^*\) columns of \(B^*\) lift into information sets of the respective kernels, and then \(k=k_c\) \cite[Prop. 3.7]{arxiv:2607.28605}.
+  For a symmetric code \(LP(A,A^*)\), transposing the grid of fibers exchanges the \(X\)-type logical operator of \(\bar{q}_{i,j,m}\) with the \(Z\)-type one of \(\bar{q}_{j,i,m}\) \cite[Prop. 3.5]{arxiv:2607.28605}.
 
   The Abelian LP construction has been adapted to accommodate noise bias, yielding \textit{bias-tailored LP codes} \cite{arxiv:2202.01702}.
   See Refs. \cite{arxiv:1904.02703,arxiv:2012.04068,arxiv:2111.07029,arxiv:2308.08648} for other explicit examples.
@@ -43,11 +40,13 @@ protection: |
   Under the same condition, codes \(LP(A,A)\) with a \(2\times 4\) base matrix and check weight at most nine have distance at most 14 \cite[Thm. 13]{arxiv:2607.28795}.
 
   A \textit{canonical-product code} is a canonical LP code whose base matrix \(A\) consists of \(r_A\) information columns and a square block \(A'\) with invertible lift, and likewise for \(B^*\) \cite[Appx. B.5]{arxiv:2607.28605}.
-  Its distance is at most \(1+\gamma_A\,\omega_{\mathrm{col}}(A)\) \cite[Appx. D.5]{arxiv:2607.28605}.
-  Here, \(\gamma_A\) is the maximum column weight of the inverse of the lift of \(A'\), and \(\omega_{\mathrm{col}}(A)\) is the maximum column weight of \(A\).
-  The bound is on the weight of a \textit{canonical codeword}, a unit on one information column completed through the inverse of \(A'\), which is a logical \(Z\)-type operator \cite[Appx. D.5]{arxiv:2607.28605}.
-  Constant \(\gamma_A\), which keeps the ancilla overhead of parallel surgery constant, thus caps the distance at a constant \cite[Appx. D.5]{arxiv:2607.28605}.
-  The symmetric codes \([[320,64,10]]\), \([[468,36,20]]\), \([[680,80,13]]\), and \([[952,112,17]]\) with \(\gamma_A=3,4,3,4\) have distance equal to the weight of their canonical codewords \cite[Appx. D.5]{arxiv:2607.28605}.
+  Its distance is at most \(1+\gamma_A\,\omega_{\mathrm{col}}(A)\), the weight bound on the logical \(Z\)-type operator obtained by completing one information column through the inverse of the lift of \(A'\) \cite[Appx. D.5]{arxiv:2607.28605}.
+  Here, \(\gamma_A\) is the maximum column weight of that inverse, and \(\omega_{\mathrm{col}}(A)\) is the maximum column weight of \(A\).
+  For LDPC base matrices, constant \(\gamma_A\), which sets the thickening length of intra-column surgery, caps the distance at a constant \cite[Appx. D.5]{arxiv:2607.28605}.
+  The symmetric \([[952,112,17]]\) code with \(\gamma_A=4\) and \(\omega_{\mathrm{col}}(A)=4\) attains the bound \cite[Appx. D.5]{arxiv:2607.28605}.
+
+notes:
+  - 'See Ref. \cite[Tables II--V]{arxiv:2607.28605} for surgery and injection gadgets on explicit canonical LP codes.'
 
 features:
   rate: 'For cyclic groups \(G=\mathbb{Z}_{\ell}\) with \(\ell=\Theta(n/\log n)\), quasi-cyclic expander LP codes yield families with parameters \([[n,k=\Theta(\log n),d=\Theta(n/\log n)]]\) \cite{arxiv:2012.04068}. Related balanced-product reformulations and other explicit Abelian LP constructions appear in \cite{arxiv:2012.09271,arxiv:2112.01647}.'
@@ -59,7 +58,6 @@ features:
       It implements a logical Hadamard on every logical qubit followed by the fold permutation \(\bar{q}_{i,j,m}\leftrightarrow\bar{q}_{j,i,m}\) \cite[Prop. 3.8]{arxiv:2607.28605}.
       A second fold-transversal gate applies \(S\) to the fold-invariant qubits of the first block, \(S^{\dagger}\) to those of the second block, and \(CZ\) to each folded pair of qubits \cite[Prop. 3.8]{arxiv:2607.28605}.
       It implements logical \(S\) on the diagonal logical fibers and logical \(CZ\) between \(\bar{q}_{i,j,m}\) and \(\bar{q}_{j,i,m}\) for \(i\neq j\) \cite[Prop. 3.8]{arxiv:2607.28605}.
-      These are analogues of the fold-transversal gates of symmetric \hyperref[code:hypergraph_product]{HGP codes} \cite{arxiv:2204.10812}.
 
   general_gates:
     - |
@@ -69,27 +67,19 @@ features:
       Whenever the induced map on logical \(Z\) operators is injective, one-bit teleportation through this CNOT switches logical qubits between the two codes \cite{arxiv:2510.07269}.
     - |
       Graph surgery on symmetric canonical LP codes assembles any logical Pauli-product measurement by bridging copies of only \(r_A\) \textit{seed surgery gadgets}, independently of \(\ell\) \cite[Thm. 4]{arxiv:2607.28605}.
-      A seed gadget measures one logical operator \cite[Sec. IV.A]{arxiv:2607.28605}.
-      Its orbit under cyclic shifts, permutations of fiber columns, and the \(XZ\)-duality contains the \(Z\)-type logical operators of one row of logical fibers and the \(X\)-type ones of the corresponding column \cite[Sec. IV.A]{arxiv:2607.28605}.
-      Rewiring the gadget's connections to the data qubits lets the same ancilla graph measure every operator in the orbit \cite[Sec. IV.A]{arxiv:2607.28605}.
-      The \([[1122,148,\leq 20]]\) and \([[4350,1224,\leq 20]]\) codes of Ref. \cite{arxiv:2603.28627} need two and four seed gadgets, respectively, of at most \(234\) ancilla qubits each \cite[Table II]{arxiv:2607.28605}.
-      A \textit{canonical extractor} instead measures any logical Pauli product with one fixed ancilla graph by masking its connections to the data code \cite[Thm. 5]{arxiv:2607.28605}.
-      The graph closes each check of \(A\) into a cycle through its bits, is itself a cyclic lift, and couples to the first \(r_A\) columns and rows of fibers \cite[Def. 4.9]{arxiv:2607.28605}.
-      It adds \(495\) ancilla qubits, fewer than half the number of data qubits, to the \([[1122,148,\leq 20]]\) code \cite[Table III]{arxiv:2607.28605}.
+      The \([[1122,148,\leq 20]]\) code needs two seed gadgets \cite[Table II]{arxiv:2607.28605}.
+      A fixed \textit{canonical extractor} instead measures any logical Pauli product by masking its connections to the data code \cite[Thm. 5]{arxiv:2607.28605}.
+      Its ancilla graph is a cyclic lift that closes each check of \(A\) into a cycle through its bits and couples to the first \(r_A\) columns and rows of fibers \cite[Def. 4.9, Thm. 5]{arxiv:2607.28605}.
     - |
-      Parallel \textit{intra-column} hypergraph surgery measures any set of logically disjoint Pauli products within a column (row) of logical fibers in one logical cycle \cite[Def. 5.4]{arxiv:2607.28605}.
-      Its ancilla skeleton is the lift of \(A\), punctured and augmented on its information columns \cite[Def. 5.4]{arxiv:2607.28605}.
-      For canonical-product codes, thickening the skeleton to \(\gamma_A\) layers instead of \(d\) suffices \cite[Exam. 5.5]{arxiv:2607.28605}.
-      On the \([[320,64,10]]\), \([[468,36,20]]\), \([[680,80,13]]\), and \([[952,112,17]]\) codes, any set of single-qubit logical \(Z\) measurements costs at most \(1.6\) times the number of data qubits in ancilla qubits \cite[Table IV]{arxiv:2607.28605}.
-      Logically disjoint two-body \(XX\), \(ZZ\), and \(XZ\) measurements on these codes cost at most four times \cite[Table IV]{arxiv:2607.28605}.
-      Parallel \textit{inter-column} surgery attaches the base code \(A\) transversally to two columns of logical fibers and measures \(\bar{Z}_{i,j,m}\bar{Z}_{i,j',m}\) for all \(i,m\) at once \cite[Def. 5.6]{arxiv:2607.28605}.
-      The merged code is the LP code \(LP(A,B')\), where \(B'\) is \(B\) with one weight-two column appended \cite[Def. 5.6]{arxiv:2607.28605}.
-      This generalizes the homomorphic measurement gadget of HGP codes \cite{arxiv:2407.18490}.
+      Parallel \textit{intra-column} hypergraph surgery measures any set of logically disjoint \(Z\)-type (\(X\)-type) Pauli products within a column (row) of logical fibers in one logical cycle \cite[Def. 5.4]{arxiv:2607.28605}.
+      Its skeleton is the lift of \(A\), punctured and augmented with weight-two rows to select the measured operators \cite[Def. 5.4]{arxiv:2607.28605}.
+      For canonical-product codes, a thickening of \(\gamma_A\) layers instead of \(d\) suffices \cite[Exam. 5.5]{arxiv:2607.28605}.
+      Bridging a column gadget with a row gadget extends this to mixed-type and \(Y\)-type products \cite[Thm. 7]{arxiv:2607.28605}.
+      Parallel \textit{inter-column} surgery measures \(\bar{Z}_{i,j,m}\bar{Z}_{i,j',m}\) for all \(i,m\) at once, and the merged code is \(LP(A,B')\) with \(B'\) being \(B\) plus one weight-two column \cite[Def. 5.6]{arxiv:2607.28605}.
     - |
       Column-parallel magic-state injection teleports \(r_A\ell\) \(|T\rangle\) states from \(r_A\) stacks of \(\ell\) distance-\(d_s\) surface codes into one column of logical fibers \cite[Def. 5.7]{arxiv:2607.28605}.
       Each stack is the LP code \(LP(D,D^*)\) of the repetition-code check matrix \(D\), and the transfer passes through a \textit{transistor} code \(LP(A,D^*)\) by two rounds of inter-column surgery \cite[Def. 5.7]{arxiv:2607.28605}.
       Repeating the protocol for each of the \(r_B^*\) columns injects all \(k_c\) magic states in time \(O(r_B^* d_s)\) \cite[Sec. V.B]{arxiv:2607.28605}.
-      For the \([[1122,148,\leq 20]]\) code, \(132\) states are injected from distance-seven surface codes in two batches through a \([[1749,68]]\) transistor code \cite[Table V]{arxiv:2607.28605}.
 
   decoders:
     - 'Ensemble BP decoder for codes without short cycles of length 4 \cite{arxiv:2401.06874}.'
@@ -98,7 +88,6 @@ features:
   fault_tolerance:
     - |
       A canonical extractor whose ancilla graph has small-set soundness at least \(r_A\) preserves the code distance \cite[Thm. 5]{arxiv:2607.28605}.
-      The seed surgery gadgets of the \([[1122,148,\leq 20]]\) and \([[4350,1224,\leq 20]]\) codes and the canonical extractors of these and of the \([[468,36,20]]\) and \([[952,112,17]]\) codes preserve the code distance \cite[Tables II and VIII]{arxiv:2607.28605}.
       Column-parallel magic-state injection has phenomenological fault distance at least \(\min(d,d_s)\) \cite[Thm. 8]{arxiv:2607.28605}.
 
 
@@ -121,7 +110,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-16'
+      date: '2026-10-17'
     - user_id: VictorVAlbert
       date: '2026-09-30'
     - user_id: VictorVAlbert
