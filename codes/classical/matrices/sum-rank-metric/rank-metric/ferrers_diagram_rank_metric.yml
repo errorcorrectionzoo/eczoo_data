@@ -16,20 +16,20 @@ alternative_names:
 
 description: |
   Linear rank-metric code whose codeword matrices vanish outside a fixed \textit{Ferrers diagram} \(\mathcal{F}\) \cite{arxiv:0807.4846}.
-  The diagram is an \(m\times n\) array of right-justified dots with non-increasing row lengths, i.e., the free entries of a reduced row echelon form with fixed pivots.
-  Lifting an FDRM code thus yields subspaces with a common pivot pattern, the building blocks of the multilevel construction of \hyperref[code:finite_grassmann]{constant-dimension codes} \cite{arxiv:0807.4846}.
+  The diagram is an \(m\times n\) array of right-justified dots with non-increasing row lengths, i.e., the free entries of a reduced row echelon form with fixed pivots \cite{arxiv:0807.4846}.
+  Inserting each codeword into the free entries of an echelon form with these pivots \textit{lifts} the code to subspaces whose subspace distance is twice the rank distance, the building blocks of the multilevel construction of \hyperref[code:finite_grassmann]{constant-dimension codes} \cite{arxiv:0807.4846}.
 
-  An FDRM code on \(\mathcal{F}\) with dimension \(k\) and minimum rank distance \(\delta\) is denoted \([\mathcal{F},k,\delta]_q\), and the diagram is written \([\gamma_0,\ldots,\gamma_{n-1}]\) by its column lengths.
-  Optimal codes are typically subcodes of a systematic MRD code with generator matrix \((I_k|A)\) over \(\mathbb{F}_{q^m}\).
-  The \(i\)th information symbol is restricted to the span of the first \(\gamma_i\) elements of an \(\mathbb{F}_q\)-basis.
-  This confines the \(i\)th column of the expanded codeword matrix to its first \(\gamma_i\) rows, while the subcode inherits the minimum rank distance of the MRD code \cite{doi:10.1109/TIT.2016.2522971,arxiv:1804.00624,doi:10.1007/s10623-023-01284-8}.
+  An FDRM code on \(\mathcal{F}\) with dimension \(k\) and minimum rank distance \(\delta\) is denoted \([\mathcal{F},k,\delta]_q\).
+  The diagram is written \([\gamma_0,\ldots,\gamma_{n-1}]\) by its column lengths.
+  A standard construction restricts the \(i\)th information symbol of a systematic MRD code with generator matrix \((I_\kappa|A)\), \(\kappa=n-\delta+1\), to the span of the first \(\gamma_i\) elements of an \(\mathbb{F}_q\)-basis of \(\mathbb{F}_{q^m}\) \cite{doi:10.1109/TIT.2016.2522971}.
+  This confines the first \(\kappa\) columns of each codeword to the diagram while keeping rank distance at least \(\delta\), and the subcode is an FDRM code when the rightmost columns are long enough \cite{doi:10.1109/TIT.2016.2522971,arxiv:1804.00624}.
+  Not every optimal FDRM code is a subcode of an MRD code \cite{arxiv:1804.00624}.
 
-  Generator matrices with non-systematic entries \(a_{i,j}\beta^{j-i}\) are MRD for \(m\geq kn-k^2\) when \(\beta\) generates a polynomial basis and all minors of \((a_{i,j})\) over \(\mathbb{F}_q\) are nonzero \cite[Lemma 15]{arxiv:2609.24239}.
-  Their subcodes include optimal \([\mathcal{F},2\gamma_0,n-1]_q\) codes for \(\mathcal{F}=[\gamma_0,\gamma_0,\gamma_0+1,\ldots,\gamma_0+n-2]\), \(\gamma_0\geq 3\), and \(n\leq q+1\) \cite[Thm. 1]{arxiv:2609.24239}\cite[Exam. 3]{arxiv:2609.24239}.
-  A second construction appends a column to the generator matrix of an MRD code of distance \(\delta-1\) \cite[Thm. 2]{arxiv:2609.24239}.
-  Copying the expansion of the first information symbol into the last column of the codeword matrix then restores distance \(\delta\).
-  Appending \(r\) columns and copying the first \(r\) information symbols in a staggered pattern extends this to diagrams whose rightmost \(\delta-2\) columns have only \(n-r\) dots each, with \(r<n-\delta+1\) \cite[Thm. 3]{arxiv:2609.24239}.
-  Larger optimal codes are assembled from optimal codes on disjoint subdiagrams via block and \textit{proper-combination} constructions \cite{doi:10.1109/TIT.2016.2522971,arxiv:1804.01211}\cite[Secs. 4 and 5]{arxiv:2609.24239}.
+  Systematic generator matrices with non-systematic entries \(a_{i,j}\beta^{j-i}\), where \(\beta\) generates a polynomial basis and all minors of \((a_{i,j})\) over \(\mathbb{F}_q\) are nonzero, give MRD codes for \(m\geq \kappa n-\kappa^2\) whose subcodes are optimal on further diagram families \cite[Lemma 15 and Thm. 1]{arxiv:2609.24239}.
+  A second construction appends to a systematic MRD code of distance \(\delta-1\) a column that is zero in the first row and makes the remaining rows generate an MRD code of distance \(\delta\) \cite[Thm. 2]{arxiv:2609.24239}.
+  Copying the expansion of the first information symbol into the extra rows of this column raises the rank by one whenever that symbol is nonzero.
+  Appending \(r\) columns and copying the first \(r\) information symbols in a staggered pattern extends this to diagrams whose rightmost \(\delta-2\) columns each contain at least \(n-r\) dots, with \(r<n-\delta+1\) \cite[Thm. 3]{arxiv:2609.24239}.
+  Codes on larger diagrams are assembled from codes on disjoint subdiagrams via block and \textit{proper-combination} constructions, which give optimal codes for specific diagram families \cite{doi:10.1109/TIT.2016.2522971,arxiv:1804.01211}\cite[Secs. 4 and 5]{arxiv:2609.24239}.
 
 protection: |
   The dimension of an \([\mathcal{F},k,\delta]_q\) code satisfies \(k \leq \min_{0\leq i\leq \delta-1} v_i\), where \(v_i\) is the number of dots of \(\mathcal{F}\) outside its first \(i\) rows and its rightmost \(\delta-1-i\) columns \cite{arxiv:0807.4846}.
@@ -42,12 +42,12 @@ protection: |
 relations:
   parents:
     - code_id: rank_metric
-      detail: 'An FDRM code is a linear rank-metric code whose codeword matrices are supported on a Ferrers diagram \cite{arxiv:0807.4846}. The full \(m\times n\) diagram recovers ordinary linear rank-metric codes.'
+      detail: 'FDRM codes are rank-metric codes whose codeword matrices vanish outside a Ferrers diagram, and they reduce to rank-metric codes for the full \(m\times n\) diagram \cite{arxiv:0807.4846}.'
   cousins:
     - code_id: maximum_rank_distance
-      detail: 'Optimal FDRM codes are constructed as subcodes of systematic MRD codes, with information symbols restricted so that each codeword column lies in the diagram \cite{doi:10.1109/TIT.2016.2522971,arxiv:2609.24239}.'
+      detail: 'Many optimal FDRM codes are constructed as subcodes of systematic MRD codes, with information symbols restricted so that each codeword column lies in the diagram \cite{doi:10.1109/TIT.2016.2522971,arxiv:2609.24239}.'
     - code_id: finite_grassmann
-      detail: 'The multilevel construction lifts an FDRM code on the echelon-form diagram of each identifying vector of a binary \hyperref[code:constant_weight]{constant-weight code} \cite{arxiv:0807.4846}. For identifying vectors at Hamming distance \(2\delta\) and FDRM codes of rank distance \(\delta\), the union of the lifted codes has subspace distance \(2\delta\) \cite{arxiv:0807.4846}. Optimal FDRM codes combined with pending blocks give the largest known constant-dimension codes for several parameter sets \cite{arxiv:1404.6723,arxiv:2609.24239}.'
+      detail: 'The multilevel construction lifts an FDRM code on the echelon-form diagram of each identifying vector of a binary \hyperref[code:constant_weight]{constant-weight code} \cite{arxiv:0807.4846}. When the identifying vectors have pairwise Hamming distance at least \(2\delta\) and the FDRM codes have rank distance \(\delta\), the union of the lifted codes has subspace distance \(2\delta\) \cite{arxiv:0807.4846}.'
 
 
 # Begin Entry Meta Information
