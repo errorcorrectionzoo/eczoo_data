@@ -76,11 +76,10 @@ features:
     - 'Logical gates via Dehn twists for hypergraph products of cyclic codes \cite{arxiv:2411.03302}.'
     - |
       Constant-time surgery gadgets measure rows or columns of \(Z\)-type (and similarly \(X\)-type) logical operators in parallel \cite{arxiv:2603.02157}.
-      A gauging-measurement ancilla complex \cite{arxiv:2410.02213,arxiv:2410.02753} for a codeword \(c\) of one seed code is tensored with the other seed code \cite[Sec. III.A]{arxiv:2603.02157}.
-      The deformed code is then the HGP code of the augmented seed code with the untouched seed code \cite[Sec. III.B]{arxiv:2603.02157}.
-      The resulting ancilla complex has four terms, and its top term consists of meta-checks that detect measurement errors on the new \(Z\)-type checks without repeated syndrome rounds \cite[Sec. III.B]{arxiv:2603.02157}.
-      All \(Z\)-type logical operators \(c\otimes h\), with \(h\) in the zeroth homology of the other seed code, are measured at once \cite[Prop. 1]{arxiv:2603.02157}.
-      Each gadget uses \(\tilde{O}(n)\) ancilla qubits and takes \(O(1)\) syndrome rounds in amortization, for a spacetime overhead of \(\tilde{O}(1)\) \cite[Thm. 1]{arxiv:2603.02157}.
+      A gadget attaches a gauging or homological measurement ancilla complex \cite{arxiv:2410.02213,arxiv:2410.02753} for a codeword \(c\) to one seed code, forming its \hyperref[code:mapping_cone]{mapping cone} \cite[Sec. III.A]{arxiv:2603.02157}.
+      The deformed code is the tensor product of this mapping cone with the other seed code, measuring all logical operators \(c\otimes h\) with \(h\in H_0\) of the other seed code \cite[Sec. III.B]{arxiv:2603.02157}.
+      The three-term ancilla complex gives the deformed code a fourth term of meta-checks on its \(Z\)-type checks \cite[Sec. III.B]{arxiv:2603.02157}.
+      Each gadget uses \(\tilde{O}(n)\) ancilla qubits, for an amortized spacetime overhead of \(\tilde{O}(1)\) \cite[Thm. 1]{arxiv:2603.02157}.
       Universal adapters \cite{arxiv:2410.03628} as seed-code gadgets yield parallel entangling measurements between HGP codes that share a seed code \cite[Sec. IV]{arxiv:2603.02157}.
   code_capacity_threshold:
     - 'Some thresholds were determined in Ref. \cite{arxiv:1208.2317}.'
@@ -92,8 +91,6 @@ features:
     - |
       Constant-time surgery runs \(t \geq d\) surgeries in sequence, each measured for a single round, between \(O(d)\) rounds of base-code syndrome measurement \cite{arxiv:2510.14895,arxiv:2603.02157}.
       The protocol has fault distance \(d\) against qubit Pauli errors and measurement flips \cite[Thm. 1]{arxiv:2603.02157}.
-      The guarantee follows from the fast-surgery conditions of Ref. \cite{arxiv:2510.14895}.
-      The compacted code that attaches all ancilla systems at once retains distance \(d\), and each ancilla system has meta-check distance \(d\) \cite[Secs. III.C and III.D]{arxiv:2603.02157}.
   threshold:
     - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599} and DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047} combined with non-local gates \cite{arxiv:2409.05818}.
     No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
