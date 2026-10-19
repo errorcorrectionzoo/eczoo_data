@@ -11,6 +11,12 @@
 #   python3 scripts/codelists/count_list_codes.py                    # sort by count descending
 #   python3 scripts/codelists/count_list_codes.py --sort count --reverse
 #   python3 scripts/codelists/count_list_codes.py --sort properties
+#   python3 scripts/codelists/count_list_codes.py --code 3d_xyz_color
+#
+# With --code X, print instead the lists that contain X, followed by the lists
+# that contain a child or cousin of X but not X itself. Check that
+# second group after adding or reparenting a code: it is where a code is most
+# often missed (AGENTS.md rule 14).
 #
 # Codelist select semantics – each select entry is a condition group.
 # Within a group all conditions are ANDed; between groups they are ORed.
@@ -22,7 +28,7 @@
 #   cousin_of: X                 – candidates = cousin-neighbours of X (both dirs)
 #   property_set: a.b            – candidates = codes whose YAML has the dotted key set
 #   domain: D                    – candidates = codes in domain D
-#   manual_code_ids: [A,B]       – explicit code list
+#   manual_code_list: [A,B]       – explicit code list
 #   not_descendant_of: X         – remove descendants of X from candidates
 #   not_all_descendant_of: [A,B] – remove codes that are descendants of ALL of A,B
 
@@ -227,7 +233,7 @@ _LIST_VALUE_SELECTORS = frozenset({
     "any_cousin_of", "all_cousin_of",
     "not_any_cousin_of", "not_all_cousin_of",
     "any_domain", "not_any_domain",
-    "manual_code_ids", "exclude",
+    "manual_code_list", "exclude",
 })
 
 _SELECTORS = (
@@ -239,7 +245,7 @@ _SELECTORS = (
     "cousin_of",
     "property_set",
     "not_any_domain", "any_domain", "not_domain", "domain",
-    "manual_code_ids", "exclude",
+    "manual_code_list", "exclude",
 )
 
 
@@ -388,7 +394,7 @@ _POSITIVE_KEYS = frozenset({
     "cousin_of", "any_cousin_of", "all_cousin_of",
     "property_set",
     "domain", "any_domain",
-    "manual_code_ids",
+    "manual_code_list",
 })
 
 _NEGATIVE_KEYS = frozenset({
@@ -446,7 +452,7 @@ def _inter_cousin(cids: list[str], cout: dict, cin: dict, known: set,
     return result if result is not None else set()
 
 
-def count_codes(
+def list_members(
     groups: list[dict[str, list[str]]],
     p2c: dict[str, list[str]],
     cout: dict[str, set[str]],
@@ -454,8 +460,8 @@ def count_codes(
     code_props: dict[str, frozenset[str]],
     code_domain: dict[str, str],
     known: set[str],
-) -> tuple[int, list[str]]:
-    """Return (count, warnings)."""
+) -> tuple[set[str], list[str]]:
+    """Return (set of code_ids in the list, warnings)."""
     accumulated: set[str] = set()
     global_exclude: set[str] = set()
     warnings: list[str] = []
@@ -539,8 +545,8 @@ def count_codes(
             dom_set = set(group["any_domain"])
             _ix({c for c, d in code_domain.items() if d in dom_set})
 
-        if "manual_code_ids" in group:
-            _ix({cid for cid in group["manual_code_ids"] if cid in known})
+        if "manual_code_list" in group:
+            _ix({cid for cid in group["manual_code_list"] if cid in known})
 
         if candidates is None:
             candidates = set()
@@ -566,7 +572,22 @@ def count_codes(
 
         accumulated |= candidates
 
-    return len(accumulated - global_exclude), warnings
+    return accumulated - global_exclude, warnings
+
+
+def count_codes(
+    groups: list[dict[str, list[str]]],
+    p2c: dict[str, list[str]],
+    cout: dict[str, set[str]],
+    cin: dict[str, set[str]],
+    code_props: dict[str, frozenset[str]],
+    code_domain: dict[str, str],
+    known: set[str],
+) -> tuple[int, list[str]]:
+    """Return (count, warnings)."""
+    members, warnings = list_members(
+        groups, p2c, cout, cin, code_props, code_domain, known)
+    return len(members), warnings
 
 
 # ---------------------------------------------------------------------------
@@ -599,7 +620,55 @@ def _parse_args() -> argparse.Namespace:
             "codelists/features relative to the repo root."
         ),
     )
+    parser.add_argument(
+        "--code",
+        default=None,
+        metavar="CODE_ID",
+        help=(
+            "Print the lists that contain CODE_ID, then the lists that contain "
+            "a child or cousin of CODE_ID but not CODE_ID itself."
+        ),
+    )
     return parser.parse_args()
+
+
+def report_code(
+    code_id: str,
+    list_files: list[Path],
+    repo_root: Path,
+    p2c: dict[str, list[str]],
+    cout: dict[str, set[str]],
+    cin: dict[str, set[str]],
+    code_props: dict[str, frozenset[str]],
+    code_domain: dict[str, str],
+    known: set[str],
+) -> int:
+    if code_id not in known:
+        print(f"Unknown code_id '{code_id}'", file=sys.stderr)
+        return 1
+    relatives = set(p2c.get(code_id, [])) | cout.get(code_id, set()) \
+        | cin.get(code_id, set())
+    inside: list[tuple[str, str]] = []
+    missing: list[tuple[str, str, list[str]]] = []
+    for lf in list_files:
+        title, groups, _cols = _parse_codelist(str(lf))
+        members, _w = list_members(
+            groups, p2c, cout, cin, code_props, code_domain, known)
+        rel = str(lf.relative_to(repo_root))
+        if code_id in members:
+            inside.append((rel, title))
+        else:
+            hits = sorted(relatives & members)
+            if hits:
+                missing.append((rel, title, hits))
+    print(f"Lists containing {code_id} ({len(inside)}):")
+    for rel, title in inside:
+        print(f"  {title}  [{rel}]")
+    print(f"\nLists containing a relative of {code_id} but not {code_id} "
+          f"({len(missing)}); check whether it belongs:")
+    for rel, title, hits in missing:
+        print(f"  {title}  [{rel}]  via {', '.join(hits)}")
+    return 0
 
 
 def main() -> int:
@@ -626,6 +695,10 @@ def main() -> int:
     if not list_files:
         print(f"No YAML files found under {lists_dirs}", file=sys.stderr)
         return 1
+
+    if args.code:
+        return report_code(args.code, list_files, repo_root, p2c, cout, cin,
+                           code_props, code_domain, known)
 
     print(f"Total number of lists: {len(list_files)}\n")
 

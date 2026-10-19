@@ -1,0 +1,45 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: extended_ternary_golay
+physical: q-ary_digits
+logical: q-ary_digits
+
+name: '\([12,6,6]_3\) Extended ternary Golay code'
+
+description: |
+  Self-dual ternary code that corrects two errors on twelve trits and is unique for its parameters up to equivalence \cite{doi:10.1016/0012-365X(75)90047-3}.
+  It is obtained from the \([11,6,5]_3\) ternary Golay code by adding a parity-check trit.
+
+  Its weight enumerator is the Gleason polynomial \(g_5\) \cite[Rem. 4.2.6]{preset:HKSselfdual}.
+  Its monomial automorphism group is the double cover \(2.\mathcal{M}_{12}\) of the Mathieu group \(\mathcal{M}_{12}\), a sporadic simple group.
+
+features:
+  decoders:
+    - 'Decoder using the tetracode \cite{doi:10.1109/TIT.1986.1057197}.'
+
+relations:
+  parents:
+    - code_id: pless_symmetry
+      detail: 'The Pless symmetry code for \(q=5\) is equivalent to the extended ternary Golay code \cite[Ch. 16, Prob. 18]{preset:MacSlo}.'
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The extended ternary Golay code is a ternary sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
+    - code_id: projective
+      detail: 'The extended ternary Golay code is projective because its dual, the code itself, has distance six \cite[pg. 178]{preset:MacSlo}.'
+  cousins:
+    - code_id: ternary_golay
+      detail: 'Adding a parity-check trit to the ternary Golay code yields the extended ternary Golay code.'
+    - code_id: extended_golay
+      detail: 'The extended ternary Golay code is the ternary counterpart of the extended Golay code.'
+    - code_id: combinatorial_design
+      detail: 'The supports of the weight-six codewords of the extended ternary Golay code form the Steiner system \(S(5,6,12)\), whose blocks are called hexads \cite{doi:10.4153/CJM-1957-003-8,arxiv:0811.1254}\cite[pg. 89]{doi:10.1007/978-1-4757-6568-7}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'

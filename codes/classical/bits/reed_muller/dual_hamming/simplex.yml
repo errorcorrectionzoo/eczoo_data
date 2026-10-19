@@ -25,6 +25,7 @@ description: |
 
   A punctured simplex code is known as a \textit{MacDonald code} \cite{doi:10.1147/rd.41.0043}, with parameters \([2^m-2^u,m,2^{m-1}-2^{u-1}]\) for \(u \leq m-1\) \cite{doi:10.1109/TIT.1975.1055315}.
 
+  Simplex codes can be realized as maximal-length feedback-shift-register codes, and are therefore cyclic \cite[pgs. 89 and 221]{preset:MacSlo}.
   The automorphism group of the code is \(GL(m,2)\) \cite{preset:MacSlo}.
 
 protection: |
@@ -42,8 +43,8 @@ notes:
 
 relations:
   parents:
-    - code_id: binary_cyclic
-      detail: 'Simplex codes can be realized as maximal-length feedback-shift-register codes, and are therefore cyclic \cite[pgs. 89 and 216]{preset:MacSlo}.'
+    - code_id: bch
+      detail: 'Binary simplex codes are BCH codes with \(b=0\) and designed distance \(2^{m-1}\), i.e., with zeros \(\alpha^0,\ldots,\alpha^{2^{m-1}-2}\) for a suitable primitive element \(\alpha\) \cite[Ch. 7, Thm. 8 and Prob. 23]{preset:MacSlo}.'
     - code_id: q-ary_simplex
       detail: '\(q\)-ary simplex codes reduce to simplex codes for \(q=2\).'
   cousins:
@@ -70,6 +71,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
     - user_id: VictorVAlbert
       date: '2026-09-21'
     - user_id: VictorVAlbert

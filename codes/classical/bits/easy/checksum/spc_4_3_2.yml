@@ -1,0 +1,33 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: spc_4_3_2
+physical: bits
+logical: bits
+
+name: '\([4,3,2]\) single parity-check (SPC) code'
+short_name: '\([4,3,2]\) SPC'
+
+description: |
+  Binary code that detects any single bit flip on four bits by appending one parity bit to three message bits.
+
+relations:
+  parents:
+    - code_id: parity_check
+    - code_id: biorthogonal
+      detail: 'The \([4,3,2]\) SPC code is the RM\((1,2)\) code \cite[Ch. 13, Prob. 5]{preset:MacSlo}.'
+  cousins:
+    - code_id: stab_4_2_2
+      detail: 'The \([[4,2,2]]\) code is constructed from the \([4,3,2]\) SPC code via the CSS construction.'
+    - code_id: css_4_1_2
+      detail: 'The \(Z\)-type stabilizer of the \([[4,1,2]]\) LNCY code is the parity check of the \([4,3,2]\) SPC code.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-13'
