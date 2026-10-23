@@ -146,6 +146,12 @@ features:
     - 'Automated fault-tolerant encoding circuit synthesis \cite{arxiv:2408.11894}.'
     - 'Fault-tolerant homological measurement of logical Pauli operators \cite{arxiv:2410.02753}.'
     - 'Fault-tolerant CNOT gate using generalized lattice surgery \cite{arxiv:2505.01370}.'
+    - >-
+      \textit{Flag-at-origin} fault-tolerant preparation of any \textit{CSS state}, i.e., a stabilizer state whose stabilizer generators are each \(X\)-type or \(Z\)-type \cite{arxiv:2508.14200}.
+      Such a state is prepared by a bipartite CNOT circuit whose controls start in \(\ket{+}\) and whose targets start in \(\ket{0}\) \cite[Appx. A]{arxiv:2508.14200}.
+      In this circuit, \(X\) errors propagate only from controls to targets, and \(Z\) errors only from targets to controls.
+      Appending \(X\)-detecting flag gadgets to controls and \(Z\)-detecting flag gadgets to targets, and restarting whenever a flag fires, makes the preparation tolerate up to \(\lfloor d/2 \rfloor\) faults \cite{arxiv:2508.14200}.
+      Each gadget depends only on \(d\) and on the number of CNOT gates acting on its qubit \cite{arxiv:2508.14200}.
   code_capacity_threshold:
     - 'Bounds on code capacity thresholds for various noise models exist in terms of stabilizer generator weights \cite{arxiv:1208.2317,arxiv:1412.6172}.'
     - >-
@@ -225,6 +231,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-09-23'
     - user_id: VictorVAlbert
