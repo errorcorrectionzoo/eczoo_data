@@ -55,10 +55,13 @@ relations:
   cousins:
     - code_id: xz_7_3_2
       detail: 'Concatenating the \([[7,3,(d_X=3,d_Z=2)]]\) punctured hypercube code with the two-qubit phase-flip repetition code yields this \([[14,3,(d_X=3,d_Z=4)]]\) CSS phantom code \cite{arxiv:2601.20927}. Dual-rail concatenation of the same punctured hypercube code yields a single-qubit Clifford-equivalent CE CSS frame \cite{arxiv:2507.10395}.'
+    # Ref. arxiv:2507.10395 words this as "removing two independent Z-type stabilizer generators" from the dual-rail Steane code,
+    # but the [[14,3,3]] code it tabulates contains Z on one qubit of every dual-rail pair, i.e., the dual-railed Steane logical Z,
+    # which is not a Steane stabilizer. Removing two Z-type generators from the dual-rail Steane code instead gives a distance-2 code.
     - code_id: steane
-      detail: 'Dual-rail concatenation of the \([[7,1,3]]\) Steane code yields a \([[14,1,3]]\) CE CSS code, from which the locally Clifford-equivalent \([[14,3,3]]\) CE CSS frame is obtained by removing two independent \(Z\)-type stabilizer generators \cite{arxiv:2507.10395}.'
+      detail: 'Dual-rail concatenation of the \([[7,1,3]]\) Steane code yields a \([[14,1,3]]\) CE CSS code whose \(X\)-type stabilizer generators coincide with those of the locally Clifford-equivalent \([[14,3,3]]\) CE CSS frame of this code \cite{arxiv:2507.10395}. The latter frame replaces the three weight-four \(Z\)-type generators of the former by the dual-rail image of the Steane logical \(Z\) operator.'
     - code_id: quantum_repetition
-      detail: 'The outer code in the \([[14,3,3]]\) CE phantom code construction is the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
+      detail: 'The inner code in the \([[14,3,3]]\) CE phantom code construction is the two-qubit phase-flip repetition code \cite{arxiv:2601.20927}.'
 
 
 # Begin Entry Meta Information
