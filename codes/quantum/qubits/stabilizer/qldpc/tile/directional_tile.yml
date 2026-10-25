@@ -23,7 +23,7 @@ description: |
   Consecutive rounds alternate the word and its inverse, which returns every qubit to its starting position.
   Where the planar embedding leaves a gap between a check qubit and the next data qubit of its walk, a \textit{routing qubit} prepared in \(|0\rangle\) fills it.
   On a routing qubit the CXSWAP gate acts as a plain SWAP.
-  Routing qubits are needed only near the boundary, so their number is of \hyperref[topic:asymptotics]{order} \(O(\sqrt{n})\) \cite{arxiv:2606.19482}.
+  Routing qubits are needed only near the boundary, so their number is of \hyperref[topic:asymptotics]{order} \(O(\sqrt{n})\) for a fixed word and bounded grid aspect ratio \cite{arxiv:2606.19482}.
 
   A code is built by placing the \(X\)- and \(Z\)-tile pair at every vertex of an \(M\times N\) grid of anchors and placing boundary tiles of each type separately.
   Edges covered by tiles of only one type are then pruned, together with any tile emptied by the pruning.
@@ -58,7 +58,7 @@ features:
 relations:
   parents:
     - code_id: tile
-      detail: 'Directional tile codes are tile codes that constrain the shape and ordering of the tile. The two tiles form the same ordered connected string on the primal and dual lattices, respectively. A parity condition on the displacement vectors of that string is imposed so that the associated syndrome-extraction circuit is deterministic. Constraining the tile in this way means that no two-qubit connectivity beyond nearest neighbors is needed. One syndrome-extraction round then has depth \(w\) for stabilizer generators of weight \(w\), at the cost of \(\mathcal{O}(\sqrt{n})\) routing qubits \cite{arxiv:2606.19482}.'
+      detail: 'Directional tile codes are tile codes that constrain the shape and ordering of the tile. The two tiles form the same ordered connected string on the primal and dual lattices, respectively. A parity condition on the displacement vectors of that string is imposed so that the associated syndrome-extraction circuit is deterministic. Constraining the tile in this way means that no two-qubit connectivity beyond nearest neighbors is needed. One syndrome-extraction round then has depth \(w\) for stabilizer generators of weight \(w\), at the cost of \(\mathcal{O}(\sqrt{n})\) routing qubits for a fixed word and bounded grid aspect ratio \cite{arxiv:2606.19482}.'
   cousins:
     - code_id: directional
       detail: 'Directional tile codes are the open-boundary (planar) analogues of directional codes, in the same way that tile codes are the open-boundary analogues of BB codes \cite{arxiv:2606.19482}. A directional tile code can equivalently be viewed as an open-boundary patch cut from a directional code, or as a planar tessellation by connected-string tiles \cite{arxiv:2606.19482}. Preserving the ordered walk on the open patch is what keeps every bulk and boundary stabilizer generator measurable by the same nearest-neighbor dynamics.'
