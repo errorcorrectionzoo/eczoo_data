@@ -1,0 +1,64 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: qprc
+physical: qubits
+logical: qubits
+
+name: 'Quantum pseudorandom error-correcting code (QPRC)'
+short_name: 'QPRC'
+introduced: '\cite{arxiv:2609.38986}'
+
+description: |
+  Keyed code whose encoding is computationally indistinguishable from a channel drawn once from an ideal distribution \cite{arxiv:2609.38986}.
+  The key-averaged recovery under a given noise channel is negligibly close to the identity in diamond distance.
+  QPRCs are quantum analogues of classical pseudorandom error-correcting codes \cite{arxiv:2402.09370}, whose codewords are computationally indistinguishable from uniformly random strings.
+
+  Public-key QPRCs for the completely depolarizing channel are obtained from a QECC and a classical pseudorandom error-correcting code \cite{arxiv:2609.38986}.
+  A random Pauli one-time pad is applied to the QECC codeword, and the pad bits are appended as a codeword of the classical code.
+
+  \textit{Pseudorandom isometric codes} (PRICs) are secret-key QPRCs whose encoding is computationally indistinguishable from a Haar-random isometry \cite{arxiv:2609.38986}.
+  No public-key PRIC exists \cite[Sec. 4.2]{arxiv:2609.38986}.
+  A PRIC maps \(|x\rangle\) to \(2^{-\ell/2}\sum_{y\in\{0,1\}^{\ell}}(-1)^{f(x\|y)}|\pi(x\|y\|0^r)\rangle|g(x\|y)\rangle\) for a pseudorandom function \(f\), a pseudorandom permutation \(\pi\), and a \textit{pseudorandom functional code} \(g\) \cite{arxiv:2609.38986}.
+  The latter is a pseudorandom function whose key holder recovers the input after a constant fraction of the output bits are flipped.
+  With \(f\), \(\pi\), and \(g\) replaced by uniformly random objects, the map is close to a permutation-function isometry, which is indistinguishable from a Haar-random isometry \cite{doi:10.1109/FOCS61266.2024.00038}.
+  The encoder then applies the graph-state unitary of a random bipartite graph and a random Pauli, both part of the secret key.
+  Each codeword is thus a superposition of codewords of a keyed \hyperref[code:cws]{CWS code}.
+
+protection: |
+  Here, \(t\)-local noise acts on at most \(t\) of the \(n\) physical qubits.
+  No QPRC with \(k\) logical qubits is robust to all \(t\)-local noise with \(t>n-k\) \cite[Sec. 4.2]{arxiv:2609.38986}.
+  Assuming that learning parity with noise is hard for \(2^{O(\sqrt{n})}\)-time quantum algorithms, QPRCs for the completely depolarizing channel correct all \(\alpha n\)-local noise for a constant \(\alpha>0\) \cite{arxiv:2609.38986}.
+  Under the same assumption, PRICs correct all \(o(n\log\log n/\log n)\)-local noise \cite{arxiv:2609.38986}.
+
+features:
+  rate: 'Under the hardness of learning parity with noise, both constructions use \(O(k)\) physical qubits for \(k\) logical qubits \cite{arxiv:2609.38986}.'
+
+  decoders:
+    - 'QPRCs for the completely depolarizing channel are decoded by measuring the appended register, decoding the pad with the classical decoder, removing the pad, and decoding the QECC \cite{arxiv:2609.38986}.'
+    - 'PRICs are decoded with the keyed \hyperref[code:cws]{CWS} decoder \cite{arxiv:2609.38986}.
+    The graph-state unitary turns a Pauli error into a bit error and a phase error.
+    The decoder of \(g\) corrects the bit error, and the phase error is recovered from the measured bit error using the graph.'
+
+relations:
+  parents:
+    - code_id: qubits_into_qubits
+    - code_id: approximate_qecc
+      detail: 'The key-averaged recovery channel of a QPRC is negligibly close to the identity in diamond distance \cite{arxiv:2609.38986}.'
+  cousins:
+    - code_id: cws
+      detail: 'The PRIC encoder maps each basis state to a superposition of classical codewords with pseudorandom signs.
+      It then applies the graph-state unitary of a random bipartite graph and a random Pauli, so the PRIC codespace lies in a keyed CWS code \cite{arxiv:2609.38986}.
+      PRICs are decoded with the keyed CWS decoder.'
+    - code_id: haar_random
+      detail: 'PRICs are efficiently encodable and decodable keyed codes whose encoding is computationally indistinguishable from a Haar-random isometry \cite{arxiv:2609.38986}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-25'
