@@ -17,7 +17,7 @@ description: |
 
   Codes can be denoted as \([[n,k,d]]_{f}\) \cite{arxiv:1703.00459}, where \(n\) is the number of fermionic modes (equivalently, \(2n\) Majorana modes).
   Two copies of an \(n\)-Majorana mode code may be combined to form a single \(n\)-fermion code by using one copy for the real parts of each fermion, and the other copy for the imaginary parts \cite{arxiv:2411.08955}.
-  Codes that admit a logical operator of even (odd) weight are called even (odd) Majorana codes \cite{arxiv:2508.09928}.
+  Codes whose logical operators all have even weight are called even Majorana codes, while those admitting an odd-weight logical operator are called odd Majorana codes \cite{arxiv:2508.09928}.
   Even Majorana codes encode logical qubits, and odd Majorana codes have at least one logical Majorana fermion.
   For odd codes, an additional protection parameter is the minimum diameter \(l_{\rm even}\) of an even logical operator \cite{arxiv:1004.3791}.
 
@@ -56,17 +56,17 @@ relations:
         Because the tetron parities lie in the stabilizer group rather than being frozen by high charging energy, the resulting \([[2n,k,2d]]_{f}\) code detects odd-weight Majorana errors and not only even-weight ones.
   cousins:
     - code_id: dual
-      detail: 'Classical self-orthogonal codes can be used to construct Majorana stabilizer codes \cite{arxiv:1703.00459,doi:10.1088/1751-8113/41/14/145304,arxiv:2503.08736}. The direct relationship between the two codes follows from expressing the Majorana strings as binary vectors – akin to the \hyperref[topic:binary-symplectic-representation]{symplectic representation} – and observing that the binary stabilizer matrix \(S\) for such a Majorana stabilizer code satisfies \(S\cdot S^T=0\) because it has commuting stabilizers, which is precisely the condition \(G\cdot G^T=0\) on the generator matrix \(G\) of a self-orthogonal classical code. A self-orthogonal classical code \(C\) with parameters \([2N,k,d]\) yields a Majorana stabilizer code with parameters \([[N,N-k,d^\perp]]_f\), where \(d^\perp\) is the code distance of the dual code \(C^\perp\).'
+      detail: 'Classical self-orthogonal codes can be used to construct Majorana stabilizer codes \cite{arxiv:1703.00459,doi:10.1088/1751-8113/41/14/145304,arxiv:2503.08736}. The direct relationship between the two codes follows from expressing the Majorana strings as binary vectors – akin to the \hyperref[topic:binary-symplectic-representation]{symplectic representation} – and observing that the binary stabilizer matrix \(S\) for such a Majorana stabilizer code satisfies \(S\cdot S^T=0\) because it has commuting stabilizers, which is precisely the condition \(G\cdot G^T=0\) on the generator matrix \(G\) of a self-orthogonal classical code. A self-orthogonal classical code \(C\) with parameters \([2N,k,d]\) yields a Majorana stabilizer code with parameters \([[N,N-k,d_{\rm f}]]_f\), where \(d_{\rm f}=\min_{v\in C^\perp\setminus C}\mathrm{wt}(v)\geq d^\perp\) and \(d^\perp\) is the code distance of the dual code \(C^\perp\) \cite{arxiv:2508.09928}.'
     - code_id: qubit_css
       detail: 'Every \([[n,k,d]]_f\) Majorana stabilizer code is associated with a \([[2n,2k,d]]\) qubit CSS code whose \(X\)- and \(Z\)-check supports coincide \cite[Lemma 2]{arxiv:1004.3791}. This map assigns one qubit to each Majorana mode and is the Majorana form of \hyperref[topic:symplectic-doubling]{symplectic doubling}. An odd-length self-dual CSS code can be converted into a complex-fermion code by replacing qubit \(Z\)-type and \(X\)-type operators with \(\gamma\)-type and \(\tilde{\gamma}\)-type Majorana operators, respectively \cite{arxiv:2411.08955}.'
     - code_id: steane
       detail: 'Applying the CSS-to-Majorana map of \cite[Lemma 2]{arxiv:1004.3791} to the \([[7,1,3]]\) Steane code yields a seven-Majorana code encoding half a qubit; pairing two such odd-length copies gives a physical Majorana stabilizer code with odd logical operators \cite[Sec. 8]{arxiv:1004.3791}.'
     - code_id: binary_linear
-      detail: 'When constructing a Majorana stabilizer code from a self-orthogonal classical code with an odd number of bits and generator matrix \(G\), a more complex procedure must be applied to ensure that the fermion code has an even number of Majorana zero modes, and thus a physical Hilbert space \cite{arxiv:1004.3791,arxiv:1703.00459}. Rather than taking \(G\) to be the stabilizer matrix as in the even case, we take \(G\oplus G\). This is a concatenation of classical codes as in the CSS construction and it yields a mapping \([2n-1,k,d]\rightarrow [[2n-1,2n-1-k,d^\perp]]_f\). This procedure may be further generalized by concatenating two different self-orthogonal classical codes with an odd number of bits, as is often done in the CSS construction.'
+      detail: 'When constructing a Majorana stabilizer code from a self-orthogonal classical code with an odd number of bits and generator matrix \(G\), a more complex procedure must be applied to ensure that the fermion code has an even number of Majorana zero modes, and thus a physical Hilbert space \cite{arxiv:1004.3791,arxiv:1703.00459}. Rather than taking \(G\) to be the stabilizer matrix as in the even case, we take \(G\oplus G\). This direct sum has \(2k\) independent stabilizers and yields a mapping \([2n-1,k,d]\rightarrow [[2n-1,2n-1-2k,d_{\rm f}]]_f\) \cite{arxiv:2508.09928}, where \(d_{\rm f}\) is the minimum Hamming weight in \(C^\perp\setminus C\) for the original classical code \(C\). This procedure may be further generalized by taking the direct sum of two different self-orthogonal classical codes with an odd number of bits.'
     - code_id: binary_cyclic
       detail: 'Cyclic binary linear codes can be used to construct translation-invariant Majorana stabilizer codes, provided that they are also self-orthogonal \cite{arxiv:1703.00459}.'
     - code_id: stabilizer
-      detail: 'Majorana stabilizer codes are useful for Majorana-based architectures, where the degrees of freedom are electrons, and the notion of locality is different than all other code kingdoms.'
+      detail: 'Majorana stabilizer codes are useful for Majorana-based architectures, where the degrees of freedom are electrons, and the notion of locality is different from that in all other code kingdoms.'
     - code_id: qudit_stabilizer
       detail: 'Majorana stabilizer codes can be extended to modular qudits, yielding parafermion stabilizer codes \cite{arxiv:1409.4724}.'
     - code_id: jw
@@ -78,6 +78,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-08-25'
     - user_id: VictorVAlbert

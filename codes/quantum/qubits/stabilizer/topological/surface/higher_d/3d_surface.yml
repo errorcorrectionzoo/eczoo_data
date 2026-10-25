@@ -30,6 +30,7 @@ description: |
   There exists a rotated version of the 3D surface code, the \textit{3D rotated surface code}, akin to the (2D) rotated surface code \cite{arxiv:2211.02116}.
   The \textit{welded surface code} \cite{arxiv:1208.3496,arxiv:1406.4227} places 3D surface codes on the edges of a 3D cubic lattice and welds their rough boundaries at each vertex.
   \textit{Welding} identifies the qubits of the joined boundaries, keeps all \(X\)-type stabilizers, and takes as \(Z\)-type stabilizers all \(Z\)-type operators commuting with them \cite{arxiv:1208.3496}.
+  This first gives a code with no logical qubits, so a welded \(Z\)-type stabilizer generator is then promoted to a logical operator to encode one qubit \cite{arxiv:1208.3496}.
   A \(Z\) error on a welded qubit excites an \(X\)-type stabilizer in every code meeting there, so \(X\)-type excitations split at each weld \cite{arxiv:1208.3496}.
   The string-like \(Z\)-type logical operator becomes a branching string whose energy barrier is lower bounded by that of the Ising model on the lattice \cite{arxiv:1208.3496}.
   In the rectified picture, three 3D surface codes can be supported on the same rectified cubic lattice, and the corresponding cubic-lattice realization is a gauge choice of the 3D Bacon-Shor code \cite{arxiv:1801.04255}.
@@ -45,7 +46,8 @@ protection: |
   The welded surface code on a cube of side length \(L\) has parameters \([[O(L^3),1,O(L^{4/3})]]\) and an energy barrier of \hyperref[topic:asymptotics]{order} \(O(L^{2/3})\) \cite{arxiv:1208.3496,arxiv:1406.4227}.
   The welded surface code is translation invariant only over a length that grows with system size, which evades the no-go theorems for translationally invariant 3D stabilizer codes \cite{arxiv:1208.3496,arxiv:1406.4227}.
 
-  Stability against Hamiltonian perturbations was determined using a tensor-network representation \cite{arxiv:2012.15346}. The phase diagram of the perturbed tensor network maps to that of a 3D Ising gauge theory.
+  A tensor-network representation of the 3D surface-code ground state is stable under a generating set of uniform local tensor perturbations \cite{arxiv:2012.15346}.
+  The phase diagram of the perturbed tensor network maps to that of a 3D Ising gauge theory.
 
 #  The \textit{Kirigami code} \cite{} consists of three copies of the 3D surface code.
 
@@ -57,7 +59,7 @@ features:
   decoders:
     - 'Flip decoder and its modification p-flip \cite{arxiv:2212.06985}.'
     - 'Tensor-network decoder \cite{arxiv:2310.10722}.'
-    - 'Efficient MWPM decoder for 3D toric and welded surface codes handling string-like syndromes only \cite{arxiv:1808.03092}.'
+    - 'Local decoder based on Toom''s rule for bit-flip errors and MWPM decoder for phase-flip errors in the 3D toric code, with extensions to welded surface codes \cite{arxiv:1808.03092}.'
     - 'Generalization of linear-time ML erasure decoder \cite{arxiv:1703.01517} to 3D surface codes \cite{arxiv:1808.03092}.'
     - 'Equivariant machine learning decoder \cite{arxiv:2409.04300}.'
   general_gates:
@@ -72,13 +74,17 @@ features:
   fault_tolerance:
     - 'Fault-tolerant Hadamard gate using teleportation and error correction \cite{arxiv:1801.04255}.'
   code_capacity_threshold:
-    - 'Independent \(X,Z\) noise: \(12\%\) for bit-flip and \(3\%\) for phase-flip channels with MWPM decoder for 3D toric code \cite{arxiv:1808.03092}, and \(17.2\%\) for the surface-like logical operator together with \(3.3\%\) for the line-like logical operator of the 3D cubic code under RG decoding \cite{arxiv:1708.09286}.'
+    - 'Independent \(X,Z\) noise: \(12\%\) for the bit-flip channel with a local decoder based on Toom''s rule and \(3\%\) for the phase-flip channel with MWPM decoding for the 3D toric code \cite{arxiv:1808.03092}.
+    RG decoding yields \(17.2\%\) for the surface-like logical operator of the 3D cubic code.
+    The optimal threshold for its line-like logical operator is about \(3.3\%\) \cite{arxiv:1708.09286}.'
     - 'Erasure noise: \(24.8\%\) with generalization of linear-time ML erasure decoder \cite{arxiv:1703.01517} to 3D surface codes \cite{arxiv:1808.03092}.
     No threshold was observed for the welded surface code \cite{arxiv:1808.03092}.'
 
   threshold:
-    - 'Phenomenological noise model for the 3D toric code: \(2.90(2)\%\) under BP-OSD decoder \cite{arxiv:2009.11790}, \(7.1\%\) under improved BP-OSD \cite{arxiv:2206.03122}, and \(2.6\%\) under flip decoder \cite{arxiv:2212.06985}. For the line-like logical operator of the 3D cubic code, RG decoding yields \(7.3\%\) \cite{arxiv:1708.09286}.
-    For 3D surface code: \(3.08(4)\%\) under flip decoder \cite{arxiv:2009.11790}. Optimal thresholds of \(11\%\) under \(X\)-type and \(2\%\) under \(Z\)-type noise derived in Ref. \cite{arxiv:2510.20489}.'
+    - 'Phenomenological noise model for the 3D toric code: \(2.90(2)\%\) under MWPM syndrome repair followed by BP-OSD decoding \cite{arxiv:2009.11790}, \(7.1\%\) under improved BP-OSD \cite{arxiv:2206.03122}, and \(2.6\%\) under flip decoder \cite{arxiv:2212.06985}.
+    For the surface-like logical operator of the 3D cubic code, RG decoding yields \(7.3\%\) \cite{arxiv:1708.09286}.
+    For 3D surface code: \(3.08(4)\%\) under MWPM syndrome repair followed by BP-OSD decoding \cite{arxiv:2009.11790}.
+    Optimal thresholds of \(11\%\) under \(X\)-type and \(2\%\) under \(Z\)-type noise for the 3D toric code are derived in Ref. \cite{arxiv:2510.20489}.'
 
 
 relations:
@@ -94,7 +100,7 @@ relations:
     - code_id: rotated_surface
       detail: 'There exists a rotated version of the 3D surface code, akin to the (2D) rotated surface code \cite{arxiv:2211.02116}.'
     - code_id: hamiltonian
-      detail: 'Stability of the 3D surface code against Hamiltonian perturbations was determined using a tensor-network representation \cite{arxiv:2012.15346}. The phase diagram of the perturbed tensor network maps to that of a 3D Ising gauge theory.'
+      detail: 'A tensor-network representation of the 3D surface-code ground state is stable under a generating set of uniform local tensor perturbations \cite{arxiv:2012.15346}. The phase diagram of the perturbed tensor network maps to that of a 3D Ising gauge theory.'
     - code_id: multisector_hypergraph
       detail: 'The 3D planar and toric code on a cubic lattice can be obtained from a hypergraph product of three repetition codes \cite[Exam. A.1]{arxiv:2311.01328}\cite{arxiv:1810.01519}.'
     - code_id: repetition
