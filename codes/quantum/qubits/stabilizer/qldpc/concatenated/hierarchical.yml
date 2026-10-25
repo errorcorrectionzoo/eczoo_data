@@ -41,8 +41,9 @@ relations:
     # constant-bounded stabilizer-generator weights, whereas the hierarchical
     # code's generators have weight of order log(n) (the surface-code side
     # length), and the cited paper states that the code is not itself LDPC.
-    # qubit_stabilizer added so the entry retains a stabilizer-family parent.
-    - code_id: qubit_stabilizer
+    # qubit_css added so the entry retains a stabilizer-family parent; the
+    # code concatenates CSS codes and is itself CSS.
+    - code_id: qubit_css
     - code_id: qubit_concatenated
       detail: 'Using the concatenation convention of the Zoo, hierarchical codes are concatenations of constant-rate QLDPC (inner) codes with rotated surface (outer) codes. The cited paper \cite{arxiv:2303.04798} uses the opposite inner/outer terminology. The block length of the outer code is picked to grow logarithmically with the block length of the inner code.'
   cousins:
@@ -52,6 +53,8 @@ relations:
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-25'
     - user_id: VictorVAlbert
       date: '2026-08-24'
     - user_id: VictorVAlbert
