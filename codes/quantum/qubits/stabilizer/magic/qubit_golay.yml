@@ -29,13 +29,13 @@ protection: 'Detects up to 6-qubit errors and corrects up to 3-qubit errors.'
 
 features:
   encoders:
-    - 'Fault-tolerant depth-7 circuit consisting of 57 CNOT gates and preparing a logical-zero state \cite{arxiv:1106.2190}.'
-    - 'Circuit with 56 entangling gates using reinforcement learning \cite{arxiv:2503.14660}.'
+    - 'Depth-7 encoding circuit for the logical zero state using 57 CNOT gates, obtained by exploiting overlaps between stabilizer generators \cite{arxiv:1106.2190}.'
+    - 'Circuit with 56 entangling gates using A* search \cite{arxiv:2503.14660}.'
 
   magic_scaling_exponent: 'Magic-state distillation scaling exponent \(\gamma=\log_2 23 \approx 4.52\)\cite{arxiv:2003.02717}.'
 
   transversal_gates:
-    - '\hyperref[topic:clifford]{Single-qubit Clifford group} by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\) \cite{arxiv:1106.2190}.'
+    - '\hyperref[topic:clifford]{Single-qubit Clifford group} via transversal \(H\) and \(S\) gates, which implement logical \(H\) and \(S^\dagger\), respectively \cite{arxiv:1106.2190}.'
 
   general_gates:
     - 'The Golay code can be used to perform magic-state distillation for the magic state defined as \(|T\rangle\langle T|=\frac{1}{2}(I+\frac{1}{\sqrt{3}}(X+Y+Z) )\), where \(|T\rangle\) is an eigenstate of the Clifford "facet" gate \(SH\) \cite{arxiv:quant-ph/0411036}.'
@@ -45,10 +45,14 @@ features:
     - 'Meggitt decoding for the cyclic CSS structure was used in comparative logical-CNOT simulations \cite{arxiv:0711.1556}.'
 
   fault_tolerance:
-    - 'Fault-tolerant depth-7 circuit consisting of 57 CNOT gates and preparing a logical-zero state \cite{arxiv:1106.2190}.'
+    - 'Fault-tolerant logical zero preparation with 297 CNOT gates that verifies four differently permuted copies of the 57-CNOT encoding circuit against one another via transversal CNOT gates \cite{arxiv:1106.2190}.'
+    - 'Flag-at-origin fault-tolerant preparation of the logical zero state with 237 CNOT gates and 80 flag qubits \cite[Table I]{arxiv:2508.14200}.'
 
   threshold:
     - '\(1.32\times 10^{-3}\)-per gate error rate for depolarizing noise upon recursive concatenation \cite{arxiv:1106.2190}, improving previous lower bounds \cite{arxiv:quant-ph/0207119,arxiv:0711.1556,manual:{B. Reichardt and Y. Ouyang. Unpublished (2006)}}. A numerical study \cite{arxiv:quant-ph/0207119} found that the Golay code achieved the highest threshold among a dozen well-known codes at the time \cite{arxiv:0711.1556}.'
+
+realizations:
+  - 'Trapped-ion devices: flag-at-origin preparation of the logical zero state on the H2-1 device by Quantinuum, with logical error rate \(3.3\times 10^{-4}\) at \(47\%\) acceptance \cite{arxiv:2508.14200}.'
 
 notes:
   - 'See Ref. \cite{arxiv:quant-ph/0612004} for more details.'
@@ -76,6 +80,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: YinchenLiu

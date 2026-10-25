@@ -74,8 +74,7 @@ features:
   transversal_gates:
     - |
       SWAP-transversal gates lifted from automorphisms of the seed \([[4,2,2]]\) code, together with the \(ZX\)-duality gates \(\overline{H}_\tau\) and \(\overline{S}_\tau\) inherited from the \hyperref[topic:symplectic-doubling]{symplectic double}, give \(216\) unique logical gates \cite{arxiv:2510.18753}.
-      Adding a global logical phase gate gives the group \((A_8\times A_8)\rtimes(C_2\times C_2)\subset Sp(8,2)\) \cite{arxiv:2510.18753}.
-      Only one of the \(20\) \(ZX\)-dualities admits a phase-type gate, and the permissible qubit permutations \(C_2\times S_4\) act non-faithfully with image \(D_6\). Together with all two-qubit entangling gates, they generate the logical orthogonal subgroup \(\Omega^{+}(8,2)\) \cite{arxiv:2202.06647}.
+      Only one of the \(20\) \(ZX\)-dualities admits a phase-type gate, and the permissible qubit permutations \(C_2\times S_4\) act non-faithfully with image \(D_6\). Together with all logical controlled-\(Z\) gates, they generate the logical orthogonal subgroup \(\Omega^{+}(8,2)\) \cite{arxiv:2202.06647}.
       Adjoining a targeted logical \(S\) on a single logical qubit yields all of \(Sp(8,2)\) \cite{arxiv:2510.18753,arxiv:2608.05688}.
 
   general_gates:
@@ -83,8 +82,8 @@ features:
 
   fault_tolerance:
     - 'Single-shot distance-three fault-tolerant error correction with 12 nonadaptive stabilizer measurements in six rounds, or with eight or ten adaptively chosen measurements in four rounds \cite[Thm. 7]{arxiv:2008.05051}.'
-    - 'The transversal phase gate on the inner \([[8,4,2]]\) \hyperref[topic:symplectic-doubling]{symplectic double} code requires performing logical global phase gates on each \([[4,2,2]]\) block to remain SWAP-transversal on the concatenated code \cite[Appx. D.7]{arxiv:2510.18753}. This can be implemented fault-tolerantly but requires two-qubit gates \cite[Appx. D.7]{arxiv:2510.18753}.'
-    - 'An automorphism gate that swaps logical qubits between different \([[4,2,2]]\) blocks requires additional \([[4,2,2]]\) ancilla blocks to implement fault-tolerantly \cite[Appx. D.8]{arxiv:2510.18753}.'
+    - 'The transversal phase gate on the inner \([[8,4,2]]\) \hyperref[topic:symplectic-doubling]{symplectic double} code is implemented on the concatenated code by logical global phase gates on each \([[4,2,2]]\) block \cite{arxiv:2510.18753}. This can be implemented fault-tolerantly but requires two-qubit gates \cite{arxiv:2510.18753}\cite[Appx. D.7]{arxiv:2502.14835}.'
+    - 'An automorphism gate that swaps logical qubits between different \([[4,2,2]]\) blocks requires additional \([[4,2,2]]\) ancilla blocks to implement fault-tolerantly \cite{arxiv:2510.18753}\cite[Appx. D.8]{arxiv:2502.14835}.'
 
 realizations:
   - 'Neutral atom arrays: state initialization of the \([[16,4,4]]\) twisted color code on a device by Infleqtion \cite{arxiv:2509.13247}.'
@@ -111,6 +110,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-10-11'
     - user_id: VictorVAlbert

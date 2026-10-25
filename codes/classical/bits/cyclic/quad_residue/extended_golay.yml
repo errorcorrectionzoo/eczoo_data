@@ -35,12 +35,16 @@ notes:
 
 relations:
   parents:
-    - code_id: nearly_perfect
-      detail: 'The extended Golay code is nearly perfect.'
-    - code_id: delsarte_optimal_q-ary
-      detail: 'The extended Golay code is a sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
+    # Audit: karlin promoted to primary parent, since the former primary parent nearly_perfect was removed (see below) and the primary parent must stay in the bits kingdom.
     - code_id: karlin
       detail: 'The extended Golay code is equivalent to the Karlin double circulant code for \(m=11\) \cite[Ch. 16]{preset:MacSlo}.'
+    # Audit: replaced parent nearly_perfect by quasi_perfect. Nearly perfect codes have odd distance 2t+1 and meet the Johnson bound with equality;
+    # the [24,12,8] code does not (4096 * sum_{i<=3} C(24,i) < 2^24), and Lindstrom's classification admits only perfect, shortened Hamming, and punctured Preparata codes.
+    # The code is quasi-perfect since its covering radius is 4 = t+1.
+    - code_id: quasi_perfect
+      detail: 'The extended Golay code has covering radius four, one more than its packing radius, and is therefore quasi-perfect.'
+    - code_id: delsarte_optimal_q-ary
+      detail: 'The extended Golay code is a sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
     - code_id: quasi_group
       detail: 'The extended Golay code is a quasi group-algebra code for various groups \cite{doi:10.1016/0097-3165(90)90069-9,arxiv:1604.07863,arxiv:1912.09167}.'
     - code_id: lexicographic
