@@ -13,7 +13,7 @@ introduced: '\cite{arxiv:1904.02703,arxiv:2012.04068}'
 description: |
   A lifted-product code whose lift group \(G\) is Abelian.
   The one-by-one (scalar) case, built from a pair of single group-algebra elements \(a,b \in \mathbb{F}_q[G]\), yields \hyperref[code:abelian_2bga]{Abelian 2BGA codes}.
-  The case of \(G\) being a cyclic group is a GB code (a.k.a. a quasi-cyclic LP code) \cite[Sec. III.E]{arxiv:2012.04068}.
+  The scalar case with cyclic \(G\) yields \hyperref[code:generalized_bicycle]{GB codes}, whereas general cyclic lifts yield quasi-cyclic LP codes \cite[Sec. III.E]{arxiv:2012.04068}.
   A particular family with \(G=\mathbb{Z}_{\ell}\) yields codes with parameters \([[n,k=\Theta(\log n),d=\Theta(n/\log n)]]\) \cite{arxiv:2012.04068}.
 
   The Abelian LP construction has been adapted to accommodate noise bias, yielding \textit{bias-tailored LP codes} \cite{arxiv:2202.01702}.
@@ -38,7 +38,7 @@ features:
       Whenever the induced map on logical \(Z\) operators is injective, one-bit teleportation through this CNOT switches logical qubits between the two codes \cite{arxiv:2510.07269}.
 
   decoders:
-    - 'Ensemble BP decoder for codes without short cycles of length 4 \cite{arxiv:2401.06874}.'
+    - 'Ensemble BP decoder mitigating the influence of short cycles of length 4 \cite{arxiv:2401.06874}.'
     - 'Efficient decoder correcting \hyperref[topic:asymptotics]{order} \(\Theta(n/\log n)\) errors \cite{arxiv:2411.04464}.'
 
 
