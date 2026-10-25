@@ -35,12 +35,12 @@ relations:
   parents:
     - code_id: self_dual_polytope
       detail: 'The simplex is self-dual.'
+    # Spherical-design ancestry is inherited through sharp_config, not a cousin relation.
     - code_id: sharp_config
+      detail: 'Simplex spherical codes are the only tight spherical 2-designs \cite[Tab. 9.3]{preset:EricZin}. The bi-simplex is a spherical 3-design since antipodal codes have zero averages over odd-degree polynomials.'
     # QSC paper has design strength 2 for bi-simplex, but it needs to be 3
     - code_id: permutation_spherical
   cousins:
-    - code_id: spherical_design
-      detail: 'Simplex spherical codes are the only tight spherical 2-designs \cite[Tab. 9.3]{preset:EricZin}. The bi-simplex is a spherical 3-design since antipodal codes have zero averages over odd-degree polynomials.'
     - code_id: dodecahedron
       detail: 'Vertices of a dodecahedron can be split up into vertices of five tetrahedra, which are simplex spherical codes for \(n=3\) \cite{preset:coxeter}.'
     - code_id: binary_antipodal
