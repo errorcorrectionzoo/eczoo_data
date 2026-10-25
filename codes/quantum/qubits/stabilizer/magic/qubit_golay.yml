@@ -30,12 +30,12 @@ protection: 'Detects up to 6-qubit errors and corrects up to 3-qubit errors.'
 features:
   encoders:
     - 'Depth-7 encoding circuit for the logical zero state using 57 CNOT gates, obtained by exploiting overlaps between stabilizer generators \cite{arxiv:1106.2190}.'
-    - 'Circuit with 56 entangling gates using reinforcement learning \cite{arxiv:2503.14660}.'
+    - 'Circuit with 56 entangling gates using A* search \cite{arxiv:2503.14660}.'
 
   magic_scaling_exponent: 'Magic-state distillation scaling exponent \(\gamma=\log_2 23 \approx 4.52\)\cite{arxiv:2003.02717}.'
 
   transversal_gates:
-    - '\hyperref[topic:clifford]{Single-qubit Clifford group} by choosing \(\overline{U}=U^{\otimes 23}\) for every Clifford unitary \(U\) \cite{arxiv:1106.2190}.'
+    - '\hyperref[topic:clifford]{Single-qubit Clifford group} via transversal \(H\) and \(S\) gates, which implement logical \(H\) and \(S^\dagger\), respectively \cite{arxiv:1106.2190}.'
 
   general_gates:
     - 'The Golay code can be used to perform magic-state distillation for the magic state defined as \(|T\rangle\langle T|=\frac{1}{2}(I+\frac{1}{\sqrt{3}}(X+Y+Z) )\), where \(|T\rangle\) is an eigenstate of the Clifford "facet" gate \(SH\) \cite{arxiv:quant-ph/0411036}.'
