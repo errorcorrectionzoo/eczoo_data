@@ -13,7 +13,6 @@ introduced: '\cite{arxiv:2507.10395}'
 description: |
   Twelve-qubit constant-excitation (CE) CSS code that encodes one logical qubit with distance three.
   It is the smallest distance-three CE CSS code obtainable by dual-rail concatenation \cite{arxiv:2507.10395}.
-  Codewords lie in a fixed Hamming-weight subspace, making the code immune to coherent noise in the form of transversal \(Z\)-rotations.
 
   One stabilizer tableau for the code is, up to Pauli frame \cite{arxiv:2507.10395},
   \begin{align}
@@ -38,10 +37,7 @@ protection: |
 
 features:
   fault_tolerance:
-    - 'Fault-tolerant syndrome extraction using modified Shor and Steane methods adapted for CE codes: weight-\(2w\) stabilizers are measured using \(w\)-CE cat states, and zero-controlled NOT (\(\mathrm{C}_0 X\)) gates replace standard CNOT gates to preserve the constant-excitation structure \cite{arxiv:2507.10395}.'
-
-  threshold:
-    - 'Pseudo-thresholds of \(\sim 9.28 \times 10^{-4}\) (circuit-level stochastic noise) and \(\sim 5.98 \times 10^{-4}\) (with collective coherent noise, \(\gamma = 0.01\)), respectively \cite{arxiv:2507.10395}.'
+    - 'Weakly fault-tolerant error correction via modified Shor syndrome extraction and a conditional control flow \cite[Thm. 11]{arxiv:2507.10395}.'
 
 
 relations:
@@ -56,6 +52,8 @@ relations:
 # Begin Entry Meta Information
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-08-17'
     - user_id: VictorVAlbert
