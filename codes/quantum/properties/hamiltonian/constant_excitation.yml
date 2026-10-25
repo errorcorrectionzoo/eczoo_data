@@ -35,21 +35,16 @@ protection: |
 features:
   rate: 'Fock-state CE codes can be used in a protocol that achieves the two-way quantum capacity of the \hyperref[topic:ad]{AD} Gaussian channel \cite{arxiv:2203.13924}. For every \(K,t \geq 2\), there are explicitly constructible \(K\)-dimensional Fock-state CE codes with \(q=N=(K-1)t(t+1)\) modes, total excitation \(N\), and distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.'
 
-  transversal_gates:
-    - 'For dual-rail-concatenated CE CSS codes, transversal CNOT followed by the Pauli correction \(\prod_j X_{2j}\), equivalently alternating \(CX\) and \(C_0X\) gates, is a logical CNOT that preserves the code space \cite[Lemma 8]{arxiv:2507.10395}. The correction restores the signs of the \(-Z_{2j-1}Z_{2j}\) stabilizers flipped by the bare transversal CNOT \cite{arxiv:2507.10395}.'
-
   decoders:
     - |
       Modified Shor syndrome extraction measures a weight-\(2w\) or \((2w-1)\) stabilizer of a CE CSS code with the \(w\)-CE cat state \(\frac{1}{\sqrt{2}}(|01\rangle^{\otimes w}+|10\rangle^{\otimes w})\) \cite[Thm. 9]{arxiv:2507.10395}.
-      This ancilla is itself a \(w\)-CE state and so is immune to collective coherent \(Z\) rotations \cite{arxiv:2507.10395}.
       The \(j\)th ancilla qubit controls a Pauli on the \(j\)th data qubit of the support, with zero-controlled gates at even \(j\) \cite[Alg. 1]{arxiv:2507.10395}.
-    - 'Modified Steane syndrome extraction for dual-rail-concatenated CE CSS codes couples the data block to logical \(|0\rangle^{\otimes k}\) and \(|+\rangle^{\otimes k}\) ancilla blocks via the Pauli-corrected transversal CNOT \cite[Thm. 12]{arxiv:2507.10395}.'
+    - 'Modified Steane syndrome extraction for dual-rail-concatenated CE CSS codes, in which each transversal CNOT gate is followed by the Pauli correction \(\prod_j X_{2j}\) \cite[Thm. 12]{arxiv:2507.10395}.'
 
   fault_tolerance:
     - |
       Weakly fault-tolerant error correction (in the sense of Ref. \cite{arxiv:2208.05601}) for distance-three CE CSS codes under circuit-level noise interleaved with layers of collective coherent \(Z\) rotations \cite[Thm. 11]{arxiv:2507.10395}.
       It combines modified Shor extraction with a conditional control flow that uses at most two syndrome-measurement rounds per stabilizer type \cite{arxiv:2507.10395}.
-      \(X\) errors are corrected before \(Z\) errors because a residual \(X\) error picks up a single-qubit coherent \(Z\) rotation from each subsequent collective layer \cite{arxiv:2507.10395}.
 
 relations:
   parents:
@@ -75,7 +70,7 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-16'
+      date: '2026-10-25'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: YinchenLiu
