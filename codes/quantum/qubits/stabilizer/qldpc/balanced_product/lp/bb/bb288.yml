@@ -23,6 +23,20 @@ description: |
 features:
   rate: 'Ancilla-added encoding rate is \(1/48\), using \(n_a=n=288\) ancilla qubits.'
 
+  fault_tolerance:
+    - 'The depth-8 syndrome-extraction circuit introduced with the code has \hyperref[topic:effective-distance]{circuit-level distance} at most \(18\) \cite{arxiv:2308.07915}.'
+    - |
+      A reconstruction of that circuit has an undetectable logical error made of \(16\) faults \cite{doi:10.5281/zenodo.23630980}.
+      Its circuit-level distance is therefore at most \(16\).
+      The memory experiment follows Ref. \cite{arxiv:2511.15177}, with ideal initialization, \(18\) noisy syndrome cycles under Z-type circuit noise, and one fault-free cycle.
+      Each Pauli component of a noise channel counts as one fault.
+    - |
+      The same upper bound of \(16\) holds for every circuit in a family of \(22{,}608\) valid depth-8 syndrome-extraction circuits, counted up to a global time shift \cite{doi:10.5281/zenodo.23630980}.
+      Each circuit in the family uses one ancilla per check and only CNOT gates.
+      Each ancilla is prepared, takes part in its six CNOT gates in six consecutive steps, and is then measured.
+      All X checks share one CNOT order and timing, and all Z checks share another.
+      The bound is for circuit-level noise in which each single-Pauli fault, including a fault on an idle data qubit, counts as one fault \cite{doi:10.5281/zenodo.23630980}.
+
 
 relations:
   parents:
@@ -33,6 +47,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: CarsonCrocker
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-10-11'
     - user_id: VictorVAlbert

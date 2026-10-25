@@ -47,6 +47,11 @@ features:
   fault_tolerance:
     - 'At physical error rate \(p=10^{-3}\) under circuit-level noise, the code suppresses the logical error rate to about \(2\times 10^{-7}\), enough to preserve \(12\) logical qubits for nearly one million syndrome cycles using \(288\) total physical qubits \cite{arxiv:2308.07915}.'
     - 'Fault-tolerant modular quantum computing framework \cite{arxiv:2506.03094}.'
+    - |
+      The depth-8 syndrome-extraction circuit introduced with the code has \hyperref[topic:effective-distance]{circuit-level distance} at most \(10\) \cite{arxiv:2308.07915}.
+      An exhaustive computer search was run on a reconstruction of that circuit, with \(12\) noisy syndrome cycles followed by two noiseless ones \cite{doi:10.5281/zenodo.23452754}.
+      In either memory basis, it finds no undetectable logical error with fewer than \(10\) faults and finds one with \(10\) faults.
+      The reconstructed circuit therefore has circuit-level distance \(10\) \cite{doi:10.5281/zenodo.23452754}.
 
   code_capacity_threshold:
     - 'Bit-flip noise: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of \(\approx 5\%\) for the block logical error rate under BP-OSD decoding \cite{arxiv:2606.02418}.'
@@ -72,6 +77,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: CarsonCrocker
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
