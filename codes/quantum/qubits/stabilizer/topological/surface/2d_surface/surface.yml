@@ -110,10 +110,11 @@ features:
     - 'LUCI framework for syndrome extraction circuits \cite{arxiv:2410.14891,arxiv:2502.10355}.'
     - 'Fault-tolerant constant-depth encoder and unencoder using measurements \cite{arxiv:2408.06299}.'
     - |
-      The surface code on a \(3L\times 3L\) square annulus with an \(L\times L\) hole has parameters \([[16L^2+8L,1,L+1]]\) \cite{arxiv:2609.39705}.
-      It admits an independent generating set of weight at most \(132\) and qubit incidence at most \(36\) whose contracted Tanner graph is an expander \cite[Thm. 5.1]{arxiv:2609.39705}.
-      Each star of one checkerboard color is multiplied by the earlier such stars adjacent to it in a bounded-degree expander graph on those stars \cite{arxiv:2609.39705}.
-      A depth-\(13\) nearest-neighbor circuit on a \((6L+1)\times(6L+1)\) grid measures the original stars and plaquettes, and the syndrome of the new set follows by classical recombination \cite[Thm. 5.1]{arxiv:2609.39705}.
+      The surface code on a \(3L\times 3L\) square annulus with an \(L\times L\) hole has parameters \([[16L^2+8L,1,L+1]]\), with the usual stars and plaquettes of weight at most four as checks \cite{arxiv:2609.39705}.
+      The same stabilizer group has a second generating set, built to show that an expanding generating set does not by itself force deep syndrome extraction \cite[Sec. 5]{arxiv:2609.39705}.
+      Each star of one checkerboard color is multiplied by the earlier such stars adjacent to it in a bounded-degree expander graph \cite[Thm. 5.1]{arxiv:2609.39705}.
+      The recombined generators have weight at most \(132\) and qubit incidence at most \(36\), and their contracted Tanner graph is an expander \cite[Thm. 5.1]{arxiv:2609.39705}.
+      A depth-\(13\) nearest-neighbor circuit on a \((6L+1)\times(6L+1)\) grid measures the original stars and plaquettes, and each recombined syndrome bit is a parity of their outcomes \cite[Thm. 5.1]{arxiv:2609.39705}.
 
   decoders:
     - 'Using data from multiple syndrome measurements prior to decoding allows for correcting syndrome measurement errors.
@@ -235,7 +236,7 @@ relations:
 _meta:
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-10-16'
+      date: '2026-10-25'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
