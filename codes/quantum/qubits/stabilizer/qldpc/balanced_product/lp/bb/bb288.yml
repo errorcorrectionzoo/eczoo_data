@@ -23,6 +23,13 @@ description: |
 features:
   rate: 'Ancilla-added encoding rate is \(1/48\), using \(n_a=n=288\) ancilla qubits.'
 
+  fault_tolerance:
+    - 'The syndrome extraction circuit of Ref. \cite{arxiv:2308.07915} has \hyperref[topic:effective-distance]{circuit-level distance} at most \(18\) \cite[Table 1]{arxiv:2308.07915}.'
+    - |
+      A \textit{uniform} syndrome extraction cycle uses one ancilla per check and only CNOT gates, with one CNOT order and timing shared by all \(X\) checks and another by all \(Z\) checks.
+      Each ancilla is prepared, coupled to its six data qubits by one CNOT gate per time step, and measured, so that one cycle takes eight time steps.
+      Every uniform cycle, including the circuit of Ref. \cite{arxiv:2308.07915}, has \hyperref[topic:effective-distance]{circuit-level distance} at most \(16\) under circuit-level noise with idle errors \cite{doi:10.5281/zenodo.23630980}.
+
 
 relations:
   parents:
@@ -33,6 +40,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
+    - user_id: CarsonCrocker
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-10-11'
     - user_id: VictorVAlbert
