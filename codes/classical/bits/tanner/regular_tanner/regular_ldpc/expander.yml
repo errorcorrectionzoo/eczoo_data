@@ -18,18 +18,16 @@ description: |
   Expander codes admit efficient encoding and decoding algorithms and yield an explicit (i.e., non-random) asymptotically good LDPC code family.
 
   The rate and distance of the expander code depend on specific parameters of the corresponding graph.
-  A (\(n, m, D, \gamma, \alpha\)) bipartite expander graph is defined as a \(D\)-left-regular graph with \(n\) left nodes and \(m\) right nodes.
-  Any subset of left nodes \(S\) of size at most \(\gamma n\) has a neighborhood \(N(S)\) of size at least \(\alpha|S|\).
-  Given a (\(n, m, D, \gamma, (1-\epsilon)D\)) expander graph, the corresponding expander code has rate at least \(1 - m/n\) and distance at least \(\gamma n/(2\epsilon)\) up to an additive constant for any \(\epsilon < 1/2\) \cite[Thm. 3.1]{arxiv:2111.07629}.
-  The distance bound follows from a size-expansion tradeoff: such a graph is also roughly a (\(n, m, D, k\gamma, (1-k\epsilon)D\)) expander for any \(k \geq 1\) \cite[Lemma 3.4]{arxiv:2111.07629}.
-  Every set of fewer than roughly \(\gamma n/(2\epsilon)\) left nodes thus has a unique neighbor and cannot support a codeword.
-  The bound is tight in general, up to an arbitrarily small loss in expansion \cite[Thm. 3.2]{arxiv:2111.07629}.
+  A (\(n, m, D, \gamma, \alpha\)) bipartite expander graph is a \(D\)-left-regular graph with \(n\) left nodes and \(m\) right nodes.
+  Every set \(S\) of at most \(\gamma n\) left nodes in such a graph has at least \(\alpha|S|\) neighbors.
+  Given a (\(n, m, D, \gamma, (1-\epsilon)D\)) expander graph with \(\epsilon < 1/2\), the expander code has distance at least \(\gamma n/(2\epsilon) - O(1/\epsilon)\) (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 3.1]{arxiv:2111.07629}.
+  The bound is tight up to an arbitrarily small loss in expansion for left-regular graphs whose maximum right degree is at most \(1.1\) times the average \cite[Thm. 3.2]{arxiv:2111.07629}.
   Explicit constructions for expander graphs \cite{doi:10.1090/S0273-0979-06-01126-8} with any ratio \(n/m\) are known where \(D = \text{polylog}(n/m)\), \(\gamma = \Omega(1/D)\) and arbitrary \(\epsilon\) \cite{doi:10.1145/509907.510003}.
 
 protection: |
-  There exist minimum distance bounds \cite{doi:10.1109/18.556667,arxiv:cs/0406048,arxiv:2111.07629} as well as bounds on decoding performance \cite{arxiv:0805.2427,doi:10.1109/TIT.2017.2726064,arxiv:2312.16087} in terms of features of the expander graph.
-  The list-decoding radius is at least \((1/2+\Omega(1/D_{\max}))d\) with list size polynomial in \(n\), where \(d\) is the distance and \(D_{\max}\) is the maximum right degree (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 7.1]{arxiv:2111.07629}.
-  This radius exceeds the Johnson bound at distance \(\gamma n/(2\epsilon)\) when \(\epsilon \leq 1/4\), \(\gamma/\epsilon \leq 0.1\), and \(D_{\max}\) is at most \(1.1\) times the average right degree \cite[Thm. 7.1]{arxiv:2111.07629}.
+  There exist minimum distance bounds \cite{doi:10.1109/18.556667,arxiv:cs/0406048} as well as bounds on decoding performance \cite{arxiv:0805.2427,doi:10.1109/TIT.2017.2726064,arxiv:2312.16087} in terms of features of the expander graph.
+  The list-decoding radius is at least \((1/2+\Omega(1/D_{\max}))\gamma n/(2\epsilon)\) with list size polynomial in \(n\), where \(D_{\max}\) is the maximum right degree (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 7.1]{arxiv:2111.07629}.
+  This radius exceeds the Johnson bound for binary codes of distance \(\gamma n/(2\epsilon)\) when \(\epsilon \leq 1/4\), \(\gamma/\epsilon \leq 0.1\), and \(D_{\max}\) is at most \(1.1\) times the average right degree \cite[Thm. 7.1]{arxiv:2111.07629}.
 
 features:
   rate: 'The rate is at least \(1 - m/n\), where \(n\) is the number of left nodes and \(m\) is the number of right nodes in the bipartite expander graph. Expander codes yield an explicit (i.e., non-random) asymptotically good LDPC code family \cite{doi:10.1109/18.556667}.'
@@ -40,7 +38,8 @@ features:
   decoders:
     - 'Decoding can be done in \(O(n)\) runtime using a greedy \textit{flip decoder} \cite{doi:10.1109/18.556667} (see also \cite{doi:10.1109/TIT.2006.887523}). The algorithm consists of flipping a bit of the received word if it will result in a greater number of satisfied parity checks. This is repeated until a codeword is reached. It corrects \((1-2\epsilon)\gamma n\) errors for \(\epsilon < 1/4\) \cite{doi:10.1109/18.556667}.'
     - '''Find erasures and Decode'' a.k.a. Viderman''s algorithm correcting \((1-3\epsilon)\gamma n/(1-2\epsilon)\) errors for \(\epsilon < 1/3\) in \hyperref[topic:asymptotics]{order} \(O(n)\) time \cite{doi:10.1145/2493252.2493255}. Its erasure-decoding subroutine corrects up to \((1-\xi)\gamma n/(2\epsilon)\) erasures in linear time for any \(\xi > 0\) \cite[Thm. 4.1]{arxiv:2111.07629}.'
-    - 'Linear-time decoder correcting up to \((3/(16\epsilon)-\eta)\gamma n\) errors for any \(\eta > 0\) and \(\epsilon < 1/4\) \cite[Thm. 5.4]{arxiv:2111.07629}. The decoder guesses the expansion of the set of corrupted bits. A small guessed expansion triggers the find-and-decode step of Viderman''s algorithm, and a large one triggers a round of flipping all bits with many unsatisfied parity checks. For \(\epsilon \leq 1/8\), additionally guessing the size of the corrupted set raises the radius to \(((\sqrt{2}-1)/(2\epsilon)-\eta)\gamma n\) for \(\epsilon < (3-2\sqrt{2})/2\) and to \(((1-2\epsilon)/(4\epsilon)-\eta)\gamma n\) otherwise \cite[Thm. 6.6]{arxiv:2111.07629}.'
+    - 'Linear-time decoder that guesses the expansion of the corrupted set and either runs Viderman''s find-erasures step or flips all bits with many unsatisfied parity checks \cite[Thm. 5.4]{arxiv:2111.07629}. It corrects up to \((3\gamma/(16\epsilon)-\eta)n\) errors for any \(\eta > 0\) and \(\epsilon < 1/4\).'
+    - 'Linear-time decoder for \(\epsilon \leq 1/8\) that guesses the size and expansion of the corrupted set and uses them to set the threshold of Viderman''s find-erasures step \cite[Thm. 6.6]{arxiv:2111.07629}. It corrects up to \(((\sqrt{2}-1)\gamma/(2\epsilon)-\eta)n\) errors for \(\epsilon < (3-2\sqrt{2})/2\) and up to \(((1-2\epsilon)\gamma/(4\epsilon)-\eta)n\) errors otherwise, for any \(\eta > 0\).'
 
   fault_tolerance:
     - 'The flip decoding algorithm is fault tolerant against parity-check errors \cite{doi:10.1109/18.556668}; see also \cite{manual:{M. Sudan, \emph{Essential Coding Theory} (2008) \href{https://courses.csail.mit.edu/6.440/spring08/index.html}{URL}}}.'
