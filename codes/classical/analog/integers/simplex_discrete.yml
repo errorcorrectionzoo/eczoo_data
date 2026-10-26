@@ -8,14 +8,16 @@ physical: reals
 logical: reals
 
 name: 'Simplex integer-based code'
-introduced: '\cite{manual:{D. J. C. MacKay, J. Sayir, and N. Goldman, “Near-Capacity Codes for Fountain Channels with Insertions, Deletions, and Substitutions, with Applications to DNA Archives”, Unpublished manuscript, 2015},arxiv:1612.08837,doi:10.1109/TIT.2018.2791990}'
+introduced: '\cite{arxiv:1301.7564}\cite{manual:{D. J. C. MacKay, J. Sayir, and N. Goldman, “Near-Capacity Codes for Fountain Channels with Insertions, Deletions, and Substitutions, with Applications to DNA Archives”, Unpublished manuscript, 2015},arxiv:1612.08837,doi:10.1109/TIT.2018.2791990}'
 
 alternative_names:
   - 'Multiset code'
-  # arxiv:1612.08837
+  # arxiv:1301.7564, arxiv:1307.3142, arxiv:1612.08837
 
 description: |
   An integer-based code over the \(\ell_1\) metric whose codewords are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.
+  Codewords are multiplicity vectors of multisets of \(N\) symbols from a \(q\)-ary alphabet, which are invariant under a permutation channel that randomly reorders the transmitted sequence \cite{arxiv:1301.7564,arxiv:1307.3142}.
+  The \(\ell_1\) distance between codewords is the symmetric-difference distance between multisets \cite{arxiv:1307.3142}.
 
   \begin{defterm}{Discrete simplex}
   \label{topic:discrete-simplex}
@@ -35,6 +37,11 @@ protection: |
   Because all codewords have the same coordinate sum, the \(\ell_1\) distance between any two codewords is always even, so the natural error-correction radius is often stated in terms of half that distance.
   Existence of certain codes is guaranteed by constructing Sidon sets per the Bose-Chowla theorem \cite{doi:10.1007/BF02566968}\cite[Thm. 14]{arxiv:1612.08837}.
 
+  Nontrivial \(e\)-perfect codes, whose radius-\(e\) balls in half the \(\ell_1\) distance partition \(\Delta_{q,N}\), exist only for \(q\leq 3\) \cite[Thm. 1.2]{arxiv:1307.3142}.
+  For \(q=2\), they exist for every \(N\geq 2e+1\) and have \(\lceil (N+1)/(2e+1)\rceil\) codewords \cite[Thm. 1.2]{arxiv:1307.3142}.
+  There are exactly \(\min\{r+1,2e+1-r\}\) such codes, where \(r\) is the remainder of \(N\) modulo \(2e+1\) \cite[Prop. 3.1]{arxiv:1307.3142}.
+  For \(q=3\), they exist if and only if \(N=3e+1\), and the only two consist of the cyclic shifts of \((2e+1,e,0)\) and of \((2e+1,0,e)\), respectively \cite[Thm. 1.2 and Eq. (3.6)]{arxiv:1307.3142}.
+  Both codes have minimum \(\ell_1\) distance \(4e+2\).
 
 relations:
   parents:
@@ -48,12 +55,18 @@ relations:
       detail: 'Codewords of simplex integer-based codes are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.'
     - code_id: simplex
       detail: 'Codewords of simplex integer-based codes are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.'
+    - code_id: perfect
+      detail: 'Nontrivial perfect simplex integer-based codes, whose radius-\(e\) balls in half the \(\ell_1\) distance partition the \hyperref[topic:discrete-simplex]{discrete simplex} \(\Delta_{q,N}\), exist only for \(q=2\) and \(q=3\) \cite[Thm. 1.2]{arxiv:1307.3142}.'
+    - code_id: constant_weight
+      detail: 'The Johnson space \(J(n,w)\) of constant-weight codes is the subset of the \hyperref[topic:discrete-simplex]{discrete simplex} \(\Delta_{n,w}\) of simplex integer-based codes with binary coordinates \cite[Remark 2.2]{arxiv:1307.3142}. On \(J(n,w)\), the \(\ell_1\) distance is twice the Johnson distance \cite[Remark 2.2]{arxiv:1307.3142}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
