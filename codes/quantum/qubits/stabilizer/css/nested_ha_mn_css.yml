@@ -1,0 +1,58 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nested_ha_mn_css
+physical: qubits
+logical: qubits
+
+name: 'Nested HA-MN CSS code'
+introduced: '\cite{arxiv:2603.24588}'
+
+description: |
+  CSS code whose two classical constituent codes are an HA-type code and an MN-type code built from the same random regular sparse binary matrices \cite{arxiv:2603.24588}.
+  The MN-side matrix \(A_X=[A_Z;A_\Delta]\) is the HA-side matrix \(A_Z\) stacked with an extra regular block \(A_\Delta\).
+  Stacking nests the two codes into a CSS pair, and the extra block carries the logical qubits \cite[Thm. 2.2]{arxiv:2603.24588}.
+
+  The \(Z\)-type stabilizer group is the dual of the HA-type code \(B\,\mathrm{Ker}A_Z\), the image of the regular LDPC code \(\mathrm{Ker}A_Z\) under a square regular sparse map \(B\).
+  The \(X\)-type stabilizers are the vectors \(Bu\) with \(u\in\mathrm{Ker}A_X\), which lie in \(B\,\mathrm{Ker}A_Z\) because \(\mathrm{Ker}A_X\subseteq\mathrm{Ker}A_Z\) \cite[Thm. 2.2]{arxiv:2603.24588}.
+  Without the extra block, the two classical codes are dual to each other and no logical qubits remain \cite[Sec. 6]{arxiv:2603.24588}.
+  The extended parity-check matrices with hidden variables, \([A_Z\ 0;\ B\ I_n]\) and \([A_X^{T}\ B^{T}]\), are sparse, but the stabilizer generator matrices on the visible qubits are generally dense \cite[Sec. 2.4]{arxiv:2603.24588}.
+  For \((j_Z,k)\)-regular \(A_Z\), \((j_\Delta,k)\)-regular \(A_\Delta\), and \((k,k)\)-regular \(B\), the degree triple is \((j_Z,j_X,k)\) with \(j_X=j_Z+j_\Delta\).
+  The triple is called \textit{balanced} when \(j_X+j_Z=k\), in which case both classical design rates equal \(j_X/k\) \cite[Sec. 2.3]{arxiv:2603.24588}.
+
+protection: |
+  For a fixed balanced triple with even \(j_Z\), even \(j_X-j_Z\), and \(4\leq j_Z<k/2\), both \(d_X\) and \(d_Z\) are linear in \(n\) with probability tending to one \cite[Cor. 5.1]{arxiv:2603.24588}.
+  For the 56 balanced triples with even \(k\leq 30\), \(4\leq j_Z\leq 10\), and \(j_Z<k/2\), the code attains the CSS GV bound \(R\geq 1-2h(\delta)\) at fixed degree, where \(h\) is the binary entropy function.
+  Namely, for every \(\delta<h^{-1}(j_Z/k)\), both \(d_X\) and \(d_Z\) exceed \(\delta n\) with probability tending to one, at rate \(1-2j_Z/k\) \cite[Cor. 5.2]{arxiv:2603.24588}\cite[Sec. 6]{arxiv:2603.24588}.
+
+features:
+  rate: |
+    Design quantum rate \(m_\Delta/n\), the row fraction of the extra block \(A_\Delta\) \cite[Prop. 2.7]{arxiv:2603.24588}.
+    For balanced triples with even \(k\) and \(4\leq j_Z<k/2\), the rate converges in probability to \(1-2j_Z/k\) as \(n\to\infty\) \cite[Thm. 2.9]{arxiv:2603.24588}.
+
+notes:
+  - 'Matrix data and the list of certified degree triples are available at \href{https://github.com/kasaikenta/finite-degree-gv-certificates}{this repository} \cite[Sec. 6]{arxiv:2603.24588}.'
+
+relations:
+  parents:
+    - code_id: qubit_css
+      detail: 'A nested HA-MN CSS code is a CSS code built from a stacked sparse matrix \(A_X=[A_Z;A_\Delta]\) and a square sparse map \(B\). Its \(Z\)-type stabilizer group is the dual of the HA-type code \(B\,\mathrm{Ker}A_Z\), and its \(X\)-type stabilizer group is \(B\,\mathrm{Ker}A_X\) \cite[Thm. 2.2]{arxiv:2603.24588}.'
+    - code_id: random_stabilizer
+      detail: 'Nested HA-MN CSS codes are sampled from the configuration-model ensemble of regular sparse binary matrices \cite[Def. 2.5]{arxiv:2603.24588}.'
+  cousins:
+    - code_id: ha_ldpc
+      detail: 'The \(Z\)-type stabilizer group of a nested HA-MN CSS code is the dual of a \((j_Z,k,k)\)-HA-LDPC code \cite[Sec. 3]{arxiv:2603.24588}. That code is the image of a \((j_Z,k)\)-regular LDPC code under a square \((k,k)\)-regular sparse map.'
+    - code_id: mn_ldpc
+      detail: 'The \(X\)-type stabilizer group of a nested HA-MN CSS code is the dual of a \((k,j_X,k)\)-MN-LDPC code \cite[Sec. 4]{arxiv:2603.24588}. The punctured block of that code is a stack of two independent regular matrices rather than a single regular matrix.'
+    - code_id: qldpc
+      detail: 'Nested HA-MN CSS codes have sparse extended parity-check matrices with hidden variables, but their stabilizer generator matrices on the visible qubits are generally dense \cite[Sec. 2.4]{arxiv:2603.24588}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
