@@ -12,10 +12,10 @@ name: '2D lattice stabilizer code'
 description: |
   Lattice stabilizer code in two Euclidean dimensions, using either the ordinary block notion of locality or the fermionic/Majorana notion of locality.
 
-  Any translation-invariant 2D prime-qudit lattice stabilizer code can be converted to several copies of the prime-qudit 2D surface code along with some trivial codes \cite{arxiv:1812.11193}.
-  Any 2D topological order requires weight-four Hamiltonian terms, i.e., it cannot be stabilized via weight-two or weight-three terms on 2D lattices of qubits or qutrits \cite{arxiv:quant-ph/0308021,arxiv:1102.0770,arxiv:1803.02213}.
+  Any translation-invariant 2D prime-qudit lattice stabilizer code satisfying the topological order condition can be converted to several copies of the prime-qudit 2D surface code along with some trivial codes \cite{arxiv:1812.11193}.
+  Commuting Hamiltonians with terms of weight at most three cannot realize topological order on 2D Euclidean lattices of qubits or qutrits \cite{arxiv:quant-ph/0308021,arxiv:1102.0770,arxiv:1803.02213}.
 
-  Translation-invariant 2D prime-qudit lattice stabilizer codes are equivalent to several copies of the prime-qudit surface code and a trivial code via a local constant-depth Clifford circuit \cite{arxiv:1812.11193}.
+  Translation-invariant 2D prime-qudit lattice stabilizer codes satisfying the topological order condition are equivalent to several copies of the prime-qudit surface code and a trivial code via a local constant-depth Clifford circuit \cite{arxiv:1812.11193}.
   An algorithm checks the topological order condition of a 2D translationally invariant modular-qudit stabilizer code of any qudit dimension and extracts its anyon string operators, fusion rules, topological spins, and braiding \cite{arxiv:2312.11170}.
   Another algorithm determines boundaries and twist defects \cite{arxiv:2410.11942}.
 
@@ -41,13 +41,12 @@ relations:
     - code_id: translationally_invariant_stabilizer
   cousins:
     - code_id: surface
-      detail: 'Translation-invariant 2D qubit lattice stabilizer codes are equivalent to several copies of the Kitaev surface code via a local constant-depth qudit Clifford circuit \cite{arxiv:1103.4606,arxiv:1107.2707,arxiv:1607.01387}.'
+      detail: 'Translation-invariant 2D qubit lattice stabilizer codes satisfying the topological order condition are equivalent to several copies of the Kitaev surface code and a trivial code via a local constant-depth qudit Clifford circuit \cite{arxiv:1103.4606,arxiv:1107.2707,arxiv:1607.01387,arxiv:1812.11193}.'
     - code_id: quantum_double_abelian
-      detail: 'Translation-invariant 2D prime-qudit lattice stabilizer codes are equivalent to several copies of the prime-qudit surface code and a trivial code via a local constant-depth qudit Clifford circuit \cite{arxiv:1812.11193}.'
+      detail: 'Translation-invariant 2D prime-qudit lattice stabilizer codes satisfying the topological order condition are equivalent to several copies of the prime-qudit surface code and a trivial code via a local constant-depth qudit Clifford circuit \cite{arxiv:1812.11193}.'
     - code_id: holographic
-      detail: '2D lattice stabilizer codes admit a bulk-boundary correspondence similar to that of holographic codes, namely, the boundary Hilbert space of the former cannot be realized via local degrees of freedom \cite{arxiv:2312.04617}.'
-    - code_id: qldpc
-      detail: 'Chain complexes describing qubit QLDPC codes can be converted to 2D lattice stabilizer codes \cite{arxiv:2408.01769}.'
+      detail: 'Topological 2D lattice stabilizer codes admit a bulk-boundary correspondence similar to that of holographic codes, namely, the boundary Hilbert space of the former cannot be realized via local degrees of freedom \cite{arxiv:2312.04617}.'
+    # Removed qldpc: arXiv:2408.01769 uses abstract 2D complexes, not 2D Euclidean lattices.
 
 
 # Begin Entry Meta Information
