@@ -19,7 +19,7 @@ description: |
   d \leq n-k+1
   \end{align}
   becomes an equality.
-  Equivalently, a code with minimum distance \(d\) and dual distance \(d'\) is MDS precisely when \(d+d'=n+2\) and all distances occur \cite[Thm. 12.3.1]{preset:HKSbounds}.
+  Equivalently, a code with minimum distance \(d\) and dual distance \(d'\) is MDS precisely when \(d+d'=n+2\) \cite[Thm. 12.3.1]{preset:HKSbounds}.
   A code is called \textit{almost MDS} (AMDS) when \(d=n-k\).
   A bound for general (i.e., nonlinear or unrestricted) \(q\)-ary codes can also be formulated; see \cite[Thm. 1.9.10]{preset:HKSbasics}.
   A code is \textit{near MDS} (NMDS) if both the code and its dual are AMDS.
@@ -52,9 +52,10 @@ relations:
   cousins:
     - code_id: dual
       detail: 'A linear binary or \(q\)-ary \([n,k,n-k+1]\) code is MDS if and only if its dual \([n,n-k,k+1]\) is MDS \cite[Thm. 1.9.13]{preset:HKSbasics}.'
+    # Repetition MDS codes have dual distance two and are not projective.
     - code_id: projective
       detail: 'A linear code is MDS (almost MDS) if and only if columns of its parity-check matrix form an \(n\)-arc (\(n\)-track) in projective space \cite{preset:Bose47,doi:10.1109/ISIT.1994.395042,doi:10.1007/978-1-4613-0283-4_13,manual:{A. Beutelspacher and U. Rosenbaum, \emph{Projective geometry: from foundations to applications} (Cambridge University Press, 1998)}}.
-      The dual of a MDS code is an MDS code, so MDS codes are projective.
+      The dual of an MDS code is an MDS code, so MDS codes with \(k\geq 2\) are projective.
       All \([9,3]\) MDS codes have been tabulated \cite{doi:10.1109/18.476239} in terms of 9-arcs in the projective plane.'
 
 
