@@ -42,16 +42,10 @@ features:
     For \(Y\) noise, a variant of the matching decoder could be used like it is used for the XY code in Ref. \cite{arxiv:1907.02554}.
     Decoding complexity scales as \hyperref[topic:asymptotics]{order} \(O(n^3)\) because the code is non-CSS \cite[Supplement]{arxiv:1907.02554}\cite{arxiv:2202.06612}.'
   code_capacity_threshold:
-    - 'For large but finite \(X\)- or \(Z\)-biased noise, the code''s thresholds exceed the zero-rate hashing bound \cite{arxiv:2009.07851}.
-    The difference of the threshold from the hashing bound exceeds \(2.9\%\) at a \(Z\) or \(X\) bias of 300, but this estimate had not stabilized with code distance \cite{arxiv:2009.07851}.
-    Separate threshold fits to the logical bit-flip, phase-flip, and total failure rates converge to a single value above the hashing bound at bias 30 and 100 \cite{arxiv:2401.04008}.
-    The fits use a tensor-network decoder and code distances up to 101.
-    At bias 300 and 1000 they do not converge, since finite-size corrections are too large to determine the threshold \cite{arxiv:2401.04008}.'
+    - 'Above the zero-rate hashing bound for \(Z\)-biased noise (or, by code symmetry, \(X\)-biased noise) with bias \(\eta=30\) and \(\eta=100\) under a tensor-network decoder \cite{arxiv:2009.07851,arxiv:2401.04008}.'
     - '\(50\%\) threshold for noise infinitely biased towards \(X\) or \(Y\) or \(Z\) errors using a maximum-likelihood decoder.'
-    - 'Under \(Z\)-biased noise \(p_x=p_y=p_z/(2\eta)\) at the point \(p=(1+\eta^{-1})/(2+\eta^{-1})\), the \(d\times d\) code with odd \(d\) maps to decoupled one-dimensional Ising chains \cite{arxiv:2401.04008}.
-    The total logical failure rate under maximum-likelihood decoding is then exactly \(\frac{3}{4}-\frac{1}{4}e^{-2d\,\text{artanh}(1/2\eta)}\), with \(d\) the weight of the pure-\(Z\) logical operator.
-    This point lies above threshold for finite \(\eta\) and at the \(50\%\) threshold for \(\eta\to\infty\).
-    Logical bit-flip failures are suppressed for \(d<\eta\), which causes large finite-size corrections to threshold estimates at high bias \cite{arxiv:2401.04008}.'
+    - 'Under \(Z\)-biased noise \(p_x=p_y=p_z/(2\eta)\) at the point \(p_z=1-p\), the statistical mechanical model of the \(d\times d\) code with odd \(d\) reduces to decoupled one-dimensional Ising models \cite{arxiv:2401.04008}.
+    At this point, which lies above threshold for finite \(\eta\), the maximum-likelihood logical failure rate is exactly \(\frac{3}{4}-\frac{1}{4}e^{-2d\,\text{artanh}(1/2\eta)}\), with \(d\) the weight of the pure-\(Z\) logical operator \cite{arxiv:2401.04008}.'
     - 'Depolarizing noise: \(18.7(1)\%\) under tensor-network decoder \cite{arxiv:1708.08474} and \(17.5\%\) under AMBP4 \cite{arxiv:2104.13659}.'
   threshold:
     - '\(\approx 4.5\%\) using minimum-weight perfect matching decoder for depolarizing noise (bias \(\eta=0.5\)); \(\approx 10\%\) for infinite \(Z\) bias.'
@@ -93,9 +87,8 @@ relations:
       detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{preset:Maurice21}; see \cite[Sec. 3.4]{arxiv:2011.09746}. Using only two repetition codes in the analogous 2D construction yields the XZZX code, making it a 2D analogue of the Chamon code \cite[Sec. 2]{arxiv:2011.09746}.'
     - code_id: repetition
       detail: 'The Chamon model code can be obtained from an XYZ product of three repetition codes \cite{preset:Maurice21}; see \cite[Sec. 3.4]{arxiv:2011.09746}. Using only two repetition codes in the analogous 2D construction yields the XZZX code, making it a 2D analogue of the Chamon code \cite[Sec. 2]{arxiv:2011.09746}.
-      Under pure \(Z\) noise, the \(d\times d\) XZZX code has the logical failure rate of a distance-\(d\) repetition code \cite[Sec. IV.C]{arxiv:2401.04008}.
-      For \(Z\)-biased noise with bias \(\eta\gg d\) at error rates near threshold, the XZZX code is effectively equivalent to the phase-flip repetition code on \(d\) qubits \cite[Sec. VI]{arxiv:2401.04008}.
-      In this regime, logical bit-flip operators containing a single \(X\) or \(Y\) error dominate the logical bit-flip failure rate \cite[Sec. VI]{arxiv:2401.04008}.'
+      Under pure \(Z\) noise, the \(d\times d\) XZZX code is equivalent to a distance-\(d\) repetition code \cite{arxiv:2009.07851}\cite[Sec. IV.C]{arxiv:2401.04008}.
+      For \(Z\) bias \(\eta\gg d\) and error rates near threshold, the XZZX code is effectively equivalent to the phase-flip repetition code on \(d\) qubits \cite[Sec. VI]{arxiv:2401.04008}.'
     - code_id: fracton
       detail: 'Subsystem symmetries play a role in finite-bias decoders for both XZZX and fracton codes \cite{arxiv:1901.08061}. The XZZX surface code resembles a Type-I fracton code with lineons in the limit of infinite noise bias \cite{arxiv:2203.16534}.'
     - code_id: heavy_hex

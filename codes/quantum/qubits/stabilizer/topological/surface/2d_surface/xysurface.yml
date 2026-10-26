@@ -26,10 +26,8 @@ features:
   code_capacity_threshold:
     - '\(50\%\) at infinite \(Z\) bias with maximum-likelihood decoder \cite{arxiv:1812.08186}.'
     - '\(18.8(2)\%\) for standard depolarizing noise with maximum-likelihood decoder \cite{arxiv:1812.08186}.'
-    - 'Under \(Z\)-biased noise \(p_x=p_y=p_z/(2\eta)\) at the point \(p=(1+\eta^{-1})/(2+\eta^{-1})\), the code on a \(d\times d\) rotated layout with odd \(d\) maps to a single one-dimensional Ising chain \cite{arxiv:2401.04008}.
-    The total logical failure rate under maximum-likelihood decoding is then exactly \(\frac{3}{4}-\frac{1}{4}e^{-2d^2\,\text{artanh}(1/2\eta)}\), with \(d^2\) the weight of the pure-\(Z\) logical operator.
-    This point lies above threshold for finite \(\eta\) and at the \(50\%\) threshold for \(\eta\to\infty\).
-    Code distance \(d>\sqrt{\eta}\) suffices to approach the large-\(d\) limit of the failure rate \cite{arxiv:2401.04008}.'
+    - 'Under \(Z\)-biased noise \(p_x=p_y=p_z/(2\eta)\) at the point \(p_z=1-p\), the statistical mechanical model of the code on a \(d\times d\) rotated layout with odd \(d\) reduces to a single one-dimensional Ising model \cite{arxiv:2401.04008}.
+    At this point, which lies above threshold for finite \(\eta\), the maximum-likelihood logical failure rate is exactly \(\frac{3}{4}-\frac{1}{4}e^{-2d^2\,\text{artanh}(1/2\eta)}\), with \(d^2\) the weight of the pure-\(Z\) logical operator \cite{arxiv:2401.04008}.'
 
 relations:
   parents:
@@ -39,8 +37,7 @@ relations:
     - code_id: heavy_hex
       detail: 'XY surface code can be adapted for a heavy-hexagonal point set \cite{arxiv:2211.14038}.'
     - code_id: repetition
-      detail: 'Under pure \(Z\) noise, the XY surface code on a \(d\times d\) rotated layout has the logical failure rate of a distance-\(d^2\) repetition code \cite[Sec. IV.C]{arxiv:2401.04008}.
-      Its only pure-\(Z\) logical operator is \(Z^{\otimes d^2}\), acting on all qubits.'
+      detail: 'Under pure \(Z\) noise, the \(d\times d\) XY surface code with odd \(d\) is equivalent to a distance-\(d^2\) repetition code, since its only pure-\(Z\) logical operator is \(Z^{\otimes d^2}\) \cite{arxiv:1812.08186}\cite[Sec. IV.C]{arxiv:2401.04008}.'
 
 
 # Begin Entry Meta Information
