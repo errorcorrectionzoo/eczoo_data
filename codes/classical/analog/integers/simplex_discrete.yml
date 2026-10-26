@@ -8,14 +8,16 @@ physical: reals
 logical: reals
 
 name: 'Simplex integer-based code'
-introduced: '\cite{manual:{D. J. C. MacKay, J. Sayir, and N. Goldman, “Near-Capacity Codes for Fountain Channels with Insertions, Deletions, and Substitutions, with Applications to DNA Archives”, Unpublished manuscript, 2015},arxiv:1612.08837,doi:10.1109/TIT.2018.2791990}'
+introduced: '\cite{arxiv:1301.7564,arxiv:1307.3142}\cite{manual:{D. J. C. MacKay, J. Sayir, and N. Goldman, “Near-Capacity Codes for Fountain Channels with Insertions, Deletions, and Substitutions, with Applications to DNA Archives”, Unpublished manuscript, 2015},arxiv:1612.08837,doi:10.1109/TIT.2018.2791990}'
 
 alternative_names:
   - 'Multiset code'
-  # arxiv:1612.08837
+  # arxiv:1301.7564, arxiv:1307.3142, arxiv:1612.08837
 
 description: |
   An integer-based code over the \(\ell_1\) metric whose codewords are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.
+  Codewords describe multisets of \(N\) symbols from a \(q\)-ary alphabet sent through a permutation channel, which outputs a random permutation of the transmitted sequence \cite{arxiv:1301.7564,arxiv:1307.3142}.
+  Each coordinate records the multiplicity of one symbol, so the \(\ell_1\) distance between codewords is the symmetric-difference distance between multisets \cite{arxiv:1307.3142}.
 
   \begin{defterm}{Discrete simplex}
   \label{topic:discrete-simplex}
@@ -35,6 +37,12 @@ protection: |
   Because all codewords have the same coordinate sum, the \(\ell_1\) distance between any two codewords is always even, so the natural error-correction radius is often stated in terms of half that distance.
   Existence of certain codes is guaranteed by constructing Sidon sets per the Bose-Chowla theorem \cite{doi:10.1007/BF02566968}\cite[Thm. 14]{arxiv:1612.08837}.
 
+  A code is \(e\)-perfect if the balls of radius \(e\) in half the \(\ell_1\) distance centered at its codewords partition the discrete simplex \cite[Def. 1.1]{arxiv:1307.3142}.
+  Nontrivial perfect codes, i.e., those with at least two codewords and \(e\geq 1\), exist in \(\Delta_{2,N}\) for every \(N\geq 2e+1\) and have \(\lceil (N+1)/(2e+1)\rceil\) codewords \cite[Thm. 1.2]{arxiv:1307.3142}.
+  They exist in \(\Delta_{3,N}\) if and only if \(N=3e+1\) \cite[Thm. 1.2]{arxiv:1307.3142}.
+  The two \(e\)-perfect codes in \(\Delta_{3,3e+1}\) consist of the three cyclic shifts of \((2e+1,e,0)\) and of \((2e+1,0,e)\), respectively, with codewords at pairwise \(\ell_1\) distance \(4e+2\) \cite[Eq. (3.6)]{arxiv:1307.3142}.
+  No such codes exist in \(\Delta_{q,N}\) for \(q\geq 4\) \cite[Thm. 1.2]{arxiv:1307.3142}.
+  Perfect codes in \(\Delta_{2,N}\) are enumerated in Ref. \cite[Prop. 3.1]{arxiv:1307.3142}.
 
 relations:
   parents:
@@ -48,12 +56,18 @@ relations:
       detail: 'Codewords of simplex integer-based codes are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.'
     - code_id: simplex
       detail: 'Codewords of simplex integer-based codes are restricted to lie in a \hyperref[topic:discrete-simplex]{discrete simplex}.'
+    - code_id: perfect
+      detail: 'Nontrivial perfect simplex integer-based codes, whose radius-\(e\) balls in half the \(\ell_1\) distance partition the discrete simplex, exist only over binary and ternary alphabets \cite[Thm. 1.2]{arxiv:1307.3142}.'
+    - code_id: constant_weight
+      detail: 'The Johnson space \(J(q,N)\) of weight-\(N\) binary strings of length \(q\) is the subset of the discrete simplex \(\Delta_{q,N}\) with binary coordinates \cite[Remark 2.2]{arxiv:1307.3142}. The \(\ell_1\) distance restricted to it is twice the Johnson distance \cite[Remark 2.2]{arxiv:1307.3142}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
