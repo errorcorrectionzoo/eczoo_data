@@ -11,47 +11,33 @@ name: 'Canonical LP code'
 introduced: '\cite{arxiv:2607.28605}'
 
 description: |
-  Binary LP code over a cyclic group \(\mathbb{Z}_{\ell}\) whose logical operators are base-code codewords laid along the rows and columns of a grid of \(\ell\)-qubit fibers \cite[Def. 3.4]{arxiv:2607.28605}.
-  This \textit{canonical logical basis} is that of \hyperref[code:hypergraph_product]{HGP codes} with each logical qubit replaced by a cyclic orbit of \(\ell\) logical qubits \cite{arxiv:2607.28605}.
+  Binary LP code over a cyclic group \(\mathbb{Z}_{\ell}\) that admits a \textit{canonical logical basis}, whose operators are base-code codewords laid along the rows and columns of a grid of \(\ell\)-qubit fibers \cite[Def. 3.4]{arxiv:2607.28605}.
+  This basis is that of \hyperref[code:hypergraph_product]{HGP codes} with each logical qubit replaced by a cyclic orbit of \(\ell\) logical qubits \cite{arxiv:2607.28605}.
 
   For base matrices \(A\in R^{m_A\times n_A}\) and \(B\in R^{m_B\times n_B}\) over \(R=\mathbb{F}_2[x]/(x^{\ell}+1)\), the left block of qubits is an \(n_A\times m_B\) grid of fibers.
-  Each canonical logical \(Z\)-type operator is a codeword of \(\ker A\) placed along one column of this grid \cite[Def. 3.4]{arxiv:2607.28605}.
-  Its conjugate \(X\)-type operator is a codeword of \(\ker B^{*}\) placed along one row, and the two meet on one qubit \cite[Prop. 3.5]{arxiv:2607.28605}.
-  Multiplication by \(x\) shifts every fiber cyclically and advances each logical qubit within its \textit{logical fiber} of \(\ell\) logical qubits \cite[Prop. 3.5]{arxiv:2607.28605}.
-  The \(k_c=r_A r_B^*\ell\) canonical logical qubits \(\bar{q}_{i,j,m}\) form an \(r_A\times r_B^*\) grid of logical fibers, with \(r_A=n_A-m_A\) and \(r_B^*=m_B-n_B\), and any further logical qubits are \textit{residual} \cite[Thm. 3]{arxiv:2607.28605}.
-  For full-row-rank lifts, the basis exists iff the first \(r_A\) columns of \(A\) and the first \(r_B^*\) columns of \(B^*\) lift into information sets of the kernels of the lifts \cite[Prop. 3.7]{arxiv:2607.28605}.
-  Then \(k=k_c\).
-
-  A \textit{canonical-product code} has a base matrix \(A\) whose columns split into \(r_A\) information columns and a square block \(A'\) with invertible lift, and likewise for \(B^*\) \cite[Exam. 5.5, Appx. B.5]{arxiv:2607.28605}.
-  An example is the symmetric \([[468,36,20]]\) code \(LP(A,A^*)\) over \(\mathbb{F}_2[x]/(x^{36}+1)\) with
-  \begin{align}
-    A=\begin{pmatrix} 1 & 1+x^{11}+x^{29} & 1\\ 1 & 0 & x^{8}+x^{13}+x^{16}+x^{17} \end{pmatrix}~,
-  \end{align}
-  whose first two columns form \(A'\) \cite[Appx. B.5]{arxiv:2607.28605}.
+  Each canonical logical \(Z\)-type (\(X\)-type) operator is a codeword of \(\ker A\) (\(\ker B^{*}\)) placed along one column (row) of this grid, and conjugate operators meet on one qubit \cite[Def. 3.4, Prop. 3.5]{arxiv:2607.28605}.
+  The \(k_c=r_A r_B^*\ell\) canonical logical qubits \(\bar{q}_{i,j,m}\) form an \(r_A\times r_B^*\) grid of \textit{logical fibers}, with \(r_A=n_A-m_A\) and \(r_B^*=m_B-n_B\), and any further logical qubits are \textit{residual} \cite[Thm. 3]{arxiv:2607.28605}.
+  When the lifts of \(A\) and \(B^{*}\) have full row rank, the basis exists iff the code is a \textit{canonical-product code}, with \(k=k_c\) \cite[Prop. 3.7, Appx. B.5]{arxiv:2607.28605}.
+  Up to column permutation, \(A\) then consists of \(r_A\) information columns and a square block \(A'\) with invertible lift, and likewise for \(B^{*}\) \cite[Exam. 5.5]{arxiv:2607.28605}.
 
 protection: |
   A canonical-product code has distance at most \(1+\gamma_A\,\omega_{\mathrm{col}}(A)\) \cite[Exam. 5.5]{arxiv:2607.28605}.
   Here, \(\gamma_A\) is the maximum column weight of the inverse of the lift of \(A'\), and \(\omega_{\mathrm{col}}(A)\) is the maximum column weight of \(A\).
-  The bound is the weight of the logical \(Z\)-type operator obtained by completing one information column through that inverse \cite[Appx. D.5]{arxiv:2607.28605}.
-  For LDPC base matrices, constant \(\gamma_A\), which sets the thickening length of intra-column surgery, caps the distance at a constant \cite[Appx. D.5]{arxiv:2607.28605}.
+  Constant \(\gamma_A\) and LDPC base matrices therefore cap the distance at a constant \cite[Appx. D.5]{arxiv:2607.28605}.
   The symmetric \([[952,112,17]]\) code with \(\gamma_A=4\) and \(\omega_{\mathrm{col}}(A)=4\) attains the bound \cite[Appx. D.5]{arxiv:2607.28605}.
 
 features:
   transversal_gates:
     - 'Cyclically shifting every fiber by \(t\) positions is a qubit permutation that implements the logical cyclic shift \(\bar{q}_{i,j,m}\to\bar{q}_{i,j,m+t}\) on all logical fibers in parallel \cite[Prop. 3.8]{arxiv:2607.28605}.'
     - |
-      For symmetric codes \(LP(A,A^*)\), transversal Hadamard followed by the transposition of the grid of fibers is a fold-transversal gate \cite[Prop. 3.8]{arxiv:2607.28605}.
-      It implements a logical Hadamard on every logical qubit followed by the fold permutation \(\bar{q}_{i,j,m}\leftrightarrow\bar{q}_{j,i,m}\) \cite[Prop. 3.8]{arxiv:2607.28605}.
-      A second fold-transversal gate applies \(S\) to the fold-invariant qubits of the first block, \(S^{\dagger}\) to those of the second block, and \(CZ\) to each folded pair of qubits \cite[Prop. 3.8]{arxiv:2607.28605}.
-      It implements logical \(S\) on the diagonal logical fibers and logical \(CZ\) between \(\bar{q}_{i,j,m}\) and \(\bar{q}_{j,i,m}\) for \(i\neq j\) \cite[Prop. 3.8]{arxiv:2607.28605}.
+      For symmetric codes \(LP(A,A^*)\), transversal Hadamard followed by transposing the grid of fibers implements logical Hadamard on every canonical logical qubit followed by the fold permutation \(\bar{q}_{i,j,m}\leftrightarrow\bar{q}_{j,i,m}\) \cite[Prop. 3.8]{arxiv:2607.28605}.
+      A fold-transversal circuit of \(S\), \(S^{\dagger}\), and \(CZ\) gates implements logical \(S\) on the diagonal logical fibers and logical \(CZ\) between \(\bar{q}_{i,j,m}\) and \(\bar{q}_{j,i,m}\) for \(i\neq j\) \cite[Prop. 3.8]{arxiv:2607.28605}.
 
   general_gates:
     - |
-      Graph surgery on symmetric codes assembles any logical Pauli-product measurement by bridging copies of only \(r_A\) \textit{seed surgery gadgets}, independently of \(\ell\) \cite[Thm. 4]{arxiv:2607.28605}.
-      The \([[1122,148,\leq 20]]\) code needs two seed gadgets \cite[Table II]{arxiv:2607.28605}.
-      A fixed \textit{canonical extractor} instead measures any logical Pauli product by masking its connections to the data code \cite[Thm. 5]{arxiv:2607.28605}.
+      Graph surgery on symmetric codes measures any Pauli product of canonical logical qubits by bridging copies of only \(r_A\) \textit{seed surgery gadgets}, independently of \(\ell\) \cite[Thm. 4]{arxiv:2607.28605}.
+      A fixed \textit{canonical extractor} instead measures any Pauli product of canonical logical qubits by masking its connections to the data code \cite[Thm. 5]{arxiv:2607.28605}.
       Its ancilla graph is a cyclic lift closing each check of \(A\) into a cycle through its bits \cite[Def. 4.9]{arxiv:2607.28605}.
-      It couples to the first \(r_A\) columns and rows of fibers \cite[Thm. 5]{arxiv:2607.28605}.
     - |
       Parallel \textit{intra-column} hypergraph surgery measures any set of logically disjoint \(Z\)-type (\(X\)-type) Pauli products within a column (row) of logical fibers in one logical cycle \cite[Def. 5.4]{arxiv:2607.28605}.
       Its skeleton is the lift of \(A\), punctured and augmented with weight-two rows to select the measured operators \cite[Def. 5.4]{arxiv:2607.28605}.
@@ -78,13 +64,12 @@ relations:
     - code_id: abelian_lifted_product
       detail: |-
         Canonical LP codes are binary Abelian LP codes over a cyclic group \(\mathbb{Z}_{\ell}\) \cite{arxiv:2607.28605}.
-        Their logical operators are base-code codewords laid along the rows and columns of a grid of \(\ell\)-qubit fibers \cite[Def. 3.4]{arxiv:2607.28605}.
+        They admit a logical basis of base-code codewords laid along the rows and columns of a grid of \(\ell\)-qubit fibers \cite[Def. 3.4]{arxiv:2607.28605}.
   cousins:
     - code_id: hypergraph_product
       detail: |-
-        For \(\ell=1\), the canonical logical basis of canonical LP codes reduces to that of HGP codes with full-rank base matrices \cite[Sec. III]{arxiv:2607.28605}.
-        For general \(\ell\), each HGP logical qubit becomes a fiber of \(\ell\) logical qubits.
-        The fold-transversal Hadamard and \(CZ\) gates of symmetric HGP codes carry over to symmetric canonical LP codes \cite[Prop. 3.8]{arxiv:2607.28605}.
+        The canonical logical basis of canonical LP codes is that of HGP codes with full-rank base matrices, with each logical qubit replaced by a fiber of \(\ell\) logical qubits \cite[Sec. III]{arxiv:2607.28605}.
+        The fold-transversal Hadamard-SWAP and \(S\)-\(CZ\) gates of symmetric HGP codes carry over to symmetric canonical LP codes \cite[Prop. 3.8]{arxiv:2607.28605}.
     - code_id: perm_self_dual_css
       detail: |-
         Symmetric canonical LP codes \(LP(A,A^*)\) are permutationally self-dual.
