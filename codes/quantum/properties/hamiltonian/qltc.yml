@@ -7,7 +7,7 @@ code_id: qltc
 
 name: 'Quantum locally testable code (QLTC)'
 short_name: 'QLTC'
-introduced: '\cite{arxiv:1310.5664}'
+introduced: '\cite{arxiv:1301.3407,arxiv:1310.5664}'
 
 description: |
   A local commuting-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, states that are far away from the codespace of a QLTC have to be excited states of a number of the code's local projectors that scales linearly with \(n\).
@@ -28,6 +28,17 @@ description: |
 
 
 protection: |
+  The \textit{robustness} \(r(\delta)\) of a stabilizer LTC is the fraction of the maximum possible number of generators violated by a Pauli error of weight \(\delta n\) \cite[Def. 8]{arxiv:1301.3407}.
+  The maximum is \(D_R\delta n\), where \(D_R\) is the number of \(k\)-local generators acting on each qudit, and weights are taken modulo the centralizer of the stabilizer group.
+  For codes on \(d\)-dimensional qudits with distance at least two, \(r(\delta)\leq\alpha(d)=1-1/(d^2-1)\) for \(\delta\leq 1/(k^3 D_R)\) \cite[Fact 5]{arxiv:1301.3407}.
+  This \textit{single-error robustness} arises because the most common Pauli on a qudit commutes with at least a \(1/(d^2-1)\) fraction of the generators acting on it.
+  For \(k\geq 4\), distance at least \(k\), and no nontrivial stabilizer-group element of weight below \(k\), the robustness is strictly below this bound \cite[Thm. 4]{arxiv:1301.3407}.
+  Namely, \(r(\delta^{\prime})\leq\alpha(d)(1-\gamma_{\text{gap}})\) with \(\gamma_{\text{gap}}(k)\geq\min\{10^{-3},0.01/k\}\) for some \(\delta^{\prime}\) within one percent of any \(\delta\leq\min\{\delta_C/2,\eta/10\}\), where \(\delta_C\) is the relative distance and \(\eta=k^{-(2k+1)}D_R^{-(2k-1)}\).
+  Good small-set expansion of the generators' bipartite interaction graph forces low robustness \cite[Thm. 3]{arxiv:1301.3407}.
+  If every set \(S\) of at most \(k\) qudits is acted on by at least \((1-\epsilon)D_R|S|\) generators for some \(\epsilon<1/2\), then \(r(\delta)\leq 2\epsilon\) for all \(\delta<\min\{1/(k^3 D_R),\delta_C/2\}\).
+  The error attaining this bound acts on one qudit of each of \(\delta n\) mutually distant generators with that generator's own Pauli.
+  Such an error commutes with every generator that meets the chosen generator only at that qudit \cite[Sec. 4.3]{arxiv:1301.3407}.
+
   Distance balancing and weight reduction are useful for constructing QLTCs.
   For CSS code families with \(w_X,w_Z,q_X,q_Z=O(\log n)\), Hastings' weight-reduction construction yields a QLDPC family whose soundness parameters \(\epsilon_X,\epsilon_Z\) deteriorate by at most polylogarithmic factors \cite[Lemmas 6 and 7]{arxiv:1611.03790}.
   Analogous scaling for a generalized distance-balancing scheme \cite{arxiv:2004.07935} is proven in \cite[Thm. 1.1]{arxiv:2305.00689}.
@@ -63,6 +74,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-16'
     - user_id: VictorVAlbert
