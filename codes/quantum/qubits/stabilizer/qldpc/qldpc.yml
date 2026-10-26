@@ -60,6 +60,20 @@ features:
 
   general_gates:
     - 'Fault-tolerant logical measurements by gauging logical operators have worst-case qubit overhead \(O(W\log^{2}W)\) for a weight-\(W\) Pauli and improve earlier QLDPC measurement schemes \cite{arxiv:2410.02213}. This can be used for a generalization of lattice surgery for CSS QLDPC codes \cite{arxiv:2503.05003}. There are conditions on when fault-tolerant surgery can be performed with constant-time overhead \cite{arxiv:2510.14895}.'
+    - |
+      Parsimonious surgery measures any logical Pauli operator of weight \(W\) using an ancilla of \hyperref[topic:asymptotics]{order} \(O(W\log W)\) qubits \cite{arxiv:2603.05082}.
+      The ancilla is the \textit{parsimonious cone} of the measurement graph of the operator \cite[Sec. II]{arxiv:2603.05082}.
+      This graph has a vertex for each qubit in the operator's support and edges that pair up the qubits each check shares with it.
+      The cone is a bounded-degree cell complex containing the graph, whose faces have at most five edges and generate all of its cycles \cite[Sec. IV]{arxiv:2603.05082}.
+      The ancilla code has a qubit on each edge, an \(X\)-type check on each vertex, and a \(Z\)-type check on each face.
+      The cone embeds the graph in a sequence of \(O(\log W)\) binary trees.
+      Consecutive trees differ by swaps of adjacent label bits and are joined by local edges and faces.
+      Each edge of the graph thereby becomes a path through the sequence, and each cycle a boundary.
+      Pruning branches that end at unused leaves and contracting non-branching vertices leaves \(O(W\log W)\) vertices.
+      The cone replaces the decongestion and thickening steps of \hyperref[topic:gauging-out]{gauging} measurement.
+      The deformed LDPC code has parameters \([[n+O(W\log W),k-1,\Omega(d)]]\) and contains the measured operator as a stabilizer \cite[Sec. II.C]{arxiv:2603.05082}.
+      The same replacement lowers the space overhead of extractor systems to \(O(n\log n)\) \cite[Table I]{arxiv:2603.05082}.
+      For \(t\) operators of weight at most \(W\), it lowers that of universal adapters to \(O(tW\log W)\) and of parallel measurement to \(O(tW(\log t+\log W))\) \cite[Table I]{arxiv:2603.05082}.
     - 'Repetition-code adapter for logical Pauli measurements and logical CNOT gates via Dehn twists \cite{arxiv:2410.03628}.'
     - 'Fault-tolerant logical measurements based on an extractor system and allowing for universal computation \cite{arxiv:2503.10390}.'
     - 'Fault-tolerant batched gadgets for CSS QLDPC codes with constant spacetime overhead \cite{arxiv:2510.06159}.'
@@ -155,6 +169,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-18'
     - user_id: VictorVAlbert
