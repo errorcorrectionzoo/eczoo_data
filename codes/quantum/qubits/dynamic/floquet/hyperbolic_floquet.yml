@@ -10,35 +10,58 @@ logical: qubits
 name: 'Hyperbolic Floquet code'
 introduced: '\cite{arxiv:2110.05348,arxiv:2308.03750,arxiv:2309.10033}'
 
-description: 'Floquet code whose check-operators correspond to edges of a hyperbolic lattice of degree 3.'
+description: |
+  Floquet code whose check operators correspond to edges of a trivalent, face-3-colorable tiling of a closed hyperbolic surface, such as an \(\{8,3\}\) tessellation.
+  Qubits sit on vertices, each edge takes the color missing from its two faces, and \(XX\), \(YY\), and \(ZZ\) checks are measured on the three edge colors in turn \cite{arxiv:2308.03750,arxiv:2602.22906}.
+
+  The product of the edge checks around a \(p\)-gon face is an inferred weight-\(p\) stabilizer, and a genus-\(g\) surface yields \(k=2g\) logical qubits \cite{arxiv:2308.03750,arxiv:2602.22906}.
+  Codes on \(\{8,3\}\) tessellations were constructed in Refs. \cite{arxiv:2309.10033,arxiv:2308.03750}, and codes on \(\{10,3\}\) and \(\{12,3\}\) tessellations in Ref. \cite{arxiv:2602.22906}.
+  \textit{Semi-hyperbolic} Floquet codes are obtained by fine-graining, i.e., subdividing each triangle of the dual lattice into \(\ell^2\) triangles, which multiplies \(n\) by \(\ell^2\) while preserving \(k\) \cite{arxiv:2308.03750,arxiv:2602.22906}.
 
 protection: |
   Code distance is at most \(O(\log n)\) due to the hyperbolic qubit geometry \cite{arxiv:2110.05348}, but semi-hyperbolic lattices yield \(O(\sqrt{n})\) distance \cite{arxiv:2308.03750}.
 
-  A useful concept is the \textit{embedded distance} \cite{arxiv:2308.03750}, which is the distance of the stabilizer code lying inside the subspace defined by measurement outcomes of the weight-two parity checks of the code.
+  A useful concept is the \textit{embedded distance} \cite{arxiv:2308.03750}.
+  It is the distance of the stabilizer code lying inside the subspace defined by measurement outcomes of the weight-two parity checks of the code.
+  It equals the minimum weight of a homologically nontrivial cycle or cocycle in any of the three restricted dual lattices, each obtained by deleting the faces of one color \cite{arxiv:2308.03750,arxiv:2602.22906}.
+  All base codes on \(\{12,3\}\) tessellations have embedded distance two, so that family relies on fine-graining for error correction \cite{arxiv:2602.22906}.
+  The smallest \(\{8,3\}\) code, derived from the genus-two Bolza surface, encodes four logical qubits into 16 qubits with embedded distance two \cite{arxiv:2308.03750}.
+  Its level-five fine-graining is a 400-qubit code with embedded distance seven \cite{arxiv:2308.03750,arxiv:2602.22906}.
 
 features:
-  rate: 'Finite encoding rate whose value depends on the hyperbolic lattice. The asymptotic rate is 1/8 for a lattice of octagons \cite{arxiv:2309.10033}.'
+  rate: 'Finite encoding rate whose value depends on the hyperbolic lattice. The asymptotic rate is \(1/8\) for a lattice of octagons \cite{arxiv:2309.10033}, \(1/5\) for a lattice of decagons, and \(1/4\) for a lattice of dodecagons \cite{arxiv:2602.22906}.'
   decoders:
-    - 'Syndrome structure allows for MWPM decoding.'
+    - 'Syndrome structure allows for MWPM decoding \cite{arxiv:2308.03750,arxiv:2602.22906}.'
+    - 'For heralded loss of pair measurements, MWPM decoding against a detector error model that incorporates the known erasure locations \cite{arxiv:2602.22906}.'
   threshold:
-    - '\(0.1\%\) under standard circuit-level depolarizing noise \cite{arxiv:2308.03750}.'
-    - '\(0.1\%\) under phenomenological error model including depolarizing and measurement errors for the octagonal codes \cite{arxiv:2309.10033}.'
+    - 'EM3 circuit-level noise, with correlated two-qubit Pauli and measurement-flip errors on each pair measurement: \(1.5\%\) to \(2\%\) for semi-hyperbolic families on \(\{8,3\}\) tessellations \cite{arxiv:2308.03750}. Fixed-\(k\) semi-hyperbolic families on \(\{8,3\}\), \(\{10,3\}\), and \(\{12,3\}\) tessellations reach \(\sim 1.5\%\) under MWPM decoding \cite{arxiv:2602.22906}.'
+    - 'SDEM3 noise, in which the two-qubit depolarizing and measurement-flip errors of each pair measurement are sampled independently: \(1.0\%\) to \(1.2\%\) for fixed-\(k\) semi-hyperbolic families on all three tessellations \cite{arxiv:2602.22906}.'
+    - 'Heralded photon loss in the SPOQC-2 spin-optical pair-measurement model \cite{arxiv:2410.07065}, with each lost measurement decoded as an erasure: \(8.5\%\) to \(9\%\) for the \(\{8,3\}\) family \cite{arxiv:2602.22906}. The \(\{10,3\}\) and \(\{12,3\}\) families reach \(7\%\) to \(8\%\) and \(6.5\%\) to \(8\%\), respectively \cite{arxiv:2602.22906}.'
+    - 'Phenomenological noise with depolarizing and measurement errors: \(0.1\%\) for the octagonal base codes \cite{arxiv:2309.10033}, and \(1.0\%\) to \(1.3\%\) for fixed-\(k\) semi-hyperbolic families on \(\{8,3\}\), \(\{10,3\}\), and \(\{12,3\}\) tessellations \cite{arxiv:2602.22906}.'
 
 notes:
-  - 'The code may be suitable for distributed storage \cite{arxiv:2501.14029}.'
+  - 'Performance in distributed settings is studied in Refs. \cite{arxiv:2501.14029,arxiv:2602.17969}.'
+  - 'See Ref. \cite[Tables 2 and 3]{arxiv:2602.22906} for parameters of explicit codes on \(\{8,3\}\), \(\{10,3\}\), and \(\{12,3\}\) tessellations and of their fine-grained variants.'
 
 relations:
   parents:
     - code_id: floquet
-# cousins:
-#   - code_id: hyperbolic_surface
+  cousins:
+    - code_id: two_dimensional_hyperbolic_surface
+      detail: |
+        Hyperbolic Floquet codes use the same \(\{p,3\}\) tessellations of closed hyperbolic surfaces as 2D hyperbolic surface codes, with qubits on vertices instead of edges \cite{arxiv:2308.03750,arxiv:2602.22906}.
+        Their weight-\(p\) face stabilizers are inferred from weight-two edge checks \cite{arxiv:2602.22906}.
+        After each round, the ISG contains a 2D homological code on the dual lattice with the faces of one color deleted \cite{arxiv:2308.03750}.
+        For the \(\{8,3\}\) tiling, that lattice is an \(\{8,4\}\) tessellation \cite{arxiv:2308.03750}.
+        The fine-graining that yields semi-hyperbolic surface codes \cite{arxiv:1703.00590} also yields semi-hyperbolic Floquet codes \cite{arxiv:2308.03750}.
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
