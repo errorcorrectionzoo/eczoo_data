@@ -25,6 +25,8 @@ description: |
 
 protection: |
   On a closed 3-manifold with first Betti number \(h_1\) over \(\mathbb{Z}_2\), the 3D color code encodes \(k=3h_1\) logical qubits \cite{arxiv:cond-mat/0607736}.
+  For codes with boundaries, \(Z\)-type logical operators are strings along the borders where two boundaries meet, and \(X\)-type logical operators are membranes covering a boundary.
+  The minimum weight of an \(X\)-type logical operator therefore scales as the square of that of a \(Z\)-type logical operator \cite{arxiv:2512.13436}.
 
 
 features:
@@ -40,8 +42,19 @@ features:
 
   decoders:
     - 'Decoder that maps 3D color code to three copies of the 3D surface code \cite{arxiv:1606.00960}.'
+    - '3D concatenated MWPM decoder for codes with boundaries, which extends the concatenated MWPM decoder for 2D color codes \cite{arxiv:2404.07482} to three dimensions \cite{arxiv:2512.13436}.
+    The syndrome restricted to the cells of two colors is first matched with MWPM.
+    Two further MWPM rounds on monochrome graphs of the third and fourth colors then lift the matched edges to a set of qubits, which is the correction.
+    The lowest-weight correction among the 12 decoding paths, i.e., choices of the two restricted colors and of the lifting order, is applied \cite{arxiv:2512.13436}.
+    \(X\) errors are decoded by multiplying face syndromes into cell syndromes, which reduces the effective \(X\) distance to the \(Z\) distance \cite{arxiv:2512.13436}.'
   code_capacity_threshold:
     - 'Bit- and phase-flip noise on the bcc lattice: \(0.77\%\) for point-like and \(13.1\%\) for loop-like excitations under restriction decoder \cite{arxiv:1905.07393}.'
+    - 'Bit- and phase-flip noise on the \([[5d^3-12d^2+16,3,d]]\) cubic color code family \cite{arxiv:2404.19005}, whose smallest member is the \hyperref[code:stab_8_3_2]{\([[8,3,2]]\) code}: \(1.55(6)\%\) under the 3D concatenated MWPM decoder \cite{arxiv:2512.13436}.
+    The \hyperref[topic:pseudo-threshold]{pseudo-threshold} is \(0.60(6)\%\), and the logical error rate scales as \(p^{d/2}\) below threshold \cite{arxiv:2512.13436}.
+    A single decoding path whose restricted graph contains the color whose cells jointly cover every qubit retains this scaling with three MWPM runs, at a threshold of \(1.02(6)\%\) \cite{arxiv:2512.13436}.'
+
+notes:
+  - 'The \href{https://pypi.org/project/qCodePlot3D}{qCodePlot3D} Python package visualizes 2D and 3D color codes, error configurations, and decoding paths \cite{arxiv:2512.13436}.'
 
 
 relations:
@@ -71,6 +84,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
