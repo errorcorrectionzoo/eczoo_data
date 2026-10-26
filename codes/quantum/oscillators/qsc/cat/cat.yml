@@ -28,8 +28,8 @@ features:
     - 'Approximate cat states can be prepared using Gaussian operations and photon detectors \cite{arxiv:1902.02323}.'
   general_gates:
     - 'Holonomic gates utilizing the Berry phase of coherent states are universal \cite{arxiv:1503.00194}.'
-    - 'Universal gates for the \(S=1\) code can be performed using squeezing operators and quantum Zeno effect and a rotation based on the Kerr nonlinearity \cite{arxiv:1312.2017}.'
-    - 'Error-detecting \(CCZ\) and \(cSWAP\) gates for four-component cat code using three-level ancilla \cite{arxiv:2212.11196}.'
+    - 'Universal gates for the \(S=1\) code can be performed using squeezing operators and the quantum Zeno effect and a rotation based on the Kerr nonlinearity \cite{arxiv:1312.2017}.'
+    - 'Error-detecting \(CCZ\) and \(cSWAP\) gates for the four-component cat code using a three-level ancilla \cite{arxiv:2212.11196}.'
     - 'Universal set of error-corrected operations tolerating a single \hyperref[topic:ad]{photon loss} and an arbitrary ancilla fault \cite{arxiv:2310.20578}.'
 
   decoders:
@@ -51,11 +51,14 @@ relations:
   parents:
     - code_id: bosonic_rotation
       detail: 'The cat code is a bosonic rotation code whose primitive state is the coherent state \(|\alpha\rangle\) \cite{arxiv:1901.08071}.'
-    - code_id: cat_repetition
-      detail: 'The cat-repetition code for \(n=1\) reduces to the cat code.'
+    # Circular coherent-state constellations give QSC ancestry without concatenation.
+    - code_id: qsc
   cousins:
+    # Only the two-component special case is an n=1 cat-repetition code.
+    - code_id: cat_repetition
+      detail: 'The cat-repetition code for \(n=1\) reduces to the two-component cat code.'
     - code_id: number_phase
-      detail: 'In the limit as \(N,S \to \infty\), phase measurement in the cat code has vanishing variance, just like in a number-phase code \cite{arxiv:1901.08071}. Conversely, a cat code can be thought of as an appropriately regularized number-phase code.'
+      detail: 'In the limit as \(|\alpha| \to \infty\) at fixed \(S\), modular phase measurement in the cat code has vanishing variance, just like in a number-phase code \cite{arxiv:1901.08071}. Conversely, a cat code can be thought of as an appropriately regularized number-phase code.'
     - code_id: group_representation
       detail: 'Cat codes are not group representation codes with \(G\) being a cyclic group since their representation is reducible \cite{arxiv:2306.11621}.'
 
