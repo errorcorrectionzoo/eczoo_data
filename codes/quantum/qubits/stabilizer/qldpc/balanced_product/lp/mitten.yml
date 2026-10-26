@@ -61,6 +61,10 @@ features:
       Syndrome-extraction schedules found with sQetch are estimated to preserve circuit-level distance for the reported instances other than the \([[150,30,10]]\) code \cite{arxiv:2607.28795}.
       The best schedule for the \([[150,30,10]]\) code has estimated circuit-level distance eight \cite{arxiv:2607.28795}.
       Surgery schedules are likewise estimated to preserve distance \cite{arxiv:2607.28795}.
+    - |
+      The cut between the thumb and the fingers has \hyperref[code:qubit_stabilizer]{intrinsic cut cost} \(2|G|\) for the eight instances of Ref. \cite[Table I]{arxiv:2607.28795}, although all \(4|G|\) checks cross it \cite[Sec. 4.2]{arxiv:2609.39705}.
+      Exact syndrome extraction across this cut therefore needs exactly \(2|G|\) shared Bell pairs under free local processing, or \(2|G|\) crossing CNOT gates \cite{arxiv:2609.39705}.
+      For the \([[150,30,10]]\) code, any generating set attaining this count contains finger-supported generators of weight at least \(28\) \cite{arxiv:2609.39705}.
 
   threshold:
     - |
@@ -86,6 +90,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-09-30'
     - user_id: VictorVAlbert
