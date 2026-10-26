@@ -25,16 +25,15 @@ description: |
 features:
   rate: |
     Families of LDCs with query complexity \(r=2\) need \(n\) to scale exponentially with \(k\) \cite{arxiv:quant-ph/0208062,arxiv:0705.3806}.
-    This was known only for linear LDCs \cite{doi:10.1109/CCC.2002.1004353} before being proven for all 2-query LDCs via a quantum argument \cite{arxiv:quant-ph/0208062}.
-    A binary 2-query LDC that recovers message bits with probability at least \(1/2+\epsilon\) at corruption rate \(\delta\) satisfies \(n \geq 2^{ck-1}\), where \(c = 1-H(1/2+3\delta\epsilon/14)\) and \(H\) is the binary entropy function \cite[Thm. 4]{arxiv:quant-ph/0208062}.
-    The argument decodes the LDC with one quantum query.
-    The uniform superposition over the \(n\) codeword coordinates, with phases \((-1)^{C(x)_j}\) controlled by one extra qubit, is then a quantum random access code for the message \(x\) on \(\log n+1\) qubits.
-    Such codes need a number of qubits linear in \(k\) \cite{arxiv:quant-ph/9904093}.
-    The bound extends to adaptive queries and to larger alphabets \cite[Sec. 3.3 and Appx. B]{arxiv:quant-ph/0208062}.
+    This was first shown for linear LDCs \cite{doi:10.1109/CCC.2002.1004353}.
+    A binary 2-query LDC with recovery probability at least \(1/2+\epsilon\) at corruption rate \(\delta\) satisfies \(n \geq 2^{ck-1}\) with \(c = 1-H(1/2+3\delta\epsilon/14)\) \cite[Thm. 4]{arxiv:quant-ph/0208062}.
+    Here, \(H\) is the binary entropy function.
+    Weaker exponential lower bounds hold for adaptive queries and for alphabets of fixed size \cite[Sec. 3.3 and Appx. B]{arxiv:quant-ph/0208062}.
+    LDCs with \(r=1\) do not exist for \(k\) above a constant depending on \(\delta\) and \(\epsilon\) \cite{doi:10.1145/335305.335315}.
   decoders:
     - 'LDCs admit decoders whose runtime scales polylogarithmically with \(n\).'
-    - 'Any 2-query LDC can be decoded with one quantum query to the received word, at recovery probability \(1/2+4\epsilon/7\) \cite[Thm. 1]{arxiv:quant-ph/0208062}. One-query LDCs do not exist for \(k\) above a constant depending on \(\delta\) and \(\epsilon\) \cite{doi:10.1145/335305.335315}, but one-quantum-query LDCs such as the \hyperref[code:hadamard]{Hadamard code} exist for all \(k\) \cite{arxiv:quant-ph/0208062}.'
-    - 'An LDC whose decoder outputs the XOR of its \(2q\) queried bits can be decoded with \(q\) quantum queries at the same recovery probability \cite[Thm. 5]{arxiv:quant-ph/0208062}.'
+    - 'A 2-query LDC with recovery probability \(1/2+\epsilon\) can be decoded with one quantum query to the received word at recovery probability at least \(1/2+4\epsilon/7\) \cite[Thm. 1]{arxiv:quant-ph/0208062}.'
+    - 'An LDC whose decoder outputs the XOR of its \(2r\) queried bits can be decoded with \(r\) quantum queries at the same recovery probability \cite[Thm. 5]{arxiv:quant-ph/0208062}.'
 
 notes:
   - 'See \cite{manual:{Z. Dvir, \emph{Lecture notes on locally decodable codes} (2016) \href{https://www.cs.princeton.edu/~zdvir/LDCnotes/ldc-notes.html}{URL}}} and Ref. \cite{preset:Gopi18,doi:10.1017/9781009283403} for introductions to LDCs and LCCs.'
