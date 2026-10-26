@@ -7,23 +7,33 @@ code_id: nonlocal_lowdepth
 physical: qubits
 logical: qubits
 
-name: 'Brown-Fawzi Clifford-circuit code'
-short_name: 'Brown-Fawzi'
+name: 'Random polylog-depth Clifford-circuit code'
 introduced: '\cite{arxiv:1312.7646}'
 
-description: |
-  An \([[n,k]]\) stabilizer code whose encoder is a random \hyperref[topic:clifford]{Clifford circuit} of depth of \hyperref[topic:asymptotics]{order} \(O(\log^3 n)\).
+alternative_names:
+  - 'Brown-Fawzi code'
 
-  An \(n\)-qubit quantum encoding circuit with \(O(n^2 \log n)\) random two-qubit \hyperref[topic:clifford]{Clifford gates} applied to pairs of randomly chosen qubits yields a code with distance \(d\) with probability \(1 - \Omega(1/n^8)\), provided that \begin{equation}
+description: |
+  An \([[n,k]]\) stabilizer code whose encoder is a random \hyperref[topic:clifford]{Clifford circuit} of \hyperref[topic:asymptotics]{polylogarithmic} depth, with two-qubit gates acting on randomly chosen pairs of qubits.
+  The gates are applied either one at a time to random pairs \cite{arxiv:1312.7646} or in parallel layers on random perfect matchings \cite{arxiv:2608.18536}.
+
+  An \(n\)-qubit encoding circuit with \(O(n \log^2 n)\) random two-qubit \hyperref[topic:clifford]{Clifford gates} yields a code with distance at least \(d+1\) with probability \(1 - O(1/n^8)\) \cite{arxiv:1312.7646}.
+  This holds provided that \begin{equation}
     \frac{k}{n} < 1 - \frac{d}{n}\log_2 3 - h\left(\frac{d}{n}\right)~,
   \end{equation}
   where \(h\) is the entropy function.
   Since two gates acting on disjoint qubits can be executed simultaneously, the depth of a circuit of this size is typically of \hyperref[topic:asymptotics]{order} \(O(\log^3 n)\).
 
+  In a \textit{random matching circuit}, each layer pairs the qubits by a uniformly random perfect matching and applies an independent random two-qubit Clifford gate to each pair \cite[Def. 2.2]{arxiv:2608.18536}.
+  Depth \(O(\log n)\) attains the same tradeoff whenever the gate distribution assigns positive probability to an entangling gate and is invariant under inversion and under left and right single-qubit twirls \cite[Thm. 2.3]{arxiv:2608.18536}.
+  The twirling group is a single-qubit Clifford subgroup acting transitively on \(\{X,Y,Z\}\) up to sign \cite[Def. 2.1]{arxiv:2608.18536}.
+  CNOT gates twirled by independent single-qubit Cliffords drawn from \(\{I,HS,(HS)^2\}\) satisfy these conditions, for \(O(n\log n)\) CNOT gates in total \cite[Cor. 1.3, Rem. 2.1]{arxiv:2608.18536}.
+  Since circuits of one- and two-qubit gates need depth \(\Omega(\log n)\) for linear distance, this depth is optimal up to a constant factor \cite{arxiv:1312.7646,arxiv:2608.18536}.
+
 features:
-  rate: 'The achievable distance of these codes is asymptotically the same as a code whose encoder is a random (not necessarily log-depth) general Clifford unitary \cite{arxiv:1312.7646}.'
+  rate: 'Achieves the \hyperref[topic:quantum-gv-bound]{quantum GV bound} \cite{arxiv:1312.7646,arxiv:2608.18536}.'
   encoders:
-    - 'Random \(\log^3\)-depth \hyperref[topic:clifford]{Clifford circuit}.'
+    - 'Random \hyperref[topic:clifford]{Clifford circuit} of depth \(O(\log^3 n)\) \cite{arxiv:1312.7646} or random matching circuit of depth \(O(\log n)\) \cite{arxiv:2608.18536}.'
 
 
 relations:
@@ -36,6 +46,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
