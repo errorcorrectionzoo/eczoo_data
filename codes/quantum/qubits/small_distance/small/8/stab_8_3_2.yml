@@ -45,11 +45,11 @@ features:
     - 'Fault-tolerant architecture \cite{arxiv:2507.20387}.'
     - 'For hIQP sampling with decoding only in the final measurement round, error-detected \([[8,3,2]]\) circuits outperform the \([[16,3,4]]\) and \([[15,1,3]]\) comparison circuits studied in Ref. \cite{arxiv:2404.19005} under its two-qubit-gate-noise model.'
     - 'Superdense syndrome extraction of one \(X\)-type and three \(Z\)-type stabilizer generators at circuit depth eight using a GHZ ancillary state \cite[Sec. III.C]{arxiv:2605.21867}.'
-    - 'Zero-level distillation of the \(CCZ\) magic state, in which the (weakly) transversal \(CCZ\) gate is applied to an encoded \(|+++\rangle\) state that is teleported onto three surface-code logical qubits \cite{arxiv:2605.21867}. The depth-24 circuit uses 22 physical qubits and yields a logical error rate \(p_L \simeq 300 p^2\) under circuit-level depolarizing noise \cite[Sec. IV]{arxiv:2605.21867}.'
+    - 'Zero-level distillation of the \(CCZ\) magic state, in which the (weakly) transversal \(CCZ\) gate is applied to an encoded \(|+++\rangle\) state that is teleported onto three surface-code logical qubits \cite{arxiv:2605.21867}. The depth-24 circuit uses 22 physical qubits in addition to three output surface-code logical qubits \cite[Sec. III]{arxiv:2605.21867}.'
 
 realizations:
-  - 'Trapped ions: one-qubit addition algorithm implemented fault-tolerantly on the Quantinuum H1-1 device \cite{arxiv:2309.09893}. Trapped-ion processor by AQT: measurement-free universal fault-tolerant logical operations and a Grover-search demonstration \cite{arxiv:2506.22600}.'
-  - 'Superconducting circuits: fault-tolerant \(CCZ\) gate performed on IBM and IonQ devices \cite{arxiv:2309.08663}.'
+  - 'Trapped ions: one-bit addition algorithm implemented fault-tolerantly on the Quantinuum H1-1 device \cite{arxiv:2309.09893}. Trapped-ion processor by AQT: measurement-free universal fault-tolerant logical operations and a Grover-search demonstration \cite{arxiv:2506.22600}. Fault-tolerant \(CCZ\) gate performed on an IonQ device \cite{arxiv:2309.08663}.'
+  - 'Superconducting circuits: fault-tolerant \(CCZ\) gate performed on an IBM device \cite{arxiv:2309.08663}.'
   - 'Neutral atom arrays: Lukin group \cite{arxiv:2312.03982}. 48 logical qubits, 228 logical two-qubit gates, 48 logical \(CCZ\) gates, and error detection performed in 16 blocks.
   Circuit outcomes were sampled and cross-entropy (XEB) was calculated to verify quantumness. Logical entanglement entropy was measured \cite{arxiv:2312.03982}.'
 
@@ -75,7 +75,7 @@ relations:
     - code_id: surface
       detail: 'The three logical qubits of the \([[8,3,2]]\) code can be teleported into surface-code patches by lattice surgery \cite{arxiv:2605.21867}.'
     - code_id: qubit_concatenated
-      detail: 'Concatenating \([[8,3,2]]\) blocks with triples of qubits drawn from three cyclically rotated 3D surface/toric codes yields a 3D toric/color family with parameters \([[8n,3,2d]]\) and transversal logical \(CCZ\) implemented by physical \(T\) gates on the outer \([[8,3,2]]\) blocks \cite{arxiv:2404.19005}.'
+      detail: 'Concatenating \([[8,3,2]]\) blocks with triples of qubits drawn from three cyclically rotated 3D surface/toric codes yields a 3D toric/color family with parameters \([[8n,3,2d]]\) and transversal logical \(CCZ\) implemented by physical \(T\) gates on the inner \([[8,3,2]]\) blocks \cite{arxiv:2404.19005}.'
 
 
 # Begin Entry Meta Information

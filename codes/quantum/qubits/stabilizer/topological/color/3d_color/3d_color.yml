@@ -15,7 +15,7 @@ description: |
   Color code defined on a four-valent, four-colorable 3-colex in a 3-manifold.
   In the original colex realization, qubits sit on vertices, \(X\)-type stabilizers are attached to 3-cells, and \(Z\)-type stabilizers are attached to faces \cite{arxiv:cond-mat/0607736}.
 
-  For a closed 3-manifold, the code encodes \(k=3h_1\) logical qubits, where \(h_1\) is the first Betti number \cite{arxiv:cond-mat/0607736}.
+  For a closed 3-manifold, the code encodes \(k=3h_1\) logical qubits, where \(h_1\) is the first Betti number over \(\mathbb{Z}_2\) \cite{arxiv:cond-mat/0607736}.
   Logical operators can be represented by colored strings and colored membranes.
   Excitations consist of point-like color charges at cell defects and loop-like color fluxes at face defects; winding a \(p\)-charge around a \(pq\)-flux produces a \(-1\) phase \cite{arxiv:cond-mat/0607736}.
   
@@ -24,19 +24,19 @@ description: |
 
 
 protection: |
-  On a closed 3-manifold with first Betti number \(h_1\), the 3D color code encodes \(k=3h_1\) logical qubits \cite{arxiv:cond-mat/0607736}.
+  On a closed 3-manifold with first Betti number \(h_1\) over \(\mathbb{Z}_2\), the 3D color code encodes \(k=3h_1\) logical qubits \cite{arxiv:cond-mat/0607736}.
 
 
 features:
   transversal_gates:
     - 'Transversal action of \(T\) gates on color codes on general 3-manifolds realizes a \(CCZ\) gate on three logical qubits and is related to a topological invariant that is called the triple intersection number; this gate is related to the fact that this code admits a cup product structure \cite{arxiv:2310.16982}.'
     - 'Transversal \(S\) gate on color codes on general 3-manifolds corresponds to a higher-form symmetry \cite{arxiv:2310.16982}.'
-    - 'Universal transversal gates can be achieved using lattice surgery or code deformation \cite{arxiv:1006.5260,arxiv:0806.4827}.'
-    - 'Families of 3D color codes on quasi-hyperbolic, fibre-bundle, and Torelli mapping-torus 3-manifolds support collective logical \(CCZ\) gates via transversal \(T\) and individually addressable, parallelizable logical \(CZ\) gates via transversal \(S\) on codimension-1 submanifolds. Their rate-distance scalings are \(O(1/\log n)\) with \(d=O(\log n)\), \(O(1/\log^2 n)\) with \(d=\Omega(\log^2 n)\), and \(O(1)\) with distance scaling unknown, respectively \cite{arxiv:2310.16982}.'
+    - 'Families of 3D color codes on quasi-hyperbolic, fibre-bundle, and Torelli mapping-torus 3-manifolds support collective logical \(CCZ\) gates via transversal \(T\) and individually addressable, parallelizable logical \(CZ\) gates via transversal \(S\) on codimension-1 submanifolds. Their rate-distance scalings are \(O(1/\log n)\) with \(d=O(\log n)\), \(O(1/\log^{1/2} n)\) with \(d=\Omega(\log^{1/2} n)\), and \(O(1)\), respectively \cite{arxiv:2310.16982}.'
 
   general_gates:
+    - 'Universal fault-tolerant computation using transversal gates and lattice surgery \cite{arxiv:2310.16982}.'
     - 'Magic-state distillation protocols \cite{doi:10.7907/059V-MG69}.'
-    - 'Non-clifford gates can be implemented via \hyperref[topic:code-switching]{code switching} \cite{doi:10.7907/059V-MG69}.'
+    - 'Non-Clifford gates can be implemented via \hyperref[topic:code-switching]{code switching} \cite{doi:10.7907/059V-MG69}.'
 
   decoders:
     - 'Decoder that maps 3D color code to three copies of the 3D surface code \cite{arxiv:1606.00960}.'

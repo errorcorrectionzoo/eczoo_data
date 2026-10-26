@@ -39,6 +39,7 @@ description: |
 
 protection: |
   If \([n_i, k_i, d_i]\) and \([r_i, k_i^T, d_i^T]\) are the parameters of the codes \(\mathrm{ker}H_i\) and \(\mathrm{ker}H_i^T\), respectively, taking \(d_i^T=\infty\) when \(k_i^T=0\), then the hypergraph product has parameters \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, \min(d_1, d_2, d_1^T, d_2^T)]]\).
+  An HGP code with \(k \geq 1\) satisfies \(n \geq 2d^2-2d+1\), with equality for the \([[2d^2-2d+1,1,d]]\) surface codes \cite[Eq. (9)]{arxiv:2610.03214}.
 
   An algebraic reformulation of HGP codes, together with several rate-improved variants, was given in Ref. \cite{arxiv:1202.0928}.
   Seed parity-check matrices with as many rows as columns yield \([[2n_1 n_2,2k_1 k_2,\min(d_1,d_2)]]\) codes.
@@ -74,6 +75,13 @@ features:
     - 'Pieceable fault-tolerant circuits, transversal gates, and magic-state injection yield a universal gate set for symmetric hypergraph product codes \cite{arxiv:2204.10812}.'
     - 'Targeted logical gates \cite{arxiv:2411.17050}.'
     - 'Logical gates via Dehn twists for hypergraph products of cyclic codes \cite{arxiv:2411.03302}.'
+    - |
+      Constant-time surgery gadgets measure rows or columns of \(Z\)-type (and similarly \(X\)-type) logical operators in parallel \cite{arxiv:2603.02157}.
+      A gadget attaches a gauging or homological measurement ancilla complex \cite{arxiv:2410.02213,arxiv:2410.02753} for a codeword \(c\) to one seed code, forming its \hyperref[code:mapping_cone]{mapping cone} \cite[Sec. III.A]{arxiv:2603.02157}.
+      The deformed code is the tensor product of this mapping cone with the other seed code, measuring all logical operators \(c\otimes h\) with \(h\in H_0\) of the other seed code \cite[Sec. III.B]{arxiv:2603.02157}.
+      The three-term ancilla complex gives the deformed code a fourth term of meta-checks on its \(Z\)-type checks \cite[Sec. III.B]{arxiv:2603.02157}.
+      Each gadget uses \(\tilde{O}(n)\) ancilla qubits, for an amortized spacetime overhead of \(\tilde{O}(1)\) \cite[Thm. 1]{arxiv:2603.02157}.
+      Universal adapters \cite{arxiv:2410.03628} as seed-code gadgets yield parallel entangling measurements between HGP codes that share a seed code \cite[Sec. IV]{arxiv:2603.02157}.
   code_capacity_threshold:
     - 'Some thresholds were determined in Ref. \cite{arxiv:1208.2317}.'
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:1804.01950}. For example, a threshold of \(7\%\) was obtained under independent \(X\) and \(Z\) noise for codes obtained from random \((3,4)\)-regular Gallager codes.'
@@ -81,6 +89,9 @@ features:
     - 'Pieceable fault-tolerant circuits, transversal gates, and magic-state injection yield a universal gate set for symmetric hypergraph product codes \cite{arxiv:2204.10812}.'
     - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
     - 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code in which the full syndrome measurement on the lower hypergraph product code is performed only if an error is detected at the upper four-qubit code \cite{arxiv:2502.14835}.'
+    - |
+      Constant-time surgery runs \(t \geq d\) surgeries in sequence, each measured for a single round, between \(O(d)\) rounds of base-code syndrome measurement \cite{arxiv:2510.14895,arxiv:2603.02157}.
+      The protocol has fault distance \(d\) against qubit Pauli errors and measurement flips \cite[Thm. 1]{arxiv:2603.02157}.
   threshold:
     - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599} and DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047} combined with non-local gates \cite{arxiv:2409.05818}.
     No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
@@ -114,6 +125,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-15'
     - user_id: VictorVAlbert
       date: '2026-09-27'
     - user_id: VictorVAlbert
