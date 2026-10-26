@@ -18,7 +18,12 @@ description: |
   An \((l,r,g)\)-MN-LDPC code is a non-systematic two-edge-type LDPC code whose parity-check matrix is of the form \((H_1~H_2)\), where \(H_1\) is a random binary matrix of column weight \(l\) and row weight \(r\), and \(H_2\) is a random binary matrix of column and row weight \(g\); the bits corresponding to \(H_1\) are punctured \cite{arxiv:1102.4612}.
 
 features:
-  rate: 'Certain sequences of optimally decoded codes can nearly achieve the Shannon capacity \cite{doi:10.1007/3-540-60693-9_13,doi:10.1109/18.748992}. A sequence of codes achieves the capacity of memoryless binary-input symmetric-output channels under MAP decoding \cite{arxiv:1102.4612}. Standard MN-LDPC codes have no BP threshold, while bounded-density spatially coupled MN-LDPC codes have BEC BP thresholds close to the Shannon limit \cite{arxiv:1102.4612}.'
+  rate: |
+    Certain sequences of optimally decoded codes can nearly achieve the Shannon capacity \cite{doi:10.1007/3-540-60693-9_13,doi:10.1109/18.748992}.
+    MN-LDPC codes with bounded degrees were conjectured to achieve the capacity of memoryless binary-input symmetric-output channels under MAP decoding \cite{arxiv:1102.4612}.
+    This was proven for \((l,3,3)\)-MN-LDPC codes with \(l \geq 4\) \cite[Thm. 1]{arxiv:2610.10277}.
+    On any such channel with capacity above the rate \(3/l\), their ensemble-average MAP block error probability is of \hyperref[topic:asymptotics]{order} \(O(\log N/N)\) in the block length \(N\) \cite[Thm. 1]{arxiv:2610.10277}.
+    Standard MN-LDPC codes have no BP threshold, while bounded-density spatially coupled MN-LDPC codes have BEC BP thresholds close to the Shannon limit \cite{arxiv:1102.4612}.
   decoders:
     - 'Free-energy minimization and a BP decoder \cite{doi:10.1007/3-540-60693-9_13}.'
 
@@ -40,6 +45,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

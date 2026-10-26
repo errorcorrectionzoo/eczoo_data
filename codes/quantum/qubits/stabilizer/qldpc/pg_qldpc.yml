@@ -9,11 +9,17 @@ logical: qubits
 
 name: 'Finite-geometry (FG) qubit QLDPC code'
 short_name: 'FG-QLDPC'
-introduced: '\cite{arxiv:0712.4115}\cite[Ch. 14]{arxiv:0812.5104}\cite{arxiv:1207.0732}\cite[Sec. 4.1]{arxiv:1512.07081}'
+introduced: '\cite{arxiv:quant-ph/0108131}\cite{arxiv:0712.4115}\cite[Ch. 14]{arxiv:0812.5104}\cite{arxiv:1207.0732}\cite[Sec. 4.1]{arxiv:1512.07081}'
 
 description: |
   CSS code constructed from linear binary codes whose parity-check or generator matrices are incidence matrices of points, hyperplanes, or other structures in finite geometries.
   These codes can be interpreted as quantum versions of FG-LDPC codes, but some of them \cite{arxiv:1207.0732,arxiv:1512.07081} are not strictly QLDPC.
+
+  A nested pair of classical codes can be obtained from a cyclic EG-LDPC code \(C_1\) by \textit{row splitting} \cite{arxiv:quant-ph/0108131}.
+  Each row of the parity-check matrix of \(C_1\) is replaced by several lower-weight rows that share out its ones in rotation.
+  The resulting matrix defines a cyclic subcode \(C_2 \subset C_1\) \cite{arxiv:quant-ph/0108131}.
+  For the \([15,7,5]\) EG-LDPC code of EG\((2,4)\), splitting each row in two yields a \([15,3]\) subcode \cite{arxiv:quant-ph/0108131}.
+  The CSS code of this pair is a \([[15,4,2]]\) code with \(Z\)-type checks of weight four and \(X\)-type checks of weight five.
 
 relations:
   parents:
@@ -21,7 +27,8 @@ relations:
     - code_id: qldpc
   cousins:
     - code_id: pg_ldpc
-      detail: 'Quantum versions of PG-LDPC and EG-LDPC codes can be constructed via the CSS construction \cite{arxiv:0712.4115,arxiv:1207.0732}.'
+      detail: 'Quantum versions of PG-LDPC and EG-LDPC codes can be constructed via the CSS construction \cite{arxiv:quant-ph/0108131,arxiv:0712.4115,arxiv:1207.0732}.
+      The CSS construction can pair a cyclic EG-LDPC code with the subcode obtained by splitting the rows of its parity-check matrix \cite{arxiv:quant-ph/0108131}.'
     - code_id: projective
       detail: 'PG-QLDPC codes are constructed from linear binary codes whose parity-check or generator matrices are incidence matrices of structures in finite geometries.'
     - code_id: multisector_hypergraph
@@ -32,6 +39,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
