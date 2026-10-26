@@ -47,6 +47,11 @@ features:
   fault_tolerance:
     - 'At physical error rate \(p=10^{-3}\) under circuit-level noise, the code suppresses the logical error rate to about \(2\times 10^{-7}\), enough to preserve \(12\) logical qubits for nearly one million syndrome cycles using \(288\) total physical qubits \cite{arxiv:2308.07915}.'
     - 'Fault-tolerant modular quantum computing framework \cite{arxiv:2506.03094}.'
+    - 'The \hyperref[topic:effective-distance]{circuit-level distance} is \(10\) in both memory bases for a reconstruction of the syndrome extraction circuit of Ref. \cite{arxiv:2308.07915}, with \(12\) noisy syndrome cycles followed by two noiseless ones \cite{doi:10.5281/zenodo.23452754}.'
+    - |
+      Exact syndrome extraction across the cut of the \(12\times 6\) torus into two \(6\times 6\) halves requires \(60\) shared Bell pairs under free local processing \cite[Sec. 4.1]{arxiv:2609.39705}.
+      From product ancillas, it requires at least \(30\) crossing two-qubit gates, or \(60\) if all are CNOT gates \cite[Sec. 4.1]{arxiv:2609.39705}.
+      The optimum is attained by measuring \(132\) independent original checks, \(36\) supported in each half and \(60\) crossing, and reconstructing the twelve omitted syndrome bits classically \cite[Prop. 4.1]{arxiv:2609.39705}.
 
   code_capacity_threshold:
     - 'Bit-flip noise: \hyperref[topic:pseudo-threshold]{pseudo-threshold} of \(\approx 5\%\) for the block logical error rate under BP-OSD decoding \cite{arxiv:2606.02418}.'
@@ -72,6 +77,12 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
+    - user_id: CarsonCrocker
+      date: '2026-10-24'
+    - user_id: VictorVAlbert
+      date: '2026-10-16'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert

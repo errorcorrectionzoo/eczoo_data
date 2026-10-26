@@ -33,10 +33,12 @@ features:
     - 'Small set-flip linear-time decoder, which corrects \hyperref[topic:asymptotics]{order} \(\Omega(n^{1/2})\) adversarial errors \cite{arxiv:1504.00822}. The decoder has been generalized to hypergraph products of 3 or more expander codes \cite{arxiv:2510.06760}.'
     - 'Log-time decoder \cite{arxiv:1808.03821}.'
     - 'Constant-time decoder \cite{manual:{A. Grospellier, “Constant time decoding of quantum expander codes and application to fault-tolerant quantum computation”, PhD thesis, Inria Paris, 2019}}.'
-    - '2D geometrically local syndrome extraction circuits acting on a patch of \(N\) physical qubits must have depth of \hyperref[topic:asymptotics]{order} \(\Omega(n/\sqrt{N})\) or greater. More generally, there is a tradeoff between the depth \(D\) and width \(W\) of a syndrome extraction circuit, namely, \(D \geq n/\sqrt{W}\) \cite{arxiv:2109.14599}.'
 
   fault_tolerance:
     - 'Fault-tolerance with constant overhead can be achieved \cite{arxiv:1808.03821}.'
+    - |
+      Corollary 1 of the first arXiv version of Ref. \cite{arxiv:2109.14599} asserts that 2D geometrically local syndrome extraction circuits on a patch of \(N\) physical qubits require depth of \hyperref[topic:asymptotics]{order} \(\Omega(n/\sqrt{N})\) for QLDPC families with expanding generating sets.
+      This corollary does not hold as stated, since recombining the weight-four checks of annular \hyperref[code:surface]{surface codes} yields expanding bounded-weight generating sets measured in depth \(13\) \cite[Cor. 5.3]{arxiv:2609.39705}.
 
   threshold:
     - 'Locally stochastic noise: \(2.7 \cdot 10^{-16}\) \cite{arxiv:1711.08351}.'
@@ -64,6 +66,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-09-06'
     - user_id: VictorVAlbert
