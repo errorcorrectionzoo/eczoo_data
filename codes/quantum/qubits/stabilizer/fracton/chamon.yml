@@ -30,9 +30,21 @@ features:
 
   decoders:
     - 'Repetition-based decoder, based on the three underlying repetition codes and improved by pre-treatment with a probabilistic greedy local algorithm \cite{arxiv:2303.05267}.'
+    - 'Generalized MWPM decoder that matches syndrome defects on \textit{code symmetries} \cite{arxiv:2207.06428}, i.e., subsets of stabilizer generators whose product is the identity \cite{arxiv:2411.03443}.
+    The generators on each lattice plane normal to a \((\pm 1,\pm 1,\pm 1)\) direction form such a symmetry \cite[Eq. (2)]{arxiv:2411.03443}.
+    Any Pauli error therefore creates an even number of defects on each plane, and a single-qubit error creates at most two \cite{arxiv:2411.03443}.
+    MWPM is run separately on each of the \(2d\) planes of the \(d\times d\times d\) lattice.
+    Defects joined by a matching edge are grouped into clusters, and each cluster is corrected by a sweeping decoder adapted from the broom algorithm \cite{arxiv:1112.3252}\cite{arxiv:2411.03443}.'
+    - 'Greedy-matching variant of the generalized MWPM decoder, which first applies every single-qubit Pauli whose four-defect \textit{diamond} syndrome pattern is present \cite{arxiv:2411.03443}.'
+    - 'Belief-matching variant \cite{arxiv:2203.04948}, in which belief propagation over the full syndrome sets the edge weights of the per-plane matchings \cite{arxiv:2411.03443}.
+    Below threshold, it yields lower logical failure rates than BP-OSD \cite[Fig. 7]{arxiv:2411.03443}.
+    Its runtime is of \hyperref[topic:asymptotics]{order} \(\tilde{O}(n^{7/3})\) \cite{arxiv:2411.03443}.'
 
   code_capacity_threshold:
-    - 'Depolarizing noise: \(4.92\%\) with repetition-based decoder \cite{arxiv:2303.05267}.'
+    - 'Depolarizing noise: \(4.92\%\) with repetition-based decoder \cite{arxiv:2303.05267}, \(\approx 5\%\) with the generalized MWPM decoder, \(\approx 6\%\) with its greedy-matching variant, and \(10.5\%\) with its belief-matching variant \cite{arxiv:2411.03443}.'
+
+notes:
+  - 'Implementation of the generalized matching decoders is available on \href{https://github.com/zoharno/chamon_decoder}{GitHub} \cite{arxiv:2411.03443}.'
 
 relations:
   parents:
@@ -47,6 +59,8 @@ relations:
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-09-24'
     - user_id: VictorVAlbert
