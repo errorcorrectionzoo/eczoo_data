@@ -15,7 +15,14 @@ description: 'Qudit-into-oscillator code whose protection against \hyperref[topi
 protection: 'Code distance \(d\) is the minimum distance (assuming some metric) between any two labels of Fock states corresponding to different code basis states. For a single mode, \(d\) is the minimum absolute value of the difference between any two Fock-state labels; such codes can detect up to \(d-1\) loss events. Multimode distances can be defined analogously; see, e.g., \hyperref[code:chuang-leung-yamamoto]{Chuang-Leung-Yamamoto codes}. There are tradeoffs in how well a Fock-state code protects against loss/gain errors and dephasing noise \cite{arxiv:2008.12576}.'
 
 features:
-  rate: 'For every \(K,t \geq 2\), there are explicitly constructible \(K\)-dimensional Fock-state codes with \(q=N=(K-1)t(t+1)\) modes, total excitation \(N\), and bosonic distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.'
+  rate: |
+    For every \(K,t \geq 2\), there are explicitly constructible \(K\)-dimensional Fock-state codes with \(q=N=(K-1)t(t+1)\) modes, total excitation \(N\), and bosonic distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.
+    Asymptotically good Fock-state codes exist, i.e., families on \(q=\alpha N\) modes with total excitation \(N\) whose distance grows linearly with \(N\) and whose rate \(\log_2 K/\log_2\binom{N+q-1}{q-1}\) stays positive \cite[Thm. 12]{arxiv:2603.15190}.
+    They are obtained from a simplex integer-based code chosen greedily among typical simplex points via a \hyperref[topic:gv-bound]{GV}-type argument \cite[Thm. 12]{arxiv:2603.15190}.
+    The classical code is partitioned via the Tverberg theorem, and each block is superposed into a code basis state, so that no mode holds more than \((1+\epsilon)\log_{1+\alpha}N\) excitations \cite[Thm. 12]{arxiv:2603.15190}.
+    Alternatively, the classical codewords can be drawn at random from the simplex, uniformly or from the multinomial distribution, and partitioned into equal blocks that are superposed uniformly \cite[Thm. 10]{arxiv:2603.15190}.
+    With high probability, this yields \hyperref[code:approximate_qecc]{approximate} codes of positive rate that correct a number of losses linear in \(N\) with vanishing recovery error \cite[Thm. 10]{arxiv:2603.15190}.
+    Their per-mode occupancy is of \hyperref[topic:asymptotics]{order} \(O(\log N)\) for uniform and \(O(\log N/\log\log N)\) for multinomial sampling, up to a vanishing probability under a photon-number measurement \cite[Thm. 10]{arxiv:2603.15190}.
 
 #notes:
 # - ''
@@ -24,16 +31,20 @@ relations:
   parents:
     - code_id: qudits_into_oscillators
     - code_id: ampdamp
-      detail: 'Fock-state codes are designed to protect against bosonic \hyperref[topic:ad]{AD} noise.'
+      detail: 'Fock-state codes are designed to protect against bosonic \hyperref[topic:ad]{AD} noise. Asymptotically good constant-excitation Fock-state codes approximately correct \hyperref[topic:ad]{AD} noise with a sufficiently small constant loss rate \(\gamma\), with recovery error vanishing as the total excitation grows \cite[Cor. 6]{arxiv:2603.15190}.'
   cousins:
     - code_id: bits_into_bits
       detail: 'Fock-state code distance is a natural extension of Hamming distance between binary strings.'
+    - code_id: simplex_discrete
+      detail: 'Constant-excitation Fock-state codes are obtained from simplex integer-based codes by partitioning the classical code into blocks and superposing the Fock states of each block \cite{arxiv:2509.20545}. The code distance is inherited from the classical \(\ell_1\) distance \cite{arxiv:2509.20545}. Random simplex integer-based codes partitioned into equal blocks with uniform superpositions yield asymptotically good approximate Fock-state codes \cite[Thm. 10]{arxiv:2603.15190}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
