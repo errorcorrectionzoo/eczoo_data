@@ -52,6 +52,12 @@ features:
       For \(\Delta=2^\nu\), this gate corresponds to the all-ones exponent vector in the group of diagonal transversal gates preserving the code \cite[Thm. 3.2 and Rem. 3.16]{arxiv:2601.21514}.
       Algorithms determine this group for a given CSS code \cite{arxiv:2303.15615,arxiv:2607.26477}.
     - |
+      Let \(C\) be a \(2^m\)-divisible \([n,k,d]\) code with dual distance \(d^{\perp}\), and let \(t<\min\{k,d,d^{\perp}\}\).
+      Puncturing \(C\) on \(t\) pivot coordinates of a systematic generator matrix yields a code \(C_1\), and shortening \(C\) on the same coordinates yields a subcode \(C_2\) \cite[Sec. III.A]{arxiv:2601.08568}.
+      Repeating both codes \(2^p\) times yields a \(2^{m+p}\)-coset-divisible CSS code with positive signs, with parameters \([[2^p(n-t),t,\geq t]]\) for \(t=\lfloor\min\{k,d,d^{\perp}\}/2\rfloor\) \cite[Lemma 6]{arxiv:2601.08568}.
+      The \(t\) punctured rows span the logical-\(X\) cosets, and each of their combinations \(w_a\) with \(a\in\mathbb{F}_2^t\) has weight \(\equiv -2^p\operatorname{wt}(a)\pmod{2^{m+p}}\) \cite[Lemma 7]{arxiv:2601.08568}.
+      The transversal \(R_Z(\pi/2^{l})\) gate therefore realizes the logical transversal \(R_Z(\pi/2^{l-p})^{\dagger}\) gate for \(p\leq l\leq m+p-1\) and the logical identity for \(l\leq p-1\) \cite[Lemma 7]{arxiv:2601.08568}.
+    - |
       Consider a CSS code with positive \(Z\)-type stabilizer signs whose \(X\)-type stabilizers form a \(\nu\)-even space, and for which the entrywise product of every \(X\)-type logical operator and \(X\)-type stabilizer has weight divisible by \(2^{\nu-1}\).
       Such a code admits a diagonal transversal gate at the \(\nu\)th level of the \term{Clifford hierarchy} \cite[Prop. 8]{arxiv:1906.11394}.
     - |
@@ -84,12 +90,16 @@ relations:
       detail: 'The \([[31,5,3]]\) member together with the five-qubit code can be viewed as a factorization of a \([[31,1,3]]\) triorthogonal code \cite[Sec. V]{arxiv:2204.13176}.'
     - code_id: qubit_concatenated
       detail: 'Particular coset-divisible codes can be used as outer codes in layered constructions that implement a fault-tolerant \(T\) gate on the five-qubit or Steane code \cite[Sec. V]{arxiv:2204.13176}.'
+    - code_id: divisible
+      detail: 'Let \(t\) be less than the dimension, distance, and dual distance of a \(2^m\)-divisible binary linear code. Puncturing the code on \(t\) coordinates and shortening it on the same coordinates yields a pair \(C_2\subseteq C_1\) defining a \(2^m\)-coset-divisible CSS code with positive signs \cite[Lemma 7]{arxiv:2601.08568}. Its transversal \(R_Z(\pi/2^{l})\) gate realizes the logical transversal \(R_Z(\pi/2^{l})^{\dagger}\) gate for \(l\leq m-1\) \cite[Lemma 7]{arxiv:2601.08568}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-09-06'
     - user_id: VictorVAlbert
