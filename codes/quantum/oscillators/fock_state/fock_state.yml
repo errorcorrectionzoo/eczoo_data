@@ -17,12 +17,11 @@ protection: 'Code distance \(d\) is the minimum distance (assuming some metric) 
 features:
   rate: |
     For every \(K,t \geq 2\), there are explicitly constructible \(K\)-dimensional Fock-state codes with \(q=N=(K-1)t(t+1)\) modes, total excitation \(N\), and bosonic distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.
-    Asymptotically good Fock-state codes exist, i.e., families on \(q=\alpha N\) modes with total excitation \(N\) whose distance grows linearly with \(N\) and whose rate \(\log_2 K/\log_2\binom{N+q-1}{q-1}\) stays positive \cite[Thm. 12]{arxiv:2603.15190}.
-    They are obtained from a simplex integer-based code chosen greedily among typical simplex points via a \hyperref[topic:gv-bound]{GV}-type argument \cite[Thm. 12]{arxiv:2603.15190}.
-    The classical code is partitioned via the Tverberg theorem, and each block is superposed into a code basis state, so that no mode holds more than \((1+\epsilon)\log_{1+\alpha}N\) excitations \cite[Thm. 12]{arxiv:2603.15190}.
-    Alternatively, the classical codewords can be drawn at random from the simplex, uniformly or from the multinomial distribution, and partitioned into equal blocks that are superposed uniformly \cite[Thm. 10]{arxiv:2603.15190}.
-    With high probability, this yields \hyperref[code:approximate_qecc]{approximate} codes of positive rate that correct a number of losses linear in \(N\) with vanishing recovery error \cite[Thm. 10]{arxiv:2603.15190}.
-    Their per-mode occupancy is of \hyperref[topic:asymptotics]{order} \(O(\log N)\) for uniform and \(O(\log N/\log\log N)\) for multinomial sampling, up to a vanishing probability under a photon-number measurement \cite[Thm. 10]{arxiv:2603.15190}.
+    Asymptotically good Fock-state codes exist: for sufficiently small \(\delta>0\), there are families on \(q=\alpha N\) modes with total excitation \(N\), distance at least \(\lfloor\delta N\rfloor\), and positive rate \(\log_2 K/\log_2\binom{N+q-1}{q-1}\) \cite[Thm. 12]{arxiv:2603.15190}.
+    Each mode holds at most \((1+\epsilon)\log_{1+\alpha}N\) excitations for any fixed \(\epsilon>0\) \cite[Thm. 12]{arxiv:2603.15190}.
+    Uniformly superposing equal blocks of a random simplex integer-based code yields, with high probability, positive-rate \hyperref[code:approximate_qecc]{approximate} codes that correct a number of losses linear in \(N\) with vanishing recovery error \cite[Thm. 10]{arxiv:2603.15190}.
+    Their per-mode occupancy is of \hyperref[topic:asymptotics]{order} \(O(\log N)\) for classical codewords drawn uniformly from the simplex, up to a vanishing probability under a photon-number measurement \cite[Thm. 10]{arxiv:2603.15190}.
+    Multinomially distributed classical codewords lower this bound to \(O(\log N/\log\log N)\) \cite[Thm. 10]{arxiv:2603.15190}.
 
 #notes:
 # - ''
@@ -31,12 +30,12 @@ relations:
   parents:
     - code_id: qudits_into_oscillators
     - code_id: ampdamp
-      detail: 'Fock-state codes are designed to protect against bosonic \hyperref[topic:ad]{AD} noise. Asymptotically good constant-excitation Fock-state codes approximately correct \hyperref[topic:ad]{AD} noise with a sufficiently small constant loss rate \(\gamma\), with recovery error vanishing as the total excitation grows \cite[Cor. 6]{arxiv:2603.15190}.'
+      detail: 'Fock-state codes are designed to protect against bosonic \hyperref[topic:ad]{AD} noise.'
   cousins:
     - code_id: bits_into_bits
       detail: 'Fock-state code distance is a natural extension of Hamming distance between binary strings.'
     - code_id: simplex_discrete
-      detail: 'Constant-excitation Fock-state codes are obtained from simplex integer-based codes by partitioning the classical code into blocks and superposing the Fock states of each block \cite{arxiv:2509.20545}. The code distance is inherited from the classical \(\ell_1\) distance \cite{arxiv:2509.20545}. Random simplex integer-based codes partitioned into equal blocks with uniform superpositions yield asymptotically good approximate Fock-state codes \cite[Thm. 10]{arxiv:2603.15190}.'
+      detail: 'Constant-excitation Fock-state codes can be obtained from simplex integer-based codes by partitioning the classical code into blocks and superposing the Fock states of each block \cite{arxiv:2509.20545}. Classical \(\ell_1\) distance \(t+1\) guarantees the Knill-Laflamme orthogonality conditions against up to \(t\) losses, and a Tverberg partition with suitable coefficients yields quantum distance \(t+1\) \cite{arxiv:2509.20545}\cite[Prop. 7]{arxiv:2603.15190}. With high probability, random simplex integer-based codes partitioned into equal blocks with uniform superpositions yield asymptotically good approximate Fock-state codes \cite[Thm. 10]{arxiv:2603.15190}.'
 
 
 # Begin Entry Meta Information
