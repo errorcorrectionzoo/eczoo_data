@@ -30,9 +30,17 @@ features:
 
   decoders:
     - 'Repetition-based decoder, based on the three underlying repetition codes and improved by pre-treatment with a probabilistic greedy local algorithm \cite{arxiv:2303.05267}.'
+    - 'Generalized MWPM decoder \cite{arxiv:2207.06428} that matches defects separately on the generators of each plane normal to a \((\pm 1,\pm 1,\pm 1)\) direction, where a single-qubit error creates at most two defects \cite{arxiv:2411.03443}.
+    Defects joined by a matching edge form clusters, each corrected by a sweeping decoder adapted from the broom algorithm \cite{arxiv:1112.3252,arxiv:2411.03443}.
+    The greedy-matching variant first applies every single-qubit Pauli whose four-defect \textit{diamond} pattern is present \cite{arxiv:2411.03443}.
+    The belief-matching variant \cite{arxiv:2203.04948} sets the matching weights by belief propagation over the full syndrome and runs in time of \hyperref[topic:asymptotics]{order} \(\tilde{O}(N^{7/3})\) \cite{arxiv:2411.03443}.'
 
   code_capacity_threshold:
     - 'Depolarizing noise: \(4.92\%\) with repetition-based decoder \cite{arxiv:2303.05267}.'
+    - 'Depolarizing noise: \(10.5\%\) under the belief-matching variant of the generalized MWPM decoder, \(\approx 6\%\) under its greedy-matching variant, and \(\approx 5\%\) under the basic decoder \cite{arxiv:2411.03443}.'
+
+notes:
+  - 'Implementation of the generalized matching decoders is available on \href{https://github.com/zoharno/chamon_decoder}{GitHub} \cite{arxiv:2411.03443}.'
 
 relations:
   parents:
@@ -47,6 +55,8 @@ relations:
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-09-24'
     - user_id: VictorVAlbert
