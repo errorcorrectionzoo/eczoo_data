@@ -26,12 +26,16 @@ description: |
 
 #  The code is called \([n,k]\)-linear if the vectors \(\{x_1, x_2, \ldots, x_M\}\) define a \(k\)-dimensional subspace.
 
-protection: 'Set of vectors \(\{x_1, x_2, \ldots, x_M\}\) determines a rank code with distance \(d=\min d(x_i, x_j)\). The code with distance \(d\) corrects all errors with rank of the error not greater than \(\lfloor (d-1)/2\rfloor\).'
+protection: |
+  Set of vectors \(\{x_1, x_2, \ldots, x_M\}\) determines a rank code with distance \(d=\min d(x_i, x_j)\).
+  The code with distance \(d\) corrects all errors with rank of the error not greater than \(\lfloor (d-1)/2\rfloor\).
+  For \(n=N\) and rate \(R\), some received words have exponentially many Gabidulin codewords within relative rank distance \(1-\sqrt{R}\) \cite{arxiv:1301.4643}.
+  Some families of Gabidulin codes cannot be list decoded efficiently at any radius beyond the unique-decoding radius \cite{arxiv:1501.04272}.
 
 features:
   decoders:
     - 'Fast decoder based on a transform-domain approach \cite{arxiv:0901.2483}.'
-    - 'Algebraic list decoder that decodes up to the Singleton bound \cite{doi:10.1145/2488608.2488715}.'
+    - 'Subcodes of Gabidulin codes whose evaluation points span a subfield can be list decoded up to the Singleton bound, with the subcode chosen by a Monte Carlo construction \cite{doi:10.1145/2488608.2488715} or explicitly \cite{arxiv:1311.7084}.'
 
 realizations:
   - 'Public-key cryptosystems \cite{doi:10.1007/s10623-003-6151-2,doi:10.3390/cryptography2040032}.'
@@ -56,6 +60,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-24'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: MicahShaw
