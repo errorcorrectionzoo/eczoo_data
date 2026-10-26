@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ferrers_diagram
+physical: matrices
+logical: matrices
+
+name: 'Ferrers diagram rank-metric (FDRM) code'
+short_name: 'FDRM'
+introduced: '\cite{arxiv:0807.4846}'
+
+alternative_names:
+  - 'Ferrers diagram code'
+
+description: |
+  Linear rank-metric code whose codeword matrices vanish outside a fixed \textit{Ferrers diagram} \(\mathcal{F}\) \cite{arxiv:0807.4846}.
+  The diagram is an \(m\times n\) array of right-justified dots with non-increasing row lengths, i.e., the free entries of a reduced row echelon form with fixed pivots \cite{arxiv:0807.4846}.
+  Inserting each codeword into the free entries of an echelon form with these pivots \textit{lifts} the code to subspaces whose subspace distance is twice the rank distance, the building blocks of the multilevel construction of \hyperref[code:finite_grassmann]{constant-dimension codes} \cite{arxiv:0807.4846}.
+
+  An FDRM code on \(\mathcal{F}\) with dimension \(k\) and minimum rank distance \(\delta\) is denoted \([\mathcal{F},k,\delta]_q\).
+  The diagram is written \([\gamma_0,\ldots,\gamma_{n-1}]\) by its column lengths.
+  A standard construction restricts the \(i\)th information symbol of a systematic MRD code with generator matrix \((I_\kappa|A)\), \(\kappa=n-\delta+1\), to the span of the first \(\gamma_i\) elements of an \(\mathbb{F}_q\)-basis of \(\mathbb{F}_{q^m}\) \cite{doi:10.1109/TIT.2016.2522971}.
+  This confines the first \(\kappa\) columns of each codeword to the diagram while keeping rank distance at least \(\delta\), and the subcode is an FDRM code when the rightmost columns are long enough \cite{doi:10.1109/TIT.2016.2522971,arxiv:1804.00624}.
+  Not every optimal FDRM code is a subcode of an MRD code \cite{arxiv:1804.00624}.
+
+  Optimal codes on additional diagram families are obtained as subcodes of MRD codes with explicit systematic generator matrices, from systematic MRD codes extended by columns that copy their leading information symbols, and by combining codes on disjoint subdiagrams \cite{doi:10.1109/TIT.2016.2522971,arxiv:1804.01211}\cite[Thms. 1-3 and Secs. 4 and 5]{arxiv:2609.24239}.
+
+protection: |
+  The dimension of an \([\mathcal{F},k,\delta]_q\) code satisfies \(k \leq \min_{0\leq i\leq \delta-1} v_i\), where \(v_i\) is the number of dots of \(\mathcal{F}\) outside its first \(i\) rows and its rightmost \(\delta-1-i\) columns \cite{arxiv:0807.4846}.
+  Codes attaining this bound are called \textit{optimal}, and the \textit{Etzion-Silberstein conjecture} states that the bound is attained for every diagram, distance, and field size \cite{arxiv:0807.4846}.
+  The conjecture holds for initially convex diagrams, i.e., those with \(\gamma_0\leq 1\) and \(\gamma_{i+1}-\gamma_i\leq 1\) \cite{arxiv:2306.16407}.
+  It also holds when each of the rightmost \(\delta-1\) columns contains at least \(n\) dots \cite{doi:10.1109/TIT.2016.2522971}.
+  Optimal \([\mathcal{F},6,7]_q\) codes exist for \(\mathcal{F}=[1,2,3,4,8,8,8,8,8]\) and all \(q\geq 7\) \cite[Rem. 2]{arxiv:2609.24239}.
+  For even \(n\), a family of square \(n\times n\) diagrams admits optimal codes of dimension \(n+1\) and distance \(n/2-1\) for every \(q\) \cite[Thm. 6]{arxiv:2609.24239}.
+
+relations:
+  parents:
+    - code_id: rank_metric
+      detail: 'FDRM codes are rank-metric codes whose codeword matrices vanish outside a Ferrers diagram, and they reduce to rank-metric codes for the full \(m\times n\) diagram \cite{arxiv:0807.4846}.'
+  cousins:
+    - code_id: maximum_rank_distance
+      detail: 'Many optimal FDRM codes are constructed as subcodes of systematic MRD codes, with information symbols restricted so that each codeword column lies in the diagram \cite{doi:10.1109/TIT.2016.2522971,arxiv:2609.24239}.'
+    - code_id: finite_grassmann
+      detail: 'The multilevel construction lifts an FDRM code on the echelon-form diagram of each identifying vector of a binary \hyperref[code:constant_weight]{constant-weight code} \cite{arxiv:0807.4846}. When the identifying vectors have pairwise Hamming distance at least \(2\delta\) and the FDRM codes have rank distance \(\delta\), the union of the lifted codes has subspace distance \(2\delta\) \cite{arxiv:0807.4846}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
