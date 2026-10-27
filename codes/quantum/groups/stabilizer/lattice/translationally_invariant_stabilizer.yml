@@ -68,11 +68,10 @@ features:
     The BPT bound does not apply to stabilizer circuits: a modified tower of interleaved quantum Hamming codes yields a 1D nearest-neighbor scheme with coding rate above \(5\%\), constant space overhead, quasi-polylogarithmic time overhead, and a threshold \cite{arxiv:2502.16132}.
     Codes for \(D < 2\) have constant distance \cite{arxiv:2503.17655}.
     The bound extends to non-integer dimensions through the \textit{intrinsic locality dimension} \(\beta\) of a stabilizer code family \cite{arxiv:2605.31441}.
-    This is the Assouad dimension of the family's connectivity graphs for a chosen set of stabilizer generators \cite{arxiv:2605.31441}.
-    The connectivity graph has the qubits as vertices and joins two qubits that share a generator.
-    Its Assouad dimension is the least \(\beta\) for which every ball of radius \(R\) is covered by at most \(C (R/r)^{\beta}\) balls of radius \(r\) \cite{arxiv:2605.31441}.
-    The constant \(C\) is independent of the scales \(r\), \(R\) and of the code size \cite{arxiv:2605.31441}.
-    Topological codes on triangulated \(D\)-manifolds have \(\beta = D\), and codes built the same way on quasi-convex self-similar fractals have \(\beta\) equal to the fractal dimension \cite[Table I]{arxiv:2605.31441}.
+    This is the Assouad dimension of the family's connectivity graphs, in which two qubits are adjacent when they share a generator from a chosen generating set \cite{arxiv:2605.31441}.
+    It is the infimum of \(\beta\) for which every ball of radius \(R\) is covered by at most \(C (R/r)^{\beta}\) balls of radius \(r\), with \(C\) independent of \(r\), \(R\), and the code \cite{arxiv:2605.31441}.
+    Topological codes from good triangulations of compact Riemannian \(D\)-manifolds have \(\beta = D\) \cite[Thm. 3]{arxiv:2605.31441}.
+    Analogous codes on quasi-convex self-similar fractals have \(\beta\) equal to the fractal dimension \cite[Thm. 4]{arxiv:2605.31441}.
     Asymptotically good QLDPC codes have \(\beta = \infty\) \cite[Table I]{arxiv:2605.31441}.
     Suppose \(\beta \geq 2\) and every sphere of radius \(R \leq d\) in the connectivity graphs contains between \(v_{*} R^{\beta-1}\) and \(v^{*} R^{\beta-1}\) qubits (\textit{strengthened Ahlfors regularity}).
     Then \(k d^{2/(\beta-1)} \leq w n\) for a constant \(w\) depending only on \(\beta\), \(v_{*}\), and \(v^{*}\) \cite[Thm. 5]{arxiv:2605.31441}.
@@ -87,9 +86,9 @@ features:
       Logical gates implemented via geometrically local constant-depth quantum circuits on a \(D\)-dimensional qubit lattice stabilizer code whose distance increases at least logarithmically with \(n\) lie in the \(D\)th level of the \term{Clifford hierarchy} \cite{arxiv:1206.1609}.
       A refinement can be made that expresses the bound in terms of higher-group symmetries of the topological phases underlying the codes \cite[Sec. 5.4.2]{arxiv:2211.11764}.
       The theorem has been made robust \cite{arxiv:2503.04566}.
-      The bound extends to stabilizer code families with macroscopic distance and intrinsic locality dimension \(\beta \geq 2\) (see \hyperref[topic:bpt-bound]{BPT bound}) \cite[Thm. 9]{arxiv:2605.31441}.
-      Constant-depth circuits of \textit{graph-local} gates, which spread operator supports by a bounded distance on the connectivity graph, implement logical gates only in level \(\lfloor \beta \rfloor\) of the \term{Clifford hierarchy} \cite[Thm. 9]{arxiv:2605.31441}.
-      The same level bound holds for a constant number of identical code blocks coupled by translation-invariant cross-block gates of bounded graph range, which leave \(\beta\) unchanged \cite[Thm. 10]{arxiv:2605.31441}.
+      For stabilizer code families with macroscopic distance and finite intrinsic locality dimension \(\beta \geq 2\) (see \hyperref[topic:bpt-bound]{BPT bound}), constant-depth circuits of \textit{graph-local} gates implement logical gates only in level \(\lfloor \beta \rfloor\) of the \term{Clifford hierarchy} \cite[Thm. 9]{arxiv:2605.31441}.
+      Graph-local gates spread operator supports by a bounded distance on the connectivity graph.
+      The same level bound holds for a constant number of identical code blocks coupled by translation-invariant cross-block gates that remain graph-local across blocks, which leave \(\beta\) unchanged \cite[Thm. 10]{arxiv:2605.31441}.
       Conversely, suppose a code on an \(L^{D}\) lattice admits a locality-preserving logical gate in level \(\nu\geq 2\) of the \term{Clifford hierarchy}, but not in level \(\nu-1\).
       Its distance is upper bounded by \hyperref[topic:asymptotics]{order} \(O(L^{D+1-\nu})\) \cite{arxiv:1408.1720}.
       If this gate is transversal, the qubit-erasure threshold of the code family is upper bounded by \(1/\nu\) \cite{arxiv:1408.1720}.
