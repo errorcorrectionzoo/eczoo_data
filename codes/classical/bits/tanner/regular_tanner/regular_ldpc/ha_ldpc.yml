@@ -14,14 +14,17 @@ introduced: '\cite{arxiv:cs/0509062}'
 
 description: |
   A regular LDPC code obtained from a concatenation of a certain random regular LDPC code and a certain random LDGM code.
-  An \((l,r,g)\)-HA-LDPC code can be written using punctured LDPC and LDGM parts, and it is dual to the corresponding \((r,l,g)\)-MN-LDPC code \cite{arxiv:1102.4612}.
-  Using rate-one LDGM codes eliminates high-weight codewords while admitting an amount of low-weight codewords that asymptotically vanishes, allowing code families to achieve the \hyperref[topic:gv-bound]{GV bound} with high probability.
 
   An \((l,r,g)\)-HA-LDPC code can be written using punctured LDPC and LDGM parts, and it is dual to the corresponding \((r,l,g)\)-MN-LDPC code \cite{arxiv:1102.4612}.
+  Using rate-one LDGM codes eliminates high-weight codewords while admitting an amount of low-weight codewords that asymptotically vanishes \cite{arxiv:cs/0509062}.
 
 features:
-  rate: 'HA-LDPC codes achieve capacity on the BEC channel under BP decoding \cite{arxiv:cs/0509062} and the memoryless binary-input output-symmetric (MBIOS) channels under ML decoding \cite{arxiv:cs/0509062} and under MAP decoding \cite{arxiv:1102.4612}. Bounded-density spatially coupled HA-LDPC codes have BEC BP thresholds close to the Shannon limit \cite{arxiv:1102.4612}.
-  They also achieve the \hyperref[topic:gv-bound]{GV bound} with asymptotically high probability when the concatenation is with a rate-one LDGM code \cite{arxiv:cs/0509062}.'
+  rate: |
+    HA-LDPC codes achieve capacity on the BEC channel under BP decoding \cite{arxiv:cs/0509062} and the memoryless binary-input output-symmetric (MBIOS) channels under ML decoding \cite{arxiv:cs/0509062} and under MAP decoding \cite{arxiv:1102.4612}.
+    Bounded-density spatially coupled HA-LDPC codes have BEC BP thresholds close to the Shannon limit \cite{arxiv:1102.4612}.
+    For \(l\geq 4\), \((l,r,r)\)-HA-LDPC codes attain the \hyperref[topic:gv-bound]{GV bound} with high probability for all sufficiently large \(r\) \cite[Thm. 1 and Cor. 2]{arxiv:cs/0509062}.
+    At fixed degree, \((l,r,r)\)-HA-LDPC codes sampled from the configuration-model ensemble attain the GV bound with high probability for the 56 pairs with even \(r\leq 30\), \(4\leq l\leq 10\), and \(l<r/2\) \cite[Thm. 3.2]{arxiv:2603.24588}.
+    The same holds for \((j,2j,2j)\)-HA-LDPC codes with \(4\leq j\leq 15\) \cite[Prop. 6.1]{arxiv:2603.24588}.
 
 
 relations:
@@ -44,6 +47,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
