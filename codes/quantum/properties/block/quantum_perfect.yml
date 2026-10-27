@@ -26,8 +26,10 @@ description: |
   \end{align}
   where \(h\) is the binary entropy function.
 
-  \hyperref[topic:degeneracy]{Degenerate} codes can in principle violate the quantum Hamming bound.
-  It was shown that qubit stabilizer codes correcting up to two errors \cite{arxiv:quant-ph/9705052}, qudit stabilizer codes up to distance two \cite{arxiv:0711.4603}, qudit CSS codes of qudit dimension \(q\geq 5\) along with certain other codes \cite{arxiv:0811.1621}, and qubit codes up to distance \(d\leq 127\) \cite{arxiv:2208.11800} do not violate the bound.
+  The standard counting proof of the bound assumes a \hyperref[topic:degeneracy]{non-degenerate} code \cite{arxiv:2606.15558}.
+  All \(((n,K,d))\) qubit codes with \(K>1\), including degenerate and nonadditive codes, satisfy the quantum Hamming bound \cite{arxiv:2606.15558}.
+  Qubit stabilizer codes correcting up to two errors \cite{arxiv:quant-ph/9705052} and qudit stabilizer codes correcting two errors \cite{arxiv:0711.4603} do not violate the bound.
+  The same holds for qudit CSS codes of qudit dimension \(q\geq 5\) along with certain other codes \cite{arxiv:0811.1621} and for qubit codes of distance \(d<127\) \cite{arxiv:2208.11800}.
   A quantum Hamming-like bound exists for \hyperref[topic:degeneracy]{degenerate} qubit stabilizer codes \cite{arxiv:2306.00048}.
 
 protection: |
@@ -63,6 +65,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-27'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
