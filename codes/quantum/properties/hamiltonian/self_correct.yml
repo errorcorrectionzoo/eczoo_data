@@ -37,7 +37,10 @@ protection: |
   In that model, a classical bit is stored in the overall magnetization. The magnetization is thermally stable due to the fact that there is an \(n\)-dependent (i.e., \textit{macroscopic}) energy cost of flipping a contiguous region of physical bits \cite{doi:10.1017/S0305004100019174,arxiv:1411.6643}.
   This cost scales with the surface area of the region, and the surface area is \(n\)-dependent for dimensions greater than one.
 
-  Self-correcting quantum memories are known in four and higher dimensions, and a concatenated construction with self-simulating control elements yields one in 2D \cite{arxiv:2601.20818}. Existence in one dimension is impossible (see, e.g., Ref. \cite{arxiv:2510.08533}), and existence in three dimensions remains an open question.
+  Self-correcting quantum memories are known in four and higher dimensions, and a concatenated construction with self-simulating control elements yields one in 2D \cite{arxiv:2601.20818}.
+  A 3D local Pauli stabilizer Hamiltonian built recursively from a seed Hamiltonian stores a qubit for a time exponential in a power of \(n\) at sufficiently low nonzero temperature \cite{arxiv:2605.10943}.
+  That construction is not translationally invariant \cite{arxiv:2605.10943}.
+  Existence in one dimension is impossible (see, e.g., Ref. \cite{arxiv:2510.08533}).
   For similar reasons as the classical 2D Ising model is a self-correcting classical memory, the 4D loop toric code is a self-correcting quantum memory due to an \hyperref[topic:asymptotics]{order} \(O(n)\) energy cost of creating a logical error \cite{arxiv:quant-ph/0110143,arxiv:0811.0033}.
   On the other hand, the 2D surface code is not thermally stable \cite{arxiv:quant-ph/0702102,arxiv:0709.2717,arxiv:0810.4584,arxiv:0911.3843,arxiv:2410.01206} because its string-like logical operators anti-commute with stabilizer generators supported only at their ends, and thus have a constant energy cost of creation.
   There is a general upper bound on the relaxation rate of a qubit stabilizer or qubit subsystem stabilizer quantum memory interacting with a Markovian environment \cite{arxiv:0907.2807}.
@@ -45,6 +48,9 @@ protection: |
   An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858} including Abelian \cite{arxiv:1601.01324} and non-Abelian \cite{arxiv:2107.01628} quantum doubles.
   Two-dimensional stabilizer codes \cite{arxiv:0810.1983} and encodings of frustration-free code Hamiltonians \cite{arxiv:1209.5750} admit only constant-energy excitations, and so do not admit such a barrier.
   No-go theorems for 3D models are much more restrictive \cite{arxiv:1105.4159}, e.g., a 3D lattice stabilizer code with a locality-preserving non-Clifford gate cannot have a microscopic energy barrier \cite{arxiv:1408.1720}.
+  A 3D lattice stabilizer code family with macroscopic distance is not self-correcting if its stabilizer geometry, projected along some direction, has \hyperref[topic:bpt-bound]{Assouad dimension} below two \cite[Thm. 11]{arxiv:2605.31441}.
+  Such a family admits a logical operator inside a constant-radius tube along that direction and hence has a constant energy barrier \cite[Thm. 11]{arxiv:2605.31441}.
+  This conditional no-go extends to subsystem codes obtained by gauging such local stabilizer Hamiltonians, and the recursive 3D construction of Ref. \cite{arxiv:2605.10943} evades its projection condition \cite[Sec. V]{arxiv:2605.31441}.
   More generally, translationally invariant CSS codes are not self-correcting at high temperature \cite{arxiv:2510.03090}.
   There exist several candidates for self-correction as well as several partially self-correcting memories (see cousins below).
 
@@ -65,7 +71,7 @@ relations:
     - code_id: quantum_double
       detail: 'An \(n\)-dependent energy barrier to creating all logical errors is likely necessary for a thermally stable memory, having been shown as such for a large class of 2D topological phases \cite{arxiv:0810.3557,arxiv:1412.2858} including Abelian \cite{arxiv:1601.01324} and non-Abelian \cite{arxiv:2107.01628} quantum doubles.'
     - code_id: 3d_stabilizer
-      detail: '3D translationally-invariant qubit stabilizer code families with constant \(k\) support logical string operators and thus cannot be self-correcting \cite{arxiv:1103.1885}. For non-constant \(k\), such families can support at most a logarithmic energy barrier \cite{arxiv:1101.1962}.'
+      detail: '3D translationally-invariant qubit stabilizer code families with constant \(k\) support logical string operators and thus cannot be self-correcting \cite{arxiv:1103.1885}. For non-constant \(k\), such families can support at most a logarithmic energy barrier \cite{arxiv:1101.1962}. A 3D lattice stabilizer code family with macroscopic distance whose stabilizer geometry, projected along some direction, has Assouad dimension below two cannot be self-correcting \cite[Thm. 11]{arxiv:2605.31441}.'
     - code_id: 3d_surface
       detail: 'The welded surface code has a power-law energy barrier \cite{arxiv:1208.3496,arxiv:1406.4227} and is partially self-correcting \cite{arxiv:1406.4227}. The 3D toric code is a classical self-correcting memory, whose protected bit admits a membrane-like logical operator \cite{arxiv:1501.04112}, but it is not a quantum self-correcting memory because the star terms thermalize \cite{arxiv:2510.03090}.'
     - code_id: 3d_subsystem_surface
@@ -105,6 +111,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-18'
     - user_id: VictorVAlbert
