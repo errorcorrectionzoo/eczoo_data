@@ -24,12 +24,6 @@ description: |
   For a frustration-free local Hamiltonian \(H=\sum_{i=1}^r h_i\) with \(0\leq h_i\leq I\), local testability can be expressed as the \textit{operator soundness} inequality \(H/r\geq\sigma\Delta_{\mathsf{C}}/n\) with \(\sigma>0\) \cite{arxiv:1911.03069}\cite[Sec. 2.2]{arxiv:2609.40220}.
   Here, \(\Delta_{\mathsf{C}}=\sum_{j=0}^{n-1}(I-\Pi_{V_j})\), and \(\Pi_{V_j}\) projects onto the span of states obtained by applying errors of weight at most \(j\) to codewords.
 
-  Gauging three QLTC blocks of the sheaf-code construction of Ref. \cite{arxiv:2609.20780} yields nonadditive codes with constant rate, linear distance, and constant operator soundness \cite[Thm. 4]{arxiv:2609.40220}.
-  The gauged code keeps the \(Z\)-type checks of the three blocks \cite[Sec. 4.1]{arxiv:2609.40220}.
-  Each \(X\)-type generator of a block acquires a phase from a cup-product trilinear form of its cochain with the other two blocks' cochains \cite{arxiv:2609.30159}\cite[Sec. 4.1]{arxiv:2609.40220}.
-  The third block is modified using a deck transformation \(\rho\) of prime order \(p\), and some of its gauged generators are fixed to eigenvalue \(-1\) \cite[App. B.3]{arxiv:2609.40220}.
-  Then \(\rho\) permutes the triples of cohomology classes labeling a codeword basis without fixed points, so the code dimension is divisible by \(p\), which grows with \(n\) \cite[Lemma 11]{arxiv:2609.40220}.
-
   A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (SLTC)}. In other words, the code admits a set of \(r\) \(u\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^r (I-S_i)\) satisfies the requirement of being a QLTC.
 
   For example, the \([[n=2L^2,k=2,d=L]]\) toric code on an \(L\times L\) lattice is \textit{not} a QLTC because of the following argument. Let \(|\psi\rangle\) be a ground state that is excited by \(L/3\) Pauli strings, each of length \(L/2\). In order to fit on the lattice, such strings can, e.g., be horizontal and aligned next to each other in the vertical direction. The distance function \(\text{dist}(|\psi\rangle,\mathsf{C})\) is the weight of the smallest Pauli string that multiplies \(|\psi\rangle\) to yield a state in the codespace. In this case, that weight is the same as the weight of the perturbing string, i.e., \(L^2/6\), requiring \(\delta = 1/12\) to satisfy \eqref{eq:qltc}. There are \(2L/3\) violated Hamiltonian terms because each of the \(L/3\) strings violates only two stabilizer generators. However, there are \(r = 2(L^2-1)\) stabilizer generators, so the implication of \eqref{eq:qltc} is not satisfied for nonzero soundness as \(L\to\infty\) because \(\frac{1}{r}\langle\psi|H|\psi\rangle = \frac{2L/3}{2(L^2-1)}\to 0\).
@@ -47,10 +41,8 @@ protection: |
 
 notes:
   - 'It was shown in Ref. \cite{arxiv:1510.02082} that existence of a QLTC with constant parameters would imply resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363} (see also \cite{arxiv:2311.09503}). QLTCs are believed to also be useful for solving the quantum PCP conjecture \cite{arxiv:1309.7495}.'
-  - 'Hamiltonians of the nonadditive gauged codes above have \textit{no low-energy trivial magic} (NLTM), which proves the NLTM conjecture \cite{arxiv:2503.04566}\cite[Cor. 5]{arxiv:2609.40220}.
-    For every fixed bound on qudit dimensions, states with energy density below a constant \(\varepsilon\) require circuits of depth of \hyperref[topic:asymptotics]{order} \(\Omega(\log n)\) to prepare from qudit stabilizer states \cite[Cor. 5]{arxiv:2609.40220}.
-    The constant \(\varepsilon\) does not depend on the bound \cite[Cor. 5]{arxiv:2609.40220}.
-    The same holds for any family of frustration-free local Hamiltonians whose codes have linear distance, constant operator soundness, and a dimension with a prime divisor tending to infinity \cite[Thm. 3]{arxiv:2609.40220}.'
+  - 'Families of frustration-free local Hamiltonians whose codes have linear distance, constant operator soundness, and a dimension with a prime divisor tending to infinity have \textit{no low-energy trivial magic} (NLTM) \cite[Thm. 3]{arxiv:2609.40220}.
+    For every fixed bound on qudit dimensions, their states with energy density below a constant require circuits of depth of \hyperref[topic:asymptotics]{order} \(\Omega(\log n)\) to prepare from qudit stabilizer states \cite[Thm. 3]{arxiv:2609.40220}.'
 
 relations:
   parents:
