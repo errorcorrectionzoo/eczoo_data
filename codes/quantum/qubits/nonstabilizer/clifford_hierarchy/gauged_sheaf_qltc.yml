@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: gauged_sheaf_qltc
+physical: qubits
+logical: qubits
+
+name: 'Gauged sheaf QLTC'
+introduced: '\cite{arxiv:2609.40220}'
+
+description: |
+  Nonadditive qubit code whose dimension has a prime divisor that grows with \(n\), obtained by gauging three sheaf-code QLTC blocks with a cup-product trilinear form \cite[Lemma 11]{arxiv:2609.40220}.
+  The family has constant rate, linear distance, and constant \hyperref[code:qltc]{operator soundness} \cite[Thm. 4]{arxiv:2609.40220}.
+
+  The blocks come from the \(c^3\)-QLTC construction of Ref. \cite{arxiv:2609.20780}, with the choices of Ref. \cite{arxiv:2609.26691} that make the trilinear form nonzero \cite[App. B.2]{arxiv:2609.40220}.
+  Gauging keeps the \(Z\)-type checks of the blocks \cite[Sec. 4.1]{arxiv:2609.40220}.
+  Each \(X\)-type generator of a block is multiplied by a phase set by the trilinear form of its cochain with the other two blocks' cochains \cite{arxiv:2609.30159}\cite[Sec. 4.1]{arxiv:2609.40220}.
+
+  The third block, with cochains \(C^j\) and coboundary \(\delta\), is replaced by \(E^j=C^j\oplus C^{j-1}\) with \(\delta_E(y,x)=(\delta y,\,y-\rho y+\delta x)\), where \(\rho\) is a deck transformation of prime order \(p\) \cite[App. B.3]{arxiv:2609.40220}.
+  Cohomology classes of \(E\) then project to classes fixed by \(\rho\) \cite[App. B.3]{arxiv:2609.40220}.
+  The trilinear form is evaluated on \(b-\rho b\) for the second block's cochain \(b\), and the third block's generators are assigned eigenvalues \((-1)^{\mathrm{Tr}\,\lambda(w)}\) for a nonzero linear functional \(\lambda\) \cite[App. B.3]{arxiv:2609.40220}.
+  Acting with \(\rho\) on the first two blocks permutes the triples of cohomology classes labeling a codeword basis without fixed points, so \(p\) divides the code dimension \cite[Lemma 11]{arxiv:2609.40220}.
+
+notes:
+  - 'Hamiltonians of gauged sheaf QLTCs have \hyperref[code:qltc]{no low-energy trivial magic} (NLTM), which proves the NLTM conjecture \cite{arxiv:2503.04566}\cite[Cor. 5]{arxiv:2609.40220}.
+    The energy density below which preparation from qudit stabilizer states requires circuit depth of \hyperref[topic:asymptotics]{order} \(\Omega(\log n)\) does not depend on the bound on qudit dimensions \cite[Cor. 5]{arxiv:2609.40220}.'
+
+relations:
+  parents:
+    - code_id: clifford_hierarchy
+      detail: 'Gauged sheaf QLTC codespaces are joint eigenspaces of \(Z\)-type Pauli strings and of \(X\)-type Pauli strings multiplied by constant-weight multi-controlled-\(Z\) phases \cite[App. B.1]{arxiv:2609.40220}.'
+    - code_id: monomial_stabilizer
+      detail: 'Each dressed \(X\)-type generator of a gauged sheaf QLTC is a Pauli \(X\) string times a diagonal phase, so the codespace is a joint eigenspace of monomial operators \cite[Sec. 4.1]{arxiv:2609.40220}. The dressed generators commute on the subspace satisfying the \(Z\)-type checks \cite[Sec. 4.3]{arxiv:2609.40220}.'
+  cousins:
+    - code_id: qltc
+      detail: 'Gauged sheaf QLTCs have linear distance, and their frustration-free Hamiltonians satisfy the operator-soundness form of local testability with constant soundness \cite[Thm. 4]{arxiv:2609.40220}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-27'
