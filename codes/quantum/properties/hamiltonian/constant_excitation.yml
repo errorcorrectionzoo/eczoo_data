@@ -27,6 +27,10 @@ protection: |
     E_{0}^{\otimes n}|\boldsymbol{m}\rangle=\left(1-\gamma\right)^{|\boldsymbol{m}|/2}|\boldsymbol{m}\rangle~.
   \end{align}
   This effect extends to the damping portion, \(\left(1-\gamma\right)^{\hat{n}/2}\), of any \(\ell\neq 0\) \hyperref[topic:ad]{AD} Kraus operators.
+  Under \hyperref[topic:ad]{AD}, a Fock-state CE codeword with total excitation \(N\) loses at most \(t\) particles with probability \(p_{N,t}=\mathrm{Pr}[\mathrm{Bin}(N,\gamma)\leq t]\), independent of the code \cite[Prop. 3]{arxiv:2603.15190}.
+  An \(\epsilon\)-approximate Fock-state CE code for the \hyperref[topic:ad]{AD} channel truncated to at most \(t\) losses is a \(\sqrt{1-(1-\epsilon^2)p_{N,t}}\)-approximate code for the full channel \cite[Thm. 5]{arxiv:2603.15190}.
+  Conversely, an \(\epsilon\)-approximate code for the full channel is an \(\epsilon/\sqrt{p_{N,t}}\)-approximate code for the truncated one \cite[Thm. 5]{arxiv:2603.15190}.
+  A positive-rate family of Fock-state CE codes corrects \hyperref[topic:ad]{AD} at constant loss rate \(\gamma\) with vanishing recovery error if and only if it approximately corrects \(\lfloor\delta N\rfloor\) losses for some \(\delta>\gamma\) \cite[Cor. 6]{arxiv:2603.15190}.
 
   In similar fashion, qubit CE codes are protected from coherent noise in the form of transversal \(Z\)-rotations because such rotations act identically on all codewords \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
   In the case of CSS codes, all codes oblivious to such rotations are CE codes \cite{doi:10.1109/ISIT45174.2021.9518206,arxiv:2011.00197}.
@@ -69,6 +73,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-25'
     - user_id: VictorVAlbert
