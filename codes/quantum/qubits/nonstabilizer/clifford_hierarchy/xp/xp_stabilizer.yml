@@ -14,26 +14,30 @@ alternative_names:
   - 'Weighted hypergraph code'
 
 description: |
-  The XP Stabilizer formalism is a generalization of the XS and Pauli stabilizer formalisms, with stabilizer generators taken from the group \( \mathsf{BD}_{2N}^{\otimes n} = \langle\omega I, X, P\rangle^{\otimes n} \), which is the tensor product of the binary dihedral group of order \(8N\).
+  The XP Stabilizer formalism is a generalization of the XS and Pauli stabilizer formalisms, with stabilizer generators taken from the group \( \langle\omega I, X, P\rangle^{\otimes n} \).
   Here, \(N\) is called the \textit{precision}, \( \omega \) is a \( 2N \)th root of unity, and \( P = \text{diag} ( 1, \omega^2) \).
   The codespace is a \(+1\) eigenspace of a set of XP stabilizer generators, which need not commute to define a valid codespace.
 
-  XP stabilizer states are in one-to-one correspondence with weighted hypergraph states \cite{arxiv:2203.00103,preset:Webster23}, which generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
-  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former admits logical dimension \(K=2^k\) (for some integer \(k\)) and can be mapped to a CSS code with the same diagonal logical operators and similar non-diagonal logical operators, while the latter can have arbitrary dimension, are non-additive, and resemble CWS codes \cite{arxiv:2203.00103}.
+  XP stabilizer states admit weighted-hypergraph representations on their affine computational-basis supports \cite{arxiv:2203.00103,preset:Webster23}.
+  Conversely, weighted hypergraph states can be represented as XP stabilizer states, generally after embedding into a larger Hilbert space \cite{arxiv:2203.00103}.
+  Weighted hypergraph states generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
+  XP stabilizer codes are classified into XP-regular and XP-non-regular, where the former admit logical dimension \(K=2^k\) (for some integer \(k\)) and can be mapped to a CSS code with the same diagonal logical operators and similar non-diagonal logical operators, while the latter can have arbitrary dimension, are non-additive, and resemble CWS codes \cite{arxiv:2203.00103}.
   Measurement of diagonal Pauli operators can be classically simulated efficiently on any XP code, but estimating outcome probabilities for general precision-\(4\) XP operators is NP-complete and measurement can take one outside the XP formalism \cite{arxiv:2203.00103}.
 
 features:
   encoders:
-    - 'Initialization of all qubits in the \(|+\rangle\) state and action of generalized controlled \(Z\) gates on multi-edges of the underlying hypergraph \cite{arxiv:2203.00103,preset:Webster23}.'
+    - 'XP stabilizer states can be prepared by applying generalized controlled phase gates to a uniform superposition over their affine computational-basis support \cite{arxiv:2203.00103,preset:Webster23}.'
 
 
 relations:
   parents:
-    - code_id: clifford_hierarchy
-      detail: 'XP stabilizer codes are joint eigenspaces of operators in the binary dihedral group, a subgroup consisting of Pauli strings and elements of a level of the \hyperref[topic:clifford-hierarchy]{Clifford hierarchy}.'
+    # Non-dyadic precision is allowed, so Clifford-hierarchy codes are not a parent family.
+    - code_id: qubits_into_qubits
     - code_id: monomial_stabilizer
       detail: 'XP stabilizer generators are products of \(X\)-type Pauli strings and diagonal phase operators, so they are monomial matrices that generate finite groups \cite{arxiv:2203.00103,arxiv:1108.0531}. Orbit representatives of XP codes and the coset structure of XP codewords realize the monomial stabilizer orbit basis \cite{arxiv:2203.00103}.'
   cousins:
+    - code_id: clifford_hierarchy
+      detail: 'XP stabilizer codes at precision \(N=2^t\) are Clifford-hierarchy stabilizer codes, but the XP formalism also allows non-dyadic precision \cite{arxiv:2203.00103}.'
     - code_id: qubit_css
       detail: 'Each XP-regular code can be mapped to a CSS code with the same diagonal logical operators and similar non-diagonal logical operators \cite{arxiv:2203.00103}.'
     - code_id: cws
@@ -41,9 +45,9 @@ relations:
     - code_id: quantum_lego
       detail: 'XP stabilizer codes can be understood through the Quantum Lego formalism \cite{arxiv:2310.19538}.'
     - code_id: cubic_theory
-      detail: 'The cubic theory code can be embedded into a larger codespace such that all diagonal logical operators are represented by XP operators \cite[Sec. 4.3]{arxiv:2303.15615}.'
+      detail: 'The cubic theory code can be embedded into a larger Hilbert space such that all diagonal Clifford-hierarchy logical operators are represented by XP operators \cite[Sec. 4.3]{arxiv:2303.15615}.'
     - code_id: invertible
-      detail: 'The Chen-Hsin invertible-order code can be embedded into a larger codespace such that all diagonal logical operators are represented by XP operators \cite[Sec. 4.3]{arxiv:2303.15615}.'
+      detail: 'The Chen-Hsin invertible-order code can be embedded into a larger Hilbert space such that all diagonal Clifford-hierarchy logical operators are represented by XP operators \cite[Sec. 4.3]{arxiv:2303.15615}.'
     # \cite[Sec. 4.3]{arxiv:2303.15615} converts any CZ stabilizer code into an XS code by embedding into a larger code
 
 
