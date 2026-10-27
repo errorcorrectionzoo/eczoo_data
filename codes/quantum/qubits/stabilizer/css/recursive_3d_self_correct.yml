@@ -1,0 +1,54 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: recursive_3d_self_correct
+physical: qubits
+logical: qubits
+
+name: 'Recursive 3D self-correcting code'
+introduced: '\cite{arxiv:2605.10943}'
+
+description: |
+  Family of geometrically local 3D CSS codes, each encoding one logical qubit, whose stabilizer Hamiltonians are self-correcting \cite{arxiv:2605.10943}.
+  Each iteration replaces every square of the Tanner square complex by two parallel layers joined by a thickness-two strip, doubling the syndrome weight of one error type \cite[Sec. 3.2]{arxiv:2605.10943}.
+  Alternating \(X\)-type and \(Z\)-type iterations makes this doubling occur at all length scales and for both error types.
+
+  The Tanner square complex of a code is its Tanner graph with squares \((x,q,z,q')\) attached for pairs of qubits shared by checks \(x\) and \(z\) \cite{arxiv:2408.01769}.
+  The recursion starts from the \hyperref[code:stab_5_1_2]{\([[5,1,2]]\) rotated surface code} \cite[Sec. 3.3]{arxiv:2605.10943}.
+  Before the replacement, an iteration scales the embedding of this complex in \(\mathbb{R}^3\) by a large constant and randomly perturbs its vertices to lower the density of squares.
+  The replacing complexes, \(U_X\) in the \(X\)-iteration and \(U_Z\) in the \(Z\)-iteration, are glued along the boundaries of neighboring squares.
+  The complex \(U_X\) resembles a piece of a thickness-one \hyperref[code:3d_surface]{3D surface code} slab whose front and back boundaries condense \(X\)-type membranes, and \(U_Z\) is its \(Z\)-type counterpart \cite[Remark 3.7]{arxiv:2605.10943}.
+
+protection: |
+  Distance grows as a power of \(n\) \cite[Sec. 1.1]{arxiv:2605.10943}.
+  Each iteration multiplies the number of qubits by a constant factor, so \(n=\exp(\Theta(k))\) after \(2k\) iterations (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Sec. 3.3]{arxiv:2605.10943}.
+
+features:
+  decoders:
+    - 'Renormalization-group-like decoder whose locally computable coarse-graining maps apply a correction at one level and pass the residual syndrome to the previous level \cite[Sec. 4]{arxiv:2605.10943}. For \(X\)-type errors, coarse-graining at least halves the syndrome weight across an \(X\)-iteration and does not increase it across a \(Z\)-iteration \cite[Thms. 4.6 and 4.7]{arxiv:2605.10943}.'
+
+relations:
+  parents:
+    - code_id: mapping_cone
+      detail: 'Each iteration of the recursive 3D self-correcting code, which replaces every square of the Tanner square complex, builds the next code as a height-2 cone over the previous one \cite[Sec. 3.2.2]{arxiv:2605.10943}. The levels of the cone are local complexes attached to the \(X\)-check, qubit, and \(Z\)-check vertices of the Tanner graph of the previous code. A chain map from the previous code induces an isomorphism on first cohomology, so every code in the family encodes one logical qubit \cite[Lemmas 3.10 and 3.13]{arxiv:2605.10943}.'
+    - code_id: qldpc
+      detail: 'Recursive 3D self-correcting codes are geometrically local in three dimensions, with stabilizer generators of weight at most seven and each qubit in at most seven generators \cite[Lemma 3.14 and Thm. 3.16]{arxiv:2605.10943}.'
+    - code_id: self_correct
+      detail: 'Below a critical temperature, a logical qubit thermally encoded in the recursive 3D self-correcting code has memory time at least \(\exp(\Theta(n^{\eta}))\) for a constant \(\eta>0\) (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 3.16]{arxiv:2605.10943}. The bound holds for Markovian thermal dynamics with single-qubit Pauli jump operators \cite[Sec. 5]{arxiv:2605.10943}.'
+  cousins:
+    - code_id: 3d_surface
+      detail: 'The local complexes that replace each square in the recursive 3D self-correcting code construction resemble pieces of thickness-one 3D surface code slabs with membrane-condensing front and back boundaries \cite[Remark 3.7]{arxiv:2605.10943}.'
+    - code_id: 3d_stabilizer
+      detail: 'The recursive 3D self-correcting code is geometrically local in three dimensions but not translationally invariant, so it evades the no-go results for self-correction in translationally invariant 3D stabilizer codes \cite{arxiv:2605.10943}.'
+    - code_id: stab_5_1_2
+      detail: 'The recursive 3D self-correcting code family is obtained by recursively transforming the \([[5,1,2]]\) rotated surface code, which is its level-zero code \cite[Sec. 3.3]{arxiv:2605.10943}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-27'
