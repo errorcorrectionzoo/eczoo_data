@@ -35,6 +35,13 @@ protection: |
   Because all codewords have the same coordinate sum, the \(\ell_1\) distance between any two codewords is always even, so the natural error-correction radius is often stated in terms of half that distance.
   Existence of certain codes is guaranteed by constructing Sidon sets per the Bose-Chowla theorem \cite{doi:10.1007/BF02566968}\cite[Thm. 14]{arxiv:1612.08837}.
 
+features:
+  rate: |
+    For \(\alpha>0\), \(\epsilon>0\), and sufficiently small \(\delta>0\), there exist positive-rate codes in \(\Delta_{\alpha N,N}\) with \(\ell_1\) distance at least \(2\lfloor\delta N\rfloor\) and all coordinates below \((1+\epsilon)\log_{1+\alpha}N\) \cite[Prop. 15]{arxiv:2603.15190}.
+    Codes of sufficiently small positive rate whose codewords are drawn independently and uniformly from \(\Delta_{\alpha N,N}\) have \(\ell_1\) distance linear in \(N\) with high probability \cite[Prop. 16]{arxiv:2603.15190}.
+    Each codeword then has coordinates of \hyperref[topic:asymptotics]{order} \(O(\log N)\) with probability \(1-o(1)\) \cite[Sec. 6.1]{arxiv:2603.15190}.
+    Drawing codewords from the multinomial distribution instead lowers the typical coordinate bound to \(O(\log N/\log\log N)\), with a smaller guaranteed rate \cite[Prop. 17 and Lemma 19]{arxiv:2603.15190}.
+
 
 relations:
   parents:
@@ -54,6 +61,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
