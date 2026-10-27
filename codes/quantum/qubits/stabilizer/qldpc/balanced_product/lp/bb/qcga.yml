@@ -87,7 +87,8 @@ features:
     - |
       Small-size and intermediate-size matching decoders adapt the cell-matching decoder for \hyperref[code:2d_stabilizer]{2D lattice stabilizer codes} to BB codes on tori too small for its coarse-graining \cite[Sec. VI]{arxiv:2603.05402}.
       Each violated check is decomposed into a fixed basis of check-violation types.
-      For each basis type, MWPM pairs the violated checks containing it, with edge weights estimating the weight of the smallest error cluster that contains both endpoints \cite[Sec. VI]{arxiv:2603.05402}.
+      For each basis type, MWPM pairs the violated checks whose decomposition contains it, with edge weights estimating the weight of the smallest error cluster that contains both endpoints.
+      The intermediate-size decoder corrects each matched pair by a chain of short strings, and the small-size decoder by error clusters found by depth-limited search \cite[Secs. VI.B and VI.C]{arxiv:2603.05402}.
 
 
 # Parent is qubit_css because primary parent needs to be qubit

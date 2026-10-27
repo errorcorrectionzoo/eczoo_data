@@ -33,7 +33,8 @@ features:
     - 'Real-time geometrically local decoder based on introducing an ancillary buffer and confining spacetime interactions between anyons  \cite{arxiv:2510.08056}.'
     - |
       Layer-decoupling and cell-matching decoders for translation-invariant qubit CSS codes that satisfy the topological order condition \cite{arxiv:2603.05402}.
-      Both coarse-grain the torus into unit cells, convert the syndrome into point-like excitations of several \hyperref[code:toric]{toric codes}, and pair these excitations by MWPM.
+      Both coarse-grain the torus into \(b\times b\) unit cells, where the code-dependent constant \(b\) divides the torus side lengths.
+      They convert the syndrome into point-like excitations of several \hyperref[code:toric]{toric codes}, pair these by MWPM, and lift the pairings to a physical correction.
       The layer-decoupling decoder obtains the excitations from the local constant-depth Clifford circuit that decouples the code into toric codes and trivial qubits.
       The cell-matching decoder obtains them by local Pauli operators that move the violated checks of each cell onto fixed representatives of the check-violation types.
       Both decoders correct errors of weight up to a constant fraction of the distance \cite[Secs. IV and V]{arxiv:2603.05402}.
@@ -42,7 +43,9 @@ features:
     Namely, the noise threshold for a noise channel \(\cal{E}\) acting on a 2D stabilizer state \(|\psi\rangle\) can be obtained from the properties of the resulting (mixed) state \(\mathcal{E}(|\psi\rangle\langle\psi|)\) \cite{arxiv:2301.05238,arxiv:2301.05687,arxiv:2301.05689,arxiv:2309.11879, arxiv:2401.17359}.'
     - 'A threshold exists under local-stochastic noise for the layer-decoupling and cell-matching decoders \cite[Secs. IV and V]{arxiv:2603.05402}.'
   threshold:
-    - 'A threshold exists under local-stochastic circuit-level noise for the layer-decoupling and cell-matching decoders with 3D spacetime matching and a fixed constant-depth syndrome extraction circuit \cite[Sec. VII]{arxiv:2603.05402}.'
+    - |
+      A threshold exists under local-stochastic circuit-level noise for the layer-decoupling and cell-matching decoders with 3D spacetime matching \cite[Sec. VII]{arxiv:2603.05402}.
+      It holds for a fixed constant-depth syndrome extraction circuit in a memory experiment that ends with a perfect syndrome round.
 
 
 relations:
