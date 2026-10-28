@@ -21,14 +21,15 @@ description: |
   Elements of this structure remain in qudit extensions, in particular for prime-dimensional modular qudits and Galois qudits.
   Infinite-dimensional Pauli-type bases yield the bosonic stabilizer and rotor stabilizer codes.
 
-  One can switch between stabilizer codes by appending another stabilizer group and taking the normalizer of the appended group within the resulting larger group.
+  One can switch between stabilizer codes by measuring a set of commuting Pauli-type operators and updating the stabilizer group.
   \begin{defterm}{Stabilizer code switching, code deformation, update rule, or code rewiring}
   \label{topic:code-switching}
   Stabilizer code switching is a map between stabilizer codes that is done using a stabilizer group \(\mathsf{F}\),
   \begin{align}
-  \mathsf{S}\to\mathsf{N}_{\left\langle \mathsf{S},\mathsf{F}\right\rangle }\left(\mathsf{F}\right)~,
+  \mathsf{S}\to\left\langle \mathsf{S}\cap\mathsf{C}(\mathsf{F}),\mathsf{F}\right\rangle~,
   \end{align}
-  where \(\mathsf{N}\) denotes taking the normalizer of a group (e.g., see \cite{doi:10.1017/CBO9780511976667,arxiv:2402.00145} for proofs).
+  where \(\mathsf{C}(\mathsf{F})\) is the centralizer of \(\mathsf{F}\) in the Pauli-type group (e.g., see \cite{doi:10.1017/CBO9780511976667,arxiv:2402.00145} for proofs).
+  The phases of the generators of \(\mathsf{F}\) incorporate the measurement outcomes.
   Code switching may not preserve the logical information and instead implement logical measurements; conditions on \(\mathsf{S}\) and \(\mathsf{F}\) such that qubit stabilizer \hyperref[topic:code-switching]{code switching} preserves logical information are derived in \cite[Prop. II.1]{arxiv:2304.01277}.
   The stabilizer rewiring algorithm (SRA) allows for code switching between a pair of compatible stabilizer codes \cite{arxiv:1707.09403} (see also Refs. \cite{arxiv:1311.0879,arxiv:1511.02596}), and ancillary qubits may be used to maintain minimum distance of any intermediate codes \cite{arxiv:1709.09282}.
   Clifford operations and Pauli measurements can be expressed as sequences of \hyperref[topic:code-switching]{code switching} \cite{arxiv:2401.12017}.
@@ -59,7 +60,7 @@ notes:
 relations:
   parents:
     - code_id: group_quantum
-      detail: 'Stabilizer codes are constructed out of Pauli strings, modular-qudit Pauli strings, Galois-qudit Pauli strings, oscillator displacement operators, or rotor generalized Pauli strings. All of these are examples of the Weyl-Heisenberg group on Manin''s quantum plane, which is defined on a configuration space that is generally a free Abelian group \cite{doi:10.5802/aif.1117,doi:10.1143/PTP.102.219,arxiv:math/0307393,arxiv:math/0402401}.'
+      detail: 'Stabilizer codes are constructed out of Pauli strings, modular-qudit Pauli strings, Galois-qudit Pauli strings, oscillator displacement operators, or rotor generalized Pauli strings. All of these are examples of the Weyl-Heisenberg group on Manin''s quantum plane, which is defined on a configuration space that is generally a locally compact Abelian group \cite{doi:10.5802/aif.1117,doi:10.1143/PTP.102.219,arxiv:math/0307393,arxiv:math/0402401}.'
     - code_id: commuting_projector
       detail: 'Codespace is the ground-state space of the \textit{code Hamiltonian}, which consists of an equal linear combination of stabilizer generators and which can be made into a frustration-free commuting-projector Hamiltonian.'
     - code_id: knill
