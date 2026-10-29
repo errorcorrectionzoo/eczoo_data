@@ -1,0 +1,44 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nato_phonetic_alphabet
+
+name: 'NATO phonetic alphabet'
+
+alternative_names:
+  - 'ICAO spelling alphabet'
+  - 'International radiotelephony spelling alphabet'
+
+description: |
+  Code that replaces each letter of the Latin alphabet by a spoken code word, e.g., Alfa for A, Bravo for B, and Zulu for Z \cite{manual:{International Telecommunication Union, “Radio Regulations”, Edition of 2024, Vol. 2, App. 14 (Phonetic alphabet and figure code) \href{https://www.itu.int/pub/R-REG-RR-2024}{URL}}}.
+  Each code word begins with the letter it encodes \cite{manual:{International Telecommunication Union, “Radio Regulations”, Edition of 2024, Vol. 2, App. 14 (Phonetic alphabet and figure code) \href{https://www.itu.int/pub/R-REG-RR-2024}{URL}}}.
+  The code words were selected to minimize confusions among them in communication under degraded conditions \cite{doi:10.1121/1.2023698}.
+
+  The ITU Radio Regulations pair the code with a figure code, which replaces digits by code words such as Nadazero for 0 and Unaone for 1 \cite{manual:{International Telecommunication Union, “Radio Regulations”, Edition of 2024, Vol. 2, App. 14 (Phonetic alphabet and figure code) \href{https://www.itu.int/pub/R-REG-RR-2024}{URL}}}.
+
+protection: |
+  Under radio jamming, over 90% of code words were understood at a Diagnostic Rhyme Test score just below 70, the level generally required for ordinary use \cite{doi:10.1207/s15327876mp0302_2}.
+  Under jamming, single-syllable code words are more susceptible to confusion than longer ones \cite{doi:10.1207/s15327876mp0302_2}.
+  Under 2400 bit/s linear predictive speech coding with bit errors, the most frequent confusion was Papa heard as Alfa, while Alfa was almost never heard as Papa \cite{doi:10.1121/1.2023698}.
+
+realizations:
+  - 'Radiocommunication: the ITU Radio Regulations prescribe the code for spelling out call signs, service abbreviations, and words \cite{manual:{International Telecommunication Union, “Radio Regulations”, Edition of 2024, Vol. 2, App. 14 (Phonetic alphabet and figure code) \href{https://www.itu.int/pub/R-REG-RR-2024}{URL}}}.'
+
+notes:
+  - 'See Ref. \cite{doi:10.1109/TASSP.1987.1165258} for confusions among the code words under narrow-band digital speech processing with bit errors.'
+
+
+relations:
+  parents:
+    - code_id: ecc_finite
+      detail: 'The NATO phonetic alphabet has 26 codewords, which are spoken words selected to minimize confusions among them \cite{doi:10.1121/1.2023698}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-29'

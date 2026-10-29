@@ -1,0 +1,59 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: telegraph
+physical: rings
+logical: rings
+
+name: 'Telegraph code'
+
+alternative_names:
+  - 'Telegraph codebook'
+
+description: |
+  Codebook that shortens a telegram by mapping each word, phrase, or sentence to a codeword, with any two codewords differing in at least two letters \cite[Secs. 1 and 3]{doi:10.1080/01611194.2025.2457084}.
+  A single mutilated letter then yields a string outside the codebook, so the error is detected \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+
+  Codebooks with five-letter codewords and a two-letter difference are \((5,K,2)_{26}\) codes over the Latin alphabet in the Hamming metric \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+  In the 1937 New Boe Code, the middle letter of each codeword is fixed by its first two and last two letters, as listed in a \textit{mutilation table} \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+
+protection: |
+  A two-letter difference detects any single-letter error, and a three-letter difference allows single-letter errors to be corrected \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+  The 1923 Acme Commodity and Phrase Code states that no transposition of two adjacent letters yields another codeword, but pairs such as HALAN and HAALN violate this \cite[Fig. 8]{doi:10.1080/01611194.2025.2457084}.
+  Morse transmission can drop a dot or dash or split one letter into two \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+  Teletype transmission is instead prone to transpositions and to hitting an adjacent letter on the keyboard \cite[Secs. 3 and 6]{doi:10.1080/01611194.2025.2457084}.
+
+features:
+  decoders:
+    - 'Mutilation-table lookup narrows a received non-codeword, e.g., ZNBAB, to five candidate codewords, among which the meaning of the decoded text selects one \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+    - 'Terminal indices list codewords alphabetized by their last two letters, for use when the beginning of a codeword is corrupted \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+
+realizations:
+  - 'Commercial telegraphy: the 1920 A B C Telegraphic Code, Sixth Edition, and the 1923 Acme Commodity and Phrase Code, with \(K=100\,000\) codewords, used a two-letter difference \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+  - 'Postal telegrams: a 1961 Czech codebook for international commerce used a three-letter difference \cite[Secs. 3 and 4]{doi:10.1080/01611194.2025.2457084}.'
+
+notes:
+  - 'Codebooks used a minimum letter difference between codewords several decades before Hamming distance was formalized \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+  - 'See Ref. \cite{doi:10.2307/2300386} for an analysis of how the two-letter difference and vowel-density requirements reduce the number of available codewords.'
+  - 'Encryption schemes for telegraph codes mapped codewords to codewords, since a generic cipher would destroy properties such as the two-letter difference \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+
+
+relations:
+  parents:
+    - code_id: q-ary_over_zq
+      detail: 'Telegraph codes are block codes over the 26-letter Latin alphabet, whose letters can be labeled by elements of \(\mathbb{Z}_{26}\).'
+    - code_id: small_distance
+      detail: 'Telegraph codes with a two-letter difference detect single-letter errors, and those with a three-letter difference correct them \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+  cousins:
+    - code_id: checksum
+      detail: 'Telegraph codes protected numerical data with check digits or letters, which act as checksums over the plaintext and were usually computed modulo 10 \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-29'
