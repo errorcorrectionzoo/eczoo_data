@@ -11,29 +11,34 @@ name: 'Twisted \(1\)-group code'
 introduced: '\cite{arxiv:2402.01638,arxiv:2403.08999}'
 
 description: |
-  Block group-representation code realizing particular irreps of particular groups such that a distance of two is automatically guaranteed.
-  Groups which admit irreps with this property are called \textit{twisted (unitary) \(1\)-groups} and include the binary icosahedral group \(2I\), the \(\Sigma(72\phi)\) and \(\Sigma(360\phi)\) subgroups of \(SU(3)\), the family \(\{PSp(2b, 3), b \geq 1\}\), and the alternating groups \(A_{5,6}\).
-  Groups whose irreps are images of the appropriate irreps of twisted \(1\)-groups also yield such properties, e.g., the binary tetrahedral group \(2T\) or the single-qubit Pauli group \cite[Sec. VI.B]{arxiv:2403.08999}.
+  Block group-representation code whose codespace is a copy of an irrep \(\lambda\) of a finite group \(\mathcal{G}\subset U(q)\) in \(n\) qudits, on which \(\mathcal{G}\) acts transversally as \(g^{\otimes n}\) \cite[Sec. II.A]{arxiv:2403.08999}.
+  If \(\lambda\otimes f\) is irreducible, with \(f\) the defining representation of \(\mathcal{G}\), then \(\mathcal{G}\) is a \textit{\(\lambda\)-twisted (unitary) \(1\)-group} and every such code has distance at least two \cite{arxiv:2402.01638}.
 
-  A \(((6,3,2))\) code can implement \(A_5\) transversally, a \(((6,2,2))_3\) code implements \(2T\) transversally, and a \(((6,5,2))_3\) code implements \(A_6\) transversally \cite[Sec. VI]{arxiv:2403.08999}.
+  Twisted \(1\)-groups include the binary icosahedral group \(2I\), the \(\Sigma(72\phi)\) and \(\Sigma(360\phi)\) subgroups of \(SU(3)\), and the family \(\{Sp(2b,3), b\geq 2\}\) \cite[Secs. III and VI]{arxiv:2403.08999}.
+  When \(\lambda\) is not faithful, the transversal logical group is the image \(\lambda(\mathcal{G})\), e.g., \(PSp(2b,3)\) for \(Sp(2b,3)\) \cite[Secs. III and V]{arxiv:2403.08999}.
+  A \(((6,3,2))\) code of \(2I\) implements \(A_5\), a \(((6,2,2))_3\) code of \(\Sigma(216\phi)\) implements \(2T\), and a \(((6,5,2))_3\) code of \(\Sigma(360\phi)\) implements \(A_6\) transversally \cite[Sec. VI]{arxiv:2403.08999}.
 
 features:
   transversal_gates:
-    - 'All gates in the underlying twisted \(1\)-group. See \cite[Table II]{arxiv:2403.08999} for other notable groups including the sporadic groups.'
+    - 'All gates in the underlying twisted \(1\)-group \cite[Thm. 1]{arxiv:2402.01638}.'
+
+notes:
+  - 'See Ref. \cite[Tables I and II]{arxiv:2403.08999} for codes from sporadic and other finite groups.'
 
 relations:
   parents:
     - code_id: spins_into_spins
-    - code_id: permutation_invariant
     - code_id: group_representation
       detail: 'Twisted \(1\)-group codes are group-representation codes with \(G\) being a twisted \(1\)-group.'
     - code_id: small_distance_quantum
       detail: 'All twisted \(1\)-group codes have a distance \(d \geq 2\).'
   cousins:
+    - code_id: permutation_invariant
+      detail: 'Twisted \(1\)-group codes lying in the symmetric subspace, such as the \(((7,2,3))\) Pollatsek-Ruskai code, are PI codes \cite{arxiv:2402.01638}.'
     - code_id: unitary_design
       detail: 'Twisted unitary \(t\)-groups \cite{arxiv:2402.01638} generalize the idea of unitary \(t\)-groups \cite{arxiv:math/0502080,arxiv:0809.3813,arxiv:1810.02507}, which are subgroups of the unitary group that form unitary \(t\)-designs.'
     - code_id: fock_state
-      detail: 'Twisted \(1\)-group codes can be converted to constant-excitation Fock-state codes via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite[Prop. V.2]{arxiv:2509.20545}. Any transversal gates are mapped to Gaussian gates on the Fock-state codes \cite{arxiv:2509.20545}.'
+      detail: 'PI twisted \(1\)-group codes can be converted to constant-excitation Fock-state codes via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite[Prop. V.2]{arxiv:2509.20545}. Any transversal gates are mapped to Gaussian gates on the Fock-state codes \cite{arxiv:2509.20545}.'
 
 
 # Begin Entry Meta Information
