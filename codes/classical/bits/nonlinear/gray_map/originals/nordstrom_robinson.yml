@@ -18,7 +18,7 @@ description: |
   A nonlinear \((16,256,6)\) binary code that is the smallest Kerdock code and the smallest Preparata code.
   The size of this code is larger than the largest possible linear code with the same length and distance.
 
-  The code can be shortened to produce optimal \((15, 128, 6)\), \((14, 64, 6)\) and \((13, 32, 6)\) codes, as well as unique \((15, 256, 5)\), \((15, 128, 6)\), \((14, 128, 5)\), \((14, 64, 6)\), \((13, 64, 5)\) and \((13, 32, 6)\) codes \cite[pg. 74]{preset:MacSlo}.
+  The code can be shortened, punctured, or both to produce optimal \((15, 128, 6)\), \((14, 64, 6)\) and \((13, 32, 6)\) codes, as well as unique \((15, 256, 5)\), \((15, 128, 6)\), \((14, 128, 5)\), \((14, 64, 6)\), \((13, 64, 5)\) and \((13, 32, 6)\) codes \cite[pg. 74]{preset:MacSlo}.
   Further shortening yields the \((12, 32, 5)\) Nadler code \cite{doi:10.1109/TIT.1972.1054904}.
 
   The automorphism group of the code is \(\mathbb{Z}_2^4 \rtimes A_7\) \cite{doi:10.1016/S0019-9958(71)90295-6,doi:10.1016/0097-3165(71)90043-4,manual:{S. L. Snover (1973). THE UNIQUENESS OF THE NORDSTROM-ROBINSON AND THE GOLAY BINARY-CODES. Michigan State University}}\cite[pg. 478]{preset:MacSlo}\cite[Prop. 6.14]{arxiv:math/0605175}.
@@ -46,13 +46,13 @@ relations:
     - code_id: self_dual
       detail: |
         The NR code is self-dual in that its distance distribution is invariant under the \hyperref[topic:weight-enumerator]{MacWilliams transform} \cite{doi:10.1109/TIT.1983.1056676}.
-        It maps to the octacode, a self-dual code over \(\mathbb{Z}_4\) under the \term{Gray map} \cite[Sec. 6.3]{preset:HKSrings}\cite{arxiv:math/9310227,manual:{G. D. Forney Jr., N. J. A. Sloane, and M. D. Trott, “The Nordstrom-Robinson code is the binary image of the octacode”, in Coding and Quantization: DIMACS/IEEE workshop 1992 Oct 19 (pp. 19–26). American Mathematical Society},doi:10.1142/3603}.
+        It is the image of the octacode, a self-dual code over \(\mathbb{Z}_4\), under the \term{Gray map} \cite[Sec. 6.3]{preset:HKSrings}\cite{arxiv:math/9310227,manual:{G. D. Forney Jr., N. J. A. Sloane, and M. D. Trott, “The Nordstrom-Robinson code is the binary image of the octacode”, in Coding and Quantization: DIMACS/IEEE workshop 1992 Oct 19 (pp. 19–26). American Mathematical Society},doi:10.1142/3603}.
     - code_id: nearly_perfect
       detail: 'The punctured \((15,256,5)\) NR code saturates the Johnson bound and is therefore nearly perfect \cite[Exam. 5.5.5]{preset:HKSdesigns}.'
     - code_id: combinatorial_design
       detail: 'NR codewords give \(3\)-\((16, 6, 4)\), \(3\)-\((16, 8, 3)\), and \(3\)-\((16, 10, 24)\) designs, while the punctured code of length \(15\) and minimum distance \(5\) meets the Johnson bound and supports \(2\)-designs \cite[Exam. 5.5.5]{preset:HKSdesigns}\cite[pg. 164]{preset:MacSlo}.'
     - code_id: small_distance
-      detail: 'The NR code can be shortened to produce unique \((15, 256, 5)\), \((14, 128, 5)\), and \((13, 64, 5)\) codes \cite[pg. 74]{preset:MacSlo}.'
+      detail: 'The NR code can be punctured and optionally shortened to produce unique \((15, 256, 5)\), \((14, 128, 5)\), and \((13, 64, 5)\) codes \cite[pg. 74]{preset:MacSlo}.'
 
 
 # Begin Entry Meta Information

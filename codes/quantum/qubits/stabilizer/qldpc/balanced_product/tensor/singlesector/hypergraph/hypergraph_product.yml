@@ -38,11 +38,11 @@ description: |
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
 
 protection: |
-  If \([n_i, k_i, d_i]\) and \([r_i, k_i^T, d_i^T]\) are the parameters of the codes \(\mathrm{ker}H_i\) and \(\mathrm{ker}H_i^T\), respectively, taking \(d_i^T=\infty\) when \(k_i^T=0\), then the hypergraph product has parameters \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, \min(d_1, d_2, d_1^T, d_2^T)]]\).
+  If \([n_i, k_i, d_i]\) and \([r_i, k_i^T, d_i^T]\) are the parameters of the codes \(\mathrm{ker}H_i\) and \(\mathrm{ker}H_i^T\), respectively, taking \(d_i=\infty\) when \(k_i=0\) and \(d_i^T=\infty\) when \(k_i^T=0\), then the hypergraph product has parameters \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, d]]\), where \(d\geq\min(d_1, d_2, d_1^T, d_2^T)\) \cite{arxiv:0903.0566}.
   An HGP code with \(k \geq 1\) satisfies \(n \geq 2d^2-2d+1\), with equality for the \([[2d^2-2d+1,1,d]]\) surface codes \cite[Eq. (9)]{arxiv:2610.03214}.
 
   An algebraic reformulation of HGP codes, together with several rate-improved variants, was given in Ref. \cite{arxiv:1202.0928}.
-  Seed parity-check matrices with as many rows as columns yield \([[2n_1 n_2,2k_1 k_2,\min(d_1,d_2)]]\) codes.
+  Seed parity-check matrices with as many rows as columns and \(d_i^T=d_i\) yield \([[2n_1 n_2,2k_1 k_2,\min(d_1,d_2)]]\) codes.
   Symmetric seed matrices, \(H_i=H_i^T\), yield \([[n_1 n_2,k_1 k_2,\min(d_1,d_2)]]\) codes, and two-tile cyclic constructions yield \([[n_1^2,2k_1^2,d_1]]\) codes.
   The former are \hyperref[topic:symplectic-doubling]{symplectic halves} of the HGP codes along the qubit involution exchanging the two blocks of qubits and are not CSS in general \cite{arxiv:1202.0928}\cite[Sec. IV.A]{arxiv:2609.30069}.
   These variants improve the rate of the original construction from full-rank seed matrices by factors up to four at small block length \cite{arxiv:1202.0928}.
@@ -57,17 +57,17 @@ features:
   encoders:
     - 'Fault-tolerant state preparation via dimension jump \cite{arxiv:2410.05171}.'
   transversal_gates:
-    - 'Hadamard (up to logical SWAP gates) and control-\(Z\) on all logical qubits \cite{arxiv:2204.10812}.'
+    - 'Hadamard (up to logical SWAP gates) for square HGP codes, and \(CZ\) gates between sibling logical qubits for symmetric HGP codes \cite{arxiv:2204.10812}.'
     - 'Patch-transversal gates inherited from the automorphism group of the underlying classical codes \cite[Appx. D]{arxiv:2309.11719}.'
     - 'Orientation-preserving constant-depth circuits can only implement gates in the Clifford group \cite{arxiv:2507.16797}.'
     - 'Permutation-based gates (automorphism gadgets) can be inherited from the underlying classical codes in the hypergraph construction \cite{arxiv:2508.04794}.'
   decoders:
-    - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
+    - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{distance-reducing hook errors} \cite{arxiv:2409.02193}.'
     - 'ReShape decoder that uses minimum weight decoders for the classical codes used in the hypergraph construction \cite{arxiv:2105.02370}.'
     - '2D geometrically local syndrome extraction circuits with depth \hyperref[topic:asymptotics]{order} \(O(\sqrt{n})\) using \hyperref[topic:asymptotics]{order} \(O(n)\) ancilla qubits \cite{arxiv:2109.14599}.'
     - 'BP-OSD decoder \cite{arxiv:1904.02703} and an improved BP-OSD decoder \cite{arxiv:2206.03122}.'
     - 'Erasure correction can be implemented approximately with \(O(n^2)\) operations with quantum generalizations \cite{arxiv:2208.01002} of the peeling and pruned peeling decoders \cite{doi:10.1109/18.910575}, with a probabilistic version running in \(O(n^{1.5})\) operations. Other nearly optimal erasure decoders exist \cite{arxiv:2411.08177,arxiv:2412.08817}. Initial hypergraph product codes can be further optimized against the erasure channel using reinforcement learning \cite{arxiv:2501.09622}.'
-    - 'Syndrome measurements are \hyperref[topic:effective-distance]{distance-preserving} because syndrome extraction circuits can be designed to avoid \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2308.15520}.'
+    - 'Syndrome measurements are \hyperref[topic:effective-distance]{distance-preserving} because syndrome extraction circuits can be designed to avoid \hyperref[topic:effective-distance]{distance-reducing hook errors} \cite{arxiv:2308.15520}.'
     - 'Generalization \cite{arxiv:2310.07868} of Viderman''s algorithm for expander codes \cite{doi:10.1145/2493252.2493255}.'
     - 'Linear time iterative decoder \cite{arxiv:2504.01728}.'
   general_gates:
@@ -87,14 +87,14 @@ features:
     - 'Bounds on code capacity thresholds using ML decoding can be obtained by mapping the effect of noise on the code to a statistical mechanical model \cite{arxiv:1804.01950}. For example, a threshold of \(7\%\) was obtained under independent \(X\) and \(Z\) noise for codes obtained from random \((3,4)\)-regular Gallager codes.'
   fault_tolerance:
     - 'Pieceable fault-tolerant circuits, transversal gates, and magic-state injection yield a universal gate set for symmetric hypergraph product codes \cite{arxiv:2204.10812}.'
-    - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:2409.02193}.'
+    - 'Single-ancilla syndrome extraction circuits do not admit \hyperref[topic:effective-distance]{distance-reducing hook errors} \cite{arxiv:2409.02193}.'
     - 'There is a fault-tolerant universal computation scheme for hypergraph-product codes concatenated with the \([[4,2,2]]\) code in which the full syndrome measurement on the lower hypergraph product code is performed only if an error is detected at the upper four-qubit code \cite{arxiv:2502.14835}.'
     - |
       Constant-time surgery runs \(t \geq d\) surgeries in sequence, each measured for a single round, between \(O(d)\) rounds of base-code syndrome measurement \cite{arxiv:2510.14895,arxiv:2603.02157}.
       The protocol has fault distance \(d\) against qubit Pauli errors and measurement flips \cite[Thm. 1]{arxiv:2603.02157}.
   threshold:
     - 'Circuit-level noise: \(0.1\%\) with all-to-all connected syndrome extraction circuits \cite{arxiv:2109.14599} and DiVincenzo-Aliferis syndrome extraction circuits \cite{arxiv:quant-ph/0607047} combined with non-local gates \cite{arxiv:2409.05818}.
-    No threshold observed above physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
+    No threshold observed for physical noise rates at or above \(10^{-6}\) using 2D geometrically local syndrome extraction circuits.'
 # realizations:
   # -
 
@@ -102,11 +102,12 @@ relations:
   parents:
     - code_id: homological_product
       detail: 'A homological-product code of length-one chain complexes reduces to an HGP code, which is also a special case of multi-dimensional homological products of two length-one chain complexes.'
-    - code_id: sc_qldpc
-      detail: 'Hypergraph-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
     - code_id: galois_hypergraph_product
       detail: 'Hypergraph product codes are Galois-qudit hypergraph-product codes for qudit dimension \(q=2\).'
   cousins:
+    # HGP matrices seed spatially coupled constructions, but HGP codes are not generally spatially coupled.
+    - code_id: sc_qldpc
+      detail: 'Hypergraph-product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
     - code_id: perm_self_dual_css
       detail: 'Square hypergraph product codes are permutationally self-dual. Reflecting each of the two grids of qubits about its principal diagonal is an involutive \(XZ\)-duality. Composed with transversal Hadamard, it yields the Hadamard-SWAP logical gate \cite[Sec. 3.1]{arxiv:2204.10812}.'
     - code_id: ltc

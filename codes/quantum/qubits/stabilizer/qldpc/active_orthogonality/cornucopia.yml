@@ -18,7 +18,7 @@ description: |
   The code has \(n=36q\) qubits partitioned into twelve blocks of \(P=3q\) with \(\gcd(q,3)=1\), each block laid out as a \(3\times q\) array, and three blocks of checks of each type.
   The twelve lift entries \(A_k\) and \(B_k\), for \(k\in\mathbb{Z}_6\), each act on the grid as an affine map \((x,y)\mapsto(ax+b,y+s)\), so the row part lies in the affine group of \(\mathbb{Z}_3\), which is isomorphic to \(S_3\), while the column part is a cyclic shift.
   Two entries invert the row coordinate and two translate it, while the remaining eight are pure column shifts.
-  Among the pairs \((A_i,B_j)\) that enter the orthogonality condition, only \((A_1,B_2)\) and \((A_0,B_3)\) fail to commute, and both have \(i+j\equiv3 \bmod 6\), an offset that the three retained check rows never realize \cite{arxiv:2608.02773}.
+  Among the pairs \((A_i,B_j)\), only \((A_1,B_2)\) and \((A_0,B_3)\) fail to commute, and both have \(i+j\equiv3 \bmod 6\), an offset that the three retained check rows never realize \cite{arxiv:2608.02773}.
   The twelve column shifts are left unconstrained by orthogonality and are the free parameters of the code search.
 
 protection: |
@@ -29,7 +29,7 @@ protection: |
   Distances are certified exactly for \([[252,130,6]]\), \([[576,292,8]]\), \([[900,454,10]]\), \([[1044,526,12]]\), \([[1764,886,14]]\), \([[2304,1156,16]]\), and \([[2844,1426,18]]\), the last three of which exceed the generator weight \cite{arxiv:2608.02773}.
 
 features:
-  general_gates:
+  transversal_gates:
     - 'The global column shift \(y\mapsto y+1\) is a code automorphism. For the reported instances, its logical action decomposes into parallel cyclic shifts of eighteen logical registers of length \(q\), together with four invariant logical modes \cite[Prop. 2]{arxiv:2608.02773}.'
 
   decoders:

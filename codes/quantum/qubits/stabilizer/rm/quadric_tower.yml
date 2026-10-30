@@ -53,13 +53,14 @@ features:
 relations:
   parents:
     - code_id: self_dual_css
+    # Restriction to a quadric is puncturing, so this is a quantum RM subfamily.
+    - code_id: quantum_reed_muller
+      detail: 'Quadric tower codes are CSS codes built from RM codes punctured to the zero set of an elliptic quadratic form \cite{arxiv:2608.05688}.'
     - code_id: quantum_ag
       detail: |
         The classical code underlying a quadric tower code is the evaluation code of polynomials of degree at most \(j-2\) on the points of a quadric hypersurface.
         This is the affine binary case of the RM codes associated to algebraic varieties \cite{doi:10.1007/BFb0087988}.
   cousins:
-    - code_id: quantum_reed_muller
-      detail: 'Quadric tower codes are CSS codes built from RM codes punctured to the zero set of an elliptic quadratic form.'
     - code_id: quadric
       detail: |
         The classical code underlying a quadric tower code is a binary quadric code with polynomials of degree at most \(j-2\).

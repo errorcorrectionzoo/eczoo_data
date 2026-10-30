@@ -39,7 +39,8 @@ relations:
   parents:
     - code_id: projective_reed_muller
       detail: 'The \(q\)-ary simplex codes are first-order PRM codes \cite[Sec. 1.2.2]{doi:10.1007/978-94-011-3810-9}.'
-    - code_id: incidence_matrix
+    # Projective-point representatives are not point-hyperplane incidence columns.
+    - code_id: projective
       detail: 'Columns of a simplex code''s generator matrix correspond to 1D subspaces of \(\mathbb{F}_q^m\), i.e., to points of \(PG(m-1,q)\).'
     - code_id: griesmer
       detail: 'Simplex codes saturate the Griesmer bound (\cite{doi:10.1201/9781315371993}, Exer. 5.1.11).'
@@ -47,9 +48,9 @@ relations:
       detail: 'Simplex codes and their once-punctured versions are LP universally optimal codes \cite{arxiv:1212.1913}.'
   cousins:
     - code_id: q-ary_linear
-      detail: 'Linear \(q\)-ary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear code is a direct sum of \(q\)-ary simplex codes \cite{preset:Bonisoli84} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
+      detail: 'Linear \(q\)-ary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant. Bonisoli''s theorem states that, up to monomial equivalence and zero coordinates, any equidistant linear code is a \(q\)-ary simplex code with every coordinate repeated the same number of times \cite{preset:Bonisoli84} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
     - code_id: q-ary_constant_weight
-      detail: 'Linear \(q\)-ary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant, and Bonisoli''s theorem states that any equidistant linear code is a direct sum of \(q\)-ary simplex codes \cite{preset:Bonisoli84} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
+      detail: 'Linear \(q\)-ary codes cannot be constant weight, but can have nonzero codewords with constant weight. All such codes are equidistant. Bonisoli''s theorem states that, up to monomial equivalence and zero coordinates, any equidistant linear code is a \(q\)-ary simplex code with every coordinate repeated the same number of times \cite{preset:Bonisoli84} (see also Refs. \cite{doi:10.1016/S0019-9958(63)80010-8,doi:10.1137/0114009}).'
     - code_id: group
       detail: 'Over a prime field \(\mathbb{F}_p\), simplex codes with parameters \([(p^m-1)/(p-1),m,p^{m-1}]_p\) and \(\gcd(m,p-1)=1\) are group-algebra codes \cite[Exam. 16.8.2]{preset:HKSalgebra}.'
     # Also in q-ary_constant_weight

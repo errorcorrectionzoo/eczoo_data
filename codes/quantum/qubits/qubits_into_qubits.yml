@@ -14,7 +14,7 @@ alternative_names:
   - 'Qubit subspace code'
 
 description: |
-  Encodes \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space.
+  Encodes a \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space.
   Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code's distance.
 
   The qubit codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of single-qubit unitary operations and a qubit permutation.
@@ -54,13 +54,13 @@ protection: |
   Combining the \(X\)-type and \(Z\)-type strings with \(i\) forms a group called the \textit{Pauli group} on \(n\) qubits, while combining them with \(-1\) forms the \textit{real Pauli group}.
   \end{defterm}
 
-  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical \hyperref[topic:nice-error-basis]{nice error basis}.
+  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the normalized Hilbert-Schmidt inner product; it is a prototypical \hyperref[topic:nice-error-basis]{nice error basis}.
   The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
   \subsection{Noise channels}
 
-  A quantum channel that admits a set of Pauli strings as its Kraus operators is called a \textit{Pauli channel}, and such channels are typically more tractable than the more general, non-Pauli channels.
-  Relevant Pauli channels include dephasing noise and depolarizing noise (a.k.a. Werner-Holevo channel \cite{arxiv:quant-ph/0203003}).
+  A quantum channel that admits a set of operators proportional to Pauli strings as its Kraus operators is called a \textit{Pauli channel}, and such channels are typically more tractable than the more general, non-Pauli channels.
+  Relevant Pauli channels include dephasing noise and depolarizing noise.
   A single-qubit dephasing channel has Kraus operators proportional to \(I\) and \(Z\), while the single-qubit depolarizing channel has equal probabilities for the \(X\), \(Y\), and \(Z\) errors; both are Pauli channels \cite[Ch. 1]{preset:GottesmanBook}.
   One can extract a binary memoryless symmetric channel from a Pauli channel that is a classical counterpart to the Pauli channel \cite{arxiv:1904.04713}.
 
@@ -97,9 +97,9 @@ protection: |
   \begin{defterm}{Pure distance}
   The distance \(d\) of a qubit code is the smallest integer \(0<j=d\) at which the \hyperref[topic:quantum-weight-enumerator]{quantum weight enumerator} is not equal to its dual, \(A_j \neq B_j\) \cite{arxiv:quant-ph/9906126}.
   A code is called \textit{pure} if \(A_j = 0\) for all \(0 < j < d\); otherwise, the code is called \textit{impure}.
-  The \textit{pure distance} \cite{arxiv:1409.2559,arxiv:2107.14252} (a.k.a. diagonal distance \cite{arxiv:0712.1979,arxiv:2107.11286}) \(d_{\textnormal{pure}}\) is the smallest integer \(1 < j=d_{\textnormal{pure}}\) at which \(A_j > 0\).
+  The \textit{pure distance} \cite{arxiv:1409.2559,arxiv:2107.14252} \(d_{\textnormal{pure}}\) is the smallest integer \(0 < j=d_{\textnormal{pure}}\) at which \(B_j > 0\).
   Codes for which \(d_{\textnormal{pure}} < d\) are impure, otherwise they are pure.
-  For impure codes, there exists a Pauli error of weight less than the \(d\) that has a nonzero expectation value with respect to a code state.
+  For impure codes, there exists a Pauli error of weight less than \(d\) that has a nonzero expectation value with respect to a code state.
 
   Degenerate qubit codes are impure, but impure codes may not be degenerate \cite{arxiv:quant-ph/9608006,preset:GottesmanBook}.
   There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}.
@@ -121,7 +121,7 @@ protection: |
 
 
 features:
-  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}. There are many bounds on the quantum capacity of the depolarizing channel (e.g., \cite{arxiv:quant-ph/0607039}); see review \cite{arxiv:1801.02019}. The optimal asymptotic error exponent of entanglement distillation is given by the reverse relative entropy of entanglement, a single-letter quantity \cite{arxiv:2408.07067}.'
+  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}. There are many bounds on the quantum capacity of the depolarizing channel (e.g., \cite{arxiv:quant-ph/0607039}); see review \cite{arxiv:1801.02019}. The optimal asymptotic error exponent of entanglement distillation under non-entangling operations is given by the reverse relative entropy of entanglement, a single-letter quantity \cite{arxiv:2408.07067}.'
   transversal_gates:
     - 'A qubit code is \(U\)-\textit{quasi-transversal} if it can realize the logical gate \(U\) in the third level of the \term{Clifford hierarchy} using the physical gate \(C T^{\otimes n}\), where \(C\) is some Clifford gate \cite[Def. 4]{arxiv:1606.01904}.'
     - 'If a qubit code \(Q\) of length \(n\) has compact subgroups \(N\triangleleft G\leq \mathrm{Aut}(Q)\) such that \(G/N\) is finite, non-Abelian, simple, and not \(A_5\), then \(n\) is at least the minimal permutation degree \(\mu(G/N)\) \cite[Thm. 1]{arxiv:2604.15111}.'

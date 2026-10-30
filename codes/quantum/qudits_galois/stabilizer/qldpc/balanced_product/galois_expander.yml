@@ -22,13 +22,17 @@ features:
   magic_scaling_exponent: 'For every integer \(r\geq 2\) and every \(\epsilon>0\), the construction yields \([[N,K\geq N^{1-\epsilon},D\geq N^{1/r}/\operatorname{poly}(\log N)]]_q\) QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates and stabilizer weight \(w\leq\operatorname{poly}(\log N)\) \cite{arxiv:2410.14662}. This construction allows for arbitrarily small magic-state yield parameter \(\gamma\).'
 
   transversal_gates:
-    - 'For every integer \(r\geq 2\), there are QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates and parameters \([[N,K\geq N^{1-\epsilon},D\geq N^{1/r}/\operatorname{poly}(\log N)]]_q\) \cite{arxiv:2410.14662}. By decomposing each Galois qudit into a Kronecker product of qubits, this yields an explicit qubit CSS QLDPC family with parameters \([[N,K\geq N^{1-\epsilon},D\geq N^{1/r}/\operatorname{poly}(\log N)]]\), stabilizer weight \(\operatorname{poly}(\log N)\), and transversal \(C^{r-1}Z\) gates acting on \(N^{1-\epsilon}\) disjoint logical \(r\)-tuples.'
+    - 'For every integer \(r\geq 2\), there are QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates and parameters \([[N,K\geq N^{1-\epsilon},D\geq N^{1/r}/\operatorname{poly}(\log N)]]_q\) \cite{arxiv:2410.14662}. Alphabet reduction and locality reduction yield an explicit qubit CSS QLDPC family with parameters \([[N,K\geq N^{1-\epsilon},D\geq N^{1/r}/\operatorname{poly}(\log N)]]\), stabilizer weight \(\operatorname{poly}(\log N)\), and transversal \(C^{r-1}Z\) gates acting on \(N^{1-\epsilon}\) disjoint logical \(r\)-tuples.'
 
 
 relations:
   parents:
-    - code_id: galois_hypergraph_product
+    # Arbitrary r-fold products are not restricted to the two classical-code factors of an HGP code.
+    - code_id: galois_css
+    - code_id: generalized_homological_product_css
   cousins:
+    - code_id: galois_hypergraph_product
+      detail: 'The tensor-product construction for \(r=2\) is a Galois-qudit HGP code \cite{arxiv:2410.14662}.'
     - code_id: reed_solomon
       detail: 'The explicit expander-code construction with Reed-Solomon local checks in \cite{arxiv:2410.14662} yields \([[N,K\geq N^{1-\epsilon},D\geq N^{1/r}/\operatorname{poly}(\log N)]]_q\) QLDPC Galois-qudit quantum expander codes with transversal \(C^{r-1} Z\) gates. Balanced products of the same RS-based complexes also yield \([n,k\geq n^{1-\epsilon},d\geq n/\operatorname{poly}(\log n)]_q\) LTCs exhibiting the multiplication property.'
     - code_id: expander

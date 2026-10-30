@@ -26,8 +26,7 @@ features:
 
   threshold:
     - 'Threshold exists for the locally decaying error model; see \cite[Thm. 1.3]{arxiv:2303.04798}.
-    However, the logical error rate below threshold falls super-polynomially (as opposed to exponentially) with the code distance.
-    The code family possesses a threshold equal to that of surface codes given by tuning the outer surface-code size for any fixed physical error rate.'
+    However, the logical error rate below threshold falls super-polynomially (as opposed to exponentially) with the code distance.'
 
   fault_tolerance:
     - '2D geometrically local syndrome extraction circuits of depth of \hyperref[topic:asymptotics]{order} \(O(\sqrt{n}/R)\) that utilize Clifford and SWAP gates of range \(R\) and that require \hyperref[topic:asymptotics]{order} \(O(n)\) data and ancilla qubits.
@@ -45,7 +44,7 @@ relations:
     # code concatenates CSS codes and is itself CSS.
     - code_id: qubit_css
     - code_id: qubit_concatenated
-      detail: 'Using the concatenation convention of the Zoo, hierarchical codes are concatenations of constant-rate QLDPC (inner) codes with rotated surface (outer) codes. The cited paper \cite{arxiv:2303.04798} uses the opposite inner/outer terminology. The block length of the outer code is picked to grow logarithmically with the block length of the inner code.'
+      detail: 'Using the concatenation convention of the Zoo, hierarchical codes are concatenations of constant-rate QLDPC (inner) codes with rotated surface (outer) codes. The cited paper \cite{arxiv:2303.04798} uses the opposite inner/outer terminology. The distance of the outer code is picked to grow logarithmically with the block length of the inner code.'
   cousins:
     - code_id: qldpc
       detail: 'Hierarchical codes are concatenations of constant-rate QLDPC codes with rotated surface codes, but they are not themselves QLDPC codes. Their stabilizer generators have weight of \hyperref[topic:asymptotics]{order} \(O(\log n)\) because the surface-code side length grows logarithmically with the block length \cite{arxiv:2303.04798}.'

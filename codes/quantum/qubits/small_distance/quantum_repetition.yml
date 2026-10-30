@@ -47,7 +47,7 @@ features:
     - 'Toffoli magic-state preparation protocol \cite{arxiv:2012.04108}.'
     - 'A circuit of \(Z\)-type Pauli-product \(\pi/8\) rotations implements a logical \(T\) gate on the phase-flip repetition code, up to Clifford corrections, when its supports satisfy a parity condition \cite[Sec. III.C]{arxiv:2606.07734}.
     Every qubit, pair of qubits, and triple of qubits must lie in the support of an odd number of rotations.
-    Applying the circuit to the encoded \(|+\rangle\) state and decoding yields a \(T\)-state distillation protocol whose rotation supports form a triorthogonal matrix with one row per qubit \cite[Sec. III.D]{arxiv:2606.07734}.'
+    Applying the circuit to the encoded \(|+\rangle\) state and decoding yields a \(T\)-state distillation protocol whose rotation supports, after conjugation by the decoding circuit, form a triorthogonal matrix with one row per qubit \cite[Sec. III.D]{arxiv:2606.07734}.'
   decoders:
     - 'Fault-tolerant syndrome detection \cite{arxiv:quant-ph/0412168}.'
     - 'Autonomous QEC for the 3-qubit bit-flip code \cite{arxiv:quant-ph/0501049}.'
@@ -62,10 +62,10 @@ features:
     - 'An \(m\)-qubit GHZ state, i.e., qubit cat state, can serve as an ancilla for fault-tolerant measurement of a weight-\(m\) Pauli operator by coupling each ancilla qubit to one data qubit, applying Hadamards to the ancilla, and reading out the parity of the measurement outcomes \cite{preset:GottesmanBook}.'
     - 'Toffoli magic-state preparation protocol \cite{arxiv:2012.04108}.'
   code_capacity_threshold:
-    - 'Independent \(X\) noise: \(50\%\) with RG decoder for quantum repetition code arranged on a 1D or 2D lattice \cite{arxiv:1708.09286}.'
+    - 'Independent \(X\) noise: \(50\%\) for quantum repetition code arranged on a 1D or 2D lattice \cite{arxiv:1708.09286}.'
     - 'A nonzero threshold exists under the single-rule local automaton decoders \cite{arxiv:2505.10162}.'
   threshold:
-    - 'Phenomenological noise: \(11\%\) and \(17.2\%\) with RG decoder for quantum repetition code arranged on a 1D and 2D lattice, respectively \cite{arxiv:1708.09286}.'
+    - 'Phenomenological noise: an upper bound of \(11\%\) in 1D and a lower bound of \(17.2\%\) in 2D. The latter is achieved with an RG decoder \cite[Table I]{arxiv:1708.09286}.'
     - 'Threshold under real-time geometrically local decoder based on introducing an ancillary buffer and confining spacetime interactions between anyons  \cite{arxiv:2510.08056}.'
 
 
@@ -83,7 +83,7 @@ realizations:
     GHZ state on 75 qubits made on an IBM device \cite{arxiv:2411.14638}. 
     Implementation of planar decoder for codes with distances between 3 and 11 on 72-qubit superconducting device \cite{arxiv:2501.03582}.
     Lattice surgery on the surface-17 code has been realized by splitting the code into two repetition codes by the Wallraff group \cite{arxiv:2501.04612}.
-    2-qubit phase-flip code error detection realized with one ancilla by the Simakov group \cite{arxiv:2506.20529}. GHZ state of 120 qubits realized on IBM device \cite{arxiv:2510.09520}.
+    2-qubit bit-flip code error detection realized with one ancilla by the Simakov group \cite{arxiv:2506.20529}. GHZ state of 120 qubits realized on IBM device \cite{arxiv:2510.09520}.
   - 'Autonomous QEC protocols have been implemented on a 3-qubit superconducting qubit device \cite{arxiv:2107.11398}.'
   - 'Semiconductor spin-qubit devices: 3-qubit devices at RIKEN \cite{arxiv:2201.08581} and Delft \cite{arxiv:2202.11530}.'
   - 'Nitrogen-vacancy centers in diamond: 3-qubit phase-flip code \cite{arxiv:1309.6424,doi:10.1038/s42005-022-00875-6} (see also Ref. \cite{arxiv:1309.5452}).'
@@ -107,7 +107,7 @@ relations:
       detail: 'The codespace of the quantum repetition code is the ground-state space of a frustration-free 1D classical Ising model with nearest-neighbor interactions.'
     - code_id: small_distance_qubit_stabilizer
     - code_id: gnu_permutation_invariant
-      detail: 'GNU codewords for \(g=1\) reduce to the phase-flip repetition code.'
+      detail: 'GNU codewords for \(g=1\) and \(m=n\) reduce to the phase-flip repetition code \cite{arxiv:1302.3247}.'
     - code_id: group_quantum_repetition
       detail: 'Group-based quantum repetition codes reduce to quantum repetition codes for \(G = \mathbb{Z}_2\).'
   cousins:

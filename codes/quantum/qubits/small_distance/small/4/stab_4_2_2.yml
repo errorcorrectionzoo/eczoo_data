@@ -40,7 +40,7 @@ description: |
 
 
 protection: |
-  Detects a single-qubit error \cite{arxiv:quant-ph/9603031} or single erasure \cite{arxiv:quant-ph/9610042}.
+  Detects a single-qubit error \cite{arxiv:quant-ph/9603031} and corrects a single erasure \cite{arxiv:quant-ph/9610042}.
   It cannot correct arbitrary single-qubit errors because \( \lfloor \frac{d-1}{2} \rfloor =0 \).
   An equivalent version of this code can suppress errors in adiabatic quantum computation by being used as an excited-state space of a particular Hamiltonian \cite{arxiv:2412.07764}.
 
@@ -50,8 +50,8 @@ features:
   For example, the magic-state yield parameter is \(\gamma = \log_2 5 \approx 2.322\) for a protocol using the \([[10,2,2]]\) code \cite[Box 2]{arxiv:1612.07330}; see also \cite[Table IV]{arxiv:1709.02789}.'
 
   transversal_gates:
-    - 'A tensor product of Hadamard gates applies a Hadamard gate to both logical qubits, and a tensor product of \(S=\sqrt{Z}\) gates applies a \(CZ\) gate followed by a logical \(Z\) on both qubits \cite{arxiv:1610.03507} (see also \cite{arxiv:1912.10063}). A logical \(CZ\) gate is then realized by \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\). With a different logical basis, transversal Hadamard swaps the two logical qubits, enabling control-SWAP and \(H^{\otimes 2}\)-measurement routines for quadratic magic-state distillation \cite[Sec. I.B.1]{arxiv:1703.07847}.'
-    - 'This code is the only four-qubit subspace to house a transversal representation of the single-qubit Clifford group but not of the single-qubit unitary group \cite[Eq. (104)]{arxiv:1609.08172}. Equivalently, its projector is the only extra generator of the fourth tensor-power Clifford commutant beyond qubit permutations \cite[Thm. 1]{arxiv:1609.08172}. Its \(n\)-block version is a \([[4n,2n,2]]\) code, which houses a signed permutation representation of the \(n\)-qubit Clifford group \cite[Sec. 3.1 and Appx. B]{arxiv:1609.08172}.'
+    - 'A tensor product of Hadamard gates applies a Hadamard gate to both logical qubits followed by a swap, and a tensor product of \(S=\sqrt{Z}\) gates applies a \(CZ\) gate followed by a logical \(Z\) on both qubits \cite{arxiv:1610.03507} (see also \cite{arxiv:1912.10063}). A logical \(CZ\) gate is then realized by \(\sqrt{Z}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}^{\dagger}\otimes\sqrt{Z}\). With a different logical basis, transversal Hadamard swaps the two logical qubits, enabling control-SWAP and \(H^{\otimes 2}\)-measurement routines for quadratic magic-state distillation \cite[Sec. I.B.1]{arxiv:1703.07847}.'
+    - 'This code houses a transversal representation of the single-qubit Clifford group but not of the single-qubit unitary group \cite[Eq. (104)]{arxiv:1609.08172}. Its projector, together with qubit permutations, generates the fourth tensor-power Clifford commutant \cite[Thm. 1]{arxiv:1609.08172}. Its \(n\)-block version is a \([[4n,2n,2]]\) code, which houses a signed permutation representation of the \(n\)-qubit Clifford group \cite[Sec. 3.1 and Appx. B]{arxiv:1609.08172}.'
 
     - |
       The code is the smallest \hyperref[code:phantom]{phantom code}.
@@ -66,7 +66,7 @@ features:
     - 'Erasure decoder \cite{arxiv:quant-ph/0306098}.'
 
   fault_tolerance:
-    - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct errors \cite{arxiv:1610.03507}.
+    - 'Preparation of certain states, both magic and non-magic, along with transversal gates can be performed fault-tolerantly, but requires post-selection because the code cannot correct arbitrary single-qubit errors \cite{arxiv:1610.03507}.
     Magic states can be injected into surface and color codes since the code is a small instance of both \cite{arxiv:2305.13581}.'
     - 'Knill''s \(C_4/C_6\) architecture uses the \([[4,2,2]]\) code at the first level and the \(C_6\) code at higher levels, together with error-correcting teleportation \cite{arxiv:quant-ph/0410199}. Later work refined the postselected-threshold analysis \cite{arxiv:quant-ph/0608018,arxiv:quant-ph/0703264} (see also Ref. \cite{arxiv:quant-ph/0612073}).'
     - 'Concatenating quantum Hamming codes on top of the \([[4,2,2]]\) and \(C_6\) codes yields fault-tolerant quantum computation with constant space and quasi-polylogarithmic time overheads \cite{arxiv:2402.09606}. In the optimized protocol of Ref. \cite{arxiv:2402.09606}, a level-five \(C_4/C_6\) code underlies concatenated quantum Hamming codes \(\mathcal{Q}_5,\mathcal{Q}_6,\mathcal{Q}_7,\mathcal{Q}_7\), yielding a \(2.5\%\) threshold and space overheads \(162\) and \(373\) physical qubits per logical qubit at physical error rate \(0.1\%\) for logical CNOT error rates \(10^{-10}\) and \(10^{-24}\), respectively.'

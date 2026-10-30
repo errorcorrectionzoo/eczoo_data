@@ -25,12 +25,12 @@ description: |
 
   At rank \(t=k\) the puncturing is trivial.
   There are \(n=2^k-1\) physical qubits, one per nonzero vector of \(\mathbb{F}_2^k\), the \(Z\)-type stabilizer space is the classical Hamming code, and the \(X\)-logical subspace is the full simplex code.
-  This member is the \textit{simplex phantom code} \cite{arxiv:2601.20927} which attains the phantom-code bound \(n\geq2^k-1\) \cite{arxiv:2604.15111}.
+  This member is the \textit{simplex phantom code} \cite{arxiv:2601.20927} which attains the phantom-code bound \(n\geq2^k-1\) \cite{arxiv:2609.19250}.
 
 protection: |
   The \(X\)-distance is \(d_x=\sum_{s=0}^{t-1}\binom{k-1}{s}\), attained by the logical operators \(\overline{X}_i\) \cite{arxiv:2609.19250}.
   For fixed \(t\), this is of \hyperref[topic:asymptotics]{order} \(\Theta(k^{t-1})\).
-  Every logical \(Z\) operator has a weight-one representative on a singleton qubit, so phase errors are not protected \cite{arxiv:2609.19250}.
+  Each logical \(\overline{Z}_i\) has a weight-one representative on a singleton qubit, so phase errors are not protected \cite{arxiv:2609.19250}.
 
 features:
   transversal_gates:
@@ -44,7 +44,7 @@ relations:
     - code_id: qubit_css
   cousins:
     - code_id: phantom
-      detail: 'The simplex phantom code is a member of this family \cite{arxiv:2601.20927}. It attains the phantom-code bound \(n\geq2^k-1\) \cite{arxiv:2604.15111}.'
+      detail: 'The simplex phantom code is a member of this family \cite{arxiv:2601.20927}. It attains the phantom-code bound \(n\geq2^k-1\) \cite{arxiv:2609.19250}.'
     - code_id: simplex
       detail: 'The \(X\)-logical subspace of a rank-\(t\) complete-hypergraph CSS code is the simplex code punctured to the coordinates labelled by subsets of size at most \(t\), and is the full simplex code for the simplex phantom code.'
     - code_id: hamming

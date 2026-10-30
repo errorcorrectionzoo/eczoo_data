@@ -28,7 +28,7 @@ features:
     - 'A CZ gate between two logical qubits implemented by coupling devices through another driven SQUID and applying a pulse to the coupling SQUID simultaneously with a single qubit operation on one of the logical qubits.'
 
   decoders:
-    - 'Logical qubit can be measured with physical qubit measurements along \(X\). Can be implemented by engineering a coupling of one of the qubits to a readout cavity via the interaction \(\sigma_x (a+a^\dagger)\) \cite{doi:10.1103/PhysRevLett.115.203601}. This results in an \(X\)-dependent shift of the readout cavity resonance which can be measured.'
+    - 'The logical qubit can be measured with physical qubit measurements along \(X\). Can be implemented by engineering a coupling of one of the qubits to a readout cavity via the interaction \(\sigma_x (a+a^\dagger)\) \cite{doi:10.1103/PhysRevLett.115.203601}. Modulating this coupling at the cavity frequency results in an \(X\)-dependent displacement of the readout cavity field which can be measured.'
     - 'Star-code autonomous correction scheme \cite{arxiv:2302.06707}.'
 
 realizations:
@@ -37,7 +37,9 @@ realizations:
 relations:
   parents:
     - code_id: fock_state
-    - code_id: constant_excitation
+    # Keep the Hamiltonian-based classification, but not CE: the codewords contain 0, 2, and 4 excitations.
+    - code_id: hamiltonian
+      detail: 'The logical states are ground states of a driven Hamiltonian \cite{arxiv:1510.06117}.'
     - code_id: permutation_invariant
   cousins:
     - code_id: hybrid_qudit_oscillator

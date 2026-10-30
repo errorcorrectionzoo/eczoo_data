@@ -22,7 +22,7 @@ description: |
   Its codewords are all even-weight binary strings, and its parity-check matrix is a row vector of all ones.
   Its automorphism group is \(S_n\).
 
-protection: 'This code cannot correct errors; it can only detect a single-bit error.'
+protection: 'This code detects any odd number of bit errors but cannot correct an arbitrary single-bit error.'
 
 features:
   rate: 'The code rate is \(\frac{n-1}{n}\to 1\) as \(n\to\infty\).'
@@ -42,7 +42,9 @@ relations:
     - code_id: crc
       detail: 'A CRC using the divisor 11 is a single parity-check code \cite[Sec. 2.3.3]{doi:10.1007/978-0-387-68192-4_2}.'
     - code_id: q-ary_parity_check
-    - code_id: nearly_perfect
+    # Distance-two SPC codes are quasi-perfect, not odd-distance nearly perfect codes.
+    - code_id: quasi_perfect
+      detail: 'SPCs have packing radius zero and covering radius one.'
     - code_id: divisible
       detail: 'Binary SPCs are two-divisible.'
     - code_id: lexicographic

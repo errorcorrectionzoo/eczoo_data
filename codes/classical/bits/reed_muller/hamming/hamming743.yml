@@ -23,7 +23,7 @@ description: |
   \end{array}\right)~.
   \end{align}
   Up to equivalence, this is the only nontrivial length-seven perfect binary code containing the zero vector.
-  The automorphism group of the code is \(GL(3,2)\), the second-smallest simple group.
+  The automorphism group of the code is \(GL(3,2)\), the second-smallest non-Abelian simple group.
 
   The Hamming code can be extended by a parity-check bit to yield the \([8,4,4]\) extended Hamming code, the smallest doubly even self-dual code.
   It can be shortened to yield the \([6,3,3]\) \textit{shortened Hamming code}.
@@ -40,6 +40,12 @@ relations:
     - code_id: hamming
     - code_id: binary_quad_residue
       detail: 'The \([7,4,3]\) Hamming code is a quadratic-residue code with generator polynomial \(1+x+x^3\) \cite{preset:MacSlo}\cite[Ex. 3.2.10]{preset:HKSclass}.'
+    # The code itself attains the Griesmer bound, so this is a parent relation.
+    - code_id: griesmer
+      detail: 'The \([7,4,3]\) Hamming code saturates the Griesmer bound, since \(7=3+2+1+1\). Starting with the \([6,3,3]\) shortened Hamming code and applying the \((u|u+v)\) construction recursively using the repetition code yields a family of \([3\cdot 2^m,m+2,3\cdot 2^{m-1}]\) codes for \(m\geq1\) that saturate the Griesmer bound \cite[pg. 90]{doi:10.1201/9781315371993}.'
+    # This parent also includes the code in the projective-code list.
+    - code_id: projective
+      detail: 'The generator matrix has seven distinct nonzero columns in \(\mathbb{F}_2^4\).'
   cousins:
     - code_id: incidence_matrix
       detail: 'The \([7,4,3]\) Hamming code parity-check matrix corresponds to points in the Fano plane \(PG(2,2)\) \cite[Exam. 21.4.2]{preset:HKSgraphs}.'
@@ -49,8 +55,6 @@ relations:
       detail: 'The \([7,3,4]\) simplex code is the dual of the Hamming code and also its even-weight subcode \cite{preset:Feit,doi:10.1016/0012-365X(74)90085-5}.'
     - code_id: steane
       detail: 'The Steane code is constructed from the \([7,4,3]\) classical Hamming code via the CSS construction.'
-    - code_id: griesmer
-      detail: 'Starting with the \([6,3,3]\) shortened Hamming code and applying the \((u|u+v)\) construction recursively using the repetition code yields a family of \([2^m,m+1,2^{m-1}]\) codes for \(m\geq1\) that saturate the Griesmer bound \cite[pg. 90]{doi:10.1201/9781315371993}.'
 
 
 # Begin Entry Meta Information

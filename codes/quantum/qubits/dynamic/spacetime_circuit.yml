@@ -16,7 +16,7 @@ description: |
 
   The structure of the \hyperref[topic:clifford]{Clifford circuit} yields correlations between the circuit's possible measurement outcomes.
   The set of outcomes can be made into a classical binary linear code called the \textit{outcome code} \cite[Corr. 2]{arxiv:2304.05943}.
-  The spacetime circuit code is defined such that its error syndromes can be backpropagated to obtain the parity checks of the outcome code.
+  The stabilizer generators of the spacetime circuit code are obtained by backpropagating the measurement operators associated with parity checks of the outcome code.
   In other words, both codes have the same set of parity check outcomes.
 
   More technically, given an \([m,k]\) outcome code associated with an \(n\)-qubit circuit of depth \(\Delta\) with \(m\) measurements and \(2^k\) outcomes, the corresponding spacetime circuit code is an \([[ n (\Delta + 1), n (\Delta + 1) - (m - k) ]]\) code \cite[Thm. 2]{arxiv:2304.05943}.
@@ -25,14 +25,14 @@ description: |
   A more general construction includes circuits with intermediate and multi-qubit measurements \cite{arxiv:2304.05943}.
 
   Many features of the spacetime circuit formalism can be understood through ZX calculus \cite{arxiv:2407.08566}.
-  Two circuits are \textit{fault-equivalent} if all undetectable faults on one circuit have a corresponding fault on the other \cite{arxiv:2506.17181}.
+  Two circuits implementing the same linear map are \textit{fault-equivalent} if every undetectable fault on either circuit has a corresponding fault on the other with the same effect and no greater weight \cite{arxiv:2506.17181}.
 
 features:
   decoders:
     - 'A most-likely error decoder for the spacetime code can be converted into a most-likely fault decoder for the underlying circuit \cite{arxiv:2304.05943}.'
     - 'Efficient decoders can be constructed for some circuits, especially when the resulting outcome and spacetime codes are LDPC \cite{arxiv:2304.05943}.'
   fault_tolerance:
-    - 'The outcome-code distance is a lower bound on the \hyperref[topic:effective-distance]{circuit-level distance}, and the bound need not be tight because some undetectable fault configurations are logically trivial. The circuit-level distance corresponds to the minimum-weight outcome codeword that is not in the kernel of the logical effect matrix \cite{arxiv:2401.12017}.'
+    - 'The minimum weight of an undetectable fault configuration, i.e., of a fault vector in the kernel of the channel check matrix, is a lower bound on the \hyperref[topic:effective-distance]{circuit-level distance}, and the bound need not be tight because some undetectable fault configurations are logically trivial. The circuit-level distance is the minimum weight of an undetectable fault configuration that is not in the kernel of the logical effect matrix \cite{arxiv:2401.12017}.'
 
 notes:
   - 'See \cite[Sec. 2]{arxiv:2502.16408} for a brief overview of spacetime circuits.'
@@ -45,11 +45,11 @@ relations:
     - code_id: dynamic_gen
   cousins:
     - code_id: qldpc
-      detail: 'Spacetime circuit codes are useful for constructing fault-tolerant syndrome extraction circuits for qubit QLDPC codes. General spacetime circuit codes can be sparsified to yield QLDPC spacetime circuit codes \cite{arxiv:2304.05943}.'
+      detail: 'Spacetime circuit codes are useful for constructing fault-tolerant syndrome extraction circuits for qubit QLDPC codes. Some spacetime circuit codes can be sparsified to yield QLDPC spacetime circuit codes \cite{arxiv:2304.05943}.'
     - code_id: binary_linear
       detail: |
         The set of measurement outcomes of a \hyperref[topic:clifford]{Clifford circuit} can be made into a classical binary linear code.
-        Error syndromes of the spacetime circuit code can be used to obtain the parity checks of the outcome code.
+        Error syndromes of the spacetime circuit code coincide with the parity-check outcomes of the outcome code.
     - code_id: surface
       detail: 'Stabilizer generators of a spacetime code are called \textit{detectors} in Refs. \cite{arxiv:2103.02202,arxiv:2304.05943}.'
     - code_id: qubit_subsystem_stabilizer

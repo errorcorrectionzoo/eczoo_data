@@ -20,7 +20,7 @@ description: |
   It can be constructed as a CSS code from the \([15,5,7]\) punctured Reed-Muller code and its even subcode, which explains its transversal \(T^\dagger\) gate \cite{preset:GottesmanBook}.
 
   This code contains 15 qubits, represented by four vertices, four face centers, six edge centers, and one body center.
-  The tetrahedron is cellulated into four identical polyhedron cells by connecting the body center to all four face centers, where each face center is then connected by three adjacent edge centers.
+  The tetrahedron is cellulated into four identical polyhedron cells by connecting the body center to all four face centers, where each face center is then connected to three adjacent edge centers.
   Each colored cell corresponds to a weight-eight \(X\)-check, and each face corresponds to a weight-4 \(Z\)-check.
   A logical \(Z\) is any weight-3 \(Z\)-string along an edge of the entire tetrahedron.
   The logical \(X\) is any weight-7 \(X\)-face of the entire tetrahedron.
@@ -59,7 +59,7 @@ features:
     - 'Transversal logical \(CS\) gates between code blocks, together with transversal \(T\) and CNOT, can be used to realize IQP-like sampling architectures on a hypercube connectivity graph \cite{arxiv:2404.19005}.'
 
   general_gates:
-    - 'Code is often used in magic-state distillation protocols because of its transversal \(T\) gate \cite{arxiv:quant-ph/0403025}. In the original 15-to-1 protocol, 15 noisy \(R_{\pi/8}\ket{+}\) magic states are used to implement the transversal \(T\) by compressed gate teleportation. The resulting encoded state is post-selected by 15-qubit error detection, and decoding yields an output magic state with error probability \(O(p^3)\) when the input states have independent error probability \(p\) \cite[Sec. 13.5.1, Protocol 13.2]{preset:GottesmanBook}.'
+    - 'The code is often used in magic-state distillation protocols because of its transversal \(T\) gate \cite{arxiv:quant-ph/0403025}. In the original 15-to-1 protocol, 15 noisy \(R_{\pi/8}\ket{+}\) magic states are used to implement the transversal \(T\) by compressed gate teleportation. The resulting encoded state is post-selected by 15-qubit error detection, and decoding yields an output magic state with error probability \(O(p^3)\) when the input states have independent error probability \(p\) \cite[Sec. 13.5.1, Protocol 13.2]{preset:GottesmanBook}.'
     - 'With mid-circuit measurement and reuse of check qubits, the 15-to-1 protocol runs on four active qubits \cite[Sec. VI]{arxiv:2606.07734}.'
     - 'Non-transversal logical Hadamard \cite{arxiv:2510.08402}.'
 
@@ -90,11 +90,11 @@ relations:
     - code_id: doubled_color
       detail: 'The \([[15,1,3]]\) code can be viewed as a (gauge-fixed) doubled color code obtained from the Steane code via the doubling transformation \cite{arxiv:1509.03239}.'
     - code_id: steane
-      detail: 'The \([[15,1,3]]\) code can be viewed as a (gauge-fixed) doubled color code obtained from the Steane code via the doubling transformation \cite{arxiv:1509.03239}. A fault-tolerant universal gate set can be done via \hyperref[topic:code-switching]{code switching} between the Steane code and the \([[15,1,3]]\) code \cite{arxiv:1304.3709,arxiv:1403.2734,arxiv:1703.03860,arxiv:2210.14074,arxiv:2306.17686}. An \([[105,1,3]]\) alternative concatenation of the \([[15,1,3]]\) and Steane codes allows for a universal gate set consisting of gates that are close to transversal \cite{arxiv:1309.3310,arxiv:1710.07256}.'
+      detail: 'The \([[15,1,3]]\) code can be viewed as a (gauge-fixed) doubled color code obtained from the Steane code via the doubling transformation \cite{arxiv:1509.03239}. A fault-tolerant universal gate set can be done via \hyperref[topic:code-switching]{code switching} between the Steane code and the \([[15,1,3]]\) code \cite{arxiv:1304.3709,arxiv:1403.2734,arxiv:1703.03860,arxiv:2210.14074,arxiv:2306.17686}. An \([[105,1,9]]\) alternative concatenation of the \([[15,1,3]]\) and Steane codes allows for a universal gate set consisting of gates that are close to transversal \cite{arxiv:1309.3310,arxiv:1710.07256}.'
     - code_id: concatenated_steane
-      detail: 'The \([[105,1]]\) concatenation of the \([[15,1,3]]\) and Steane codes allows for a universal gate set consisting of gates that are transversal w.r.t. to two different partitions \cite{arxiv:1309.3310,arxiv:1710.07256}.'
+      detail: 'The \([[105,1]]\) concatenation of the \([[15,1,3]]\) and Steane codes allows for a universal gate set consisting of gates that are transversal w.r.t. two different partitions \cite{arxiv:1309.3310,arxiv:1710.07256}.'
     - code_id: qubit_concatenated
-      detail: 'The concatenated \([[15,1,3]]\) code has a \hyperref[topic:measurement-threshold]{measurement threshold} less than one \cite{arxiv:2402.00145}.'
+      detail: 'The concatenated \([[15,1,3]]\) code has a \hyperref[topic:measurement-threshold]{measurement threshold} less than one under uniformly random Pauli measurements \cite{arxiv:2402.00145}.'
     - code_id: quantum_lego
       detail: 'The \([[15,1,3]]\) code serves as the local tensor in a holographic quantum-Lego code on a \(\{15,4\}\) tiling that supports a transversal non-Clifford operator \cite{arxiv:2109.08158}.'
     - code_id: holographic_tensor
