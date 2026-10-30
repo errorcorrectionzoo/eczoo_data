@@ -35,7 +35,6 @@ notes:
 
 relations:
   parents:
-    # Audit: self_dual and orthogonal_array are inherited through karlin and delsarte_optimal_q-ary, respectively, rather than cousin relations.
     # Audit: karlin promoted to primary parent, since the former primary parent nearly_perfect was removed (see below) and the primary parent must stay in the bits kingdom.
     - code_id: karlin
       detail: 'The extended Golay code is equivalent to the Karlin double circulant code for \(m=11\) \cite[Ch. 16]{preset:MacSlo}.'
@@ -45,13 +44,16 @@ relations:
     - code_id: quasi_perfect
       detail: 'The extended Golay code has covering radius four, one more than its packing radius, and is therefore quasi-perfect.'
     - code_id: delsarte_optimal_q-ary
-      detail: 'The extended Golay code is a sharp configuration \cite[Table 12.1]{preset:HKSbounds}. The extended Golay code is an orthogonal array of strength 7 \cite[Exam. 1]{doi:10.1109/18.720545}.'
-    # Audit: group-algebra membership is a parent relation and already implies quasi_group.
+      detail: 'The extended Golay code is a sharp configuration \cite[Table 12.1]{preset:HKSbounds}.'
     - code_id: group
       detail: 'The extended Golay code is a group-algebra code for various groups \cite{doi:10.1109/TIT.2008.928260,arxiv:1604.07863,doi:10.1016/0097-3165(90)90069-9}; see \cite[Exam. 16.5.1]{preset:HKSalgebra}\cite{arxiv:1912.09167}.'
     - code_id: lexicographic
       detail: 'The extended Golay code is a lexicode \cite{manual:{M. J. T. Guy, unpublished},doi:10.1109/TIT.1986.1057187}\cite[pg. 327]{preset:MacSlo}.'
   cousins:
+    - code_id: orthogonal_array
+      detail: 'The extended Golay code is an orthogonal array of strength 7 \cite[Exam. 1]{doi:10.1109/18.720545}.'
+    - code_id: self_dual
+      detail: 'The extended Golay code is the unique \([24,12,8]\) code, and in particular the unique self-dual doubly even code with those parameters \cite{doi:10.1016/0012-365X(75)90047-3}\cite[Rem. 4.3.11]{preset:HKSselfdual}.'
     - code_id: rm_16_5_8
       detail: 'The \([16,5,8]\) first-order RM code is a subcode of the extended Golay code \cite[Ch. 5, pg. 146]{doi:10.1007/978-1-4757-6568-7}.'
     - code_id: hamming844

@@ -36,7 +36,7 @@ description: |
 
 protection: |
   Distance balancing and weight reduction are useful for constructing QLTCs.
-  For CSS QLTC families satisfying \(d_Z=\omega(w_Zw_X)\), corrected weight reduction yields codes of constant locality \cite[Lemma 15]{arxiv:2309.05541}.
+  For CSS QLTC families satisfying \(d_Z=\omega(w_Zw_X)\), a slightly modified version of the weight-reduction procedure of Ref. \cite{arxiv:2102.10030} yields QLTCs of constant locality \cite[Lemma 3.8]{arxiv:2309.05541}.
   If the numbers of \(X\)- and \(Z\)-checks are both \(\Theta(n)\) and the input soundness parameters are \(O(1)\), the soundness losses are polynomial in \(w_X,w_Z,q_X,q_Z\).
   These losses are at most polylogarithmic when \(w_X,w_Z,q_X,q_Z=O(\log n)\).
   The effect of generalized distance balancing \cite{arxiv:2004.07935} on soundness is established in \cite[Thm. 1.1]{arxiv:2305.00689}.
@@ -57,7 +57,7 @@ relations:
   cousins:
     # Local testability does not require the Hamiltonian terms to commute.
     - code_id: commuting_projector
-      detail: 'Stabilizer QLTCs admit commuting-projector tests. The general QLTC definition does not require the test projectors to commute \cite[Def. 13]{arxiv:1310.5664}.'
+      detail: 'Stabilizer QLTCs admit commuting-projector tests. The general QLTC definition does not require the test projectors to commute \cite[Def. 14]{arxiv:1310.5664}.'
     - code_id: general_qldpc
       detail: 'Stabilizer LTCs with bounded site degree are QLDPC codes. General QLTCs need not be stabilizer codes.'
     - code_id: self_correct

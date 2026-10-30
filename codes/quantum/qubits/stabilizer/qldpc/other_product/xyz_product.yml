@@ -41,14 +41,12 @@ features:
 
 relations:
   parents:
-    # qldpc is the in-kingdom primary parent; sc_qldpc was previously (incorrectly) listed as a parent, but XYZ product codes are not spatially coupled (see cousins).
     - code_id: qldpc
       detail: 'XYZ product codes are non-CSS qubit QLDPC codes whenever the three input parity-check matrices are sparse \cite{arxiv:2011.09746}.'
     - code_id: generalized_homological_product
       detail: 'The XYZ product code is a non-CSS three-fold variant of the hypergraph product built from three classical linear binary codes \cite{arxiv:2011.09746}.'
     # Warning: non-CSS
   cousins:
-    # XYZ product matrices seed the 2D-SC XYZ construction of \cite{arxiv:2305.00137}, but XYZ product codes are not themselves spatially coupled, so SC-QLDPC is a cousin rather than a parent (matching the hypergraph_product entry).
     - code_id: sc_qldpc
       detail: 'XYZ product stabilizer generator matrices can be used as sub-matrices to define a 2D SC-QLDPC code \cite{arxiv:2305.00137}.'
     - code_id: binary_linear
