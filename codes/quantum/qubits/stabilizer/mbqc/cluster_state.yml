@@ -58,11 +58,11 @@ features:
   general_gates:
     - 'In the original one-way MBQC scheme on a square-lattice cluster state, \(Z\)-basis measurements remove qubits from the resource, \(X\)-basis measurements teleport quantum information along a wire, adaptive equatorial-basis measurements on a five-qubit chain implement arbitrary single-qubit \(SU(2)\) rotations, and a four-qubit pattern implements CNOT. Random measurement outcomes generate Pauli byproduct operators that are tracked classically and can modify later measurement bases \cite{doi:10.1103/PhysRevLett.86.5188}.'
     - 'The computation is encoded in pre-determined fashion via topological features of the cluster state''s graph, such as boundaries, defects, or twists. Such features can be created using \(Z\)-type measurements, which effectively cut a qubit off from the cluster state. Non-Clifford gates are performed by inserting \hyperref[topic:clifford]{non-Clifford} states into particular \textit{singular} qubits. More generally, any gate protocol of a qubit stabilizer code yields an MBQC protocol \cite{arxiv:1811.11780}.
-    To perform the computation, subsets of qubits are measured, e.g., along one two-dimensional slice of a 3D lattice for each time step.
-    This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
-    The computation terminates after all qubits are measured.
+      To perform the computation, subsets of qubits are measured, e.g., along one two-dimensional slice of a 3D lattice for each time step.
+      This effectively teleports the logical information into the remaining unmeasured portion of the cluster state.
+      The computation terminates after all qubits are measured.
 
-    The entire cluster state does not need to be created at the start of the computation. Instead, the portion of the cluster state in the extra dimension can be initialized as the computation progresses.'
+      The entire cluster state does not need to be created at the start of the computation. Instead, the portion of the cluster state in the extra dimension can be initialized as the computation progresses.'
 
     - 'Single-qubit Clifford operations mapping one cluster state to another can be realized as local complementations acting on the underlying graph \cite{arxiv:quant-ph/0308151}. In one-way computation, Clifford gates can be parallelized \cite{arxiv:quant-ph/0108067}.'
 
@@ -71,7 +71,7 @@ features:
 
   code_capacity_threshold:
     - 'Independent \(X,Z\) noise: \(p_X = 2.9\%\) under MWPM decoding \cite{arxiv:quant-ph/0510135}.
-    The threshold under ML decoding corresponds to the value of a critical point of the 3D random-plaquette \(\mathbb{Z}_2\) gauge theory (3D-RPGM) via the statistical mechanical mapping \cite{arxiv:quant-ph/0110143}, calculated to be \(3.3 \%\) \cite{arxiv:quant-ph/0401101} (see also \cite{arxiv:cond-mat/0501372}).'
+      The threshold under ML decoding corresponds to the value of a critical point of the 3D random-plaquette \(\mathbb{Z}_2\) gauge theory (3D-RPGM) via the statistical mechanical mapping \cite{arxiv:quant-ph/0110143}, calculated to be \(3.3 \%\) \cite{arxiv:quant-ph/0401101} (see also \cite{arxiv:cond-mat/0501372}).'
 
   threshold:
     - 'There is a simple proof of a threshold for MBQC \cite{arxiv:quant-ph/0503130}.'
@@ -115,10 +115,10 @@ relations:
   parents:
     - code_id: qubit_stabilizer
       detail: 'Cluster-state codes are particular qubit stabilizer codes.
-      Any qubit stabilizer code is equivalent to a graph quantum code via a single-qubit \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).
-      As a corollary, any qubit stabilizer state is equivalent to a cluster state under a single-qubit \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
-      There are algorithms that determine whether two stabilizer states are equivalent that work by checking whether their corresponding cluster states are equivalent \cite{arxiv:1805.05305,arxiv:1805.05306,arxiv:1805.04559}.
-      Any fault-tolerant scheme based on qubit stabilizer codes can be mapped into a cluster-state based MBQC protocol \cite{arxiv:1811.11780}.'
+        Any qubit stabilizer code is equivalent to a graph quantum code via a single-qubit \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:quant-ph/0111080} (see also \cite{arxiv:quant-ph/0308151,arxiv:quant-ph/0703112}).
+        As a corollary, any qubit stabilizer state is equivalent to a cluster state under a single-qubit \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:quant-ph/0308151}\cite[Appx. A]{arxiv:1910.00471}.
+        There are algorithms that determine whether two stabilizer states are equivalent that work by checking whether their corresponding cluster states are equivalent \cite{arxiv:1805.05305,arxiv:1805.05306,arxiv:1805.04559}.
+        Any fault-tolerant scheme based on qubit stabilizer codes can be mapped into a cluster-state based MBQC protocol \cite{arxiv:1811.11780}.'
     - code_id: cws
       detail: 'A type of cluster-state code can be built from a cluster state by applying the CWS construction using a linear binary code, in which codewords are obtained by applying \(Z\)-type operators defined by the code to the cluster state; see, e.g., Ref. \cite{arxiv:2304.08363}. \hyperref[topic:quantum-weight-enumerator]{Pure} CWS codes can be constructed from uniform graphs \cite{arxiv:2405.06142}.'
     - code_id: qudit_cluster_state
@@ -126,8 +126,8 @@ relations:
   cousins:
     - code_id: fusion
       detail: 'FBQC and MBQC are both computational models in which computation is done by measuring resource states (which are qubit stabilizer states).
-      The difference between the two is in how the states are constructed.
-      FBQC is based exclusively on two-qubit measurements tailored to photonic platforms. These measurements require a foliation with more qubits but one which can be built by fusing smaller modules.'
+        The difference between the two is in how the states are constructed.
+        FBQC is based exclusively on two-qubit measurements tailored to photonic platforms. These measurements require a foliation with more qubits but one which can be built by fusing smaller modules.'
     - code_id: qubit_css
       detail: |
         A resource cluster state can be constructed out of any qubit CSS code via foliation. Conversely, CSS codes can be constructed out of cluster states \cite{arxiv:1607.02579}. 
@@ -141,7 +141,7 @@ relations:
         In the fault-complex formalism, foliation of a CSS code is expressed as a homological product of the code's chain complex with a repetition-code complex \cite{arxiv:2410.12963}.
     - code_id: xp_stabilizer
       detail: 'XP stabilizer states are in one-to-one correspondence with weighted hypergraph states \cite{arxiv:2203.00103,preset:Webster23}, which generalize both weighted graph states \cite{arxiv:quant-ph/0407075,arxiv:quant-ph/0602096,arxiv:quant-ph/0602230} and hypergraph states \cite{arxiv:1211.5554,arxiv:1404.6492,arxiv:1410.3904}.
-      The latter can also be utilized in MBQC schemes \cite{arxiv:1805.12093,doi:10.1038/s41598-019-49968-3}.'
+        The latter can also be utilized in MBQC schemes \cite{arxiv:1805.12093,doi:10.1038/s41598-019-49968-3}.'
     - code_id: dynamic_gen
       detail: 'MBQC is done using a measurement-based dynamical process.'
     #- code_id: dual_rail
