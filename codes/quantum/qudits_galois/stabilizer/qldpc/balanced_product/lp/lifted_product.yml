@@ -19,9 +19,10 @@ description: |
   Galois-qudit code that utilizes the notion of a lifted product in its construction. Lifted products of certain classical Tanner codes are the first (asymptotically) \textit{good QLDPC codes}.
 
   A code can be defined by \(LP(A,B)\), where \(A\) and \(B\) are a pair of matrices with elements from a \hyperref[topic:group-algebra]{group algebra}.
-  Heuristically, the code is constructed as a hypergraph product code over the \hyperref[topic:group-algebra]{group algebra}, with each entry subsequently extended into a matrix.
-  Each entry becomes a \(|G|\times|G|\) block, so the code has \(|G|\) times as many qubits and checks as a hypergraph product of matrices of the same shapes \cite[Sec. III]{arxiv:2012.04068}.
-  For \(q=2\), an entry that is a single group element becomes a permutation matrix, so such entries do not increase check weights \cite[Sec. III]{arxiv:2012.04068}.
+  Heuristically, the code is a hypergraph product over the \hyperref[topic:group-algebra]{group algebra} \(\mathbb{F}_q[G]\), with each entry then replaced by a \(|G|\times|G|\) matrix.
+  The code thus has \(|G|\) times as many qudits and checks as a hypergraph product of matrices of the same shapes \cite[Sec. III]{arxiv:2012.04068}.
+  For \(q=2\), each block's row and column weight equals the number of group elements in its entry \cite[Sec. III]{arxiv:2012.04068}.
+  Entries that are single group elements therefore keep the check weights of a hypergraph product with ones in their place.
 
   More technically, a \textit{lifted product over} a ring \(R\) is a product of two chain complexes whose chains are free modules over \(R\).
   An interesting case is when \(R=\mathbb{F}_q [G]\), the \hyperref[topic:group-algebra]{group-\(G\) algebra} over the finite field \({\mathbb{F}}_q = \mathbb{F}_q\); in this case, the product can be called a \(G\)-\textit{lifted product}.
