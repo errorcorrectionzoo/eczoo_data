@@ -20,6 +20,8 @@ description: |
 
   A code can be defined by \(LP(A,B)\), where \(A\) and \(B\) are a pair of matrices with elements from a \hyperref[topic:group-algebra]{group algebra}.
   Heuristically, the code is constructed as a hypergraph product code over the \hyperref[topic:group-algebra]{group algebra}, with each entry subsequently extended into a matrix.
+  Each entry becomes a \(|G|\times|G|\) block, so the code has \(|G|\) times as many qubits and checks as a hypergraph product of matrices of the same shapes \cite[Sec. III]{arxiv:2012.04068}.
+  For \(q=2\), an entry that is a single group element becomes a permutation matrix, so such entries do not increase check weights \cite[Sec. III]{arxiv:2012.04068}.
 
   More technically, a \textit{lifted product over} a ring \(R\) is a product of two chain complexes whose chains are free modules over \(R\).
   An interesting case is when \(R=\mathbb{F}_q [G]\), the \hyperref[topic:group-algebra]{group-\(G\) algebra} over the finite field \({\mathbb{F}}_q = \mathbb{F}_q\); in this case, the product can be called a \(G\)-\textit{lifted product}.
@@ -70,6 +72,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-03'
     - user_id: VictorVAlbert
       date: '2026-09-30'
     - user_id: VictorVAlbert
