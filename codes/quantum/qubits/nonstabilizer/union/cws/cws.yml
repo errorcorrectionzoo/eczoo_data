@@ -30,8 +30,13 @@ protection: |
   In standard form, error detection reduces to detecting the induced binary error patterns \(C_{S}(E)\) with the underlying classical code, together with the requirement that any error satisfying \(C_{S}(E)=0\) commute with every word operator \cite{arxiv:0708.1021}.
   The code distance of \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).
   A CWS code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure} \cite{arxiv:0912.3245}.
-  The \hyperref[topic:quantum-weight-enumerator]{pure distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\) \cite{arxiv:0712.1979,arxiv:2107.11286}.
-  For additive CWS codes realizable from a fixed graph \(\mathcal{G}\), Ref. \cite{arxiv:1108.5490} derives upper bounds on the distance and proves a Gilbert-Varshamov existence bound matching the standard pure-stabilizer bound up to the graph-state distance \(d'(\mathcal{G})\).
+  The \textit{diagonal distance} of a CWS code is the minimum weight of a non-identity Pauli string \(Q\) with \(\langle\mathcal{G}|Q|\mathcal{G}\rangle\neq 0\), i.e., the distance of the graph state \(|\mathcal{G}\rangle\) \cite{arxiv:0712.1979}.
+  It depends only on the graph, and a CWS code whose distance exceeds it is \hyperref[topic:degeneracy]{degenerate} \cite{arxiv:1108.5490,arxiv:2107.11286}.
+  The diagonal distance is at most \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\) \cite{arxiv:2107.11286}.
+  For graphs without four-cycles, it equals \(\delta\) or \(\delta+1\) \cite[Thm. A]{arxiv:2107.11286}.
+  Each non-identity element of the stabilizer group of \(|\mathcal{G}\rangle\) commutes or anticommutes with every \(W_i\), so it maps each codeword \(W_i|\mathcal{G}\rangle\) to \(\pm W_i|\mathcal{G}\rangle\) and is an undetectable error.
+  The \hyperref[topic:quantum-weight-enumerator]{pure distance}, the minimum weight of an undetectable error \cite{arxiv:1409.2559,arxiv:2107.14252}, is therefore at most the diagonal distance, and so at most \(\delta+1\).
+  For additive CWS codes realizable from a fixed graph \(\mathcal{G}\), Ref. \cite{arxiv:1108.5490} derives upper bounds on the distance and proves a Gilbert-Varshamov existence bound matching the standard pure-stabilizer bound up to the diagonal distance of \(\mathcal{G}\).
 
 features:
   encoders:
@@ -41,13 +46,13 @@ features:
     - 'There is no known \textit{efficient} algorithm to decode an arbitrary \textit{non-additive} (non-stabilizer) CWS code.'
     - 'Clustered bounded-distance decoder \cite{arxiv:0907.2038,doi:10.1109/ISIT.2010.5513671,preset:Li10}.'
     - 'Structured error recovery \cite{arxiv:0912.3245}, which reduces to syndrome-based recovery for additive (i.e., stabilizer) CWS codes.
-    It takes superpolynomial time when correcting errors on \(\omega(\log n)\) qubits \cite{arxiv:2609.38986}.'
+      It takes superpolynomial time when correcting errors on \(\omega(\log n)\) qubits \cite{arxiv:2609.38986}.'
     - 'Keyed decoder for CWS codes whose secret key is a random Pauli and a random bipartite graph \cite{arxiv:2609.38986}.
-    The graph is the XOR of \(O(\log^2 n)\) random perfect matchings between the two halves of the qubits.
-    The classical code can be any efficiently encodable and decodable code, linear or not, that corrects a constant fraction of bit flips.
-    The classical decoder coherently removes the induced bit error \(e=v\oplus Au\) of a Pauli error \(Z^vX^u\), with \(A\) the adjacency matrix of the graph, and \(e\) is then measured.
-    A bit-flipping algorithm on the graph recovers \(u\) from \(e\), and the residual phase error \(Z^u\) is cancelled.
-    The decoder runs in polynomial time and corrects all key-independent \(o(n\log\log n/\log n)\)-local noise on average over the key \cite{arxiv:2609.38986}.'
+      The graph is the XOR of \(O(\log^2 n)\) random perfect matchings between the two halves of the qubits.
+      The classical code can be any efficiently encodable and decodable code, linear or not, that corrects a constant fraction of bit flips.
+      The classical decoder coherently removes the induced bit error \(e=v\oplus Au\) of a Pauli error \(Z^vX^u\), with \(A\) the adjacency matrix of the graph, and \(e\) is then measured.
+      A bit-flipping algorithm on the graph recovers \(u\) from \(e\), and the residual phase error \(Z^u\) is cancelled.
+      The decoder runs in polynomial time and corrects all key-independent \(o(n\log\log n/\log n)\)-local noise on average over the key \cite{arxiv:2609.38986}.'
 
 notes:
   - 'See Ref. \cite{doi:10.1017/CBO9781139034807.012} for an overview of CWS codes.'
@@ -57,9 +62,9 @@ relations:
   parents:
     - code_id: non_stabilizer
       detail: 'Any CWS code can be written as a USt whose (\(K=1\)) stabilizer code is the cluster state and whose coset representatives are constructed from the binary classical code.
-      Conversely, USt codes are equivalent to CWS codes via a single-qubit \hyperref[topic:clifford]{Clifford circuit} as follows \cite{arxiv:0907.2038,preset:Li10}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.
-      The set of coset representatives of any USt can be extended to a larger set iterating over the underlying stabilizer code such that all codewords can be obtained from a single stabilizer state.
-      Then, one can apply a single-qubit Clifford transformation to map said stabilizer state into a cluster state.'
+        Conversely, USt codes are equivalent to CWS codes via a single-qubit \hyperref[topic:clifford]{Clifford circuit} as follows \cite{arxiv:0907.2038,preset:Li10}\cite[Sec. 10.4]{doi:10.1017/CBO9781139034807.012}.
+        The set of coset representatives of any USt can be extended to a larger set iterating over the underlying stabilizer code such that all codewords can be obtained from a single stabilizer state.
+        Then, one can apply a single-qubit Clifford transformation to map said stabilizer state into a cluster state.'
     - code_id: qudit_cws
       detail: 'Modular-qudit CWS codes reduce to CWS codes for \(q=2\).'
     - code_id: galois_cws
