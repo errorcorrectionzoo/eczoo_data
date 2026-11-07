@@ -67,7 +67,7 @@ features:
   decoders:
     - 'Iterative error estimation based on the MIN-SUM and SUM-PRODUCT algorithms \cite{arxiv:quant-ph/0502086}.'
     - 'Quantum belief propagation (BP) decoder \cite{arxiv:0706.4094,arxiv:0708.1337,arxiv:0801.1241} is a quantum version of the classical BP decoder, but performance suffers due to degeneracy \cite{arxiv:2012.15297}.
-    Various post-processing algorithms have been proposed (see below and also Refs. \cite{doi:10.1109/MILCOM58377.2023.10356284,doi:10.1109/ICASSP48485.2024.10446153}).'
+      Various post-processing algorithms have been proposed (see below and also Refs. \cite{doi:10.1109/MILCOM58377.2023.10356284,doi:10.1109/ICASSP48485.2024.10446153}).'
     - 'BP-OSD decoder, scaling as \(O(n^3)\), adds a post-processing step based on ordered statistics decoding (OSD) to the belief propagation (BP) decoder \cite{arxiv:1904.02703}.'
     - 'Neural network BP decoders \cite{arxiv:1811.07835,arxiv:2212.10245} and GNN decoders \cite{arxiv:2307.01241,arxiv:2310.17758} for qubit codes.'
     - 'Partially and fully decoupled BP decoders, which use the decoupling representation, yield improvements against depolarizing noise \cite{arxiv:2305.17505}.'
@@ -98,8 +98,8 @@ features:
     - 'Graph augmentation and rewiring for interference (GARI) framework for circuit-level noise \cite{arxiv:2510.14060}.'
   fault_tolerance:
     - 'Lattice surgery techniques with ancilla qubits \cite{arxiv:2110.10794,arxiv:2308.08648,arxiv:2407.18393}.
-    In one such technique, one first performs a logical measurement by \hyperref[topic:code-switching]{code switching} into a code whose stabilizer group includes the original stabilizers together with the logical Paulis that are to be measured.
-    Then, one can reduce the weight of the output code using \hyperref[topic:weight-reduction]{weight reduction}.'
+      In one such technique, one first performs a logical measurement by \hyperref[topic:code-switching]{code switching} into a code whose stabilizer group includes the original stabilizers together with the logical Paulis that are to be measured.
+      Then, one can reduce the weight of the output code using \hyperref[topic:weight-reduction]{weight reduction}.'
     - 'Fault-tolerance with constant overhead can be performed on certain qubit QLDPC codes \cite{arxiv:1310.2984}, e.g., quantum expander codes \cite{arxiv:1808.03821}.'
     - 'Transversal Clifford circuits on CSS QLDPC codes, with magic-state inputs and correlated decoding, need only a constant number of syndrome extraction rounds per logical operation \cite{arxiv:2406.17653}.'
     - 'Error-corrected GHZ state distillation for Steane error correction \cite{arxiv:2210.14143}.'
@@ -124,7 +124,7 @@ notes:
   - 'High-rate QLDPC codes can be used for Bell-pair distillation \cite{arxiv:2502.09542}.'
   - 'Qldpc code circUIT Simulator (QUITS) Python software library for simulating QLDPC code circuits \cite{arxiv:2504.02673,manual:{M. Kang, QUITS Software Package, 2025 \href{https://github.com/mkangquantum/quits}{URL}}}.'
   - 'sQetch GPU (CUDA via PyTorch) Python package for CSS-code minimum-distance estimation.
-  It runs a randomized information-set decoder over random low-dimensional sketches of check-matrix null spaces \cite{arxiv:2607.28795,manual:{M. Ma, sQetch Software Package, 2026 \href{https://github.com/a7b/yarn/tree/main/sqetch}{URL}}}.'
+    It runs a randomized information-set decoder over random low-dimensional sketches of check-matrix null spaces \cite{arxiv:2607.28795,manual:{M. Ma, sQetch Software Package, 2026 \href{https://github.com/a7b/yarn/tree/main/sqetch}{URL}}}.'
   - 'See \cite{arxiv:2605.29137} for a pedagogical introduction to QLDPC codes.'
 
 relations:
@@ -142,7 +142,7 @@ relations:
       detail: 'Qubit QLDPC codes satisfying linear confinement are single shot \cite{arxiv:2009.11790}. Any code that admits a local greedy decoder also satisfies linear confinement, and so is single shot \cite{arxiv:2308.08648}.'
     - code_id: ldgm
       detail: 'LDGM codes can yield CSS \cite{doi:10.1109/SPAWC.2005.1506298,manual:{H. Lou and J. Garcia-Frias, “On the Application of Error-Correcting Codes with Low-Density Generator Matrix over Different Quantum Channels”, 4th International Symposium on Turbo Codes & Related Topics; 6th International ITG-Conference on Source and Channel Coding, Munich, Germany, 2006, pp. 1-6},doi:10.1109/CISS.2008.4558588,doi:10.1103/PhysRevA.103.022617} and non-CSS \cite{doi:10.1103/PhysRevA.102.012423,doi:10.1109/QCE49297.2020.00022} qubit QLDPC codes.
-      Some of the LDGM-based CSS codes have \(n\)-independent minimum distance and no code capacity threshold \cite[Sec. 4.2]{arxiv:0903.0566}.'
+        Some of the LDGM-based CSS codes have \(n\)-independent minimum distance and no code capacity threshold \cite[Sec. 4.2]{arxiv:0903.0566}.'
     - code_id: random_stabilizer
       detail: 'Random qubit QLDPC codes found by solving certain constraint satisfaction problems (CSPs) practically achieve the capacity of the erasure channel \cite{arxiv:2207.03562}.'
     - code_id: algebraic_ldpc
