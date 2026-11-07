@@ -11,7 +11,7 @@ name: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf code'
 introduced: '\cite{arxiv:2609.26691}'
 
 description: |
-  One of three degree-two Reed-Solomon cubical sheaf codes on a common six-dimensional complex, which together admit \(\Theta(N)\) addressable and parallel transversal logical \(CCZ\) gates for block length \(N\) \cite{arxiv:2609.26691}.
+  One of three degree-two Reed-Solomon cubical sheaf codes on a common six-dimensional complex, which together admit \(\Theta(N)\) (\(N^{\Omega(1)}\) in an earlier arXiv version) addressable and parallel transversal logical \(CCZ\) gates for block length \(N\) \cite{arxiv:2609.26691}.
   The physical gate applies a phase given by the cup product of the three blocks' degree-two cochains, evaluated on a degree-six cycle.
 
   The phase is invariant under adding coboundaries, so it acts on logical classes \cite[Prop. 2.10]{arxiv:2609.26691}.
@@ -32,17 +32,19 @@ features:
     - 'Constant-depth single-shot decoder based on parallel local flips for the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691} \cite[Lemmas 6.8 and 6.11]{arxiv:2609.28461}.'
 
   fault_tolerance:
-    - 'For an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, fault tolerance against locally stochastic noise has strictly logarithmic time and constant space overheads for sufficiently wide circuits \cite[Thm. 3.12 and Cor. 3.13]{arxiv:2609.28461}. A width-\(W\), depth-\(D\) circuit runs in depth \(O(D\log(WD/\varepsilon))\), and only stabilizer resource states require separate preparation \cite{arxiv:2609.28461}.'
+    - 'Fault-tolerant quantum computation against locally stochastic noise with strictly logarithmic time and constant space overheads for sufficiently wide circuits, for an earlier arXiv version of Ref. \cite{arxiv:2609.26691} \cite[Thm. 3.12 and Cor. 3.13]{arxiv:2609.28461}. A width-\(W\), depth-\(D\) circuit runs in depth \(O(D\log(WD/\varepsilon))\), and only stabilizer resource states require separate preparation \cite{arxiv:2609.28461}.'
 
 relations:
   parents:
     - code_id: rs_cubical_sheaf
       detail: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf codes are degree-two Reed-Solomon cubical sheaf codes on six-dimensional complexes, taken in triples whose blocks use lower-degree local codes in distinct pairs of directions \cite[Sec. 3.1]{arxiv:2609.26691}. The cup product of their cochains yields a linear number of addressable transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
   cousins:
+    - code_id: good_qldpc
+      detail: 'The transversal-\(CCZ\) Reed-Solomon cubical sheaf construction yields good QLDPC codes with \(\Theta(N)\) addressable and parallel transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
     - code_id: single_shot
       detail: 'In the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, transversal-\(CCZ\) Reed-Solomon cubical sheaf codes admit a constant-depth single-shot decoder based on parallel local flips \cite[Lemmas 6.8 and 6.11]{arxiv:2609.28461}.'
     - code_id: galois_polynomial
-      detail: 'A fixed punctured Galois-qudit RS distillation circuit can be applied recursively to inputs encoded in transversal-\(CCZ\) Reed-Solomon cubical sheaf codes of geometrically increasing length \cite[Thm. 7.5]{arxiv:2609.28461}. The codes are those of an earlier arXiv version of Ref. \cite{arxiv:2609.26691}. For sufficiently wide circuits, this yields fault-tolerant quantum computation with constant space overhead and strictly logarithmic time overhead \cite[Thm. 7.8]{arxiv:2609.28461}.'
+      detail: 'In the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, a fixed punctured Galois-qudit RS distillation circuit can be applied recursively to inputs encoded in transversal-\(CCZ\) Reed-Solomon cubical sheaf codes of geometrically increasing length \cite[Thm. 7.5]{arxiv:2609.28461}. For sufficiently wide circuits, this yields fault-tolerant quantum computation with constant space overhead and strictly logarithmic time overhead \cite[Thm. 7.8]{arxiv:2609.28461}.'
 
 
 # Begin Entry Meta Information
