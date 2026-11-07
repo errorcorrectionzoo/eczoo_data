@@ -19,6 +19,7 @@ alternative_names:
 
 description: |
   A member of a family of CSS codes whose stabilizer generator matrix is obtained from a hypergraph product of two classical linear binary codes.
+  Classical LDPC seed codes yield \hyperref[code:qldpc]{QLDPC codes}, and \hyperref[topic:asymptotics]{asymptotically} good ones yield codes with \(k=\Theta(n)\) and \(d=\Theta(\sqrt{n})\) (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 1]{arxiv:0903.0566}.
 
   More technically, the \(X\)- and \(Z\)-type stabilizer generator matrices of a hypergraph product code are, respectively, the boundary and coboundary operators of the 2-complex obtained from the tensor product of a chain complex and cochain complex corresponding to two classical linear binary \textit{seed} codes.
   Let the two seed codes be \(C_i\) for \(i\in\{1,2\}\) with parameters \([n_i, k_i, d_i]\), defined as the kernel of \(r_i \times n_i\) check matrices \(H_i\) of rank \(n_i - k_i\).
@@ -29,6 +30,7 @@ description: |
   \end{align}
   where \(I_m\) is the \(m\)-dimensional identity matrix.
   These two codes then yield a hypergraph product code via the CSS construction.
+  Each \(X\)-type (\(Z\)-type) stabilizer generator has weight equal to a row weight of \(H_1\) (\(H_2\)) plus a column weight of \(H_2\) (\(H_1\)) \cite[Prop. 5]{arxiv:0903.0566}.
   The case when both seed codes use the same check matrix, \(H_1=H_2=H\), is called a \textit{square hypergraph product code} \cite{arxiv:2204.10812}.
   If, in addition, \(\text{im} H = \text{im} H^T\), the hypergraph product code is called a \textit{symmetric hypergraph product code} \cite{arxiv:2204.10812}.
 
@@ -38,7 +40,9 @@ description: |
 # Defn of CSS has been changed to accomodate this... In contrast to the original CSS construction there are no restrictions on the form of \(C_1\) and \(C_2\).'
 
 protection: |
-  If \([n_i, k_i, d_i]\) and \([r_i, k_i^T, d_i^T]\) are the parameters of the codes \(\mathrm{ker}H_i\) and \(\mathrm{ker}H_i^T\), respectively, taking \(d_i=\infty\) when \(k_i=0\) and \(d_i^T=\infty\) when \(k_i^T=0\), then the hypergraph product has parameters \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, d]]\), where \(d\geq\min(d_1, d_2, d_1^T, d_2^T)\) \cite{arxiv:0903.0566}.
+  Let \([n_i, k_i, d_i]\) and \([r_i, k_i^T, d_i^T]\) be the parameters of the codes \(\mathrm{ker}H_i\) and \(\mathrm{ker}H_i^T\), respectively, with the distance of a zero-dimensional code taken to be \(\infty\).
+  The hypergraph product is an \([[n_1 n_2 + r_1 r_2, k_1 k_2 + k_1^T k_2^T, d]]\) code with \(d \geq \min(d_1, d_2, d_1^T, d_2^T)\) \cite[Prop. 14 and Thm. 15]{arxiv:0903.0566}.
+  For \(k>0\), the distance is exactly \(\min(d_1,d_2)\) if \(k_1^T k_2^T=0\), \(\min(d_1^T,d_2^T)\) if \(k_1 k_2=0\), and \(\min(d_1,d_2,d_1^T,d_2^T)\) otherwise \cite[Thm. 17]{arxiv:2007.12152}.
   An HGP code with \(k \geq 1\) satisfies \(n \geq 2d^2-2d+1\), with equality for the \([[2d^2-2d+1,1,d]]\) surface codes \cite[Eq. (9)]{arxiv:2610.03214}.
 
   An algebraic reformulation of HGP codes, together with several rate-improved variants, was given in Ref. \cite{arxiv:1202.0928}.
@@ -129,6 +133,8 @@ _meta:
   changelog:
     - user_id: VictorVAlbert
       date: '2026-11-06'
+    - user_id: VictorVAlbert
+      date: '2026-11-03'
     - user_id: VictorVAlbert
       date: '2026-10-15'
     - user_id: VictorVAlbert

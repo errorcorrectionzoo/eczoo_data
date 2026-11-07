@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Qubit stabilizer code'
-introduced: '\cite{arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
+introduced: '\cite{arxiv:quant-ph/9604038,arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
 
 alternative_names:
   - 'Binary stabilizer code'
@@ -252,7 +252,11 @@ features:
     - 'Trickle-down dissipative correction \cite{arxiv:2507.12534}.'
 
   fault_tolerance:
-    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031} (see also Steane''s ancilla factory \cite{arxiv:quant-ph/9708021}), in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
+    - |
+      Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031} (see also Steane's ancilla factory \cite{arxiv:quant-ph/9708021}) measures each stabilizer generator with a verified cat state.
+      Each qubit in the generator's support is coupled to a different cat-state qubit, so \(r\) faults cause at most \(r\) data-qubit errors \cite[Sec. 4]{arxiv:quant-ph/9605011}.
+      The measurement is repeated until the same syndrome is obtained several times in a row, which guards against faulty syndrome readings \cite[Sec. 4]{arxiv:quant-ph/9605011}.
+      A modification uses adaptive measurements \cite{arxiv:2208.05601}.
     - 'Gates in the \term{Clifford hierarchy} can be done using \textit{gate teleportation}, in which a gate can be obtained from a particular \textit{magic state} \cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0002039}. Such protocols can be made fault tolerant with the help of magic-state distillation \cite{arxiv:quant-ph/0403025}. See review on magic-state distillation \cite{doi:10.1002/qua.24856}.'
     - 'Logical Bell measurements can be done transversally, and thus fault tolerantly, by performing bitwise Bell measurements for each pair of qubits (with each member of the pair taken from one of the two code blocks) and processing the result.'
     - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit gates in the \hyperref[topic:clifford]{Clifford group} has a universal set of non-transversal fault-tolerant gates \cite{arxiv:1603.03948}.'
@@ -372,6 +376,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-03'
     - user_id: VictorVAlbert
       date: '2026-10-16'
     - user_id: VictorVAlbert
