@@ -12,18 +12,15 @@ introduced: '\cite{arxiv:2609.20780,arxiv:2609.26735,arxiv:2609.28028}'
 
 description: |
   DLV code on the degree-\(k\) cochains of a sheaf with projective Reed-Solomon local codes over an arithmetic quotient of a product of \(r\) Bruhat-Tits trees.
-  Its tree degrees, field sizes, and quotient are chosen so that Ramanujan expansion and uniform product expansion of the local codes yield binary QLTCs with linear distance and constant soundness \cite{arxiv:2609.20780,arxiv:2609.28028}.
+  Its parameters are chosen so that Ramanujan expansion and uniform product expansion of the local codes yield binary QLTCs with linear distance and constant soundness \cite{arxiv:2609.20780,arxiv:2609.28028}.
 
-  The edges at a vertex in each direction are indexed by a projective line over the residue field.
-  The local code in each direction evaluates homogeneous polynomials on that line, with one degree per endpoint color \cite[Sec. 12]{arxiv:2609.20780}\cite[Lemma 4.4]{arxiv:2609.28028}.
-  Reindexing the local codes by a Frobenius automorphism at one endpoint type makes them compatible with the arithmetic identifications, so they glue into a sheaf on the quotient \cite{arxiv:2609.20780,arxiv:2609.28028}.
+  The edges at a vertex in direction \(i\) form a projective line over the residue field \(\mathbb{F}_{q_i}\).
+  The local code evaluates homogeneous polynomials on that line, with one degree per endpoint color \cite[Sec. 12]{arxiv:2609.20780}\cite[Lemma 4.4]{arxiv:2609.28028}.
+  A Frobenius reindexing at one endpoint color makes the local codes compatible with the arithmetic identifications, so they glue into a sheaf on the quotient \cite{arxiv:2609.20780,arxiv:2609.28028}.
   Cochains take values in a characteristic-two field containing every \(\mathbb{F}_{q_i^2}\), and restriction of scalars to \(\mathbb{F}_2\) yields the qubit code \cite[Sec. 2.3]{arxiv:2609.20780}\cite[Thm. 6.2]{arxiv:2609.28028}.
 
-  In Ref. \cite{arxiv:2609.28028}, the quotient is by a congruence subgroup of a quaternionic lattice over \(\mathbb{F}_2(y)\) \cite{arxiv:1808.03290,arxiv:2504.15087}, and the residue fields are \(\mathbb{F}_{q_i}\) with \(q_i=2^{2(A+i)}\).
-  The Frobenius twist acts at color-0 vertices and requires \(\sqrt{q_i}-1\) to divide the local degree \(d_i\) \cite[Lemma 4.4 and Prop. 4.6]{arxiv:2609.28028}.
-  The product-expansion constant of these local codes is \(c_r\beta^r\) at relative redundancy at least \(\beta\), independent of \(A\) \cite[Thm. 5.4]{arxiv:2609.28028}.
-
-  The construction of Ref. \cite{arxiv:2609.26735} assumed uniform product expansion of its Reed-Solomon local codes, which Ref. \cite[Sec. 1.3 and Thm. 5.4]{arxiv:2609.28028} proves for its parameters.
+  In Ref. \cite{arxiv:2609.28028}, the quotient comes from a quaternionic lattice over \(\mathbb{F}_2(y)\) \cite{arxiv:1808.03290,arxiv:2504.15087}.
+  Ref. \cite{arxiv:2609.26735} assumed uniform product expansion of its local codes, which Ref. \cite[Sec. 1.3 and Thm. 5.4]{arxiv:2609.28028} proves for its parameters.
 
 protection: |
   Suitable local-code dimensions give binary families with \(K=\Omega(N)\), \(D=\Omega(N)\), soundness \(\rho=\Omega(1)\), and bounded check weight and qubit degree \cite[Thm. 2.4.1]{arxiv:2609.20780}\cite[Thm. 6.2]{arxiv:2609.28028}.
@@ -50,6 +47,6 @@ _meta:
   # Change log - most recent first
   changelog:
     - user_id: VictorVAlbert
-      date: '2026-11-06'
+      date: '2026-11-07'
     - user_id: VictorVAlbert
       date: '2026-10-16'
