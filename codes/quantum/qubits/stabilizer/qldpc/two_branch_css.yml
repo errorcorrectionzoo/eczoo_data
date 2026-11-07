@@ -25,21 +25,21 @@ description: |
   The coset equalities \((b^{(0)}_j-a^{(0)}_i)M=(b^{(1)}_j-a^{(1)}_i)M\) for all \(i,j\) therefore make the two matrices orthogonal \cite[Thm. 2]{arxiv:2605.23894}.
   Disjointness of the same-type difference cosets \((a^{(0)}_{i'}-a^{(0)}_i)M\) and \((a^{(1)}_{i'}-a^{(1)}_i)M\), and likewise for \(b\), excludes same-type four-cycles \cite[Thm. 3]{arxiv:2605.23894}.
   These coset conditions turn the search for a regular base pair into a finite check on field coefficients.
-  When every \(X\)-type and \(Z\)-type check share zero or two base qubits, the base pair can be given a \(G\)-\hyperref[topic:lifting]{lift} over a cyclic group by circulant permutation matrices.
+  When each pair of \(X\)-type and \(Z\)-type checks shares zero or two base qubits, the base pair can be given a \(G\)-\hyperref[topic:lifting]{lift} over a cyclic group by circulant permutation matrices.
   The shifts on each shared pair are constrained so that the two lifted blocks cancel, which preserves orthogonality \cite[Thm. 4]{arxiv:2605.23894}.
   The remaining circulant shifts are chosen to raise the girth and to remove targeted low-weight logical operators \cite{arxiv:2605.23894}.
 
-  A \(64\)-fold lift of the \((3,10)\)-regular \([[160,76,4]]\) base over \(\mathbb{F}_{16}\) yields a \([[10240,4108,18 \leq d \leq 32]]\) code of rate \(0.401\) whose same-type Tanner graphs have girth at least eight \cite{arxiv:2605.23894}.
+  A \(64\)-fold lift of the \((3,10)\)-regular \([[160,76,4]]\) base over \(\mathbb{F}_{16}\) yields a \([[10240,4108,10 \leq d \leq 32]]\) code of rate \(0.401\) whose same-type Tanner graphs have girth at least eight \cite{arxiv:2605.23894}.
   See Ref. \cite[Table 1]{arxiv:2605.23894} for base codes at other column and row weights.
 
 protection: |
   Base codes are listed for column weights three, four, and five, with exact distances up to \(12\) \cite[Table 1]{arxiv:2605.23894}.
-  A \((3,30)\)-regular base over \(\mathbb{F}_{31}\) yields a \([[930,748,6]]\) code attaining the design rate \(1-2J/L=0.8\) \cite{arxiv:2605.23894}.
-  This field size and base length are the smallest possible at that design rate under the two-branch coset conditions \cite{arxiv:2605.23894}.
+  A \((3,30)\)-regular base over \(\mathbb{F}_{31}\) yields a \([[930,748,6]]\) code with design-rate lower bound \(1-2J/L=0.8\) \cite{arxiv:2605.23894}.
+  For column weight \(J=3\), this field size and base length are the smallest possible at that design rate under the two-branch coset conditions \cite{arxiv:2605.23894}.
 
 features:
   decoders:
-    - 'Joint belief propagation with low-complexity deterministic post-processing \cite{arxiv:2605.23894}. For the \([[10240,4108,18 \leq d \leq 32]]\) code, this decoder reaches a frame error rate of \(10^{-7}\) at depolarizing probability \(p=0.058\) \cite{arxiv:2605.23894}.'
+    - 'Joint belief propagation with low-complexity deterministic post-processing \cite{arxiv:2605.23894}. For the \([[10240,4108,10 \leq d \leq 32]]\) code, this decoder reaches a frame error rate of \(10^{-7}\) at depolarizing probability \(p=0.058\) \cite{arxiv:2605.23894}.'
 
 relations:
   parents:

@@ -12,13 +12,13 @@ short_name: 'BB'
 introduced: '\cite{arxiv:2308.07915}'
 
 description: |
-  One of several Abelian 2BGA codes which admit time-optimal syndrome measurement circuits that can be implemented in a two-layer
-  architecture, a generalization of the square-lattice architecture
-  optimal for the surface codes.
-  Codes can be classified by the weight of their checks, e.g., by BB\(w\) where \(w\) is the check weight.
+  Two-block CSS code on \(n=2\ell m\) qubits with check matrices \(H_X=[A|B]\) and \(H_Z=[B^T|A^T]\) \cite[Sec. 4]{arxiv:2308.07915}.
+  Here, \(A\) and \(B\) are polynomials in two commuting cyclic shifts \(x\) and \(y\) of orders \(\ell\) and \(m\).
+  As in the toric code, all checks are shifts of one \(X\)-check and one \(Z\)-check on a two-dimensional periodic grid \cite[Sec. 3]{arxiv:2308.07915}.
 
   The qubit connectivity graph is not quite a 2D grid and is instead decomposable into two planar subgraphs of degree three; there exists an optimized layout minimizing Euclidean communication distance for check operators \cite{arxiv:2404.18809}.
-  There are \(n\) \(X\) and \(Z\) check operators, each of weight \(|A|+|B|\).
+  There are \(n/2\) \(X\)-type and \(n/2\) \(Z\)-type check operators, each of weight \(|A|+|B|\), the number of terms in \(A\) and \(B\) \cite[Sec. 4]{arxiv:2308.07915}.
+  Codes can be classified by the weight of their checks, e.g., by BB\(w\) where \(w\) is the check weight.
   The weight-six BB codes of Ref. \cite{arxiv:2308.07915} are on par with the surface code in terms of threshold and admit a much higher ancilla-added encoding rate.
   The price is check operators that are not geometrically local in a two-layer nearest-neighbor layout \cite{arxiv:2308.07915}.
 
@@ -63,8 +63,8 @@ features:
     - 'Certain bivariate bicycle codes admit a cup product structure and can thus have logical gates in the \term{Clifford hierarchy} implemented by constant-depth Clifford circuits \cite{arxiv:2410.16250}.'
 
   rate: 'When ancilla qubit overhead is included, the encoding rate of the weight-six codes of Ref. \cite{arxiv:2308.07915} surpasses that of the surface code.
-  A general \([[n,k,d]]\) bivariate bicycle code requires \(n\) ancilla qubits for encoding, meaning that its \textit{ancilla-added encoding rate} is \(k/2n\).
-  BB codes have zero design rate, so all of their logical qubits come from dependent stabilizer generators \cite{arxiv:2609.30069}.'
+    A general \([[n,k,d]]\) bivariate bicycle code requires \(n\) ancilla qubits for encoding, meaning that its \textit{ancilla-added encoding rate} is \(k/2n\).
+    BB codes have zero design rate, so all of their logical qubits come from dependent stabilizer generators \cite{arxiv:2609.30069}.'
 
   fault_tolerance:
     - 'Fault-tolerant state initialization using lattice surgery techniques \cite{arxiv:2110.10794,arxiv:2308.08648} and an ancillary surface code \cite{arxiv:2308.07915}.'
@@ -120,6 +120,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-03'
     - user_id: VictorVAlbert
       date: '2026-10-27'
     - user_id: VictorVAlbert
