@@ -30,8 +30,11 @@ protection: |
   In standard form, error detection reduces to detecting the induced binary error patterns \(C_{S}(E)\) with the underlying classical code, together with the requirement that any error satisfying \(C_{S}(E)=0\) commute with every word operator \cite{arxiv:0708.1021}.
   The code distance of \(\mathcal{Q} = ( \mathcal{G},\mathcal{C}) \) is upper bounded by the distance of the classical code \(\mathcal{C} \).
   A CWS code is degenerate if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure} \cite{arxiv:0912.3245}.
-  The \hyperref[topic:quantum-weight-enumerator]{pure distance} is upper bounded by \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\) \cite{arxiv:0712.1979,arxiv:2107.11286}.
-  For additive CWS codes realizable from a fixed graph \(\mathcal{G}\), Ref. \cite{arxiv:1108.5490} derives upper bounds on the distance and proves a Gilbert-Varshamov existence bound matching the standard pure-stabilizer bound up to the graph-state distance \(d'(\mathcal{G})\).
+  The \textit{diagonal distance} of a CWS code is the minimum weight of a non-identity Pauli string \(Q\) with \(\langle\mathcal{G}|Q|\mathcal{G}\rangle\neq 0\), i.e., the distance of the graph state \(|\mathcal{G}\rangle\) \cite{arxiv:0712.1979}.
+  It depends only on the graph, and a CWS code whose distance exceeds it is \hyperref[topic:degeneracy]{degenerate} \cite{arxiv:1108.5490,arxiv:2107.11286}.
+  The diagonal distance is at most \(\delta + 1\), where \(\delta\) is the minimum degree of \(\mathcal{G}\) \cite{arxiv:2107.11286}.
+  For graphs without four-cycles, it equals \(\delta\) or \(\delta+1\) \cite[Thm. A]{arxiv:2107.11286}.
+  For additive CWS codes realizable from a fixed graph \(\mathcal{G}\), Ref. \cite{arxiv:1108.5490} derives upper bounds on the distance and proves a Gilbert-Varshamov existence bound matching the standard pure-stabilizer bound up to the diagonal distance of \(\mathcal{G}\).
 
 features:
   encoders:
