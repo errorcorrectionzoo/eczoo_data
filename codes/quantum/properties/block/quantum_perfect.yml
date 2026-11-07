@@ -27,7 +27,7 @@ description: |
   where \(h\) is the binary entropy function.
 
   The standard counting proof of the bound assumes a \hyperref[topic:degeneracy]{non-degenerate} code \cite{arxiv:2606.15558}.
-  All \(((n,K,d))\) codes with \(K>1\) on qudits of any integer dimension \(q\geq 2\), including degenerate and nonadditive codes, satisfy the quantum Hamming bound \cite{arxiv:2606.15558,arxiv:2606.22538,arxiv:2610.30088}.
+  All \(((n,K,d))\) codes with \(K>1\) on qudits of any integer dimension \(q\geq 2\), including \hyperref[topic:quantum-weight-enumerator]{impure} and nonadditive codes, satisfy the quantum Hamming bound \cite{arxiv:2606.15558,arxiv:2606.22538,arxiv:2610.30088}.
   Qubit stabilizer codes correcting up to two errors \cite{arxiv:quant-ph/9705052} and qudit stabilizer codes correcting two errors \cite{arxiv:0711.4603} do not violate the bound.
   The same holds for qudit CSS codes of qudit dimension \(q\geq 5\) along with certain other codes \cite{arxiv:0811.1621} and for qubit codes of distance \(d<127\) \cite{arxiv:2208.11800}.
   A quantum Hamming-like bound exists for \hyperref[topic:degeneracy]{degenerate} qubit stabilizer codes \cite{arxiv:2306.00048}.
@@ -37,14 +37,16 @@ protection: |
   For qubits (\(q=2\)), the only nontrivial perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.
   For qudits, the corresponding family is the \([[\frac{q^{2r}-1}{q^{2}-1},\frac{q^{2r}-1}{q^{2}-1}-2r,3]]_q\) family of quantum twisted codes \cite{arxiv:0907.0049,doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}.
 
-  For codes of distance \(2t+1+\sigma\) with \(t\geq 1\) and \(\sigma\in\{0,1\}\), the \textit{quantum Hamming-Singleton bounds} \cite{arxiv:1005.4758}
+  For codes of distance \(2t+1+\sigma\) with \(t\geq 1\) and \(\sigma\in\{0,1\}\), the \textit{quantum Hamming-Singleton bounds} \cite[Thm. 1]{arxiv:1005.4758}
   \begin{align}
   K\,q^{4e+2\sigma}\sum_{j=0}^{t-e}(q^2-1)^{j}{n-2e-\sigma \choose j}\leq q^{n}\qquad(0\leq e\leq t)
   \end{align}
   reduce to the quantum Hamming bound for \(e=\sigma=0\) and to the \hyperref[code:quantum_mds]{quantum Singleton bound} for \(e=t\).
-  Rounding each zero of the associated degree-\((t-e)\) Lloyd polynomial over an alphabet of size \(q^2\) to a pair of adjacent integers yields the \textit{strengthened quantum Hamming bounds} \cite{arxiv:1005.4758}.
+  The \textit{strengthened quantum Hamming bounds} \cite[Thm. 2]{arxiv:1005.4758} read \(Kg(0)\leq q^{n}\,\mathbb{E}g(X)\) for \(X\sim\mathrm{Bin}(n,1-q^{-2})\), where \(g(x)=\binom{n-x}{2e+\sigma}\prod_{\xi}(x-\lfloor\xi\rfloor)(x-\lfloor\xi\rfloor-1)\) \cite[Sec. 2.1]{arxiv:2610.30088}.
+  Here, \(\xi\) runs over the zeros of the degree-\((t-e)\) Lloyd polynomial at length \(n-2e-\sigma\) over an alphabet of size \(q^2\).
+  In other words, each zero is rounded to a pair of adjacent integers.
   Each strengthened bound is strictly stronger than its Hamming-Singleton counterpart exactly when some Lloyd zero is not an integer \cite[Sec. 5.1]{arxiv:2610.30088}.
-  The strengthened bounds hold for all codes with \(K>1\) on qudits of any integer dimension, including \hyperref[topic:quantum-weight-enumerator]{impure} and nonadditive codes \cite[Thm. 2.1]{arxiv:2610.30088}, proving a conjecture of Ref. \cite{arxiv:1005.4758}.
+  The strengthened bounds hold for all codes with \(K>1\) \cite[Thm. 2.1]{arxiv:2610.30088}, proving a conjecture of Ref. \cite{arxiv:1005.4758}.
 
 # The trivial code (\(k=n\)) is also perfect.
 
@@ -67,8 +69,6 @@ relations:
       detail: 'For qubits (\(q=2\)), the only nontrivial perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.'
     - code_id: q-ary_hamming
       detail: 'For qubits (\(q=2\)), the only nontrivial perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.'
-    - code_id: quantum_mds
-      detail: 'The quantum Hamming-Singleton bounds interpolate between the quantum Hamming bound, saturated by perfect quantum codes, and the quantum Singleton bound, saturated by quantum MDS codes \cite{arxiv:1005.4758}.'
 
 
 
