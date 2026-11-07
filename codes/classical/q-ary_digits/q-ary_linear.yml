@@ -28,6 +28,11 @@ protection: |
   Distance \(d\) of a linear code is the number of nonzero entries in the (nonzero) codeword with the smallest such number.
   A linear code corrects an error set precisely when the difference of any pair of distinct errors is not a codeword, equivalently when distinct errors have distinct syndromes under the parity check matrix.
 
+  Random puncturings of a linear code of relative distance at least \(1-1/q-\epsilon^2\) retain, with constant probability, list decodability up to radius \(1-1/q-O(\epsilon)\) with list size \(O(1/\epsilon^2)\) (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Cor. 1]{arxiv:1310.1891}.
+  The punctured codes reach rate \(\Omega(\min\{\epsilon,q\epsilon^2\}/(\log q\log^5(1/\epsilon)))\), which is within polylogarithmic factors in \(1/\epsilon\) of the list-decoding capacity when \(q\) is at most polynomial in \(1/\epsilon\) \cite[Sec. 4.3]{arxiv:1310.1891}.
+  Random linear codes are random puncturings of the \(q\)-ary Hadamard code and thus satisfy the same guarantee \cite[Sec. 4.3]{arxiv:1310.1891}.
+  Random linear codes over large fields are list-recoverable and list-decodable up to near-optimal rates \cite{arxiv:1704.02420}.
+
 
 features:
   rate: 'Any code admitting a two-transitive automorphism group achieves capacity under the binary erasure channel \cite{arxiv:1505.05123,arxiv:1601.04689,arxiv:2010.15453}.'
@@ -37,7 +42,6 @@ features:
     - 'Information set decoding (ISD) \cite{doi:10.1007/978-3-642-12929-2_7}, a probabilistic decoding strategy that essentially tries to guess \(k\) correct positions in the received word, where \(k\) is the size of the code. Then, an error vector is constructed to map the received word onto the nearest codeword, assuming the \(k\) positions are error free. When the Hamming weight of the error vector is low enough, that codeword is assumed to be the intended transmission.'
     - 'Generalized minimum-distance decoder \cite{doi:10.1109/TIT.1966.1053873}.'
     - 'Soft-decision maximum-likelihood trellis-based decoder \cite{doi:10.1109/TIT.1978.1055821}.'
-    - 'Random linear codes over large fields are list-recoverable and list-decodable up to near-optimal rates \cite{arxiv:1704.02420}.'
     - 'Extensions of algebraic-geometry decoders to linear codes \cite{manual:{R. Kötter. A unified description of an error locating procedure for linear codes. In D. Yorgov, editor, Proc. 3rd International Workshop on Algebraic and Combinatorial Coding Theory, pages 113–117, Voneshta Voda, Bulgaria, June 1992. Hermes},doi:10.1016/0012-365X(92)90567-Y}.'
 
 # The best information set decoding algorithms have an average time complexity of exponential time - approximately \(n^{3}2^{n}\).
@@ -62,6 +66,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-07'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
