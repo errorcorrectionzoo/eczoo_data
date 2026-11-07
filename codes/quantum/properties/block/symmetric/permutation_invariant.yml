@@ -51,7 +51,11 @@ features:
   encoders:
     - 'State preparation of qudit Dicke states \cite{arxiv:2301.04989}.'
 
-  rate: 'For every \(K,t \geq 2\), there are explicitly constructible PI codes with \(q=N=(K-1)t(t+1)\), length \(N\), and distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.'
+  rate: |
+    For every \(K,t \geq 2\), there are explicitly constructible PI codes with \(q=N=(K-1)t(t+1)\), length \(N\), and distance \(t+1\); there also exist families with logical dimension \(K = o(2^N)\) and distance of \hyperref[topic:asymptotics]{order} \(o(N/\log N)\) \cite{arxiv:2509.20545}.
+    Qudit PI codes of length \(N\) and qudit dimension \(q=\alpha N\) with distance at least \(\lfloor\delta N\rfloor\) and logical dimension \(2^{\Omega(N)}\) (using \hyperref[topic:asymptotics]{asymptotic notation}) exist for sufficiently small \(\delta>0\) \cite[Thm. 14]{arxiv:2603.15190}.
+    They are obtained from asymptotically good Fock-state codes via the \hyperref[topic:qudit-dicke]{simplex mapping} \cite[Thm. 14]{arxiv:2603.15190}.
+    Each codeword is a superposition of qudit Dicke states in which every symbol appears at most \(O(\log N)\) times \cite[Sec. 5.1]{arxiv:2603.15190}.
 
   transversal_gates:
     - 'Qudit Dicke states are in one-to-one correspondence with points on the \hyperref[topic:discrete-simplex]{discrete simplex} \(\Delta_{q,n}\), which houses the totally symmetric irrep of \(SU(q)\) \cite{arxiv:2509.20545}. Any transversal gates of the form \(U^{\otimes N}\), with \(U \in SU(q)\), will implement logical operations in a subgroup of \(SU(q)\).'
@@ -82,6 +86,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
