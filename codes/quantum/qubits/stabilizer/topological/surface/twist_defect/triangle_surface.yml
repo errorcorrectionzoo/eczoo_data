@@ -40,7 +40,7 @@ description: |
 
 features:
   rate: 'Symmetric distance-\(d\) triangle codes use \(3d^2/4+1/4\) data qubits per logical qubit.
-  Including ancillas needed for planar Clifford computation, the CC, BC, and CS architectures use \(3d^2+O(d)\), \(9d^2/4+O(d)\), and \(6d^2/4+O(d)\) physical qubits per logical qubit, respectively \cite[Table 2]{arxiv:1612.04795}.'
+    Including ancillas needed for planar Clifford computation, the CC, BC, and CS architectures use \(3d^2+O(d)\), \(9d^2/4+O(d)\), and \(6d^2/4+O(d)\) physical qubits per logical qubit, respectively \cite[Table 2]{arxiv:1612.04795}.'
 
   encoders:
     - 'Code conversion (CC) initialization and measurement method, in which the surface code is used to hold data between gates in patches.'
@@ -52,13 +52,13 @@ features:
     # So this converts from the surface code where initialization and measurement is well-known to the triangle code.
     # Since this procudure is heavily based on the surface code, storing data with distance at least \(d\) can be stored without converting to triangle patches. However
     - 'Basis-state conversion (BC) initialization and measurement method in which one initializes and then measures a logical Pauli eigenstate.
-    To do this, triangle ancilla qubits are required outside of the triangle patches that hold the data.
-    That is, the ancilla patches must be empty of data and be adjacent to the side that contains the logical Pauli that needs to be measured or initialized.'
+      To do this, triangle ancilla qubits are required outside of the triangle patches that hold the data.
+      That is, the ancilla patches must be empty of data and be adjacent to the side that contains the logical Pauli that needs to be measured or initialized.'
 # The method uses fewer qubits than the CC method to convert a basis state from the surface code to the triangle code. It also uses fewer qubits than the CC method to measure the basis-state transversally. This method preps a basis state in a \(d \times d\) surface code as the CC method except now instead of treating the surface code as \(1/3\) of a triangle patch, it is \(2/3\). To convert to the surface code, stop measuring the bottom loop operators of the patch and measure the stabilizers of a \((d+1)/2 \times (d+1)/2 \times d\) triangle code \(O(d)\) times. Then, symmetrize the triangle code by measuring the stabilizers and not measuring the stabilizers in the topmost rows.
     - 'The CAT states (CS) initialization and measurement method uses a row of \(d\) ancilla qubits along some edge of a triangle code with distance \(d\) to create and verify a GHZ state that is used to measure the logical operator along the same edge.
-    Creating this GHZ state takes \(O(d)\) time steps.
-    To reliably measure the logical state, the GHZ state must be measured \(O(d)\) times, resulting in \(O(d^2)\) time for logical measurement.
-    Initialization is a similar procedure that requires \(O(d^2)\) time for logical-operator measurements that occur \(O(d)\) times as well as \(O(d^2)\) time to project the code onto a logical state \cite{arxiv:1612.04795}.'
+      Creating this GHZ state takes \(O(d)\) time steps.
+      To reliably measure the logical state, the GHZ state must be measured \(O(d)\) times, resulting in \(O(d^2)\) time for logical measurement.
+      Initialization is a similar procedure that requires \(O(d^2)\) time for logical-operator measurements that occur \(O(d)\) times as well as \(O(d^2)\) time to project the code onto a logical state \cite{arxiv:1612.04795}.'
 
   transversal_gates:
     - 'Triangle codes admit transversal order-three single-qubit gates in the \hyperref[topic:clifford]{Clifford group}, e.g., \(\bar{SH}\) \cite{arxiv:1612.04795}.'
@@ -68,19 +68,19 @@ features:
   general_gates:
     - 'Triangle codes admit a distillation-free implementation of the full Clifford group using lattice surgery, 1-bit teleportation, and patch reorientation \cite{arxiv:1612.04795}.'
     - 'Performing single-qubit gates in the \hyperref[topic:clifford]{Clifford group} using the CC procedure requires surface code patches to be embedded in triangle patches.
-    This procedure requires \(O(d)\) Clifford gate times for \(H,S,CNOT\) \cite{arxiv:1612.04795}.'
+      This procedure requires \(O(d)\) Clifford gate times for \(H,S,CNOT\) \cite{arxiv:1612.04795}.'
     - 'The BC procedure requires \(O(1)\) time to perform \(H,S\) gates and \(O(d)\) time to perform \(CNOT\).
-    Sometimes reorientation of the sides is required, and that takes \(O(d)\) to perform \cite{arxiv:1612.04795}.'
+      Sometimes reorientation of the sides is required, and that takes \(O(d)\) to perform \cite{arxiv:1612.04795}.'
 
   decoders:
     - 'The decoding uses a single decoding graph since the triangle code is not a CSS code.
-    Nodes of the graph are located at each stabilizer (center of the triangle graph) and have red or blue edges, where red associates with \(X\) errors and blue with \(Z\) errors.
-    To take into account any errors from measuring the error syndrome, a three-dimensional stack of decoding graphs is laid on top of the code with vertical edges connecting qubits between layers \cite{arxiv:1612.04795}.'
+      Nodes of the graph are located at each stabilizer (center of the triangle graph) and have red or blue edges, where red associates with \(X\) errors and blue with \(Z\) errors.
+      To take into account any errors from measuring the error syndrome, a three-dimensional stack of decoding graphs is laid on top of the code with vertical edges connecting qubits between layers \cite{arxiv:1612.04795}.'
 
   fault_tolerance:
     - 'The symmetry of triangle codes allows for fault-tolerant measurement and encoding in any Pauli basis \cite{arxiv:1612.04795}.'
     - 'A non-fault-tolerant circuit initializes the triangle code.
-    To guarantee fault-tolerance, post-selection is performed on trivial measurements of the syndrome and of the logical Pauli, depending on the basis of the logical states \cite{arxiv:1612.04795}.'
+      To guarantee fault-tolerance, post-selection is performed on trivial measurements of the syndrome and of the logical Pauli, depending on the basis of the logical states \cite{arxiv:1612.04795}.'
     - 'Making syndrome extraction fault tolerant requires a specific ordering of syndrome measurements so as to avoid \hyperref[topic:effective-distance]{hook errors} \cite{arxiv:1612.04795}.'
 
 # , instead of using the conventional ordering of coupling to the loop after coupling to the plaquette, the extraction has the coupling to the loop interwoven with the coupling to the plaquette.
@@ -88,13 +88,13 @@ features:
 
   code_capacity_threshold:
     - '\(10\%\) under either bit-flip or bit-phase noise for ideal syndrome measurements.
-    The decoder used is a decoding graph with the same weight assigned to each edge, and Dijkstra''s algorithm is used to compute the total weight of any path \cite{arxiv:1612.04795}.'
+      The decoder used is a decoding graph with the same weight assigned to each edge, and Dijkstra''s algorithm is used to compute the total weight of any path \cite{arxiv:1612.04795}.'
 
   threshold:
     - '\(3.2\%\) bit-flip error-correction threshold for noisy syndrome measurements and \(2.6\%\) for bit-phase flip noise.
-    The decoder used is a decoding graph as described above \cite{arxiv:1612.04795}.'
+      The decoder used is a decoding graph as described above \cite{arxiv:1612.04795}.'
     - 'In general, the triangular surface code has a provable threshold of similar magnitude to that of the toric code for uncorrelated \(X\) and \(Z\) errors.
-    For correlated errors, the provable threshold is lower by a factor of about \(36\) \cite{arxiv:1612.04795}.'
+      For correlated errors, the provable threshold is lower by a factor of about \(36\) \cite{arxiv:1612.04795}.'
 
 
 relations:
