@@ -19,7 +19,9 @@ protection: 'Detects single-qubit errors.'
 
 features:
   rate: 'Encoding rate is \(3k/(6k+2)\), approaching \(1/2\) as \(k\to\infty\).'
-  magic_scaling_exponent: 'A total of \(r\) rounds of magic-state distillation yields a magic-state yield parameter \(\gamma\to 1^{+}\) as \(k,r\rightarrow \infty\). This matches the Bravyi-Haah conjectured lower bound \(\gamma \geq 1\) for concatenated triorthogonal-matrix protocols \cite[Sec. VI]{arxiv:1209.2426}.'
+  magic_scaling_exponent: |
+    One round consumes \(6k+2\) noisy \(T\) states per \(k\) output \(CCZ\) states, approaching six per \(CCZ\) state as \(k\to\infty\) \cite[Sec. IV.A]{arxiv:1606.01904}.
+    Counting each output \(CCZ\) state as three output qubits, the \(k=1\) member \([[8,3,2]]\) yields \(\gamma=\log_2(8/3)\approx 1.4\) \cite[Appx. F]{arxiv:2606.28518}.
   transversal_gates:
     - 'Quasi-transversal \(CCZ^{\otimes k}\) gates \cite{arxiv:1606.01904}.'
 
