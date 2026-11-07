@@ -12,12 +12,12 @@ introduced: '\cite{doi:10.17487/RFC760,doi:10.17487/RFC761}'
 
 description: |
   Checksum code that divides a binary string into 16-bit words and appends the one's complement of their one's complement sum \cite{doi:10.17487/RFC1071}.
-  One's complement addition of 16-bit words is addition modulo \(2^{16}-1\).
-  A received string passes the check when all of its words, including the checksum, sum to zero modulo \(2^{16}-1\).
+  One's complement addition of 16-bit words is addition modulo \(2^{16}-1\), with both all zeros and all ones representing zero.
+  A received string passes the check when the one's complement sum of all of its words, including the checksum, is all ones.
 
 protection: |
   Detects all burst errors of length at most 15, including all single-bit errors \cite[Sec. 3.3]{doi:10.1109/TDSC.2007.70216}.
-  Errors that preserve the sum modulo \(2^{16}-1\) go undetected, e.g., reordering the 16-bit words or changing a word from all zeros to all ones \cite[Sec. 3.3]{doi:10.1109/TDSC.2007.70216}.
+  Errors that preserve the one's complement sum go undetected, e.g., reordering the 16-bit words or changing a word from all zeros to all ones \cite[Sec. 3.3]{doi:10.1109/TDSC.2007.70216}.
 
 realizations:
   - 'Internet protocol suite: error detection for IPv4 headers and for TCP and UDP segments \cite{doi:10.17487/RFC791,doi:10.17487/RFC793,doi:10.17487/RFC768}.'
