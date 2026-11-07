@@ -30,9 +30,15 @@ features:
 
   decoders:
     - 'Repetition-based decoder, based on the three underlying repetition codes and improved by pre-treatment with a probabilistic greedy local algorithm \cite{arxiv:2303.05267}.'
+    - 'Generalized MWPM decoder \cite{arxiv:2207.06428} that matches defects on each plane normal to a \((\pm 1,\pm 1,\pm 1)\) direction and corrects the resulting clusters with a sweeping decoder adapted from the broom algorithm \cite{arxiv:1112.3252,arxiv:2411.03443}.
+      Its greedy-matching and belief-matching \cite{arxiv:2203.04948} variants add a greedy or belief-propagation initialization step before matching \cite{arxiv:2411.03443}.'
 
   code_capacity_threshold:
     - 'Depolarizing noise: \(4.92\%\) with repetition-based decoder \cite{arxiv:2303.05267}.'
+    - 'Depolarizing noise: \(10.5\%\) under the belief-matching variant of the generalized MWPM decoder, \(\approx 6\%\) under its greedy-matching variant, and \(\approx 5\%\) under the basic decoder \cite{arxiv:2411.03443}.'
+
+notes:
+  - 'Implementation of the generalized matching decoders is available on \href{https://github.com/zoharno/chamon_decoder}{GitHub} \cite{arxiv:2411.03443}.'
 
 relations:
   parents:
@@ -47,6 +53,10 @@ relations:
 
 _meta:
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-06'
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-09-24'
     - user_id: VictorVAlbert
