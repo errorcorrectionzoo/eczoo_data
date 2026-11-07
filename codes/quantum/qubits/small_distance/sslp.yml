@@ -13,22 +13,19 @@ introduced: '\cite{arxiv:2504.20847}'
 
 
 description: |
-  Qubit block quantum code that encodes a logical qubit and that is constructed using the Subset-Sum-Linear-Programming (SS-LP) numerical construction.
-  SS-LP codes are optimized to admit diagonal gates transversally and include \(((7,2,3))\) codes that realize the \(\mathsf{BD}_{16}\) and \(\mathsf{BD}_{32}\) groups transversally, yielding \(T\) and \(\sqrt{T}\) gates, respectively. Larger codes include an \(((8,2,3))\) code that transversally realizes \(\mathsf{BD}_{64}\).
+  Qubit block quantum code whose logical basis states lie in disjoint subset-sum sectors of a finite-order diagonal transversal gate, which therefore acts as a logical diagonal gate \cite{arxiv:2504.20847}.
+  A linear program on the \(Z\)-type Knill-Laflamme conditions screens each candidate gate before the remaining conditions are solved for the amplitudes \cite{arxiv:2504.20847}.
 
-  The construction starts from a transversal gate \(\bigotimes_{j=1}^{n}\text{diag}(1,e^{2\pi i a_j/q})\) with integers \(a_j\), which multiplies a basis state \(|x\rangle\) by \(e^{2\pi i\, a\cdot x/q}\) \cite{arxiv:2504.20847}.
-  Each logical basis state is supported on bit strings with one value of the subset sum \(a\cdot x \bmod q\), distinct for the two states.
-  The gate thus acts as a logical diagonal gate.
-  The \(Z\)-type Knill-Laflamme conditions are linear in the squared amplitudes, so a linear program screens each choice of \(a\) before the remaining conditions are solved for the amplitudes \cite{arxiv:2504.20847}.
-
-  Every code encoding a qubit with distance at least two and a nontrivial transversal diagonal logical gate has this form up to qubit permutations and bit flips \cite[Cor. III.5]{arxiv:2610.29955}.
-  The gate can be chosen with order \(q\) bounded by a function of \(n\), so finitely many gates describe all such codes of a given length \cite[Sec. III.C]{arxiv:2610.29955}.
-  For \(((6,2,3))\) codes, \(q\leq 9\) suffices \cite[Eq. (89)]{arxiv:2610.29955}.
+  The gate \(\bigotimes_{j=1}^{n}\text{diag}(1,e^{2\pi i a_j/q})\) with integers \(a_j\) multiplies \(|x\rangle\) by \(e^{2\pi i\, a\cdot x/q}\), and each logical basis state is supported on bit strings with a single value of \(a\cdot x \bmod q\) \cite{arxiv:2504.20847}.
+  Every code encoding a qubit with distance at least two that has a diagonal transversal gate with nontrivial logical action admits an SS-LP description \cite[Cor. III.5]{arxiv:2610.29955}.
+  This holds even when the gate has infinite order, since a finite-order diagonal transversal gate induces the same logical action up to a phase \cite[Thm. III.2]{arxiv:2610.29955}.
+  More generally, each logical eigenspace of such a gate on an \(((n,K,d))\) code with \(d\geq 2\) lies in one subset-sum sector \cite[Thm. III.4]{arxiv:2610.29955}.
+  The gate can be chosen with order \(q\) bounded by a function of \(n\) and \(K\), so finitely many gates suffice for every such code of a given length \cite[Thm. III.9]{arxiv:2610.29955}.
 
 
 features:
   transversal_gates:
-    - 'SS-LP codes are optimized to admit diagonal gates transversally and include \(((7,2,3))\) codes that realize the \(\mathsf{BD}_{16}\) and \(\mathsf{BD}_{32}\) groups transversally, yielding \(T\) and \(\sqrt{T}\) gates, respectively. Larger codes include an \(((8,2,3))\) code that transversally realizes \(\mathsf{BD}_{64}\).'
+    - 'SS-LP codes are optimized to admit diagonal gates transversally and include \(((7,2,3))\) codes that realize the \(\mathsf{BD}_{16}\) and \(\mathsf{BD}_{32}\) groups transversally, yielding \(T\) and \(\sqrt{T}\) gates, respectively. Larger codes include an \(((8,2,3))\) code that transversally realizes \(\mathsf{BD}_{64}\) \cite{arxiv:2504.20847}.'
 
 
 
