@@ -11,7 +11,7 @@ name: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf code'
 introduced: '\cite{arxiv:2609.26691}'
 
 description: |
-  One of three degree-two DLV codes with projective Reed-Solomon local codes on a common six-dimensional arithmetic cubical complex, which together admit \(\Theta(N)\) addressable and parallel transversal logical \(CCZ\) gates for block length \(N\) \cite{arxiv:2609.26691}.
+  One of three degree-two Reed-Solomon cubical sheaf codes on a common six-dimensional complex, which together admit \(\Theta(N)\) addressable and parallel transversal logical \(CCZ\) gates for block length \(N\) \cite{arxiv:2609.26691}.
   The physical gate applies a phase given by the cup product of the three blocks' degree-two cochains, evaluated on a degree-six cycle.
 
   The phase is invariant under adding coboundaries, so it acts on logical classes \cite[Prop. 2.10]{arxiv:2609.26691}.
@@ -19,8 +19,6 @@ description: |
   Since these pairs partition the six directions, one cup-product term contributes on each six-cell \cite[Sec. 3.2]{arxiv:2609.26691}.
   Multiplying a fixed degree-two cocycle of each block by \(\Omega(N)\) global sections of an auxiliary sheaf yields logical classes that Poincaré-dual cycles pair diagonally \cite[Thm. 3.11]{arxiv:2609.26691}.
   The choice of cycle selects which logical triples receive a \(CCZ\) gate \cite[Sec. 3.3]{arxiv:2609.26691}.
-
-protection: 'Each block is an \([[N,\Theta(N),\Theta(N)]]\) code (using \hyperref[topic:asymptotics]{asymptotic notation}) with bounded check weight and qubit degree, and constant soundness \cite[Thm. 1.1 and Sec. 3.4]{arxiv:2609.26691}.'
 
 features:
   rate: 'Constant rate in all three blocks \cite[Sec. 3.4]{arxiv:2609.26691}.'
@@ -34,23 +32,13 @@ features:
     - 'Constant-depth single-shot decoder based on parallel local flips for the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691} \cite[Lemmas 6.8 and 6.11]{arxiv:2609.28461}.'
 
   fault_tolerance:
-    - |
-      In the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, dense storage blocks pass batches of logical qubits by \hyperref[topic:code-switching]{code switching} into the active subspaces of the transversal \(CCZ\) gate \cite{arxiv:2609.28461}.
-      Only stabilizer resource states then require separate preparation \cite{arxiv:2609.28461}.
-      Under locally stochastic noise and for sufficiently wide circuits, a width-\(W\), depth-\(D\) circuit is simulated in depth \(O(D\log(WD/\varepsilon))\), i.e., with strictly logarithmic time overhead \cite[Thm. 3.12]{arxiv:2609.28461}.
-      For polynomial depth, inverse-polynomial target error \(\varepsilon\), and sufficiently large \(W\), it uses \(O(W)\) physical qubits \cite[Thm. 3.12 and Cor. 3.13]{arxiv:2609.28461}.
+    - 'For an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, fault tolerance against locally stochastic noise has strictly logarithmic time and constant space overheads for sufficiently wide circuits \cite[Thm. 3.12 and Cor. 3.13]{arxiv:2609.28461}. A width-\(W\), depth-\(D\) circuit runs in depth \(O(D\log(WD/\varepsilon))\), and only stabilizer resource states require separate preparation \cite{arxiv:2609.28461}.'
 
 relations:
   parents:
-    - code_id: dlv
-      detail: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf codes are degree-two DLV codes with projective Reed-Solomon local codes on a six-dimensional arithmetic quotient of a product of Bruhat-Tits trees \cite[Sec. 3.1]{arxiv:2609.26691}. They come in triples whose blocks use lower-degree local codes in distinct pairs of directions. The cup product of their cochains yields a linear number of addressable transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
-    - code_id: qltc
-      detail: 'Each block of a transversal-\(CCZ\) Reed-Solomon cubical sheaf code triple is a \(c^3\)-QLTC \cite[Thm. 1.1]{arxiv:2609.26691}.'
-  cousins:
     - code_id: rs_cubical_sheaf
-      detail: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf codes and Reed-Solomon cubical sheaf codes both place projective Reed-Solomon local codes on arithmetic quotients of products of Bruhat-Tits trees. The former use the complex of Ref. \cite{arxiv:2609.26735}, the product expansion of Ref. \cite{arxiv:2609.20780}, and a Frobenius twist \(x\mapsto x^{2^h}\) \cite[Secs. 3.1 and 3.4]{arxiv:2609.26691}.'
-    - code_id: good_qldpc
-      detail: 'The transversal-\(CCZ\) Reed-Solomon cubical sheaf construction yields good QLDPC codes with a linear number of addressable and parallel transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
+      detail: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf codes are degree-two Reed-Solomon cubical sheaf codes on six-dimensional complexes, taken in triples whose blocks use lower-degree local codes in distinct pairs of directions \cite[Sec. 3.1]{arxiv:2609.26691}. The cup product of their cochains yields a linear number of addressable transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
+  cousins:
     - code_id: single_shot
       detail: 'In the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, transversal-\(CCZ\) Reed-Solomon cubical sheaf codes admit a constant-depth single-shot decoder based on parallel local flips \cite[Lemmas 6.8 and 6.11]{arxiv:2609.28461}.'
     - code_id: galois_polynomial
