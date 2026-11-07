@@ -16,10 +16,12 @@ alternative_names:
 
 description: |
   A BB code which requires fewer physical and ancilla qubits (for syndrome extraction) than the surface code with the same number of logical qubits and distance.
+  It is the BB code with \(\ell=12\), \(m=6\), \(A=x^3+y+y^2\), and \(B=y^3+x+x^2\) \cite[Table 3]{arxiv:2308.07915}.
+  Laid out on a torus, each check acts on four nearest-neighbor qubits, as in the toric code, and on two long-range qubits \cite[Fig. 1]{arxiv:2308.07915}.
+
   The gross code is a finite-size member of a family of 2D stabilizer codes whose bulk topological order is that of 8 copies of the surface code \cite{arxiv:2410.11942}.
   The name stems from the fact that a gross is a dozen dozen.
-
-  The polynomials \(A=x^3+y+y^2\) and \(B=y^3+x+x^2\) of the \hyperref[code:gross]{gross code} on \(\ell=m=12\) yield an indecomposable \([[288,16,12]]\) code \cite[Table III]{arxiv:2606.02418}.
+  The same polynomials with \(\ell=m=12\) yield an indecomposable \([[288,16,12]]\) code \cite[Table III]{arxiv:2606.02418}.
   A different \([[144,12,12]]\) QLDPC code was introduced as an end-cycle code of a \([[288,12,18]]\) BB code in \cite{arxiv:2407.16336}.
 # https://twitter.com/jaygambetta/status/1773099803561381995
 
@@ -77,6 +79,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-03'
     - user_id: VictorVAlbert
       date: '2026-10-26'
     - user_id: CarsonCrocker
