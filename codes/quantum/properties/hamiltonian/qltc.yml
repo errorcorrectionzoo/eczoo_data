@@ -7,7 +7,7 @@ code_id: qltc
 
 name: 'Quantum locally testable code (QLTC)'
 short_name: 'QLTC'
-introduced: '\cite{arxiv:1310.5664}'
+introduced: '\cite{arxiv:1301.3407,arxiv:1310.5664}'
 
 description: |
   A local-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, testing a randomly chosen local projector must reject states far from the codespace with probability bounded away from zero as \(n\) grows.
@@ -35,6 +35,11 @@ description: |
 
 
 protection: |
+  The \textit{robustness} \(\rho(\delta)\) of an SLTC whose qudits each lie in \(D\) generators is the largest \(\rho\) such that every Pauli error of weight \(\delta n\), taken modulo the centralizer, violates at least \(\rho D\delta n\) generators \cite[Def. 9]{arxiv:1301.3407}.
+  For \(u\)-local generators on \(q\)-dimensional qudits, distance at least two, and no nontrivial stabilizer of weight below \(u\), \(\rho(\delta)\leq 1-1/(q^2-1)\) for \(\delta\leq 1/(u^3D)\) \cite[Fact 4]{arxiv:1301.3407}.
+  If also \(u\geq 4\) and the distance is at least \(u\), then \(\rho(\delta')\leq(1-1/(q^2-1))(1-\gamma)\) with \(\gamma\geq\min\{10^{-3},0.01/u\}\), for some \(\delta'\) within \(1\%\) of any sufficiently small constant \(\delta\) \cite[Thm. 4]{arxiv:1301.3407}.
+  If the distance is at least two and every set \(S\) of at most \(u\) qudits lies in at least \((1-\epsilon)D|S|\) generators with \(\epsilon<1/2\), then \(\rho(\delta)\leq 2\epsilon\) for all \(\delta<\min\{1/(u^3D),\delta_C/2\}\), where \(\delta_C\) is the relative distance \cite[Thm. 3]{arxiv:1301.3407}.
+
   Distance balancing and weight reduction are useful for constructing QLTCs.
   For CSS QLTC families satisfying \(d_Z=\omega(w_Zw_X)\), a slightly modified version of the weight-reduction procedure of Ref. \cite{arxiv:2102.10030} yields QLTCs of constant locality \cite[Lemma 3.8]{arxiv:2309.05541}.
   If the numbers of \(X\)- and \(Z\)-checks are both \(\Theta(n)\) and the input soundness parameters are \(O(1)\), the soundness losses are polynomial in \(w_X,w_Z,q_X,q_Z\).
@@ -72,6 +77,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-16'
     - user_id: VictorVAlbert
