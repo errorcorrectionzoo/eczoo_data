@@ -10,32 +10,40 @@ short_name: 'QLTC'
 introduced: '\cite{arxiv:1310.5664}'
 
 description: |
-  A local commuting-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, states that are far away from the codespace of a QLTC have to be excited states of a number of the code's local projectors that scales linearly with \(n\).
+  A local-projector Hamiltonian-based block quantum code which has a nonzero average-energy penalty for creating large errors. Informally, testing a randomly chosen local projector must reject states far from the codespace with probability bounded away from zero as \(n\) grows.
 
-  The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC families as those for which the soundness is asymptotically constant. QLTC families that also have asymptotically constant distance, rate, and weight of local projectors are called \(c^3\)\textit{-QLTCs}.
+  The average-energy penalty is quantified by the code's \textit{soundness} \(R\). Typically, one looks at how \(R\) scales with increasing code size for infinite families of codes, defining QLTC families as those for which the soundness is asymptotically constant. QLTC families that also have asymptotically constant relative distance, rate, and weight of local projectors are called \(c^3\)\textit{-QLTCs}.
   \(c^3\)-QLTCs were constructed concurrently in Refs. \cite{arxiv:2609.28028,arxiv:2609.20780}, the former being \hyperref[code:rs_cubical_sheaf]{Reed-Solomon cubical sheaf codes}.
 
-  More technically, a QLTC is a code \(\mathsf{C}\) defined as the ground-state space of a commuting-projector Hamiltonian \(H\) consisting of a sum of \(r\) local projectors (where \(r\) typically scales linearly with \(n\)), each of which acts on exactly \(u\) qubits (for some constant \(u\)). Such a code is a \((u,R)\)-QLTC with soundness function \(R(\delta)\in[0,1]\) if
+  More technically, a QLTC is a code \(\mathsf{C}\) defined as the ground-state space of a frustration-free Hamiltonian \(H\) consisting of a sum of \(r\) local projectors (where \(r\) typically scales linearly with \(n\)), each of which acts on at most \(u\) qubits or qudits (for some constant \(u\)). Such a code is a \((u,R)\)-QLTC with soundness function \(R(\delta)\in[0,1]\) if
   \begin{align}
   \label{eq:qltc}
     \forall \delta > 0,|\psi\rangle~:~\text{dist}(|\psi\rangle,C) \geq \delta n \Rightarrow \frac{1}{r}\langle\psi|H|\psi\rangle\geq R(\delta)~,
   \end{align}
   where \(\text{dist}(|\psi\rangle,\mathsf{C})\) is a particular distance function between the state \(|\psi\rangle\) and the codespace \(\mathsf{C}\) \cite[Def. 13]{arxiv:1310.5664}. The locality parameter \(u\) is called the \textit{query complexity} of the code.
 
-  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (SLTC)}. In other words, the code admits a set of \(r\) \(u\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\frac{1}{2}\sum_{i=1}^r (I-S_i)\) satisfies the requirement of being a QLTC.
+  In the linear-soundness formulation, \(R(\delta)=\rho\delta\), where \(\rho\) is the soundness parameter \cite{arxiv:1510.02082}.
 
-  For example, the \([[n=2L^2,k=2,d=L]]\) toric code on an \(L\times L\) lattice is \textit{not} a QLTC because of the following argument. Let \(|\psi\rangle\) be a ground state that is excited by \(L/3\) Pauli strings, each of length \(L/2\). In order to fit on the lattice, such strings can, e.g., be horizontal and aligned next to each other in the vertical direction. The distance function \(\text{dist}(|\psi\rangle,\mathsf{C})\) is the weight of the smallest Pauli string that multiplies \(|\psi\rangle\) to yield a state in the codespace. In this case, that weight is the same as the weight of the perturbing string, i.e., \(L^2/6\), requiring \(\delta = 1/12\) to satisfy \eqref{eq:qltc}. There are \(2L/3\) violated Hamiltonian terms because each of the \(L/3\) strings violates only two stabilizer generators. However, there are \(r = 2(L^2-1)\) stabilizer generators, so the implication of \eqref{eq:qltc} is not satisfied for nonzero soundness as \(L\to\infty\) because \(\frac{1}{r}\langle\psi|H|\psi\rangle = \frac{2L/3}{2(L^2-1)}\to 0\).
+  A qubit, modular-qudit, or Galois-qudit stabilizer code that is locally testable is called a \textit{stabilizer locally testable code (SLTC)}. In other words, the code admits a set of \(r\) \(u\)-local stabilizer generators \(S_i\) whose corresponding code Hamiltonian \(H=\sum_{i=1}^r (I-\Pi_i)\) satisfies the requirement of being a QLTC.
+  Here, \(\Pi_i\) projects onto the \(+1\) eigenspace of \(S_i\), so \(I-\Pi_i=(I-S_i)/2\) for qubits.
+
+  For example, the \([[n=2L^2,k=2,d=L]]\) toric-code family on an \(L\times L\) lattice does not have constant linear soundness \cite{arxiv:1310.5664}.
+  For even \(L\), applying a \(Z\)-type Pauli string along a straight segment of length \(L/2\) to a ground state produces a state \(|\psi\rangle\) at distance \(L/2\) from the codespace.
+  Only the two stabilizer generators at the endpoints are violated.
+  Using all \(r=2L^2\) star and plaquette checks gives \(\langle\psi|H|\psi\rangle/r=1/L^2\), while \(\delta=(L/2)/n=1/(4L)\).
+  Thus, \eqref{eq:qltc} with \(R(\delta)=\rho\delta\) requires \(\rho\leq 4/L\to0\).
 
 
 protection: |
   Distance balancing and weight reduction are useful for constructing QLTCs.
-  For CSS code families with \(w_X,w_Z,q_X,q_Z=O(\log n)\), Hastings' weight-reduction construction yields a QLDPC family whose soundness parameters \(\epsilon_X,\epsilon_Z\) deteriorate by at most polylogarithmic factors \cite[Lemmas 6 and 7]{arxiv:1611.03790}.
-  Analogous scaling for a generalized distance-balancing scheme \cite{arxiv:2004.07935} is proven in \cite[Thm. 1.1]{arxiv:2305.00689}.
-  Weight reduction can be used to construct codes of constant locality out of CSS QLTCs \cite[Thm. 1.1]{arxiv:2309.05541}.
+  For CSS QLTC families satisfying \(d_Z=\omega(w_Zw_X)\), a slightly modified version of the weight-reduction procedure of Ref. \cite{arxiv:2102.10030} yields QLTCs of constant locality \cite[Lemma 3.8]{arxiv:2309.05541}.
+  If the numbers of \(X\)- and \(Z\)-checks are both \(\Theta(n)\) and the input soundness parameters are \(O(1)\), the soundness losses are polynomial in \(w_X,w_Z,q_X,q_Z\).
+  These losses are at most polylogarithmic when \(w_X,w_Z,q_X,q_Z=O(\log n)\).
+  The effect of generalized distance balancing \cite{arxiv:2004.07935} on soundness is established in \cite[Thm. 1.1]{arxiv:2305.00689}.
 
-  \emph{Soundness amplification} \cite[Thm. 1.2]{arxiv:2309.05541} can be used to obtain a constant-soundness (i.e., \(R = \Omega(1)\)) QLTC family from a CSS family with a sub-constant value, with the former's locality being at most polynomial in \(1/R\).
+  \emph{Soundness amplification} \cite[Thm. 1.2]{arxiv:2309.05541} can be used to obtain a constant-soundness (i.e., \(\rho = \Omega(1)\)) QLTC family from a CSS family with sub-constant soundness \(\rho\), with the former's locality at most the latter's locality times a polynomial in \(1/\rho\).
 
-  AEL distance amplification \cite{doi:10.1109/SFCS.1995.492581,doi:10.1109/18.556669} can be used to convert an \([[n^{\prime},k,d,w]]\) soundness-\(R\) CSS LTC family into one with the same dimension, linear distance, and block length differing by at most a constant factor, with \(w\) and \(R\) differing by at most a polynomial factor in \(w\) and \(n/d\) \cite[Thm. 1.3]{arxiv:2309.05541}.
+  AEL distance amplification \cite{doi:10.1109/SFCS.1995.492581,doi:10.1109/18.556669} can be used to convert an \([[n,k,d,w]]\) soundness-\(\rho\) CSS LTC family into one with the same dimension, linear distance, and block length differing by at most a constant factor, with \(w\) and \(\rho\) differing by at most a polynomial factor in \(w\) and \(n/d\) \cite[Thm. 1.3]{arxiv:2309.05541}.
 
 notes:
   - 'It was shown in Ref. \cite{arxiv:1510.02082} that existence of a QLTC with constant parameters would imply resolution of the \textit{No low-energy trivial states} (NLTS) conjecture \cite{arxiv:1301.1363} (see also \cite{arxiv:2311.09503}). QLTCs are believed to also be useful for solving the quantum PCP conjecture \cite{arxiv:1309.7495}.'
@@ -44,17 +52,18 @@ relations:
   parents:
     - code_id: block_quantum
     - code_id: qecc_finite
-    - code_id: commuting_projector
-      detail: 'Quantum LTC codespaces are ground-state spaces of \(u\)-local frustration-free commuting-projector Hamiltonians.'
     - code_id: frustration_free
-      detail: 'Quantum LTC codespaces are ground-state spaces of \(u\)-local frustration-free commuting-projector Hamiltonians.'
+      detail: 'Quantum LTC codespaces are ground-state spaces of \(u\)-local frustration-free Hamiltonians.'
   cousins:
+    # Local testability does not require the Hamiltonian terms to commute.
+    - code_id: commuting_projector
+      detail: 'Stabilizer QLTCs admit commuting-projector tests. The general QLTC definition does not require the test projectors to commute \cite[Def. 14]{arxiv:1310.5664}.'
     - code_id: general_qldpc
-      detail: 'Stabilizer LTCs are QLDPC. More general QLTCs are not defined using Pauli strings, but the codespace is the ground-state subspace of a local Hamiltonian. In this sense, QLTCs are QLDPC codes.'
+      detail: 'Stabilizer LTCs with bounded site degree are QLDPC codes. General QLTCs need not be stabilizer codes.'
     - code_id: self_correct
       detail: 'The notion of an energy barrier in a self-correcting memory is intimately related to the soundness of a QLTC.'
     - code_id: qubit_css
-      detail: 'A qubit CSS code defined by \(H_{Z}\) and \(H_{X}\) is locally testable with some soundness iff the constituent codes \(\ker H_{Z}\) and \(\ker H_{X}\) are locally testable with the same soundness \cite[Fact 17]{arxiv:1510.02082}.'
+      detail: 'If a qubit CSS code defined by \(H_{Z}\) and \(H_{X}\) is locally testable with soundness \(\rho\), then the constituent codes \(\ker H_{Z}\) and \(\ker H_{X}\) are locally testable with soundness at least \(\rho/2\). Conversely, constituent codes with soundness \(\rho\) yield a CSS code with soundness \(\rho\) \cite[Fact 17]{arxiv:1510.02082}.'
     - code_id: distance_balanced
       detail: 'Distance balancing and weight reduction are useful for constructing QLTCs \cite{arxiv:1611.03790,arxiv:2305.00689,arxiv:2309.05541}.'
 

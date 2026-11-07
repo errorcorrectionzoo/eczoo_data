@@ -17,14 +17,14 @@ description: |
 
   A BCC code encodes \(k\) logical qubits into \(n = k n_0\) physical qubits.
   Qubits are labeled by pairs \((m,j)\) with \(m\) defined modulo \(n_0\) and \(1 \leq j \leq k\),
-  partitioned into sets \(A\) (indices \(j \in \mathcal{A}\)) and \(B\) (indices \(j \notin \mathcal{A}\)).
+  partitioned into sets \(A\) (indices \(j \in \mathcal{A}\)) and \(B\) (indices \(j \in \mathcal{B}\), the complement of \(\mathcal{A}\)).
   The code is defined by a bipartite graph \(G\) on the qubits, with edges only between \(A\) and \(B\),
   that is invariant under cyclic shifts \((m,j) \to (m+1,j)\).
   In an ordering grouped by \(m\), this translation is a shift by \(k\) physical qubits and makes the family index-\(k\) quasi-cyclic.
   Code states are prepared by initializing \(A\)-qubits in \(|\pm\rangle\) and \(B\)-qubits in \(|0/1\rangle\),
   then applying CNOT gates (source in \(A\), target in \(B\)) along the edges of \(G\).
   The \(2^k\) resulting basis states confirm that \(k\) logical qubits are encoded.
-  After a Hadamard on each \(B\)-qubit, this gives a CSS code.
+  This CSS code state is the cluster state of \(G\) after a Hadamard on each \(B\)-qubit.
 
   The \(X\)-type stabilizers arise from conjugating \(X_{m,j} X_{m+1,j}\) (for \(j \in \mathcal{A}\)) by the CNOT circuit,
   and the \(Z\)-type stabilizers from \(Z_{m,j} Z_{m+1,j}\) (for \(j \in \mathcal{B}\)).
@@ -44,7 +44,7 @@ protection: |
 features:
   encoders:
     - 'Initialize \(A\)-qubits in \(|+\rangle\) and \(B\)-qubits in \(|0\rangle\),
-      then apply CNOT gates along edges of \(G\), followed by Hadamard on each \(B\)-qubit.'
+      then apply CNOT gates (source in \(A\), target in \(B\)) along edges of \(G\) \cite{arxiv:2509.06865}.'
   transversal_gates:
     - 'For \(k=2\), all BCC codes admit a transversal Hadamard-SWAP logical gate
       via the qubit interchange \((m,1) \leftrightarrow (-m,2)\) followed by Hadamard on all qubits \cite{arxiv:2509.06865}.'
