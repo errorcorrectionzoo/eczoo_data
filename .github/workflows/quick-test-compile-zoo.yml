@@ -2,10 +2,19 @@ name: 'quick-test-compile-zoo'
 
 on:
 
-  push:
-    branches: [ "main" ]
+  # (no longer run on every push to main)
+  # push:
+  #   branches: [ "main" ]
 
   pull_request:  # run on pull requests!
+
+  workflow_dispatch: {}  # manual trigger ("Run workflow" button in the Actions tab)
+
+
+# A new push to the same PR/branch cancels the run still in progress for it.
+concurrency:
+  group: '${{ github.workflow }}-${{ github.ref }}'
+  cancel-in-progress: true
 
 
 jobs:
