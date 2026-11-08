@@ -20,11 +20,13 @@ description: |
   Excitations consist of point-like color charges at cell defects and loop-like color fluxes at face defects; winding a \(p\)-charge around a \(pq\)-flux produces a \(-1\) phase \cite{arxiv:cond-mat/0607736}.
   
   There are 101 different types of boundaries for any uniform tiling \cite{arxiv:2404.05033}; this was shown for the great rhombated cubic honeycomb (a.k.a. cantitruncated cubic honeycomb) uniform tiling, but is valid for general uniform tilings.
-# Wikipedia for bitructated cubic honeycomb
+# Wikipedia for bitruncated cubic honeycomb
 
 
 protection: |
   On a closed 3-manifold with first Betti number \(h_1\) over \(\mathbb{Z}_2\), the 3D color code encodes \(k=3h_1\) logical qubits \cite{arxiv:cond-mat/0607736}.
+  In tetrahedral and cubic 3D color codes, \(Z\)-type logical operators are strings along a border where two boundaries meet, and \(X\)-type logical operators are membranes covering a boundary \cite{arxiv:2512.13436}.
+  The minimum weight of an \(X\)-type logical operator therefore scales as the square of the code distance \cite{arxiv:2512.13436}.
 
 
 features:
@@ -39,9 +41,15 @@ features:
     - 'Non-Clifford gates can be implemented via \hyperref[topic:code-switching]{code switching} \cite{doi:10.7907/059V-MG69}.'
 
   decoders:
-    - 'Decoder that maps 3D color code to three copies of the 3D surface code \cite{arxiv:1606.00960}.'
+    - 'Decoder that projects the 3D color code onto a collection of 3D surface codes, decoding bit-flip errors on one surface code per color and phase-flip errors on one surface code per pair of colors \cite{arxiv:1606.00960}.'
+    - '3D concatenated MWPM decoder for codes with boundaries \cite{arxiv:2512.13436}, a 3D extension of the concatenated MWPM decoder for 2D color codes \cite{arxiv:2404.07482}.
+      It decodes \(X\) errors from face syndromes merged into cell syndromes, which reduces the effective \(X\) distance to the \(Z\) distance \cite{arxiv:2512.13436}.'
   code_capacity_threshold:
     - 'Bit- and phase-flip noise on the bcc lattice: \(0.77\%\) for point-like and \(13.1\%\) for loop-like excitations under restriction decoder \cite{arxiv:1905.07393}.'
+    - 'Bit- and phase-flip noise on the \([[5d^3-12d^2+16,3,d]]\) cubic color code family \cite{arxiv:2404.19005}: \(1.55(6)\%\), with \hyperref[topic:pseudo-threshold]{pseudo-threshold} \(0.60(6)\%\) and logical error rate scaling as \(p^{d/2}\), under the 3D concatenated MWPM decoder \cite{arxiv:2512.13436}.'
+
+notes:
+  - 'See the \href{https://pypi.org/project/qCodePlot3D}{qCodePlot3D} Python package for visualizations of 3D color codes and their decoding paths \cite{arxiv:2512.13436}.'
 
 
 relations:
@@ -54,13 +62,13 @@ relations:
   cousins:
     - code_id: 3d_surface
       detail: 'On closed 3-manifolds, the 3D color code is equivalent to multiple decoupled copies of the 3D surface code via a local constant-depth \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:1007.4601,arxiv:1503.02065,arxiv:1804.00866}.
-      This process can be viewed as an ungauging \cite{arxiv:1202.3120,arxiv:1407.1025,arxiv:1603.04442,arxiv:1603.05182,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679,arXiv:2108.11402,arxiv:2310.16032,arxiv:2410.02213} of certain symmetries.
-      This mapping can also be done via code concatenation \cite{arxiv:1801.04255}.
-      In contrast to the 3D surface/toric code, the original colex Hamiltonian can be viewed as both a string-net condensate and a membrane-net condensate \cite{arxiv:cond-mat/0607736}.'
+        This process can be viewed as an ungauging \cite{arxiv:1202.3120,arxiv:1407.1025,arxiv:1603.04442,arxiv:1603.05182,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679,arXiv:2108.11402,arxiv:2310.16032,arxiv:2410.02213} of certain symmetries.
+        This mapping can also be done via code concatenation \cite{arxiv:1801.04255}.
+        In contrast to the 3D surface/toric code, the original colex Hamiltonian can be viewed as both a string-net condensate and a membrane-net condensate \cite{arxiv:cond-mat/0607736}.'
     - code_id: qubit_concatenated
       detail: 'On closed 3-manifolds, the 3D color code is equivalent to multiple decoupled copies of the 3D surface code via a local constant-depth \hyperref[topic:clifford]{Clifford circuit} \cite{arxiv:1007.4601,arxiv:1503.02065,arxiv:1804.00866}.
-      This process can be viewed as an ungauging \cite{arxiv:1202.3120,arxiv:1407.1025,arxiv:1603.04442,arxiv:1603.05182,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679,arXiv:2108.11402,arxiv:2310.16032,arxiv:2410.02213} of certain symmetries.
-      This mapping can also be done via code concatenation \cite{arxiv:1801.04255}.'
+        This process can be viewed as an ungauging \cite{arxiv:1202.3120,arxiv:1407.1025,arxiv:1603.04442,arxiv:1603.05182,arxiv:1605.01640,arxiv:1805.01836,arxiv:1806.08679,arXiv:2108.11402,arxiv:2310.16032,arxiv:2410.02213} of certain symmetries.
+        This mapping can also be done via code concatenation \cite{arxiv:1801.04255}.'
     - code_id: xs_stabilizer
       detail: 'The 3D color code on a particular lattice admits XS stabilizers; see \href{https://www.youtube.com/watch?v=B8h5-ANc_-8}{talk by M. Kesselring at the 2020 FTQC conference}.'
     - code_id: spt
@@ -71,6 +79,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-06'
+    - user_id: VictorVAlbert
+      date: '2026-10-26'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
