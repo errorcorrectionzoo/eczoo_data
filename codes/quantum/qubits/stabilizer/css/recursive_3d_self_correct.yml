@@ -20,6 +20,7 @@ description: |
   Before the replacement, an iteration scales the embedding of this complex in \(\mathbb{R}^3\) by a large constant and randomly perturbs its vertices to lower the density of squares.
   The replacing complexes, \(U_X\) in the \(X\)-iteration and \(U_Z\) in the \(Z\)-iteration, are glued along the boundaries of neighboring squares.
   The complex \(U_X\) resembles a piece of a thickness-one \hyperref[code:3d_surface]{3D surface code} slab whose front and back boundaries condense \(X\)-type membranes, and \(U_Z\) is its \(Z\)-type counterpart \cite[Remark 3.7]{arxiv:2605.10943}.
+  Stabilizer generators have weight at most seven, and each qubit lies in at most seven generators \cite[Lemma 3.14 and Thm. 3.16]{arxiv:2605.10943}.
 
 protection: |
   Distance grows as a power of \(n\) \cite[Sec. 1.1]{arxiv:2605.10943}.
@@ -33,8 +34,6 @@ relations:
   parents:
     - code_id: mapping_cone
       detail: 'Each iteration of the recursive 3D self-correcting code, which replaces every square of the Tanner square complex, builds the next code as a height-2 cone over the previous one \cite[Sec. 3.2.2]{arxiv:2605.10943}. The levels of the cone are local complexes attached to the \(X\)-check, qubit, and \(Z\)-check vertices of the Tanner graph of the previous code. A chain map from the previous code induces an isomorphism on first cohomology, so every code in the family encodes one logical qubit \cite[Lemmas 3.10 and 3.13]{arxiv:2605.10943}.'
-    - code_id: qldpc
-      detail: 'Recursive 3D self-correcting codes are geometrically local in three dimensions, with stabilizer generators of weight at most seven and each qubit in at most seven generators \cite[Lemma 3.14 and Thm. 3.16]{arxiv:2605.10943}.'
     - code_id: self_correct
       detail: 'Below a critical temperature, a logical qubit thermally encoded in the recursive 3D self-correcting code has memory time at least \(\exp(\Theta(n^{\eta}))\) for a constant \(\eta>0\) (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 3.16]{arxiv:2605.10943}. The bound holds for Markovian thermal dynamics with single-qubit Pauli jump operators \cite[Sec. 5]{arxiv:2605.10943}.'
   cousins:
@@ -50,5 +49,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-08'
     - user_id: VictorVAlbert
       date: '2026-10-27'
