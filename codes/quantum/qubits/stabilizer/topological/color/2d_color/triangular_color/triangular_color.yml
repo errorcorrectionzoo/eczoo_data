@@ -58,6 +58,9 @@ features:
 
   fault_tolerance:
     - 'Fault-tolerant syndrome extraction circuits using flag qubits \cite{arxiv:1708.02246,arxiv:1911.00355}.'
+    - |
+      The single-auxiliary syndrome extraction circuit of Ref. \cite{arxiv:2603.28852} has \hyperref[topic:effective-distance]{circuit-level distance} \(d-\lfloor (d+3)/6\rfloor\) for \(d\leq 13\), as verified numerically by its authors.
+      In the \(Z\) memory basis, under two-qubit depolarizing noise after each CNOT gate, the formula holds for each odd \(d\) from \(3\) to \(15\), with one or with \(d\) syndrome cycles \cite{doi:10.5281/zenodo.23792064}.
 
   code_capacity_threshold:
     - 'Independent \(X,Z\) noise: \(p_X = 7.8\%\) under message-passing decoder \cite{arxiv:1111.0831}, \(8.7\%\) under projection decoder \cite{arxiv:1308.6207}, \(\geq 6\%\) under rescaling decoder \cite{arxiv:2112.09584}, \(9.0\%\) under Möbius matching decoder \cite{arxiv:2108.11395}, \(10.1\%\) under MaxSAT-based decoder \cite{arxiv:2303.14237}, \(8.2\%\) under concatenated MWPM decoder \cite{arxiv:2404.07482}, \(7.31(5)\%\) under cell-matching decoder \cite[Sec. V.E]{arxiv:2603.05402}, and close to the optimal value under the Frontier decoder \cite{arxiv:2606.20513}.
@@ -92,6 +95,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: DanielKirtchakov
+      date: '2026-11-10'
     - user_id: VictorVAlbert
       date: '2026-11-08'
     - user_id: VictorVAlbert
