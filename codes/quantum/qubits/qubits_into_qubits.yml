@@ -14,7 +14,7 @@ alternative_names:
   - 'Qubit subspace code'
 
 description: |
-  Encodes \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space.
+  Encodes a \(K\)-dimensional Hilbert space into a \(2^n\)-dimensional (i.e., \(n\)-qubit) Hilbert space.
   Usually denoted as \(((n,K))\) or \(((n,K,d))\), where \(d\) is the code's distance.
 
   The qubit codes are \textit{equivalent} if the codespace of one code can be mapped into that of the other under a tensor product of single-qubit unitary operations and a qubit permutation.
@@ -25,6 +25,7 @@ protection: |
   Combinations of errors and erasures can also be corrected \cite{arxiv:2511.01080}.
   The number of correctable errors is often called the \textit{decoding radius}, and it is upper bounded by half of the code distance.
   As a result, qubit codes cannot tolerate adversarial errors on more than \((1-R)/4\) registers, where \(R = \log_2 K/n\) is the code rate.
+  Every \(((n,K,d))\) qubit code with \(K>1\), including \hyperref[topic:degeneracy]{degenerate} and nonadditive codes, satisfies the \hyperref[code:quantum_perfect]{quantum Hamming bound} \cite{arxiv:2606.15558}.
 
   \subsection{Pauli-string error basis}
   \label{topic:pauli}
@@ -54,13 +55,13 @@ protection: |
   Combining the \(X\)-type and \(Z\)-type strings with \(i\) forms a group called the \textit{Pauli group} on \(n\) qubits, while combining them with \(-1\) forms the \textit{real Pauli group}.
   \end{defterm}
 
-  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the Hilbert-Schmidt inner product; it is a prototypical \hyperref[topic:nice-error-basis]{nice error basis}.
+  The Pauli error set is a unitary and Hermitian basis for linear operators on the multi-qubit Hilbert space that is orthonormal under the normalized Hilbert-Schmidt inner product; it is a prototypical \hyperref[topic:nice-error-basis]{nice error basis}.
   The distance associated with this set is often the minimum weight of a Pauli string that implements a nontrivial logical operation in the code.
 
   \subsection{Noise channels}
 
-  A quantum channel that admits a set of Pauli strings as its Kraus operators is called a \textit{Pauli channel}, and such channels are typically more tractable than the more general, non-Pauli channels.
-  Relevant Pauli channels include dephasing noise and depolarizing noise (a.k.a. Werner-Holevo channel \cite{arxiv:quant-ph/0203003}).
+  A quantum channel that admits a set of operators proportional to Pauli strings as its Kraus operators is called a \textit{Pauli channel}, and such channels are typically more tractable than the more general, non-Pauli channels.
+  Relevant Pauli channels include dephasing noise and depolarizing noise.
   A single-qubit dephasing channel has Kraus operators proportional to \(I\) and \(Z\), while the single-qubit depolarizing channel has equal probabilities for the \(X\), \(Y\), and \(Z\) errors; both are Pauli channels \cite[Ch. 1]{preset:GottesmanBook}.
   One can extract a binary memoryless symmetric channel from a Pauli channel that is a classical counterpart to the Pauli channel \cite{arxiv:1904.04713}.
 
@@ -97,9 +98,9 @@ protection: |
   \begin{defterm}{Pure distance}
   The distance \(d\) of a qubit code is the smallest integer \(0<j=d\) at which the \hyperref[topic:quantum-weight-enumerator]{quantum weight enumerator} is not equal to its dual, \(A_j \neq B_j\) \cite{arxiv:quant-ph/9906126}.
   A code is called \textit{pure} if \(A_j = 0\) for all \(0 < j < d\); otherwise, the code is called \textit{impure}.
-  The \textit{pure distance} \cite{arxiv:1409.2559,arxiv:2107.14252} (a.k.a. diagonal distance \cite{arxiv:0712.1979,arxiv:2107.11286}) \(d_{\textnormal{pure}}\) is the smallest integer \(1 < j=d_{\textnormal{pure}}\) at which \(A_j > 0\).
+  The \textit{pure distance} \cite{arxiv:1409.2559,arxiv:2107.14252} \(d_{\textnormal{pure}}\) is the smallest integer \(0 < j=d_{\textnormal{pure}}\) at which \(B_j > 0\).
   Codes for which \(d_{\textnormal{pure}} < d\) are impure, otherwise they are pure.
-  For impure codes, there exists a Pauli error of weight less than the \(d\) that has a nonzero expectation value with respect to a code state.
+  For impure codes, there exists a Pauli error of weight less than \(d\) that has a nonzero expectation value with respect to a code state.
 
   Degenerate qubit codes are impure, but impure codes may not be degenerate \cite{arxiv:quant-ph/9608006,preset:GottesmanBook}.
   There are subtleties with defining \hyperref[topic:degeneracy]{degeneracy} for non-stabilizer qubit codes with even distance \cite{preset:GottesmanBook}.
@@ -115,13 +116,11 @@ protection: |
   There are techniques to compute them for general codes \cite{arxiv:2308.05152}.
   Semidefinite programming (SDP) hierarchies and a quantum Delsarte bound have been developed for qubit codes, with rational infeasibility certificates later yielding rigorous non-existence proofs and improved upper bounds for small code parameters \cite{arxiv:2408.10323,arxiv:2603.19901}.
 
-# The minimum weight of a Pauli error with nonzero diagonal entries that has a nonzero expectation value for some code basis state is called the \textit{diagonal distance} \cite{arxiv:0712.1979,arxiv:2107.11286} (see also pure distance \cite{arxiv:2107.14252}).
-# Codes whose distance is greater than the diagonal distance are \hyperref[topic:degeneracy]{degenerate}.
 # \hyperref[topic:degeneracy]{Degenerate} codes admit undetectable Pauli errors (i.e., errors whose projection into the codespace is nonzero) of weight less than the code distance (i.e., the projection satisfies the \term{Knill-Laflamme conditions}).
 
 
 features:
-  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}. There are many bounds on the quantum capacity of the depolarizing channel (e.g., \cite{arxiv:quant-ph/0607039}); see review \cite{arxiv:1801.02019}. The optimal asymptotic error exponent of entanglement distillation is given by the reverse relative entropy of entanglement, a single-letter quantity \cite{arxiv:2408.07067}.'
+  rate: 'Exact two-way assisted capacities have been obtained for the erasure and dephasing channels \cite{arxiv:1510.08863}. There are many bounds on the quantum capacity of the depolarizing channel (e.g., \cite{arxiv:quant-ph/0607039}); see review \cite{arxiv:1801.02019}. The optimal asymptotic error exponent of entanglement distillation under non-entangling operations is given by the reverse relative entropy of entanglement, a single-letter quantity \cite{arxiv:2408.07067}.'
   transversal_gates:
     - 'A qubit code is \(U\)-\textit{quasi-transversal} if it can realize the logical gate \(U\) in the third level of the \term{Clifford hierarchy} using the physical gate \(C T^{\otimes n}\), where \(C\) is some Clifford gate \cite[Def. 4]{arxiv:1606.01904}.'
     - 'If a qubit code \(Q\) of length \(n\) has compact subgroups \(N\triangleleft G\leq \mathrm{Aut}(Q)\) such that \(G/N\) is finite, non-Abelian, simple, and not \(A_5\), then \(n\) is at least the minimal permutation degree \(\mu(G/N)\) \cite[Thm. 1]{arxiv:2604.15111}.'
@@ -171,6 +170,8 @@ features:
         Circuit and measurement designs have to take care of the few stabilizer generators with large weights in order to be fault tolerant, but measurement duration may not pose a threat to scalability \cite{arxiv:quant-ph/0607047}.
         While generic concatenated methods yield a computational threshold with overhead \(O(M\text{polylog}M)\), concatenations using quantum Hamming codes can additionally attain constant space overhead with quasi-polylogarithmic time overhead \cite{arxiv:2207.08826,arxiv:2402.09606}, and concatenations of the Steane code and certain QLDPC codes further improve this time overhead to polylogarithmic while keeping constant space overhead \cite{arxiv:2411.03683}.
         Subsequently, thresholds were determined for infinite families of lattice stabilizer codes, starting with the toric code \cite{arxiv:quant-ph/0110143}; such a threshold is colloquially called a \textit{topological threshold}.
+        Protecting the computation with constant-rate \hyperref[code:qltc]{QLTCs} and distilling magic states with punctured \hyperref[code:galois_polynomial]{Galois-qudit RS codes} reduces the time overhead to logarithmic up to subpolylogarithmic factors \cite{arxiv:2411.03632}.
+        \hyperref[code:ccz_rs_cubical_sheaf]{Transversal-\(CCZ\) Reed-Solomon cubical sheaf codes}, in an earlier construction of Ref. \cite{arxiv:2609.26691}, yield strictly logarithmic time overhead with constant space overhead for sufficiently wide circuits \cite{arxiv:2609.28461}.
         When different classes of circuit locations have different error rates, the single-number threshold generalizes to a \textit{threshold surface} in the space of error-rate vectors. A one-level crossing where a particular logical location becomes more reliable is then not a full-fledged threshold for the entire circuit; deciding whether a protocol really improves may require following the coupled recurrence relations through additional concatenation levels \cite[Sec. 14.7.6]{preset:GottesmanBook}.
         Fault-tolerant computations with no notion of locality can be made local on a 2D or 3D geometry with minimal overhead \cite{arxiv:2402.13863}.
         \end{defterm}
@@ -220,6 +221,10 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-08'
+    - user_id: VictorVAlbert
+      date: '2026-10-27'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert

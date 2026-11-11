@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Qubit stabilizer code'
-introduced: '\cite{arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
+introduced: '\cite{arxiv:quant-ph/9604038,arxiv:quant-ph/9605005,arxiv:quant-ph/9705052}'
 
 alternative_names:
   - 'Binary stabilizer code'
@@ -146,7 +146,7 @@ protection: |
   A stabilizer code is \hyperref[topic:degeneracy]{degenerate} with respect to \(\mathcal{E}\) if and only if \(E^\dagger F \in \mathsf{S}\) for some Pauli strings \(E,F \in \mathcal{E}\).
   As a distance-\(d\) code, a stabilizer code is degenerate if it admits a non-identity stabilizer whose weight is lower than the distance \cite{preset:GottesmanBook}.
   Since that stabilizer is in the normalizer, a stabilizer code is \hyperref[topic:degeneracy]{degenerate} if and only if it is \hyperref[topic:quantum-weight-enumerator]{impure}.
-  The \hyperref[topic:quantum-weight-enumerator]{pure distance} of a qubit stabilizer code is the minimum weight of a non-identity stabilizer, and a qubit stabilizer code is \hyperref[topic:quantum-weight-enumerator]{pure} if the weight of the lowest-weight stabilizer is the code distance. 
+  The \hyperref[topic:quantum-weight-enumerator]{pure distance} of a qubit stabilizer code is the minimum weight of a non-identity element of the normalizer, and a qubit stabilizer code is \hyperref[topic:quantum-weight-enumerator]{pure} if every non-identity stabilizer has weight at least the code distance.
   There is a toolkit for studying \hyperref[topic:degeneracy]{degenerate} codes for Pauli channels \cite{arxiv:quant-ph/0604107}.
   The \hyperref[topic:quantum-gv-bound]{quantum GV bound} can be extended into a three-way tradeoff between distance, rate, and stabilizer weight of a qubit stabilizer code \cite{arxiv:2411.14448}.  
 
@@ -252,7 +252,11 @@ features:
     - 'Trickle-down dissipative correction \cite{arxiv:2507.12534}.'
 
   fault_tolerance:
-    - 'Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031} (see also Steane''s ancilla factory \cite{arxiv:quant-ph/9708021}), in which fault tolerance against syndrome extraction errors is ensured by simply repeating syndrome measurements. A modification uses adaptive measurements \cite{arxiv:2208.05601}.'
+    - |
+      Shor error correction \cite{arxiv:quant-ph/9605011,arxiv:quant-ph/9605031} (see also Steane's ancilla factory \cite{arxiv:quant-ph/9708021}) measures each stabilizer generator with a verified cat state.
+      Each qubit in the generator's support is coupled to a different cat-state qubit, so \(r\) faults cause at most \(r\) data-qubit errors \cite[Sec. 4]{arxiv:quant-ph/9605011}.
+      The measurement is repeated until the same syndrome is obtained several times in a row, which guards against faulty syndrome readings \cite[Sec. 4]{arxiv:quant-ph/9605011}.
+      A modification uses adaptive measurements \cite{arxiv:2208.05601}.
     - 'Gates in the \term{Clifford hierarchy} can be done using \textit{gate teleportation}, in which a gate can be obtained from a particular \textit{magic state} \cite{arxiv:quant-ph/9908010,arxiv:quant-ph/0002039}. Such protocols can be made fault tolerant with the help of magic-state distillation \cite{arxiv:quant-ph/0403025}. See review on magic-state distillation \cite{doi:10.1002/qua.24856}.'
     - 'Logical Bell measurements can be done transversally, and thus fault tolerantly, by performing bitwise Bell measurements for each pair of qubits (with each member of the pair taken from one of the two code blocks) and processing the result.'
     - 'With pieceable fault-tolerance, any \hyperref[topic:degeneracy]{non-degenerate} stabilizer code with a complete set of fault-tolerant single-qubit gates in the \hyperref[topic:clifford]{Clifford group} has a universal set of non-transversal fault-tolerant gates \cite{arxiv:1603.03948}.'
@@ -309,6 +313,8 @@ relations:
         Conversely, if the set of coset representatives of a USt form a linear binary code, then they can be absorbed into a stabilizer group that defines the USt.
     - code_id: xp_stabilizer
       detail: 'XP stabilizer codes reduce to qubit stabilizer codes for \(N=2\).'
+    - code_id: clifford_hierarchy
+      detail: 'Qubit stabilizer codes are Clifford-hierarchy stabilizer codes whose stabilizing set lies in the first level of the hierarchy, the Pauli group.'
     - code_id: qubit_stabilizer_oaqecc
       detail: 'An OA qubit stabilizer code storing no classical information and admitting no gauge qubits is a qubit stabilizer code.'
     - code_id: qudit_stabilizer
@@ -370,6 +376,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-03'
     - user_id: VictorVAlbert
       date: '2026-10-16'
     - user_id: VictorVAlbert
