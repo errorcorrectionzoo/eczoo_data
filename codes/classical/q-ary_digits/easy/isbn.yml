@@ -9,16 +9,18 @@ logical: rings
 
 name: 'International Standard Book Number (ISBN) code'
 short_name: 'ISBN'
-introduced: '\cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110430024722/http://www.informaticsdevelopmentinstitute.net/isbn.html}{URL}},manual:{International Organization for Standardization, “International standard book numbering (ISBN)”, ISO 2108 (1970)}}'
+introduced: '\cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110723154839/http://www.informaticsdevelopmentinstitute.net/isbn1966.rtf}{URL}},manual:{International Organization for Standardization, “International standard book numbering (ISBN)”, ISO 2108 (1970)}}'
 
 
 description: |
-  A 10-digit checksum code used worldwide to identify books in stores.
-  In the ISBN-10 convention, the modulo-\(11\) check digit can take values between \(0\) and \(10\), with \(10\) denoted by the symbol \(X\) \cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110430024722/http://www.informaticsdevelopmentinstitute.net/isbn.html}{URL}}}.
+  A 10-digit or 13-digit checksum code used worldwide to identify books in stores.
+  In the ISBN-10 convention, the modulo-\(11\) check digit can take values between \(0\) and \(10\), with \(10\) denoted by the symbol \(X\) \cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110723154839/http://www.informaticsdevelopmentinstitute.net/isbn1966.rtf}{URL}}}.
+  Since 2007, ISBNs have 13 digits, and the check digit is computed modulo \(10\) with weights alternating between \(1\) and \(3\) \cite{manual:{International Organization for Standardization, “Information and documentation — International standard book number (ISBN)”, ISO 2108:2005 (2005) \href{https://web.archive.org/web/20260809180939/https://www.iso.org/standard/36563.html}{URL}}}\cite[Sec. 5 and Appx. 1]{manual:{International ISBN Agency, \emph{ISBN Users’ Manual}, 7th ed. (London, 2017) \href{https://www.isbn-international.org/content/isbn-users-manual/29}{URL}}}.
 
 protection: |
   The last digit of an ISBN-10 string is a check digit computed modulo 11 \cite{preset:Hill}.
-  Detects all single-digit errors and all transpositions of two digits \cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110430024722/http://www.informaticsdevelopmentinstitute.net/isbn.html}{URL}}}\cite[Sec. 2.3.3]{manual:{J. Verhoeff, \emph{Error Detecting Decimal Codes}, Mathematical Centre Tracts 29 (Mathematisch Centrum, Amsterdam, 1969) \href{https://ir.cwi.nl/pub/13045}{URL}}}.
+  Detects all single-digit errors and all transpositions of any two digits \cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110723154839/http://www.informaticsdevelopmentinstitute.net/isbn1966.rtf}{URL}}}\cite[Sec. 2.3.3]{manual:{J. Verhoeff, \emph{Error Detecting Decimal Codes}, Mathematical Centre Tracts 29 (Mathematisch Centrum, Amsterdam, 1969) \href{https://ir.cwi.nl/pub/13045}{URL}}}.
+  The ISBN-13 check digit detects all single-digit errors and all adjacent transpositions except those of digits differing by five \cite{doi:10.1145/243439.243457}.
 
 
 relations:
@@ -28,6 +30,9 @@ relations:
     - code_id: checksum
       detail: 'The last digit of an ISBN-10 string is a check digit computed modulo 11 \cite{preset:Hill}.'
     - code_id: small_distance
+  cousins:
+    - code_id: upc
+      detail: 'ISBN-13 and UPC numbers are GTIN-13 and GTIN-12 numbers, which share one modulo-10 check-digit rule with weights alternating between 3 and 1 \cite[Sec. 16.2]{manual:{International ISBN Agency, \emph{ISBN Users’ Manual}, 7th ed. (London, 2017) \href{https://www.isbn-international.org/content/isbn-users-manual/29}{URL}}}\cite{manual:{GS1 US, “What is a GTIN?” \href{https://www.gs1us.org/upcs-barcodes-prefixes/what-is-a-gtin}{URL}},manual:{GS1, “How to calculate a check digit manually” \href{https://web.archive.org/web/20260526162107/https://www.gs1.org/services/how-calculate-check-digit-manually}{URL}}}.'
 
 
 # Begin Entry Meta Information
