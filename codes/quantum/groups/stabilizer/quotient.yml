@@ -1,0 +1,62 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: quotient
+physical: groups
+logical: groups
+
+name: 'Quotient code'
+introduced: '\cite{arxiv:2012.09271,arxiv:2611.09538}'
+
+description: |
+  Stabilizer code obtained from a larger parent stabilizer code by identifying each qudit and each stabilizer with its images under a group of code symmetries acting freely on the qudits.
+  The quotient keeps one qudit per orbit, and its logical operators and distance bounds follow from invariant operators of the parent \cite{arxiv:2611.09538}.
+
+  For qudits of prime dimension \(p\), the parent is a Pauli stabilizer code on \(n\) qudits \cite[Def. 3.1]{arxiv:2611.09538}.
+  A finite group \(\Gamma\) acts on it by monomial Cliffords, i.e., qudit permutations composed with single-qudit Cliffords, that preserve the stabilizer group and fix no qudit.
+  Each Pauli is moved to its orbit representative after undoing the single-qudit Clifford, which yields a stabilizer code on \(n/|\Gamma|\) qudits \cite[Def. 3.1 and Prop. 3.2]{arxiv:2611.09538}.
+
+  Quotient codes are the lattice form of twisted compactification, with \(\Gamma\) consisting of deck transformations of a cover composed with a symmetry \cite[Sec. 3.1]{arxiv:2611.09538}.
+  Translations composed with transversal Hadamard glue \(X\)-checks to \(Z\)-checks and yield codes that need not be CSS \cite[Exam. 3.3]{arxiv:2611.09538}.
+  Every stabilizer code \(C\) is trivially the quotient of \(C\otimes C\) by the exchange of the two copies \cite[Rem. B.4]{arxiv:2611.09538}.
+
+  Quotient logical operators are \(\Gamma\)-invariant parent normalizer elements modulo norms \(\mathsf{N}(s)=\sum_{g\in\Gamma}g(s)\) of parent stabilizers \cite[Thm. 3.4]{arxiv:2611.09538}.
+  Besides parent logicals with invariant representatives, they include \textit{winding sectors}, i.e., invariant parent stabilizers that are not norms.
+  Winding sectors form the Tate cohomology group \(\hat{H}^0(\Gamma;S)\), which vanishes when \(p\nmid|\Gamma|\) \cite[Thm. 3.4 and Prop. 3.5]{arxiv:2611.09538}.
+  Dressed quotients compose deck transformations with entangling diagonal circuits and need not be stabilizer codes \cite[Def. 3.18 and Thm. 3.19]{arxiv:2611.09538}.
+
+protection: |
+  The distance satisfies \(d^{\prime}\geq\min(d/|\Gamma|,d_{\text{wind}})\), where \(d_{\text{wind}}\) is the least weight of a winding sector divided by \(|\Gamma|\) \cite[Thm. 3.4]{arxiv:2611.09538}.
+  Without winding sectors, the relative distance does not decrease.
+  The distance is at least \(\min(\tilde{d}_R,R)\) when the quotient map is injective on check-graph balls of radius \(R\) \cite[Prop. 4.25]{arxiv:2611.09538}.
+  Here, \(\tilde{d}_R\) is the least weight of a parent logical supported in such a ball.
+  Duality quotients of qubit CSS codes have distance \(d^{\prime}=\min_x|x\cup\sigma(x)|/2\) over nontrivial \(X\)-logicals \(x\) \cite[Thm. 3.7]{arxiv:2611.09538}.
+  Hence \(d_X/2\leq d^{\prime}\leq d_X\), and good CSS families with such dualities yield good families.
+
+features:
+  transversal_gates:
+    - 'Parent automorphisms, i.e., monomial Cliffords preserving the stabilizer group, that normalize \(\Gamma\) descend to automorphisms of the quotient \cite[Prop. 4.1]{arxiv:2611.09538}. Descended automorphisms of a quotient by monomial Cliffords induce logical Clifford gates \cite[Cor. 4.6]{arxiv:2611.09538}.'
+
+  general_gates:
+    - 'Cup-product circuits of toric-code parents act on the quotient by the same local formula, and on twisted-sector logical states their phase is a bordism invariant of the deck group \cite[Props. 4.3 and 4.7]{arxiv:2611.09538}. Such a gate can be non-Clifford on a quotient whose parent has no logical qudits \cite[Table 2]{arxiv:2611.09538}.'
+
+relations:
+  parents:
+    - code_id: stabilizer
+  cousins:
+    - code_id: balanced_product
+      detail: 'Let a group act freely on the cells of one complex and by monomial maps on the bases of the other. The balanced product over this group is then the quotient of the tensor-product code by the diagonal action \cite[Thm. 3.10]{arxiv:2611.09538}. Balanced products whose chain automorphisms mix basis vectors are not quotient codes in this sense \cite[Thm. 3.10]{arxiv:2611.09538}.'
+    - code_id: lifted_product
+      detail: '\(G\)-lifted products are quotients of product codes by the diagonal \(G\) action \cite[Sec. 1.1 and Table 6]{arxiv:2611.09538}.'
+    - code_id: perm_self_dual_css
+      detail: 'The halved code of a PSD code with a fixed-point-free involutory \(XZ\)-duality \(\sigma\) is its quotient by \(\sigma\circ H^{\otimes n}\), with \(d^{\prime}=\min_x|x\cup\sigma(x)|/2\) over nontrivial \(X\)-logicals \(x\) \cite[Thm. 3.7]{arxiv:2611.09538}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-12'
