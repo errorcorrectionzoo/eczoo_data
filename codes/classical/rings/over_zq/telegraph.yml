@@ -13,11 +13,11 @@ alternative_names:
   - 'Telegraph codebook'
 
 description: |
-  Codebook that shortens a telegram by mapping each word, phrase, or sentence to a codeword made of letters \cite[Secs. 1 and 3]{doi:10.1080/01611194.2025.2457084}.
-  Many codebooks required any two codewords of equal length to differ in at least two letters, so that a single mutilated letter yields a string outside the codebook \cite{doi:10.1007/BF03025254}\cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+  Codebook that shortens a telegram by mapping each word, phrase, or sentence to a five-letter codeword \cite[Secs. 1 and 3]{doi:10.1080/01611194.2025.2457084}.
+  Later telegraph codes required any two codewords to differ in at least two letters, so that a single mutilated letter yields a string outside the codebook \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
 
-  Early codebooks used codewords of different lengths, while practically all codebooks of the first quarter of the twentieth century used five-letter codewords \cite{doi:10.1007/BF03025254}\cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
-  Five-letter telegraph codes with a two-letter difference are \((5,K,2)_{26}\) codes over the Latin alphabet in the Hamming metric \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+  Telegraph codes with a two-letter difference are \((5,K,2)_{26}\) codes over the Latin alphabet in the Hamming metric \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
+  Telegraph codes generalize to codebooks whose codewords have mixed lengths, as in early codebooks \cite{doi:10.1007/BF03025254}\cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
   In the 1937 New Boe Code, the middle letter of each codeword is fixed by its first two and last two letters, as listed in a \textit{mutilation table} \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.
 
 protection: |
@@ -33,7 +33,7 @@ features:
 
 realizations:
   - 'Commercial telegraphy: the 1920 A B C Telegraphic Code, Sixth Edition, used a two-letter difference, as did the 1923 Acme Commodity and Phrase Code with \(K=100\,000\) codewords \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
-  - 'Astronomical telegrams: the 1888 Science Observer Code encodes numbers below 40000 as dictionary words of up to ten letters that differ pairwise in at least two letters \cite{manual:{S. C. Chandler, Jr. and J. Ritchie, Jr., \emph{The Science Observer Code} (Boston Scientific Society, 1888) \href{https://archive.org/details/scienceobserverc13chanrich}{URL}}}. A control word equal to a quarter of the sum of the preceding numbers lets the receiver recompute one mutilated number \cite{manual:{S. C. Chandler, Jr. and J. Ritchie, Jr., \emph{The Science Observer Code} (Boston Scientific Society, 1888) \href{https://archive.org/details/scienceobserverc13chanrich}{URL}}}.'
+  - 'Astronomical telegrams: the 1888 Science Observer Code encodes numbers below 40000 as mixed-length words of up to ten letters, pairwise at least two letters apart \cite{manual:{S. C. Chandler, Jr. and J. Ritchie, Jr., \emph{The Science Observer Code} (Boston Scientific Society, 1888) \href{https://archive.org/details/scienceobserverc13chanrich}{URL}}}. A control word equal to a quarter of the sum of the preceding numbers lets the receiver recompute one mutilated number \cite{manual:{S. C. Chandler, Jr. and J. Ritchie, Jr., \emph{The Science Observer Code} (Boston Scientific Society, 1888) \href{https://archive.org/details/scienceobserverc13chanrich}{URL}}}.'
 
 notes:
   - 'Telegraph codes used a minimum letter difference between codewords several decades before Hamming distance was formalized \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
@@ -43,13 +43,11 @@ notes:
 
 relations:
   parents:
-    - code_id: ecc_finite
-      detail: 'Telegraph codewords are strings over the 26-letter Latin alphabet, of fixed or mixed length \cite{doi:10.1007/BF03025254}.'
-  cousins:
     - code_id: q-ary_over_zq
-      detail: 'Five-letter telegraph codes are length-five block codes over the 26-letter Latin alphabet, whose letters can be labeled by elements of \(\mathbb{Z}_{26}\).'
+      detail: 'Telegraph codewords are strings over the 26-letter Latin alphabet, whose letters can be labeled by elements of \(\mathbb{Z}_{26}\). The codewords of each length in a codebook form a block code \cite{doi:10.1007/BF03025254}.'
     - code_id: small_distance
       detail: 'Telegraph codes with a two-letter difference detect single-letter errors, and those with a three-letter difference correct them \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
+  cousins:
     - code_id: checksum
       detail: 'Telegraph codes protected numerical data with check digits or letters, which act as checksums over the plaintext and were usually computed modulo 10 \cite[Sec. 3]{doi:10.1080/01611194.2025.2457084}.'
 
