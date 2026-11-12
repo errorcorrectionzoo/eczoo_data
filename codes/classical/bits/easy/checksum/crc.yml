@@ -18,7 +18,7 @@ description: |
   A generalization of the single parity-check code in which the generalization of the parity bit is the remainder of the data string (mapped into a polynomial via the \ref{topic:Cyclic-to-polynomial-correspondence}) divided by some generator polynomial.
   A notable family of codes is referred to as \textit{CRC-}(\(m-1\)), where \(m\) is the length of the generator polynomial.
 
-protection: 'Detects any burst error up to the length of the generator polynomial.'
+protection: 'Detects any burst error of length up to the degree of the generator polynomial \cite{doi:10.1109/JRPROC.1961.287814,doi:10.1109/DSN.2004.1311885}.'
 
 features:
   decoders:
@@ -29,6 +29,7 @@ realizations:
 
 notes:
   - 'See Ref. \cite{doi:10.1109/CICN.2015.108} and book \cite{manual:{R. B. Wells, \emph{Applied coding and information theory for engineers} (Prentice-Hall, 1998)}} for introductions to CRC codes.'
+  - 'See Ref. \cite{doi:10.1109/26.231911} for CRC codes with 24 and 32 parity bits optimized for minimum distance over a range of block lengths.'
   - 'See Refs. \cite{doi:10.1109/DSN.2002.1028931,doi:10.1109/DSN.2004.1311885} for exhaustive lists of CRC polynomials, as well as the \href{https://users.ece.cmu.edu/~koopman/crc/crc32.html}{CRC Polynomial Zoo website} by Philip Koopman.'
 
 relations:
@@ -44,6 +45,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
