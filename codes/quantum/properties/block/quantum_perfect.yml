@@ -12,7 +12,7 @@ name: 'Perfect quantum code'
 description: |
   A type of block quantum code whose parameters satisfy the quantum Hamming bound with equality.
 
-  A \hyperref[topic:degeneracy]{non-degenerate} code constructed out of \(q\)-dimensional qudits and having parameters \(((n,K,2t+1))\) is perfect if \(n\), \(K\), \(t\), and \(q\) are such that the quantum Hamming bound \cite{arxiv:quant-ph/9602022},
+  A code constructed out of \(q\)-dimensional qudits and having parameters \(((n,K,2t+1))\) is perfect if \(n\), \(K\), \(t\), and \(q\) are such that the quantum Hamming bound \cite{arxiv:quant-ph/9602022},
   \begin{align}
   \sum_{j=0}^{t}(q^2-1)^{j}{n \choose j}\leq q^{n}/K
   \end{align}
@@ -33,8 +33,8 @@ description: |
   A quantum Hamming-like bound exists for \hyperref[topic:degeneracy]{degenerate} qubit stabilizer codes \cite{arxiv:2306.00048}.
 
 protection: |
-  Perfect codes have been classified.
-  For qubits (\(q=2\)), the only nontrivial perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.
+  \hyperref[topic:quantum-weight-enumerator]{Pure} perfect codes have been classified.
+  For qubits (\(q=2\)), the only nontrivial pure perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.
   For qudits, the corresponding family is the \([[\frac{q^{2r}-1}{q^{2}-1},\frac{q^{2r}-1}{q^{2}-1}-2r,3]]_q\) family of quantum twisted codes \cite{arxiv:0907.0049,doi:10.1002/(SICI)1520-6610(2000)8:3<174::AID-JCD3>3.0.CO;2-T}.
 
   For codes of distance \(2t+1+\sigma\) with \(t\geq 1\) and \(\sigma\in\{0,1\}\), the \textit{quantum Hamming-Singleton bounds} \cite[Thm. 1]{arxiv:1005.4758}
@@ -60,15 +60,15 @@ notes:
 relations:
   parents:
     - code_id: small_distance_quantum
-      detail: 'All non-trivial perfect codes have distance three.'
+      detail: 'All non-trivial \hyperref[topic:quantum-weight-enumerator]{pure} perfect codes have distance three.'
     - code_id: qecc_finite
   cousins:
     - code_id: perfect
       detail: 'A classical (quantum) perfect code saturates the classical (quantum) Hamming bound.'
     - code_id: stabilizer_over_gf4
-      detail: 'For qubits (\(q=2\)), the only nontrivial perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.'
+      detail: 'For qubits (\(q=2\)), the only nontrivial \hyperref[topic:quantum-weight-enumerator]{pure} perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.'
     - code_id: q-ary_hamming
-      detail: 'For qubits (\(q=2\)), the only nontrivial perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.'
+      detail: 'For qubits (\(q=2\)), the only nontrivial \hyperref[topic:quantum-weight-enumerator]{pure} perfect codes are the stabilizer code family \([[(4^r-1)/3, (4^r-1)/3 - 2r, 3]]\) for \(r \geq 2\), obtained from Hamming codes over \(\mathbb{F}_4\) via the Hermitian construction \cite{arxiv:quant-ph/9607027,arxiv:quant-ph/9608006}. These codes are related to partial spreads in projective geometry \cite{doi:10.2140/iig.2008.6.53}.'
 
 
 
@@ -76,6 +76,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
     - user_id: VictorVAlbert
       date: '2026-11-07'
     - user_id: VictorVAlbert
