@@ -29,13 +29,14 @@ description: |
   \textit{3D fermionic surface code}.
   However, unlike the 3D surface code, an open (a.k.a. rough) boundary is not possible.
   Twist defects in the form of Kitaev chains can be introduced as in the 2D surface code to store additional logicals \cite{arxiv:1906.01045,arxiv:2208.07367}.
+  On a closed oriented 3-manifold \(M\), logical basis states are labeled by spin structures of \(M\), so \(k=b_1(M;\mathbb{Z}_2)\) \cite{arxiv:2311.05674}.
 
 features:
   transversal_gates:
     - '\(CCZ\) and \(CS\) gates can be obtained for the fermionic 3D surface code on certain manifolds by circuits that can be interpreted as moving and spreading lattice realizations of Kitaev chain and \(p+ip\) defects \cite{arxiv:2311.05674}.'
 
   general_gates:
-    - 'A quasi-local free-fermion pump on a cover that commutes with a free deck-group action descends exactly to the quotient manifold \cite[Prop. 4.22]{arxiv:2611.09538}. After gauging fermion parity, it preserves the codespace for every system size and acts as a diagonal logical gate in the spin-structure basis \cite[Prop. 4.22]{arxiv:2611.09538}.'
+    - 'A quasi-local free-fermion pump on a cover descends to the quotient manifold when it commutes with the spin-structure lift of a free deck-group action. Restricted to each spin-structure sector and gauged, it preserves the codespace for every system size and acts as a diagonal logical gate in the spin-structure basis \cite[Prop. 4.22]{arxiv:2611.09538}.'
 
 
 relations:
@@ -49,6 +50,8 @@ relations:
   cousins:
     - code_id: 3d_surface
       detail: 'The 3D (fermionic) surface code is a CSS (non-CSS) code which realizes a \(\mathbb{Z}_2\) gauge theory in 3D (with an emergent fermion). Two copies of the 3D fermionic surface code are equivalent to a copy of the 3D surface code and a copy of the 3D fermionic surface code via anyon relabeling. The two incoming fermions, \(f_1\) and \(f_2\), can be re-organized into a boson \(f_1 f_2\) and fermion \(f_2\).'
+    - code_id: 4d_surface
+      detail: 'On the 3-torus, the 3D fermionic surface code is the quotient of the \((2,2)\) loop toric code on a 4-torus by a half-diagonal shift composed with transversal Hadamard \cite[Sec. 3.3]{arxiv:2611.09538}.'
     - code_id: kitaev_chain
       detail: 'The 3D fermionic surface code is the result of applying the 3D bosonization mapping to a trivial fermionic theory \cite{arxiv:2208.07367}.
         Twist defects in the 3D fermionic surface code take the form of Kitaev chains after the mapping \cite{arxiv:1906.01045,arxiv:2208.07367}.'

@@ -15,10 +15,8 @@ description: |
   The manifold is the quotient of \(T^2_L\times S^1\) by a quarter turn of the square-torus fiber composed with a translation along the circle, and the code encodes two logical qubits.
 
   The cover has an even fiber side \(L\) and \(4J\) layers along the circle with \(J\) even, and the deck generator translates by \(J\) layers \cite[Prop. 4.24]{arxiv:2611.09538}.
-  The resulting space \(T^2_L\rtimes_{C_4}S^1\) has first homology \(\mathbb{Z}\oplus\mathbb{Z}_2\).
-  Logical basis states are its spin structures \(s_0+a\tau+bz\), where \(z\) is pulled back from the circle and \(\tau\) restricts nontrivially to the fiber.
+  Logical basis states are labeled by the spin structures \(s_0+a\tau+bz\), with \(s_0\) a reference spin structure, \(a,b\in\mathbb{Z}_2\), \(z\) pulled back from the circle, and \(\tau\) restricting nontrivially to the fiber \cite[Prop. 4.24]{arxiv:2611.09538}.
   On a branched triangulation invariant under the quarter turn, qubits sit on the \(n=24L^2J\) triangles \cite[Sec. 4.11]{arxiv:2611.09538}.
-  The checks are \(Z(\partial t)\) for each tetrahedron \(t\) and \(X(\delta e)Z(\lambda_e)\) for each edge \(e\), with \(\lambda_e\) given by the \(\cup_1\) product of exact bosonization \cite{arxiv:2611.09538,arxiv:1807.07081,arxiv:1911.00017}.
 
 protection: |
   Distance \(d=\Theta(\min(L,J))\) (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Prop. 4.24]{arxiv:2611.09538}.
@@ -27,7 +25,7 @@ protection: |
 
 features:
   general_gates:
-    - 'The gauged pump of a \(p+ip\) layer preserves the codespace exactly for all \(L\) and \(J\) \cite[Prop. 4.24]{arxiv:2611.09538}. It acts as \(T_\tau^{\pm1}\) up to logical Clifford gates, with the sign set by the chirality \cite[Prop. 4.24]{arxiv:2611.09538}\cite[Eq. (26)]{arxiv:2311.05674}.'
+    - 'The gauged pump of a \(p+ip\) layer acts as \(T_\tau^{\pm1}\) up to logical Clifford gates, with the sign set by the chirality \cite[Prop. 4.24]{arxiv:2611.09538}\cite[Eq. (26)]{arxiv:2311.05674}.'
     - 'The pump is a two-step finite-time evolution of quasi-local Hamiltonians, and it is within \(\varepsilon\) of a constant-depth circuit with gates on regions of diameter \(O(\log(n/\varepsilon))\) \cite[Prop. 4.24]{arxiv:2611.09538}.'
 
 relations:
