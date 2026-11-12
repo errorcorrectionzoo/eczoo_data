@@ -28,7 +28,12 @@ description: |
   Many, but not all, \(q\)-ary MDS codes are related to RS codes and their extensions; see, e.g., \cite[Prob. 11.11]{doi:10.1017/CBO9780511808968}.
 
 
-protection: 'Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error-correction properties.'
+protection: |
+  Given \(n\) and \(k\), MDS codes have the highest distance possible of all codes and so have the best possible error-correction properties.
+
+  The \textit{MDS conjecture} states that a nontrivial linear \([n,k]_q\) MDS code has length \(n\leq q+1\), except that \(n\leq q+2\) for even \(q\) and \(k\in\{3,q-1\}\) \cite[Conj. 3.3.21]{preset:HKSclass}.
+  For \(q\geq 3\), these lengths are attained by \hyperref[code:extended_reed_solomon]{doubly extended RS codes} and, in the exceptional cases, by \hyperref[code:hyperoval]{hyperoval codes} and their duals \cite[Ch. 11]{preset:MacSlo}\cite{arxiv:2610.28208}.
+  The conjecture has been proven for prime \(q\) \cite{doi:10.4171/JEMS/316} and for even \(q\) \cite{arxiv:2610.28208}\cite{manual:{P. Kumar, “The MDS conjecture over finite fields of even order”, report and accompanying Lean formalization, Palomar record PALOMAR-2026-10-15-000014, version 1 (2026)}}.
 
 realizations:
   - 'Automatic repeat request (ARQ) data transmission protocols \cite[Ch. 7]{doi:10.1109/9780470546345}.'
@@ -63,6 +68,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-08'
     - user_id: VictorVAlbert
       date: '2026-10-13'
     - user_id: VictorVAlbert
