@@ -14,7 +14,7 @@ description: |
   Stabilizer code obtained from a larger parent stabilizer code by identifying each qudit and each stabilizer with its images under a group of code symmetries acting freely on the qudits.
   The quotient keeps one qudit per orbit, and its logical operators and distance bounds follow from invariant operators of the parent \cite{arxiv:2611.09538}.
 
-  In the strict definition, the parent is a Pauli stabilizer code on \(n\) prime-dimensional qudits \cite[Def. 3.1]{arxiv:2611.09538}.
+  For qudits of prime dimension \(p\), the parent is a Pauli stabilizer code on \(n\) qudits \cite[Def. 3.1]{arxiv:2611.09538}.
   A finite group \(\Gamma\) acts on it by monomial Cliffords, i.e., qudit permutations composed with single-qudit Cliffords, that preserve the stabilizer group and fix no qudit.
   Each Pauli is moved to its orbit representative after undoing the single-qudit Clifford, which yields a stabilizer code on \(n/|\Gamma|\) qudits \cite[Def. 3.1 and Prop. 3.2]{arxiv:2611.09538}.
 
@@ -25,12 +25,7 @@ description: |
   Quotient logical operators are \(\Gamma\)-invariant parent normalizer elements modulo norms \(\mathsf{N}(s)=\sum_{g\in\Gamma}g(s)\) of parent stabilizers \cite[Thm. 3.4]{arxiv:2611.09538}.
   Besides parent logicals with invariant representatives, they include \textit{winding sectors}, i.e., invariant parent stabilizers that are not norms.
   Winding sectors form the Tate cohomology group \(\hat{H}^0(\Gamma;S)\), which vanishes when \(p\nmid|\Gamma|\) \cite[Thm. 3.4 and Prop. 3.5]{arxiv:2611.09538}.
-  The quotient of a qubit PSD code by \(\sigma\circ H^{\otimes n}\), with \(\sigma\) a fixed-point-free involutory \(XZ\)-duality, is the \([[n/2,k/2]]\) code whose \hyperref[topic:symplectic-doubling]{symplectic double} is that PSD code \cite{arxiv:2406.09951}\cite[Thm. 3.7]{arxiv:2611.09538}.
-
-  \subsection{Dressed quotients}
-  Dressed quotients extend the construction beyond stabilizer codes by composing deck transformations with entangling diagonal circuits \cite[Thm. 3.19]{arxiv:2611.09538}.
-  Each parent generator, an \(X\)-string times a diagonal phase, is replaced by its descent to the orbit qudits \cite[Def. 3.18]{arxiv:2611.09538}.
-  For qubits, a twist whose phase polynomial has degree \(m\) dresses the checks at level at most \(m-1\) of the \hyperref[topic:clifford-hierarchy]{Clifford hierarchy} \cite[Prop. 3.16]{arxiv:2611.09538}.
+  Dressed quotients compose deck transformations with entangling diagonal circuits and need not be stabilizer codes \cite[Def. 3.18 and Thm. 3.19]{arxiv:2611.09538}.
 
 protection: |
   The distance satisfies \(d^{\prime}\geq\min(d/|\Gamma|,d_{\text{wind}})\), where \(d_{\text{wind}}\) is the least weight of a winding sector divided by \(|\Gamma|\) \cite[Thm. 3.4]{arxiv:2611.09538}.
@@ -52,20 +47,11 @@ relations:
     - code_id: stabilizer
   cousins:
     - code_id: balanced_product
-      detail: 'A balanced product over a group acting freely on the cells of one complex and by monomial maps on the bases of the other is the quotient code of the tensor-product code by the diagonal group action \cite[Thm. 3.10]{arxiv:2611.09538}. Balanced products whose chain automorphisms mix basis vectors are not quotient codes in this sense \cite[Thm. 3.10]{arxiv:2611.09538}.'
+      detail: 'Let a group act freely on the cells of one complex and by monomial maps on the bases of the other. The balanced product over this group is then the quotient of the tensor-product code by the diagonal action \cite[Thm. 3.10]{arxiv:2611.09538}. Balanced products whose chain automorphisms mix basis vectors are not quotient codes in this sense \cite[Thm. 3.10]{arxiv:2611.09538}.'
     - code_id: lifted_product
       detail: '\(G\)-lifted products are quotients of product codes by the diagonal \(G\) action \cite[Sec. 1.1 and Table 6]{arxiv:2611.09538}.'
-    - code_id: quantum_tanner
-      detail: 'Quantum Tanner codes are quotients of product codes by a diagonal group action \cite[Sec. 1.1 and Table 6]{arxiv:2611.09538}.'
     - code_id: perm_self_dual_css
       detail: 'The halved code of a PSD code with a fixed-point-free involutory \(XZ\)-duality \(\sigma\) is its quotient by \(\sigma\circ H^{\otimes n}\), with \(d^{\prime}=\min_x|x\cup\sigma(x)|/2\) over nontrivial \(X\)-logicals \(x\) \cite[Thm. 3.7]{arxiv:2611.09538}.'
-    - code_id: clifford_hierarchy
-      detail: >-
-        Dressed quotients of toric codes by deck transformations composed with cubic cup-product circuits are Clifford-hierarchy stabilizer codes with \(CZ\)-dressed \(X\)-type checks \cite[Prop. 3.16 and Sec. 3.8]{arxiv:2611.09538}.
-        Up to a constant-depth circuit, the twisted \(\mathbb{Z}_2^N\) Clifford-hierarchy stabilizer codes are \(N\) toric codes on a thin slab with a wall carrying \((-1)^{\int a_1\cup\cdots\cup a_N}\) \cite[Exam. 3.25 and Cor. 4.21]{arxiv:2611.09538}.
-        Three 3D toric codes on \(X\times S^1\) modulo a translation composed with transversal \(CCZ\) realize \(D(D_4)\) topological order on \(X\) \cite[Sec. 1.3 and Thm. 3.19]{arxiv:2611.09538}.
-        On \(T^2\times S^1\), the 176-dimensional codespace of this code rules out any equivalent qubit Pauli stabilizer code \cite[Sec. 3.7 and Cor.
-        D.4]{arxiv:2611.09538}.
 
 
 # Begin Entry Meta Information
