@@ -8,7 +8,7 @@ physical: bits
 logical: bits
 
 name: 'Internet checksum code'
-introduced: '\cite{doi:10.17487/RFC760,doi:10.17487/RFC761}'
+introduced: '\cite{manual:{V. Cerf, “Specification of Internet Transmission Control Program: TCP (Version 2)”, Internet Experiment Note 5 (1977) \href{https://www.rfc-editor.org/ien/ien5.pdf}{URL}},doi:10.17487/RFC760,doi:10.17487/RFC761}'
 
 description: |
   Checksum code that divides a binary string into 16-bit words and appends the one's complement of their one's complement sum \cite{doi:10.17487/RFC1071}.
@@ -18,6 +18,7 @@ description: |
 protection: |
   Detects all burst errors of length at most 15, including all single-bit errors \cite[Sec. 3.3]{doi:10.1109/TDSC.2007.70216}.
   Errors that preserve the one's complement sum go undetected, e.g., reordering the 16-bit words or changing a word from all zeros to all ones \cite[Sec. 3.3]{doi:10.1109/TDSC.2007.70216}.
+  On real file-system data, the Internet checksum performs about as well as a 10-bit CRC \cite{doi:10.1109/90.731187}.
 
 realizations:
   - 'Internet protocol suite: error detection for IPv4 headers and for TCP and UDP segments \cite{doi:10.17487/RFC791,doi:10.17487/RFC793,doi:10.17487/RFC768}.'
@@ -34,5 +35,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
     - user_id: VaibhavVasudevan
       date: '2025-12-29'

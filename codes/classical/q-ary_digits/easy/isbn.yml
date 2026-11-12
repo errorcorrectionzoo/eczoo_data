@@ -9,13 +9,16 @@ logical: rings
 
 name: 'International Standard Book Number (ISBN) code'
 short_name: 'ISBN'
+introduced: '\cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110430024722/http://www.informaticsdevelopmentinstitute.net/isbn.html}{URL}},manual:{International Organization for Standardization, “International standard book numbering (ISBN)”, ISO 2108 (1970)}}'
 
 
 description: |
   A 10-digit checksum code used worldwide to identify books in stores.
-  In the ISBN-10 convention, the modulo-\(11\) check digit can take values between \(0\) and \(10\), with \(10\) denoted by the symbol \(X\).
+  In the ISBN-10 convention, the modulo-\(11\) check digit can take values between \(0\) and \(10\), with \(10\) denoted by the symbol \(X\) \cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110430024722/http://www.informaticsdevelopmentinstitute.net/isbn.html}{URL}}}.
 
-protection: 'The last digit of an ISBN-10 string is a check digit computed modulo 11 \cite{preset:Hill}.'
+protection: |
+  The last digit of an ISBN-10 string is a check digit computed modulo 11 \cite{preset:Hill}.
+  Detects all single-digit errors and all transpositions of two digits \cite{manual:{F. G. Foster, “Standard numbering in the book trade”, report (1966) \href{https://web.archive.org/web/20110430024722/http://www.informaticsdevelopmentinstitute.net/isbn.html}{URL}}}\cite[Sec. 2.3.3]{manual:{J. Verhoeff, \emph{Error Detecting Decimal Codes}, Mathematical Centre Tracts 29 (Mathematisch Centrum, Amsterdam, 1969) \href{https://ir.cwi.nl/pub/13045}{URL}}}.
 
 
 relations:
@@ -31,6 +34,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
     - user_id: VictorVAlbert
       date: '2026-10-13'
     - user_id: VictorVAlbert
