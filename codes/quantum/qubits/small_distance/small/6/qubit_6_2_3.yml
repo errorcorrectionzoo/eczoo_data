@@ -12,26 +12,40 @@ introduced: '\cite{arxiv:2504.20847}'
 
 
 description: |
-  Six-qubit code that realizes gates from the group \(\mathbb{Z}_{10}\) transversally.
-  This is the smallest known distance-three code supporting a transversal gate outside of the \hyperref[topic:clifford]{Clifford group}.
-  See Ref. \cite{arxiv:2504.20847} for the codewords.
+  Six-qubit code that realizes gates from the group \(\mathbb{Z}_{10}\) transversally \cite{arxiv:2504.20847}.
+  It has the minimum length among codes encoding a qubit with distance at least three whose single-block transversal gates are not all \hyperref[topic:clifford]{Clifford} in any one logical basis \cite[Sec. IV.B.4]{arxiv:2610.29955}.
+  Up to local unitaries and qubit permutations, it is the only \(((6,2,3))\) code with a single-block transversal gate whose logical action has order five up to a phase \cite[Cor. IV.7]{arxiv:2610.29955}.
+
+  With the qubits split into the first four and the last two, the codewords are \cite[Eqs. (122-123)]{arxiv:2610.29955}
+  \begin{align}
+  \begin{split}
+  |\overline{0}\rangle &= \tfrac{1}{\sqrt{10}}\left(|0000\rangle(|00\rangle+|11\rangle)+|S_3\rangle|10\rangle\right)+\tfrac{1}{\sqrt{15}}|E\rangle|01\rangle\\
+  |\overline{1}\rangle &= \tfrac{1}{\sqrt{10}}\left(|1111\rangle(|00\rangle+|11\rangle)-|S_1\rangle|01\rangle\right)-\tfrac{1}{\sqrt{15}}|E^{*}\rangle|10\rangle~,
+  \end{split}
+  \end{align}
+  where \(|S_j\rangle\) is the sum of all four-qubit basis states of weight \(j\).
+  The state \(|E^{*}\rangle\) is the complex conjugate of \(|E\rangle=|1100\rangle+|0011\rangle+\omega(|1010\rangle+|0101\rangle)+\omega^{2}(|1001\rangle+|0110\rangle)\) with \(\omega=e^{2\pi i/3}\).
+  See Ref. \cite{arxiv:2504.20847} for another presentation of the codewords.
 
 
 features:
   transversal_gates:
-    - 'The \(\mathbb{Z}_{10}\) group can be realized transversally \cite{arxiv:2504.20847}. This is the smallest known distance-three code supporting a transversal gate outside of the \hyperref[topic:clifford]{Clifford group}.'
+    - 'The transversal gate \(\bigotimes_{j=1}^{6}\text{diag}(1,\zeta^{a_j})\) with \(\zeta=e^{2\pi i/5}\) and \(a=(1,1,1,1,2,3)\) acts as the logical gate \(\text{diag}(1,\zeta^{4})\) on the above codewords \cite[Eq. (125)]{arxiv:2610.29955}.'
+    - 'Five is the largest logical order, up to a phase, of a transversal diagonal gate on any \(((6,2,3))\) code \cite[Thm. IV.3]{arxiv:2610.29955}.'
 
 
 relations:
   parents:
-    - code_id: qubits_into_qubits
-    - code_id: small_distance_quantum
+    - code_id: sslp
+      detail: 'The codewords of the \(((6,2,3))\) transversal-\(\mathbb{Z}_{10}\) code lie in the subset-sum sectors \(a\cdot x\equiv 0\) and \(a\cdot x\equiv 4\) modulo five, with \(a=(1,1,1,1,2,3)\) \cite[Sec. IV.B.4]{arxiv:2610.29955}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-07'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
