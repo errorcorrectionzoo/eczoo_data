@@ -26,13 +26,15 @@ realizations:
 relations:
   parents:
     - code_id: bits_into_bits
-    - code_id: checksum
-      detail: 'The checksum of the Internet checksum code is the one''s complement of the one''s complement sum of the message''s 16-bit words \cite{doi:10.17487/RFC1071}.'
+    - code_id: arithmetic_residue
+      detail: 'The Internet checksum is the one''s complement of the residue of the message modulo \(2^{16}-1\), which is the end-around-carry sum of its 16-bit words \cite[p. 18]{doi:10.17487/RFC1071}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
     - user_id: VaibhavVasudevan
       date: '2025-12-29'

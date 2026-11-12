@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: casting_out_nines
+physical: rings
+logical: rings
+
+name: 'Casting-out-nines code'
+
+alternative_names:
+  - 'Check of nines'
+  - 'Proof by nines'
+
+description: |
+  Arithmetic residue code with check base nine for decimal integers, whose residue is the repeated sum of their decimal digits \cite[pp. 180-181]{manual:{B. Datta and A. N. Singh, \emph{History of Hindu Mathematics: A Source Book}, Part 1 (Asia Publishing House, 1962) \href{https://archive.org/details/HinduMathematics}{URL}}}.
+  Since \(10\equiv 1\) modulo nine, a number and its digit sum leave the same remainder \cite[pp. 181-183]{manual:{B. Datta and A. N. Singh, \emph{History of Hindu Mathematics: A Source Book}, Part 1 (Asia Publishing House, 1962) \href{https://archive.org/details/HinduMathematics}{URL}}}.
+  The digit sums of the operands of a sum or product therefore predict the digit sum of the result.
+
+  The Mahasiddhanta of Aryabhata II (c. 950) checks multiplication, division, and root extraction by digit sums \cite[pp. 180-181]{manual:{B. Datta and A. N. Singh, \emph{History of Hindu Mathematics: A Source Book}, Part 1 (Asia Publishing House, 1962) \href{https://archive.org/details/HinduMathematics}{URL}}}.
+  It is the earliest available description of a check of both direct and inverse arithmetical operations \cite[pp. 180-181]{manual:{B. Datta and A. N. Singh, \emph{History of Hindu Mathematics: A Source Book}, Part 1 (Asia Publishing House, 1962) \href{https://archive.org/details/HinduMathematics}{URL}}}.
+  Avicenna (c. 1020) gave a complete set of rules for testing all operations by nines, calling it the Hindu method \cite[p. 184]{manual:{B. Datta and A. N. Singh, \emph{History of Hindu Mathematics: A Source Book}, Part 1 (Asia Publishing House, 1962) \href{https://archive.org/details/HinduMathematics}{URL}}}.
+  Fibonacci's Liber Abaci (1202) checks products by casting out nines and gives a geometric proof of the check for sums \cite[Chs. 2 and 3]{doi:10.1007/978-1-4613-0079-3}\cite{doi:10.6092/1593-2214/409}.
+
+protection: |
+  A mismatch of digit sums proves an error, but a match does not prove that a result is correct \cite{doi:10.6092/1593-2214/409}.
+  Errors that change a result by a multiple of nine go undetected.
+  These include transposed digits and a digit changed between 0 and 9, which preserve the digit sum modulo nine.
+
+
+relations:
+  parents:
+    - code_id: arithmetic_residue
+      detail: 'Casting out nines is the arithmetic residue code with check base nine for decimal integers, whose residue is the digit sum modulo nine \cite[pp. 181-183]{manual:{B. Datta and A. N. Singh, \emph{History of Hindu Mathematics: A Source Book}, Part 1 (Asia Publishing House, 1962) \href{https://archive.org/details/HinduMathematics}{URL}}}.'
+  cousins:
+    - code_id: parity_check
+      detail: 'A parity-check code is the mod-two version of the casting out nines procedure \cite{manual:{W. W. Peterson, “Error-Correcting Codes”, Scientific American 206(2), 96–111 (1962) \href{http://www.jstor.org/stable/24937230}{URL}},doi:10.1007/978-1-4612-4072-3}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
