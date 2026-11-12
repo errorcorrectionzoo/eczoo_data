@@ -1,0 +1,47 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: ccz_rs_cubical_sheaf
+physical: qubits
+logical: qubits
+
+name: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf code'
+introduced: '\cite{arxiv:2609.26691}'
+
+description: |
+  One of three degree-two Reed-Solomon cubical sheaf codes on a common six-dimensional complex, which together admit \(\Theta(N)\) addressable and parallel transversal logical \(CCZ\) gates for block length \(N\) \cite{arxiv:2609.26691}.
+  Block \(a\in\{1,2,3\}\) uses lower-degree projective Reed-Solomon local codes in directions \(2a-1\) and \(2a\) than in the other four \cite[Sec. 3.1]{arxiv:2609.26691}.
+
+features:
+  rate: 'Constant rate in all three blocks \cite[Sec. 3.4]{arxiv:2609.26691}.'
+
+  transversal_gates:
+    - 'Cup-product logical \(CCZ\) gates on any subset of \(m=\Omega(N)\) logical triples within a logical subspace, so the logical trilinear form has subrank at least \(m\) \cite[Sec. 3.3]{arxiv:2609.26691}. After a fixed repetition encoding, each addressed product of logical \(CCZ\) gates is one layer of disjoint physical \(CCZ\) gates \cite[Sec. 3.4]{arxiv:2609.26691}.'
+
+  magic_scaling_exponent: 'Magic-state yield parameter \(\gamma=\log(M/k)/\log d=o(1)\) for \(CCZ\)-state distillation, where \(k=\Omega(N)\) logical \(CCZ\) gates use \(M=O(N)\) physical ones and \(d=\Theta(N)\) \cite[Sec. 3.5]{arxiv:2609.26691}.'
+
+  decoders:
+    - 'Constant-depth single-shot decoder based on parallel local flips for the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691} \cite[Lemmas 6.8 and 6.11]{arxiv:2609.28461}.'
+
+  fault_tolerance:
+    - 'Fault-tolerant quantum computation against locally stochastic noise with strictly logarithmic time and constant space overheads for sufficiently wide circuits, for an earlier arXiv version of Ref. \cite{arxiv:2609.26691} \cite[Thm. 3.12 and Cor. 3.13]{arxiv:2609.28461}. A width-\(W\), depth-\(D\) circuit runs in depth \(O(D\log(WD/\varepsilon))\), and only stabilizer resource states require separate preparation \cite{arxiv:2609.28461}.'
+
+relations:
+  parents:
+    - code_id: rs_cubical_sheaf
+      detail: 'Transversal-\(CCZ\) Reed-Solomon cubical sheaf codes are degree-two Reed-Solomon cubical sheaf codes on six-dimensional complexes, taken in triples whose blocks use lower-degree local codes in distinct pairs of directions \cite[Sec. 3.1]{arxiv:2609.26691}. The cup product of their cochains yields a linear number of addressable transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
+  cousins:
+    - code_id: good_qldpc
+      detail: 'The transversal-\(CCZ\) Reed-Solomon cubical sheaf construction yields good QLDPC codes with \(\Theta(N)\) addressable and parallel transversal logical \(CCZ\) gates \cite[Thm. 1.1]{arxiv:2609.26691}.'
+    - code_id: single_shot
+      detail: 'In the construction of an earlier arXiv version of Ref. \cite{arxiv:2609.26691}, transversal-\(CCZ\) Reed-Solomon cubical sheaf codes admit a constant-depth single-shot decoder based on parallel local flips \cite[Lemmas 6.8 and 6.11]{arxiv:2609.28461}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-08'
