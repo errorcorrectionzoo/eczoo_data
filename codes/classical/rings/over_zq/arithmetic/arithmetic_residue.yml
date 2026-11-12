@@ -1,0 +1,46 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: arithmetic_residue
+physical: rings
+logical: rings
+
+name: 'Arithmetic residue code'
+
+alternative_names:
+  - 'Separate residue code'
+
+description: |
+  Checksum code that appends to an integer its residue modulo a check base \(m\) \cite{manual:{R. S. Lim, “Concurrent error-detecting codes for arithmetic processors”, NASA Technical Paper 1528 (1979) \href{https://ntrs.nasa.gov/citations/19790022776}{URL}},doi:10.1147/rd.22.0166}.
+  Residues of operands predict the residue of their sum or product, so a result whose residue disagrees reveals an error \cite{manual:{R. S. Lim, “Concurrent error-detecting codes for arithmetic processors”, NASA Technical Paper 1528 (1979) \href{https://ntrs.nasa.gov/citations/19790022776}{URL}}}.
+
+  For the \textit{low-cost} check bases \(m=2^a-1\), the residue of a binary integer is the end-around-carry sum of its \(a\)-bit bytes \cite{manual:{R. S. Lim, “Concurrent error-detecting codes for arithmetic processors”, NASA Technical Paper 1528 (1979) \href{https://ntrs.nasa.gov/citations/19790022776}{URL}},doi:10.1109/T-C.1971.223134}.
+
+protection: |
+  An error in the integer goes undetected exactly when it changes the integer by a multiple of \(m\).
+  Biresidue codes, which use two residue checkers, locate and correct any single error position \cite{doi:10.1109/T-C.1970.222937}.
+  Residue checks are the only checks that let an adder be verified by a circuit independent of it \cite{doi:10.1147/rd.22.0166}.
+
+realizations:
+  - 'Computer arithmetic: the arithmetic elements of the Burroughs Scientific Processor used modulo-3 residue arithmetic to check hardware failures \cite{doi:10.1109/ARITH.1978.6155777}.'
+
+notes:
+  - 'See Refs. \cite{manual:{T. R. N. Rao, \emph{Error Coding for Arithmetic Processors} (Academic Press, 1974)},doi:10.1007/978-1-4615-9053-8_5} for reviews of arithmetic codes.'
+
+
+relations:
+  parents:
+    - code_id: q-ary_over_zq
+      detail: 'Arithmetic residue codewords are strings of radix-\(q\) digits, labeled by elements of \(\mathbb{Z}_q\), whose last digits store a residue modulo the check base.'
+    - code_id: checksum
+      detail: 'The checksum of an arithmetic residue code is the residue of an integer modulo a check base.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-11'
