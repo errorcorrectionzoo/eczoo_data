@@ -14,7 +14,7 @@ description: |
 
   An \([q-1,k,q-k]_q\) narrow-sense RS code can be extended twice by adding two evaluation points (of which one can be zero) to yield a \([q+1,k,q-k+2]_q\) \textit{doubly extended narrow-sense RS code} \cite[Rem. 15.3.21]{preset:HKSag}.
   The two extra columns sometimes correspond to evaluating at zero and infinity if one switches to projective coordinates, in which case the doubly extended GRS code is a projective-line evaluation code.
-  There also exist \textit{triply extended RS codes} with parameters \([q+2,3,q-1]_q\) or \([q+2,q-1,4]_q\) \cite{doi:10.1201/9781315371993}.
+  There also exist \textit{triply extended RS codes} with parameters \([q+2,3,q]_q\) or \([q+2,q-1,4]_q\) for even \(q\) \cite{doi:10.1201/9781315371993}\cite[Ch. 11, Thm. 10]{preset:MacSlo}.
 
   Their automorphism groups have been identified \cite{doi:10.1016/0097-3165(87)90060-4}.
 
@@ -25,19 +25,21 @@ relations:
   parents:
     - code_id: generalized_reed_muller
       detail: 'GRM codes for univariate polynomials (\(m=1\)) reduce to extended RS codes \cite{arxiv:0802.2349}.'
+    - code_id: mds
+      detail: 'A GRS code can be extended to an MDS code \cite[Thm. 5.3.4]{doi:10.1017/CBO9780511807077}. Extended and doubly extended narrow-sense RS codes are MDS \cite[Thms. 5.3.2 and 5.3.4]{doi:10.1017/CBO9780511807077}, and there is an equivalence between the two for odd prime \(q\) \cite{doi:10.4171/JEMS/316}.'
   cousins:
     - code_id: generalized_reed_solomon
       detail: 'Extended GRS codes can be thought of as GRS codes that include an evaluation point of zero.'
     - code_id: hyperoval
       detail: 'Columns of parity-check matrices of triply extended RS codes consist of points of a hyperoval \cite[Prop. 17.5]{doi:10.1201/9781315371993}.'
-    - code_id: mds
-      detail: 'A GRS code can be extended to an MDS code \cite[Thm. 5.3.4]{doi:10.1017/CBO9780511807077}. Extended and doubly extended narrow-sense RS codes are MDS \cite[Thms. 5.3.2 and 5.3.4]{doi:10.1017/CBO9780511807077}, and there is an equivalence between the two for odd prime \(q\) \cite{doi:10.4171/JEMS/316}.'
 
 
 # Begin Entry Meta Information
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-08'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
