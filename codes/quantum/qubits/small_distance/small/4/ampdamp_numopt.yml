@@ -8,7 +8,7 @@ physical: qubits
 logical: qubits
 
 name: 'Numerically optimized four-qubit AD code'
-introduced: '\cite{arxiv:2411.12952,arxiv:2503.11783}'
+introduced: '\cite{arxiv:quant-ph/0606059,arxiv:2411.12952,arxiv:2503.11783}'
 
 description: |
   One of several four-qubit codes that can (approximately) correct a single \hyperref[topic:ad]{AD} error with higher fidelity than the \([[4,1,2]]\) subcodes of the \([[4,2,2]]\) code.
@@ -40,12 +40,12 @@ relations:
     - code_id: qubits_into_qubits
     - code_id: ampdamp
     - code_id: numopt
-      detail: 'Numerically optimized four-qubit AD codes can be obtained from a biconvex optimization of the entanglement fidelity \cite{arxiv:2411.12952}.'
+      detail: 'Numerically optimized four-qubit AD codes can be obtained from a biconvex optimization of the entanglement fidelity \cite{arxiv:quant-ph/0606059,arxiv:2411.12952}.'
     - code_id: small_distance_quantum
   cousins:
     # If numopt parent, this is a bosonic code. Convention is to keep qubit AD codes children of ampdamp
     - code_id: css_4_1_2
-      detail: 'The numerically optimized four-qubit AD code can correct a single \hyperref[topic:ad]{AD} error with higher entanglement fidelity than the \([[4,1,2]]\) LNCY code \cite{arxiv:quant-ph/9704002}.'
+      detail: 'The numerically optimized four-qubit AD code can correct a single \hyperref[topic:ad]{AD} error with higher entanglement fidelity than the \([[4,1,2]]\) LNCY code \cite{arxiv:quant-ph/9704002}\cite[Fig. 1]{arxiv:quant-ph/0606059}.'
     - code_id: reinforcement_learning
       detail: 'Numerically optimized four-qubit AD codes can be obtained from a machine-learning optimization \cite{arxiv:2503.11783}.'
 
@@ -54,6 +54,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-14'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
