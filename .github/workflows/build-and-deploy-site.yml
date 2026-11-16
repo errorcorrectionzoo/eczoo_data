@@ -165,6 +165,41 @@ jobs:
               --cacheControl 'max-age=31536000, s-maxage=31536000'  \
               --private
 
+      - name: 'Remove pages of code_ids and list_ids that no longer exist'
+        # s3-deploy uploads files but never deletes them, so the pages of deleted
+        # or renamed codes and code lists stay online. Delete every S3 object
+        # under c/ and list/ that this build did not produce. The deploy step
+        # below then invalidates the CloudFront cache.
+        working-directory: ./eczoo_sitegen/site/_site/
+        env:
+          S3_BUCKET: '${{ secrets.S3_BUCKET }}'
+          AWS_DEFAULT_REGION: '${{ secrets.S3_BUCKET_REGION }}'
+        run: |-
+          set -euo pipefail
+          for prefix in c list; do
+            find "$prefix" -type f | LC_ALL=C sort > "/tmp/local_$prefix.txt"
+            nlocal=$(wc -l < "/tmp/local_$prefix.txt")
+            if [ "$nlocal" -lt 10 ]; then
+              echo "Only $nlocal built files under $prefix/; refusing to delete anything." >&2
+              exit 1
+            fi
+            aws s3api list-objects-v2 --bucket "$S3_BUCKET" --prefix "$prefix/" \
+                --query 'Contents[].Key' --output text \
+              | tr '\t' '\n' | { grep -v -x -e 'None' -e '' || true; } \
+              | LC_ALL=C sort > "/tmp/remote_$prefix.txt"
+            LC_ALL=C comm -13 "/tmp/local_$prefix.txt" "/tmp/remote_$prefix.txt" > "/tmp/stale_$prefix.txt"
+            nstale=$(wc -l < "/tmp/stale_$prefix.txt")
+            echo "$nstale stale object(s) under $prefix/:"
+            cat "/tmp/stale_$prefix.txt"
+            if [ "$nstale" -gt 50 ]; then
+              echo "More than 50 stale objects under $prefix/; check the build and the S3 key layout before deleting." >&2
+              exit 1
+            fi
+            while read -r key; do
+              aws s3 rm "s3://$S3_BUCKET/$key"
+            done < "/tmp/stale_$prefix.txt"
+          done
+
       - name: 'Deploy site to S3/Cloudfront'
         working-directory: ./eczoo_sitegen/
         run: |-
