@@ -301,3 +301,61 @@ describing its exact behavior and usage.
   (rule 11).
 - `scripts/script_list_for_checking.txt` — the routine set of checks to run
   before submitting changes.
+
+## Computing code distances
+
+Use these tools to check a claimed \([[n,k,d]]\), to catch a transcription
+error, or to find a minimum-weight logical operator. As with
+`check_tableaux.py`, a computed distance is a check, not a citable source
+(rule 11): the entry cites the paper that established the distance. For an
+explicit tableau in an entry, `check_tableaux.py` already computes the exact
+distance. For a larger code, write its check matrices as MatrixMarket files
+(`hx.mtx`, `hz.mtx`; one-based coordinates) and use the tools below.
+
+- **QEDist** (https://github.com/yeon-lee/QEDist; Python >= 3.10 and a C++17
+  compiler; `python -m pip install .` in a clone) certifies the exact distance
+  of a binary (qubit) CSS code, and the fault distance of a Stim circuit or
+  detector error model. A completed search with `--cutoff W` proves
+  \(d\geq W+1\), a checked weight-\(D\) logical proves \(d\leq D\), and the
+  result's `status` is `EXACT_DISTANCE` when the two meet.
+
+  ```
+  qedist import-matrices hx.mtx hz.mtx --output code.json
+  qedist certify code.json --cutoff <d-1> --workers <threads> --out runs/<name>
+  qedist audit runs/<name>
+  ```
+
+  Read `distance_lower_bound` and `distance_upper_bound` in the result. Exit
+  code 10 (`WITNESS_FOUND`) means QEDist found a logical of weight at most the
+  cutoff, so the claimed \(d\) is too high. Exit code 75 means the search did
+  not finish: repeat the command with `--resume` and a larger
+  `--seconds-per-shard`. Without `--resume`, `--out` must name a new directory.
+
+  A declared symmetry (`cyclic_period`, or `symmetry_generators` such as the
+  group translations of a two-block group-algebra code) is verified against
+  both check spaces before it is used to cut the search.
+- **dist-m4ri** (https://github.com/QEC-pages/dist-m4ri; C, needs the M4RI
+  library) has an exhaustive connected-cluster search (`method=2`, the same
+  kind of search as QEDist), a randomized random-window search for low-weight
+  logicals (`method=1`), and a default `method=3` that runs both to bracket the
+  distance. For a CSS code, `finH=hx.mtx finG=hz.mtx` gives \(d_Z\); swap the
+  two files for \(d_X\). `dist_m4ri method=2 dstop=<d> timeout=0 finH=hx.mtx
+  finG=hz.mtx` proves \(d_Z\geq d\). The default `timeout` is 60 s, after which
+  only a bracket is reported. Its `start=` option trusts an unverified symmetry.
+- **QDistRnd** (GAP package, part of the full GAP distribution;
+  `LoadPackage("QDistRnd");`) finds low-weight logicals of any stabilizer code
+  over a Galois field. `DistRandCSS(HX, HZ, num, mindist, 0 : field := GF(q))`
+  returns an upper bound on \(d_Z\), negative once it finds a logical of weight
+  at most `mindist`, and `DistRandStab` handles non-CSS codes. It never proves
+  a lower bound. Its `ReadMTXE` reads only `%%MatrixMarket matrix coordinate
+  integer general` files and treats line 2 as a comment, so put a `%` line
+  there.
+
+The randomized searches (QDistRnd, dist-m4ri `method=1`) give upper bounds
+only: failing to find a lighter logical is evidence, not proof. Only a
+completed exhaustive search (QEDist, dist-m4ri `method=2`) proves a lower bound.
+To check a claimed \(d\) of a qubit CSS code, find a weight-\(d\) logical with
+dist-m4ri `method=1`, then rule out lighter ones with QEDist `--cutoff <d-1>`.
+In a November 2026 comparison of the three tools, these were the fastest for
+each step; dist-m4ri `method=2` was faster only on codes that took a few
+seconds or less.
