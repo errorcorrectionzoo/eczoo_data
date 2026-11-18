@@ -11,29 +11,26 @@ name: 'Clustered-cyclic code'
 introduced: '\cite{arxiv:2603.05398}'
 
 description: |
-  Binary LP code over the cyclic group \(\mathbb{Z}_p\), with \(p\) an odd prime, whose square seed matrices have binomial or zero entries \cite[Def. IV.1]{arxiv:2603.05398}.
-  Each logical qubit has its logical Pauli operators supported on its own cluster of \(p\) qubits and can thus be addressed directly \cite[Thm. IV.3]{arxiv:2603.05398}.
+  Binary LP code over the cyclic group \(\mathbb{Z}_p\), with \(p\) an odd prime, whose square, full-rank seed matrices have binomial or zero entries \cite[Def. IV.1, Lem. III.2]{arxiv:2603.05398}.
+  Each logical qubit has logical operators \(X^{\otimes p}\) and \(Z^{\otimes p}\) on its own cluster of \(p\) qubits \cite[Thm. IV.3]{arxiv:2603.05398}.
 
-  The code is \(LP(H_a,H_b)\) for full-rank seed matrices of sizes \(n_a\) and \(n_b\) over \(R=\mathbb{F}_2[x]/(x^p+1)\) \cite[Def. IV.1]{arxiv:2603.05398}.
-  The binomial entries are placed cyclically, with \(w_a\) (\(w_b\)) of them in every row and column of \(H_a\) (\(H_b\)), so stabilizer generators have weight \(2(w_a+w_b)\) \cite[Sec. IV]{arxiv:2603.05398}.
-  Every binomial \(x^{\alpha}(1+x^{\beta})\) is annihilated by \(\chi=1+x+\cdots+x^{p-1}\), whose binary representation is the all-ones vector on a cluster of \(p\) qubits \cite[App. A]{arxiv:2603.05398}.
-  The Künneth formula then gives each of the \(2n_an_b\) clusters one logical qubit, with logical operators \(X^{\otimes p}\) and \(Z^{\otimes p}\) \cite[Thm. IV.3]{arxiv:2603.05398}.
+  Every binomial \(x^{\alpha}(1+x^{\beta})\) is annihilated by \(\chi=1+x+\cdots+x^{p-1}\), whose binary representation is the all-ones vector on a cluster of \(p\) qubits \cite[App. A, Rem. IV.4]{arxiv:2603.05398}.
+  For seed matrices \(H_a\) and \(H_b\) of sizes \(n_a\) and \(n_b\), the Künneth formula then places one logical qubit on each of the \(2n_an_b\) clusters \cite[Thm. IV.3]{arxiv:2603.05398}.
+  The binomials are placed cyclically, with \(w_a\) (\(w_b\)) of them in every row and column of \(H_a\) (\(H_b\)), so stabilizer generators have weight \(2(w_a+w_b)\) \cite[Sec. IV]{arxiv:2603.05398}.
 
 protection: |
-  Clustered-cyclic codes have parameters \([[2pn_an_b,2n_an_b,d\leq p]]\), since the cluster logical operators have weight \(p\) \cite[Cor. IV.6]{arxiv:2603.05398}.
-  Examples with check weight eight include \([[136,8,14]]\) and \([[198,18,10]]\) codes, whose distances are numerical estimates \cite[Table I]{arxiv:2603.05398}.
+  Clustered-cyclic codes have parameters \([[2pn_an_b,2n_an_b,d\leq p]]\) \cite[Cor. IV.6]{arxiv:2603.05398}.
+  Examples with check weight eight include \([[136,8,\leq 14]]\) and \([[198,18,\leq 10]]\) codes \cite[Table I]{arxiv:2603.05398}.
 
 features:
   transversal_gates:
-    - 'The \([[24,8,3]]\) clustered-cyclic code admits fold-transversal \(CZ\)-\(S\) and \(H\)-SWAP gates as well as automorphism-induced logical SWAP gates \cite[App. J]{arxiv:2603.05398}.'
+    - 'The \([[24,8,3]]\) clustered-cyclic code admits fold-transversal \(CZ\)-\(S\) and \(H\)-SWAP gates, and automorphism-induced logical SWAP gates \cite[App. J]{arxiv:2603.05398}.'
 
   general_gates:
     - |
-      Parallel product surgery measures up to \(k/2\) disjoint pairs of same-type logical Pauli operators in one round \cite[Thm. V.9]{arxiv:2603.05398}.
-      Its ancilla patch is a second copy of the code, with \(N\) data and \(N\) check qubits \cite[Sec. V]{arxiv:2603.05398}.
-    - |
-      The \([[24,8,3]]\) clustered-cyclic code realizes the full Clifford group on four logical qubits, using the other four as ancillas \cite[Sec. VII]{arxiv:2603.05398}.
-      Parallel product surgery, fold-transversal gates, and automorphism-induced gates provide logical CNOT, paired phase \(S_iS_j^{\dagger}\), and global Hadamard gates, which with Pauli gates generate the Clifford group \cite[Thm. VII.1]{arxiv:2603.05398}.
+      Parallel product surgery measures up to \(k/2\) same-type logical Pauli products in one surgery round, reached when its connection code's check matrix \(H_Z'\) has full rank \cite[Thm. V.9]{arxiv:2603.05398}.
+      Two same-type logical operators can be merged only if they lie in different sectors or along a common row or column of one sector \cite[Sec. V.D]{arxiv:2603.05398}.
+    - 'The \([[24,8,3]]\) clustered-cyclic code realizes the full Clifford group on four logical qubits, using the other four as ancillas \cite[Sec. VII]{arxiv:2603.05398}.'
 
 notes:
   - 'See Ref. \cite[Table I and App. H]{arxiv:2603.05398} for parameters and seed matrices of clustered-cyclic codes with check weight eight.'
@@ -44,13 +41,8 @@ relations:
       detail: 'Clustered-cyclic codes are qubit CSS codes obtained from the tensor product of two chain complexes over the group algebra of the cyclic group \(\mathbb{Z}_p\) \cite[Def. IV.1]{arxiv:2603.05398}.'
     - code_id: abelian_lifted_product
       detail: |-
-        Clustered-cyclic codes are binary Abelian LP codes over \(\mathbb{Z}_p\), \(p\) an odd prime, with square, full-rank seed matrices whose nonzero entries are binomials \cite[Def. IV.1]{arxiv:2603.05398}.
+        Clustered-cyclic codes are binary Abelian LP codes over \(\mathbb{Z}_p\), \(p\) an odd prime, with square, full-rank seed matrices whose nonzero entries are binomials \cite[Def. IV.1, Lem. III.2]{arxiv:2603.05398}.
         Each logical qubit then has logical operators \(X^{\otimes p}\) and \(Z^{\otimes p}\) on its own cluster of \(p\) qubits \cite[Thm. IV.3]{arxiv:2603.05398}.
-  cousins:
-    - code_id: hypergraph_product
-      detail: |-
-        Parallel product surgery measures logical Pauli products in both HGP and clustered-cyclic codes, using a second copy of the code as the ancilla patch \cite[Sec. V]{arxiv:2603.05398}.
-        In both families, it can merge two same-type logical operators only if they lie in different sectors or along a common row or column of one sector \cite[Sec. II.B]{arxiv:2603.05398}.
 
 
 # Begin Entry Meta Information
