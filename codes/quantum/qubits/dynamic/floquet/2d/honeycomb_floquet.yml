@@ -44,7 +44,7 @@ features:
 
   fault_tolerance:
     - 'One can run a fault-tolerant decoding algorithm by (1) bipartitioning the syndrome lattice into two graphs which are congruent to the Cayley graph of the free Abelian group with three generators (up to boundary conditions) and (2) performing a matching algorithm to deduce errors.'
-    - 'Ancilla-free dynamic circuit that measures each check by shrinking it onto one of its two qubits \cite[App. C]{arxiv:2402.02185}\cite{arxiv:2507.08069}. Alternating the measured qubit removes leakage by resetting every qubit every two rounds, and timelike distance \(d_t\) requires at most \(d_t\) rounds \cite{arxiv:2507.08069}.'
+    - 'Ancilla-free dynamic circuit that measures each check by shrinking it onto one of its two qubits \cite[App. C]{arxiv:2402.02185}\cite{arxiv:2507.08069}. Alternating the measured qubit resets every qubit once per two check-measurement layers, removing leakage, and timelike distance \(d_t\) takes at most \(d_t\) full measurement cycles \cite{arxiv:2507.08069}.'
 
   threshold:
     - '\(0.2\%-0.3\%\) in a controlled-not circuit model with a correlated minimum-weight perfect-matching decoder \cite{arxiv:2108.10457}.'

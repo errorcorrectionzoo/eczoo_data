@@ -61,7 +61,8 @@ features:
   general_gates:
     - 'The code is often used in magic-state distillation protocols because of its transversal \(T\) gate \cite{arxiv:quant-ph/0403025}. In the original 15-to-1 protocol, 15 noisy \(R_{\pi/8}\ket{+}\) magic states are used to implement the transversal \(T\) by compressed gate teleportation. The resulting encoded state is post-selected by 15-qubit error detection, and decoding yields an output magic state with error probability \(O(p^3)\) when the input states have independent error probability \(p\) \cite[Sec. 13.5.1, Protocol 13.2]{preset:GottesmanBook}.'
     - 'With mid-circuit measurement and reuse of check qubits, the 15-to-1 protocol runs on four active qubits \cite[Sec. VI]{arxiv:2606.07734}.'
-    - 'Unfolded distillation prepares \(X^{1/4}\) magic states directly on phase-flip-biased physical qubits using the Hadamard-conjugated code, whose weight-four \(X\)-type stabilizers are the only ones measured \cite{arxiv:2507.12511}. These stabilizers are measured within a 19-qubit 2D nearest-neighbor code that adds four qubits and weight-two checks \cite{arxiv:2507.12511}.'
+    - 'Unfolded distillation measures only the weight-four \(X\)-type stabilizers of the Hadamard-transformed code on phase-flip-biased physical qubits, within a 19-qubit 2D nearest-neighbor code \cite{arxiv:2507.12511}. A transversal \(e^{-i\pi X/8}\) gate and a \(Z\)-basis readout that postselects on the weight-eight stabilizers then yield an \(e^{-i\pi X/8}\ket{0}\) magic state \cite{arxiv:2507.12511}.'
+    - 'A pieceably fault-tolerant round-robin logical \(CZ\) between two Hadamard-transformed blocks completes a universal gate set with the transversal gates of the two encodings \cite{arxiv:2607.05107}.'
     - 'Non-transversal logical Hadamard \cite{arxiv:2510.08402}.'
 
   decoders:
