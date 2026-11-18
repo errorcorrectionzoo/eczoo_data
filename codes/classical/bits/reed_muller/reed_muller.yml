@@ -68,7 +68,9 @@ relations:
     - code_id: bch
       detail: 'RM\(^*(r,m)\) codes are equivalent to subcodes of BCH codes of designed distance \(2^{m-r}-1\), while RM\((r,m)\) are subcodes of extended BCH codes of the same designed distance \cite[Ch. 13]{preset:MacSlo}.'
     - code_id: quaternary_over_z4
-      detail: 'Binary Reed-Muller codes are images of linear quaternary codes over \(\mathbb{Z}_4\) under the Gray map \cite[Sec. 6.3]{preset:HKSrings}.'
+      detail: |
+        RM\((r,m)\) codes of order \(r\in\{0,1,2,m-1,m\}\) are images of linear codes over \(\mathbb{Z}_4\) under the \term{Gray map} \cite[Thm. 7]{arxiv:math/0207208}.
+        RM codes of order \(3\leq r\leq m-2\) are not such images under any coordinate permutation \cite{doi:10.1109/18.661524}\cite[Sec. 1]{arxiv:math/0512051}.
     - code_id: dual
       detail: 'The codes RM\((r,m)\) and RM\((m-r-1,m)\) are dual to each other, with the case \(m = 2r+1\) being self dual.'
     - code_id: self_dual
@@ -99,6 +101,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-09-21'
     - user_id: VictorVAlbert
