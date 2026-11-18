@@ -16,6 +16,9 @@ description: 'A family of asymptotically good QLDPC codes which are related to e
 features:
   rate: 'Asymptotically good QLDPC codes.'
 
+  transversal_gates:
+    - 'Cup-product logical \(CZ\) gates on \hyperref[topic:asymptotics]{order} \(\Theta(n)\) disjoint logical-qubit pairs between a DHLV code and the DHLV code with dual local codes, transversal after a repetition encoding \cite[Thm. 4.22]{arxiv:2512.21922}.'
+
   decoders:
     - 'Linear-time decoder utilizing the small set-flip decoder \cite{arxiv:1504.00822} for \(Z\) errors and a reconstruction procedure for \(X\) errors \cite{arxiv:2206.07750}.'
 
@@ -26,7 +29,8 @@ relations:
       detail: 'DHLV codes are LP codes that can be obtained from a balanced product of two expander codes \cite[Footnote 7]{arxiv:2403.03651}.'
   cousins:
     - code_id: good_qldpc
-      detail: 'DHLV code construction yields asymptotically good QLDPC codes.'
+      detail: 'DHLV code construction yields asymptotically good QLDPC codes.
+        A DHLV code and the DHLV code with dual local codes admit logical \(CZ\) gates on \hyperref[topic:asymptotics]{order} \(\Theta(n)\) disjoint logical-qubit pairs, transversal after a repetition encoding \cite[Thm. 4.22]{arxiv:2512.21922}.'
     - code_id: regular_binary_tanner
       detail: 'Regular binary Tanner codes are used in constructing quantum DHLV codes.'
     - code_id: tensor
@@ -39,6 +43,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
