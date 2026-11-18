@@ -29,10 +29,17 @@ description: |
 # Switching between condensed phases is like code deformation
 
 features:
+  transversal_gates:
+    - 'Fold-transversal logical \(H\otimes H\) and \(S\otimes S\) gates on the honeycomb lattice with periodic boundaries, obtained from a ZX-duality of the ISG that emerges between two measurement sub-rounds \cite{arxiv:2512.17999}. On the square-octagon lattice with periodic boundaries, the same construction yields logical \(\mathrm{SWAP}(H\otimes H)\) and \(CZ\) gates \cite{arxiv:2512.17999}.'
+  general_gates:
+    - 'Logical CNOT gates via Dehn twists, implemented by repeatedly applying an edge-swapping gadget along a noncontractible loop in which every other edge has the same color \cite{arxiv:2512.17999}.'
   decoders:
     - 'Period-six measurement sequence utilizing two-qubit measurements \cite{arxiv:2210.02468}.'
   fault_tolerance:
     - 'Fault-tolerant measurement-based computation can be realized using the foliated Floquet color code \cite{arxiv:2212.06775}.'
+    - 'Time vortices are spatially varying delays in the measurement schedule that accumulate an integer number of periods around a noncontractible cycle of the torus \cite{arxiv:2502.12236}. \hyperref[topic:asymptotics]{Asymptotically}, codes with time vortices need fewer than half as many qubits as vortex-free codes to reach a given graph-like circuit distance under EM3 noise \cite{arxiv:2502.12236}.'
+  threshold:
+    - 'Circuit-level noise: \(0.25\%\)-\(0.35\%\) for fold-transversal and Dehn-twist logical gates on the honeycomb lattice \cite{arxiv:2512.17999}.'
 
 realizations:
   - 'Plaquette stabilizer measurement realized on the IBM Falcon superconducting-qubit device \cite{arxiv:2210.13154}'
@@ -51,6 +58,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: nathanan

@@ -28,23 +28,32 @@ features:
   encoders:
     - 'Initialization can be performed by preparing each pair of qubits on an edge in some particular state independently specified by the effective-one-qubit operators (two-qubit Pauli strings centered on an edge) and then beginning the check measurement sequence. This is analogous to projecting a state into the code space by measuring stabilizers.'
 
+  transversal_gates:
+    - 'Fold-transversal logical \(H\otimes H\) and \(S\otimes S\) gates on a torus \cite[Sec. 3.4]{arxiv:2512.17999}.'
+
   general_gates:
     - 'There are two types of logical operators, \textit{inner} and \textit{outer}. An inner logical operator is the product of check operators on a homologically nontrivial cycle. They belong to the stabilizer group as a subsystem code. Outer logical operators have an interpretation in terms of magnetic and electric operators of an embedded toric/surface code, and they do not belong to the stabilizer group of the associated subsystem code.'
     - 'Fermionic string excitations can be condensed along 1D paths, yielding twist defects \cite{arxiv:2306.08027}. Such excitations are created by taking products of plaquette check operators (that are present in all ISGs) over some region, multiplying them to yield a Pauli string on the boundary of said region, and cutting this string. Information is processed by braiding and fusing defects, which are located at the boundaries of the strings.'
     - |
       Certain gates \cite{arxiv:2203.11137} can be performed by considering adiabatic paths in the space of Hamiltonians \cite{arxiv:1406.2690,arxiv:1411.4248,arxiv:2203.11137}, yielding an instance of holonomic quantum computation \cite{arxiv:quant-ph/9904011}.
       Fault-tolerant gates should be interpretable as monodromies under a particular notion of parallel transport \cite{arxiv:1309.7062}.
+    - 'Logical CNOT gates via Dehn twists on a torus \cite[Sec. 4.3]{arxiv:2512.17999}.'
 
   decoders:
     - 'The ISG has a static subgroup for all time steps \(r\geq 3\) – that is, a subgroup which remains a subgroup of the ISG for all future times – given by so-called \textit{plaquette stabilizers}. These are stabilizers consisting of products of check operators around homologically trivial paths. The syndrome bits correspond to the eigenvalues of the plaquette stabilizers. Because of the structure of the check operators, only one-third of all plaquettes are measured each round. The syndrome bits must therefore be represented by a lattice in spacetime, to reflect when and where the outcome was obtained.'
 
   fault_tolerance:
     - 'One can run a fault-tolerant decoding algorithm by (1) bipartitioning the syndrome lattice into two graphs which are congruent to the Cayley graph of the free Abelian group with three generators (up to boundary conditions) and (2) performing a matching algorithm to deduce errors.'
+    - 'Ancilla-free dynamic circuit that measures each check by shrinking it onto one of its two qubits \cite[App. C]{arxiv:2402.02185}\cite{arxiv:2507.08069}. Alternating the measured qubit removes leakage by resetting every qubit every two rounds, and timelike distance \(d_t\) requires at most \(d_t\) rounds \cite{arxiv:2507.08069}.'
 
   threshold:
     - '\(0.2\%-0.3\%\) in a controlled-not circuit model with a correlated minimum-weight perfect-matching decoder \cite{arxiv:2108.10457}.'
     - '\(1.5\%<p<2.0\%\) in a circuit model with native weight-two measurements and a correlated minimum-weight perfect-matching decoder \cite{arxiv:2108.10457}. Here, \(p\) is the collective error rate of the two-body measurement gate, including both measurement and correlated data depolarization error processes.'
     - 'Against circuit-level noise: within \(0.2\% − 0.3\%\) for SD6 (standard depolarizing 6-step cycle), \(0.1\% − 0.15\%\) for SI1000 (superconducting-inspired 1000 ns cycle), and \(1.5\% − 2.0\%\) for EM3 (entangling-measurement 3-step cycle) \cite{arxiv:2202.11845,arxiv:2202.11829}.'
+    - '\(0.29\%\) under MWPM and \(0.35\%\) under correlated matching for circuit-level depolarizing noise with the ancilla-free dynamic circuit \cite{arxiv:2507.08069}.'
+
+  code_capacity_threshold:
+    - 'Two-qubit Pauli errors whose syndromes are read out after one measurement round, with perfect measurements: \(1.19\%\) per error type under ML decoding \cite{arxiv:2504.19041}. This threshold is the critical point of decoupled 2D honeycomb-lattice random-bond Ising models on the Nishimori line \cite{arxiv:2504.19041}.'
 
 realizations:
   - 'Plaquette stabilizer measurement realized on the IBM Falcon superconducting-qubit device \cite{arxiv:2210.13154}'
@@ -84,6 +93,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
