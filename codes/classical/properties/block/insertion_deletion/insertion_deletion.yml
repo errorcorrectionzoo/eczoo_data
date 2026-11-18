@@ -22,13 +22,16 @@ protection: |
     Similar distances, collectively called \textit{editing distances}, can be defined for insertions and related operations \cite[Sec. 22.7]{preset:HKSmetrics}.
     Two edits are any combination of at most two insertions, deletions, and substitutions.
     A binary code corrects two edits if and only if it separately corrects two deletions, up to two substitutions, and one deletion with up to one substitution \cite[Thm. 1]{arxiv:2403.11766}.
-    For fixed \(n\), \(t\), and \(b\) with \((t+1)b<n\), the largest \(q\)-ary length-\(n\) code correcting \(t\) bursts of \(b\) consecutive deletions has size \hyperref[topic:asymptotics]{asymptotically} equal to \(q^{n-tb}/\binom{n-tb+t}{t}\) as \(q\to\infty\) \cite[Thm. 7]{arxiv:2606.01245}.
+    For fixed \(n\), \(t\), and \(b\) with \((t+1)b<n\), the largest \(q\)-ary length-\(n\) code correcting \(t\) bursts of \(b\) deletions has size \hyperref[topic:asymptotics]{asymptotically} equal to \(q^{n-tb}/\binom{n-tb+t}{t}\) as \(q\to\infty\) \cite[Thm. 7]{arxiv:2606.01245}.
 
 
 features:
   rate: |
     An asymptotically good linear code against bit-flip errors can be converted into an asymptotically good code against insertion-deletion errors \cite{arxiv:2007.09075}.
     Binary two-edit-correcting codes can be constructed with \(6\log n+O(\log\log n)\) redundant bits (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Thm. 5]{arxiv:2403.11766}.
+
+  decoders:
+    - 'List-recovery-based decoder: any \((\rho,2\rho n+1,L)\)-list-recoverable code with an efficient list-recovery algorithm can be efficiently list decoded from \(\rho n\) insertions and deletions with list size \(L\) \cite[Thm. 2.1]{arxiv:2505.02452}.'
 
 # features:
 #   rate: 'For binary codes, the optimal achievable rate to protect against a \(\delta\) fraction of insertions and deletions is \(1- O(\delta \log\frac{1}{\delta})\).'
