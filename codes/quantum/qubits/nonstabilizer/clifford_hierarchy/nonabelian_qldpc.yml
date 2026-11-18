@@ -1,0 +1,73 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: nonabelian_qldpc
+physical: qubits
+logical: qubits
+
+name: 'Non-Abelian QLDPC code'
+introduced: '\cite{arxiv:2601.06736,arxiv:2602.12228}'
+
+alternative_names:
+  - 'Twisted QLDPC code'
+  - 'Gauged QLDPC code'
+
+description: |
+  Clifford stabilizer code with sparse checks, obtained by gauging a transversal Clifford gate, such as a \(CZ\) gate, that acts between two CSS QLDPC codes \cite{arxiv:2601.06736,arxiv:2602.12228}.
+  Gauging adds a block of gauge qubits and dresses the checks with Clifford gates, yielding a QLDPC analogue of non-Abelian topological order.
+
+  In \textit{homological gauging}, the two input codes and the gauge block are defined on one chain complex with a cup product \cite[Sec. III.C]{arxiv:2602.12228}.
+  All \(Z\)-type checks are kept.
+  Each \(X\)-type check gains \(CZ\) gates on those qubit pairs from the other two blocks whose cells have a nonzero triple cup product with its cell \cite[Sec. III.C.1]{arxiv:2601.06736}.
+  The gauge block's dressed checks multiply over a cocycle to a transversal \(CZ\) gate between the input codes \cite[Sec. III.C.4]{arxiv:2601.06736}.
+  The construction extends \hyperref[code:cubic_theory]{cubic theory codes} from manifold triangulations to Poincaré CW complexes \cite[Sec. III.C.1]{arxiv:2601.06736}.
+  \textit{Graph gauging} instead places the gauge qubits on the edges of a suitable ancilla graph \cite[Sec. III.D]{arxiv:2602.12228}.
+  It can gauge any transversal gate of order two, such as \(\mathrm{SWAP}\) between two copies of a code \cite[Sec. III.D]{arxiv:2602.12228}.
+
+protection: |
+  Errors split into electric errors, which violate dressed \(X\)-type checks, and magnetic errors, which violate \(Z\)-type checks \cite[Sec. III.D.2]{arxiv:2601.06736}.
+  When a \(CZ\) gate is gauged, electric logical operators are \(Z\)-type logicals of the ungauged blocks \cite[Sec. III.C.3]{arxiv:2601.06736}.
+  Magnetic logical operators are \(X\)-type logicals of the ungauged blocks dressed by projectors, with at least the same support \cite[Secs. III.C.3 and III.D.2]{arxiv:2601.06736}.
+
+features:
+  encoders:
+    - 'Finite-depth adaptive circuits prepare the code from the input codes, with Pauli-\(Z\) corrections on the gauge block chosen by a decoder for its CSS code \cite[Sec. III.E]{arxiv:2602.12228}.'
+
+  general_gates:
+    - 'Gauging a transversal Clifford gate and then ungauging measures that logical gate on the input codes \cite[Sec. IV.A]{arxiv:2601.06736}\cite[Sec. VI.A]{arxiv:2602.12228}.
+      Measuring a logical \(CZ\) gate on \(|\overline{++}\rangle\) with outcome \(+1\) prepares the magic state \((|\overline{00}\rangle+|\overline{01}\rangle+|\overline{10}\rangle)/\sqrt{3}\) \cite[Sec. IV.A.3]{arxiv:2601.06736}.'
+
+
+relations:
+  parents:
+    - code_id: clifford_hierarchy
+      detail: 'Non-Abelian QLDPC codes are sparse Clifford stabilizer codes whose checks are dressed by Clifford gates such as \(CZ\) gates \cite{arxiv:2601.06736,arxiv:2602.12228}.'
+    - code_id: frustration_free
+      detail: 'The codespace of a non-Abelian QLDPC code is the ground-state subspace of the frustration-free Hamiltonian given by minus the sum of its checks \cite[Sec. III.C.3]{arxiv:2601.06736}.'
+  cousins:
+    - code_id: qldpc
+      detail: |
+        Gauging a transversal Clifford gate acting between two CSS qubit QLDPC codes, such as the \(\mathrm{SWAP}\) gate between two copies of a code, yields a non-Abelian QLDPC code \cite{arxiv:2602.12228}.
+        Ungauging afterwards measures the logical gate on the input codes, and measuring a logical \(CZ\) gate can prepare magic states \cite{arxiv:2601.06736,arxiv:2602.12228}.
+    - code_id: hypergraph_product
+      detail: |
+        \textit{Twisted HGP codes} gauge addressable transversal \(CZ\) gates between two HGP codes, one built from a good classical LDPC code and one from that code and a repetition code \cite[Sec. III.E]{arxiv:2601.06736}.
+        They have constant rate \cite[Lemmas 7 and 13]{arxiv:2601.06736}.
+        Gauging and then ungauging these gates prepares \(\Theta(\sqrt{n})\) disjoint logical \(CZ\) magic states \cite[Thm. 1 and Sec. IV.C]{arxiv:2601.06736}.
+    - code_id: qcga
+      detail: 'Two copies of a BB code admit a transversal \(CZ\) gate, and gauging it with an ancilla graph yields a non-Abelian BB code \cite[Sec. IV.C]{arxiv:2602.12228}.'
+    - code_id: tqd_abelian
+      detail: |
+        Gauging the cup-product \(CZ\) gate between two toric codes reproduces a code with \(D_4\) quantum-double topological order \cite[Sec. III.C.3]{arxiv:2602.12228}.
+        This is the phase of the Type-III \(\mathbb{Z}_2^3\) Abelian TQD \cite{arxiv:hep-th/9511195}.
+        On general chain complexes, the dressed checks of non-Abelian QLDPC codes mirror a spatial slice of the Type-III TQD action \cite[Sec. III.C.3]{arxiv:2602.12228}.
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
