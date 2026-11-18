@@ -20,6 +20,12 @@ protection: |
   A finite-block EACC code is often denoted by \([n,k,d;c]_q\), where \(n\) is the number of \(q\)-dimensional channel uses, \(q^k\) is the number of classical messages, \(d\) is the minimum distance, and \(c\) is the number of pre-shared maximally entangled qudit pairs.
   Such a code corrects \(d-1\) erasures or \(\left\lfloor(d-1)/2\right\rfloor\) errors in the setting of Ref. \cite{arxiv:2310.19774}.
 
+  EA c-q codes satisfy the Singleton bound \(k\leq(1+c/n)(n-d+1)\) \cite{arxiv:2310.19774,arxiv:2202.02184}.
+  For every \(n\), \(d\), and \(c\leq n\), the bound is saturated for some \(q=\bar q^{r}\) \cite[Thm. 1]{arxiv:2603.08563}\cite{arxiv:2510.17781}.
+  Each channel qudit is split into \(r\) qudits of dimension \(\bar q\), which carry plain MDS codes and superdense-coded MDS codes in proportion \((n-c):c\) \cite{arxiv:2603.08563}.
+  If each channel qudit is encoded separately, from the message and at most one distinct entangled half, the bound becomes \(k\leq\max\{n+c-2d+2,n-d+1\}\) \cite[Thm. 2]{arxiv:2603.08563}.
+  \hyperref[code:ea_mixed_alphabet_reed_solomon]{EA mixed-alphabet RS c-q codes} saturate this bound for some \(q\) \cite{arxiv:2310.19774,arxiv:2603.08563}.
+
 features:
   rate: |
     The entanglement-assisted classical capacity \(C^{\rm ea}(T)\) is the highest asymptotic rate for reliable classical communication through a quantum channel \(T\) when arbitrary pre-shared entanglement is available \cite{doi:10.1103/PhysRevLett.83.3081,doi:10.1109/TIT.2002.802612}.
@@ -46,6 +52,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-11-14'
     - user_id: VictorVAlbert
