@@ -19,6 +19,9 @@ description: |
   This condition is not sufficient: a pair of length-36 codes satisfies it but yields no CSS-T code for any \(y\) \cite[Ex. 16]{arxiv:2601.08568}.
   Doubling any CSS code, i.e., repeating \(C_1\) and \(C_2\) twice, with \(y\) all ones on one copy and all zeros on the other, yields a CSS-T code whose transversal \(T\) gate realizes the logical identity \cite[Lemma 19]{arxiv:2601.08568}.
 
+  For Galois qudits over \(\mathbb{F}_{2^s}\), a CSS code is called CSS-T when the transversal gates \(T^{(\lambda)}=\sum_{x\in\mathbb{F}_{2^s}}e^{i\pi\mathrm{tr}(\lambda x)/4}|x\rangle\langle x|\) preserve its codespace for all \(\lambda\in\mathbb{F}_{2^s}\), where \(\mathrm{tr}\) is the trace into \(\mathbb{F}_2\) \cite{arxiv:2507.17611}.
+  This holds iff \(\mathrm{tr}(C_1)*\mathrm{tr}(C_1)\subseteq\mathrm{tr}(C_2)^{\perp}\) \cite[Thm. 4.6]{arxiv:2507.17611}.
+
 notes:
   - 'A database of CSS-T codes is available in QECDB \cite{preset:QECDB}.'
 
@@ -27,6 +30,7 @@ features:
     Asymptotically good CSS-T codes exist \cite{arxiv:2412.08586}.
     Puncturing, shortening, and doubling asymptotically good doubly even self-dual codes yields asymptotically good CSS-T codes in which the transversal \(T\) gate realizes the logical transversal \(S^{\dagger}\) gate \cite[Thm. 11]{arxiv:2601.08568}.
     These codes are not LDPC \cite[Rem. 9]{arxiv:2601.08568}.
+    Doubling Galois-qudit CSS codes yields \hyperref[topic:asymptotics]{asymptotically} good LDPC CSS-T codes over any \(\mathbb{F}_{2^s}\) \cite[Cor. 6.5]{arxiv:2507.17611}.
   transversal_gates:
     - 'A physical transversal \(T\) gate is either the identity (up to a global phase) or a logical gate \cite{arxiv:1910.09333}.'
     - |
@@ -54,6 +58,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-10-26'
     - user_id: VictorVAlbert
