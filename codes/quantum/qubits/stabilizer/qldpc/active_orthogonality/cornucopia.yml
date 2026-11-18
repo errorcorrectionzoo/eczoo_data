@@ -26,7 +26,7 @@ protection: |
   The reported instances all satisfy \(k=n/2+4\), giving rate just above one half \cite{arxiv:2608.02773}.
 
   A weight-preserving bijection between the two logical sectors forces \(d_X=d_Z\) \cite[Lemma 1]{arxiv:2608.02773}.
-  Distances are certified exactly for \([[252,130,6]]\), \([[576,292,8]]\), \([[900,454,10]]\), \([[1044,526,12]]\), \([[1764,886,14]]\), \([[2304,1156,16]]\), and \([[2844,1426,18]]\), the last three of which exceed the generator weight \cite{arxiv:2608.02773}.
+  Distances are certified exactly for \([[252,130,6]]\), \([[576,292,8]]\), \([[900,454,10]]\), \([[1044,526,12]]\), \([[1764,886,14]]\), \([[2304,1156,16]]\), and \([[2844,1426,18]]\), the last three of which exceed the generator weight \cite{arxiv:2608.02773,arxiv:2611.08247}.
 
 features:
   transversal_gates:
@@ -36,10 +36,15 @@ features:
     - 'Relay belief propagation, with belief propagation and ordered-statistics decoding as a fallback for shots it does not resolve \cite{arxiv:2608.02773}.'
 
   fault_tolerance:
-    - 'The circuit-level distance, the least number of independent faults of the syndrome-extraction circuit producing an undetectable logical error, is reported only as an upper bound, and that bound falls strictly below \(d\) for the \([[252,130,6]]\) and \([[1044,526,12]]\) instances \cite[Tab. 1]{arxiv:2608.02773}.'
+    - |
+      Ref. \cite[Tab. 1]{arxiv:2608.02773} reported upper bounds on the \hyperref[topic:effective-distance]{circuit-level distance} of its syndrome extraction circuits.
+      The exact values are \(5\), \(8\), \(9\), and \(10\) for the \([[252,130,6]]\), \([[576,292,8]]\), \([[900,454,10]]\), and \([[1044,526,12]]\) codes, and \(14\) for \([[2304,1156,16]]\) in the \(Z\) basis with eight cycles \cite[Supp. Table 8]{arxiv:2611.08247}.
+    - |
+      In the \(Z\) basis with eight cycles, the \([[2844,1426,18]]\) circuit has circuit-level distance between \(12\) and \(16\) \cite[Fig. 3]{arxiv:2611.08247}.
+      Its logical error rate over eight or more cycles thus has leading order at most \(p^8\) \cite{arxiv:2611.08247}, not the \(p^9\) used in the extrapolation of Ref. \cite{arxiv:2608.02773}.
 
   threshold:
-    - 'Circuit-level simulations give pseudo-thresholds above \(0.4\%\), defined by the break-even condition that the logical error rate per logical qubit per cycle equal the physical error rate \cite{arxiv:2608.02773}. At physical error rate \(10^{-3}\), the \([[2844,1426,18]]\) code has an extrapolated logical error rate of \(2.6\times10^{-16}\) at an overhead of about three physical qubits per logical qubit.'
+    - 'Circuit-level simulations give pseudo-thresholds above \(0.4\%\), defined by the break-even condition that the logical error rate per logical qubit per cycle equal the physical error rate \cite{arxiv:2608.02773}.'
 
 relations:
   parents:
@@ -56,6 +61,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-08-26'
     - user_id: VictorVAlbert
