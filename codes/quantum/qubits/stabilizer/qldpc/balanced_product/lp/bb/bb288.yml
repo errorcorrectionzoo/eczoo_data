@@ -24,13 +24,13 @@ features:
   rate: 'Ancilla-added encoding rate is \(1/48\), using \(n_a=n=288\) ancilla qubits.'
 
   fault_tolerance:
-    - 'The syndrome extraction circuit of Ref. \cite{arxiv:2308.07915} has \hyperref[topic:effective-distance]{circuit-level distance} \(16\) in both memory bases \cite[Fig. 3]{arxiv:2611.08247}, below the upper bound of \(18\) reported in Ref. \cite[Table 1]{arxiv:2308.07915}.'
+    - 'The syndrome extraction circuit of Ref. \cite{arxiv:2308.07915} has \hyperref[topic:effective-distance]{circuit-level distance} \(16\) in both memory bases \cite[Supp. Table 8]{arxiv:2611.08247}, below the upper bound of \(18\) reported in Ref. \cite[Table 1]{arxiv:2308.07915}.'
     - |
       A \textit{uniform} syndrome extraction cycle uses one ancilla per check and only CNOT gates, with one CNOT order and timing shared by all \(X\) checks and another by all \(Z\) checks.
       Each ancilla is prepared, coupled to its six data qubits by one CNOT gate per time step, and measured, so that one cycle takes eight time steps.
-      Every uniform cycle, including the circuit of Ref. \cite{arxiv:2308.07915}, has \hyperref[topic:effective-distance]{circuit-level distance} at most \(16\) under circuit-level noise with idle errors \cite{doi:10.5281/zenodo.23630980}.
+      Every uniform cycle has \hyperref[topic:effective-distance]{circuit-level distance} at most \(16\) under circuit-level noise with idle errors \cite{doi:10.5281/zenodo.23630980,arxiv:2611.08247}.
     - |
-      Allowing a ninth time step per cycle, some depth-7 schedules with one ancilla per check and one CNOT order per check type reach \hyperref[topic:effective-distance]{circuit-level distance} \(18\) \cite[Fig. 4]{arxiv:2611.08247}.
+      Allowing a ninth time step per cycle, some depth-7 schedules with one ancilla per check and one CNOT order per check type reach \hyperref[topic:effective-distance]{circuit-level distance} \(18\) \cite[Supp. Sec. 9.3]{arxiv:2611.08247}.
       This holds with one noisy syndrome cycle between noiseless rounds, and with two noisy cycles for one such schedule \cite{arxiv:2611.08247}.
 
   code_capacity_threshold:
