@@ -31,6 +31,16 @@ description: |
   Applying weight reduction yields \hyperref[topic:asymptotics]{order} \(\Omega(1/\text{polylog}n)\) soundness, \(\Omega(n/\text{polylog}n)\) distance and dimension, and constant locality \cite[Table 4]{arxiv:2309.05541}.
   Applying distance amplification and soundness amplification yields asymptotically constant soundness, \hyperref[topic:asymptotics]{order} \(\Theta(n)\) distance, \hyperref[topic:asymptotics]{order} \(\Theta(n)\) dimension, but poly-logarithmic locality \cite[Table 4]{arxiv:2309.05541}.
 
+  Sheaves of the strict definition are locally acyclic, so Poincaré duality for sheaf codes relates the degree-\(k\) code with dual local codes to the degree-\((t-k)\) code \cite[Sec. 1.2 and Thm. 3.17]{arxiv:2512.21922}.
+  A cap product with a fundamental class identifies the \(X\)-type logical operators of the former with the \(Z\)-type logical operators of the latter \cite[Thm. 4.18]{arxiv:2512.21922}.
+  The \(X\)-distance, cocycle expansion, and decoders of the former match the \(Z\)-distance, cycle expansion, and decoders of the latter up to constant factors \cite[Thm. 3.17]{arxiv:2512.21922}.
+  Evaluating the cup product of their cochains on the fundamental class gives a perfect pairing between the \(X\)-type logical operators of the two codes \cite[Cor. 4.21]{arxiv:2512.21922}.
+
+features:
+  transversal_gates:
+    - 'Transversal logical \(CZ\) gates on \(\Theta(n)\) disjoint logical-qubit pairs between a four-dimensional, degree-two Abelian-lift DLV code and the DLV code with dual local codes \cite[Thm. 4.23]{arxiv:2512.21922}. The physical gates evaluate the cup-product pairing and are transversal after a repetition encoding, and the codes are QLTCs with \([[n,\Theta(n),\Theta(n/\log^3 n)]]\) and soundness \(1/\log^3 n\) \cite[Thm. 4.23]{arxiv:2512.21922}.'
+    - 'For every \(r\geq 2\), cup-product logical \(C^{r-1}Z\) gates on \(r\) Abelian-lift DLV codes whose local codes are built from two-way product-expanding punctured Reed-Solomon codes \cite[Thm. 1.1 and Sec. 5.3]{arxiv:2604.01874}. The gate is not the logical identity, is transversal after a repetition encoding, and acts on \([[n,\Theta(n),\Theta(n/\log^{r-1}n)]]\) QLDPC codes or on QLTCs with soundness \(\Theta(1/\log^{2r-1}n)\) \cite[Thm. 1.1]{arxiv:2604.01874}.'
+
 relations:
   parents:
     - code_id: qubit_generalized_homological_product_css
@@ -38,6 +48,8 @@ relations:
   cousins:
     - code_id: qltc
       detail: 'DLV codes with Abelian-lift complexes have linear dimension and inverse poly-logarithmic relative distance and soundness \cite{arxiv:2402.07476}.
+        Such QLTCs admit transversal logical \(CZ\) gates on \(\Theta(n)\) disjoint logical-qubit pairs with the DLV codes having dual local codes \cite[Thm. 4.23]{arxiv:2512.21922}.
+        With punctured Reed-Solomon local codes, they admit nontrivial transversal logical \(C^{r-1}Z\) gates for every \(r\geq 2\) \cite[Thm. 1.1]{arxiv:2604.01874}.
         Applying distance amplification and soundness amplification yields asymptotically constant soundness, \hyperref[topic:asymptotics]{order} \(\Theta(n)\) distance, \hyperref[topic:asymptotics]{order} \(\Theta(n)\) dimension, but poly-logarithmic locality \cite[Table 4]{arxiv:2309.05541}.'
 
 
@@ -45,6 +57,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-11-06'
     - user_id: VictorVAlbert
