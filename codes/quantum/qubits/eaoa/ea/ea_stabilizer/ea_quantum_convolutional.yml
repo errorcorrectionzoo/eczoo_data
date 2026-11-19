@@ -8,11 +8,14 @@ physical: qubits
 logical: qubits
 
 name: 'EA quantum convolutional code'
-introduced: '\cite{arxiv:0712.2223,arxiv:0806.4214,arxiv:0807.3803}'
+introduced: '\cite{arxiv:0708.3699,arxiv:0712.2223,arxiv:0806.4214,arxiv:0807.3803}'
 
 description: |-
   A quantum convolutional code designed to utilize pre-shared entanglement between sender and receiver \cite{arxiv:0712.2223,arxiv:0806.4214,arxiv:0807.3803}.
-  Entanglement assistance removes the self-orthogonality constraint that ordinary quantum convolutional codes inherit from the stabilizer formalism, allowing arbitrary classical convolutional codes to be imported into quantum ones \cite{arxiv:0807.3803}.
+  Arbitrary convolutional Pauli generators are extended onto halves of noiseless ebits in each frame so that they commute with all of their shifts \cite{arxiv:0708.3699}.
+
+  Entanglement assistance removes the self-orthogonality constraint that ordinary quantum convolutional codes inherit from the stabilizer formalism \cite{arxiv:0708.3699,arxiv:0807.3803}.
+  Any binary or quaternary classical convolutional code can thus be imported into convolutional entanglement distillation protocols \cite{arxiv:0708.3699} and quantum convolutional codes \cite{arxiv:0807.3803}.
   In some constructions, the additional ebits also reduce the memory requirements of the encoding circuit \cite{arxiv:0812.4449}.
 
 features:
@@ -34,6 +37,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-19'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
