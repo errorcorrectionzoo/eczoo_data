@@ -42,8 +42,12 @@ relations:
     - code_id: modulation
       detail: 'Zak-OTFS is a linear modulation scheme whose basis waveforms are pulsones, i.e., tone-modulated pulse trains, one per point of a delay-Doppler lattice \cite{arxiv:2302.08696}.'
   cousins:
+    - code_id: gkp
+      detail: 'Identifying time with position, the pulsone of an unfiltered delay-Doppler point pulse at \((\tau_0,\nu_0)\), \(\sqrt{\tau_p}\sum_{n\in\mathbb{Z}}e^{2\pi i n\nu_0\tau_p}\delta(t-\tau_0-n\tau_p)\) \cite{arxiv:2007.14357,arxiv:2302.08696}, is the \(q=1\) canonical GKP state stabilized by \(\hat{S}_q(\tau_p)\) and \(\hat{S}_p(2\pi/\tau_p)\), displaced by \(\tau_0\) in position and \(2\pi\nu_0\) in momentum. Delay and Doppler shifts by the periods \(\tau_p\) and \(\nu_p=1/\tau_p\) are thus the stabilizers of this code, the Zak transform is the expansion in its Zak basis, and the delay-Doppler fundamental domain is its syndrome cell \cite[Prop. 4.4 and Sec. 4.6]{arxiv:2609.10802}.'
+    - code_id: qudit_gkp
+      detail: 'In the discrete-time model on \(\mathbb{C}^{MN}\), Zak-OTFS pulsones are the common eigenvectors of the qudit shift \(X^M\) and clock \(Z^N\) \cite[Exam. 1]{arxiv:2604.16781}, i.e., the codeword and Pauli error states \(X^{k_0}Z^{l_0}\) of the \(K=1\) modular-qudit GKP code with these stabilizers on a qudit of dimension \(MN\) \cite[Sec. II]{arxiv:quant-ph/0008040}. The pulsone in delay bin \(k_0\) and Doppler bin \(l_0\) has \(Z^N\) and \(X^M\) eigenvalues \(e^{2\pi i k_0/M}\) and \(e^{-2\pi i l_0/N}\), and it is a sampled, one-frame-periodized \hyperref[code:gkp]{canonical GKP state}.'
     - code_id: stabilizer
-      detail: 'Zak-OTFS carriers are common eigenvectors of a maximal commutative subgroup of the discrete Heisenberg-Weyl group of delay and Doppler shifts \cite[Exam. 1]{arxiv:2604.16781}. Stabilizer codes store information in common eigenvectors of a commutative subgroup of the Pauli group, whose bit and phase flips are discrete analogs of delay and Doppler shifts \cite{arxiv:2302.08696}.'
+      detail: 'Bit and phase flips, which generate the Pauli group of stabilizer codes, are discrete analogs of the delay and Doppler shifts acting on Zak-OTFS carriers \cite{arxiv:2302.08696}.'
     - code_id: ldpc
       detail: 'In simulations of a Veh-A channel, LDPC coding extends the range of Doppler spreads over which model-free Zak-OTFS communication is reliable \cite{arxiv:2402.09551}. Placing information symbols on the delay-Doppler bins best predicted from a single pilot, and parity symbols elsewhere, further lowers the bit error rate \cite{arxiv:2402.09551}.'
 
