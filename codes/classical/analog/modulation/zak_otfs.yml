@@ -1,0 +1,62 @@
+#######################################################
+## This is a code entry in the error correction zoo. ##
+##       https://github.com/errorcorrectionzoo       ##
+#######################################################
+
+code_id: zak_otfs
+physical: reals
+logical: reals
+
+name: 'Zak-transform orthogonal time frequency space (Zak-OTFS) modulation'
+short_name: 'Zak-OTFS'
+introduced: '\cite{arxiv:2007.14357,arxiv:2302.08696}'
+
+alternative_names:
+  - 'OTFS 2.0'
+
+description: |
+  Linear modulation scheme that mounts information symbols on quasi-periodic delay-Doppler pulses and converts them to a time-domain signal by the inverse Zak transform \cite{arxiv:2302.08696}.
+  Such pulses are geometric modes of time-varying wireless channels, which move them around in the delay-Doppler domain \cite{arxiv:2302.08696,arxiv:2402.09551}.
+
+  Each pulse has delay period \(\tau_p\) and Doppler period \(\nu_p=1/\tau_p\), and its time-domain realization, a \textit{pulsone}, is a train of pulses spaced by \(\tau_p\) and modulated by a tone \cite{arxiv:2302.08696,arxiv:2402.09551}.
+  For bandwidth \(B\) and duration \(T\), the pulses sit on a lattice with spacings \(1/B\) in delay and \(1/T\) in Doppler, yielding \(MN=BT\) carriers with \(M=B\tau_p\) and \(N=T\nu_p\) \cite{arxiv:2402.09551}.
+
+  In the discrete-time model, the carriers are the common eigenvectors of delay and Doppler shifts by multiples of \(\tau_p\) and \(\nu_p\), which form a maximal commutative subgroup of the discrete Heisenberg-Weyl group \cite[Exam. 1]{arxiv:2604.16781}.
+
+  Its carriers are the OTFS waveforms of Ref. \cite{doi:10.1109/WCNC.2017.7925924}, which implemented them by a multicarrier approximation \cite{arxiv:2302.08696}.
+  This approximation, now called \textit{MC-OTFS}, uses periodic rather than quasi-periodic delay-Doppler signals and has a less predictable input-output relation \cite{arxiv:2302.08696,arxiv:2302.08705}.
+
+protection: |
+  The input-output relation is predictable and non-fading when the effective channel delay and Doppler spreads are smaller than \(\tau_p\) and \(\nu_p\), respectively \cite{arxiv:2302.08696,arxiv:2302.08705}.
+  Under this \textit{crystallization condition}, the effective channel can be read off from the response to a single pilot \cite{arxiv:2302.08705}.
+  Gaussian pulse-shaping filters enlarge the region in which the crystallization condition holds \cite{arxiv:2405.02718}.
+
+realizations:
+  - 'Wireless testbeds: over-the-air transmission at sub-6 GHz \cite{doi:10.1109/MILCOM64451.2025.11310518}, at 28 GHz on the COSMOS testbed \cite{arxiv:2511.07610}, and at 140 and 240 GHz \cite{arxiv:2504.15947}.'
+
+notes:
+  - 'See Ref. \cite{arxiv:2604.16781} for a review.'
+
+relations:
+  parents:
+    - code_id: modulation
+      detail: 'Zak-OTFS is a linear modulation scheme whose basis waveforms are pulsones, i.e., tone-modulated pulse trains, one per point of a delay-Doppler lattice \cite{arxiv:2302.08696}.'
+  cousins:
+    - code_id: gkp
+      detail: 'Identifying time with position, the pulsone of an unfiltered delay-Doppler point pulse at \((\tau_0,\nu_0)\), \(\sqrt{\tau_p}\sum_{n\in\mathbb{Z}}e^{2\pi i n\nu_0\tau_p}\delta(t-\tau_0-n\tau_p)\) \cite{arxiv:2007.14357,arxiv:2302.08696}, is the \(q=1\) canonical GKP state stabilized by \(\hat{S}_q(\tau_p)\) and \(\hat{S}_p(2\pi/\tau_p)\), displaced by \(\tau_0\) in position and \(2\pi\nu_0\) in momentum. Delay and Doppler shifts by the periods \(\tau_p\) and \(\nu_p=1/\tau_p\) are thus the stabilizers of this code, the Zak transform is the expansion in its Zak basis, and the delay-Doppler fundamental domain is its syndrome cell \cite[Prop. 4.4 and Sec. 4.6]{arxiv:2609.10802}. Ideal time-frequency GKP codewords of a single photon are frequency combs on the even or odd teeth of a grid with angular spacing \(\bar{\omega}\) \cite{arxiv:1904.01351}. They are single photons in unfiltered pulsone modes with Doppler period \(\nu_p=\bar{\omega}/\pi\) and the same delay offset, whose Doppler offsets differ by \(\nu_p/2\).'
+    - code_id: qudit_gkp
+      detail: 'In the discrete-time model on \(\mathbb{C}^{MN}\), Zak-OTFS pulsones are the common eigenvectors of the qudit shift \(X^M\) and clock \(Z^N\) \cite[Exam. 1]{arxiv:2604.16781}. They are the codeword and Pauli error states \(X^{k_0}Z^{l_0}\) of the \(K=1\) modular-qudit GKP code with these stabilizers on a qudit of dimension \(MN\) \cite[Sec. II]{arxiv:quant-ph/0008040}. The pulsone in delay bin \(k_0\) and Doppler bin \(l_0\) has \(Z^N\) and \(X^M\) eigenvalues \(e^{2\pi i k_0/M}\) and \(e^{-2\pi i l_0/N}\), and it is a sampled, one-frame-periodized \hyperref[code:gkp]{canonical GKP state}.'
+    - code_id: stabilizer
+      detail: 'Bit and phase flips, which generate the Pauli group of stabilizer codes, are discrete analogs of the delay and Doppler shifts acting on Zak-OTFS carriers \cite{arxiv:2302.08696}.'
+    - code_id: ldpc
+      detail: 'In simulations of a Veh-A channel, LDPC coding extends the range of Doppler spreads over which model-free Zak-OTFS communication is reliable \cite{arxiv:2402.09551}. Placing information symbols on the delay-Doppler bins best predicted from a single pilot, and parity symbols elsewhere, further lowers the bit error rate \cite{arxiv:2402.09551}.'
+
+
+# Begin Entry Meta Information
+_meta:
+  # Change log - most recent first
+  changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-20'
+    - user_id: VictorVAlbert
+      date: '2026-11-19'
