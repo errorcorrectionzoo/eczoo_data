@@ -46,6 +46,10 @@ description: |
 
   Galois-qudit CSS codes can also be understood in terms of graphs via the \textit{reflexive stabilizer} framework, which also allows one to define a code for a given set of Pauli errors \cite{arxiv:2110.08414}.
 
+  Galois-qudit CSS codes are equivalent to linear perfect \textit{zero-knowledge codes}, whose randomized encoder maps a message \(\gamma\in C_X/C_Z^{\perp}\) to a uniformly random element of \(\gamma+C_Z^{\perp}\) \cite{arxiv:2603.08941}.
+  The encoder can be decoded from \(e\) errors iff every element of \(C_X\setminus C_Z^{\perp}\) has weight above \(2e\) \cite[Thm. 3.1]{arxiv:2603.08941}.
+  Any \(t\) symbols of the encoding reveal nothing about the message iff every element of \(C_Z\setminus C_X^{\perp}\) has weight above \(t\) \cite[Thm. 3.1]{arxiv:2603.08941}.
+
 protection: |
   Detects errors on \(d-1\) qudits, corrects errors on \(\left\lfloor (d-1)/2 \right\rfloor\) qudits.
   A quantum version of the Griesmer bound has been derived for Galois-qudit CSS codes \cite{arxiv:0812.2674}.
@@ -74,6 +78,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

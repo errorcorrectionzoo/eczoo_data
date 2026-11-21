@@ -122,7 +122,7 @@ features:
     - 'Transversal CNOT gates preserve the logical subspace, up to \(X\)-type Paulis, iff a qubit stabilizer code is CSS \cite{arxiv:quant-ph/9605011,preset:GottesmanBook}. The Paulis are necessary for when the code is stabilized by stabilizers with a minus in front of them, e.g., \(-XXXX\) and \(ZZZZ\).'
     - '\textit{Fold-transversal} \cite{arxiv:1503.02065,arxiv:1603.02286,arxiv:2202.06647} \hyperref[topic:clifford]{Clifford gates} are transversal gates combined with qubit permutations. Some of these can be obtained from automorphism groups of the underlying classical codes \cite[Thms. 2-3]{arxiv:1302.1035}.'
     - >-
-      Necessary and sufficient conditions for diagonal physical gates on a CSS code to induce logical gates in the \term{Clifford hierarchy} have been formulated \cite[Thm. 9]{arxiv:2109.13481}\cite[Thm. 5]{arxiv:2204.13176}\cite{arxiv:2406.00425}.
+      Necessary and sufficient conditions for diagonal physical gates on a CSS code to induce logical gates in the \term{Clifford hierarchy} have been formulated \cite[Thm. 9]{arxiv:2109.13481}\cite[Thm. 5]{arxiv:2204.13176}\cite{arxiv:2406.00425}\cite{arxiv:2404.07828}.
       There are routines that can determine what diagonal gates in the \term{Clifford hierarchy} are realized by a code \cite{arxiv:2303.15615,preset:Webster23}.
     - 'CSS code families with asymptotic rate \(> 1/3\) and distance \(\geq 3\) do not admit logical qubit permutations from physical permutations \cite{arxiv:2502.13889}.'
     - 'Transversal \hyperref[topic:clifford]{Clifford gates} that apply the same \(\ell\)-qubit Clifford gate at every qubit position of \(\ell\) codeblocks of a CSS code form \(GL(\ell,2)\) for non-self-dual CSS codes, \(U(\ell,R_8)\) for \textit{semi-self-dual CSS codes} (i.e., CSS codes whose \(X\)-type stabilizers are contained in the \(Z\)-type stabilizers), and \(Sp(2\ell,2)\) for self-dual CSS codes \cite{arxiv:2507.10519}.'
@@ -134,6 +134,7 @@ features:
     - 'Generalized lattice surgery \cite{arxiv:2301.13738}.'
     - 'Cohomology invariants give rise to logical gates implemented by constant-depth \hyperref[topic:clifford]{Clifford circuits} for codes admitting a cup product structure \cite{arxiv:2310.16982,arxiv:2410.14631,arxiv:2410.16250,arxiv:2411.15848}. For example, a diagonal \textit{copy-cup} gate in the \(m\)th level of the \term{Clifford hierarchy} can be implemented on a code admitting an \(m\)-fold cup product \cite{arxiv:2410.16250}.'
     - 'Fault-tolerant CNOT gate using generalized lattice surgery \cite{arxiv:2505.01370}.'
+    - 'Any logical Pauli rotation can be implemented with nonzero probability by equal-angle rotations about \(M\) physical Pauli operators, for any odd \(M\leq d\), followed by syndrome extraction \cite[Thm. 2]{arxiv:2510.08290}. The operators multiply to the logical Pauli and their nonempty proper subproducts have nontrivial syndromes, which set the logical angle independently of the input state \cite{arxiv:2510.08290}.'
   fault_tolerance:
     - 'Steane error correction \cite{arxiv:quant-ph/9611027}, where fault-tolerance is ensured by preparing ancillary encoded states and extracting syndromes via \(CNOT\) gates.'
     - 'Encoded \(\ket{0}\) and \(\ket{+}\) ancillas for Steane error correction can be prepared by hierarchical Steane-style verification; without code-specific optimizations, a two-level procedure uses at least \((t+1)^2\) noisy ancillas for a distance-\(2t+1\) CSS code \cite[Secs. 13.1.2-13.1.3]{preset:GottesmanBook}.'
@@ -231,6 +232,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-11-03'
     - user_id: VictorVAlbert
