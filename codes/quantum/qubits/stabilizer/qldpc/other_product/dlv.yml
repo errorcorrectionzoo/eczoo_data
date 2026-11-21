@@ -31,6 +31,15 @@ description: |
   Applying weight reduction yields \hyperref[topic:asymptotics]{order} \(\Omega(1/\text{polylog}n)\) soundness, \(\Omega(n/\text{polylog}n)\) distance and dimension, and constant locality \cite[Table 4]{arxiv:2309.05541}.
   Applying distance amplification and soundness amplification yields asymptotically constant soundness, \hyperref[topic:asymptotics]{order} \(\Theta(n)\) distance, \hyperref[topic:asymptotics]{order} \(\Theta(n)\) dimension, but poly-logarithmic locality \cite[Table 4]{arxiv:2309.05541}.
 
+  Sheaves of the strict definition are locally acyclic \cite[Sec. 1.2]{arxiv:2512.21922}.
+  Poincaré duality then maps the \(X\)-type logical operators of the degree-\(k\) code with dual local codes onto the \(Z\)-type logical operators of the degree-\((t-k)\) code \cite[Thm. 3.17]{arxiv:2512.21922}.
+  The former's \(X\)-distance, cocycle expansion, and decoders match the latter's \(Z\)-distance, cycle expansion, and decoders up to constant factors \cite[Thm. 3.17]{arxiv:2512.21922}.
+
+features:
+  transversal_gates:
+    - 'Cup-product logical \(CZ\) gates on \hyperref[topic:asymptotics]{order} \(\Theta(n)\) disjoint logical-qubit pairs between a four-dimensional degree-two Abelian-lift DLV code and the DLV code with dual local codes, transversal after a repetition encoding \cite[Thm. 4.23]{arxiv:2512.21922}. The repetition-encoded codes are \([[n,\Theta(n),\Theta(n/\log^3 n)]]\) QLTCs with soundness \(1/\log^3 n\) \cite[Thm. 4.23]{arxiv:2512.21922}.'
+    - 'For every \(r\geq 2\), cup-product logical \(C^{r-1}Z\) gates that are not the logical identity act on \(r\) Abelian-lift DLV codes whose local codes are two-way product-expanding punctured Reed-Solomon codes or duals of their Schur powers \cite[Thm. 1.1 and Sec. 5.3]{arxiv:2604.01874}. The gates are transversal after a repetition encoding, and the blocks have combined parameters \([[n,\Theta(n),\Theta(n/\log^{r-1}n)]]\) at degree one, or form QLTCs with soundness \(\Theta(1/\log^{2r-1}n)\) at degree two \cite[Thm. 1.1 and Sec. 5.3]{arxiv:2604.01874}.'
+
 relations:
   parents:
     - code_id: qubit_generalized_homological_product_css
@@ -45,6 +54,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-21'
     - user_id: VictorVAlbert
       date: '2026-11-06'
     - user_id: VictorVAlbert
