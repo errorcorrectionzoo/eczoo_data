@@ -14,45 +14,47 @@ introduced: '\cite{arxiv:1701.01295}'
 description: |
   Evaluation code of \textit{twisted polynomials}, i.e., polynomials of degree below \(k\) plus a higher-degree monomial whose coefficient is \(\eta\) times a lower-degree coefficient \cite{arxiv:1701.01295}.
   Although the extra monomial raises the degree above \(k-1\), suitable parameters keep every nonzero twisted polynomial from having \(k\) zeros among the evaluation points.
-  This yields MDS codes, most of which are not GRS codes \cite{arxiv:1701.01295}.
+  This yields MDS codes, many of which are not GRS codes \cite[Sec. VI]{arxiv:2107.06945}.
 
-  A twisted RS code is specified by a \textit{hook} \(0\leq h<k\), a \textit{twist} \(1\leq t\leq n-k\), a coefficient \(\eta\in\mathbb{F}_q\), and distinct evaluation points \(\alpha_i\in\mathbb{F}_q\).
+  A twisted RS code is specified by a \textit{hook} \(0\leq h<k\), a \textit{twist} \(1\leq t\leq n-k\), a coefficient \(\eta\in\mathbb{F}_q\), and distinct evaluation points \(\alpha_i\in\mathbb{F}_q\cup\{\infty\}\) \cite[Def. 6]{arxiv:1701.01295}\cite[Def. 1]{arxiv:2107.06945}.
   Its codewords are \((f(\alpha_1),\ldots,f(\alpha_n))\) for all polynomials
   \begin{align}
     f(x)=\sum_{i=0}^{k-1}a_i x^i+\eta\, a_h\, x^{k-1+t}~,
   \end{align}
-  with \(a_i\in\mathbb{F}_q\) \cite{arxiv:1701.01295}.
+  with \(a_i\in\mathbb{F}_q\), where \(f(\infty)\) is the coefficient of the highest-degree monomial \cite[Def. 2]{arxiv:1701.01295}.
   \textit{Multi-twisted} codes add several such monomials \(\eta_j a_{h_j}x^{k-1+t_j}\) \cite[Def. 1]{arxiv:2107.06945}, and multiplying the coordinates by nonzero constants yields \textit{twisted GRS codes} \cite[Def. 1]{arxiv:2512.24217}.
 
   \textit{Row-column twisted RS codes} evaluate twisted polynomials at \(n-1\) points and append the coordinate \(f(b)-\lambda f(c)\) for \(b,c,\lambda\in\mathbb{F}_q\) \cite[Def. 3.3]{arxiv:2509.06919}.
-  For twist \(t=1\), hooks \(1\leq h\leq k-2\), \(5\leq k\leq(n-2)/2\), and explicit subfield-based parameters, they are MDS codes inequivalent to GRS codes and to all twisted RS codes with \(t=1\) \cite[Thms. 6.3, 6.4, and 6.6]{arxiv:2509.06919}.
+  They include MDS codes inequivalent to GRS codes and to all twisted RS codes with \(t=1\) \cite[Thms. 6.3, 6.4, and 6.6]{arxiv:2509.06919}.
 
 protection: |
-  A twisted RS code is MDS if and only if a \(t\times t\) matrix determined by \(\eta\), \(h\), and each \(k\)-subset of evaluation points is nonsingular \cite[Lem. 15]{arxiv:1701.01295}.
-  Multi-twisted codes obey an analogous criterion \cite{doi:10.1007/s12095-023-00688-6}\cite[Thm. 1]{arxiv:2602.16207}.
+  A twisted RS code with evaluation points in \(\mathbb{F}_q\) is MDS if and only if a \(t\times t\) matrix determined by \(\eta\), \(h\), and each \(k\)-subset of evaluation points is nonsingular \cite[Lem. 15]{arxiv:1701.01295}.
+  Multi-twisted codes with distinct hooks and twists and nonzero \(\eta_j\) obey an analogous criterion \cite[Thm. 3.1]{arxiv:2201.13108}\cite[Thm. 1]{arxiv:2602.16207}.
   For \(t=1\), the condition reads \((-1)^k\eta\prod_{i\in I}\alpha_i\neq 1\) for \(h=0\) and \(\eta\sum_{i\in I}\alpha_i\neq -1\) for \(h=k-1\), for every \(k\)-subset \(I\) \cite[Lems. 4 and 10]{arxiv:1701.01295}.
 
-  Hence \textit{\((*)\)-twisted codes}, with \((t,h)=(1,0)\), evaluation points in \(G\cup\{0\}\) for a proper subgroup \(G\) of \(\mathbb{F}_q^*\), and \((-1)^k\eta^{-1}\notin G\), are MDS \cite[Thm. 5]{arxiv:1701.01295}.
+  Hence \textit{\((*)\)-twisted RS codes}, with \((t,h)=(1,0)\), evaluation points in \(G\cup\{0\}\) for a proper subgroup \(G\) of \(\mathbb{F}_q^*\), and \((-1)^k\eta^{-1}\notin G\), are MDS \cite[Thm. 5]{arxiv:1701.01295}.
   For odd \(q\), they reach length \((q+1)/2\), the maximal length of MDS twisted RS codes with \((t,h)=(1,0)\), \(\eta\neq 0\), and \(3\leq k\leq(q-5)/2\) \cite[Cor. 6 and Thm. 8]{arxiv:1701.01295}.
-  Likewise, \textit{\((+)\)-twisted codes}, with \((t,h)=(1,k-1)\), evaluation points in \(V\cup\{\infty\}\) for a proper additive subgroup \(V\) of \(\mathbb{F}_q\), and \(\eta^{-1}\notin V\), are MDS and reach length \(q/2+1\) for even \(q\) \cite[Thm. 11 and Cor. 12]{arxiv:1701.01295}.
+  Likewise, \textit{\((+)\)-twisted RS codes}, with \((t,h)=(1,k-1)\), evaluation points in \(V\cup\{\infty\}\) for a proper additive subgroup \(V\) of \(\mathbb{F}_q\), and \(\eta^{-1}\notin V\), are MDS and reach length \(q/2+1\) for even \(q\) \cite[Thm. 11 and Cor. 12]{arxiv:1701.01295}.
   Twisted RS codes whose evaluation points lie in a proper subfield \(\mathbb{F}_s\) and whose \(\eta\) lies outside it are MDS for every hook and twist \cite[Thm. 17]{arxiv:1701.01295}.
 
 features:
   decoders:
-    - 'Decoding by guessing the hook coefficient \(a_h\) and running an RS decoder for each of the \(q\) guesses \cite[Sec. VII]{arxiv:1701.01295}. It corrects up to half the minimum distance with runtime of \hyperref[topic:asymptotics]{order} \(\tilde{O}(qn)\) \cite[Thm. 22]{arxiv:1701.01295}.'
-    - 'Guruswami-Sudan-based list and unique decoders for twisted GRS codes, with near-linear runtime at fixed rate for up to \(O(n\log^2 n\log\log n)\) twists (using \hyperref[topic:asymptotics]{asymptotic notation}) \cite[Sec. III]{arxiv:2512.24217}.'
+    - 'Brute-force decoder running an RS decoder for each of the \(q\) values of the hook coefficient, correcting up to half the minimum distance with runtime of \hyperref[topic:asymptotics]{order} \(\tilde{O}(qn)\) \cite[Thm. 22]{arxiv:1701.01295}.'
+    - 'Guruswami-Sudan-based list and unique decoders for twisted GRS codes \cite[Sec. III]{arxiv:2512.24217}.'
 
 relations:
   parents:
     - code_id: evaluation_varieties
-      detail: 'Twisted RS codes are evaluation codes of the space of twisted polynomials \(\sum_{i=0}^{k-1}a_i x^i+\eta a_h x^{k-1+t}\) at distinct points of \(\mathbb{F}_q\) \cite{arxiv:1701.01295}.'
+      detail: 'Twisted RS codes are evaluation codes of the space of twisted polynomials \(\sum_{i=0}^{k-1}a_i x^i+\eta a_h x^{k-1+t}\) at distinct points of \(\mathbb{F}_q\cup\{\infty\}\) \cite{arxiv:1701.01295}.'
   cousins:
     - code_id: generalized_reed_solomon
-      detail: 'For \(2<k<n-2\) and fixed evaluation points in \(\mathbb{F}_q\), hook, and twist, at most six values of \(\eta\) yield MDS twisted RS codes that are GRS codes \cite[Thm. 18]{arxiv:1701.01295}.
+      detail: 'For fixed evaluation points in \(\mathbb{F}_q\), hook, and twist with \(\min\{k,n-k\}\geq 3\), either all MDS twisted RS codes are GRS codes or at most six of them are \cite[Thm. 33]{arxiv:2107.06945}.
         Every twisted GRS code is a subcode of the GRS code of dimension \(k+\max_j t_j\) with the same evaluation points and multipliers \cite[Lem. 4]{arxiv:2512.24217}.'
+    - code_id: mds
+      detail: '\((*)\)-twisted RS codes with \(3\leq k<n/2\) are MDS codes that are not GRS codes \cite[Thm. 10 and Cor. 27]{arxiv:2107.06945}.'
     - code_id: roth_lempel
       detail: 'Appending the two extra Roth-Lempel coordinates to a twisted RS code with twist \(t=1\) yields a \textit{twisted Roth-Lempel code}, which is MDS for explicit subfield-based coefficients \cite[Props. 3.12 and 3.13]{arxiv:2609.17304}.
-        For \(5\leq k\leq(n-1)/2\) and nonzero coefficients, its Schur square has dimension at least \(2k+1\), so it is neither GRS nor equivalent to the corresponding Roth-Lempel code \cite[Thm. 3.11]{arxiv:2609.17304}.'
+        For \(5\leq k\leq(n-1)/2\) with \(n\) evaluation points and nonzero twist and Roth-Lempel coefficients, it is neither GRS nor equivalent to the corresponding Roth-Lempel code \cite[Thm. 3.11]{arxiv:2609.17304}.'
 
 
 # Begin Entry Meta Information
