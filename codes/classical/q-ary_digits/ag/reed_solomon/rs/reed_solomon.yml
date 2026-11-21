@@ -111,7 +111,10 @@ relations:
       detail: 'If the length divides \(q-1\), then it is possible to construct a cyclic RS code.
         Such codes are Abelian group-algebra codes \cite[Exam. 16.4.9]{preset:HKSalgebra}.'
     - code_id: tensor
-      detail: 'Tensor codes constructed from RS codes are robustly testable \cite{doi:10.1145/195058.195132}.'
+      detail: |
+        Tensor codes constructed from RS codes are robustly testable \cite{doi:10.1145/195058.195132}.
+        For fixed \(t\geq 2\) and \(\nu_i\in(0,1)\), punctured RS codes \(\mathcal{C}_i\) of dimension \(\lfloor\nu_i n\rfloor\) on independent uniformly random \(n\)-element subsets of \(\mathbb{F}_q\), with \(q>2^{tn^t}\) a power of two, have duals with constant product expansion \cite[Thm. 1.2]{arxiv:2604.01874}.
+        This holds for large \(n\) with probability at least \(1-2^{tn^t}/q\), and if every \(\nu_i\leq 1/2\), the codes are \textit{two-way product-expanding}, with any choice of \(\mathcal{C}_i\) or \(\mathcal{C}_i^\perp\) for each \(i\) product-expanding \cite[Thm. 1.2]{arxiv:2604.01874}.
     - code_id: q-ary_ltc
       detail: 'RS codes can be used to construct LTCs encoding \(k\) bits with length \(k \text{polylog}(k)\) and query complexity \(\text{polylog}(k)\) \cite{doi:10.1137/050646445}.'
     - code_id: pir
@@ -124,6 +127,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-21'
     - user_id: VictorVAlbert
       date: '2026-11-07'
     - user_id: VictorVAlbert
