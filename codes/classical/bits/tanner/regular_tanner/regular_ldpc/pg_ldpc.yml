@@ -17,6 +17,15 @@ description: |
   Such codes are called \textit{Euclidean-geometry LDPC (EG-LDPC)} and \textit{projective-geometry LDPC (PG-LDPC)}, respectively.
   Such constructions have been generalized to incidence matrices of hyperplanes of different dimensions \cite{doi:10.1109/TIT.2004.840867}.
 
+  A pencil is the set of all flats containing a fixed flat of one lower dimension.
+  Replacing that common flat by one auxiliary bit in each check of the pencil sparsifies the Tanner graph \cite[Sec. III]{arxiv:2606.11454}.
+  Pencils chosen using lifted \hyperref[code:gabidulin]{Gabidulin codes} are disjoint \cite[Sec. IV]{arxiv:2606.11454}.
+  With suitable offsets in the Euclidean case, their checks span the full parity-check row space for all FG-LDPC codes of length up to 1024 \cite[Sec. IV]{arxiv:2606.11454}.
+
+features:
+  decoders:
+    - 'BP decoding on pencil-sparsified parity-check matrices \cite{arxiv:2606.11454}.'
+
 relations:
   parents:
     - code_id: regular_ldpc
@@ -34,6 +43,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
