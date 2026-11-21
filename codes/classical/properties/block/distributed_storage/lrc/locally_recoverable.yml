@@ -25,6 +25,7 @@ protection: |
     d \leq n-k-\left\lceil\frac{k}{r}\right\rceil+2
   \end{align}
   for an \((n,k,r)\) LRC \cite[Thm. 15.9.8]{preset:HKSag}.
+  For fixed \(q\), \(k\), and \(r\), the shortest length of a linear \([n,k,d]_q\) LRC with locality \(r\) equals the Griesmer bound once \(d\) is large enough \cite[Thm. 10]{arxiv:2401.00418}.
   A study on the parameters of \(t\)-LRCs, together with known bounds, can be found in Ref. \cite{doi:10.1109/TIT.2016.2518663}.
   See Ref. \cite{arxiv:1408.4862} for more bounds on locally recoverable distributed storage codes.
 
@@ -53,6 +54,9 @@ relations:
   cousins:
     - code_id: q-ary_linear
       detail: 'A \(q\)-ary linear code is an LRC of locality \(r\) if each coordinate participates in at least one parity check of weight \(\leq r\) \cite{arxiv:2311.08653}\cite[Sec. 31.3.4.5]{preset:HKSdist}.'
+    - code_id: concatenated
+      detail: 'Concatenating a quaternary linear \([n,k,d]\) outer code with the binary \([3,2,2]\) SPC inner code yields a binary \([3n,2k,2d]\) LRC with locality two and disjoint repair groups \cite[Constr. 3.2]{arxiv:2605.04618}.
+        Suitable quaternary Griesmer and perfect outer codes yield binary LRCs attaining a Griesmer-type bound and a sphere-packing-like bound, respectively \cite[Thms. 4.2 and 5.3]{arxiv:2605.04618}.'
 
 # LDCs are similar in nature to LRC, but work in another regime. Namely, given a heavily corrupted codeword within the decoding radius, you need to recover any given bit of the message using a small number of queries
 
@@ -61,6 +65,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert

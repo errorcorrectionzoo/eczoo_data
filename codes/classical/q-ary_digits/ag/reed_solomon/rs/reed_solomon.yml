@@ -52,6 +52,7 @@ features:
     - 'Gao decoder using extended Euclidean algorithm \cite{doi:10.1007/978-1-4757-3789-9_5}.'
     - 'Fast-Fourier-transform decoder with runtime of \hyperref[topic:asymptotics]{order} \(O(n \text{polylog}n)\) \cite{doi:10.1109/TIT.1978.1055816}.'
     - 'List decoders try to find a low-degree bivariate polynomial \(Q(x,y)\) such that evaluation of \(Q\) at \((\alpha_i,y_i)\) is zero. By choosing proper degrees, it can be shown such polynomial exists by drawing an analogy between evaluation of \(Q(\alpha_i,y_i)\) and solving a homogeneous linear equation (interpolation). Once this is done, one lists roots of \(y\) that agree at \(\geq t\) points. The Sudan list-decoding algorithm corrects up to \(1-\sqrt{2R}\) fraction of errors \hyperref[topic:asymptotics]{asymptotically} in \(n\) \cite{doi:10.1006/JCOM.1997.0439}. A modified key equation allows correction of more than \(\left\lfloor (n-k)/2 \right\rfloor\) errors \cite{doi:10.1109/18.817522}. The Guruswami-Sudan algorithm improved the Sudan algorithm to the Johnson radius \(1-\sqrt{R}\) \cite{doi:10.1109/SFCS.1998.743426}, which lies below the list-decoding capacity \(1-R\). See Ref. \cite{doi:10.1109/TIT.2006.878164} for limits to list decoding RS codes. RS codes of any constant rate over prime fields of polynomial size can be list decoded up to capacity in deterministic polynomial time for every evaluation set \cite{arxiv:2609.08005,arxiv:2609.05870}. The Koetter-Vardy modification of the Guruswami-Sudan algorithm is used for soft-decision decoding \cite{doi:10.1109/TIT.2003.819332} (see also Ref. \cite{doi:10.1109/26.79287}). Subcodes of RS codes whose evaluation points lie in a \hyperref[topic:finite-fields]{subfield} can be list decoded up to the capacity \(1-R\) \cite{doi:10.1145/2488608.2488715}. Explicit such subcodes, built from permuted products of two RS codes, can be efficiently list decoded up to capacity with constant list size \cite{arxiv:2401.15034}. List decoding of RS codes is known as noisy polynomial interpolation in cryptography \cite{doi:10.1145/301250.301312}.'
+    - 'List-recovery-based insertion-deletion decoder, which uniquely decodes \(t\) insertions and deletions in polynomial time when the code corrects them and \(t\leq n-\sqrt{(1+\epsilon)kn(2t+1)}\) for some \(\epsilon>0\) \cite[Cor. 2.3]{arxiv:2505.02452}. Koetter-Vardy decoder adapted to the Davey-MacKay insertion-deletion channel \cite[Sec. IV]{arxiv:2505.02452}.'
     - 'The ubiquity of RS codes has yielded off-the-shelf VLSI integrated-circuit decoding hardware \cite{doi:10.1109/92.953498} (see also \cite[Chs. 5 and 10]{doi:10.1109/9780470546345}).'
 
 #    - 'Error locator polynomial \(E(y_i) = E(f(\alpha_i) )\).'
@@ -124,6 +125,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-11-07'
     - user_id: VictorVAlbert
