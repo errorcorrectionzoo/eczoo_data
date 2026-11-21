@@ -15,7 +15,6 @@ description: |
   The family has constant rate, linear distance, and constant \hyperref[code:qltc]{operator soundness} \cite[Thm. 4]{arxiv:2609.40220}.
 
   The blocks come from the \(c^3\)-QLTC construction of Ref. \cite{arxiv:2609.20780}, with the choices of Ref. \cite{arxiv:2609.26691} that make the trilinear form nonzero \cite[App. B.2]{arxiv:2609.40220}.
-  Gauging keeps the \(Z\)-type checks of the blocks \cite[Sec. 4.1]{arxiv:2609.40220}.
   Each \(X\)-type generator of a block is multiplied by a phase set by the trilinear form of its cochain with the other two blocks' cochains \cite{arxiv:2609.30159}\cite[Sec. 4.1]{arxiv:2609.40220}.
 
   The third block, with cochains \(C^j\) and coboundary \(\delta\), is replaced by \(E^j=C^j\oplus C^{j-1}\) with \(\delta_E(y,x)=(\delta y,\,y-\rho y+\delta x)\), where \(\rho\) is a deck transformation of prime order \(p\) \cite[App. B.3]{arxiv:2609.40220}.
@@ -29,8 +28,10 @@ notes:
 
 relations:
   parents:
-    - code_id: clifford_hierarchy
-      detail: 'Gauged sheaf QLTC codespaces are joint eigenspaces of \(Z\)-type Pauli strings and of \(X\)-type Pauli strings multiplied by constant-weight multi-controlled-\(Z\) phases \cite[App. B.1]{arxiv:2609.40220}.'
+    - code_id: nonabelian_qldpc
+      detail: |
+        Gauged sheaf QLTCs are non-Abelian QLDPC codes whose input blocks are sheaf-code QLTCs, with each dressed \(X\)-type generator carrying a phase bilinear in the other two blocks' cochains \cite[Sec. 4.1]{arxiv:2609.40220}.
+        The gauge block is modified by a deck transformation of prime order \(p\) and its checks carry prescribed nontrivial eigenvalues, so \(p\) divides the code dimension \cite[App. B.3 and Lemma 11]{arxiv:2609.40220}.
     - code_id: monomial_stabilizer
       detail: 'Each dressed \(X\)-type generator of a gauged sheaf QLTC is a Pauli \(X\) string times a diagonal phase, so the codespace is a joint eigenspace of monomial operators \cite[Sec. 4.1]{arxiv:2609.40220}. The dressed generators commute on the subspace satisfying the \(Z\)-type checks \cite[Sec. 4.3]{arxiv:2609.40220}.'
   cousins:
@@ -42,5 +43,7 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-10-27'
