@@ -19,6 +19,7 @@ description: |
   Stabilizer generator matrices equivalent under symplectic transformations are classified by distinct Hermite normal forms \cite{arxiv:2109.14645}.
 
   The space of all single-mode GKP codes is the moduli space of elliptic curves, i.e., the three sphere with a trefoil knot removed \cite{arxiv:2407.03270}.
+  More generally, \(n\)-mode GKP codes correspond one-to-one to \(n\)-dimensional polarized complex abelian varieties, and their code spaces to spaces of theta functions \cite[Thm. 4.5]{arxiv:2605.28784}.
 
 
 protection: 'The level of protection against displacement errors is quantified by the Euclidean code distance \(\Delta=\min_{x\in {\mathcal{L}}^{\perp}\setminus {\mathcal{L}}} \|x\|_2\) \cite{arxiv:2109.14645}. There are upper bounds on this distance \cite{arxiv:2109.14645,doi:10.1109/ITW61385.2024.10806993}.'
@@ -38,6 +39,10 @@ features:
     - 'Gaussian operations and homodyne measurements on non-magic GKP states are classically simulable \cite{arxiv:2406.06418}, and there is a sufficient condition for an additional element to achieve universal quantum computation \cite{arxiv:2309.07820}. There is an algorithm for GKP circuit simulation whose runtime scales with the amount of negativity of the Zak-Gross Wigner function \cite{arxiv:2412.13136}.'
     - 'There is a relation between magic (i.e., how far away a state is from being a stabilizer state) and non-Gaussianity for GKP codewords \cite{arxiv:2109.13018,arxiv:2406.06418}. In particular, implementing a non-Clifford logical gate requires a higher degree of non-Gaussianity than that expressed by ideal non-normalizable GKP states \cite{arxiv:2406.06418}.'
     - 'By applying GKP error correction to Gaussian input states, computational universality can be achieved without additional non-Gaussian elements  \cite{arxiv:1903.00012}. This procedure can be alternatively described as performing heterodyne detection on one half of a GKP encoded Bell pair. The cubic phase gate is not a suitable gate for unbiased GKP states \cite{arxiv:2009.05309}. With on-demand noise biasing before the gate, the logical error of the cubic-phase \(T\) gate vanishes as GKP squeezing increases \cite{arxiv:2511.20355}.'
+    - 'Modulo Pauli gates, the logical Clifford gates realized by passive Gaussian unitaries combined with displacements are exactly the actions of automorphisms of the polarized abelian variety on \({\mathcal{L}}^{\perp}/{\mathcal{L}}\) \cite[Thm. 6.6]{arxiv:2605.28784}.
+      The three-qubit GKP code built from the Jacobian of the Klein quartic admits 168 such gates \cite[Prop. 6.8]{arxiv:2605.28784}.'
+    - 'Projecting the vacuum or a coherent state onto the code space of a GKP code built from the Jacobian of a Riemann surface can yield a logical magic state \cite[Sec. 3]{arxiv:2610.35513}.
+      The Jacobian of the octahedral hyperelliptic curve yields a three-qubit \(|CCZ\rangle\) state \cite[Sec. 3.2.3]{arxiv:2610.35513}.'
     - 'Logical shadow tomography protocol \cite{arxiv:2411.00235}.'
     - 'Some gates have a constant logical gate error even in the limit of infinite squeezing \cite{arxiv:2509.14658}.'
 
@@ -53,6 +58,7 @@ features:
     - 'Babai''s nearest plane algorithm \cite{doi:10.1007/bf02579403} can be used for bounded-distance decoding \cite{arxiv:2303.04702}.'
     - 'Combining \hyperref[topic:ad]{AD} noise with amplification yields displacement noise, the noise that GKP codes are designed to correct \cite{arxiv:quant-ph/0008046,arxiv:1801.07271}.'
     - 'ML decoder for correcting shift errors in GKP two-qubit gates \cite{arxiv:2103.06994}.'
+    - 'Noise-correlated minimum-energy decoder (COR-MED) for Steane-type error correction with noisy auxiliary GKP states \cite{arxiv:2510.12677}.'
 
 notes:
   - 'Reviews on GKP codes presented in Refs. \cite{arxiv:2002.11008,arxiv:2106.12989,arxiv:2308.02913,arxiv:2412.02442,arxiv:2507.06943}.'
@@ -74,6 +80,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-10-12'
     - user_id: VictorVAlbert
