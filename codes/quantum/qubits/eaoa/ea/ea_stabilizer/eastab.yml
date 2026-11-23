@@ -21,7 +21,7 @@ description: |
   Alternatively, given a linear \([n,k,d]_{q^2}\) code \(C\) with parity check matrix \(H\), the Hermitian dual \(C^{\perp_H}\) stabilizes an EA-QEC with parameters \([[n,2k-n+c,d;c]]_q\), where \(c=\text{rank}(HH^\dagger)\) is the number of required ebits \cite[Thm. 27.6.1]{preset:HKSquantum}.
 
 protection: |
-  Ancillary shared entanglement is assumed to be perfect, but this assumption can be relaxed \cite{arxiv:1302.5081}.
+  Ancillary shared entanglement is assumed to be perfect, but this assumption can be relaxed \cite{arxiv:1204.0302,arxiv:1302.5081}.
   There are quantum Griesmer \cite{doi:10.1007/s11128-015-1143-5} and Plotkin \cite{doi:10.1103/PhysRevA.87.032309} bounds for EA qubit stabilizer codes.
 
 features:
@@ -47,7 +47,7 @@ relations:
       detail: 'EA Galois-qudit stabilizer codes reduce to EA qubit stabilizer codes for \(q=2\).'
   cousins:
     - code_id: qubit_stabilizer
-      detail: 'EA qubit stabilizer codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to qubit stabilizer codes when said qubits are interpreted as noiseless physical qubits. Qubit stabilizer codes can be used to obtain shortened EA qubit stabilizer codes \cite{arxiv:2205.13732}.'
+      detail: 'EA qubit stabilizer codes utilize additional ancillary qubits in a pre-shared entangled state, but reduce to qubit stabilizer codes when said qubits are interpreted as noiseless physical qubits. Any \hyperref[topic:quantum-weight-enumerator]{pure} \([[n,k,d]]\) qubit stabilizer code yields shortened \([[n-c,k,d;c]]\) EA qubit stabilizer codes for \(1\leq c\leq d-1\) \cite[Thm. 2]{arxiv:1204.0302}\cite{arxiv:2205.13732}, which also correct errors on the receiver''s halves of the ebits \cite{arxiv:1204.0302}.'
     - code_id: binary_linear
       detail: 'Any linear binary code can be used to construct an EA qubit stabilizer code \cite{arxiv:quant-ph/0608027,arxiv:quant-ph/0610092,doi:10.1007/s10623-014-9997-6}.'
     - code_id: q-ary_linear
@@ -69,6 +69,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-19'
     - user_id: VictorVAlbert
       date: '2026-06-08'
     - user_id: VictorVAlbert
