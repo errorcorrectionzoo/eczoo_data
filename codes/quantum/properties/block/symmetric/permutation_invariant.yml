@@ -34,6 +34,11 @@ description: |
   The same simplex labels define constant-excitation Fock-state codes and single-spin codes on the completely symmetric \(SU(q)\) irrep.
   Applying the simplex mapping to a qudit PI code yields Fock-state and spin codes with the same distance \cite[Prop. V.2, Prop. VI.2]{arxiv:2509.20545}.
   Wigner functions are also interconvertible between the Fock-state and single-spin spaces \cite{arxiv:2510.21476}.
+  For every \(q\geq 2\), a \(((4,q,2))_q\) qudit PI code has codewords supported on qudit Dicke states whose compositions have only even entries \cite{arxiv:2605.22439}.
+  In such a composition, one label appears four times or two labels appear twice each.
+  A single-qudit error cannot map such a composition to a different even-entry composition, so the Knill-Laflamme conditions reduce to balancing the codeword amplitudes \cite{arxiv:2605.22439}.
+  These compositions correspond to the vertices and edges of the complete graph \(K_q\).
+  The supports of the \(q\) codewords are built from the color classes of an edge coloring of \(K_q\) \cite[Thms. 2 and 3]{arxiv:2605.22439}.
 
 
 #Such a code is said to be stabilized by the symmetric group \(S_n\) on \(n\) elements, in a generalization of stabilizer codes to binary codes utilizing (nonabelian) group actions.'
@@ -45,6 +50,7 @@ protection: |
   Other protection depends on the code family.
   The GNU PI family (parameterized by \(t\)) protects against arbitrary weight \(t\) qubit errors and approximately corrects spontaneous decay errors \cite{arxiv:1302.3247,arxiv:1512.02469}.
   Other related codes protect against \hyperref[topic:ad]{AD} \cite{arxiv:1809.09801} while admitting a constant number of excitations.
+  No qudit PI code encoding one \(q\)-dimensional qudit into three or fewer \(q\)-dimensional qudits has distance two or more \cite[Thm. 4]{arxiv:2605.22439}.
 
 
 features:
@@ -86,6 +92,8 @@ relations:
 _meta:
   # Change log - most recent first
   changelog:
+    - user_id: VictorVAlbert
+      date: '2026-11-18'
     - user_id: VictorVAlbert
       date: '2026-10-26'
     - user_id: VictorVAlbert
