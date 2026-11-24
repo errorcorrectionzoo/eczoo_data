@@ -116,6 +116,23 @@ jobs:
           restore-keys: |
             devsite-zoodb-citations-cache-LOCAL-
 
+      # Cache code graph SVGs (rendered by the headless graph exporter).  Entries are
+      # content-addressed per graph (keyed on the graph's visible subgraph), so a graph
+      # is re-rendered only when what it shows changes; entries unused for 60 days are
+      # pruned at the end of each build.  The key is unique per run so that the updated
+      # cache is always saved back.  Saved under its own devsite prefix; restores the
+      # devsite cache first, else the main site's (sharing is safe since entries are
+      # content-addressed).
+
+      - name: Restore code graph SVG cache
+        uses: actions/cache@v3
+        with:
+          path: eczoo_sitegen/_eczoo_graph_svg_cache
+          key: devsite-eczoo-graph-svg-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            devsite-eczoo-graph-svg-cache-
+            eczoo-graph-svg-cache-
+
       # --------------------------------
 
       #
@@ -156,6 +173,7 @@ jobs:
         working-directory: ./eczoo_sitegen/
         env:
           ECZOO_CITATIONS_CACHE_DIR: "_zoodb_citations_cache_LOCAL"
+          ECZOO_GRAPH_SVG_CACHE_DIR: "_eczoo_graph_svg_cache"
 
 
       # ## To Debug S3 deployment w/o building the full site ...
